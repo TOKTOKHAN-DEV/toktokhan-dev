@@ -1,0 +1,10 @@
+{
+  "extends": "@toktokhan-dev/ts-config/base.json",
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "target": "ES6",
+    "typeRoots": ["./node_modules/@types", "./node_modules/@figma"],
+    "declaration": false
+  }
+}

@@ -1,0 +1,15 @@
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Lightning">
+<rect x="16" width="16" height="16" rx="2" transform="rotate(90 16 0)" fill="#E6EDFF"/>
+<g id="Group 3">
+<path id="Vector 1" d="M5 2V8H2L5 2Z" fill="#4F7FFF"/>
+<path id="Vector 2" d="M5 14L5 8L8 8L5 14Z" fill="#4F7FFF"/>
+<path id="Vector 1_2" d="M11 2V8H8L11 2Z" fill="#4F7FFF"/>
+<path id="Vector 2_2" d="M11 14L11 8L14 8L11 14Z" fill="#4F7FFF"/>
+<path id="Vector 1_3" d="M5 2V8H8L5 2Z" fill="#4850FF"/>
+<path id="Vector 2_3" d="M5 14L5 8L2 8L5 14Z" fill="#4850FF"/>
+<path id="Vector 1_4" d="M11 2V8H14L11 2Z" fill="#4850FF"/>
+<path id="Vector 2_4" d="M11 14L11 8L8 8L11 14Z" fill="#4850FF"/>
+</g>
+</g>
+</svg>

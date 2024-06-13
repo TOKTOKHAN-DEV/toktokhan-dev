@@ -1,0 +1,19 @@
+{
+  "name": "Toktoken",
+  "id": "1369490322908230515",
+  "api": "1.0.0",
+  "main": "dist/code.js",
+  "ui": "dist/ui.html",
+  "enableProposedApi": false,
+  "documentAccess": "dynamic-page",
+  "editorType": ["dev", "figma"],
+  "capabilities": ["inspect", "vscode"],
+  "permissions": ["currentuser", "activeusers", "fileusers"],
+  "relaunchButtons": [
+    { "command": "edit", "name": "Edit shape" },
+    { "command": "open", "name": "Open Shaper", "multipleSelection": true }
+  ],
+  "networkAccess": {
+    "allowedDomains": ["https://api.github.com"]
+  }
+}
