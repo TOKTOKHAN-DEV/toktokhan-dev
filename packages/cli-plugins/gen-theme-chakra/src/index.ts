@@ -1,0 +1,92 @@
+import { existsSync } from 'fs'
+import path from 'path'
+
+import { defineCommand } from '@toktokhan-dev/cli'
+import { generateCodeFile, json } from '@toktokhan-dev/node'
+
+import { renderColor } from './color'
+import { renderTextStyle } from './text-style'
+import { ThemeToken } from './type'
+
+/**
+ * theme json 파일기반으로 `Chakra theme token`을 생성합니다.
+ *
+ * @packageDocumentation
+ */
+
+/**
+ * @category Types
+ */
+export interface GenColorConfig {
+  /**
+   * theme.json 경로입니다.
+   */
+  input: string
+  /**
+   * chakra theme token이 생성되는 폴더입니다.
+   */
+  output: string
+  /**
+   * chakra Semantic token color mode의 키 값을 지정할 수 있습니다.
+   */
+  tokenModes: {
+    light: string
+    dark?: string
+  }
+}
+
+/**
+ * @category Commands
+ */
+export const genTheme = defineCommand<'gen:theme', GenColorConfig>({
+  name: 'gen:theme',
+  description:
+    'theme json 파일기반으로 Chakra theme token 생성합니다. theme json 은 피그마 플러그인으로 부터 생성된 json 파일입니다.',
+  default: {
+    input: path.resolve('public', 'token.json'),
+    output: path.resolve('src', 'generated', 'tokens'),
+    tokenModes: { light: 'light', dark: 'dark' },
+  },
+  cliOptions: [
+    {
+      name: 'input',
+      alias: 'i',
+      description: 'theme json 경로',
+      type: 'string',
+    },
+    {
+      name: 'output',
+      alias: 'o',
+      description: 'chakra theme token 생성 폴더',
+      type: 'string',
+    },
+  ],
+  run: async (config) => {
+    if (!existsSync(config.input)) {
+      throw new Error(`theme json file is not found: ${config.input}`)
+    }
+
+    const token = json<ThemeToken>(config.input)
+
+    const color = renderColor(token.colors, {
+      light: config.tokenModes?.light || 'light',
+      dark: config.tokenModes?.dark || 'dark',
+    })
+    const textStyle = renderTextStyle(token.textStyles)
+    generateCodeFile(
+      {
+        outputPath: path.resolve(config.output, 'colors.ts'),
+        prettier: { parser: 'babel-ts', configPath: 'auto' },
+      },
+      color,
+    )
+
+    generateCodeFile(
+      {
+        outputPath: path.resolve(config.output, 'text-styles.ts'),
+        prettier: { parser: 'babel-ts', configPath: 'auto' },
+      },
+      textStyle,
+    )
+  },
+})

@@ -1,0 +1,40 @@
+{
+  "name": "@toktokhan-dev/cli-plugin-gen-api-react-query",
+  "version": "0.0.0",
+  "description": "",
+  "type": "module",
+  "main": "dist/index.js",
+  "files": [
+    "dist",
+    "templates",
+    "!dist/*.map"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "build:watch": "rollup -c --watch",
+    "api-extractor": "api-extractor run --local --verbose",
+    "play": "pnpm build:watch & node --watch play/playground.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@toktokhan-dev/ts-config": "workspace:*",
+    "@types/lodash": "^4.17.0"
+  },
+  "dependencies": {
+    "@toktokhan-dev/cli": "workspace:*",
+    "@toktokhan-dev/node": "workspace:*",
+    "eta": "^3.4.0",
+    "lodash": "^4.17.21",
+    "prettier-plugin-organize-imports": "^3.2.4",
+    "swagger-typescript-api": "^13.0.3"
+  }
+}

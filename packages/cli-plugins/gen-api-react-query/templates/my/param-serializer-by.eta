@@ -1,0 +1,41 @@
+export const paramsSerializerBy =
+  (
+    format?: Partial<
+      Record<
+        (string & {}) | '_default',
+        'brackets' | 'repeat' | 'indices' | 'comma'
+      >
+    >,
+    options?: {
+      decoded?: boolean;
+    },
+  ) =>
+  (params: Record<string, any>) => {
+    const serialized = Object.entries(params)
+      .reduce<string[]>((acc, [key, value]) => {
+        const isArray = Array.isArray(value);
+        if (!isArray) {
+          return acc.concat(`${key}=${params[key]}`);
+        }
+        const asRepeat = (v: string) => `${key}=${v}`;
+        const asBracket = (v: string) => `${key}[]=${v}`;
+        const asIndices = (v: string, idx: number) => `${key}[${idx}]=${v}`;
+
+        switch (format?.[key] || format?._default) {
+          case 'repeat':
+            return acc.concat(value.map(asRepeat).join('&'));
+          case 'brackets':
+            return acc.concat(value.map(asBracket).join('&'));
+          case 'indices':
+            return acc.concat(value.map(asIndices).join('&'));
+          default: // comma
+            return acc.concat(`${key}=${value.join(',')}`);
+        }
+      }, [])
+      .join('&');
+
+    if (options?.decoded === true) {
+      return decodeURIComponent(serialized);
+    }
+    return serialized;
+  };

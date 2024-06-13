@@ -1,0 +1,217 @@
+import { Obj, createObjBySelector, not, pass } from '@toktokhan-dev/universal'
+
+import {
+  filter,
+  find,
+  flow,
+  fromPairs,
+  groupBy,
+  join,
+  map,
+  mapValues,
+  prop,
+  reduce,
+  set,
+  split,
+  toPairs,
+  values,
+} from 'lodash/fp'
+
+import { Entry, TextStyleInfo, ThemeToken } from './type'
+import { assertNullish } from './utils/assert-nullish'
+import { includesFrom } from './utils/includes-from'
+import { isSameValues } from './utils/is-same-values'
+import { sortByIdx } from './utils/sort-by-idx'
+import { sortObjByKey } from './utils/sort-obj-by-key'
+
+/**
+ * 토큰상 text style 의 이름에 포함되어 있는 반응형(mo, tab, pc) 를 chakra break point(base, sm, md) 로 변환하기 위한 map 입니다.
+ */
+const DEVICE_SIZE_MAP: Record<string, string> = {
+  mo: 'base',
+  tab: 'sm',
+  pc: 'md',
+}
+
+/**
+ * ojbect 내부의 선언 순서를 break point 순서대로 정렬합니다.
+ *
+ * @param obj 정렬할 object
+ * @returns 정렬된 object
+ */
+const sortByBreakPoint: <T extends Obj<string, any>>(obj: T) => T =
+  sortObjByKey<Obj<any, any>>(
+    sortByIdx(['base', 'sm', 'md', 'lg', 'xl', '2xl']),
+  )
+
+/**
+ * styleMapper 는 style key 에 따라서 style value 를 변환하는 함수입니다.
+ * 예를들어 letterSpacing 의 경우 % 단위로 오는것을 em 단위로 변환합니다.
+ *
+ * @param key style key
+ * @param value style value
+ * @returns 변환된 style value
+ */
+const styleMapper = (key: string) => (value: any) => {
+  switch (key) {
+    case 'letterSpacing':
+      if (value.includes('%')) {
+        return `${parseFloat(value) / 100}em`
+      }
+      return value
+    default:
+      return value
+  }
+}
+
+/**
+ * text style token 의 [key, value] 구조에서 필요한 정보를 추출하여 반환합니다.
+ *
+ * @param entry text style token 의 [key, value] 구조
+ * @returns 추출된 text style 정보
+ */
+const getTextStyleInfo: (
+  entry: Entry<ThemeToken['textStyles']>,
+) => TextStyleInfo = createObjBySelector({
+  key: flow(
+    prop(0),
+    split('-'),
+    filter(not(includesFrom(Object.keys(DEVICE_SIZE_MAP)))),
+    join('-'),
+    assertNullish('Please check the key of textStyles.'),
+  ),
+  styles: flow(prop(1), assertNullish('Please check the value of textStyles.')),
+  size: flow(
+    prop(0), //
+    split('-'),
+    find(includesFrom(Object.keys(DEVICE_SIZE_MAP))),
+  ),
+})
+
+/**
+ * 반응형 스타일을 정의하는데 사용되는 reducer 입니다.
+ * reduce 함수에 넘겨지며, 현재값의 반응형 스타일을 이전값에 추가하여 반환합니다.
+ */
+const reducerReponsiveStyle = (
+  acc: Obj<string, any>,
+  cur: TextStyleInfo,
+): Obj<string, any> => {
+  const { styles, size } = cur
+  if (!size) return acc
+  let textStyle = { ...acc }
+  const breakPoint = DEVICE_SIZE_MAP[size]
+
+  toPairs(styles).forEach(([styleKey, style]) => {
+    textStyle = set(`${styleKey}.${breakPoint}`, style, textStyle)
+  })
+  return textStyle
+}
+
+/**
+ * 이전에 정의한 styleMapper 를 이용하여 새롭게 정의한 style 객체를 변환합니다.
+ *
+ * @param param 정제할 style 객체
+ * @returns 변환된 style 객체
+ */
+const refineStyle: (param: Obj<string, any>) => Obj<string, any> = flow(
+  toPairs,
+  map(([key, value]: [key: string, style: any]) => [
+    key,
+    styleMapper(key)(value),
+  ]),
+  fromPairs,
+)
+
+/**
+ * 반응형 스타일의 구조를 정제합니다.
+ * 객체의 값이 같으면 하나로 정의하고, 다르면 break point 순으로 정의합니다.
+ *
+ * @param param 반응형 스타일 객체
+ * @returns 정제된 반응형 스타일 객체
+ */
+const refineResponsiveStyle: (param: Obj<string, any>) => Obj<string, any> =
+  flow(
+    toPairs,
+    map(
+      ([key, responsiveStyle]: [
+        key: string,
+        responsiveStyle: Obj<string, any>,
+      ]) => {
+        const toPair = (value: any) => [key, value]
+
+        if (isSameValues(responsiveStyle)) {
+          return flow(
+            pass(responsiveStyle),
+            values,
+            prop(0),
+            styleMapper(key),
+            toPair,
+          )()
+        }
+        return flow(
+          pass(responsiveStyle),
+          sortByBreakPoint,
+          mapValues(styleMapper(key)),
+          toPair,
+        )()
+      },
+    ),
+    fromPairs,
+  )
+
+/**
+ * text stlye info list 에서 최종적으로 chakra style object 를 반환합니다.
+ *
+ * @param styleList text style info list
+ * @returns chakra style object
+ */
+const getTextStyleFromInfoList = (
+  styleList: TextStyleInfo[],
+): Obj<string, any> => {
+  if (styleList.length === 1)
+    return flow(pass(styleList), prop(0), prop('styles'), refineStyle)()
+
+  return flow(
+    pass(styleList),
+    reduce(reducerReponsiveStyle, {}),
+    refineResponsiveStyle,
+  )()
+}
+
+/**
+ * text style token 을 chakra-ui 의 text style object 로 변환합니다.
+ *
+ * @param json text style token
+ * @returns chakra-ui 의 text style object
+ */
+const getTextStyleObj: (json: ThemeToken['textStyles']) => Obj<string, any> =
+  flow(
+    toPairs,
+    map(getTextStyleInfo),
+    groupBy(prop('key')),
+    mapValues(getTextStyleFromInfoList),
+  )
+
+/**
+ * text style token 기반으로 chakra-ui theme 에 사용될 파일 컨텐츠를 생성합니다.
+ *
+ * @param json text style token
+ * @returns chakra-ui 의 text style 파일 컨텐츠
+ */
+export const renderTextStyle = (json: ThemeToken['textStyles']): string => {
+  const textStyle = getTextStyleObj(json)
+
+  return `
+    /**
+     * !DO NOT EDIT THIS FILE
+     * 
+     * gnerated by script: tokript gen:theme
+     * 
+     * theme text style 을 정의하는 곳입니다.
+     *
+     * @see https://chakra-ui.com/docs/styled-system/semantic-tokens
+    **/
+    
+    export const textStyles = ${JSON.stringify(textStyle, null, 2)}
+  `
+}
