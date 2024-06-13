@@ -1,0 +1,111 @@
+import Tag from '@site/src/components/@mdx/_Tag.mdx'
+
+# REACT QUERY
+
+
+### #RQ-1 / React Query의 hooks 를 custom hook 으로 감싸서 사용합니다.
+
+```tsx
+const useProductListQuery = (...) => useQuery({...})
+```
+<br/>
+
+### #RQ-2 / 감싸진 React Query Custom Hook 은 접두사로 <Tag>use</Tag> 를 접미사로 <Tag>Query</Tag>, <Tag>Mutation</Tag>, <Tag>InfiniteQuery</Tag> 를 붙여줍니다.
+
+```tsx
+const useProductListQuery = (...) => useQuery({...})
+const useProductListInfiniteQuery = (...) => useInfiniteQuery({...})
+const useUpdateProductMutation = (...) => useMutation({...})
+```
+<br/>
+
+### #RQ-3 / 되도록 queryFn 이나 mutationFn 으로 사용되는 함수의 네이밍을 사용하여 네이밍합니다.
+
+```tsx
+const useProductListQuery = (...) => useQuery({queryFn: () => getProductList({...})})
+```
+<br/>
+
+### #RQ-4 / Query Key 는 <Tag>UPPER_SNAKE_CASE</Tag> 로 따로 선언하여 관리합니다. 접미사로 <Tag>QUERY_KEY</Tag> 를 붙여 줍니다.
+
+```tsx
+const PRODUCT_API_QUERY_KEY = {
+  GET_LIST: (params?) => params ? ['prodcut-list', params] : ['product-list']
+};
+```
+<br/>
+
+
+### #RQ-5 / Query Key 는 각각 함수로 작성합니다.
+
+Query Key 에 기반한 cache data 를 조금 더 세밀하게 관리 할 수 있습니다.
+    
+```tsx
+const EXAMPLE_API_QUERY_KEY = {
+  GET_LIST: (params) => ['example-list', params],
+  GET_BY_ID: (params) => ['example-by-id', params],
+};
+```
+<br/>
+
+### #RQ-6 / Query Key 는 custom hook 상단에 작성하기
+
+custom hook 선언과 Query Key 선언을 한곳에서 관리합니다.
+
+```tsx
+const EXAMPLE_API_QUERY_KEY = {
+  GET_LIST: (params) => ['example-list', params],
+  GET_BY_ID: (params) => ['example-by-id', params],
+};
+
+const useGetExampleListQuery = (...) => useQuery(...)
+const useGetExampleGetByIdQuery = (...) => useQuery(...)
+```
+
+### #RQ-7 / react query custom hook 을 선언할 땐 기존 커스텀 타입 정의 사용하기
+
+커스텀 타입정의는 해당 `query` 나 `mutation` 이 받는 함수의 타입을 기반으로, `param` 과 `onSuccess` 와 같은 `option` 에 대한 타입정의를 생성해 줍니다.
+
+`useQuery` 는 [`UseQueryParams`]를 사용합니다.
+
+```typescript
+import { UseQueryParams } from '@/types/module/react-query/use-query-params';
+
+// custom type 을 사용해서 선언하기
+export function useGetExampleListQuery(
+  params: UseQueryParams<typeof exampleApi.getList>,
+) { ... }
+
+// 사용 시
+const { data } = useGetExmplaeListQuery({
+  variables: { offset: 0, limit: 10 } // 넘겨준 함수의 parameter 로 타입정의가 되어 type-chcking 이 가능해집니다.
+  options: {
+    onSuccess: (res) => {
+      res.title // 넘겨준 함수의 return type 으로 타입 정의가 되어서, type-checking 이 가능해집니다.
+    }
+  }
+})
+```
+
+`useMutation` 는 [`UseMutationParams`] 를 사용합니다.
+
+```typescript
+import { UseMutationParams } from '@/types/module/react-query/use-mutation-params';
+
+// custom type 을 사용해서 선언하기
+export function useCreateExampleMutation(
+  params?: UseMutationParams<typeof exampleApi.create>,
+) { ... }
+
+// 사용 시
+const { mutate } = useCreateExampleMutation({
+  options: {
+    onSuccess: (res) => {
+      res.title // 넘겨준 함수의 return type 으로 타입 정의가 되어서, type-checking 이 가능해집니다.
+    }
+  }
+})
+
+mutate({ title: "내 제목" }) // 넘겨준 함수의 parameter 로 타입정의가 되어 type-chcking 이 가능해집니다.
+```
+

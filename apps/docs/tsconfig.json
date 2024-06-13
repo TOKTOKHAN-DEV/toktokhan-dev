@@ -1,0 +1,14 @@
+{
+  "extends": "@docusaurus/tsconfig",
+  "exclude": [
+    "node_modules",
+    "./plugins",
+    "./static",
+    "./build",
+    "./docusaurus"
+  ],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "allowImportingTsExtensions": true
+  }
+}

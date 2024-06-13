@@ -1,0 +1,340 @@
+import Installations from '@site/src/components/@mdx/_Installation.mdx'
+
+import TokriptConfigItem from '@site/src/components/@mdx/tokript/_TokriptConfigItem.mdx'
+import TokriptRunScript from '@site/src/components/@mdx/tokript/_TokriptRunScript.mdx'
+import TokriptConfigExample from '@site/src/components/@mdx/tokript/_TokriptConfigExample.mdx'
+
+import GithubIcon from '@site/src/components/@mdx/_GithubIcon.mdx'
+import NpmIcon from '@site/src/components/@mdx/_NpmIcon.mdx'
+
+import CodeBlock from '@theme/CodeBlock'
+import TabItem from '@theme/TabItem'
+import Tabs from '@theme/Tabs'
+
+# gen:sitemap (next-page-router)
+
+#### <GithubIcon href="#installation"/> <NpmIcon  href="#installation"/>
+
+next.js page router 에서 pages 폴더 기반으로 sitemap.xml 파일을 생성합니다.
+
+
+<Tabs>
+  <TabItem value="generated" label="Sitemap" default>
+```xml title="sitemap.xml"
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https:/example.com/</loc>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https:/example.com/comme</loc>
+  </url>
+  <url>
+    <loc>https:/example.com/goods</loc>
+  </url>
+  <url>
+    <loc>https:/example.com/payment/fail</loc>
+    <priority>0.5</priority>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https:/example.com/payment/success</loc>
+    <priority>0.5</priority>
+    <changefreq>hourly</changefreq>
+  </url>
+  <url>
+    <loc>https:/example.com/goods/0</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https:/example.com/goods/1</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https:/example.com/goods/2</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https:/example.com/goods/3</loc>
+    <priority>0.5</priority>
+  </url>
+  ...
+  <url>
+    <loc>https:/example.com/goods/98</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https:/example.com/goods/99</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https:/example.com/goods/review</loc>
+  </url>
+</urlset>
+
+```
+  </TabItem>
+<TabItem value="config" label="Config">
+
+```ts title="tok-cli.config.ts"
+import { getSitemap } from '@toktokhan-dev/cli-plugin-gen-sitemap-next-page'
+
+const config: RootConfig<{
+  plugins: [typeof getSitemap]
+}> = {
+  plugins: [getSitemap],
+  'gen:sitemap': {
+      domain: 'https://example.com',
+      /** 
+       * optional
+       */
+      routeMapper: { 
+        '/goods/[id]': ['/goods/0', '/goods/1', '/goods/2', '/goods/3', ... '/goods/99'],
+      },
+      /** 
+       * optional
+       */
+      priority: { 
+        1: ['/'],
+        0.5: ['/payment/*', ['/goods/*', '!/goods/review']],
+      },
+      /** 
+       * optional
+       */
+      changefreq: {
+        hourly: ['/payment/*'],
+      },
+  },
+}
+
+export default config
+```
+
+</TabItem>
+<TabItem value="gen:textStyle" label="Folder Structure">
+
+```ts title="folder-structure"
+pages
+├── index.ts
+├── _app.ts
+├── _document.ts
+├── comments
+│   └── index.ts
+├── goods
+│   ├── index.ts
+│   ├── [id]
+│   │   └── index.ts
+│   └── review
+│       └── index.ts
+└── payment
+    ├── fail.ts
+    └── success.ts
+```
+
+</TabItem>
+</Tabs>
+
+
+
+## Installation
+
+<Installations
+  isDev
+  package={'@toktokhan-dev/cli-plugin-gen-sitemap-next-page'}
+/>
+
+## Run Script
+
+<TokriptRunScript cmd="gen:sitemap"/>
+
+## Configuration
+
+<TokriptConfigExample cmd="gen:sitemap" exportedName="getSitemap" packageName="@toktokhan-dev/cli-plugin-gen-sitemap-next-page"/>
+
+### domain
+
+<TokriptConfigItem
+    command="gen:sitemap"
+    optName="domain"
+    desc="도메인 주소입니다."
+    type="string" 
+    exampleValue="https://example.com"
+    cliOpt
+    required
+    cliOptAlias="d" 
+ />
+
+### input
+
+<TokriptConfigItem
+    command="gen:sitemap"
+    optName="input"
+    desc="조회할 page 파일들이 포함되어있는 폴더 입니다."
+    type="string" 
+    default="./src/pages" 
+    exampleValue="./src/pages"
+    cliOpt 
+    cliOptAlias="i" 
+ />
+
+### includes
+
+<TokriptConfigItem
+    command="gen:sitemap"
+    optName="includes"
+    desc="sitemap 에 포함되는 파일 glob 패턴 입니다."
+    type="string[]" 
+    default="['**/*.{ts,tsx}']" 
+    exampleValue="['**/*.{ts,tsx}']"
+    cliOpt
+    cliOptAlias="ic"
+ />
+
+### ignored
+
+<TokriptConfigItem
+    command="gen:sitemap"
+    optName="ignored"
+    desc="sitemap 에 포함되는 파일 glob 패턴 입니다."
+    type="string[]" 
+    default="[
+      '**/api/**',
+      '**/_app.{ts,tsx}',
+      '**/_document.{ts,tsx}',
+      '**/_error.{ts,tsx}',
+    ]" 
+    exampleValue="['**/api/**', '**/_app.{ts,tsx}', '**/_document.{ts,tsx}', '**/_error.{ts,tsx}']"
+    cliOpt
+    cliOptAlias="ig"
+ />
+
+### routeMapper
+
+<TokriptConfigItem
+    command="gen:sitemap"
+    optName="routeMapper"
+    desc={<>
+    특정 라우트를 의도한 경로로 변경하기 위한 객체입니다.
+    <br/>
+    key 로 파일상의 route 경로를 받고, value 로 변경될 경로, 경로 배열을 받습니다.
+    <br/>
+    주로 dynamic route 에 사용됩니다.
+     </>}
+    type={`Partial<
+    Record<
+      string,
+      | string
+      | string[]
+      | Promise<string | string[]>
+      | (() => string | string[])
+      | (() => Promise<string | string[]>)
+    >`} 
+    exampleValue={`{ 
+        '/goods/[id]': ['/goods/0', '/goods/1', '/goods/2', '/goods/3', ... '/goods/99'],
+      }
+    `}
+
+ />
+
+:::danger
+**dynamic-route** 는 `routeMapper` 에 설정되지 않으면 자동으로 sitemap 에서 제외됩니다.<br/>
+eg.  `/goods/[id]`, `/comment/[id]`, `/review/[id]` 
+:::
+:::tip Configuration for Dynamic Route
+`dynamic route` 에 들어올 값이 **정적**이라면 예시처럼 **직접 배열을 전달**할 수 있습니다.
+```
+{ 
+   '/goods/[category]': ['/goods/food', '/goods/cloth', '/goods/electronics'],
+}
+```
+
+하지만 `dynamic route` 에 들어올 값이 **서버**로 부터 받아야 한다면 **api 호출**을 통해 string 배열을 만들어 넘겨 줄 수 있습니다.
+```ts
+{ 
+   '/goods/[category]': async () => {
+     const res = await fetch('https://example.com/api/goods')
+     const data = await res.json()
+     return data.map((item) => `/goods/${item.id}`)
+   },
+}
+```
+만약 **pagination 이 적용된 api 의 모든 목록**을 통해 path 를 만들어야 한다면
+**`@toktokhan-dev/universal`** 의 **`relay`** 함수를 사용하여 전체 목록을 받아 올 수 있습니다.
+```ts
+import { relay } from '@toktokhan-dev/universal'
+
+...
+{
+  '/goods/[id]': relay({
+      initialParam: 0,
+      getNext: (nextParam: number) => goodsApi.list({ offset: nextParam, limit: 10 }),
+      getNextParams: (last) => last?.next,
+      selector: (pages) =>
+        pages.map((p) => p.data.map((id) => `/goods/${id}`)).flat(),
+    }),
+}
+```
+:::
+
+
+### changefreq
+
+<TokriptConfigItem
+    command="gen:sitemap"
+    optName="changefreq"
+    desc={
+    <>
+        sitemap 의 changefreq 를 설정하기 위한 객체입니다.
+        key 로 changefreq 중 특정 값을 받고, value 로 해당 changefreq 를 가지는 경로의 glob 패턴, glob 패턴 배열의 배열을 받습니다.
+        <br/>
+        <br/>
+        <b>changefreq:{"  "}</b>
+        {
+          ["always","hourly","daily","weekly","monthly","yearly", "never"].map(freq => <><code>{freq}</code>, </>)
+        }
+    </>
+    }
+    type="Partial<Record<Changefreq, (string | string[])[]>>" 
+    exampleValue={`{
+      /**
+      * /goods/1, /goods/2, /goods/3, ... /goods/99 처럼 모든 경로의 해당합니다.
+      */
+      daily: ['/gooods/*'],
+      
+      /**
+      * 배열로 넘겨진 /comments 의 경우
+      * /comments/1, ... /comments/99 처럼 모든 경로의 해당하지만, /comments/review 는 제외됩니다.
+      */
+      hourly: ['/payment/*', ["/comments/*", "!/comments/review"]],
+   }`}
+ />
+
+### priority
+
+<TokriptConfigItem
+    command="gen:sitemap"
+    optName="priority"
+    desc={
+    <>
+        sitemap 의 priority 를 설정하기 위한 객체입니다.
+        key 로 priority 중 특정 값을 받고, value 로 해당 priority 를 가지는 경로의 glob 패턴, glob 패턴 배열의 배열을 받습니다.
+        <br/>
+        <br/>
+        <b>priority:{"  "}</b> <code>0 ~ 1</code>
+    </>
+    }
+    type="Partial<Record<Changefreq, (string | string[])[]>>" 
+    exampleValue={`{
+      /**
+      * /goods/1, /goods/2, /goods/3, ... /goods/99 처럼 모든 경로의 해당합니다.
+      */
+      0.5: ['/gooods/*'],
+      
+      /**
+      * 배열로 넘겨진 /comments 의 경우
+      * /comments/1, ... /comments/99 처럼 모든 경로의 해당하지만, /comments/review 는 제외됩니다.
+      */
+      1: ['/payment/*', ["/comments/*", "!/comments/review"]],
+   }`}
+ />

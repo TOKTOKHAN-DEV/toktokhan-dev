@@ -1,0 +1,19 @@
+import Tag from '@site/src/components/@mdx/_Tag.mdx'
+
+# NEXT PAGE ROUTER
+
+### #NPR-1 / SEO 에 유리한 url 설계하기
+
+Next.js는 pages 폴더 내에 파일 구조로 url을 생성합니다. url 은 seo 에 영향이 있기 때문에, seo 에 유리한 url 을 만드는것이 중요합니다. pages 폴더로 페이지 경로를 설정할때, 아래사항을 유의해 주세요
+
+* kebab case 사용
+* 명확한 의미의 문자 사용 및 특수문자 사용 금지
+* 계층 관계 나타내기
+
+### #NPR-2 / page 컴포넌트에서 발생하는 코드 분리는 containers 폴더에서 관리하기
+
+containers 폴더는 1:1 로 대응하는 컴포넌트 폴더**입니다.
+각 페이지에 들어 갈 **React 컴포넌트의 최상단** 파일들을 모아놓습니다.
+pages 의 폴더구조는 routing 과 직결됩니다. pages 폴더에서 하위폴더로 컴포넌트를 분리하면 그 파일 자체가 route 할 수 있는 하나의 url 이 되기 때문에, container 는 코드 구현을, pages 는 routing 으로 역할을 분담합니다.
+
+

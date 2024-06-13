@@ -1,0 +1,115 @@
+# 다양한 test 환경 대응하기
+
+지금까지는 순수한 함수, 혹은 간단한 상태를 가지고 있는 모듈을 테스트 해봤습니다. 조금 더 우리가 자주 사용하는 비즈니스 로직은 대부분 이렇게 간단하지 않습니다. 아래와 같은 경우를 상상해 보세요
+
+* dom 을 조작하는 로직
+* custom hook
+* db 에 를 수정하는 network 요청이 포함된 로직
+
+이것들도 당연히 독립적으로, 항상 동일한 환경으로 테스트 할 수 있습니다!
+
+이번 섹션에서는 간단한 테스트 방법만 살펴봅니다. 자세한 사항은 공식문서를 참고해주세요.
+
+
+
+## Dom 테스팅
+
+react 는 가상 dom 을 사용하여 브라우져를 업데이트합니다. 우리는 markup 하기위해 \<Component/> 와 같은 jsx 문법을 사용해서 작성하는데요. react-testing-library 를 사용하여 아래와 같이 테스트 가능합니다.
+
+```tsx
+import React from "react";
+import { render } from "@testing-library/react";
+import NotFound from "./NotFound";
+
+describe("<NotFound />", () => {
+  it("renders header", () => {
+    const { getByText } = render(<NotFound path="/abc" />);
+    const header = getByText("Page Not Found");
+    expect(header).toBeInTheDocument();
+  });
+});
+```
+
+
+
+## Custom Hook 테스팅
+
+useState 와 같은 hook 과 커스텀 hook 들 모두 react 의 생명주기 안에서 동작하는데요 이는 브라우저 환경에서 동작하기 때문에 아래와 같이 react-testing-library 의 도움을 받아 테스트 코드를 작성 할 수 있습니다.
+
+```tsx
+import { act, renderHook } from '@testing-library/react';
+
+import { useCount } from '../useCount';
+
+describe('useCount', () => {
+  let result: { current: ReturnType<typeof useCount> }; 
+  // result.current 의 변경사항을 항상 조회해야 하기 때문에 current 는 구조 분해 할 수 없습니다.
+
+  beforeEach(() => {
+    result = renderHook(() => useCount()).result;
+  });
+
+  it('increase count', () => {
+    act(() => { // 브라우저 환경에서 실행합니다.
+      result.current.increase();
+    });
+
+    expect(result.current.count).toBe(1);
+  });
+});
+
+```
+
+## Mocking
+
+테스트 코드에서도 네트워크 요청을 보낼 수 있습니다. 하지만 각 테스트가 독립적이기 힘든 상황이 만들어 지는데요.\
+db 를 사용하는경우 우리 코드의 영향 범위에서 벗어나기 때문입니다. 따라서 대부분 mocking 을 통해 진행됩니다.
+
+```typescript
+import axios from 'axios';
+import Users from './users';
+
+jest.mock('axios');
+
+test('should fetch users', () => {
+  const users = [{name: 'Bob'}];
+  const resp = {data: users};
+  axios.get.mockResolvedValue(resp);
+
+  return Users.all().then(data => expect(data).toEqual(users));
+});
+```
+
+위 코드에서 Users 모듈은 내부적으로 axios.get 를 사용해서 network 요청을 하는 모듈입니다. 따라서 axios 모듈을 mocking 하여, 의도적으로 axios.get 의 결과 값을 resp 값으로 바꾸고 테스트를 진행 할 수 있습니다. 더 다양한 방법은 공식 문서를 참고해 주세요.
+
+
+
+## Dependency Injection
+
+위와 같은 mocking 은 훌륭한 테스팅 방법이 될 수 있지만, 이는 테스트를 작성하고 파악하는 입장에서 매우 번거롭고 사람의 실수가 있을 수 있는 상황이 발생 할 수 있습니다. 예를 들어 특정 로직을 mocking 을 하지 못해서 직접 요청을 보내는 상황이 생긴다면? db 와 server 에 의도하지 않은 영향이 생길 수 있습니다. 따라서, mocking 보다는 의존성 주입 패턴을 사용해서 비즈니스 로직을 구현해 보세요.
+
+```typescript
+import userApi from './user.api.ts'
+
+// 의존성 주입을 하지 않은 방식
+// UserController 의 create 를 테스트 하기 위해 userApi 를 moking 해야합니다.
+class UserController {
+    create(data) {
+      // some logic... 
+      userApi.create(data);
+    }
+  }
+
+  
+
+// 의존성 주입을 한 방식
+// UserController 의 create 를 테스트 하기위해 fakeUserApi 를 만들어 넘겨 줄 수 있습니다.
+class UserController {
+  constructor(public userApi) {}
+
+  create(data) {
+    // some logic...
+    this.userApi.create(data);
+  }
+}
+```

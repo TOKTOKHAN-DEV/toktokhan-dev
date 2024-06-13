@@ -1,0 +1,61 @@
+import Link from '@site/src/components/@mdx/_Link.mdx'
+
+# Memoization 은 언제 써야 할까?
+
+memoizaition 은 React 에서 memo, useMemo, useCallback 과 같은 것 들로 구현이 가능합니다. 비용이 많이 드는 연산을위해 사용 한다는건 알겠는데, 그것 뿐 일까요? 그렇지 않습니다. 크게 아래와 같은 이유로 사용합니다.
+
+* 연산이 무거울 때
+* colection data가 비교 대상일때 (리랜더링 비교, 의존성 배열 비교)
+
+## Collection 이 비교 대상일 때
+
+collection 이란 다양한 데이터를 담을 수 있는 컨테이너 역할을 하는 자료구조 입니다. js 에선 Object, Array, Map, Set, Function(일급 객체).. 등 이 해당하죠. 이 자료 구조는 모두 변수에 할당이 가능한데, 특징은 **참조로 할당**한다는 겁니다. 이는 할당된 값이 실제 값이 아니라 메모리 주소로 저장된다는 의미입니다.
+
+따라서 자기자신과의 비교가 아니라면 같이 값이 같더라도 비교시 false 를 반환하게 됩니다.
+
+```typescript
+const foo = {bar: "bar"};
+const foo2 = {bar: "bar"};
+console.log(foo === foo) // true
+console.log(foo === foo2) // false
+```
+
+리액트에선 크게 아래와 같은 이유로 비교연산을 합니다.
+
+* prop 이 바뀐지 확인하기 위해
+* state 가 바뀐지 확인하기 위해
+* useEffect, useMemo, useCallback..등 의 의존성 배열값이 바뀐지 확인 하기 위해
+
+비교 연산시 <Link label={'Object.is'} href={'https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global\_Objects/Object/is'}/> 로 비교 연산을 하게 되는데요. 이는 === 연산자와 같이 참조 비교를 수행하기 때문에, 함수형 컴포넌트에서 **리랜더링 될 때마다 재 할당 되는 값을 다른 값이라고 인식**할것입니다.
+
+만약 useCallback 에 의존성 배열에 collection 데이터가 들어가 있고, memoization 되어 있지 않다면? 리랜더링 될때마다 다른 값이라고 판단해 memoization 이 의미가 없어지게 되죠.
+
+따라서, 아래와 같은 경우의 collection 은 연산이 무겁지 않더라도 memoization 을 해주는걸 권장 드립니다.
+
+* props 로 전달 되는 경우
+* 의존성 배열에 들어가는 경우
+* Custom Hook 안에서 선언한 경우 (재사용 가능성이 있기 때문에,memoization 해놓지 않으면 누군가 버그를 마주할 수 있습니다.)
+
+
+
+## 모든곳에 memo 를 사용해야 할까?
+
+
+
+모든곳에 사용할 필요는 없습니다. 비용이 많이 드는 경우와 위의 세가지 경우를 제외하고는 크게 이득이 없기 때문이죠, 오히려 가독성을 떨어 뜨리는 단점이 있을 수 있습니다. 모든 곳에 memoization 하기 이전에, **memoization이 필요하지 않은 상황**을 만들어 주세요
+
+* 컴포넌트 합성
+* 필요이상으로 state 끌어올리지 말기
+* 컴포넌트를 최대한 순수하게 작성하기
+* 불필요한 effect 피하기
+* 불필요한 의존성 제거하기
+
+자세한 내용은 아래 문서를 확인 해 주세요.
+
+<Link label={'[React] Should you add useMemo everywhere?'} href={'https://react-ko.dev/reference/react/useMemo#should-you-add-usememo-everywhere'}/>
+
+## 비용이 많이드는 계산인지는 어떻게 알수 있을까?
+
+일반적으로 수천개의 객체를 만들거나 반복하는게 아니라면 비용이 많이 들지 않을것입니다. 확신을 얻고싶다면 console.time 과 console.timeEnd 를 통해 확인할 수 있습니다. 자세한 내용은 아래 문서를 확인해 주세요
+
+<Link label={'[React] How to tell if a calculation is expensive?'} href={'https://react-ko.dev/reference/react/useMemo#how-to-tell-if-a-calculation-is-expensive'} />

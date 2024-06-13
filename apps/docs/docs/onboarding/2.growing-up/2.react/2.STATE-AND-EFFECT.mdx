@@ -1,0 +1,127 @@
+
+import Link from '@site/src/components/@mdx/_Link.mdx'
+
+# 불필요한 State 와 Effect
+
+
+## Introduce
+
+React 어플리케이션을 구축할때 가장 버그가 많이 발생하는 부분은 **useState** 와 **useEffect** 입니다. 이 두 hook 의 역할이 각각 **상태관리**와, **side-effect(부수 효과)** 에 있기 때문입니다.
+
+상태 관리와, side-effect 는 앱에 필수적입니다. 하지만 **가장 유지보수를 어렵게 만드는 부분**이기도 하죠. 따라서 우리는 최대한 state 와 effect 를 줄여야 합니다.
+
+이 섹션에서는 상태관리와 side-effect 를 최대한 줄임으로써, 더욱 유지 보수 하기 쉬운 React Code 작성 하는 방법을 소개하고 있습니다. **불필요한 상태관리와, side-effect** 는 어떤 것이 있을지 변별력을 키워서, 더욱 유지보수 하기 쉬운 코드를 작성해보세요.
+
+## 불필요한 state
+
+차근차근 한 단락 씩 이해해 나가다 보면 한가지 핵심이 느껴집니다. 바로, **계산 할 수 있는 값은  state 로 가지고 있지 않는 것**이 그 핵심인데요. 아래 문서를 통해서 계산 할 수 있는 값이 무엇인지 직접 느껴보세요.
+
+
+### 중복된 state
+
+list 와 선택된 item 을 state 로 관리 한다고 했을때, 선택 된 item 을 list 에 포함된 객체 그대로 관리하고 계시나요? 이는 중복된 state 에 해당합니다. list 를 수정할때 수정되는 아이템이 선택된 Item 과 같은 객체라면 선택된 Item 의 수정이 같이되어야 버그가 발생하지 않을것입니다. 하지만 이는 사람의 실수가 충분히 발생할 수 있는 부분이죠.  중복된 state 는 중복된 setState 를 요구합니다. 자세한 내용은 아래 문서를 확인 해 보세요.
+
+<Link label={'[React] Avoid duplication in state'} href="https://react-ko.dev/learn/choosing-the-state-structure#avoid-duplication-in-state" />
+
+### 모순된 state
+
+isSent(보내졌는지 여부), 와 isSending(보내는 중 여부) 는 동시에 존재 할 수 없는 상황입니다. 하지만 수정되는 값이고, 당장 필요한 상태이기 때문에 위와 같은 state 를 만들 수 있습니다. 이 역시 불필요한 setState 를 야기하고 비즈니스 로직이 복잡해지며 사람의 실수가 늘 수 있습니다. 모순이 없는 state 는 `status<"sent" | "sending">` 이 될 수 있습니다. 자세한 내용은 아래 문서를 확인 해 보세요.
+
+<Link label={`[React] Avoid contradictions in state`} href="https://react-ko.dev/learn/choosing-the-state-structure#avoid-contradictions-in-state" />
+
+### 계산 할 수 있는 state
+
+위 두 내용도 결국 계산 할 수 있는 값은 state 로써 만들지 않는것으로 귀결이 됩니다. 이미 있는 state 나 props 로 충분히 표현이 가능하다면, state 를 만들지 마세요. 관리해야 하는 지점이 하나 생기는것은 손 하나로 집을 수 있는 음료수를, 양 손 양 발을 사용해서 집어야만 하는 상황으로 만드는 것 과 같습니다. 자세한 내용은 아래 문서를 확인해 보세요
+
+<Link label={`[React] Avoid redundant state`} href="https://react-ko.dev/learn/choosing-the-state-structure#avoid-redundant-state" />
+
+## 불필요한 Effect
+
+불필요한 Effect 는 위의 **불필요한 state 를 가지지 않는 것 만으로도 절반 이상 해결**됩니다. 이 섹션에서는 위의 예시와 같이 불필요한 state 와 더불어, **event 와 effect 사용을 구분하는 것**, 즉 effect 는 동기화로써만 사용하는 부분에 대해서 다루고, 그 외 특정 **react 지식으로 불필요한 effect 를 대체하는 방법**을 다룹니다.
+
+### props 나 state 에 따라 state 를 업데이트 하는 effect
+
+위의 계산할 수 있는값을 state 로 가지지 않기 섹션과 같은 맥락의 내용입니다. 계산 할 수 있는 값을 불필요하게 state 로 가지게 되면 동기화를 시켜주기 위해서, effect 역시 필요해 집니다. 자세한 내용은 아래 문서를 확인해 보세요
+
+<Link label={'[React] Updating state based on props or state'} href="https://react-ko.dev/learn/you-might-not-need-an-effect#updating-state-based-on-props-or-state" />
+
+### prop 이나 state 에 따라 전체 state 초기화는 effect
+
+initialize (초기화) 를 목적으로, 특정 값에 의존해서 state 를 초기화 해주는 경우가 있습니다. 예를 들어, `userId` 마다 달라지는 Detail 컴포넌트 데이터가 그 예시가 될 수 있죠. 이러한 상황에는 **key props** 를 사용해 보세요. 배열 랜더링에만 사용하는 것이 아니라, **컴포넌트를 구분하고, 기억**하기 위해서 사용합니다. 다른 컴포넌트라고 판단이 되면 react 는 알아서 state 를 초기화 해주기 때문에, effect 의 init 작업이 필요 없을 수 도 있습니다. 자세한 내용은 아래 문서를 확인해 보세요.
+
+<Link label={'[React] Resetting all state when a prop changes'}  href="https://react-ko.dev/learn/you-might-not-need-an-effect#resetting-all-state-when-a-prop-changes" />
+
+### 연쇄 계산 effect
+
+때론 여러개의 `state`가 서로에게 의존해야만 하는 상황이 필요 할 수 있습니다. 이럴 때 각각의 수정 사항이 다른 값에 영향을 미칠 수 있는데요. 영향을 미치는 동작을 정의할때, 불필요하게 Effect 가 나누어져 있지 않나요? 이는 불필요한 랜더링과, 의도치 않는 동작을 야기할 수 있습니다. 자세한 내용은 아래 문서를 확인해보세요.
+
+<Link label={'[React] Chains of computations'}  href="https://react-ko.dev/learn/you-might-not-need-an-effect#chains-of-computations" />
+
+### Event handler effect
+
+User Action 을 `useEffect` 로 처리하고 있지는 않나요? 클릭할때 특정 값이 바뀌고, 특정 값이 바뀔때 로직이 실행되야 한다면, `useEffect` 보단 `onClick handler` 에 해당 로직을 추가하는걸 고려해 주세요. User Action만 고려 하면 되는 상황을, 초기 랜더링과 `state` 변경 까지 고려해야 하는 번거로움을 야기할 수 있습니다. 자세한 내용은 아래 문서를 확인해 보세요.
+
+<Link label={'[React] Sharing logic between event handlers'} href="https://react-ko.dev/learn/you-might-not-need-an-effect#sharing-logic-between-event-handlers" />
+<br/>
+<br/>
+만약 `Event listener` 를 통해 특정 값을 구독 해야 한다면, `useSyncExternalStore` 이 더 적절한 방법 일 수 있습니다.
+
+<Link label={'[React] Subscribing to an external store'} href="https://react-ko.dev/learn/you-might-not-need-an-effect#subscribing-to-an-external-store" />
+
+## Tips
+
+해당 섹션에서는 불필요한 `state` 가 아닌, 필요한 `state` 를 더 잘 관리 하는 방법을 소개 하고 있습니다.
+
+### **관련 state를 그룹화**
+
+항상 특정 `state` 들이 동시에 수정되어야 한다면 나누어져서 관리될 필요가 없습니다. 객체나 배열로써 묶어서 관리해 주세요.
+
+<Link label={`[React] Group related state`} href="https://react-ko.dev/learn/choosing-the-state-structure#group-related-state" />
+
+### **깊게 중첩된 state 피하기**
+
+데이터의 중첩이 필요할 수 있습니다. 리액트는 불변성을 원칙으로 하기 때문에, 데이터 복사가 필수적인데, 너무 깊은 `state` 는 그 데이터의 복사만으로도 장황하고 긴 로직이 되어, 파악을 어렵게 만들 수 있습니다. 그럴땐 최대한 데이터를 `flat` 하게 재구성 해주세요. 마치 관계형 database 를 설계할때, 관계된 데이터를 한 테이블에서 전부 가지고 있는게 아니라 다른 테이블의 id 값만 가지고 있는게 훌륭한 예시가 될 수 있습니다.
+
+<Link label={'[React] Avoid deeply nested state'} href="https://react-ko.dev/learn/choosing-the-state-structure#avoid-deeply-nested-state" />
+
+### State 의 갯수와, 복잡도가 높다면 useReducer 사용해보기
+
+`reducer` 는 이전 값과 `payload` 를 받아, 다음 `state` 를 리턴하는 순수 함수를 의미 합니다. 리액트는 `state` 관리가 복잡해진다면 `reducer` 사용을 권장하는데요. 이는 아래와 같은 장점이 있습니다.
+
+* 순수 함수이기 때문에 예상하기 쉽고 안전합니다.
+* 순수 함수이기 때문에 컴포넌트 밖에서 선언과 관리가 가능합니다.
+* 순수 함수이기 때문에 테스팅하기 수월합니다.
+* 이전 `state`(들) 에 접근하기 쉬워집니다.
+* `state` 관리 로직이 다른 로직과 완전히 분리 됩니다. 이는 `state` 관리 로직이 뭉쳐진다는 것도 의미합니다.
+
+장점만 있는것은 아닙니다.
+
+* 코드 크기가 `useState` 에 비해 늘어납니다.
+* 간단한 `state` 경우 `useState` 가 가독성이 더 좋을 수 있습니다.
+
+취향에 따라 다를수 있지만, `state` 복잡도가 늘어난다면 `reducer` 사용을 고민해 주세요.
+
+<Link label={`[React] Extracting State Logic into a Reducer`} href="https://react-ko.dev/learn/extracting-state-logic-into-a-reducer" />
+
+### State 의 컴포넌트간 공유가 복잡해진다면 useContext 사용해보기
+
+컴포넌트 사이의 `state` 공유를 위해서 `state` 를 끌어올리기 통해서 `prop` 로 전달 할 수 있습니다. 
+이는 컴포넌트가 예상가능해지고 순수하다는 점에서 장점이 크지만, 계속해서 같은 값을 `props` 로 전달해야 한다면 코드가 장황해지고 불편해 질수 있습니다. 
+이를 `context` 훅을 사용해서 해결할 수 있습니다. 전역 상태와 다른점은 **지역화**가 가능 하다는 점입니다. 지역화가 가능하다는것은 불필요한 관리 포인트를 줄일 수 있다는것을 의미하죠.
+
+하지만 `context` 가 마법은 아닙니다! `props` 전달에 비해 데이터 흐름을 파악하기 어렵게 만들고, 리랜더링에도 취약할수 있습니다. 따라서 먼저 아래 사항을 고려해 주세요
+
+* `props` 전달로 시작하기
+* 컴포넌트 합성으로 `props drilling` 줄이기
+
+<Link label={'[React] Passing Data Deeply with Context'} href="https://react-ko.dev/learn/passing-data-deeply-with-context" />
+<br/>
+<br/>
+`reducer` 와 `context` 를 같이 사용하는것은 복잡한 컴포넌트와 스테이트에 훌륭한 대안이 될 수 있습니다.
+
+<Link label={'[React] Scaling Up with Reducer and Context'} href="https://react-ko.dev/learn/scaling-up-with-reducer-and-context" />
+
+
+
+
+ 

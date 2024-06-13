@@ -1,0 +1,61 @@
+---
+title: Overview
+sidebar_label: Overview
+sidebar_position: 1
+---
+
+import Installations from '@site/src/components/@mdx/_Installation.mdx'
+import TipPackageScript from '@site/src/components/@mdx/_TipPackageScript.mdx'
+import CodeBlock from '@theme/CodeBlock'
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import TokenPermissions from '/img/tokit/tokit-token-permission.png'
+
+
+
+# Overview
+
+`Tokit` 은 똑똑한 개발자에서 관리하는 프론트엔드 보일러 템플릿을 관리하고, 로컬 환경에 설치 하기 위한 CLI tool 입니다.<br/>
+`create-react-app` 처럼 커멘드라인 한줄로 쉽게 설치가 가능하며 원격 저장소에 생성하고, 연동 시킬 수 있는 옵션이 있습니다.
+
+### Template List
+- [Next-page-init](https://github.com/TOKTOKHAN-DEV/next-page-init)
+- [Next-app-init](https://github.com/TOKTOKHAN-DEV/next-page-init)
+- [React-native-init](https://github.com/TOKTOKHAN-DEV/next-page-init)
+
+## Installation
+
+<Installations isGlobal package={'@toktokhan-dev/tokit'} />
+
+## Run Script 
+
+### Interactive
+
+`tokit` 명령어로 대화형 모드를 실행해주세요.
+
+<CodeBlock language="bash">{`tokit`}</CodeBlock>
+
+그런 다음, 프롬프트의 질문에 답해주세요.<br/>
+<CodeBlock title={'Terminal'} language="bash" showLineNumbers>
+{`What is your project named?  my-app
+What is your template?  <tokit-template-list>[]
+What is your package manager?  ['npm', 'pnpm', 'yarn']
+Would you like to create a remote repository on GitHub?  No / Yes 
+`}
+</CodeBlock>
+
+프롬프트에 응답하면 답변에 따라 올바른 구성으로 새 프로젝트가 생성됩니다.
+
+:::info
+`4. Would you like to create a remote repository on GitHub ` 는 로컬에 설치 된 Template을 Github 원격 레포지토리에 지정된 `Project Name`으로 생성하고, `origin`으로 remote 시켜 올려주는 기능입니다.
+<br/><br/>때문에 Github 관련 환경 변수 설정이 필수적으로 필요합니다. 
+`Yes` 를 선택 하셨다면 **[Set Up Your Environment](/docs/docs/tokit/Environment)** 페이지를 참고하여 본인이 사용하고 있는 `shell`에 환경 변수를 등록해주세요.
+:::
+
+### None-Interactive
+
+
+`tokit [path]` 첫번째 인자로 설치할 경로를 넘겨줄 경우, 해당 질문을 생략하고 설치가 진행됩니다.
+
+<CodeBlock language="bash">{`tokit MyProject`}</CodeBlock>
+

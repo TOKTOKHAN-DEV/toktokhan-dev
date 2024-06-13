@@ -1,0 +1,559 @@
+import Installations from '@site/src/components/@mdx/_Installation.mdx'
+
+import TokriptConfigItem from '@site/src/components/@mdx/tokript/_TokriptConfigItem.mdx'
+import TokriptRunScript from '@site/src/components/@mdx/tokript/_TokriptRunScript.mdx'
+import TokriptConfigExample from '@site/src/components/@mdx/tokript/_TokriptConfigExample.mdx'
+
+import GithubIcon from '@site/src/components/@mdx/_GithubIcon.mdx'
+import NpmIcon from '@site/src/components/@mdx/_NpmIcon.mdx'
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import CodeBlock from '@theme/CodeBlock';
+
+
+# gen:api (react-query)
+
+#### <GithubIcon href="#installation"/> <NpmIcon  href="#installation"/>
+
+
+axios 혹은 fetch를 사용하는 환경에서 사용가능합니다.<br/>
+swagger 의 json 을 조회하여 타입정의와 api class, react-query 관련 모듈을 생성합니다.<br/>
+
+
+<Tabs>
+  <TabItem value="1" label="(axios) Calendar.api.ts" default>
+   ```ts
+import instance from "@apis/_axios/instance";
+import { HttpClient, RequestParams } from "../@http-client";
+
+import { CalenderListType } from "../@types/data-contracts";
+
+export class CalendarApi<
+  SecurityDataType = unknown,
+> extends HttpClient<SecurityDataType> {
+  /**
+   * No description
+   *
+   * @tags calendar
+   * @name BusinessCalendarList
+   * @request GET:/v1/business/{business_id}/calendar/
+   * @secure
+   */
+  businessCalendarList = (variables: {
+    businessId: number;
+    query: {
+      /** 끝 날짜 */
+      end_date: string;
+      /** 시작 날짜 */
+      start_date: string;
+    };
+    params?: RequestParams;
+  }) =>
+    this.request<CalenderListType[], any>({
+      path: `/v1/business/${variables.businessId}/calendar/`,
+      method: "GET",
+      query: variables.query,
+      secure: true,
+      format: "json",
+      ...variables.params,
+    });
+}
+
+export const calendarApi = new CalendarApi({ instance });
+
+   ```
+  </TabItem>
+   <TabItem value="2" label="(fetch) Calendar.api.ts" default>
+   ```ts
+import fetchExtended from "@/configs/fetch/fetch-extend";
+
+import { HttpClient, RequestParams } from "../@http-client";
+
+import {
+  CalendarListDataType,
+  CalenderListType,
+} from "../@types/data-contracts";
+
+export class CalendarApi<
+  SecurityDataType = unknown,
+> extends HttpClient<SecurityDataType> {
+  /**
+   * No description
+   *
+   * @tags calendar
+   * @name BusinessCalendarList
+   * @request GET:/v1/business/{business_id}/calendar/
+   * @secure
+   */
+
+  businessCalendarList = (variables: {
+    businessId: number;
+    query: {
+      /** 끝 날짜 */
+      end_date: string;
+      /** 시작 날짜 */
+      start_date: string;
+    };
+    params?: RequestParams;
+  }) =>
+    this.request<CalenderListType[], any>({
+      path: `/v1/business/${variables.businessId}/calendar/`,
+      method: "GET",
+      query: variables.query,
+      secure: true,
+      format: "json",
+      ...variables.params,
+      next: {
+        ...variables.params?.next,
+        tags: [
+          `/v1`,
+          `/v1/business`,
+          `/v1/business/${variables.businessId}`,
+          `/v1/business/${variables.businessId}/calendar`,
+        ],
+      },
+    });
+  }
+
+export const calendarApi = new CalendarApi({ customFetch: fetchExtended });
+
+   ```
+  </TabItem>
+  <TabItem value="3" label="@types/data-contracts.ts">
+```ts
+export interface CalendarListDataType {
+  readonly id: number;
+  /**
+   * * `S` - 정산
+   * * `M` - 미팅
+   * * `C` - 계약
+   * * `R` - 반환
+   * * `D` - 일정
+   */
+  readonly scheduleType: CalendarListDataScheduleTypeEnumType;
+  readonly status: string;
+  readonly title: string;
+  /** @format time */
+  readonly time: string;
+}
+
+export interface CalenderListType {
+  /** @format date */
+  readonly date: string;
+  readonly count: number;
+  readonly data: CalendarListDataType[];
+}
+```
+  </TabItem>
+  <TabItem value="4" label="(axios) Calendar.query.ts">
+```ts
+import { useQuery } from "@tanstack/react-query";
+import { AxiosError } from "axios";
+import {
+  Parameter,
+  QueryHookParams,
+  RequestFnReturn,
+} from "../@types/react-query-type";
+import { calendarApi } from "./Calendar.api";
+
+/**
+ * QUERY_KEYS
+ */
+export const QUERY_KEY_CALENDAR_API = {
+  BUSINESS_CALENDAR_LIST: (
+    variables?: Parameter<typeof calendarApi.businessCalendarList>,
+  ) =>
+    ["BUSINESS_CALENDAR_LIST", variables].filter(
+      (key) => typeof key !== "undefined",
+    ),
+};
+
+/**
+ * No description
+ *
+ * @tags calendar
+ * @name BusinessCalendarList
+ * @request GET:/v1/business/{business_id}/calendar/
+ * @secure */
+
+export const useBusinessCalendarListQuery = <
+  TData = RequestFnReturn<typeof calendarApi.businessCalendarList>,
+>(
+  params: QueryHookParams<
+    typeof calendarApi.businessCalendarList,
+    AxiosError<any>,
+    TData
+  >,
+) => {
+  const queryKey = QUERY_KEY_CALENDAR_API.BUSINESS_CALENDAR_LIST(
+    params.variables,
+  );
+  return useQuery({
+    queryKey,
+    queryFn: () => calendarApi.businessCalendarList(params.variables),
+    ...params?.options,
+  });
+};
+
+```
+  </TabItem>
+  <TabItem value="5" label="(fetch) Calendar.query.ts">
+```ts
+import { useQuery } from "@tanstack/react-query";
+import {
+  Parameter,
+  QueryHookParams,
+  RequestFnReturn,
+} from "../@types/react-query-type";
+import { calendarApi } from "./Calendar.api";
+
+/**
+ * QUERY_KEYS
+ */
+export const QUERY_KEY_CALENDAR_API = {
+  BUSINESS_CALENDAR_LIST: (
+    variables?: Parameter<typeof calendarApi.businessCalendarList>,
+  ) =>
+    ["BUSINESS_CALENDAR_LIST", variables].filter(
+      (key) => typeof key !== "undefined",
+    ),
+  BUSINESS_CALENDAR_DAY_LIST: (
+    variables?: Parameter<typeof calendarApi.businessCalendarDayList>,
+  ) =>
+    ["BUSINESS_CALENDAR_DAY_LIST", variables].filter(
+      (key) => typeof key !== "undefined",
+    ),
+};
+
+/**
+ * No description
+ *
+ * @tags calendar
+ * @name BusinessCalendarList
+ * @request GET:/v1/business/{business_id}/calendar/
+ * @secure */
+
+export const useBusinessCalendarListQuery = <
+  TData = RequestFnReturn<typeof calendarApi.businessCalendarList>,
+>(
+  params: QueryHookParams<typeof calendarApi.businessCalendarList, any, TData>,
+) => {
+  const queryKey = QUERY_KEY_CALENDAR_API.BUSINESS_CALENDAR_LIST(
+    params.variables,
+  );
+  return useQuery({
+    queryKey,
+    queryFn: () => calendarApi.businessCalendarList(params.variables),
+    ...params?.options,
+  });
+};
+
+```
+  </TabItem>
+
+</Tabs>
+
+
+
+## Installation
+
+<Installations
+  isDev
+  package={'@toktokhan-dev/cli @toktokhan-dev/cli-plugin-gen-api-react-query'}
+/>
+
+## Run Script
+
+<TokriptRunScript cmd="gen:api"/>
+
+## Configuration
+
+<TokriptConfigExample cmd="gen:api" exportedName="genApi" packageName="@toktokhan-dev/cli-plugin-gen-api-react-query"/>
+
+### swaggerSchemaUrl
+
+<TokriptConfigItem
+    command="gen:api"
+    optName="swaggerSchemaUrl"
+    desc=" 조회할 스웨거의 url 혹은 file(yaml, json) 경로 입니다."
+    type="string" 
+    exampleValue="src/pages"
+    required
+ />
+
+### output
+
+<TokriptConfigItem
+    command="gen:api"
+    optName="output"
+    desc="생성될 파일이 위치할 폴더 경로"
+    type="string" 
+    default="src/generated/swagger" 
+    exampleValue="src/generated/swagger"
+    required
+ />
+
+### httpClientType
+
+   <TokriptConfigItem
+    command="gen:api"
+    optName="httpClientType"
+    desc="Api의 http client 기반을 선택할 수 있습니다"
+    type="axios | fetch"
+    default="axios"
+    exampleValue="axios, // or fetch"
+    required
+ />
+
+### instancePath
+
+   <TokriptConfigItem
+    command="gen:api"
+    optName="instancePath"
+    desc="Api의 axios 혹은 fetch 요청 instance 주소입니다"
+    type="string"
+    default="@apis/_axios/instance"
+    exampleValue="@apis/_axios/instance, // or @/configs/fetch/fetch-extend"
+    required
+ />
+
+### includeReactQuery
+
+ <TokriptConfigItem
+    command="gen:api"
+    optName="includeReactQuery"
+    desc="생성되는 코드의 React Query 포함 여부 입니다. 해당 옵션이 false 일경우 infiniteQuery 를 포함한 모든 Query 가 생성되지 않습니다."
+    type="boolean" 
+    default="true"
+    exampleValue="true"
+ />
+
+### includeReactInfiniteQuery
+
+ <TokriptConfigItem
+    command="gen:api"
+    optName="includeReactInfiniteQuery"
+    desc="생성되는 코드의 InfiniteQuery 포함 여부 입니다."
+    type="boolean" 
+    default="true" 
+    exampleValue="true"
+    required
+ />
+
+### paginations
+
+ <TokriptConfigItem
+    command="gen:api"
+    optName="paginations"
+    desc={`infiniteQuery 를 생성할 함수 필터 목록 입니다.`}
+    typeLang="ts"
+    type={`
+    Array<{
+      /** api 의 queryParams key 에 keywords 가 포함되어 있는 항목만 생성됩니다. 키워드 배열은 AND 연산으로써 사용됩니다. */
+      keywords: string[]
+      /** InfiniteQuery 의 nextPage 와 nextPageParam 을 구하는 함수를 작성하기 위해 사용됩니다. */
+      nextKey: string
+      initialPageParam?:
+         | string
+         | ((param: {
+            apiInstanceName: string
+            functionName: string
+            pagination: { keywords: string[]; nextKey: string }
+         }) => string)
+      /** InfiniteQuery 의 nextPage 를 구하는 함수를 커스텀하기 위해 사용됩니다. */
+      getNextPage?:
+         | string
+         | ((param: {
+            apiInstanceName: string
+            functionName: string
+            pagination: { keywords: string[]; nextKey: string }
+         }) => string)
+      /** InfiniteQuery 의 nextPageParam 을 구하는 함수를 커스텀하기 위해 사용됩니다. */
+      getNextPageParam?:
+         | string
+         | ((param: {
+            apiInstanceName: string
+            functionName: string
+            pagination: { keywords: string[]; nextKey: string }
+         }) => string)
+  }>
+    `}
+    default={`[
+      {
+        keywords: ['cursor'],
+        nextKey: 'cursor',
+      },
+    ]`}
+    exampleValue={`[
+      {
+        keywords: ['cursor'],
+      },
+      {
+        keywords: ['offset', "limit"],
+      },
+    ]`}
+ />
+
+**paginations[index]**:
+- **keywords**: api 의 요청 query parameter 타입에 keywords 가 모두 포함되어 있는 경우에만 infiniteQuery 가 생성됩니다.
+
+   예를들어 keywords 값이 `["cursor"]` 로 설정되어있고, `api/boards?cursor={string}` 의 경우 cursor 가 keywords 에 포함되어 있기 때문에 infiniteQuery 가 생성됩니다.
+
+   예를들어 keywords 값이 `["offset", "limit"]` 로 설정되어있고, `api/boards?limit={number}` 의 경우 offset 과 limit 중 limit 만 포함되어 있기 때문에 infiniteQuery 가 생성되지 않습니다.
+
+- **nextKey**: InfiniteQuery 의 nextPageParam 을 구하는 함수를 작성하기 위해 사용됩니다. 아래와 같은 경우에서만 문제없이 사용가능합니다.
+   - pagination 된 api 요청의 응답값이 `next` 값을 가지고 있어야합니다.
+   - `next` 값은 다음 페이지를 가져오기 위한 url 이어야합니다.
+   - `next` 값은 queryParam 을 포함하고 있어야합니다. 
+   <br/>
+   ```ts
+   useInfiniteQuery({
+    ...
+    queryFn: ({ pageParam }) => {
+      return contractApi.businessContractBoardList({
+        ...params?.variables,
+        // 다음 페이지를 가져오기 위한 query 에 nextKey 값을 넘겨줍니다.
+        query: { ...params?.variables?.query, cursor: pageParam },
+      });
+    },
+    getNextPageParam: (lastPage) => {
+      const params = lastPage.next ? new URL(lastPage.next).searchParams : null;
+      // 다음 pageParam 을 가져오기 위한 url 에서 nextKey queryParam 을 가져옵니다.
+      const cursor = params ? params.get("cursor") : null;
+      return cursor;
+    },
+    ...params?.options,
+  });
+   ```
+
+   만약 api spec 이 위의 요건을 충족하지 않는다면, `getNextPage` 와 `getNextPageParam` 함수를 사용하여 InfiniteQuery 의 nextPage 와 nextPageParam 을 커스텀할 수 있습니다.
+
+
+- **getNextPage**: useInfiniteQuery 에 넘겨지는 queryFn 함수를 커스텀하기 위해 사용됩니다. `getNextPage` 가 설정되어있지 않다면, `nextKey` 의 queryParam 값을 사용합니다.
+
+   
+   ```ts title="example1: string 으로 설정하기"
+   // tok-cli.config.ts
+   {
+     'gen:api': {
+        paginations: [
+          {
+            keywords: ['cursor'],
+            getNextPage: `({ pageParam }) => { console.log(pageParam) }`
+          },
+         
+        ],
+      ...
+     },
+   }
+
+   // output
+   useInfiniteQuery({
+    ...
+    queryFn: ({ pageParam }) => {
+      console.log(pageParam)
+    },
+    ...
+  });
+   ```
+   ```ts title="example1: 함수로 설정하기"
+   // tok-cli.config.ts
+   {
+     'gen:api': {
+        paginations: [
+          {
+            keywords: ['cursor'],
+            getNextPage: ({
+               apiInstanceName,
+               functionName,
+               pagination
+            }) => 
+            `({ pageParam }) => ${apiInstanceName}.${functionName}({
+               ...params?.variables,
+               query: { ...params?.variables?.query, next: pageParam },
+             });`
+          },
+         
+        ],
+      ...
+     },
+   }
+
+   // output
+   useInfiniteQuery({
+    ...
+    queryFn: ({ pageParam }) => goodsApi.getList({
+      ...params?.variables,
+      query: { ...params?.variables?.query, next: pageParam },
+    }),
+    ...
+  });
+   ```
+
+
+- **getNextPageParam**: useInfiniteQuery 에 넘겨지는 getNextPageParam 함수를 커스텀하기 위해 사용됩니다. `getNextPageParam` 이 설정되어있지 않다면, `nextKey` 의 queryParam 값을 사용합니다.
+
+   ```ts title="example1: string 으로 설정하기"
+   // tok-cli.config.ts
+   {
+     'gen:api': {
+        paginations: [
+          {
+            keywords: ['cursor'],
+            getNextPageParam: `(lastPage) => { return lastPage.next }`
+          },
+         
+        ],
+      ...
+     },
+   }
+
+   // output
+   useInfiniteQuery({
+    ...
+    getNextPageParam: (lastPage) => {
+      return lastPage.next
+    },
+    ...
+  });
+   ```
+   ```ts title="example1: 함수로 설정하기"
+   // tok-cli.config.ts
+   {
+     'gen:api': {
+        paginations: [
+          {
+            keywords: ['cursor'],
+            getNextPageParam: ({
+               apiInstanceName,
+               functionName,
+               pagination
+            }) => 
+            `(lastPage) => {
+               console.log("${pagenation.keywords.join(",")}:", "That's Keywords")
+               return lastPage.next
+            }
+            
+            `
+          },
+         
+        ],
+      ...
+     },
+   }
+
+   // output
+   useInfiniteQuery({
+    ...
+    getNextPageParam: (lastPage) => {
+      console.log("cursor:", "That's Keywords")
+      return lastPage.offset
+    }
+    ...
+  });
+   ```
+
+- **initialPageParam**: InfiniteQuery 의 넘겨지는 initialPageParam 을 커스텀하기 위해 사용됩니다.
+
+

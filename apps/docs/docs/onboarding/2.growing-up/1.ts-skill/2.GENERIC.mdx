@@ -1,0 +1,103 @@
+---
+description: 코드의 안정성과 신뢰성을 높여주는 타입을 좁히는 여섯가지 방법을 소개합니다.
+---
+
+# Generic
+
+## Intro
+
+우리가 함수를 사용하는 이유는 무엇일까요? 행위의 추상화를 위해서 사용하기도 하지만 가장 핵심적인 기능은 특정 값을 넣었을때 특정 값을 반환하는 마치 자판기 같은 역할을 해주기 때문일 겁니다.
+
+제너릭은 마치 **타입의 함수** 같습니다. 정적으로 선언하는 타입을 넘어, 확장 가능한 타입을 작성 할 수 있습니다.
+
+pagination 데이터 타입을 예로 들어봅시다. pagination 은 api 서버의 부하를 줄이기위해 list 를 나누어 받는 식으로 구현이 됩니다. 아래 타입은 각각 'api/v1/post' 와 'api/v1/user' 응답 타입인데요. 문제는 없지만 page 와 count 를 연속적으로 작성하는 번거로움이 보입니다.
+
+```typescript
+type PaginatedPosts = {
+    page: number; // 몇 페이지의 데이터인지
+    count: number; // data 의 전체 갯수
+    data: Post[];
+}
+
+type PaginatedUsers = {
+    page: number;
+    count: number;
+    data: User[];
+}
+
+```
+
+genric 을 사용해서 아래와 같이 반복을 줄이고, 유연하게 작성이 가능합니다.
+
+```typescript
+type Paginated<T> = {
+    page: number; // 몇 페이지의 데이터인지
+    count: number; // data 의 전체 갯수
+    data: T;
+}
+
+type PaginatedPosts = Paginated<Post[]>;
+type PaginatedUsers = Paginated<User[]>
+
+```
+
+## 복수의 제너릭
+
+함수의 인자 처럼 복수개의 제너릭을 선언 할 수 있습니다.
+
+```typescript
+type Union<T1,T2,T3> = T1 | T2 | T2
+type ExampleUnion = Union<string, number, { example: string }>  
+// ExampleUnion string | number | { example: string }
+```
+
+## 타입 제한 하기
+
+ts 함수 처럼 인자의 타입을 제한 할 수 있습니다.
+
+```typescript
+type MessageOf<T extends { message: unknown }> = T["message"];
+
+type Email = { message: string; }
+type Chat = { text: string; }
+
+type EmailMessage = MessageOf<Email>
+type Email = MessageOf<Chat> // Type Error
+```
+
+## 기본 타입
+
+함수의 인자처럼 기본 타입 설정이 가능합니다.
+
+```typescript
+type Union<T1 = number, T2 = number,T3 = number> = T1 | T2 | T2
+type ExampleUnion1 = Union // number | number | number
+type ExampleUnion1 = Union<string> // string | number | number
+type ExampleUnion1 = Union<string, string> // string | string | number
+```
+
+## 함수 Generic
+
+아래 함수의 기능은 배열 끝에 아이템을 추가하는 로직인데, typescript 상에선 string 밖에 대응하지 못합니다. 따라서 유연성이 떨어지는 함수라고 볼 수 있습니다.
+
+```typescript
+const concat = (array: string[], item: string): string[] => [...array, item]
+```
+
+함수 제너릭은 함수가 유연하다면 함수에 맞게 유연한 타입정의를 가능하게 합니다.
+
+```typescript
+// 인자의 타입이 동적이기 때문에, 작성시 넘겨준 인자 타입 바탕으로 동적으로 타입이 설정됩니다.
+function concat<T> (array: T[], item:T):T[] { return [...array, item] }
+//or
+const concat = <T>(array: T[], item:T):T[] => [...array, item]
+
+
+concat(["a", "b"], "c") 
+concat(["a", "b"], 3) // Type Error
+concat([1, 2], 3)
+concat([1, 2], "c") // Type Error
+
+concat<string>(["a","b"], "c") // 제너릭 타입을 정적으로 정의 할 수 있습니다.
+
+```

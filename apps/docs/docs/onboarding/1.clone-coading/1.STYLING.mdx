@@ -1,0 +1,60 @@
+---
+sidebar_position: 2
+---
+
+# 스타일링 : Chakra UI
+
+:::info 
+스타일링은 mark-up 과 css 작업을 포함하고 있습니다.
+
+구현을 1 순위로 하되, 유지보수 하기 좋은 컴포넌트 구조와 컴포넌트 네이밍을 신경써서 작업해 주세요.
+:::
+
+## **목적**
+
+- Charka 를 사용한 퍼블리싱 경험
+- Chakra Theme Settting 에 대한 경험
+- Chakra SVG Icon 에 대한 경험
+- Chakra Multiple Component 에 대한 경험
+- Chakra 반응형 스타일링 경험 // 준비중
+
+---
+
+## **해야 할 일**
+
+1. page setting
+   1. page 폴더로 route 관리하기
+2. layout setting
+   1. components/@Layout 폴더에서 layout 관련 컴포넌트 작성
+   2. containers/\[page-name] 폴더에서 해당 페이지를 랜더링하는 컴포넌트 작성
+3. theme setting
+   1. primary 컬러의 500, 600, 700 색상 세팅
+   2. sm, md, lg 에 해당하는 font-size 세팅
+   3. button component 의 variants 세팅 (outline, flushed)
+4. 세부 사항 구현
+   1. 사용되는 각 컴포넌트 구현
+   2. svg ⇒ chakra Icon Component 로 바꿔서 사용해 보기
+      1. 공통적으로 사용되는 컴포넌트와, 지역적으로 사용되는 컴포넌트 구분하여 관리하기
+      2. 공통 컴포넌트 : components
+      3. 지역 컴포넌트 : containers/\[page-name]/components
+
+---
+
+## Refernce
+
+### Tok Tip
+
+- [Theming](https://toktokhan.gitbook.io/docs/basic-guides/foundation)
+- [Component Code Style Tip](https://toktokhan.gitbook.io/docs/basic-guides/convention/code-style/tip#component)
+- [Component Naming Tip](https://toktokhan.gitbook.io/docs/basic-guides/convention/naming/tip#component)
+
+### 공식 문서
+
+- [Styling](https://chakra-ui.com/docs/styled-system/style-props)
+- [Responsive](https://chakra-ui.com/docs/styled-system/responsive-styles)
+- [Modal](https://chakra-ui.com/docs/components/modal/usage)
+- [Input](https://chakra-ui.com/docs/components/input/usage)
+- [Icon](https://chakra-ui.com/docs/components/icon)
+- [Theme](https://chakra-ui.com/docs/styled-system/theme)
+
+###

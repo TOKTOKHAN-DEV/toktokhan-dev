@@ -1,0 +1,134 @@
+import Tag from '@site/src/components/@mdx/_Tag.mdx'
+
+
+# FILE STRUCTURE
+
+
+## Naming
+
+### #FS-1 / 기본 파일 이름 규칙 <Tag>kebab-case</Tag>
+
+모든 파일의 네이밍은 기본적으로 kebab-case 로 작성합니다. 가장 가독성이 좋습니다.
+
+```
+├── constants
+│   └── query-keys.ts
+├── types
+│   └── props-of.ts
+└── utils
+    └── get-by-id.ts
+```
+<br/>
+
+### #FS-2 / react 와 관련 있는 파일은 해당 모듈의 네이밍 규칙을 따라갑니다.
+
+```
+├── components
+│   └── PostCard.tsx
+├── hocs
+│   └── withGlobalProvider.tsx
+└── hooks
+    └── useCount.ts
+```
+<br/>
+
+## 코드 분리
+
+### #FS-3 / 파일을 index 파일과 함께 폴더로 변경하기
+
+코드가 길어지면 코드 분리가 필요합니다. 코드 분리시, index 파일과, 본문 파일과 함께 폴더구조로 변경합니다.
+```
+├── components
+│   └── PostCard
+│       ├── ... (분리할 파일)  
+│       ├── PostCard.tsx
+│       └── index.ts
+```
+
+:::info
+**Q1.왜 index 파일을 생성하나요?**
+
+**Index 파일은** 자바스크립트와, 사람 둘 모두에게 **진입점(우선탐색할 파일)**임을 명시적으로 알려줍니다
+
+**Q2. index 파일에 본문을 작성하지 않고 따로 파일을 하나 더 두는 이유는 무엇인가요?**
+
+파일 검색시 index 파일은 이름이 겹쳐 찾기가 어렵기 때문입니다.
+:::
+<br/>
+
+### #FS-4 / 일관된 Sub-Folder 로 관리하기
+
+분리할 파일을 서브폴더로 분류해서 분리합니다.
+
+서브폴더 분류는 일반적으로 src 폴더에서 사용하는 폴더(constants, types, utils, hooks, components, context....)로 구분을 권장합니다.
+
+```yaml
+├── components
+│   └── PostCard
+│       ├── utils
+│       │   └── format-date.ts
+│       ├── hooks
+│       │   └── usePostCard.ts
+│       ├── components
+│       │   └── PostCardHeader.tsx
+│       ├── PostCard.tsx
+│       └── index.ts
+```
+
+하위 폴더의 파일하나의 구현사항이 길어진다면 해당 파일 역시 폴더로 변환 후 하위 폴더를 가질 수 있습니다.
+
+```markup
+├── components
+│   └── PostCard
+│       ├── ...
+│       ├── components
+│       │   └── PosrCardHeader
+│       │       ├── components
+│       │       │   ├── ActionButtonGroups.tsx
+│       │       │   └── Avatar.tsx
+│       │       ├── PostCardHeader.tsx
+│       │       └── index.ts
+│       ├── PostCard.tsx
+│       └── index.ts
+```
+
+:::tip depth 가 너무 깊어져서 폴더 구조 파악하기가 너무 힘들어요
+
+하위 컴포넌트(코드)를 너무 많이 가지고 있는 구조라면, 결합도가 높진 않은지 고민해보세요.
+[자식을 갖기보단 컴포넌트 합성]으로, 결합도를 낮추고 더 유연한 컴포넌트를 만들어 보세요.
+:::
+
+## 파일 관리
+
+### #FS-5 / @ 태그로 하나의 주제로 폴더를 묶기
+
+sub 폴더가 하위 모듈을 관리하는 방법이라면 @ 폴더는 연관된 모듈을 방법입니다.
+
+코드분리를 위한 폴더는 하위 모듈을 포함한 하나의 모듈입니다. 반면, @ 폴더는 모듈의 집합입니다. 모듈의 집합임을 명시적으로 알 수 있게 폴더 앞에 @ 태그를 붙여주세요.
+
+```
+components
+├── @Modals
+│   ├── ConfirmModal.tsx
+│   └── FormModal.tsx
+└── PostCard
+    ├── ...
+    ├── PostCard.tsx
+    └── index.ts
+```
+<br/>
+
+### FS-6 / 되도록 root level 로 관리되는 정의들은 정의 하나당 하나의 파일을 갖도록 해주세요
+
+전역 레벨에서 정의되는 값들은 재사용성과, 팀원들이 사용할 가능성이 높은 함수입니다. 어떤 함수들이 정의 되었는지 한눈에 확인 할 수 있도록 한 함수당 한 파일을 권장합니다.
+
+```
+├── utils
+│   └── array
+│       ├── multiply.ts
+│       ├── sort.ts
+│       └── shuffle.ts
+```
+
+
+

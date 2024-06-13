@@ -1,0 +1,22 @@
+import CodeBlock from '@theme/CodeBlock'
+
+
+`tok-cli.config.ts` 에서 config 정의가 가능합니다.<br/>
+
+<CodeBlock language="ts" title="tokript.config.ts">
+{`import { ${props.exportedName} } from '${props.packageName}'
+
+const config: RootConfig<{
+  plugins: [typeof ${props.exportedName}]
+}> = {
+  plugins: [${props.exportedName}],
+  '${props.cmd}': {
+    ...
+  },
+}
+
+export default config
+`
+}
+</CodeBlock>
+

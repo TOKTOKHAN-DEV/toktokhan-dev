@@ -1,0 +1,36 @@
+# Challenge
+
+아래 Repository 는 다양한 Typescript Challange 를 가지고 있습니다. 해당 도전과제를 풀어보며 타입스크립트 실력을 키워보세요!
+
+- [type-challenges Github Repository](https://github.com/type-challenges/type-challenges)
+
+## Return Type Challenge
+
+지금까지 배웠던 지식으로 내장 제네릭 `ReturnType<T>`를 사용하지 않고  **함수의 Return 타입을 추출하는 'MyReturnType'을 작성해보세요.**
+
+```typescript
+const fn = (v: boolean) => {
+  if (v)
+    return 1
+  else
+    return 2
+}
+
+type a = MyReturnType<typeof fn> // should be "1 | 2"
+
+```
+
+- [type-challenges](https://github.com/type-challenges/type-challenges/tree/main/questions/00002-medium-return-type)
+
+## Type Docs Challenge
+
+다양한 타입스크립트 문법을 알면, 다양한 타입 정의를 읽을 수 있다는 것을 의미합니다.
+
+우리가 사용하는 라이브러리 타입문서를 읽을 수 있다면,&#x20;
+
+* 라이브러리를 작성하는 그들은 어떻게 타입을 작성하는지 배울 수 있고
+* 활용이 가능하며
+* 공식 문서엔 다루지 않는 명확한 사용 방법과 타입 에러들을 타입문서를 보고 파악할 수 있게 됩니다.
+
+보일러 플레이트의 src/types/module/react-query/use-query-params.ts 경로의 react-query 의 UseQueryOption 은 내장 타입입니다. **UseQueryOption 타입정의 의 onError 에 넘겨주는 함수의 매개변수 error 은 어떤 타입에 선언 되어 있는 지 확인해 보세요**.
+

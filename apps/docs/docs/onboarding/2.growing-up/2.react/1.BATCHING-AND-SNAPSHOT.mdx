@@ -1,0 +1,27 @@
+import Link from '@site/src/components/@mdx/_Link.mdx'
+
+# Batching 과 Snapshot 이란?
+
+## Batching
+
+Batching 이란, **일괄 처리** 입니다. react 에선 최적화를 위해 state update 를 일괄 처리 하는데 이것은, 때론 우리의 직관과는 다르게 state 를 변경합니다. batching 에 대해 이해하고, 더욱 안정적이고, 효율적이게 state 를 수정해보세요
+
+다음 문서에선 react 의 batching 에 대해 설명합니다.
+
+<Link label={'[React] Queueing a Series of State Updates'} href={'https://react-ko.dev/learn/queueing-a-series-of-state-updates'}/>
+
+
+## Snapshot
+
+Snapshot 이란 일정 시점에 포착된 순간을 의미합니다. 리액트는 불변성을 유지한다고 하는데, state 를 사용하면 변하는 값 아닐까? 라는 질문을 가질것입니다. **react 는 변경된 state 마다 snapshot 을 가지고 있습니다.** 그리고 각 state 는 불변한 값이죠.
+
+다음 문서는 리액트의 snapshot 에 대해 설명합니다.
+
+<Link label={'[React] State as a Snapshot'} href={'https://react-ko.dev/learn/state-as-a-snapshot'}/>
+
+
+## Immutable
+
+불변성이 무엇인지 왜 함수형 패러다임으로 구축되어 있는지 또 그것이 왜 안전한지는 아래 링크에서 확인해보세요
+
+<Link label={'[React] Keeping Components Pure'} href={'https://react-ko.dev/learn/keeping-components-pure'}/>

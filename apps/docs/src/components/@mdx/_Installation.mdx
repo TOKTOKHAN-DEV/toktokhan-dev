@@ -1,0 +1,15 @@
+import CodeBlock from '@theme/CodeBlock'
+import TabItem from '@theme/TabItem'
+import Tabs from '@theme/Tabs'
+
+<Tabs>
+  <TabItem value="yarn" label="yarn" default>
+    <CodeBlock language="bash">{`yarn ${props.isGlobal ? 'dlx' : ''}${props.isDev ? ' add -D' : ''} ${props.package}`}</CodeBlock>
+  </TabItem>
+  <TabItem value="npm" label="npm">
+    <CodeBlock language="bash">{`npm i${props.isGlobal ? ' -g' : ''}${props.isDev ? ' -D' : ''} ${props.package}`}</CodeBlock>
+  </TabItem>
+  <TabItem value="pnpm" label="pnpm">
+    <CodeBlock language="bash">{`pnpm add${props.isGlobal ? ' -g' : ''}${props.isDev ? ' -D' : ''} ${props.package}`}</CodeBlock>
+  </TabItem>
+</Tabs>

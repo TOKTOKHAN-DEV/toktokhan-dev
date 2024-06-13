@@ -1,0 +1,196 @@
+import Tag from '@site/src/components/@mdx/_Tag.mdx'
+
+## Naming: Case
+
+기본적인 선언에 대한 네이밍 규칙입니다.
+
+### #RT-1 / Component: <Tag>PascalCase</Tag>
+
+```tsx
+const Post () => <div>...</div>
+function PostDetail () {...}
+class PostList {...}
+```
+<br/>
+
+### #RT-2 / Component Props 에 대한 타입은 <Tag>Pascal</Tag> 로 작성하고 접미사로 <Tag>Props</Tag> 를 붙여줍니다.
+
+```typescript
+interface SocialButtonProps {...}
+
+const SocialButton = ({...}: SocialButtonProps) => {...}
+```
+<br/>
+
+### #RT-3 / Hooks 네이밍은 접두사로 <Tag>use</Tag> 를 붙여줍니다.
+
+```tsx
+function useSize() { ... }
+```
+<br/>
+
+### #RT-4 / Hoc 네이밍은 접두사로 <Tag>with</Tag> 를 붙여줍니다.
+
+```tsx
+function withAppProvider(AppComponent: FC<AppProps>) {...}
+```
+<br/>
+
+### #RT-5 / Context 네이밍은 접미사(suffix)로 <Tag>context</Tag> 를 붙여줍니다.
+
+```tsx
+const { show, close } = useModalContext(...);
+```
+<br/>
+
+### #RT-6 / Provider 네이밍은 접미사(suffix)로 <Tag>provider</Tag> 를 붙여줍니다.
+
+```tsx
+const ModalProvider = () => {...}
+```
+<br/>
+ 
+
+### #RT-7 / Prop 네이밍은 내려주는 입장이 아닌 컴포넌트 입장에서 네이밍하기
+
+더욱 확장성 있는 네이밍이 됩니다.
+
+```tsx
+// Bad
+<Article 
+  dogName={dogName}
+  dogDescription={dogDescription}
+  likeRequest={likeRequest} 
+/>
+
+// Good
+<Article 
+  title={dogName}
+  contents={dogDescription}
+  onLike={likeRequest} 
+/>
+```
+
+
+### #RT-8 / 컴포넌트가 props 에서 event 함수를 받을 때는 on.... 접두사를 붙여 네이밍 하기
+
+```tsx
+interface Props {
+    onClick:() => void
+}
+const Component = ({ onClick }: Props) => {...}
+```
+
+### #RT-9 / 컴포넌트에게 넘겨지는 event 함수를 작성할 때는 handle... 접두사를 붙여 네이밍 하기
+
+```tsx
+const Parent = () => {
+  const handleClick = (event) => {...}
+    
+  return (
+    <Children onClick={handleClick}/>
+  )
+}
+```
+
+
+## Code Style: Component
+
+컴포넌트에서 권장되는 규칙입니다.
+
+### #RT-10 / 상속 보다 조합
+
+컴포넌트 작성시, 자식을 많이 가지고 있을수록 prop drilling 을 마주하기 쉬워집니다.
+
+그럴땐 자식을 많이가지는 거대한 컴포넌트 보다도, 컴포넌트 합성을 통해서, 관심사를 명확히 분리하고 prop drilling 을 피해 보세요
+
+```tsx
+// bad
+<PostDetail
+  title={title} // header props
+  likes={likes}
+  onLike={onLike}
+  onShare={onShare}
+  created={created}
+  description={description} // other props...
+  onBack={onBack}
+  onSubmit={onSubmit}
+/>
+
+// good
+<PostDetail
+  header={
+    <PostHeader
+      title={title} // header props
+      likes={likes}
+      onLike={onLike}
+      onShare={onShare}
+      created={created}
+    />
+  }
+  description={description} // other props...
+  onBack={onBack}
+  onSubmit={onSubmit}
+/>;
+
+```
+
+
+
+### #RT-11 / 추상화 레벨 맞추기
+
+컴포넌트를 분리해도 추상화 레벨이 맞지 않으면  파악이 어려울 수 있습니다.
+
+한 눈에 구조 파악이 가능하도록 추상화 레벨을 맞춰보세요.
+
+🧭 **Example**
+
+```tsx
+// bad
+<>
+  <Title>우리팀을 소개합니다.</Title>
+  <div>
+    {members.map((member) => (
+      <Member data={member} />
+    ))}
+  </div>
+  <Comments />
+  {rating !== 0 && (
+    <>
+      <Agreement />
+      <Button rating={rating} />
+    </>
+  )}
+</>;
+
+
+// good
+<>
+  <Title>우리팀을 소개합니다.</Title>
+  <Members />
+  <Comments />
+  <AgreementButton show={rating !== 0} />
+</>;
+ 
+```
+
+### #RT-12 / 파일 내 선언 순서 지키기
+
+
+### #RT-13 / 컴포넌트 내부 선언 순서 지키기
+
+
+### #RT-14 / useEffect 동작에 대한 주석처리
+
+`useEffect` 를 사용할땐 아래와 같은 **주석처리로 간단히 추상화 해주세요**
+
+```typescript
+const Component = () => {
+  // For: Initailize State 
+  React.useEffect(() => {...})
+  return <div>...</div>;
+};
+
+```
+
+

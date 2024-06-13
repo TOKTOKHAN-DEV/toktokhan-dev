@@ -1,0 +1,247 @@
+---
+description: 코드의 안정성과 신뢰성을 높여주는 타입을 좁히는 여섯가지 방법을 소개합니다.
+---
+
+# Narrowing
+
+타입스크립트에서 `Narrowing`은 타입의 범위를 좁히는 것을 의미합니다. 이는 변수나 표현식의 타입을 보다 구체적으로 추론하거나 지정하여 코드의 안전성을 높이는 과정을 말합니다.
+
+## Type Guard
+
+이번 섹션에서는 **타입을 좁히는 여섯 가지 방법**을 소개합니다. 이 방법들을 통해 코드의 타입을 명확하게 정의하고, 잠재적인 오류를 사전에 방지할 수 있습니다. 이를 통해 타입스크립트의 안전성과 코드의 신뢰성을 더욱 높일 수 있습니다.&#x20;
+
+
+## 1. 조건문을 이용한 타입 확인
+
+```typescript
+type Animal = {
+  name: string;
+  legs?: number;
+};
+```
+
+위 `Animal` 타입을 이용하는 아래 `addLeg` 함수는 타입 에러가 발생할 수 있습니다.
+
+```typescript
+function addLeg(animal: Animal) {
+  animal.legs = animal.legs + 1; // 💥 - Object is possibly 'undefined'
+}
+```
+
+legs 프로퍼티가 `undefined`가 될수 있기 때문에 타입 에러가 발생할 수 있습니다. 그리고 `undefined`에 `1`을 더하는 것 또한 말이 되지 않습니다. 지금 상황에서 타입 에러를 피하기 위해서는 `legs` 프로퍼티를 이용하기 전에 `legs`가 `truthy`인지 확인하면 됩니다.
+
+```typescript
+function addLeg(animal: Animal) {
+  if (animal.legs) { 
+    animal.legs = animal.legs + 1;
+  }
+}
+```
+
+`legs`는 `if문` 전에는 number | undefined 타입입니다. 하지만, `if문`후에는 number 타입으로 좁혀지게(narrow) 됩니다.
+
+이 방식의 Type narrowing은 여러 타입을 가질 수 있는 변수에서 `null`과 `undefined`를 제외시키는데에 유용한 방법입니다.
+
+## 2. typeof 타입 가드
+
+인자가 `string`이면 복사하여 붙이고, `number`라면 곱하기 2를 하는 아래 함수를 살펴봅시다.
+
+```typescript
+function double(item: string | number) {
+  if (typeof item === "string") {
+    return item.concat(item); // item is of type string
+  } else {
+    return item + item; // item is of type number
+  }
+}
+```
+
+`item` 인자는 `if문`전에는`number`혹은 `string` 타입입니다. `if문`안에서는 string으로 좁혀지고, `else문`에서는 number로 좁혀지게 됩니다.
+
+위 방식을 `typeof` 타입 가드 패턴이라고 합니다. **원시 타입을 type narrowing할 때 유용합니다.**
+
+
+
+## 3. Instanceof 타입 가드
+
+우리가 사용하는 타입들은 보통 원시 타입보다 복잡합니다. 아래 코드를 살펴보죠.
+
+```typescript
+class Person {
+  constructor(
+    public firstName: string,
+    public surname: string
+  ) {}
+}
+class Organisation {
+  constructor(public name: string) {}
+}
+type Contact = Person | Organisation;
+```
+
+아래 함수는 타입에러가 발생합니다.
+
+```typescript
+function sayHello(contact: Contact) {
+  console.log("Hello " + contact.firstName);
+  // 💥 - Property 'firstName' does not exist on type 'Contact'.
+}
+```
+
+에러의 이유는 `contact`가 `firstName`프로퍼티를 가지지않은 `Organisation` 타입일 수 있기 때문입니다. 클래스 타입을 이용할 때 `instanceof` 타입 가드를 이용하면 편합니다.
+
+```typescript
+function sayHello(contact: Contact) {
+  if (contact instanceof Person) {    
+    console.log("Hello " + contact.firstName);
+  }
+}
+```
+
+`if문`안에서 `contact`의 타입은 Person으로 좁혀집니다(narrow). 그러므로 위에서 발생했던 에러를 피할 수 있게 됩니다.
+
+
+
+## 4. in 타입 가드
+
+우리는 타입을 표현할 때 항상 class를 이용하진 않습니다. 위에서 클래스를 이용하여 표현된 타입을 아래처럼 바꿀 수 있습니다(with interface)
+
+```typescript
+interface Person {
+  firstName: string;
+  surname: string;
+}
+interface Organisation {
+  name: string;
+}
+type Contact = Person | Organisation;
+```
+
+\
+`instanceof` 타입 가드는 interface 혹은 타입 별명(aliases)들에는 작동하지 않습니다. 그대신에 우리는 `in` [타입 가드](https://www.typescriptlang.org/docs/handbook/advanced-types.html#using-the-in-operator)를 이용할 수 있습니다.
+
+```typescript
+function sayHello(contact: Contact) {
+  if ("firstName" in contact) {    
+    console.log("Hello " + contact.firstName);
+  }
+}
+```
+
+`if문`안에서 `contact`는 Person 타입으로 좁혀지고 타입 에러가 발생하지 않게 됩니다.
+
+
+
+## 5. type predicate 를 이용한 타입 가드
+
+```typescript
+type Rating = 1 | 2 | 3 | 4 | 5;
+
+async function getRating(productId: string) {
+  const response = await fetch(
+    `/products/${productId}`
+  );
+  const product = await response.json();
+  const rating = product.rating;
+  return rating;
+}
+```
+
+위 함수의 리턴 타입은 `Promise<any>` 로 추측됩니다. 그래서 이 함수의 리턴값에 변수를 할당하면 `any` 타입을 가지게 됩니다.
+
+```typescript
+const rating = await getRating("1"); // type of rating is `any`
+```
+
+이는 아무런 타입 확인이 일어나지 않는다는 말입니다.
+
+`type predicate`를 가지게 함수를 만들면 우리의 코드는 더욱 타입에 안정적일 수 있습니다.
+
+```typescript
+function isValidRating(
+  rating: any
+): rating is Rating {
+  if (!rating || typeof rating !== "number") {
+    return false;
+  }
+  return (
+    rating === 1 ||
+    rating === 2 ||
+    rating === 3 ||
+    rating === 4 ||
+    rating === 5
+  );
+}
+```
+
+`rating is Rating`은 위 함수에서 타입 서술어`type predicate`입니다.\
+type predicate가 사용된다면 반드시 boolean값을 리턴해야 합니다.\
+아래 코드는 위에서 정의한 type predicate를 가진 isValidRating 함수를 이용한 getRating 함수입니다.
+
+```typescript
+async function getRating(productId: string) {
+  const response = await fetch(
+    `/products/${productId}`
+  );
+  const product = await response.json();  const rating = product.rating;
+  if (isValidRating(rating)) {
+    return rating; // type of rating is `Rating`
+  } else {
+    return undefined;
+  }
+}
+```
+
+isValidRating()을 이용하였기 때문에 `if문`안에서 `rating`의 타입은 Rating이 됩니다.
+
+
+
+## 6. assertion signature 을 이용한 타입 가드
+
+getRating을 조금 다르게 타입가드해보려고 합니다.
+
+```typescript
+async function getRating(productId: string) {
+  const response = await fetch(
+    `/products/${productId}`
+  );
+  const product = await response.json();  const rating = product.rating;
+  checkValidRating(rating); // should throw error if invalid rating
+  return rating; // type should be narrowed to `Rating`
+}
+```
+
+`checkValidRating` 함수를 추가했습니다. 이로 인해 getRating함수는 rating이 유효하지 않은 값일 때 에러를 발생하게 됩니다.
+
+그리고 `checkValidRating`이 성공적으로 실행된다면 그 결과로 rating의 타입은 알아서 좁혀지게(narrowed) 됩니다.
+
+assertion 시그니처와 함께 타입 가드 함수를 만들수 있습니다.
+
+```typescript
+function checkValidRating(
+  rating: any
+): asserts rating is Rating {
+  if (!rating || typeof rating !== "number") {
+    throw new Error("Not a rating");
+  }
+  if (
+    rating !== 1 &&
+    rating !== 2 &&
+    rating !== 3 &&
+    rating !== 4 &&
+    rating !== 5
+  ) {
+    throw new Error("Not a rating");
+  }
+}
+```
+
+`asserts rating is Rating` 은 위 함수의 assertion signature입니다. 만약 위 함수가 에러없이 리턴된다면 `rating` 인자의 타입은 `Rating`의 타입으로 범위가 좁혀집니다.
+
+
+
+## Reference
+
+* [원문](https://www.carlrippon.com/6-ways-to-narrow-types-in-typescript/)
+* [번역](https://medium.com/nodejs-server/type-narrowing-ts-f62fc28f413f)
+

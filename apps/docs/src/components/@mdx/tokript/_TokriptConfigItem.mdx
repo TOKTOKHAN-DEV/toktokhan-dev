@@ -1,0 +1,36 @@
+import CodeBlock from '@theme/CodeBlock'
+
+
+
+- Required: <code>{props.required ? "true" : "false"}</code>
+- Type: <>{props.typeLang ? <CodeBlock language={props.typeLang}>{props.type}</CodeBlock> :<code>{props.type}</code>}</>
+- Default: <code>{props.default}</code>
+- Cli Option:{props.cliOpt ? <><code>--{props.optName}</code></> : <> <code>-</code> </>} {props.cliOptAlias && <><code>-{props.cliOptAlias}</code></>}
+{props.desc}
+
+#### config
+
+<CodeBlock title="tok-cli.config.ts" language="ts">
+  {`{
+  '${props.command}': {
+    ${props.optName}: ${props.type === "string" ? `'${props.exampleValue}'`: props.exampleValue},
+    ...
+  },
+}
+`}
+</CodeBlock>
+
+<>
+{
+    props.cliOpt && props.exampleValue &&
+    <>
+        <h4>cli</h4>
+        {
+        <CodeBlock language="bash">
+            {`tokript ${props.command} --${props.optName} ${props.type === "string" ? `"${props.exampleValue}"`: props.type.endsWith("[]") ? props.exampleValue.replace("[", "").replace("]","")  :props.exampleValue}`}
+        </CodeBlock>
+        }
+    </>
+}
+</>
+

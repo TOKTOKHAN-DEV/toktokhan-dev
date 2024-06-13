@@ -1,0 +1,14 @@
+import TipPackageScript from '@site/src/components/@mdx/_TipPackageScript.mdx'
+import CodeBlock from '@theme/CodeBlock'
+
+
+command 를 별도로 입력하지 않으면 대화형으로 실행되어 등록되어있는 스크립트 중 선택하여 사용이 가능합니다.
+
+<CodeBlock language="bash">{`npx tokript`}</CodeBlock>
+
+command 를 입력하면 해당 스크립트가 바로 실행됩니다.
+
+<CodeBlock language="bash">{`npx tokript ${props.cmd}`}</CodeBlock>
+
+<TipPackageScript cmd={props.cmd} run={`tokript ${props.cmd}`} />
+

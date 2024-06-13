@@ -1,0 +1,6 @@
+{
+  "extends": "@toktokhan-dev/ts-config/base.json", 
+   "compilerOptions": {
+    "baseUrl": "./src"
+  }
+}

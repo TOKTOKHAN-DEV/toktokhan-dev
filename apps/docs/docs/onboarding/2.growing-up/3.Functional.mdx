@@ -1,0 +1,194 @@
+import Link from '@site/src/components/@mdx/_Link.mdx'
+
+# 함수형 프로그래밍은 어려워요
+
+함수형 프로그래밍은 어렵지 않습니다. 모든 코드를 함수형 프로그래밍으로 작성하는게 어려운 것이죠. 즉 모든 코드를 순수하고, 불변하게 작성하는게 어려운 것입니다. 모든 코드를 함수형으로 작성하기보다는, 함수형의 이점이 무엇인지 이해하고, 조금씩 시도해보세요.
+
+함수형의 가장 핵심 개념은 순수함에 있습니다. 이 개념은 이미 react 에서 그리고 Array.map 과 같은 내장 메소드에서 이미 친숙하게 사용하고 있습니다. 코드를 작성할때 조금 더 순수하게 작성해서 버그를 사전에 예방해 보세요.
+
+
+
+## 순수함
+
+add 를 생각해 봅시다. 1과 2를 넘기면 3이 나옵니다 이는 아래와 같은 장점을 가지고 있습니다.
+
+* 함수의 영향범위가 해당 함수로 제한됩니다. 다른 어떤곳에도 영향을 미치지 않습니다.
+* 1과 2를 어떤 시점에 넘기든 항상 3이 나오기 때문에, 함수의 결과값을 예상 가능합니다.
+
+Array 끝에 아이템을 추가하는 함수를 구현했다고 상상해봅시다.
+
+```typescript
+// array.js
+const array = [];
+const push = (item) => array[array.length] = item;
+
+// other.js
+push(4)
+
+// main.js
+// excute other.js...
+push(3)
+// excute other.js...
+console.log(array) // main 만 봤을땐 [3] 이지만 실제론 [4,3,4]
+```
+
+
+push 로직에서 버그 발생시, 디버깅 하게된다면 어떤 순서로 파악하게 될까요?
+
+1. push 의 비즈니스 로직에 문제가 없는지 파악한다.
+2. 비즈니스 로직에 문제가 있는지 파악하기 위해서 어디서 사용하고 있는지 파악한다.
+3. 어디서 사용하고 있는지 파악이 됐다면 어떤 시점으로 호출되는지 파악한다.
+4. 언제, 어디서가 모두 파악된 후, 비즈니스 로직의 문제가 없는지 파악한다.
+
+순수하게 작성된 함수는 어떤 순서로 파악하게 될까요?
+
+
+```typescript
+// array.js
+const concat = (array, item) => [...array, item]
+
+// other.js
+const otherArray = concat([], 4);
+
+// main.js
+// excute other.js...
+const mainArray = concat(otherArray, 3)
+// excute other.js
+console.log(mainArray) // [4,3]
+```
+
+
+
+1. 함수의 입력값과 출력값을 확인한다.
+
+네 이게 전부입니다. 넘겨주는 값이 정해져 있다면, 언제 몇번을 실행하든, 같은 결과 값을 도출할것은 우리는 직관적으로 파악 할 수 있죠. 우리가 파악할것은 올바른 입력과, 출력밖에 없을 것 입니다.
+
+이름에서 알 수 있듯, 이미 우리는 push 와 concat 에 친숙하죠. 함수형 패러다임은 이미 우리와 친숙합니다.&#x20;
+
+핵심은 특정 로직의 영향범위를 최대한 줄이는 것, 시점에 상관 없이 특정 입력 값에 대한 결과 값이 항상 동일할 것 이 두가지 입니다.
+
+
+
+## Mini Skill
+
+위의 코드처럼 순수한 함수를 작성해 나간다면 이미 함수형 프로그래밍의 반은 했다고 생각합니다. 나머지 반은 저것들을 잘하기 위한 사고와 skill 일 뿐입니다. 쉽고 간단한 skill 몇가지만 간단히 소개합니다.
+
+### Pipe
+
+순수 함수가 많아지게 되면 특정 값을 구하기 위해 중첩이 될 수 있습니다. 이는 가독성을 해치거나, 번거로운 할당이 따라오게 됩니다. 이때 pipe 함수를 사용하게 되면 가독성 좋게 함수 합성이 가능합니다.
+
+```typescript
+// Bad
+
+const getResult = (flag) => Math.abs(multiplyByTen(addFour(minusFive(0))));// 10
+// or
+const getResult = (flag) => {
+const minusFiveRes = minusFive(flag);
+const addFourRes = addFour(minusFiveRes);
+const multiplyByTenRes = multiplyByTen(addFourRes);
+return Math.abs(multiplyByTenRes)
+}
+
+getResult(0) // 10
+
+// Good
+
+const getResult = pipe(
+  minusFive,
+  addFour,
+  multiplyByTen,
+  Math.abs
+)
+
+getResult(0) // 10
+
+```
+
+pipe 코드는 어떻게 작성이 될까요 단일 인자만 받는 간단한 pipe 를 구현해 보겠습니다.
+
+```typescript
+// 명령형으로 구현이 되어있어 함수형 패러다임과 어긋나지만 범위가 정해져 있기 때문에 크게 상관이 없습니다.
+const pipe = (...fns) => {
+  return (arg) => {
+    let current = arg;
+    fns.forEach((fn) => {
+      current = fn(current);
+    });
+    return current;
+  };
+};
+
+// 조금 더 함수형 스러운 패턴입니다.
+const pipe = (...fns) => {
+  return (arg) => fns.reduce((prev, fn) => fn(prev), arg);
+};
+```
+
+어렵게 직접 구현 할 필요 없이 lodash 에서 가져와 사용이 가능합니다.
+
+```typescript
+import { pipe } from 'lodash/fp'
+```
+
+### Curying
+
+여러개의 인자를 받는 함수가 있다고 가정했을 때, 함수를 리턴하는 함수를 만들어서 인자를 나누어서 전달하는 기법입니다. 함수의 재사용성을 높여주고, memoization 효과가 있습니다.
+
+```typescript
+
+const log = (arg1) => (arg2) => console.log(arg1, arg2);
+const logBug = log('[bug]');
+logBug('something wrong'); // [bug] something wrong
+logBug('anything wrong'); // [bug] anything wrong
+
+```
+
+복잡한 비즈니스 로직 없이 간단한 재사용을 위한것이라면, 아래와 같이 lodash 에서 가져와 사용이 가능합니다.
+
+```typescript
+import curry from 'lodash/curry'
+
+const log = curry(console.log);
+const logBug = log('[bug]');
+logBug('something wrong'); // [bug] something wrong
+logBug('anything wrong'); // [bug] anything wrong
+
+```
+
+특정 연산을 memoization 할 수 도 있습니다.
+
+```typescript
+const sendEmail = (loginId, content) => () => {
+  const userInfo = getUserInfo(loginId); // 1h
+  const email = userInfo.email;
+  sendEmail(email, content); // 1h
+};
+
+sendEmail('user_1_id', 'content_1'); // 2h
+sendEmail('user_1_id', 'content_2'); // 2h
+
+
+// curried
+const sendEmail = (loginId) => {
+  const userInfo = getUserInfo(loginId); // 1h
+  return (content) => {
+    const email = userInfo.email;
+    sendEmail(email, content); // 1h
+  };
+};
+
+const sendEmailToUser1 = sendEmail('user_1_id'); // 1h
+sendEmailToUser1('content_1'); // 1h
+sendEmailToUser1('content_2'); // 1h 
+
+```
+
+
+
+:::tip **클로져 패턴과는 다릅니다**
+
+클로져 패턴은 함수가 지역 변수를 사용하는 함수를 리턴함으로서, 지역변수를 가비지 콜렉터가 수집하지 못하게하여 메모리상에 남아있게하고, 관련 로직을 조금 더 캡슐화 하는 작업에 핵심이 있습니다. 따라서 **객체지향적 패턴**에 가깝다고 할 수 있습니다. `currying` 은 데이터를 수정하는것이 아닌 연산을 단순히 기억하는 함수를 리턴한다는 점에서 차이점이 있습니다.
+:::
+
+
+

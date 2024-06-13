@@ -1,0 +1,54 @@
+---
+sidebar_position: 4
+---
+
+# Network: React-Query
+
+## **목적**
+
+* React Query 와 Axios 를 이용한 데이터 통신 로직 경험
+* Api 요청 결과에 따른 데이터 업데이트, UI 핸들링 경험
+* ReactQuery 의 Cache 에 대한 이해와, react-query-key 와 stale time 에 대한 이해
+* 데이터 통신시 유저와의 상호작용에서 주의 해야하는 부분 인지
+
+***
+
+## **해야 할 일**
+
+1. React Query 를 사용하여 데이터 패칭 후, UI 랜더링해보기
+2. 메인페이지 프로필카드
+3. 회원 정보 수정 Modal 의 form data
+4. 로딩 상태의 UI 핸들링 (Loading-Spinner, Skeleton)
+5. 데이터 수정 후 업데이트 된 데이터 반영
+6. 유저의 submit 버튼 클릭시, 로딩과 , request 가 pending 상태일 때 연속클릭 방지
+7. 서버의 요청 결과에 따라 toast 모달로 유저에게 안내해주기 (성공시, 에러시)\
+   \
+
+
+* \++ react query 의 Invalidate 에 대한 프로세스 이해
+* \++ query-cache 를 직접 수정하여 데이터 페칭 프로세스의 속도 최적화하는 방법이 있다는것을 인지
+* localhost:4000/api-docs 의 Error400 Schema 참고
+
+***
+
+## Refernce
+
+### Tok Tips
+
+* [axios](https://toktokhan.gitbook.io/docs/basic-guides/network/axios)
+* [react-query](https://toktokhan.gitbook.io/docs/basic-guides/network/react-query/why-react-query)
+
+### 공식문서
+
+#### Axios:
+
+* [instanse](https://axios-http.com/kr/docs/instance)
+* [interceoptor](https://axios-http.com/kr/docs/interceptors)
+
+#### React-query
+
+* [use-query](https://tanstack.com/query/v3/docs/react/guides/queries)
+* [query-key(중요)](https://tanstack.com/query/v3/docs/react/guides/query-keys)
+* [use-mutation](https://tanstack.com/query/v3/docs/react/guides/mutations)
+* [re-fetch](https://tanstack.com/query/v3/docs/react/guides/query-invalidation)
+* [caching(중요)](https://tanstack.com/query/v3/docs/react/guides/caching)

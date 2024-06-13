@@ -1,0 +1,157 @@
+import Installations from '@site/src/components/@mdx/_Installation.mdx'
+
+import TokriptConfigItem from '@site/src/components/@mdx/tokript/_TokriptConfigItem.mdx'
+import TokriptRunScript from '@site/src/components/@mdx/tokript/_TokriptRunScript.mdx'
+import TokriptConfigExample from '@site/src/components/@mdx/tokript/_TokriptConfigExample.mdx'
+
+import GithubIcon from '@site/src/components/@mdx/_GithubIcon.mdx'
+import NpmIcon from '@site/src/components/@mdx/_NpmIcon.mdx'
+
+# gen:img
+
+#### <GithubIcon href="#installation"/> <NpmIcon  href="#installation"/>
+
+
+이미지 경로를 객체로 생성하는 스크립트입니다.<br/>
+개발자의 타이핑으로 경로를 가져오는것이 아니라 객체의 key 값으로 가져옴으로써 경로를 가져오는데 편의성과 안정성을 제공합니다.
+
+```
+public/example
+├── logo.png
+├── detail
+│   └── dog.png
+├── landing
+│   └── cat.jpg
+└── main
+    └── bird.png
+```
+
+위의 폴더 구조의 이미지는 아래의 객체로 변환됩니다.
+
+```ts
+export const MY_IMAGES = {
+  EXAMPLE_BANNER: { src: 'example/banner.png', alt: 'banner' },
+  EXAMPLE_DETAIL_DOG: { src: 'example/detail/dog.png', alt: 'dog' },
+  EXAMPLE_LANDING_CAT: { src: 'example/landing/cat.jpg', alt: 'cat' },
+  EXAMPLE_LOGO: { src: 'example/logo.png', alt: 'logo' },
+  EXAMPLE_MAIN_BIRD: { src: 'example/main/bird.png', alt: 'bird' },
+}
+```
+
+
+## Installation
+
+<Installations
+  isDev
+  package={'@toktokhan-dev/cli @toktokhan-dev/cli-plugin-gen-img'}
+/>
+
+## Run Script
+
+<TokriptRunScript cmd="gen:img"/>
+
+## Configuration
+
+<TokriptConfigExample cmd="gen:img" exportedName="genImg" packageName="@toktokhan-dev/cli-plugin-gen-img"/>
+
+### input
+
+<TokriptConfigItem
+    command="gen:img"
+    optName="input"
+    desc="이미지 파일이 위치한 디렉토리 경로"
+    type="string" 
+    default="public" 
+    exampleValue="path/to/img"
+    cliOpt
+    cliOptAlias="i" 
+ />
+
+### output
+
+<TokriptConfigItem
+    command="gen:img"
+    optName="output"
+    desc="생성될 파일이 위치할 경로"
+    type="string" 
+    default="src/generated/path/images.ts" 
+    exampleValue="path/to/img"
+    cliOpt 
+    cliOptAlias="o" 
+ />
+
+### displayName
+
+ <TokriptConfigItem
+    command="gen:img"
+    optName="displayName"
+    desc="생성될 image 객체의 이름입니다"
+    type="string" 
+    default="MY_IMAGES" 
+    exampleValue="MY_IMAGES"
+    cliOpt
+    cliOptAlias="d" 
+ />
+
+### basePath
+
+ <TokriptConfigItem
+    command="gen:img"
+    optName="basePath"
+    desc="생성될 객체의 value 에 할당될 경로의 base-path 입니다"
+    type="string" 
+    default="" 
+    exampleValue="/"
+    cliOpt
+    cliOptAlias="b" 
+ />
+
+### includes
+
+ <TokriptConfigItem
+    command="gen:img"
+    optName="includes"
+    desc="생성될 이미지 파일을 판별하는 패턴으로써, 파일이름이 패턴과 일치할 경우에만 객체에 포함됩니다."
+    type="string[]" 
+    default="['*.jpg', '*.png', '*.svg', '*.jpeg', '*.webp']" 
+    exampleValue="['*.jpg', '*.png']"
+    cliOpt
+    cliOptAlias="ic" 
+ />
+
+### ignored
+
+ <TokriptConfigItem
+    command="gen:img"
+    optName="ignored"
+    desc="제외 될 이미지 파일을 판별하는 패턴으로써, 파일이름이 패턴과 일치할 경우에 객체에서 제외 됩니다."
+    type="string[]" 
+    default="['*node_module*']" 
+    exampleValue="['*.webp', '*.png']"
+    cliOpt
+    cliOptAlias="ig" 
+ />
+
+### oneDepth
+
+ <TokriptConfigItem
+    command="gen:img"
+    optName="oneDepth"
+    desc="one depth  가 true 일 경우, 폴더 구조를 무시하고 one depth 로 객체를 생성합니다."
+    type="boolean" 
+    default="true" 
+    exampleValue="true"
+    cliOpt
+    cliOptAlias="od" 
+ />
+
+### formatKey
+
+ <TokriptConfigItem
+    command="gen:img"
+    optName="formatKey"
+    desc="key 값을 결정할 포멧함수입니다. 기본적으로, SNAKE_UPPER_CASE 로 생성됩니다."
+    type="(fileName: string) => string" 
+    default="(string) => snakeCase(string).toUpperCase()" 
+    exampleValue="(string) => snakeCase(string).toUpperCase()"
+ />

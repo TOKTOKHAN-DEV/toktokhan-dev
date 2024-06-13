@@ -1,0 +1,40 @@
+import Tag from '@site/src/components/@mdx/_Tag.mdx'
+
+# REACT HOOK FORM
+
+### #RHF-1 / React Hook Form 의 hooks 를 custom hook 으로 감싸서 사용합니다.
+
+```tsx
+const useLoginForm = (...) => useForm(...)
+```
+<br/>
+
+### #RHF-2 / react hook form 의 custom hooks 네이밍은 접두사는 <Tag>use</Tag> 접미사는 <Tag>Form</Tag> 을 붙여줍니다.
+
+```tsx
+const useLoginForm = (...) => useForm(...);
+```
+<br/>
+
+### #RHF-3 / React Hook Form 을 사용할 때  유효성 검사를 돕는 라이브러리 <Tag>Yup</Tag> 를 같이 사용합니다.
+
+```tsx
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup/dist/yup.js'
+
+const loginSchema = yup.object({ ... });
+
+const useLoginForm = (...) => {
+  return useForm({
+    resolver: yupResolver(loginSchema),
+    ...
+  })
+}
+```
+<br/>
+
+### #RHF-4 / yup 을 사용하여 만든 유효성 검사를 정의하는 객체는 접미사로 <Tag>schema</Tag> 를 붙여줍니다.
+
+```typescript
+const loginSchema = yup.object({ ... });
+```

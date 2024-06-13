@@ -1,0 +1,390 @@
+import Tag from '@site/src/components/@mdx/_Tag.mdx'
+
+## Naming: Case
+
+기본적인 선언에 대한 네이밍 규칙입니다.
+
+### #JS-1 / Variable: <Tag>camelCase</Tag>
+
+```tsx
+let exampleVariable: null | number = null
+let exampleArray: number[] = [];
+```
+<br/>
+
+### #JS-2 / Constant, Constant Collection: <Tag>SNAKE\_CACE</Tag>
+
+```tsx
+const MAX_LENGTH = 5;
+const TITLES = ["제목1", "제목2", "제목3"];
+```
+<br/>
+
+### #JS-3 / Function: <Tag>camelCase</Tag>
+```ts
+function increaseCount() {...}
+const decreaseCount = () => {...}
+```
+<br/>
+
+### #JS-4 / Parameter: <Tag>camelCase</Tag>
+
+```tsx
+function playAnimation(startTime) {...}
+```
+<br/>
+
+### #JS-5 / Class: <Tag>PascalCase</Tag>
+
+```tsx
+class Animal {...}
+```
+<br/>
+
+### #JS-6 / Class Property: <Tag>camelCase</Tag>
+
+```tsx
+class Person {
+    firstName = "John";
+}
+```
+<br/>
+
+### #JS-7 / Class Method: <Tag>camelCase</Tag>
+
+```tsx
+class Person {
+    walk() {...}
+}
+```
+<br/>
+
+## REST Api
+
+### #JS-8 / `REST Api class` 네이밍은 접미사로 `api` 를 붙여 줍니다.
+
+```typescript
+class ProductApi {
+    getList = async(...) => {...};
+    createProduct = async(...) => {...};
+}
+```
+<br/>
+
+### #JS-9 / `Api class 의 Method` 는 되도록 method 별 관행적인 이름으로 네이밍 합니다.
+
+> method 별 관행적인 이름
+>
+> * GET -> `get`
+> * POST -> `create`
+> * PATCH, PUT -> `update`
+> * DELETE -> `delete`
+
+```tsx
+class ProductApi {
+  createProduct = async (...) => {
+    const { data } = await this.axios({
+      method: 'POST'
+      ...
+    });
+    return data;
+  };
+}
+```
+<br/>
+
+### #JS-10 / 단, `함수의 특정 행동이 부각`되길 원하는경우 그 행동으로 네이밍 합니다.
+
+```tsx
+class ProductApi {
+  validateSoldOut = async (...) => {
+    const { data } = await this.axios({
+      method: 'GET'
+      ...
+    });
+    return data;
+  };
+}
+```
+<br/>
+
+## Code Style: Naming
+
+네이밍시 권장되는 규칙입니다.
+
+### #JS-11 / 명확한 이름 작성하기
+
+`info` / `data`, `특정 숫자`와 같은 모호한 이름 보다 **좀 더 명확한 이름으로 작성**을 고민해보세요.
+
+```tsx
+// bad
+const [index1, index2] = useState();
+const [someData, setSomeData] = useState();
+
+// good
+const [pageIndex, setPageIndex] = useState(0);
+const [selectedCategory, setSelectedCategory] = useState('all');
+```
+<br/>
+
+### #JS-12 / 불필요한 문맥 제거하기
+
+객체나 특정 함수 내에서 불필요하게 중복되는 부분은 제거하는것이 좋습니다.
+
+```tsx
+// bad
+const car = { carName: 'tok', carColor: 'black' };
+// good
+const car = { name: 'tok', color: 'black' };
+```
+<br/>
+
+### #JS-13 /구조분해로 인해 명시적이지 않은 값은 재할당으로 명확히 표현해주기
+
+```typescript
+// bad
+const ResultScreen = () => {
+  const { isOpen, onClose, onOpen } = useDisclose();
+  ...
+}
+// good
+const ResultScreen = () => {
+  const {
+    isOpen: isOpenResultModal,
+    onClose: onCloseResultModal,
+    onOpen: onOpenResultModal,
+  } = useDisclose();
+  ...
+}
+```
+<br/>
+
+### #JS-14 / 함수는 동사로 작성하기
+
+```tsx
+// bad
+const musicPlayer = () => {...}
+// good 
+const playMusic = () => {...} 
+```
+<br/>
+
+### #JS-15 / boolean 관련된 값, 함수는 is, can, has, should 를 사용해주세요
+
+```tsx
+const isMobile = breakpoint === "base"
+const isSelected = (id: number): boolean => {...}
+const hasGreen = (colors: string[]): boolean => {...}
+const canEdit = user.access === "edit"
+```
+<br/>
+
+
+## Code Style: Object
+
+객체에서 권장되는 규칙입니다.
+
+### #JS-16 / 구조 분해 할당을 사용하여 반복되는 코드를 줄여주세요
+
+```tsx
+// Bad
+const item = data.item
+const isValid = data.isValid
+
+// Good
+const { isValid, item } = data
+```
+<br/>
+
+## Code Style: If Statement
+
+조건문에서 권장되는 규칙입니다.
+
+### #JS-17 / 조건은 캡슐화 해주세요
+
+```tsx
+//Bad
+if(!!users.find(isActiveUser) && date.now() > date.createdAt.getTime()) {...}
+
+//Good
+const hasActiveUser = !!user.find(isActiveUser);
+const isBeforeFromNow = date.now() > date.createdAt.getTime()
+
+if(hasActiveUser && isBeforeFromNow) {...}
+```
+<br/>
+
+### #JS-18 / else 문은 되도록 피해주세요
+
+```tsx
+// Bad
+if (isSomeState1) {
+      anyAction1()
+    } else if (isSomeState2) {
+      anuAction2()
+    } else {
+      req = {...}
+      if (!loading) {
+        anyRequest(req)
+      }
+    }
+
+// Good
+//  return 을 사용함으로써, 대부분의 경우에서 else 와 else if 문을 피할 수 있습니다. 
+
+if (isSomeState1) {
+  anyAction1()
+  return;
+}
+if (isSomeState2) {
+  anyAction2()
+  return;
+}
+if (loading) return;
+
+const req = {...}
+anyRequest(req)
+
+```
+<br/>
+
+### #JS-19 / 예외케이스를 우선적으로 리턴해주세요
+
+```tsx
+// Bad
+
+if (isShow)
+    
+
+// Good
+// 예외 상황일때 우선적으로 return 해줌으로써, 코드에 대한 파악이 더욱 쉬워집니다.
+
+if (!isShow) return;
+handleScroll();
+document.addEventListener('scroll', handleScroll)
+
+if (!outerRef.current) return;
+if (window.scrollY >= outerRef.current.offsetTop) return;
+
+setImageY(IMAGE_SHOW);
+setBoxTransFormY([BOX_DOWN, BOX_DOWN, BOX_DOWN, BOX_DOWN]);
+
+```
+<br/>
+
+## Code Style: Function
+
+함수에서 권장되는 규칙입니다.
+
+### #JS-20 / 하나의 함수는 한가지 일만 하게 해주세요
+
+```tsx
+// Bad
+function sendEmailToClient(clients: Client[]) {
+  clients.forEach((client) => {
+    const clientRecord = database.lookup(client);
+    if (clientRecord.isActive()) {
+      email(client);
+    }
+  });
+}
+
+// Good
+function sendEmailToClient(clients: Client[]) {
+  clients.filter(isActiveClient).forEach(email);
+}
+
+function isActiveClient(client: Client) {
+  const clientRecord = database.lookup(client);
+  return clientRecord.isActive();
+}
+```
+<br/>
+
+### #JS-21 /되도록 순수함수로 작성해주세요
+
+```tsx
+//Bad
+let name = 'Robert C. Martin'; // 아래의 함수에서 참조하는 전역 변수입니다.
+
+function convertToBase64() {
+  name = btoa(name);
+}
+convertToBase64(); // 이 이름을 사용하는 다른 함수가 있다면, 그것은 Base64 값을 반환할 것입니다
+console.log(name); // 'Robert C. Martin'이 출력되는 것을 예상했지만 'Um9iZXJ0IEMuIE1hcnRpbg=='가 출력됨
+
+// Good
+const name = 'Robert C. Martin';
+
+function convertToBase64(text: string): string {
+  return btoa(text);
+}
+
+const encodedName = convertToBase64(name);
+console.log(name);\
+```
+<br/>
+
+### #JS-22 / 함수의 매개변수는 2개 이하로 작성해주세요. 많아진다면 하나의 객체로 넘겨줄 수 있습니다.
+
+```typescript
+// Bad
+function createMenu(title: string, body: string, buttonText: string, cancellable: boolean) {
+  // ...
+}
+createMenu('Foo', 'Bar', 'Baz', true);
+
+//Good
+
+function createMenu(options: { title: string, body: string, buttonText: string, cancellable: boolean }) {
+  // ...
+}
+createMenu({
+  title: 'Foo',
+  body: 'Bar',
+  buttonText: 'Baz',
+  cancellable: true
+});
+```
+<br/>
+
+## Code Style: Utils
+
+### #JS-23 / 전역적으로 사용하는 util 은 test 코드를 포함하기
+
+전역적으로 사용하는 함수의 경우엔 재 사용성이 높고, 타인이 사용할 가능성이 높기 때문에 검증이 필수적입니다.
+
+테스트 코드를 통해 브라우저를 실행하지 않고도 검증을 확인 할 수 있으며, 결과값을 알 수 있기 때문에 문서화 효과를 누릴 수 있습니다.
+
+```tsx
+export const formatNumberKR = (num: number) => num.toLocaleString('ko-KR');
+```
+
+```tsx
+import { formatNumberKR } from '../format-number-kr';
+
+describe('formatNumberKR', () => {
+  it('should format number to Korean locale string', () => {
+    expect(formatNumberKR(1000000)).toBe('1,000,000');
+    expect(formatNumberKR(123456789)).toBe('123,456,789');
+    expect(formatNumberKR(1234.567)).toBe('1,234.567');
+    expect(formatNumberKR(-987654321)).toBe('-987,654,321');
+    expect(formatNumberKR(0)).toBe('0');
+
+    // 주의 : 소수점4째 자리 부터는 반올림 처리 됩니다.
+    expect(formatNumberKR(1234.5674)).toBe('1,234.567');
+    expect(formatNumberKR(1234.5676)).toBe('1,234.568');
+  });
+});
+
+```
+
+
+## Reference
+
+클린 코드에 관심이 많으신가요?
+
+저희의 코드 컨벤션은 여러 문서 중, 아래 두 문서를 주로 참고하여 작성되었습니다.
+
+### [Clean Code TypeScript](https://github.com/738/clean-code-typescript)
+
