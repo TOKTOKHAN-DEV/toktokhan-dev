@@ -1,0 +1,37 @@
+{
+  "name": "@toktokhan-dev/universal",
+  "version": "0.0.0",
+  "description": "",
+  "type": "module",
+  "files": [
+    "dist",
+    "!dist/*.map"
+  ],
+  "main": "dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "dev": "pnpm build && node dist/index.js",
+    "build": "rollup -c",
+    "build:watch": "rollup -c --watch",
+    "play": "pnpm build:watch & node --watch play/playground.js",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "api-extractor": "api-extractor run --local --verbose"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@toktokhan-dev/ts-config": "workspace:*",
+    "@types/lodash": "^4.17.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
