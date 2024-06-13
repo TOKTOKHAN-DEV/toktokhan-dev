@@ -1,0 +1,52 @@
+{
+  "name": "@toktokhan-dev/cli",
+  "version": "0.0.0",
+  "type": "module",
+  "description": "",
+  "main": "dist/index.js",
+  "files": [
+    "dist",
+    "bin",
+    "!dist/*.map"
+  ],
+  "bin": {
+    "tokript2": "bin/run.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "dev": "pnpm build && node bin/run.js",
+    "local": "npm i -g && @toktokhan-dev/init",
+    "build": "rollup -c",
+    "build:watch": "rollup -c --watch",
+    "play": "pnpm build:watch & node --watch play/playground.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "api-extractor": "api-extractor run --local --verbose"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@toktokhan-dev/ts-config": "workspace:*",
+    "@types/clear": "^0.1.4",
+    "@types/lodash": "^4.17.0"
+  },
+  "dependencies": {
+    "@toktokhan-dev/node": "workspace:*",
+    "@toktokhan-dev/universal": "workspace:*",
+    "@types/figlet": "^1.5.8",
+    "bundle-require": "^4.0.2",
+    "chalk": "^5.3.0",
+    "clear": "^0.1.0",
+    "commander": "^12.0.0",
+    "enquirer": "^2.4.1",
+    "figlet": "^1.7.0",
+    "joycon": "^3.1.1",
+    "lodash": "^4.17.21"
+  }
+}
