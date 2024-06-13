@@ -1,0 +1,47 @@
+{
+  "name": "@toktokhan-dev/react-app",
+  "version": "0.0.0",
+  "author": "TOKTOKHAN.DEV <dev@toktokhan.dev>",
+  "description": "Tokotokhan-fe react-web library",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TOKTOKHAN-DEV/toktokhan-dev.git",
+    "directory": "packages/react/app"
+  },
+  "keywords": [
+    "react-app",
+    "utils",
+    "hooks",
+    "toktokhan-dev"
+  ],
+  "bugs": {
+    "url": "https://github.com/TOKTOKHAN-DEV/toktokhan-dev/issues"
+  },
+  "homepage": "https://github.com/TOKTOKHAN-DEV/toktokhan-dev#readme",
+  "main": "./dist/index.mjs",
+  "files": [
+    "dist",
+    "!dist/*.map"
+  ],
+  "scripts": {
+    "build": "echo 'not implemented'",
+    "api-extractor": "api-extractor run --local --verbose"
+  },
+  "dependencies": {
+    "dayjs": "^1.10.6",
+    "react": "^18.2.0",
+    "@tanstack/react-query": "^4.2.3",
+    "@toktokhan-dev/react-universal": "workspace:*"
+  },
+  "devDependencies": {
+    "@toktokhan-dev/ts-config": "workspace:*"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  }
+}
