@@ -1,0 +1,316 @@
+{
+  "metadata": {
+    "toolPackage": "@microsoft/api-extractor",
+    "toolVersion": "7.46.1",
+    "schemaVersion": 1011,
+    "oldestForwardsCompatibleVersion": 1001,
+    "tsdocConfig": {
+      "$schema": "https://developer.microsoft.com/json-schemas/tsdoc/v0/tsdoc.schema.json",
+      "noStandardTags": true,
+      "tagDefinitions": [
+        {
+          "tagName": "@alpha",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@beta",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@defaultValue",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@decorator",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@deprecated",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@eventProperty",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@example",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@experimental",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@inheritDoc",
+          "syntaxKind": "inline"
+        },
+        {
+          "tagName": "@internal",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@label",
+          "syntaxKind": "inline"
+        },
+        {
+          "tagName": "@link",
+          "syntaxKind": "inline",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@override",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@packageDocumentation",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@param",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@privateRemarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@public",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@readonly",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@remarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@returns",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@sealed",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@see",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@throws",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@typeParam",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@virtual",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@betaDocumentation",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@internalRemarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@preapproved",
+          "syntaxKind": "modifier"
+        }
+      ],
+      "supportForTags": {
+        "@alpha": true,
+        "@beta": true,
+        "@defaultValue": true,
+        "@decorator": true,
+        "@deprecated": true,
+        "@eventProperty": true,
+        "@example": true,
+        "@experimental": true,
+        "@inheritDoc": true,
+        "@internal": true,
+        "@label": true,
+        "@link": true,
+        "@override": true,
+        "@packageDocumentation": true,
+        "@param": true,
+        "@privateRemarks": true,
+        "@public": true,
+        "@readonly": true,
+        "@remarks": true,
+        "@returns": true,
+        "@sealed": true,
+        "@see": true,
+        "@throws": true,
+        "@typeParam": true,
+        "@virtual": true,
+        "@betaDocumentation": true,
+        "@internalRemarks": true,
+        "@preapproved": true
+      },
+      "reportUnsupportedHtmlElements": false
+    }
+  },
+  "kind": "Package",
+  "canonicalReference": "@toktokhan-dev/cli-plugin-gen-theme-chakra!",
+  "docComment": "/**\n * theme json 파일기반으로 `Chakra theme token`을 생성합니다.\n *\n * @packageDocumentation\n */\n",
+  "name": "@toktokhan-dev/cli-plugin-gen-theme-chakra",
+  "preserveMemberOrder": false,
+  "members": [
+    {
+      "kind": "EntryPoint",
+      "canonicalReference": "@toktokhan-dev/cli-plugin-gen-theme-chakra!",
+      "name": "",
+      "preserveMemberOrder": false,
+      "members": [
+        {
+          "kind": "Interface",
+          "canonicalReference": "@toktokhan-dev/cli-plugin-gen-theme-chakra!GenColorConfig:interface",
+          "docComment": "/**\n  */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "interface GenColorConfig "
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "GenColorConfig",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/cli-plugin-gen-theme-chakra!GenColorConfig#input:member",
+              "docComment": "/**\n * theme.json 경로입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "input: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "input",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/cli-plugin-gen-theme-chakra!GenColorConfig#output:member",
+              "docComment": "/**\n * chakra theme token이 생성되는 폴더입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "output: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "output",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/cli-plugin-gen-theme-chakra!GenColorConfig#tokenModes:member",
+              "docComment": "/**\n * chakra Semantic token color mode의 키 값을 지정할 수 있습니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "tokenModes: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "{\n    light: string;\n    dark?: string;\n  }"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "tokenModes",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": [],
+          "parameters": []
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@toktokhan-dev/cli-plugin-gen-theme-chakra!genTheme:var",
+          "docComment": "/**\n  */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "genTheme: "
+            },
+            {
+              "kind": "Reference",
+              "text": "_toktokhan_dev_cli.MyCommand",
+              "canonicalReference": "@toktokhan-dev/cli!MyCommand:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "GenColorConfig",
+              "canonicalReference": "@toktokhan-dev/cli-plugin-gen-theme-chakra!GenColorConfig:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", \"gen:theme\">"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "genTheme",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 5
+          },
+          "parameters": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,5866 @@
+{
+  "metadata": {
+    "toolPackage": "@microsoft/api-extractor",
+    "toolVersion": "7.46.1",
+    "schemaVersion": 1011,
+    "oldestForwardsCompatibleVersion": 1001,
+    "tsdocConfig": {
+      "$schema": "https://developer.microsoft.com/json-schemas/tsdoc/v0/tsdoc.schema.json",
+      "noStandardTags": true,
+      "tagDefinitions": [
+        {
+          "tagName": "@alpha",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@beta",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@defaultValue",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@decorator",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@deprecated",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@eventProperty",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@example",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@experimental",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@inheritDoc",
+          "syntaxKind": "inline"
+        },
+        {
+          "tagName": "@internal",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@label",
+          "syntaxKind": "inline"
+        },
+        {
+          "tagName": "@link",
+          "syntaxKind": "inline",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@override",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@packageDocumentation",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@param",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@privateRemarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@public",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@readonly",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@remarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@returns",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@sealed",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@see",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@throws",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@typeParam",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@virtual",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@betaDocumentation",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@internalRemarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@preapproved",
+          "syntaxKind": "modifier"
+        }
+      ],
+      "supportForTags": {
+        "@alpha": true,
+        "@beta": true,
+        "@defaultValue": true,
+        "@decorator": true,
+        "@deprecated": true,
+        "@eventProperty": true,
+        "@example": true,
+        "@experimental": true,
+        "@inheritDoc": true,
+        "@internal": true,
+        "@label": true,
+        "@link": true,
+        "@override": true,
+        "@packageDocumentation": true,
+        "@param": true,
+        "@privateRemarks": true,
+        "@public": true,
+        "@readonly": true,
+        "@remarks": true,
+        "@returns": true,
+        "@sealed": true,
+        "@see": true,
+        "@throws": true,
+        "@typeParam": true,
+        "@virtual": true,
+        "@betaDocumentation": true,
+        "@internalRemarks": true,
+        "@preapproved": true
+      },
+      "reportUnsupportedHtmlElements": false
+    }
+  },
+  "kind": "Package",
+  "canonicalReference": "@toktokhan-dev/universal!",
+  "docComment": "/**\n * 웹,앱 환경에서 사용가능한 유틸리티 라이브러리입니다.\n *\n * @packageDocumentation\n */\n",
+  "name": "@toktokhan-dev/universal",
+  "preserveMemberOrder": false,
+  "members": [
+    {
+      "kind": "EntryPoint",
+      "canonicalReference": "@toktokhan-dev/universal!",
+      "name": "",
+      "preserveMemberOrder": false,
+      "members": [
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/universal!add:function(1)",
+          "docComment": "/**\n  *\n * 두개의 숫자를 더합니다. 부정확 할 수 있는 부동 소수점 연산을 보정합니다.\n *\n * @param a - 첫번째 숫자\n *\n * @param b - 두번째 숫자\n *\n * @returns 두 숫자를 더한 결과\n *\n * @example\n * ```ts\n * add(0.1, 0.2) // 0.3\n * add(0.1)(0.2) // 0.3\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "add: (a: "
+            },
+            {
+              "kind": "Content",
+              "text": "number"
+            },
+            {
+              "kind": "Content",
+              "text": ", b: "
+            },
+            {
+              "kind": "Content",
+              "text": "number"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "number"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 5,
+            "endIndex": 6
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "a",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "b",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "add"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/universal!arrayToMap:function(1)",
+          "docComment": "/**\n * 배열을 Map으로 변환합니다. 각 요소는 지정된 키 선택기 함수를 통해 매핑됩니다.\n *\n * @curried  *\n * @param keySelector - 배열 요소를 Map의 키로 변환하는 함수\n *\n * @param arr - 변환할 배열\n *\n * @typeParam T - 배열 요소의 타입\n *\n * @typeParam K - Map의 키 타입\n *\n * @returns 배열의 각 요소를 Map으로 매핑한 결과\n *\n * @example\n * ```ts\n * const arr = [\n *  { id: 1, name: 'Alice' },\n *  { id: 2, name: 'Bob' },\n *  { id: 3, name: 'Charlie' },\n * ];\n *\n * const map = arrayToMap((item) => item.id , arr);\n * // or\n * const map = arrayToMap((item) => item.id)(arr);\n * // or\n * const mapById = arrayToMap((item) => item.id);\n * const map = mapById(arr);\n *\n * console.log(map)\n * // Map {\n * //   1 => { id: 1, name: 'Alice' },\n * //   2 => { id: 2, name: 'Bob' },\n * //   3 => { id: 3, name: 'Charlie' },\n * // }\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "arrayToMap: <T, K>(keySelector: "
+            },
+            {
+              "kind": "Content",
+              "text": "(data: T) => K"
+            },
+            {
+              "kind": "Content",
+              "text": ", arr: "
+            },
+            {
+              "kind": "Content",
+              "text": "T[]"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Reference",
+              "text": "Map",
+              "canonicalReference": "!Map:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<K, T>"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 5,
+            "endIndex": 7
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "keySelector",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "arr",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": false
+            }
+          ],
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            },
+            {
+              "typeParameterName": "K",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "name": "arrayToMap"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/universal!arrayToRecord:function(1)",
+          "docComment": "/**\n * 배열을 Record로 변환합니다. 각 요소는 지정된 키 선택기 함수를 통해 매핑됩니다.\n *\n * @curried  *\n * @param keySelector - 배열 요소를 Record의 키로 변환하는 함수\n *\n * @param arr - 변환할 배열\n *\n * @typeParam T - 배열 요소의 타입\n *\n * @typeParam K - Record의 키 타입 (string, number, symbol)\n *\n * @returns 배열의 각 요소를 Record으로 매핑한 결과\n *\n * @example\n * ```ts\n * const arr = [\n *   { id: 1, name: 'Alice' },\n *   { id: 2, name: 'Bob' },\n *   { id: 3, name: 'Charlie' },\n * ];\n *\n * const record = arrayToRecord((item) => item.id , arr);\n * // or\n * const record = arrayToRecord((item) => item.id)(arr);\n * // or\n * const recordById = arrayToRecord((item) => item.id);\n * const record = recordById(arr);\n *\n * console.log(record)\n * // {\n * //   1: { id: 1, name: 'Alice' },\n * //   2: { id: 2, name: 'Bob' },\n * //   3: { id: 3, name: 'Charlie' },\n * // }\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "arrayToRecord: <T, K extends "
+            },
+            {
+              "kind": "Content",
+              "text": "string | number | symbol"
+            },
+            {
+              "kind": "Content",
+              "text": ">(keySelector: "
+            },
+            {
+              "kind": "Content",
+              "text": "(data: T) => K"
+            },
+            {
+              "kind": "Content",
+              "text": ", arr: "
+            },
+            {
+              "kind": "Content",
+              "text": "T[]"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Reference",
+              "text": "Record",
+              "canonicalReference": "!Record:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<K, T>"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 7,
+            "endIndex": 9
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "keySelector",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "arr",
+              "parameterTypeTokenRange": {
+                "startIndex": 5,
+                "endIndex": 6
+              },
+              "isOptional": false
+            }
+          ],
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            },
+            {
+              "typeParameterName": "K",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "name": "arrayToRecord"
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/universal!AsyncFn:type",
+          "docComment": "/**\n * 비동기 함수의 타입을 정의합니다.\n *\n  *\n * @typeParam P - 함수에 전달될 매개변수의 타입 배열\n *\n * @typeParam R - 함수의 반환값의 타입\n *\n * @returns 비동기 함수의 반환값을 나타내는 Promise를 반환하는 함수 타입\n *\n * @example\n * ```typescript\n * // 비동기 함수의 타입 정의\n * type FetchData = AsyncFn<[url: string], string>;\n *\n * // 비동기 함수의 사용 예시\n * const fetchData: FetchData = async (url) => {\n *   const response = await fetch(url);\n *   return response.text();\n * };\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type AsyncFn<P extends "
+            },
+            {
+              "kind": "Content",
+              "text": "any[]"
+            },
+            {
+              "kind": "Content",
+              "text": " = "
+            },
+            {
+              "kind": "Content",
+              "text": "any[]"
+            },
+            {
+              "kind": "Content",
+              "text": ", R = "
+            },
+            {
+              "kind": "Content",
+              "text": "any"
+            },
+            {
+              "kind": "Content",
+              "text": "> = "
+            },
+            {
+              "kind": "Reference",
+              "text": "Fn",
+              "canonicalReference": "@toktokhan-dev/universal!Fn:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<P, "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<R>>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "AsyncFn",
+          "typeParameters": [
+            {
+              "typeParameterName": "P",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              }
+            },
+            {
+              "typeParameterName": "R",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 5,
+                "endIndex": 6
+              }
+            }
+          ],
+          "typeTokenRange": {
+            "startIndex": 7,
+            "endIndex": 11
+          },
+          "parameters": []
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/universal!AsyncFnReturn:type",
+          "docComment": "/**\n * 비동기 함수의 반환값 타입을 추출합니다.\n *\n  *\n * @typeParam T - 비동기 함수의 타입\n *\n * @returns 비동기 함수의 반환값의 타입\n *\n * @example\n * ```tsx\n * type Example = AsyncFnReturn<() => Promise<number>>;\n * // type Example = number\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type AsyncFnReturn<T extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "AsyncFn",
+              "canonicalReference": "@toktokhan-dev/universal!AsyncFn:type"
+            },
+            {
+              "kind": "Content",
+              "text": "> = "
+            },
+            {
+              "kind": "Reference",
+              "text": "Awaited",
+              "canonicalReference": "!Awaited:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "ReturnType",
+              "canonicalReference": "!ReturnType:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<T>>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "AsyncFnReturn",
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "typeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 7
+          },
+          "parameters": []
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/universal!byteFrom:function(1)",
+          "docComment": "/**\n  *\n * 특정 바이트 단위를 바이트로 변환합니다.\n *\n * @param from - 변환할 바이트 단위\n *\n * @param value - 변환할 값\n *\n * @returns 변환된 바이트 값\n *\n * @example\n * ```ts\n * byteFrom('KB', 1) // 1024\n * byteFrom('KB')(1) // 1024\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "byteFrom: (from: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ByteUnit",
+              "canonicalReference": "@toktokhan-dev/universal!ByteUnit:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", value: "
+            },
+            {
+              "kind": "Content",
+              "text": "number"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "number"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 5,
+            "endIndex": 6
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "from",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "value",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "byteFrom"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/universal!byteFromTo:function(1)",
+          "docComment": "/**\n  *\n * 특정 바이트 단위를 다른 바이트 단위로 변환합니다.\n *\n * @param from - 변환할 바이트 단위\n *\n * @param to - 변환될 바이트 단위\n *\n * @param value - 변환할 값\n *\n * @returns 변환된 바이트 값\n *\n * @example\n * ```ts\n * const KbToB = byteFromTo('KB', 'B')\n * KbToB(1) // 1024\n *\n * const GBToMb = byteFromTo('gb', 'mb')\n * GBToMb(1) // 1024\n *\n * byteFromTo('KB', 'B', 1) // 1024\n * byteFromTo('KB')('B')(1) // 1024\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "byteFromTo: (from: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ByteUnit",
+              "canonicalReference": "@toktokhan-dev/universal!ByteUnit:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", to: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ByteUnit",
+              "canonicalReference": "@toktokhan-dev/universal!ByteUnit:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", value: "
+            },
+            {
+              "kind": "Content",
+              "text": "number"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "number"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 7,
+            "endIndex": 8
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "from",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "to",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "value",
+              "parameterTypeTokenRange": {
+                "startIndex": 5,
+                "endIndex": 6
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "byteFromTo"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/universal!byteTo:function(1)",
+          "docComment": "/**\n  *\n * 바이트를 특정 바이트 단위로 변환합니다.\n *\n * @param to - 변환할 바이트 단위\n *\n * @param value - 변환할 값\n *\n * @returns 변환된 바이트 값\n *\n * @example\n * ```ts\n * byteTo('KB', 1024) // 1\n * byteTo('KB')(1024) // 1\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "byteTo: (to: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ByteUnit",
+              "canonicalReference": "@toktokhan-dev/universal!ByteUnit:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", value: "
+            },
+            {
+              "kind": "Content",
+              "text": "number"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "number"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 5,
+            "endIndex": 6
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "to",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "value",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "byteTo"
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/universal!ByteUnit:type",
+          "docComment": "/**\n * 데이터의 양을 나타내는 바이트 단위를 나타내는 타입입니다.\n *\n  */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type ByteUnit = "
+            },
+            {
+              "kind": "Content",
+              "text": "'B' | 'KB' | 'MB' | 'GB' | 'TB'"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "ByteUnit",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          },
+          "parameters": []
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/universal!collect:function(1)",
+          "docComment": "/**\n  *\n * arguments 를 배열로써 반환합니다.\n *\n * @param args - arguments\n *\n * @returns arguments 를 배열로써 반환합니다.\n *\n * @example\n * ```ts\n * collect(1, 2, 3) // [1, 2, 3]\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "collect: <T>(...args: "
+            },
+            {
+              "kind": "Content",
+              "text": "T[]"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "T[]"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "args",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "name": "collect"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/universal!createObjBySelector:function(1)",
+          "docComment": "/**\n * 객체에서 선택된 속성을 기반으로 새로운 객체를 생성합니다.  *\n * @param mapper - 선택된 속성과 각 속성 값의 생성 함수로 이루어진 매핑 객체\n *\n * @param prev - 입력 객체\n *\n * @typeParam T - 입력 객체의 타입\n *\n * @typeParam N - 생성된 객체의 각 속성 값의 타입\n *\n * @typeParam M - 선택된 속성과 반환값의 매핑\n *\n * @returns 선택된 속성을 기반으로 생성된 객체\n *\n * @example\n * ```typescript\n * const data = { a: 1, b: 2, c: 3 };\n * const selectors = {\n *   sum: ({ a, b, c }) => a + b + c,\n *   product: ({ a, b, c }) => a * b * c,\n * };\n *\n * const result = createObjBySelector(selectors, data);\n * const result = createObjBySelector(selectors)(data);\n *\n * console.log(result); // { sum: 6, product: 6 }\n * ```\n *\n * @curried\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "createObjBySelector: <T, M extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "ObjSelectorMap",
+              "canonicalReference": "@toktokhan-dev/universal!ObjSelectorMap:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<T>"
+            },
+            {
+              "kind": "Content",
+              "text": " = "
+            },
+            {
+              "kind": "Reference",
+              "text": "ObjSelectorMap",
+              "canonicalReference": "@toktokhan-dev/universal!ObjSelectorMap:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<T>"
+            },
+            {
+              "kind": "Content",
+              "text": ">(mapper: "
+            },
+            {
+              "kind": "Content",
+              "text": "M"
+            },
+            {
+              "kind": "Content",
+              "text": ", prev: "
+            },
+            {
+              "kind": "Content",
+              "text": "T"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Reference",
+              "text": "ObjSelectorMapResult",
+              "canonicalReference": "@toktokhan-dev/universal!ObjSelectorMapResult:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<T, M>"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 11,
+            "endIndex": 13
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "mapper",
+              "parameterTypeTokenRange": {
+                "startIndex": 7,
+                "endIndex": 8
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "prev",
+              "parameterTypeTokenRange": {
+                "startIndex": 9,
+                "endIndex": 10
+              },
+              "isOptional": false
+            }
+          ],
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            },
+            {
+              "typeParameterName": "M",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 4,
+                "endIndex": 6
+              }
+            }
+          ],
+          "name": "createObjBySelector"
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/universal!DataOrFn:type",
+          "docComment": "/**\n * 데이터 또는 함수를 나타내는 타입입니다.\n *\n  *\n * @param prev - 이전 값을 받아 새로운 값을 반환하는 함수\n *\n * @typeParam T - 데이터 또는 함수의 타입\n *\n * @returns 데이터 또는 함수\n *\n * @example\n * ```tsx\n * const data: DataOrFn<number> = 42; // 데이터\n * const fn: DataOrFn<number> = (prev) => prev + 1; // 함수\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type DataOrFn$1<T> = "
+            },
+            {
+              "kind": "Content",
+              "text": "T | ((prev: T) => T)"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "DataOrFn",
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          },
+          "parameters": []
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/universal!DeepKeyOf:type",
+          "docComment": "/**\n * 객체의 깊은 키를 나타내는 타입을 추출합니다.\n *\n  *\n * @typeParam T - 깊은 키를 추출할 객체의 타입\n *\n * @returns 객체의 깊은 키를 나타내는 타입\n *\n * @example\n * ```typescript\n * type DeepKeys = DeepKeyOf<{\n *   a: {\n *     b: number;\n *     c: {\n *       d: string[];\n *     };\n *   };\n * }>;\n * // type DeepKeys = 'a' | 'a.b' | 'a.c' | 'a.c.d' | `a.c.d.${number}`\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type DeepKeyOf<T> = "
+            },
+            {
+              "kind": "Content",
+              "text": "T extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Array",
+              "canonicalReference": "!Array:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<any> ? { [K in "
+            },
+            {
+              "kind": "Reference",
+              "text": "Indices",
+              "canonicalReference": "@toktokhan-dev/universal!Indices:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<T>]: K extends number | string ? T[K] extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Obj",
+              "canonicalReference": "@toktokhan-dev/universal!Obj:type"
+            },
+            {
+              "kind": "Content",
+              "text": " | "
+            },
+            {
+              "kind": "Reference",
+              "text": "Array",
+              "canonicalReference": "!Array:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<any> ? K | `${K}.${"
+            },
+            {
+              "kind": "Reference",
+              "text": "DeepKeyOf",
+              "canonicalReference": "@toktokhan-dev/universal!DeepKeyOf:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<T[K]>}` : K : K }["
+            },
+            {
+              "kind": "Reference",
+              "text": "Indices",
+              "canonicalReference": "@toktokhan-dev/universal!Indices:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<T>] : T extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Obj",
+              "canonicalReference": "@toktokhan-dev/universal!Obj:type"
+            },
+            {
+              "kind": "Content",
+              "text": " ? { [K in keyof T]: `${K extends string | number ? K | (T[K] extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Obj",
+              "canonicalReference": "@toktokhan-dev/universal!Obj:type"
+            },
+            {
+              "kind": "Content",
+              "text": " | "
+            },
+            {
+              "kind": "Reference",
+              "text": "Array",
+              "canonicalReference": "!Array:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<any> ? "
+            },
+            {
+              "kind": "Reference",
+              "text": "DeepKeyOf",
+              "canonicalReference": "@toktokhan-dev/universal!DeepKeyOf:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<T[K]> extends string | number ? `${K}.${"
+            },
+            {
+              "kind": "Reference",
+              "text": "DeepKeyOf",
+              "canonicalReference": "@toktokhan-dev/universal!DeepKeyOf:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<T[K]>}` : never : K) : never}` }[keyof T] : never"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "DeepKeyOf",
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 24
+          },
+          "parameters": []
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/universal!DeepMutable:type",
+          "docComment": "/**\n * 객체의 모든 속성에서 readonly 를 제거해줍니다.\n *\n  *\n * @typeParam T - 객체 타입\n *\n * @returns 모든 속성 readonly 가 제거 된 객체의 타입\n *\n * @example\n * ```tsx\n * type Example = DeepMutable<{\n *  readonly a: number;\n *  readonly b: { readonly c: number; readonly d: string };\n *  }>;\n *\n *  // type Example = {\n *  // a: number;\n *  // b: { c : number; d : string };\n *  // }\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type DeepMutable<T extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Record",
+              "canonicalReference": "!Record:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<any, any> | undefined"
+            },
+            {
+              "kind": "Content",
+              "text": "> = "
+            },
+            {
+              "kind": "Reference",
+              "text": "Mutable",
+              "canonicalReference": "@toktokhan-dev/universal!Mutable:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<{ [K in keyof T]: T[K] extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Record",
+              "canonicalReference": "!Record:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<any, any> | undefined ? "
+            },
+            {
+              "kind": "Reference",
+              "text": "Mutable",
+              "canonicalReference": "@toktokhan-dev/universal!Mutable:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<T[K]> : T[K] }>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "DeepMutable",
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "typeTokenRange": {
+            "startIndex": 4,
+            "endIndex": 10
+          },
+          "parameters": []
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/universal!DeepNullAble:type",
+          "docComment": "/**\n * 객체의 모든 속성을 null 가능하게 만드는 타입을 정의합니다.\n *\n  *\n * @typeParam T - null 가능한 속성을 추출할 객체의 타입\n *\n * @returns 모든 속성이 null 가능한 객체의 타입\n *\n * @example\n * ```typescript\n * type NullablePerson = DeepNullable<{\n *   name: string;\n *   age: number;\n *   address: {\n *     city: string;\n *     postalCode: number;\n *   };\n * }>;\n * // type NullablePerson = {\n * //   name: string | null;\n * //   age: number | null;\n * //   address: {\n * //     city: string | null;\n * //     postalCode: number | null;\n * //   } | null;\n * // }\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type DeepNullAble<T extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Obj",
+              "canonicalReference": "@toktokhan-dev/universal!Obj:type"
+            },
+            {
+              "kind": "Content",
+              "text": " | undefined"
+            },
+            {
+              "kind": "Content",
+              "text": "> = "
+            },
+            {
+              "kind": "Reference",
+              "text": "NullAble",
+              "canonicalReference": "@toktokhan-dev/universal!NullAble:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<{ [K in keyof T]: T[K] extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Obj",
+              "canonicalReference": "@toktokhan-dev/universal!Obj:type"
+            },
+            {
+              "kind": "Content",
+              "text": " | undefined ? "
+            },
+            {
+              "kind": "Reference",
+              "text": "NullAble",
+              "canonicalReference": "@toktokhan-dev/universal!NullAble:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<T[K]> : T[K] }>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "DeepNullAble",
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "typeTokenRange": {
+            "startIndex": 4,
+            "endIndex": 10
+          },
+          "parameters": []
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/universal!DeepOmitReadOnly:type",
+          "docComment": "/**\n * 객체의 모든 읽기 전용 속성을 제거하는 타입을 정의합니다.\n *\n  *\n * @typeParam T - 읽기 전용 속성을 제거할 객체의 타입\n *\n * @returns 모든 읽기 전용 속성이 제거된 객체의 타입\n *\n * @example\n * ```typescript\n * type MutablePerson = DeepOmitReadOnly<{\n *   readonly name: string;\n *   readonly age: number;\n *   address: {\n *     readonly city: string;\n *     postalCode: number;\n *   };\n * }>;\n * // type MutablePerson = {\n * //   address: {\n * //     postalCode: number;\n * //   };\n * // }\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type DeepOmitReadOnly<T extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Obj",
+              "canonicalReference": "@toktokhan-dev/universal!Obj:type"
+            },
+            {
+              "kind": "Content",
+              "text": " | undefined"
+            },
+            {
+              "kind": "Content",
+              "text": "> = "
+            },
+            {
+              "kind": "Reference",
+              "text": "Omit",
+              "canonicalReference": "!Omit:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<{ [P in keyof T]: T[P] extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Obj",
+              "canonicalReference": "@toktokhan-dev/universal!Obj:type"
+            },
+            {
+              "kind": "Content",
+              "text": " | undefined ? "
+            },
+            {
+              "kind": "Reference",
+              "text": "DeepOmitReadOnly",
+              "canonicalReference": "@toktokhan-dev/universal!DeepOmitReadOnly:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "NonNullable",
+              "canonicalReference": "!NonNullable:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<T[P]>> : T[P] }, "
+            },
+            {
+              "kind": "Reference",
+              "text": "ReadonlyKeysOf",
+              "canonicalReference": "@toktokhan-dev/universal!ReadonlyKeysOf:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "NonNullable",
+              "canonicalReference": "!NonNullable:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<T>>>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "DeepOmitReadOnly",
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "typeTokenRange": {
+            "startIndex": 4,
+            "endIndex": 16
+          },
+          "parameters": []
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/universal!DeepPartial:type",
+          "docComment": "/**\n * 객체의 모든 속성을 옵셔널하게 만듭니다\n *\n  *\n * @typeParam T - 객체의 타입\n *\n * @returns 모든 속성이 옵셔널하게 만들어진 객체의 타입\n *\n * @example\n * ```tsx\n * type Example = DeepPartial<{\n *    a: number;\n *    b: { c : number; d : string };\n * }>;\n *\n * Example = {\n *    a?: number;\n *    b?: { c? : number; d? : string };\n * }\n * ```\n *\n * tsx\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type DeepPartial<T extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Obj",
+              "canonicalReference": "@toktokhan-dev/universal!Obj:type"
+            },
+            {
+              "kind": "Content",
+              "text": " | undefined"
+            },
+            {
+              "kind": "Content",
+              "text": "> = "
+            },
+            {
+              "kind": "Reference",
+              "text": "Partial",
+              "canonicalReference": "!Partial:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<{ [K in keyof T]: T[K] extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Obj",
+              "canonicalReference": "@toktokhan-dev/universal!Obj:type"
+            },
+            {
+              "kind": "Content",
+              "text": " | undefined ? "
+            },
+            {
+              "kind": "Reference",
+              "text": "Partial",
+              "canonicalReference": "!Partial:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<T[K]> : T[K] }>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "DeepPartial",
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "typeTokenRange": {
+            "startIndex": 4,
+            "endIndex": 10
+          },
+          "parameters": []
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/universal!DeepValueOf:type",
+          "docComment": "/**\n * 객체의 깊은 속성 값을 추출하는 타입을 정의합니다.\n *\n  *\n * @typeParam T - 깊은 속성 값을 추출할 객체의 타입\n *\n * @typeParam K - 추출할 속성의 경로를 나타내는 타입\n *\n * @returns 객체의 깊은 속성 값의 타입\n *\n * @example\n * ```typescript\n * type Example = {\n *   a: {\n *     b: number;\n *     c: {\n *       d: string[];\n *     };\n *   };\n * }\n *\n * // 객체의 깊은 속성 값 타입 추출\n * type Value = DeepValueOf<Example, 'a.c.d'>;\n * // type Value = string[]\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type DeepValueOf<T, K extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "DeepKeyOf",
+              "canonicalReference": "@toktokhan-dev/universal!DeepKeyOf:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<T> | (string & {})"
+            },
+            {
+              "kind": "Content",
+              "text": "> = "
+            },
+            {
+              "kind": "Content",
+              "text": "K extends `${infer Key}.${infer Rest}` ? Key extends keyof T ? "
+            },
+            {
+              "kind": "Reference",
+              "text": "DeepValueOf",
+              "canonicalReference": "@toktokhan-dev/universal!DeepValueOf:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<T[Key], Rest> : never : K extends keyof T ? T[K] : never"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "DeepValueOf",
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            },
+            {
+              "typeParameterName": "K",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "typeTokenRange": {
+            "startIndex": 4,
+            "endIndex": 7
+          },
+          "parameters": []
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/universal!delay:function(1)",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "delay: (ms: "
+            },
+            {
+              "kind": "Content",
+              "text": "number"
+            },
+            {
+              "kind": "Content",
+              "text": ", option?: "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n  success?: any;\n  error?: any;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<unknown>"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 5,
+            "endIndex": 7
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "ms",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "option",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": true
+            }
+          ],
+          "name": "delay"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/universal!devide:function(1)",
+          "docComment": "/**\n  *\n * 두개의 숫자를 나눕니다. 부정확 할 수 있는 부동 소수점 연산을 보정합니다.\n *\n * @param a - 첫번째 숫자\n *\n * @param b - 두번째 숫자\n *\n * @returns 두 숫자를 나눈 결과\n *\n * @example\n * ```ts\n * devide(0.3, 0.1) // 3\n * devide(0.3)(0.1) // 3\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "devide: (a: "
+            },
+            {
+              "kind": "Content",
+              "text": "number"
+            },
+            {
+              "kind": "Content",
+              "text": ", b: "
+            },
+            {
+              "kind": "Content",
+              "text": "number"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "number"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 5,
+            "endIndex": 6
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "a",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "b",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "devide"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/universal!effect:function(1)",
+          "docComment": "/**\n * 함수를 실행하고, 인자를 그대로 반환합니다. 컴포넌트 합성시(lodash.flow) 함수의 응닶값에 영향을 미치지 않고 특정 함수를 실행시키고 싶을 경우 유용합니다.\n *\n  *\n * @param fn - 실행할 함수\n *\n * @param x - 실행할 함수에 전달할 인자\n *\n * @typeParam T - 함수에 전달할 인자의 타입\n *\n * @returns 실행할 함수에 전달한 인자\n *\n * @example\n * ```ts\n * effect(console.log, 'hello') // 'hello'를 출력하고 'hello'를 반환합니다.\n *\n * effect(console.log)('hello') // 'hello'를 출력하고 'hello'를 반환합니다.\n *\n * const log = effect(console.log)\n * log('hello') // 'hello'를 출력하고 'hello'를 반환합니다.\n *\n * const dotToDash = flow(split(\".\"), effect(console.log), join('-'))\n * dotToDash('a.b.c') // ['a', 'b', 'c'] 를 출력하고 'a-b-c'를 반환합니다.\n * ```\n *\n * @curried\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "effect: <T>(fn: "
+            },
+            {
+              "kind": "Content",
+              "text": "(x: T) => void"
+            },
+            {
+              "kind": "Content",
+              "text": ", x: "
+            },
+            {
+              "kind": "Content",
+              "text": "T"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "T"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 5,
+            "endIndex": 6
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "fn",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "x",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": false
+            }
+          ],
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "name": "effect"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/universal!flatObject:function(1)",
+          "docComment": "/**\n * 재귀적으로 중첩된 객체를 평탄화하는 함수입니다.\n *\n  *\n * @param params - 평탄화 작업에 필요한 매개변수\n *\n * @param obj - 평탄화할 객체\n *\n * @param params - 평탄화 작업에 필요한 매개변수\n *\n * @typeParam T - 재귀적으로 중첩된 객체의 타입\n *\n * @typeParam V - 중첩된 객체의 값의 타입\n *\n * @returns 평탄화 작업을 수행하는 함수. 이 함수는 T 타입의 객체를 받아 평탄화된 객체를 반환합니다.\n *\n * @example\n * ```typescript\n * const nestedObj = { a: { b: { c: 1 } } };\n * const flatObj = flatObject({}, nestedObj);\n * console.log(flatObj); // Outputs: { 'a.b.c': 1 }\n * ```\n *\n * 또는 커링을 사용하여 함수를 반환할 수 있습니다.\n *\n * @example\n * ```typescript\n * const flatten = flatObject({});\n * const nestedObj = { a: { b: { c: 1 } } };\n * const flatObj = flatten(nestedObj);\n * console.log(flatObj); // Outputs: { 'a.b.c': 1 }\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "flatObject: <T extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "RecursiveObj",
+              "canonicalReference": "@toktokhan-dev/universal!RecursiveObj:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<any>"
+            },
+            {
+              "kind": "Content",
+              "text": ", V = "
+            },
+            {
+              "kind": "Content",
+              "text": "T extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "RecursiveObj",
+              "canonicalReference": "@toktokhan-dev/universal!RecursiveObj:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<infer U> ? U : never"
+            },
+            {
+              "kind": "Content",
+              "text": ">(params: "
+            },
+            {
+              "kind": "Reference",
+              "text": "FlatObjectParams",
+              "canonicalReference": "@toktokhan-dev/universal!FlatObjectParams:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<T, V>"
+            },
+            {
+              "kind": "Content",
+              "text": ", obj: "
+            },
+            {
+              "kind": "Content",
+              "text": "T"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Reference",
+              "text": "Record",
+              "canonicalReference": "!Record:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<string, V>"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 13,
+            "endIndex": 15
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "params",
+              "parameterTypeTokenRange": {
+                "startIndex": 8,
+                "endIndex": 10
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "obj",
+              "parameterTypeTokenRange": {
+                "startIndex": 11,
+                "endIndex": 12
+              },
+              "isOptional": false
+            }
+          ],
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            },
+            {
+              "typeParameterName": "V",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 4,
+                "endIndex": 7
+              }
+            }
+          ],
+          "name": "flatObject"
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/universal!FlatObjectParams:type",
+          "docComment": "/**\n * `flatObject` 함수의 매개변수 타입입니다.\n *\n * @typeParam T - 재귀적으로 중첩된 객체의 타입\n *\n * @typeParam V - 중첩된 객체의 값의 타입\n *\n * @property separator - 객체의 키를 연결할 때 사용할 구분자  @property filter - 객체의 값을 필터링하는 함수. 이 함수가 `true`를 반환하면 해당 값이 결과에 포함됩니다.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type FlatObjectParams<T extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "RecursiveObj",
+              "canonicalReference": "@toktokhan-dev/universal!RecursiveObj:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<any>"
+            },
+            {
+              "kind": "Content",
+              "text": ", V = "
+            },
+            {
+              "kind": "Content",
+              "text": "T extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "RecursiveObj",
+              "canonicalReference": "@toktokhan-dev/universal!RecursiveObj:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<infer U> ? U : never"
+            },
+            {
+              "kind": "Content",
+              "text": "> = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n  isValueType?: (value: T | V) => boolean;\n  formatKey?: (parentKey: string | null, currentKey: string) => string;\n  formatValue?: (data: {\n    key: string;\n    value: V;\n  }) => any;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "FlatObjectParams",
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            },
+            {
+              "typeParameterName": "V",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 4,
+                "endIndex": 7
+              }
+            }
+          ],
+          "typeTokenRange": {
+            "startIndex": 8,
+            "endIndex": 9
+          },
+          "parameters": []
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/universal!Fn:type",
+          "docComment": "/**\n * 함수의 타입을 정의합니다.\n *\n  *\n * @param params - 함수에 전달될 매개변수들\n *\n * @typeParam P - 함수에 전달될 매개변수의 타입 배열\n *\n * @typeParam R - 함수의 반환값의 타입\n *\n * @returns 함수의 반환값\n *\n * @example\n * ```typescript\n * // 함수의 타입 정의\n * type AddFn = Fn<[x: number, y: number], number>;\n *\n * // 함수의 사용 예시\n * const add: AddFn = (x, y) => x + y;\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type Fn<P extends "
+            },
+            {
+              "kind": "Content",
+              "text": "any[]"
+            },
+            {
+              "kind": "Content",
+              "text": " = "
+            },
+            {
+              "kind": "Content",
+              "text": "any[]"
+            },
+            {
+              "kind": "Content",
+              "text": ", R = "
+            },
+            {
+              "kind": "Content",
+              "text": "any"
+            },
+            {
+              "kind": "Content",
+              "text": "> = "
+            },
+            {
+              "kind": "Content",
+              "text": "(...params: P) => R"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "Fn",
+          "typeParameters": [
+            {
+              "typeParameterName": "P",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              }
+            },
+            {
+              "typeParameterName": "R",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 5,
+                "endIndex": 6
+              }
+            }
+          ],
+          "typeTokenRange": {
+            "startIndex": 7,
+            "endIndex": 8
+          },
+          "parameters": []
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/universal!getDecimalPlaces:function(1)",
+          "docComment": "/**\n  *\n * 숫자들의 소수점 자리수중 가장 긴 소수점 자리의 길이를 구합니다.\n *\n * @param numnbers - 소수점 자리수를 구할 숫자들\n *\n * @returns 소수점 자리수\n *\n * @example\n *\n * ```ts getDecimalPlaces(0.1, 0.2) // 1 getDecimalPlaces(0.1, 0.02, 0.3) // 2 getDecimalPlaces(0.1, 0.2, 0.333, 0.4) // 3\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "getDecimalPlaces: (...numnbers: "
+            },
+            {
+              "kind": "Content",
+              "text": "number[]"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "number"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "numnbers",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "getDecimalPlaces"
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/universal!IfEquals:type",
+          "docComment": "/**\n * 두 개의 타입이 동일한지를 확인하고, 동일하다면 지정된 타입으로, 그렇지 않다면 다른 타입으로 설정하는 타입을 정의합니다.\n *\n  *\n * @typeParam X - 비교할 첫 번째 타입\n *\n * @typeParam Y - 비교할 두 번째 타입\n *\n * @typeParam A - 두 타입이 동일한 경우의 반환 타입 (기본값: 첫 번째 타입)\n *\n * @typeParam B - 두 타입이 동일하지 않은 경우의 반환 타입 (기본값: never)\n *\n * @returns 두 타입이 동일한 경우 A 타입을, 그렇지 않은 경우 B 타입을 반환합니다.\n *\n * @example\n * ```typescript\n * // 두 타입이 동일한 경우\n * type Result1 = IfEquals<number, number, 'Equal', 'Not Equal'>;\n * // type Result1 = 'Equal'\n *\n * // 두 타입이 동일하지 않은 경우\n * type Result2 = IfEquals<number, string, 'Equal', 'Not Equal'>;\n * // type Result2 = 'Not Equal'\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type IfEquals<X, Y, A = "
+            },
+            {
+              "kind": "Content",
+              "text": "X"
+            },
+            {
+              "kind": "Content",
+              "text": ", B = "
+            },
+            {
+              "kind": "Content",
+              "text": "never"
+            },
+            {
+              "kind": "Content",
+              "text": "> = "
+            },
+            {
+              "kind": "Content",
+              "text": "(<T>() => T extends X ? 1 : 2) extends <T>() => T extends Y ? 1 : 2 ? A : B"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "IfEquals",
+          "typeParameters": [
+            {
+              "typeParameterName": "X",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            },
+            {
+              "typeParameterName": "Y",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            },
+            {
+              "typeParameterName": "A",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "typeParameterName": "B",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              }
+            }
+          ],
+          "typeTokenRange": {
+            "startIndex": 5,
+            "endIndex": 6
+          },
+          "parameters": []
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/universal!Indices:type",
+          "docComment": "/**\n * 배열의 인덱스 타입을 추출하는 타입을 정의합니다.\n *\n  *\n * @typeParam T - 인덱스 타입을 추출할 배열의 타입\n *\n * @returns 배열의 인덱스 타입\n *\n * @example\n * ```typescript\n * // 배열의 인덱스 타입 추출\n * type Index = Indices<[string, number, boolean]>;\n * // type Index = 0 | 1 | 2\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type Indices<T extends "
+            },
+            {
+              "kind": "Content",
+              "text": "readonly any[]"
+            },
+            {
+              "kind": "Content",
+              "text": "> = "
+            },
+            {
+              "kind": "Reference",
+              "text": "Extract",
+              "canonicalReference": "!Extract:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<keyof T, `${number}`> extends never ? number : "
+            },
+            {
+              "kind": "Reference",
+              "text": "Extract",
+              "canonicalReference": "!Extract:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<keyof T, `${number}`>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "Indices",
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "typeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 7
+          },
+          "parameters": []
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "@toktokhan-dev/universal!InvalidTokenError:class",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare class InvalidTokenError extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Error",
+              "canonicalReference": "!Error:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " "
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "isAbstract": false,
+          "name": "InvalidTokenError",
+          "preserveMemberOrder": false,
+          "members": [],
+          "extendsTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          },
+          "implementsTokenRanges": [],
+          "parameters": []
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/universal!isEvery:function(1)",
+          "docComment": "/**\n * 여러 함수들이 모두 주어진 인자에 대해 true를 반환하는지 확인합니다. 주어진 함수 배열(fns)에 대해 모든 함수가 인자를 받아들여 true를 반환하는지 여부를 검사합니다.\n *\n  *\n * @param fns - 평가할 함수들의 배열\n *\n * @typeParam T - 함수에 전달할 인자의 타입\n *\n * @returns 모든 함수가 인자를 받아들여 true를 반환하는 경우 true를 반환하고, 그렇지 않으면 false를 반환합니다.\n *\n * @example\n * ```ts\n * const isPositive = (x: number) => x > 0;\n * const isEven = (x: number) => x % 2 === 0;\n * const isGreaterThanTen = (x: number) => x > 10;\n *\n * const conditions = [isPositive, isEven, isGreaterThanTen];\n *\n * isEvery(conditions)(4); // false - 4는 isGreaterThanTen의 조건을 만족하지 않습니다.\n * isEvery(conditions)(12); // true - 모든 조건을 만족합니다.\n * ```\n *\n * @curried\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "isEvery: <T extends "
+            },
+            {
+              "kind": "Content",
+              "text": "any[]"
+            },
+            {
+              "kind": "Content",
+              "text": ">(fns: "
+            },
+            {
+              "kind": "Content",
+              "text": "((...param: T) => boolean)[]"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "(...param: T) => boolean"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 5,
+            "endIndex": 6
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "fns",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": false
+            }
+          ],
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "name": "isEvery"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/universal!isNotNullish:function(1)",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "isNotNullish: <T>(value: "
+            },
+            {
+              "kind": "Content",
+              "text": "T"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Reference",
+              "text": "value",
+              "canonicalReference": "@toktokhan-dev/universal!~value"
+            },
+            {
+              "kind": "Content",
+              "text": " is "
+            },
+            {
+              "kind": "Reference",
+              "text": "NonNullable",
+              "canonicalReference": "!NonNullable:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<T>"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 7
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "value",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "name": "isNotNullish"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/universal!isNullish:function(1)",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "isNullish: <T>(value: "
+            },
+            {
+              "kind": "Content",
+              "text": "T"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Reference",
+              "text": "value",
+              "canonicalReference": "@toktokhan-dev/universal!~value"
+            },
+            {
+              "kind": "Content",
+              "text": " is "
+            },
+            {
+              "kind": "Reference",
+              "text": "Extract",
+              "canonicalReference": "!Extract:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<undefined, T> | "
+            },
+            {
+              "kind": "Reference",
+              "text": "Extract",
+              "canonicalReference": "!Extract:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<null, T>"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 9
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "value",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "name": "isNullish"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/universal!isOverSize:function(1)",
+          "docComment": "/**\n * @category Utils/File 주어진 파일 크기가 최대 크기를 초과하는지 확인하는 함수입니다.\n *\n * @param maxSize - 파일의 최대 크기\n *\n * @param value - 검사할 값. 바이트 단위의 숫자 또는 크기와 단위를 포함하는 배열\n *\n * @returns 값이 최대 크기를 초과하면 true, 그렇지 않으면 false\n *\n * @example\n * ```ts\n * // 값이 500바이트인 경우\n * isOverSize([1000, 'B'], 500); // false\n *\n * // 커링 사용 예\n * const isOver1MB = isOverSize([1, 'MB']);\n * isOver1MB(500000); // true\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "isOverSize: (maxSize: "
+            },
+            {
+              "kind": "Content",
+              "text": "[value: number, unit: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ByteUnit",
+              "canonicalReference": "@toktokhan-dev/universal!ByteUnit:type"
+            },
+            {
+              "kind": "Content",
+              "text": "]"
+            },
+            {
+              "kind": "Content",
+              "text": ", value: "
+            },
+            {
+              "kind": "Content",
+              "text": "number | [value: number, unit: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ByteUnit",
+              "canonicalReference": "@toktokhan-dev/universal!ByteUnit:type"
+            },
+            {
+              "kind": "Content",
+              "text": "]"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "boolean"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 9,
+            "endIndex": 10
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "maxSize",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 4
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "value",
+              "parameterTypeTokenRange": {
+                "startIndex": 5,
+                "endIndex": 8
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "isOverSize"
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/universal!ItemOf:type",
+          "docComment": "/**\n * 배열 또는 읽기 전용 배열의 요소 타입을 추출하는 타입을 정의합니다.\n *\n  *\n * @typeParam T - 요소 타입을 추출할 배열의 타입\n *\n * @returns 배열의 요소 타입\n *\n * @example\n * ```typescript\n * // 배열의 요소 타입 추출\n * type Element = ItemOf<[string, number, boolean]>;\n * // type Element = string | number | boolean\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type ItemOf<T extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Array",
+              "canonicalReference": "!Array:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<any> | readonly any[]"
+            },
+            {
+              "kind": "Content",
+              "text": "> = "
+            },
+            {
+              "kind": "Content",
+              "text": "T[number]"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "ItemOf",
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "typeTokenRange": {
+            "startIndex": 4,
+            "endIndex": 5
+          },
+          "parameters": []
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/universal!jwtDecode:function(1)",
+          "docComment": "/**\n  *\n * @param token - target\n *\n * @param options - jwt decode option\n *\n * @returns decoded\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function jwtDecode<T = "
+            },
+            {
+              "kind": "Reference",
+              "text": "JwtHeader",
+              "canonicalReference": "@toktokhan-dev/universal!JwtHeader:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ">(token: "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": ", options: "
+            },
+            {
+              "kind": "Reference",
+              "text": "JwtDecodeOptions",
+              "canonicalReference": "@toktokhan-dev/universal!JwtDecodeOptions:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " & {\n  header: true;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Content",
+              "text": "T"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 8,
+            "endIndex": 9
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "token",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "options",
+              "parameterTypeTokenRange": {
+                "startIndex": 5,
+                "endIndex": 7
+              },
+              "isOptional": false
+            }
+          ],
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "name": "jwtDecode"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/universal!jwtDecode:function(2)",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function jwtDecode<T = "
+            },
+            {
+              "kind": "Reference",
+              "text": "JwtPayload",
+              "canonicalReference": "@toktokhan-dev/universal!JwtPayload:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ">(token: "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": ", options?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "JwtDecodeOptions",
+              "canonicalReference": "@toktokhan-dev/universal!JwtDecodeOptions:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Content",
+              "text": "T"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 7,
+            "endIndex": 8
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 2,
+          "parameters": [
+            {
+              "parameterName": "token",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "options",
+              "parameterTypeTokenRange": {
+                "startIndex": 5,
+                "endIndex": 6
+              },
+              "isOptional": true
+            }
+          ],
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "name": "jwtDecode"
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@toktokhan-dev/universal!JwtDecodeOptions:interface",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "interface JwtDecodeOptions "
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "JwtDecodeOptions",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/universal!JwtDecodeOptions#header:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "header?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "boolean"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "header",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": [],
+          "parameters": []
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@toktokhan-dev/universal!JwtHeader:interface",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "interface JwtHeader "
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "JwtHeader",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/universal!JwtHeader#alg:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "alg?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "alg",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/universal!JwtHeader#kid:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "kid?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "kid",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/universal!JwtHeader#typ:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "typ?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "typ",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": [],
+          "parameters": []
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@toktokhan-dev/universal!JwtPayload:interface",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "interface JwtPayload "
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "JwtPayload",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/universal!JwtPayload#aud:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "aud?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string[] | string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "aud",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/universal!JwtPayload#exp:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "exp?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "exp",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/universal!JwtPayload#iat:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "iat?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "iat",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/universal!JwtPayload#iss:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "iss?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "iss",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/universal!JwtPayload#jti:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "jti?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "jti",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/universal!JwtPayload#nbf:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "nbf?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "nbf",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/universal!JwtPayload#sub:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "sub?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "sub",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": [],
+          "parameters": []
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "@toktokhan-dev/universal!Keep_F:class",
+          "docComment": "/**\n * @curried  */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare class Keep_F<Kept, Value> "
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "typeParameters": [
+            {
+              "typeParameterName": "Kept",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            },
+            {
+              "typeParameterName": "Value",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "isAbstract": false,
+          "name": "Keep_F",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "Constructor",
+              "canonicalReference": "@toktokhan-dev/universal!Keep_F:constructor(1)",
+              "docComment": "/**\n * Constructs a new instance of the `Keep_F` class\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "constructor(kept: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "Kept"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", value: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "Value"
+                },
+                {
+                  "kind": "Content",
+                  "text": ");"
+                }
+              ],
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "kept",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  },
+                  "isOptional": false
+                },
+                {
+                  "parameterName": "value",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 3,
+                    "endIndex": 4
+                  },
+                  "isOptional": false
+                }
+              ]
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@toktokhan-dev/universal!Keep_F#kept:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "kept: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "Kept"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "kept",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@toktokhan-dev/universal!Keep_F#map:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "map: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "<New>(fn: (value: Value, kept: Kept) => New) => "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Keep_F",
+                  "canonicalReference": "@toktokhan-dev/universal!Keep_F:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<Kept, New>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "map",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 4
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@toktokhan-dev/universal!Keep_F#of:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "of: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "<New>(value: New) => "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Keep_F",
+                  "canonicalReference": "@toktokhan-dev/universal!Keep_F:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<Kept, New>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "of",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 4
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@toktokhan-dev/universal!Keep_F#value:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "value: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "Value"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "value",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            }
+          ],
+          "implementsTokenRanges": [],
+          "parameters": []
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@toktokhan-dev/universal!keep:var",
+          "docComment": "/**\n  */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "keep: "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n  <T>(kept: T): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Keep_F",
+              "canonicalReference": "@toktokhan-dev/universal!Keep_F:class"
+            },
+            {
+              "kind": "Content",
+              "text": "<T, T>;\n  of: <Kept, Value>(value: Value, keep: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Keep_F",
+              "canonicalReference": "@toktokhan-dev/universal!Keep_F:class"
+            },
+            {
+              "kind": "Content",
+              "text": "<Kept, Value>) => "
+            },
+            {
+              "kind": "Reference",
+              "text": "Keep_F",
+              "canonicalReference": "@toktokhan-dev/universal!Keep_F:class"
+            },
+            {
+              "kind": "Content",
+              "text": "<Kept, Value>;\n  map: <Kept, Prev, New>(fn: (value: Prev, kept: Kept) => New, keep: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Keep_F",
+              "canonicalReference": "@toktokhan-dev/universal!Keep_F:class"
+            },
+            {
+              "kind": "Content",
+              "text": "<Kept, Prev>) => "
+            },
+            {
+              "kind": "Reference",
+              "text": "Keep_F",
+              "canonicalReference": "@toktokhan-dev/universal!Keep_F:class"
+            },
+            {
+              "kind": "Content",
+              "text": "<Kept, New>;\n  value: <Kept, Value>(keep: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Keep_F",
+              "canonicalReference": "@toktokhan-dev/universal!Keep_F:class"
+            },
+            {
+              "kind": "Content",
+              "text": "<Kept, Value>) => Value;\n}"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "keep",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 14
+          },
+          "parameters": []
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/universal!log:function(1)",
+          "docComment": "/**\n * 주어진 값을 로깅하고 반환합니다.\n *\n  *\n * @param title - 로그 제목\n *\n * @param value - 로깅할 값\n *\n * @typeParam T - 로깅할 값의 타입\n *\n * @returns 주어진 값\n *\n * @example\n * ```typescript\n * const result = log('Result:', 42); // Result: 42\n * const result = log('Result:')(42); // Result: 42\n *\n * const ex = flow(\n *  add(1),\n *  log('debug:'), // debug\n *  add(2)\n * )\n *\n * ex(1) debug: 2\n *\n * ```\n *\n * @curried\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "log: <T>(title: "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": ", value: "
+            },
+            {
+              "kind": "Content",
+              "text": "T"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "T"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 5,
+            "endIndex": 6
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "title",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "value",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": false
+            }
+          ],
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "name": "log"
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "@toktokhan-dev/universal!Maybe_F:class",
+          "docComment": "/**\n  */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare class Maybe_F<T> "
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "isAbstract": false,
+          "name": "Maybe_F",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "Constructor",
+              "canonicalReference": "@toktokhan-dev/universal!Maybe_F:constructor(1)",
+              "docComment": "/**\n * Constructs a new instance of the `Maybe_F` class\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "constructor($value: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "T | null | undefined"
+                },
+                {
+                  "kind": "Content",
+                  "text": ");"
+                }
+              ],
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "$value",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  },
+                  "isOptional": false
+                }
+              ]
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@toktokhan-dev/universal!Maybe_F#$value:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "$value: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "T | null | undefined"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "$value",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@toktokhan-dev/universal!Maybe_F#isNothing:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "get isNothing(): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "boolean"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": true,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "isNothing",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@toktokhan-dev/universal!Maybe_F#map:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "map: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "<R>(fn: (value: T) => R) => "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Maybe_F",
+                  "canonicalReference": "@toktokhan-dev/universal!Maybe_F:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<R>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "map",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 4
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@toktokhan-dev/universal!Maybe_F.of:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "static of: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "<T_1>(x: T_1) => "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Maybe_F",
+                  "canonicalReference": "@toktokhan-dev/universal!Maybe_F:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<T_1>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "of",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 4
+              },
+              "isStatic": true,
+              "isProtected": false,
+              "isAbstract": false
+            }
+          ],
+          "implementsTokenRanges": [],
+          "parameters": []
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@toktokhan-dev/universal!maybe:var",
+          "docComment": "/**\n  */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "maybe: "
+            },
+            {
+              "kind": "Content",
+              "text": "(<T>(value: T) => "
+            },
+            {
+              "kind": "Reference",
+              "text": "Maybe_F",
+              "canonicalReference": "@toktokhan-dev/universal!Maybe_F:class"
+            },
+            {
+              "kind": "Content",
+              "text": "<T>) & {\n  map: <T_1, R>(fn: (value: T_1) => R) => (maybe: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Maybe_F",
+              "canonicalReference": "@toktokhan-dev/universal!Maybe_F:class"
+            },
+            {
+              "kind": "Content",
+              "text": "<T_1>) => "
+            },
+            {
+              "kind": "Reference",
+              "text": "Maybe_F",
+              "canonicalReference": "@toktokhan-dev/universal!Maybe_F:class"
+            },
+            {
+              "kind": "Content",
+              "text": "<R>;\n  value: <T_2>(maybe: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Maybe_F",
+              "canonicalReference": "@toktokhan-dev/universal!Maybe_F:class"
+            },
+            {
+              "kind": "Content",
+              "text": "<T_2>) => T_2 | null | undefined;\n}"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "maybe",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 10
+          },
+          "parameters": []
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/universal!MockedFn:type",
+          "docComment": "/**\n * `MockedFn`은 Jest의 mock 함수를 타입으로 나타내는 유틸리티 타입입니다.\n *\n  *\n * @typeParam T - 어떤 매개변수를 받고 어떤 값을 반환하는 함수의 타입\n *\n * 이 타입은 `T` 타입의 함수와 같은 매개변수를 받고 같은 타입의 값을 반환하는 Jest의 mock 함수의 타입을 나타냅니다. 이 타입은 Jest의 mock 함수를 타입 체크할 때 사용할 수 있습니다.\n *\n * @example\n * ```typescript\n * const mockFn: MockedFn<(a: number, b: number) => number> = jest.fn((a, b) => a + b);\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type MockedFn<T extends "
+            },
+            {
+              "kind": "Content",
+              "text": "(...params: any) => any"
+            },
+            {
+              "kind": "Content",
+              "text": "> = "
+            },
+            {
+              "kind": "Reference",
+              "text": "jest.Mock",
+              "canonicalReference": "!jest.Mock:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " & ((...args: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Parameters",
+              "canonicalReference": "!Parameters:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<T>) => "
+            },
+            {
+              "kind": "Reference",
+              "text": "ReturnType",
+              "canonicalReference": "!ReturnType:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<T>)"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "MockedFn",
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "typeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 9
+          },
+          "parameters": []
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/universal!multiply:function(1)",
+          "docComment": "/**\n  *\n * 두개의 숫자를 곱합니다. 부정확 할 수 있는 부동 소수점 연산을 보정합니다.\n *\n * @param a - 첫번째 숫자\n *\n * @param b - 두번째 숫자\n *\n * @returns 두 숫자를 곱한 결과\n *\n * @example\n * ```ts\n * multiply(0.1, 0.2) // 0.02\n * multiply(0.1)(0.2) // 0.02\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "multiply: (a: "
+            },
+            {
+              "kind": "Content",
+              "text": "number"
+            },
+            {
+              "kind": "Content",
+              "text": ", b: "
+            },
+            {
+              "kind": "Content",
+              "text": "number"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "number"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 5,
+            "endIndex": 6
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "a",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "b",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "multiply"
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/universal!Mutable:type",
+          "docComment": "/**\n * 객체의 모든 속성에서 readonly 를 제거합니다.\n *\n  *\n * @typeParam T - 객체의 타입\n *\n * @returns 모든 속성의 readonly 가 제거된 객체의 타입\n *\n * @example\n * ```typescript\n * // 모든 속성의 readonly 가 제거된 객체의 타입 정의\n * type MutablePerson = Mutable<{\n *   readonly name: string;\n *   readonly age: number;\n * }>;\n *\n * type MutablePerson = {\n *  name: string;\n *  age: number;\n * }\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type Mutable<T extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Record",
+              "canonicalReference": "!Record:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<any, any> | undefined"
+            },
+            {
+              "kind": "Content",
+              "text": "> = "
+            },
+            {
+              "kind": "Content",
+              "text": "{ -readonly [key in keyof T]: T[key] }"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "Mutable",
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "typeTokenRange": {
+            "startIndex": 4,
+            "endIndex": 5
+          },
+          "parameters": []
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/universal!NonNullableProps:type",
+          "docComment": "/**\n * 객체에서 모든 property 가 NonNullable 타입이 되도록 합니다.\n *\n  *\n * @typeParam T - NonNullable 타입으로 만들 객체의 타입\n *\n * @returns 모든 property 가 NonNullable 타입이 되도록 만들어진 객체의 타입\n *\n * @example\n *\n * type Example = NonNullableProps<{ a: 1 | null; b?: 1 }>; // type Example = { a: 1; b: 1 }\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type NonNullableProps<T extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Obj",
+              "canonicalReference": "@toktokhan-dev/universal!Obj:type"
+            },
+            {
+              "kind": "Content",
+              "text": "> = "
+            },
+            {
+              "kind": "Reference",
+              "text": "Omit",
+              "canonicalReference": "!Omit:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<T, keyof T> & { [P in keyof T]-?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "NonNullable",
+              "canonicalReference": "!NonNullable:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<T[P]> }"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "NonNullableProps",
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "typeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 7
+          },
+          "parameters": []
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/universal!not:function(1)",
+          "docComment": "/**\n * 주어진 함수의 부정값을 반환합니다. 주어진 함수를 실행하고 그 결과를 부정하여 반환합니다.\n *\n  *\n * @param fn - 부정할 함수\n *\n * @param args - 함수에 전달할 매개변수\n *\n * @typeParam T - 함수의 매개변수와 반환값의 타입\n *\n * @returns 주어진 함수의 부정값을 반환합니다.\n *\n * @example\n * ```ts\n * const isPositive = (x: number) => x > 0;\n * const isNegative = not(isPositive);\n *\n * isNegative(5); // false - isPositive(5)의 부정값이므로 false를 반환합니다.\n * isNegative(-5); // true - isPositive(-5)의 부정값이므로 true를 반환합니다.\n * ```\n *\n * @curried\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "not: <T extends "
+            },
+            {
+              "kind": "Content",
+              "text": "(...params: any[]) => any"
+            },
+            {
+              "kind": "Content",
+              "text": ">(fn: "
+            },
+            {
+              "kind": "Content",
+              "text": "T"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "(...args: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Parameters",
+              "canonicalReference": "!Parameters:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<T>) => boolean"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 5,
+            "endIndex": 8
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "fn",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": false
+            }
+          ],
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "name": "not"
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/universal!NullAble:type",
+          "docComment": "/**\n * 객체의 모든 속성을 nullable 하게 합니다.\n *\n  *\n * @typeParam T - nullable 한 속성을 추출할 객체의 타입\n *\n * @returns 모든 속성이 nullable 한 객체의 타입\n *\n * @example\n * ```tsx\n * type Example = NullAble<{ a: 1; b: 1 }>;\n * // type Example = { a: 1 | null; b: 1  | null}\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type NullAble<T extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Obj",
+              "canonicalReference": "@toktokhan-dev/universal!Obj:type"
+            },
+            {
+              "kind": "Content",
+              "text": " | undefined"
+            },
+            {
+              "kind": "Content",
+              "text": "> = "
+            },
+            {
+              "kind": "Content",
+              "text": "{ [P in keyof T]: T[P] | null }"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "NullAble",
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "typeTokenRange": {
+            "startIndex": 4,
+            "endIndex": 5
+          },
+          "parameters": []
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/universal!Obj:type",
+          "docComment": "/**\n * 키와 값의 타입이 있는 객체의 타입을 정의합니다.\n *\n  *\n * @typeParam K - 객체의 키 타입\n *\n * @typeParam V - 객체의 값 타입\n *\n * @example\n * ```typescript\n * // 객체의 타입 정의\n * type Person = Obj<'name' | 'age', string | number>;\n *\n * // 객체의 사용 예시\n * const person: Person = {\n *   name: 'Alice',\n *   age: 30,\n * };\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type Obj<K extends "
+            },
+            {
+              "kind": "Content",
+              "text": "string | number | symbol"
+            },
+            {
+              "kind": "Content",
+              "text": " = "
+            },
+            {
+              "kind": "Content",
+              "text": "string | number | symbol"
+            },
+            {
+              "kind": "Content",
+              "text": ", V = "
+            },
+            {
+              "kind": "Content",
+              "text": "unknown"
+            },
+            {
+              "kind": "Content",
+              "text": "> = "
+            },
+            {
+              "kind": "Reference",
+              "text": "Record",
+              "canonicalReference": "!Record:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<K, V>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "Obj",
+          "typeParameters": [
+            {
+              "typeParameterName": "K",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              }
+            },
+            {
+              "typeParameterName": "V",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 5,
+                "endIndex": 6
+              }
+            }
+          ],
+          "typeTokenRange": {
+            "startIndex": 7,
+            "endIndex": 9
+          },
+          "parameters": []
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/universal!ObjSelector:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type ObjSelector<T, N = "
+            },
+            {
+              "kind": "Content",
+              "text": "any"
+            },
+            {
+              "kind": "Content",
+              "text": "> = "
+            },
+            {
+              "kind": "Content",
+              "text": "(prev: T) => N"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "ObjSelector",
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            },
+            {
+              "typeParameterName": "N",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "typeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 4
+          },
+          "parameters": []
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/universal!ObjSelectorMap:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type ObjSelectorMap<T> = "
+            },
+            {
+              "kind": "Reference",
+              "text": "Record",
+              "canonicalReference": "!Record:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<string, "
+            },
+            {
+              "kind": "Reference",
+              "text": "ObjSelector",
+              "canonicalReference": "@toktokhan-dev/universal!ObjSelector:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<T>>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "ObjSelectorMap",
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 5
+          },
+          "parameters": []
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/universal!ObjSelectorMapResult:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type ObjSelectorMapResult<T, M extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "ObjSelectorMap",
+              "canonicalReference": "@toktokhan-dev/universal!ObjSelectorMap:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<T>"
+            },
+            {
+              "kind": "Content",
+              "text": "> = "
+            },
+            {
+              "kind": "Content",
+              "text": "{ [K in keyof M]: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ReturnType",
+              "canonicalReference": "!ReturnType:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<M[K]> }"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "ObjSelectorMapResult",
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            },
+            {
+              "typeParameterName": "M",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "typeTokenRange": {
+            "startIndex": 4,
+            "endIndex": 7
+          },
+          "parameters": []
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/universal!OmitReadOnly:type",
+          "docComment": "/**\n * 객체에서 읽기 전용 속성을 제거합니다\n *\n  *\n * @typeParam T - 객체의 타입\n *\n * @returns 읽기 전용 속성이 제거된 객체의 타입\n *\n * @example\n * ```tsx\n * type Example = OmitReadOnly<{\n *    readonly a: number;\n *    b: string;\n *    readonly c: string;\n * }>;\n *\n * // type Example = { b : string; }\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OmitReadOnly<T extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Obj",
+              "canonicalReference": "@toktokhan-dev/universal!Obj:type"
+            },
+            {
+              "kind": "Content",
+              "text": "> = "
+            },
+            {
+              "kind": "Reference",
+              "text": "Omit",
+              "canonicalReference": "!Omit:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<T, "
+            },
+            {
+              "kind": "Reference",
+              "text": "ReadonlyKeysOf",
+              "canonicalReference": "@toktokhan-dev/universal!ReadonlyKeysOf:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<T>>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "OmitReadOnly",
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "typeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 7
+          },
+          "parameters": []
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/universal!or:function(1)",
+          "docComment": "/**\n * 주어진 값이 null 또는 undefined인 경우 기본값을 반환하고, 그렇지 않으면 주어진 값을 반환합니다.\n *\n  *\n * @param def - 기본값\n *\n * @param value - 확인할 값\n *\n * @typeParam T - 반환할 값의 타입\n *\n * @returns 주어진 값이 null 또는 undefined인 경우 기본값을 반환하고, 그렇지 않으면 주어진 값을 반환합니다.\n *\n * @example\n * ```ts\n * or(0, 5); // 5 - 5는 null 또는 undefined가 아니므로 그대로 반환됩니다.\n * or(0, null); // 0 - null이므로 기본값 0이 반환됩니다.\n * or(0, undefined); // 0 - undefined이므로 기본값 0이 반환됩니다.\n *\n * or(0)(5) // 5\n * or(0)(null) // 0\n * or(0)(undefined) // 0\n *\n * const isEven = (x: number) => x % 2 === 0;\n *\n * const isOddOrZero = flow(\n *   not(isEven), // 짝수가 아닌 값들을 거름\n *   or(0) // null 또는 undefined인 경우 0으로 대체\n * );\n *\n * // 예시\n * console.log(isOddOrZero(5)); // 5 - 홀수는 그대로 반환됩니다.\n * console.log(isOddOrZero(10)); // 0 - 짝수는 0으로 대체됩니다.\n * console.log(isOddOrZero(null)); // 0 - null은 0으로 대체됩니다.\n * ```\n *\n * @curried\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "or: <T>(def: "
+            },
+            {
+              "kind": "Content",
+              "text": "T"
+            },
+            {
+              "kind": "Content",
+              "text": ", value: "
+            },
+            {
+              "kind": "Content",
+              "text": "T | null | undefined"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "T"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 5,
+            "endIndex": 6
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "def",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "value",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": false
+            }
+          ],
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "name": "or"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/universal!paginate:function(1)",
+          "docComment": "/**\n  *\n * 배열을 특정 갯수로 나누어주는 함수입니다.\n *\n * @param limit - 배열을 나눌 갯수입니다.\n *\n * @param arr - 나눌 배열입니다.\n *\n * @returns 나누어진 배열을 반환합니다.\n *\n * @example\n * ```ts\n * const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]\n * const result = paginate(3, arr)\n *\n * console.log(result)\n *\n * // [\n * //   [1, 2, 3],\n * //   [4, 5, 6],\n * //   [7, 8, 9],\n * // ]\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "paginate: <T>(limit: "
+            },
+            {
+              "kind": "Content",
+              "text": "number"
+            },
+            {
+              "kind": "Content",
+              "text": ", arr: "
+            },
+            {
+              "kind": "Content",
+              "text": "T[]"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "T[][]"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 5,
+            "endIndex": 6
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "limit",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "arr",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": false
+            }
+          ],
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "name": "paginate"
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/universal!Parameter:type",
+          "docComment": "/**\n * 함수의 첫번째 인자 타입을 가져옵니다.\n *\n  *\n * @typeParam T - 함수 타입\n *\n * @returns 함수의 첫번째 인자 타입\n *\n * @example\n * ```tsx\n * type Example = Parameter<(value: number) => void>\n * // type Example = number\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type Parameter<T> = "
+            },
+            {
+              "kind": "Content",
+              "text": "T extends (param: infer U) => any ? U : never"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "Parameter",
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          },
+          "parameters": []
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/universal!pass:function(1)",
+          "docComment": "/**\n * 주어진 데이터를 반환하는 함수를 생성합니다.\n *\n  *\n * @param data - 반환할 데이터\n *\n * @typeParam T - 반환할 데이터의 타입\n *\n * @returns 주어진 데이터를 반환하는 함수\n *\n * @example\n * ```typescript\n * const data = { id: 1, name: 'John' };\n * const getData = pass(data);\n * const result = getData(); // { id: 1, name: 'John' }\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "pass: <T>(data: "
+            },
+            {
+              "kind": "Content",
+              "text": "T"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "() => T"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "data",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "name": "pass"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/universal!prefix:function(1)",
+          "docComment": "/**\n * 문자열에 접두사를 추가합니다.\n *\n  *\n * @param pre - 접두사로 사용될 문자열\n *\n * @param str - 접두사를 추가할 대상 문자열\n *\n * @returns 접두사가 추가된 문자열\n *\n * @example\n * ```typescript\n * const prefixedStr1 = prefix('pre-', 'string'); // 'pre-string'\n * console.log(prefixedStr1);\n *\n * const prefixWithHello = prefix('Hello, '); // 부분 적용\n * const prefixedStr2 = prefixWithHello('world!'); // 'Hello, world!'\n * console.log(prefixedStr2);\n *\n * const prefixedStr3 = prefix('1. ')('First item'); // '1. First item'\n * console.log(prefixedStr3);\n * ```\n *\n * @curried\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "prefix: (pre: "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": ", str: "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 5,
+            "endIndex": 6
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "pre",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "str",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "prefix"
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/universal!ReadonlyKeysOf:type",
+          "docComment": "/**\n * 객체의 readonly 한 속성의 키를 추출합니다.\n *\n  *\n * @typeParam T - 객체의 타입\n *\n * @returns 객체의 readonly 한 속성의 키들의 유니온 타입\n *\n * @example\n * ```tsx\n * type Example = ReadonlyKeysOf<{\n *   readonly a: number;\n *   b: string;\n *   readonly c: string;\n * }>;\n *\n * // type Example = \"a\" | \"c\"\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type ReadonlyKeysOf<T extends "
+            },
+            {
+              "kind": "Content",
+              "text": "object"
+            },
+            {
+              "kind": "Content",
+              "text": "> = "
+            },
+            {
+              "kind": "Content",
+              "text": "{ [P in keyof T]-?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "IfEquals",
+              "canonicalReference": "@toktokhan-dev/universal!IfEquals:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<{ [Q in P]: T[P] }, { -readonly [Q in P]: T[P] }, never, P> }[keyof T]"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "ReadonlyKeysOf",
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "typeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 6
+          },
+          "parameters": []
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/universal!RecursiveObj:type",
+          "docComment": "/**\n * 재귀하는 타입을 가지는 객체를 정의합니다.\n *\n  *\n * @typeParam T - 객체의 타입입니다.\n *\n * @returns 재귀하는 타입을 가지는 객체의 타입\n *\n * @example\n * ```typescirpt\n *\n * const Object: RecursiveObj<{ src: string; alt: string }> = {\n *     a: {\n *       alt: 'a.alt',\n *       src: 'a.src',\n *     },\n *     b: {\n *       c: {\n *         alt: 'c.alt',\n *         src: 'c.src',\n *       },\n *       d: {\n *         alt: 'd.alt',\n *         src: 'd.src',\n *       },\n *     },\n *   }\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type RecursiveObj<T> = "
+            },
+            {
+              "kind": "Content",
+              "text": "{ [x in string]: T | "
+            },
+            {
+              "kind": "Reference",
+              "text": "RecursiveObj",
+              "canonicalReference": "@toktokhan-dev/universal!RecursiveObj:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<T> }"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "RecursiveObj",
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 4
+          },
+          "parameters": []
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/universal!relay:function(1)",
+          "docComment": "/**\n  *\n * 인자로 넘겨준 getNext 함수를 연속적으로 호출하여 데이터를 가져오는 함수입니다. 호출된 데이터를 순서대로 배열로 반환합니다.\n *\n * 주로 pagination 된 데이터의 모든 페이지를 가져오는데 사용됩니다.\n *\n * @example\n * ```ts\n * const list = range(0, 100)\n *\n * const getList = async (params: { offset: number; limit: number }) => {\n * const { offset, limit } = params\n * const next = offset + limit\n *\n * return {\n *  total: list.length,\n *  next: list.length - 1 < next ? null : next,\n *  data: list.slice(offset, offset + limit),\n * }\n *\n * const result = await relay({\n *  initialParam: 0,\n *  getNext: (nextParam: number) => getList({ offset: nextParam, limit: 10 }),\n *  getNextParams: (last) => {\n *    return last?.next\n * },\n *\n * console.log(result)\n *\n * // [\n * //   { total: 100, next: 10, data: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] },\n * //   { total: 100, next: 20, data: [10, 11, 12, 13, 14, 15, 16, 17, 18, 19] },\n * //   { total: 100, next: 30, data: [20, 21, 22, 23, 24, 25, 26, 27, 28, 29] },\n * //   ...\n * //   { total: 100, next: null, data: [90, 91, 92, 93, 94, 95, 96, 97, 98, 99] },\n * // ]\n *\n *\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "relay: <Data, NextParam, Selected = "
+            },
+            {
+              "kind": "Content",
+              "text": "Data[]"
+            },
+            {
+              "kind": "Content",
+              "text": ">(params: "
+            },
+            {
+              "kind": "Reference",
+              "text": "RelayParams",
+              "canonicalReference": "@toktokhan-dev/universal!RelayParams:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<Data, NextParam, Selected>"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<Selected>"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 6,
+            "endIndex": 8
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "params",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 5
+              },
+              "isOptional": false
+            }
+          ],
+          "typeParameters": [
+            {
+              "typeParameterName": "Data",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            },
+            {
+              "typeParameterName": "NextParam",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            },
+            {
+              "typeParameterName": "Selected",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "name": "relay"
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@toktokhan-dev/universal!RelayParams:interface",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "interface RelayParams<Data, NextParam, Selected> "
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "typeParameters": [
+            {
+              "typeParameterName": "Data",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            },
+            {
+              "typeParameterName": "NextParam",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            },
+            {
+              "typeParameterName": "Selected",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "name": "RelayParams",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/universal!RelayParams#getNext:member",
+              "docComment": "/**\n * 다음 데이터를 가져오는 함수입니다. getNextParams 으로 부터 받은 파라미터를 이용하여 데이터를 가져옵니다. getNextParams 가 null 을 반환하면 getNext 는 호출되지 않습니다.\n *\n * @param nextParam - 다음 데이터를 가져오기 위한 파라미터\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "getNext: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "(nextParam: NextParam) => "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise",
+                  "canonicalReference": "!Promise:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<Data>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "getNext",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 4
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/universal!RelayParams#getNextParams:member",
+              "docComment": "/**\n * 다음 데이터를 가져오기 위한 파라미터를 반환하는 함수입니다. 이전 마지막으로 여청한 getNext 에서 받은 데이터를 이용하여 다음 데이터를 가져오기 위한 파라미터를 반환합니다. null 을 반환하면, 데이터를 가져오는 것을 중지합니다.\n *\n * @param last - 마지막으로 가져온 데이터\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "getNextParams: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "(last: Data) => NextParam | null"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "getNextParams",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/universal!RelayParams#initialParam:member",
+              "docComment": "/**\n * 첫번째 호출시 넘겨줄 파라미터입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "initialParam: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "NextParam"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "initialParam",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/universal!RelayParams#selector:member",
+              "docComment": "/**\n * 각 페이지별 데이터를 포메팅하여 원하는 형태의 데이터를 반환하게끔 합니다.\n *\n * @param data - 가져온 데이터\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "selector?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "(data: Data[]) => Selected"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "selector",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": [],
+          "parameters": []
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/universal!removeEmptyObject:function(1)",
+          "docComment": "/**\n * 주어진 객체에서 빈 객체를 제거하는 함수입니다.\n *\n  *\n * @param obj - 빈 객체를 제거할 대상 객체\n *\n * @typeParam T - 어떤 키와 값을 가진 객체의 타입\n *\n * @returns 빈 객체가 제거된 새로운 객체\n *\n * @example\n * ```typescript\n * const obj = { a: { b: {} }, c: 1 };\n * const result = removeEmptyObject(obj);\n * console.log(result); // Outputs: { c: 1 }\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "removeEmptyObject: <T extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Record",
+              "canonicalReference": "!Record:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<any, any>"
+            },
+            {
+              "kind": "Content",
+              "text": ">(obj: "
+            },
+            {
+              "kind": "Content",
+              "text": "T"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "T"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 6,
+            "endIndex": 7
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "obj",
+              "parameterTypeTokenRange": {
+                "startIndex": 4,
+                "endIndex": 5
+              },
+              "isOptional": false
+            }
+          ],
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "name": "removeEmptyObject"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/universal!removeStr:function(1)",
+          "docComment": "/**\n * 문자열에서 지정된 문자열을 제거합니다.\n *\n  *\n * @param str - 제거할 문자열\n *\n * @param s - 대상 문자열\n *\n * @returns 지정된 문자열이 제거된 결과 문자열\n *\n * @example\n * ```typescript\n * const removedStr1 = removeStr('a', 'banana'); // 'bnn'\n * console.log(removedStr1);\n *\n * const removeA = removeStr('a'); // 부분 적용\n * const removedStr2 = removeA('apple'); // 'pple'\n * console.log(removedStr2);\n *\n * const removedStr3 = removeStr(' ', 'hello world'); // 'helloworld'\n * console.log(removedStr3);\n * ```\n *\n * @curried\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "removeStr: (str: "
+            },
+            {
+              "kind": "Content",
+              "text": "string | "
+            },
+            {
+              "kind": "Reference",
+              "text": "RegExp",
+              "canonicalReference": "!RegExp:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", s: "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 6,
+            "endIndex": 7
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "str",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "s",
+              "parameterTypeTokenRange": {
+                "startIndex": 4,
+                "endIndex": 5
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "removeStr"
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/universal!RetryFnParams:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type RetryFnParams<T = "
+            },
+            {
+              "kind": "Content",
+              "text": "any"
+            },
+            {
+              "kind": "Content",
+              "text": ", E = "
+            },
+            {
+              "kind": "Content",
+              "text": "any"
+            },
+            {
+              "kind": "Content",
+              "text": "> = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n  getToken: () => "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<string>;\n  onRefetch: (refresed: string) => T;\n  onError?: (error: E) => void;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "RetryFnParams",
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "typeParameterName": "E",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              }
+            }
+          ],
+          "typeTokenRange": {
+            "startIndex": 5,
+            "endIndex": 8
+          },
+          "parameters": []
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/universal!retryReqeustManager:function(1)",
+          "docComment": "/**\n  *\n * 주로 refresh token 이 필요한 요청을 관리하는 함수입니다. 토큰이 만료됐을 시, refresh token 을 요청하고, 새로운 토큰을 받아서 요청을 재시도합니다.\n *\n * @returns refresh token 이 필요한 요청을 관리하는 함수입니다.\n *\n * @example\n *\n * ```ts const retry = retryReqeustManager()\n *\n * const result = await retry({ getToken: async () => { await delay(200) return 'token' }, onRefetch: (token: string) => { return token }, onError: (error: any) => { return error }, })\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "retryReqeustManager: () => "
+            },
+            {
+              "kind": "Content",
+              "text": "<T, E>(params: "
+            },
+            {
+              "kind": "Reference",
+              "text": "RetryFnParams",
+              "canonicalReference": "@toktokhan-dev/universal!RetryFnParams:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<T, E>) => "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<T>"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 6
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [],
+          "name": "retryReqeustManager"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/universal!runIfFn:function(1)",
+          "docComment": "/**\n * 주어진 값이 함수인 경우 주어진 인자들을 사용하여 실행하고, 그렇지 않으면 주어진 값을 그대로 반환합니다.\n *\n  *\n * @param valueOrFn - 실행할 함수 또는 반환할 값\n *\n * @param args - 함수에 전달할 매개변수\n *\n * @typeParam T - 반환할 값의 타입\n *\n * @typeParam U - 함수의 매개변수의 타입\n *\n * @returns 주어진 값이 함수인 경우 주어진 인자들을 사용하여 실행한 결과를 반환하고, 그렇지 않으면 주어진 값을 그대로 반환합니다.\n *\n * @example\n * ```ts\n * const add = (a: number, b: number) => a + b;\n * runIfFn(add, 2, 3); // 5 - add 함수를 실행하여 결과를 반환합니다.\n * runIfFn(5, 2, 3); // 5 - 주어진 값이 함수가 아니므로 주어진 값을 그대로 반환합니다.\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function runIfFn<T, U>(valueOrFn: "
+            },
+            {
+              "kind": "Content",
+              "text": "T | ((...fnArgs: U[]) => T)"
+            },
+            {
+              "kind": "Content",
+              "text": ", ...args: "
+            },
+            {
+              "kind": "Content",
+              "text": "U[]"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Content",
+              "text": "T"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 5,
+            "endIndex": 6
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "valueOrFn",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "args",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": false
+            }
+          ],
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            },
+            {
+              "typeParameterName": "U",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "name": "runIfFn"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/universal!subtract:function(1)",
+          "docComment": "/**\n  *\n * 두개의 숫자를 뺍니다. 부정확 할 수 있는 부동 소수점 연산을 보정합니다.\n *\n * @param a - 첫번째 숫자\n *\n * @param b - 두번째 숫자\n *\n * @returns 두 숫자를 뺀 결과\n *\n * @example\n * ```ts\n * subtract(0.3, 0.1) // 0.2\n * subtract(0.3)(0.1) // 0.2\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "subtract: (a: "
+            },
+            {
+              "kind": "Content",
+              "text": "number"
+            },
+            {
+              "kind": "Content",
+              "text": ", b: "
+            },
+            {
+              "kind": "Content",
+              "text": "number"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "number"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 5,
+            "endIndex": 6
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "a",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "b",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "subtract"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/universal!suffix:function(1)",
+          "docComment": "/**\n * 문자열에 접미사를 추가합니다.\n *\n  *\n * @param suf - 접미사로 사용될 문자열\n *\n * @param str - 접미사를 추가할 대상 문자열\n *\n * @returns 접미사가 추가된 문자열\n *\n * @example\n * ```typescript\n * const suffixedStr1 = suffix('-post', 'string'); // 'string-post'\n * console.log(suffixedStr1);\n *\n * const suffixWithDot = suffix('.'); // 부분 적용\n * const suffixedStr2 = suffixWithDot('extension'); // 'extension.'\n * console.log(suffixedStr2);\n *\n * const suffixedStr3 = suffix('!', 'Hello'); // 'Hello!'\n * console.log(suffixedStr3);\n * ```\n *\n * @curried\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "suffix: (suf: "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": ", str: "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 5,
+            "endIndex": 6
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "suf",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "str",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "suffix"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/universal!then:function(1)",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "then: <P, R>(fn: "
+            },
+            {
+              "kind": "Content",
+              "text": "(p: P) => R"
+            },
+            {
+              "kind": "Content",
+              "text": ", data: "
+            },
+            {
+              "kind": "Content",
+              "text": "P | "
+            },
+            {
+              "kind": "Reference",
+              "text": "PromiseLike",
+              "canonicalReference": "!PromiseLike:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<P>"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "R"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 7,
+            "endIndex": 8
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "fn",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "data",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 6
+              },
+              "isOptional": false
+            }
+          ],
+          "typeParameters": [
+            {
+              "typeParameterName": "P",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            },
+            {
+              "typeParameterName": "R",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "name": "then"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/universal!updateObj:function(1)",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "updateObj: <T, K extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "DeepKeyOf",
+              "canonicalReference": "@toktokhan-dev/universal!DeepKeyOf:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<T>"
+            },
+            {
+              "kind": "Content",
+              "text": " = "
+            },
+            {
+              "kind": "Reference",
+              "text": "DeepKeyOf",
+              "canonicalReference": "@toktokhan-dev/universal!DeepKeyOf:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<T>"
+            },
+            {
+              "kind": "Content",
+              "text": ">(key: "
+            },
+            {
+              "kind": "Content",
+              "text": "K"
+            },
+            {
+              "kind": "Content",
+              "text": ", value: "
+            },
+            {
+              "kind": "Reference",
+              "text": "DataOrFn",
+              "canonicalReference": "@toktokhan-dev/universal!~DataOrFn_2:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "DeepValueOf",
+              "canonicalReference": "@toktokhan-dev/universal!DeepValueOf:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<T, K>, T>"
+            },
+            {
+              "kind": "Content",
+              "text": ", obj: "
+            },
+            {
+              "kind": "Content",
+              "text": "T"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "T"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 16,
+            "endIndex": 17
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "key",
+              "parameterTypeTokenRange": {
+                "startIndex": 7,
+                "endIndex": 8
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "value",
+              "parameterTypeTokenRange": {
+                "startIndex": 9,
+                "endIndex": 13
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "obj",
+              "parameterTypeTokenRange": {
+                "startIndex": 14,
+                "endIndex": 15
+              },
+              "isOptional": false
+            }
+          ],
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            },
+            {
+              "typeParameterName": "K",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 4,
+                "endIndex": 6
+              }
+            }
+          ],
+          "name": "updateObj"
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/universal!ValueOf:type",
+          "docComment": "/**\n * 객체의 모든 속성의 타입을 추출합니다\n *\n  *\n * @typeParam T - 객체의 타입\n *\n * @returns 객체의 모든 속성의 타입\n *\n * @example\n * ```tsx\n * type Example = ValueOf<{ a: number; b: string }>;\n *\n * // type Example = number | string\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type ValueOf<T> = "
+            },
+            {
+              "kind": "Content",
+              "text": "T extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Obj",
+              "canonicalReference": "@toktokhan-dev/universal!Obj:type"
+            },
+            {
+              "kind": "Content",
+              "text": " ? T[keyof T] : unknown"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "ValueOf",
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 4
+          },
+          "parameters": []
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/universal!volumeUpObject:function(1)",
+          "docComment": "/**\n  *\n * 객체의 key 에서 flag 를 찾아서 해당 flag 를 기준으로 중첩 객체를 만들어주는 함수입니다.\n *\n * @param flag - object 생성 기준이 되는 flag 입니다.\n *\n * @param obj - flag 를 기준으로 중첩 객체를 만들 객체입니다.\n *\n * @returns flag 를 기준으로 중첩 객체를 만들어 반환합니다.\n *\n * @example\n * ```ts\n * const obj = {\n *  a: 1,\n * 'b.a': 2,\n * 'b.b': 3,\n * 'c.a.a': 6,\n * }\n *\n * const result = volumeUpObject('.', obj)\n *\n * console.log(result)\n *\n * // {\n * //   a: 1,\n * //   b: {\n * //     a: 3,\n * //     b: 4,\n * //   },\n * //   c: {\n * //     a: {\n * //       a: 6,\n * //     },\n * //   },\n * // }\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "volumeUpObject: (flag: "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": ", obj: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Obj",
+              "canonicalReference": "@toktokhan-dev/universal!Obj:type"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Reference",
+              "text": "Obj",
+              "canonicalReference": "@toktokhan-dev/universal!Obj:type"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 5,
+            "endIndex": 6
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "flag",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "obj",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "volumeUpObject"
+        }
+      ]
+    }
+  ]
+}

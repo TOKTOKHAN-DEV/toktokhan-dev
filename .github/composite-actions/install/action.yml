@@ -21,13 +21,13 @@ runs:
       run: |
         echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
 
-    # - name: Setup pnpm cache // cache 'pnpm 으로 대체'
-    #   uses: actions/cache@v3
-    #   with:
-    #     path: ${{ env.STORE_PATH }}
-    #     key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-    #     restore-keys: |
-    #       ${{ runner.os }}-pnpm-store-
+    - name: Setup pnpm cache // cache 'pnpm 으로 대체'
+      uses: actions/cache@v3
+      with:
+        path: ${{ env.STORE_PATH }}
+        key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+        restore-keys: |
+          ${{ runner.os }}-pnpm-store-
 
     - name: Setup Git User
       shell: bash

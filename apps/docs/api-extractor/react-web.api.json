@@ -1,0 +1,4742 @@
+{
+  "metadata": {
+    "toolPackage": "@microsoft/api-extractor",
+    "toolVersion": "7.46.1",
+    "schemaVersion": 1011,
+    "oldestForwardsCompatibleVersion": 1001,
+    "tsdocConfig": {
+      "$schema": "https://developer.microsoft.com/json-schemas/tsdoc/v0/tsdoc.schema.json",
+      "noStandardTags": true,
+      "tagDefinitions": [
+        {
+          "tagName": "@alpha",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@beta",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@defaultValue",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@decorator",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@deprecated",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@eventProperty",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@example",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@experimental",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@inheritDoc",
+          "syntaxKind": "inline"
+        },
+        {
+          "tagName": "@internal",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@label",
+          "syntaxKind": "inline"
+        },
+        {
+          "tagName": "@link",
+          "syntaxKind": "inline",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@override",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@packageDocumentation",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@param",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@privateRemarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@public",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@readonly",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@remarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@returns",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@sealed",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@see",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@throws",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@typeParam",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@virtual",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@betaDocumentation",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@internalRemarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@preapproved",
+          "syntaxKind": "modifier"
+        }
+      ],
+      "supportForTags": {
+        "@alpha": true,
+        "@beta": true,
+        "@defaultValue": true,
+        "@decorator": true,
+        "@deprecated": true,
+        "@eventProperty": true,
+        "@example": true,
+        "@experimental": true,
+        "@inheritDoc": true,
+        "@internal": true,
+        "@label": true,
+        "@link": true,
+        "@override": true,
+        "@packageDocumentation": true,
+        "@param": true,
+        "@privateRemarks": true,
+        "@public": true,
+        "@readonly": true,
+        "@remarks": true,
+        "@returns": true,
+        "@sealed": true,
+        "@see": true,
+        "@throws": true,
+        "@typeParam": true,
+        "@virtual": true,
+        "@betaDocumentation": true,
+        "@internalRemarks": true,
+        "@preapproved": true
+      },
+      "reportUnsupportedHtmlElements": false
+    }
+  },
+  "kind": "Package",
+  "canonicalReference": "@toktokhan-dev/react-web!",
+  "docComment": "/**\n * React Web 환경에서 전역적으로 사용할 수 있는 유틸리티 라이브러리입니다.\n *\n * @packageDocumentation\n */\n",
+  "name": "@toktokhan-dev/react-web",
+  "preserveMemberOrder": false,
+  "members": [
+    {
+      "kind": "EntryPoint",
+      "canonicalReference": "@toktokhan-dev/react-web!",
+      "name": "",
+      "preserveMemberOrder": false,
+      "members": [
+        {
+          "kind": "Class",
+          "canonicalReference": "@toktokhan-dev/react-web!Apple:class",
+          "docComment": "/**\n  *\n * Apple OAuth 인증을 처리하는 클래스입니다. SocialOauthInit 클래스를 상속받아 구현되었습니다.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare class Apple extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "SocialOauthInit",
+              "canonicalReference": "@toktokhan-dev/react-web!SocialOauthInit:class"
+            },
+            {
+              "kind": "Content",
+              "text": " "
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "isAbstract": false,
+          "name": "Apple",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "Constructor",
+              "canonicalReference": "@toktokhan-dev/react-web!Apple:constructor(1)",
+              "docComment": "/**\n * Apple 클래스의 생성자입니다.\n *\n * @param clientID - Apple OAuth 클라이언트 ID\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "constructor(clientID?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ");"
+                }
+              ],
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "clientID",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  },
+                  "isOptional": true
+                }
+              ]
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@toktokhan-dev/react-web!Apple#createOauthUrl:member",
+              "docComment": "/**\n * OAuth 인증 URL을 생성합니다.\n *\n * @param params - OAuth 인증 요청에 필요한 파라미터\n *\n * @param  - params.scope - 요청할 OAuth 스코프\n *\n * @param  - params.return_url - 인증 후 리다이렉션될 URL\n *\n * @returns 생성된 OAuth 인증 URL\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "createOauthUrl: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "({\n    scope,\n    return_url,\n    ...params\n  }: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "OauthUserReqParams",
+                  "canonicalReference": "@toktokhan-dev/react-web!OauthUserReqParams:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "AppleAuthQueryParams",
+                  "canonicalReference": "@toktokhan-dev/react-web!AppleAuthQueryParams:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ">) => string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "createOauthUrl",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 6
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@toktokhan-dev/react-web!Apple#loginToLink:member",
+              "docComment": "/**\n * 로그인을 위한 OAuth 인증 링크로 리다이렉트합니다.\n *\n * @param params - OAuth 인증 요청에 필요한 파라미터\n *\n * @param  - params.scope - 요청할 OAuth 스코프\n *\n * @param  - params.return_url - 인증 후 리다이렉션될 URL\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "loginToLink: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "(params: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "OauthUserReqParams",
+                  "canonicalReference": "@toktokhan-dev/react-web!OauthUserReqParams:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "AppleAuthQueryParams",
+                  "canonicalReference": "@toktokhan-dev/react-web!AppleAuthQueryParams:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ">) => void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "loginToLink",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 6
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@toktokhan-dev/react-web!Apple#loginToPopup:member",
+              "docComment": "/**\n * 로그인을 위한 OAuth 인증 팝업을 엽니다.\n *\n * @param params - OAuth 인증 요청에 필요한 파라미터\n *\n * @param  - params.scope - 요청할 OAuth 스코프\n *\n * @param  - params.return_url - 인증 후 리다이렉션될 URL\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "loginToPopup: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "(params: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "OauthUserReqParams",
+                  "canonicalReference": "@toktokhan-dev/react-web!OauthUserReqParams:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "AppleAuthQueryParams",
+                  "canonicalReference": "@toktokhan-dev/react-web!AppleAuthQueryParams:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ">) => void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "loginToPopup",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 6
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@toktokhan-dev/react-web!Apple#oAuthBaseUrl:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "oAuthBaseUrl: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "oAuthBaseUrl",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            }
+          ],
+          "extendsTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          },
+          "implementsTokenRanges": [],
+          "parameters": []
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/react-web!AppleAuthQueryParams:type",
+          "docComment": "/**\n * {@link https://developer.apple.com/documentation/sign_in_with_apple/request_an_authorization_to_the_sign_in_with_apple_server | `Apple Login Docs`}\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type AppleAuthQueryParams = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n  client_id: string;\n  redirect_uri: string;\n  response_type: string;\n  nonce?: string;\n  response_mode?: string;\n  scope?: string;\n  state?: string;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "AppleAuthQueryParams",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          },
+          "parameters": []
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@toktokhan-dev/react-web!AppleButton:var",
+          "docComment": "/**\n  *\n * 애플 소셜 로그인 버튼 UI 컴포넌트입니다. {@link @toktokhan-dev/react-web#FullButton | `FullButton`} 컴포넌트를 기반으로 하여, 애플 아이콘과 스타일, 레이블을 포함합니다.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "AppleButton: "
+            },
+            {
+              "kind": "Reference",
+              "text": "FunctionComponent",
+              "canonicalReference": "@types/react!React.FunctionComponent:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "AppleButtonProps",
+              "canonicalReference": "@toktokhan-dev/react-web!AppleButtonProps:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "AppleButton",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 5
+          },
+          "parameters": []
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@toktokhan-dev/react-web!AppleButtonProps:interface",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "interface AppleButtonProps extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Omit",
+              "canonicalReference": "!Omit:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "FullButtonProps",
+              "canonicalReference": "@toktokhan-dev/react-web!FullButtonProps:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", 'socialType' | 'icon'>"
+            },
+            {
+              "kind": "Content",
+              "text": " "
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "AppleButtonProps",
+          "preserveMemberOrder": false,
+          "members": [],
+          "extendsTokenRanges": [
+            {
+              "startIndex": 1,
+              "endIndex": 5
+            }
+          ],
+          "parameters": []
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@toktokhan-dev/react-web!AppleIconButton:var",
+          "docComment": "/**\n  *\n * 애플 소셜 로그인 아이콘 버튼 UI 컴포넌트입니다. 아이콘 버튼으로 사용되며 레이블과 함께 표기됩니다. {@link @toktokhan-dev/react-web#IconButton | `IconButton`} 컴포넌트를 기반으로 하며, 애플 아이콘 및 버튼 스타일링이 가능합니다.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "AppleIconButton: "
+            },
+            {
+              "kind": "Reference",
+              "text": "FunctionComponent",
+              "canonicalReference": "@types/react!React.FunctionComponent:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "AppleIconButtonProps",
+              "canonicalReference": "@toktokhan-dev/react-web!AppleIconButtonProps:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "AppleIconButton",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 5
+          },
+          "parameters": []
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@toktokhan-dev/react-web!AppleIconButtonProps:interface",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "interface AppleIconButtonProps extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Omit",
+              "canonicalReference": "!Omit:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "IconButtonProps",
+              "canonicalReference": "@toktokhan-dev/react-web!IconButtonProps:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", 'socialType' | 'icon'>"
+            },
+            {
+              "kind": "Content",
+              "text": " "
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "AppleIconButtonProps",
+          "preserveMemberOrder": false,
+          "members": [],
+          "extendsTokenRanges": [
+            {
+              "startIndex": 1,
+              "endIndex": 5
+            }
+          ],
+          "parameters": []
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/react-web!CommonOauthParams:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type CommonOauthParams = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n  response_type: string;\n  client_id: string;\n  scope?: string;\n  state?: string;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "CommonOauthParams",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          },
+          "parameters": []
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "@toktokhan-dev/react-web!Facebook:class",
+          "docComment": "/**\n  *\n * Facebook OAuth 인증을 처리하는 클래스입니다. SocialOauthInit 클래스를 상속받아 구현되었습니다.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare class Facebook extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "SocialOauthInit",
+              "canonicalReference": "@toktokhan-dev/react-web!SocialOauthInit:class"
+            },
+            {
+              "kind": "Content",
+              "text": " "
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "isAbstract": false,
+          "name": "Facebook",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "Constructor",
+              "canonicalReference": "@toktokhan-dev/react-web!Facebook:constructor(1)",
+              "docComment": "/**\n * Facebook 클래스의 생성자입니다.\n *\n * @param clientID - Facebook OAuth 클라이언트 ID\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "constructor(clientID?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ");"
+                }
+              ],
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "clientID",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  },
+                  "isOptional": true
+                }
+              ]
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@toktokhan-dev/react-web!Facebook#createOauthUrl:member",
+              "docComment": "/**\n * OAuth 인증 URL을 생성합니다.\n *\n * @param params - OAuth 인증 요청에 필요한 파라미터\n *\n * @param  - params.scope - 요청할 OAuth 스코프\n *\n * @param  - params.return_url - 인증 후 리다이렉션될 URL\n *\n * @returns 생성된 OAuth 인증 URL\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "createOauthUrl: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "({\n    scope,\n    return_url,\n    ...params\n  }: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "OauthUserReqParams",
+                  "canonicalReference": "@toktokhan-dev/react-web!OauthUserReqParams:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "FacebookAuthQueryParams",
+                  "canonicalReference": "@toktokhan-dev/react-web!FacebookAuthQueryParams:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ">) => string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "createOauthUrl",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 6
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@toktokhan-dev/react-web!Facebook#loginToLink:member",
+              "docComment": "/**\n * 로그인을 위한 OAuth 인증 링크로 리다이렉트합니다.\n *\n * @param params - OAuth 인증 요청에 필요한 파라미터\n *\n * @param  - params.scope - 요청할 OAuth 스코프\n *\n * @param  - params.return_url - 인증 후 리다이렉션될 URL\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "loginToLink: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "(params: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "OauthUserReqParams",
+                  "canonicalReference": "@toktokhan-dev/react-web!OauthUserReqParams:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "FacebookAuthQueryParams",
+                  "canonicalReference": "@toktokhan-dev/react-web!FacebookAuthQueryParams:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ">) => void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "loginToLink",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 6
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@toktokhan-dev/react-web!Facebook#loginToPopup:member",
+              "docComment": "/**\n * 로그인을 위한 OAuth 인증 팝업을 엽니다.\n *\n * @param params - OAuth 인증 요청에 필요한 파라미터\n *\n * @param  - params.scope - 요청할 OAuth 스코프\n *\n * @param  - params.return_url - 인증 후 리다이렉션될 URL\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "loginToPopup: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "(params: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "OauthUserReqParams",
+                  "canonicalReference": "@toktokhan-dev/react-web!OauthUserReqParams:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "FacebookAuthQueryParams",
+                  "canonicalReference": "@toktokhan-dev/react-web!FacebookAuthQueryParams:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ">) => void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "loginToPopup",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 6
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@toktokhan-dev/react-web!Facebook#oAuthBaseUrl:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "oAuthBaseUrl: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "oAuthBaseUrl",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            }
+          ],
+          "extendsTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          },
+          "implementsTokenRanges": [],
+          "parameters": []
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/react-web!FacebookAuthQueryParams:type",
+          "docComment": "/**\n * {@link https://developers.facebook.com/docs/facebook-login/guides/advanced/manual-flow/ | `Facebook Login Docs`}\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type FacebookAuthQueryParams = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n  client_id: string;\n  redirect_uri: string;\n  response_type: string;\n  state?: string;\n  scope?: string;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "FacebookAuthQueryParams",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          },
+          "parameters": []
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@toktokhan-dev/react-web!FacebookButton:var",
+          "docComment": "/**\n  *\n * 페이스북 소셜 로그인 버튼 UI 컴포넌트입니다. {@link @toktokhan-dev/react-web#FullButton | `FullButton`} 컴포넌트를 기반으로 하여, 페이스북 아이콘과 스타일, 레이블을 포함합니다.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "FacebookButton: "
+            },
+            {
+              "kind": "Reference",
+              "text": "FunctionComponent",
+              "canonicalReference": "@types/react!React.FunctionComponent:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "FacebookButtonProps",
+              "canonicalReference": "@toktokhan-dev/react-web!FacebookButtonProps:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "FacebookButton",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 5
+          },
+          "parameters": []
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@toktokhan-dev/react-web!FacebookButtonProps:interface",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "interface FacebookButtonProps extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Omit",
+              "canonicalReference": "!Omit:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "FullButtonProps",
+              "canonicalReference": "@toktokhan-dev/react-web!FullButtonProps:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", 'socialType' | 'icon'>"
+            },
+            {
+              "kind": "Content",
+              "text": " "
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "FacebookButtonProps",
+          "preserveMemberOrder": false,
+          "members": [],
+          "extendsTokenRanges": [
+            {
+              "startIndex": 1,
+              "endIndex": 5
+            }
+          ],
+          "parameters": []
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@toktokhan-dev/react-web!FacebookIconButton:var",
+          "docComment": "/**\n  *\n * 페이스북 소셜 로그인 아이콘 버튼 UI 컴포넌트입니다. 아이콘 버튼으로 사용되며 레이블과 함께 표기됩니다. {@link @toktokhan-dev/react-web#IconButton | `IconButton`} 컴포넌트를 기반으로 하며, 페이스북 아이콘 및 버튼 스타일링이 가능합니다.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "FacebookIconButton: "
+            },
+            {
+              "kind": "Reference",
+              "text": "FunctionComponent",
+              "canonicalReference": "@types/react!React.FunctionComponent:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "FacebookButtonProps",
+              "canonicalReference": "@toktokhan-dev/react-web!FacebookButtonProps:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "FacebookIconButton",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 5
+          },
+          "parameters": []
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@toktokhan-dev/react-web!FacebookIconButtonProps:interface",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "interface FacebookIconButtonProps extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Omit",
+              "canonicalReference": "!Omit:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "IconButtonProps",
+              "canonicalReference": "@toktokhan-dev/react-web!IconButtonProps:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", 'socialType' | 'icon'>"
+            },
+            {
+              "kind": "Content",
+              "text": " "
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "FacebookIconButtonProps",
+          "preserveMemberOrder": false,
+          "members": [],
+          "extendsTokenRanges": [
+            {
+              "startIndex": 1,
+              "endIndex": 5
+            }
+          ],
+          "parameters": []
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/react-web!FullButton:function(1)",
+          "docComment": "/**\n * 소셜 로그인 버튼을 생성합니다.\n *\n * @param props - 컴포넌트가 받는 속성들\n *\n * @returns 렌더링된 버튼\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "FullButton: ({\n  colorMode,\n  socialType,\n  align,\n  lang,\n  label,\n  style,\n  icon,\n  iconStyle,\n  onClick,\n  ...props\n}: "
+            },
+            {
+              "kind": "Reference",
+              "text": "FullButtonProps",
+              "canonicalReference": "@toktokhan-dev/react-web!FullButtonProps:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Reference",
+              "text": "ReactElement",
+              "canonicalReference": "@types/react!React.ReactElement:interface"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "{  colorMode,  socialType,  align,  lang,  label,  style,  icon,  iconStyle,  onClick,  ...props}",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "FullButton"
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@toktokhan-dev/react-web!FullButtonProps:interface",
+          "docComment": "/**\n * `FullButtonProps`는 `FullButton` 컴포넌트가 받는 속성들을 정의합니다. HTMLAnchorElement의 속성을 상속하며, 추가적으로 아래의 속성들을 가집니다.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "interface FullButtonProps extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "HTMLAttributes",
+              "canonicalReference": "@types/react!React.HTMLAttributes:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "HTMLAnchorElement",
+              "canonicalReference": "!HTMLAnchorElement:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            },
+            {
+              "kind": "Content",
+              "text": " "
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "FullButtonProps",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/react-web!FullButtonProps#align:member",
+              "docComment": "/**\n * 버튼 내 콘텐츠의 정렬을 지정합니다. 'left' 또는 'center' 중 하나를 선택할 수 있습니다.  @default 'center'\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "align?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "'left' | 'center'"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "align",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/react-web!FullButtonProps#colorMode:member",
+              "docComment": "/**\n * 버튼의 색상 모드를 설정합니다. 'light' 또는 'dark' 중 하나를 선택할 수 있습니다.  @default 'dark'\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "colorMode?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "'light' | 'dark'"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "colorMode",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/react-web!FullButtonProps#icon:member",
+              "docComment": "/**\n * 버튼에 표시될 아이콘을 설정합니다. ReactElement 타입이어야 합니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "icon: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ReactElement",
+                  "canonicalReference": "@types/react!React.ReactElement:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "icon",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/react-web!FullButtonProps#iconStyle:member",
+              "docComment": "/**\n * 아이콘의 스타일을 설정합니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "iconStyle?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "HTMLAttributes",
+                  "canonicalReference": "@types/react!React.HTMLAttributes:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "HTMLOrSVGElement",
+                  "canonicalReference": "!HTMLOrSVGElement:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ">['style']"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "iconStyle",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 5
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/react-web!FullButtonProps#label:member",
+              "docComment": "/**\n * 버튼에 표시될 레이블을 설정합니다. null 값을 통해 레이블을 숨길 수 있습니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "label?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string | null"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "label",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/react-web!FullButtonProps#labelStyle:member",
+              "docComment": "/**\n * 레이블의 스타일을 설정합니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "labelStyle?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "HTMLAttributes",
+                  "canonicalReference": "@types/react!React.HTMLAttributes:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "HTMLLabelElement",
+                  "canonicalReference": "!HTMLLabelElement:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ">['style']"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "labelStyle",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 5
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/react-web!FullButtonProps#lang:member",
+              "docComment": "/**\n * 버튼의 언어를 설정합니다. 'en' 또는 'ko' 중 하나를 선택할 수 있습니다.  @default 'ko'\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "lang?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "'en' | 'ko'"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "lang",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/react-web!FullButtonProps#socialType:member",
+              "docComment": "/**\n * 소셜 타입을 지정합니다. 이를 통해 버튼의 스타일과 레이블이 결정됩니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "socialType: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "SocialType",
+                  "canonicalReference": "@toktokhan-dev/react-web!SocialType:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "socialType",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": [
+            {
+              "startIndex": 1,
+              "endIndex": 5
+            }
+          ],
+          "parameters": []
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@toktokhan-dev/react-web!GOOGLE_AUTH_SCOPE:var",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "GOOGLE_AUTH_SCOPE: "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n  readonly email: \"https://www.googleapis.com/auth/userinfo.email\";\n  readonly profile: \"https://www.googleapis.com/auth/userinfo.profile\";\n}"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "GOOGLE_AUTH_SCOPE",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          },
+          "parameters": []
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "@toktokhan-dev/react-web!Google:class",
+          "docComment": "/**\n  *\n * Google OAuth 인증을 처리하는 클래스입니다. SocialOauthInit 클래스를 상속받아 구현되었습니다.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare class Google extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "SocialOauthInit",
+              "canonicalReference": "@toktokhan-dev/react-web!SocialOauthInit:class"
+            },
+            {
+              "kind": "Content",
+              "text": " "
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "isAbstract": false,
+          "name": "Google",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "Constructor",
+              "canonicalReference": "@toktokhan-dev/react-web!Google:constructor(1)",
+              "docComment": "/**\n * Google 클래스의 생성자입니다.\n *\n * @param clientID - Google OAuth 클라이언트 ID\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "constructor(clientID?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ");"
+                }
+              ],
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "clientID",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  },
+                  "isOptional": true
+                }
+              ]
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@toktokhan-dev/react-web!Google#createOauthUrl:member",
+              "docComment": "/**\n * OAuth 인증 URL을 생성합니다.\n *\n * @param params - OAuth 인증 요청에 필요한 파라미터\n *\n * @param  - params.return_url - 인증 후 리다이렉션될 URL\n *\n * @param  - params.scope - 요청할 OAuth 스코프\n *\n * @returns 생성된 OAuth 인증 URL\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "createOauthUrl: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "({\n    return_url,\n    scope,\n    ...params\n  }: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "OauthUserReqParams",
+                  "canonicalReference": "@toktokhan-dev/react-web!OauthUserReqParams:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "GoogleAuthQueryParams",
+                  "canonicalReference": "@toktokhan-dev/react-web!GoogleAuthQueryParams:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ">) => string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "createOauthUrl",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 6
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@toktokhan-dev/react-web!Google#loginToLink:member",
+              "docComment": "/**\n * OAuth 인증 링크로 리다이렉트합니다.\n *\n * @param params - OAuth 인증 요청에 필요한 파라미터\n *\n * @param  - params.return_url - 인증 후 리다이렉션될 URL\n *\n * @param  - params.scope - 요청할 OAuth 스코프\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "loginToLink: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "(params: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "OauthUserReqParams",
+                  "canonicalReference": "@toktokhan-dev/react-web!OauthUserReqParams:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "GoogleAuthQueryParams",
+                  "canonicalReference": "@toktokhan-dev/react-web!GoogleAuthQueryParams:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ">) => void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "loginToLink",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 6
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@toktokhan-dev/react-web!Google#loginToPopup:member",
+              "docComment": "/**\n * OAuth 인증 팝업을 엽니다.\n *\n * @param params - OAuth 인증 요청에 필요한 파라미터\n *\n * @param  - params.return_url - 인증 후 리다이렉션될 URL\n *\n * @param  - params.scope - 요청할 OAuth 스코프 (이메일, 프로필 등)\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "loginToPopup: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "(params: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "OauthUserReqParams",
+                  "canonicalReference": "@toktokhan-dev/react-web!OauthUserReqParams:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "GoogleAuthQueryParams",
+                  "canonicalReference": "@toktokhan-dev/react-web!GoogleAuthQueryParams:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ">) => void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "loginToPopup",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 6
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@toktokhan-dev/react-web!Google#oAuthBaseUrl:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "oAuthBaseUrl: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "oAuthBaseUrl",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            }
+          ],
+          "extendsTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          },
+          "implementsTokenRanges": [],
+          "parameters": []
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/react-web!GoogleAuthQueryParams:type",
+          "docComment": "/**\n * {@link https://developers.google.com/identity/protocols/oauth2/javascript-implicit-flow?hl=ko | `Google Login Docs`}\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type GoogleAuthQueryParams = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n  client_id: string;\n  redirect_uri: string;\n  response_type: string;\n  scope: string;\n  state?: string;\n  include_granted_scopes?: boolean;\n  enable_granular_consent?: boolean;\n  login_hint?: string;\n  prompt?: 'none' | 'consent' | 'select_account';\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "GoogleAuthQueryParams",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          },
+          "parameters": []
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@toktokhan-dev/react-web!GoogleButton:var",
+          "docComment": "/**\n  *\n * 구글소셜 로그인 버튼 UI 컴포넌트입니다. {@link @toktokhan-dev/react-web#FullButton | `FullButton`} 컴포넌트를 기반으로 하여, 구글 아이콘과 스타일, 레이블을 포함합니다.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "GoogleButton: "
+            },
+            {
+              "kind": "Reference",
+              "text": "FunctionComponent",
+              "canonicalReference": "@types/react!React.FunctionComponent:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "GoogleIconButtonProps",
+              "canonicalReference": "@toktokhan-dev/react-web!GoogleIconButtonProps:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "GoogleButton",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 5
+          },
+          "parameters": []
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@toktokhan-dev/react-web!GoogleButtonProps:interface",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "interface GoogleButtonProps extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Omit",
+              "canonicalReference": "!Omit:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "FullButtonProps",
+              "canonicalReference": "@toktokhan-dev/react-web!FullButtonProps:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", 'socialType' | 'icon'>"
+            },
+            {
+              "kind": "Content",
+              "text": " "
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "GoogleButtonProps",
+          "preserveMemberOrder": false,
+          "members": [],
+          "extendsTokenRanges": [
+            {
+              "startIndex": 1,
+              "endIndex": 5
+            }
+          ],
+          "parameters": []
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@toktokhan-dev/react-web!GoogleIconButton:var",
+          "docComment": "/**\n  *\n * 구글 소셜 로그인 아이콘 버튼 UI 컴포넌트입니다. 아이콘 버튼으로 사용되며 레이블과 함께 표기됩니다. {@link @toktokhan-dev/react-web#IconButton | `IconButton`} 컴포넌트를 기반으로 하며, 구글 아이콘 및 버튼 스타일링이 가능합니다.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "GoogleIconButton: "
+            },
+            {
+              "kind": "Reference",
+              "text": "FunctionComponent",
+              "canonicalReference": "@types/react!React.FunctionComponent:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "GoogleIconButtonProps",
+              "canonicalReference": "@toktokhan-dev/react-web!GoogleIconButtonProps:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "GoogleIconButton",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 5
+          },
+          "parameters": []
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@toktokhan-dev/react-web!GoogleIconButtonProps:interface",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "interface GoogleIconButtonProps extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Omit",
+              "canonicalReference": "!Omit:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "IconButtonProps",
+              "canonicalReference": "@toktokhan-dev/react-web!IconButtonProps:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", 'socialType' | 'icon'>"
+            },
+            {
+              "kind": "Content",
+              "text": " "
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "GoogleIconButtonProps",
+          "preserveMemberOrder": false,
+          "members": [],
+          "extendsTokenRanges": [
+            {
+              "startIndex": 1,
+              "endIndex": 5
+            }
+          ],
+          "parameters": []
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/react-web!IconButton:function(1)",
+          "docComment": "/**\n * 소셜 로그인 아이콘 버튼을 생성합니다.\n *\n * @param props - 컴포넌트가 받는 속성들\n *\n * @returns 렌더링된 아이콘 버튼\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "IconButton: ({\n  colorMode,\n  socialType,\n  lang,\n  variant,\n  icon,\n  label,\n  style,\n  iconStyle,\n  labelStyle,\n  onClick,\n  ...props\n}: "
+            },
+            {
+              "kind": "Reference",
+              "text": "IconButtonProps",
+              "canonicalReference": "@toktokhan-dev/react-web!IconButtonProps:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Reference",
+              "text": "ReactElement",
+              "canonicalReference": "@types/react!React.ReactElement:interface"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "{  colorMode,  socialType,  lang,  variant,  icon,  label,  style,  iconStyle,  labelStyle,  onClick,  ...props}",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "IconButton"
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@toktokhan-dev/react-web!IconButtonProps:interface",
+          "docComment": "/**\n * `IconButtonProps`는 `IconButton` 컴포넌트가 받는 속성들을 정의합니다. HTMLAnchorElement의 속성을 상속하며, 추가적으로 아래의 속성들을 가집니다.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "interface IconButtonProps extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "HTMLAttributes",
+              "canonicalReference": "@types/react!React.HTMLAttributes:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "HTMLAnchorElement",
+              "canonicalReference": "!HTMLAnchorElement:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            },
+            {
+              "kind": "Content",
+              "text": " "
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "IconButtonProps",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/react-web!IconButtonProps#colorMode:member",
+              "docComment": "/**\n * 아이콘 버튼의 색상 모드를 설정합니다. 'light' 또는 'dark' 중 하나를 선택할 수 있습니다.  @default 'dark'\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "colorMode?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "'light' | 'dark'"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "colorMode",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/react-web!IconButtonProps#icon:member",
+              "docComment": "/**\n * 버튼에 표시될 아이콘을 설정합니다. ReactElement 타입이어야 합니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "icon: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ReactElement",
+                  "canonicalReference": "@types/react!React.ReactElement:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "icon",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/react-web!IconButtonProps#iconStyle:member",
+              "docComment": "/**\n * 아이콘의 스타일을 설정합니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "iconStyle?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "HTMLAttributes",
+                  "canonicalReference": "@types/react!React.HTMLAttributes:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "HTMLOrSVGElement",
+                  "canonicalReference": "!HTMLOrSVGElement:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ">['style']"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "iconStyle",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 5
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/react-web!IconButtonProps#label:member",
+              "docComment": "/**\n * 버튼에 표시될 레이블을 설정합니다. null 값을 통해 레이블을 숨길 수 있습니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "label?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string | null"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "label",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/react-web!IconButtonProps#labelStyle:member",
+              "docComment": "/**\n * 레이블의 스타일을 설정합니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "labelStyle?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "HTMLAttributes",
+                  "canonicalReference": "@types/react!React.HTMLAttributes:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "HTMLLabelElement",
+                  "canonicalReference": "!HTMLLabelElement:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ">['style']"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "labelStyle",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 5
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/react-web!IconButtonProps#lang:member",
+              "docComment": "/**\n * 버튼의 언어를 설정합니다. 'en' 또는 'ko' 중 하나를 선택할 수 있습니다.  @default 'ko'\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "lang?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "'en' | 'ko'"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "lang",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/react-web!IconButtonProps#socialType:member",
+              "docComment": "/**\n * 소셜 타입을 지정합니다. 이를 통해 버튼의 스타일과 레이블이 결정됩니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "socialType: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "SocialType",
+                  "canonicalReference": "@toktokhan-dev/react-web!SocialType:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "socialType",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/react-web!IconButtonProps#variant:member",
+              "docComment": "/**\n * 아이콘 버튼의 모양을 결정합니다. 'full', 'rounded', 'square' 중 하나를 선택할 수 있습니다.  @default 'full'\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "variant?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "'full' | 'rounded' | 'square'"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "variant",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": [
+            {
+              "startIndex": 1,
+              "endIndex": 5
+            }
+          ],
+          "parameters": []
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "@toktokhan-dev/react-web!Kakao:class",
+          "docComment": "/**\n  *\n * Kakao OAuth 인증을 처리하는 클래스입니다. SocialOauthInit 클래스를 상속받아 구현되었습니다.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare class Kakao extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "SocialOauthInit",
+              "canonicalReference": "@toktokhan-dev/react-web!SocialOauthInit:class"
+            },
+            {
+              "kind": "Content",
+              "text": " "
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "isAbstract": false,
+          "name": "Kakao",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "Constructor",
+              "canonicalReference": "@toktokhan-dev/react-web!Kakao:constructor(1)",
+              "docComment": "/**\n * Kakao 클래스의 생성자입니다.\n *\n * @param clientID - Kakao OAuth 클라이언트 ID\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "constructor(clientID?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ");"
+                }
+              ],
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "clientID",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  },
+                  "isOptional": true
+                }
+              ]
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@toktokhan-dev/react-web!Kakao#createOauthUrl:member",
+              "docComment": "/**\n * OAuth 인증 URL을 생성합니다.\n *\n * @param params - OAuth 인증 요청에 필요한 파라미터\n *\n * @returns 생성된 OAuth 인증 URL\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "createOauthUrl: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "({\n    return_url,\n    scope,\n    ...params\n  }: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "OauthUserReqParams",
+                  "canonicalReference": "@toktokhan-dev/react-web!OauthUserReqParams:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "KakaoAuthQueryParams",
+                  "canonicalReference": "@toktokhan-dev/react-web!KakaoAuthQueryParams:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ">) => string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "createOauthUrl",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 6
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@toktokhan-dev/react-web!Kakao#loginToLink:member",
+              "docComment": "/**\n * OAuth 인증 링크로 리다이렉트합니다.\n *\n * @param params - OAuth 인증 요청에 필요한 파라미터\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "loginToLink: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "(params: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "OauthUserReqParams",
+                  "canonicalReference": "@toktokhan-dev/react-web!OauthUserReqParams:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "KakaoAuthQueryParams",
+                  "canonicalReference": "@toktokhan-dev/react-web!KakaoAuthQueryParams:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ">) => void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "loginToLink",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 6
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@toktokhan-dev/react-web!Kakao#loginToPopup:member",
+              "docComment": "/**\n * OAuth 인증 팝업을 엽니다.\n *\n * @param params - OAuth 인증 요청에 필요한 파라미터\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "loginToPopup: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "(params: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "OauthUserReqParams",
+                  "canonicalReference": "@toktokhan-dev/react-web!OauthUserReqParams:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "KakaoAuthQueryParams",
+                  "canonicalReference": "@toktokhan-dev/react-web!KakaoAuthQueryParams:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ">) => void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "loginToPopup",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 6
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@toktokhan-dev/react-web!Kakao#oAuthBaseUrl:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "oAuthBaseUrl: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "oAuthBaseUrl",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            }
+          ],
+          "extendsTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          },
+          "implementsTokenRanges": [],
+          "parameters": []
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/react-web!KakaoAuthQueryParams:type",
+          "docComment": "/**\n * {@link https://developers.kakao.com/docs/latest/ko/kakaologin/rest-api | `Kakao Login Docs`}\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type KakaoAuthQueryParams = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n  client_id: string;\n  redirect_uri: string;\n  response_type: string;\n  scope?: string;\n  prompt?: 'none' | 'login' | 'create' | 'select_account';\n  login_hint?: string;\n  service_terms?: string;\n  state?: string;\n  nonce?: string;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "KakaoAuthQueryParams",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          },
+          "parameters": []
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/react-web!KaKaoAuthQueryResponse:type",
+          "docComment": "/**\n * KaKaoAuthQueryResponse는 카카오 로그인 인증 응답을 정의합니다.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type KaKaoAuthQueryResponse = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n  code?: string;\n  error?: string;\n  error_description?: string;\n  state?: string;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "KaKaoAuthQueryResponse",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          },
+          "parameters": []
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@toktokhan-dev/react-web!KakaoButton:var",
+          "docComment": "/**\n  *\n * 카카오 소셜 로그인 버튼 UI 컴포넌트입니다. {@link @toktokhan-dev/react-web#FullButton | `FullButton`} 컴포넌트를 기반으로 하여, 카카오 아이콘과 스타일, 레이블을 포함합니다.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "KakaoButton: "
+            },
+            {
+              "kind": "Reference",
+              "text": "FunctionComponent",
+              "canonicalReference": "@types/react!React.FunctionComponent:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "KakaoIconButtonProps",
+              "canonicalReference": "@toktokhan-dev/react-web!KakaoIconButtonProps:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "KakaoButton",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 5
+          },
+          "parameters": []
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@toktokhan-dev/react-web!KakaoButtonProps:interface",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "interface KakaoButtonProps extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Omit",
+              "canonicalReference": "!Omit:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "FullButtonProps",
+              "canonicalReference": "@toktokhan-dev/react-web!FullButtonProps:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", 'socialType' | 'icon'>"
+            },
+            {
+              "kind": "Content",
+              "text": " "
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "KakaoButtonProps",
+          "preserveMemberOrder": false,
+          "members": [],
+          "extendsTokenRanges": [
+            {
+              "startIndex": 1,
+              "endIndex": 5
+            }
+          ],
+          "parameters": []
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@toktokhan-dev/react-web!KakaoIconButton:var",
+          "docComment": "/**\n  *\n * 카카오 소셜 로그인 아이콘 버튼 UI 컴포넌트입니다. {@link @toktokhan-dev/react-web#IconButton | `IconButton`} 컴포넌트를 기반으로 하며, 카카오 아이콘과 스타일, 레이블을 포함합니다.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "KakaoIconButton: "
+            },
+            {
+              "kind": "Reference",
+              "text": "FunctionComponent",
+              "canonicalReference": "@types/react!React.FunctionComponent:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "KakaoIconButtonProps",
+              "canonicalReference": "@toktokhan-dev/react-web!KakaoIconButtonProps:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "KakaoIconButton",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 5
+          },
+          "parameters": []
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@toktokhan-dev/react-web!KakaoIconButtonProps:interface",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "interface KakaoIconButtonProps extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Omit",
+              "canonicalReference": "!Omit:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "IconButtonProps",
+              "canonicalReference": "@toktokhan-dev/react-web!IconButtonProps:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", 'socialType' | 'icon'>"
+            },
+            {
+              "kind": "Content",
+              "text": " "
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "KakaoIconButtonProps",
+          "preserveMemberOrder": false,
+          "members": [],
+          "extendsTokenRanges": [
+            {
+              "startIndex": 1,
+              "endIndex": 5
+            }
+          ],
+          "parameters": []
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/react-web!LinkReturnType:type",
+          "docComment": "/**\n * `useOauthLinkCallback` 훅의 반환 타입을 정의합니다.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type LinkReturnType = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n  data: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OauthResponse",
+              "canonicalReference": "@toktokhan-dev/react-web!OauthResponse:type"
+            },
+            {
+              "kind": "Content",
+              "text": " | null;\n  isLoading: boolean;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "LinkReturnType",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 4
+          },
+          "parameters": []
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "@toktokhan-dev/react-web!Naver:class",
+          "docComment": "/**\n  *\n * 네이버 OAuth 인증을 처리하는 클래스입니다. SocialOauthInit 클래스를 상속받아 구현되었습니다.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare class Naver extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "SocialOauthInit",
+              "canonicalReference": "@toktokhan-dev/react-web!SocialOauthInit:class"
+            },
+            {
+              "kind": "Content",
+              "text": " "
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "isAbstract": false,
+          "name": "Naver",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "Constructor",
+              "canonicalReference": "@toktokhan-dev/react-web!Naver:constructor(1)",
+              "docComment": "/**\n * Naver 클래스의 생성자입니다.\n *\n * @param clientID - Naver OAuth 클라이언트 ID\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "constructor(clientID?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ");"
+                }
+              ],
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "clientID",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  },
+                  "isOptional": true
+                }
+              ]
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@toktokhan-dev/react-web!Naver#createOauthUrl:member",
+              "docComment": "/**\n * OAuth 인증 URL을 생성합니다.\n *\n * @param params - OAuth 인증 요청에 필요한 파라미터\n *\n * @param  - params.scope - 요청할 OAuth 스코프\n *\n * @param  - params.return_url - 인증 후 리다이렉션될 URL\n *\n * @returns 생성된 OAuth 인증 URL\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "createOauthUrl: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "({\n    scope,\n    return_url,\n    ...params\n  }: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "OauthUserReqParams",
+                  "canonicalReference": "@toktokhan-dev/react-web!OauthUserReqParams:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "NaverAuthQueryParams",
+                  "canonicalReference": "@toktokhan-dev/react-web!NaverAuthQueryParams:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ">) => string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "createOauthUrl",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 6
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@toktokhan-dev/react-web!Naver#loginToLink:member",
+              "docComment": "/**\n * 로그인을 위한 OAuth 인증 링크로 리다이렉트합니다.\n *\n * @param params - OAuth 인증 요청에 필요한 파라미터\n *\n * @param  - params.scope - 요청할 OAuth 스코프\n *\n * @param  - params.return_url - 인증 후 리다이렉션될 URL\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "loginToLink: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "(params: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "OauthUserReqParams",
+                  "canonicalReference": "@toktokhan-dev/react-web!OauthUserReqParams:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "NaverAuthQueryParams",
+                  "canonicalReference": "@toktokhan-dev/react-web!NaverAuthQueryParams:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ">) => void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "loginToLink",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 6
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@toktokhan-dev/react-web!Naver#loginToPopup:member",
+              "docComment": "/**\n * 로그인을 위한 OAuth 인증 팝업을 엽니다.\n *\n * @param params - OAuth 인증 요청에 필요한 파라미터\n *\n * @param  - params.scope - 요청할 OAuth 스코프\n *\n * @param  - params.return_url - 인증 후 리다이렉션될 URL\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "loginToPopup: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "(params: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "OauthUserReqParams",
+                  "canonicalReference": "@toktokhan-dev/react-web!OauthUserReqParams:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "NaverAuthQueryParams",
+                  "canonicalReference": "@toktokhan-dev/react-web!NaverAuthQueryParams:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ">) => void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "loginToPopup",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 6
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@toktokhan-dev/react-web!Naver#oAuthBaseUrl:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "oAuthBaseUrl: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "oAuthBaseUrl",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            }
+          ],
+          "extendsTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          },
+          "implementsTokenRanges": [],
+          "parameters": []
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/react-web!NaverAuthQueryParams:type",
+          "docComment": "/**\n * {@link https://developers.naver.com/docs/login/api/api.md#2--api-%EA%B8%B0%EB%B3%B8-%EC%A0%95%EB%B3%B4 | `Naver Login Docs`}\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type NaverAuthQueryParams = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n  client_id: string;\n  redirect_uri: string;\n  response_type: string;\n  state: string;\n  scope?: string;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "NaverAuthQueryParams",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          },
+          "parameters": []
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/react-web!NaverAuthQueryResponse:type",
+          "docComment": "/**\n * NaverAuthQueryResponse는 네이버 로그인 인증 응답을 정의합니다.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type NaverAuthQueryResponse = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n  code?: string;\n  error?: string;\n  error_description?: string;\n  state?: string;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "NaverAuthQueryResponse",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          },
+          "parameters": []
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@toktokhan-dev/react-web!NaverButton:var",
+          "docComment": "/**\n  *\n * 네이버 소셜 로그인 버튼 UI 컴포넌트입니다. {@link @toktokhan-dev/react-web#FullButton | `FullButton`} 컴포넌트를 기반으로 하여, 네이버 아이콘과 스타일, 레이블을 포함합니다.\n *\n * @param props - NaverButton 컴포넌트에 전달되는 props입니다.\n *\n * @param  - {React.CSSProperties} props.style - 버튼에 적용할 CSS 스타일입니다.\n *\n * @returns {React.ReactElement} 네이버 소셜 로그인 버튼 컴포넌트를 반환합니다.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "NaverButton: "
+            },
+            {
+              "kind": "Reference",
+              "text": "FunctionComponent",
+              "canonicalReference": "@types/react!React.FunctionComponent:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "NaverButtonProps",
+              "canonicalReference": "@toktokhan-dev/react-web!NaverButtonProps:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "NaverButton",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 5
+          },
+          "parameters": []
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@toktokhan-dev/react-web!NaverButtonProps:interface",
+          "docComment": "/**\n * NaverButtonProps는 FullButtonProps에서 'socialType'과 'icon'을 제외한 속성들을 상속받습니다.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "interface NaverButtonProps extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Omit",
+              "canonicalReference": "!Omit:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "FullButtonProps",
+              "canonicalReference": "@toktokhan-dev/react-web!FullButtonProps:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", 'socialType' | 'icon'>"
+            },
+            {
+              "kind": "Content",
+              "text": " "
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "NaverButtonProps",
+          "preserveMemberOrder": false,
+          "members": [],
+          "extendsTokenRanges": [
+            {
+              "startIndex": 1,
+              "endIndex": 5
+            }
+          ],
+          "parameters": []
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@toktokhan-dev/react-web!NaverIconButton:var",
+          "docComment": "/**\n  *\n * 네이버 소셜 로그인 아이콘 버튼 UI 컴포넌트입니다. 아이콘 버튼으로 사용되며 레이블과 함께 표기됩니다. {@link @toktokhan-dev/react-web#IconButton | `IconButton`} 컴포넌트를 기반으로 하며, 네이버 아이콘 및 버튼 스타일링이 가능합니다.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "NaverIconButton: "
+            },
+            {
+              "kind": "Reference",
+              "text": "FunctionComponent",
+              "canonicalReference": "@types/react!React.FunctionComponent:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "NaverButtonProps",
+              "canonicalReference": "@toktokhan-dev/react-web!NaverButtonProps:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "NaverIconButton",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 5
+          },
+          "parameters": []
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@toktokhan-dev/react-web!NaverIconButtonProps:interface",
+          "docComment": "/**\n * NaverIconButtonProps는 IconButtonProps에서 'socialType'과 'icon'을 제외한 속성들을 상속받습니다.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "interface NaverIconButtonProps extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Omit",
+              "canonicalReference": "!Omit:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "IconButtonProps",
+              "canonicalReference": "@toktokhan-dev/react-web!IconButtonProps:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", 'socialType' | 'icon'>"
+            },
+            {
+              "kind": "Content",
+              "text": " "
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "NaverIconButtonProps",
+          "preserveMemberOrder": false,
+          "members": [],
+          "extendsTokenRanges": [
+            {
+              "startIndex": 1,
+              "endIndex": 5
+            }
+          ],
+          "parameters": []
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/react-web!OauthCallbackParams:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OauthCallbackParams = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n  access_token: string | null;\n  code: string | null;\n  error: string | null;\n  errorDescription: string | null;\n  parsedState: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OauthStateReturnType",
+              "canonicalReference": "@toktokhan-dev/react-web!~OauthStateReturnType_2:type"
+            },
+            {
+              "kind": "Content",
+              "text": " | null;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "OauthCallbackParams",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 4
+          },
+          "parameters": []
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/react-web!OauthResponse:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OauthResponse = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n  token: string | null;\n  socialType: string | null;\n  returnUrl: string | null;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "OauthResponse",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          },
+          "parameters": []
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/react-web!OauthStateReturnType:type",
+          "docComment": "/**\n * OauthStateReturnType은 OAuth 상태 반환 타입을 정의합니다. type: 소셜 로그인 타입을 나타냅니다. returnUrl: 로그인 후 리다이렉트 될 URL을 나타냅니다.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OauthStateReturnType$1 = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n  type: string | null;\n  returnUrl: string | null;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "OauthStateReturnType",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          },
+          "parameters": []
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/react-web!OauthUserReqParams:type",
+          "docComment": "/**\n * OauthUserReqParams는 OAuth 인증 요청에 필요한 파라미터를 정의합니다. OauthUserReqParams는 CommonOauthParams를 확장하고, 필요한 추가 속성을 정의합니다. 소셜로그인에 필요한 `response_type` , `client_id`, `scope`, `state` 를 클래스 내부에서 직접 주입해주고 있기 때문에 필수 타입에서 제거하거나 변환하고 `return_url`와 같이 요청시 필요한 타입을 추가하였습니다.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type OauthUserReqParams<T extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "CommonOauthParams",
+              "canonicalReference": "@toktokhan-dev/react-web!CommonOauthParams:type"
+            },
+            {
+              "kind": "Content",
+              "text": "> = "
+            },
+            {
+              "kind": "Reference",
+              "text": "Omit",
+              "canonicalReference": "!Omit:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<T, keyof "
+            },
+            {
+              "kind": "Reference",
+              "text": "CommonOauthParams",
+              "canonicalReference": "@toktokhan-dev/react-web!CommonOauthParams:type"
+            },
+            {
+              "kind": "Content",
+              "text": "> & {\n  return_url: string;\n  scope?: string | string[];\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "OauthUserReqParams",
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "typeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 7
+          },
+          "parameters": []
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/react-web!PopupReturnType:type",
+          "docComment": "/**\n * `useOauthPopupCallback` 훅의 반환 타입을 정의합니다.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type PopupReturnType = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n  data: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OauthResponse",
+              "canonicalReference": "@toktokhan-dev/react-web!OauthResponse:type"
+            },
+            {
+              "kind": "Content",
+              "text": " | null;\n  isLoading: boolean;\n  closePopup: () => void;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "PopupReturnType",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 4
+          },
+          "parameters": []
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "@toktokhan-dev/react-web!ReactSyncConnector:class",
+          "docComment": "/**\n  *\n * 알림함수를 관리하고,{@link @toktokhan-dev/react-web#SyncedStorage | `SyncedStorage`} 와 {@link @toktokhan-dev/react-web#useSyncWebStorage | `useSyncWebStorage`} 를 연결 하는 모듈입니다.\n *\n * @remarks\n *\n * {@link @toktokhan-dev/react-web#useSyncWebStorage | `useSyncWebStorage`}로 부터 리랜더링을 촉발시키는 알림함수 를 받아 관리하고, {@link @toktokhan-dev/react-web#SyncedStorage | `SyncedStorage`} 모듈에 알림 함수를 넘겨주어 {@link @toktokhan-dev/react-web#useSyncWebStorage | `useSyncWebStorage`}와 연결시켜주는 역할을 합니다.\n *\n * @example\n * ```ts\n * const textStorage = new SyncedStorage<string>(\"text\", localStorage)\n * const textStorageConnector = new ReactSyncConnector(textStorage)\n *\n * // Some Action\n * textStorage.set(\"Hello, World!\")\n *\n * // Some component\n * const text = useSyncWebStorage(textStorageConnector) // Wrapping Hook with useSyncWebStorage\n * console.log(text) // \"Hello, World!\"\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare class ReactSyncConnector<Data> "
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "typeParameters": [
+            {
+              "typeParameterName": "Data",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "isAbstract": false,
+          "name": "ReactSyncConnector",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "Constructor",
+              "canonicalReference": "@toktokhan-dev/react-web!ReactSyncConnector:constructor(1)",
+              "docComment": "/**\n * ReactSyncConnector 인스턴스를 생성합니다. Storage 모듈에 emitChange 함수를 연결합니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "constructor(synced: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ReactSynced",
+                  "canonicalReference": "@toktokhan-dev/react-web!ReactSynced:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<Data> | null"
+                },
+                {
+                  "kind": "Content",
+                  "text": ");"
+                }
+              ],
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "synced",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 3
+                  },
+                  "isOptional": false
+                }
+              ]
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@toktokhan-dev/react-web!ReactSyncConnector#getServerSnapShot:member",
+              "docComment": "/**\n * 서버 데이터의 스냅샷을 반환합니다.\n *\n * @returns 서버에서 Storage는 없기 때문에 `null`을 반환합니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "getServerSnapShot: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "() => null"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "getServerSnapShot",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@toktokhan-dev/react-web!ReactSyncConnector#getSnapshot:member",
+              "docComment": "/**\n * 알림함수가 실행되어, 리랜더링 될 시 조회할 데이터를 넘겨줍니다.\n *\n * @returns 동기화된 데이터 또는 null을 반환합니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "getSnapshot: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "() => "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "NonNullable",
+                  "canonicalReference": "!NonNullable:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<Data> | null"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "getSnapshot",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 4
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@toktokhan-dev/react-web!ReactSyncConnector#listeners:member",
+              "docComment": "/**\n * 알림함수를 저장하는 배열입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "listeners: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Array",
+                  "canonicalReference": "!Array:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<() => void>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "listeners",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@toktokhan-dev/react-web!ReactSyncConnector#subscribe:member",
+              "docComment": "/**\n * {@link https://react.dev/reference/react/useSyncExternalStore | `useSyncExternalStore`}에서 알림함수를 받고, 저장해둡니다.\n *\n * @param listener - 변경 사항을 처리할 콜백 함수입니다.\n *\n * @returns 정리 함수를 반환합니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "subscribe: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "(listener: () => void) => () => void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "subscribe",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            }
+          ],
+          "implementsTokenRanges": [],
+          "parameters": []
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "@toktokhan-dev/react-web!ReactSynced:class",
+          "docComment": "/**\n  *\n * 데이터를 동기화하는 ReactSynced 클래스입니다. 데이터가 업데이트될 때 리스너 함수를 호출합니다.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare class ReactSynced<T> "
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "isAbstract": false,
+          "name": "ReactSynced",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "Property",
+              "canonicalReference": "@toktokhan-dev/react-web!ReactSynced#connect:member",
+              "docComment": "/**\n * 데이터가 업데이트될 때 호출될 리스너 함수를 연결합니다.\n *\n * @param listener - 호출될 리스너 함수입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "connect: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "(listener: () => void) => void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "connect",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@toktokhan-dev/react-web!ReactSynced#data:member",
+              "docComment": "/**\n * 동기화된 데이터를 가져옵니다.\n *\n * @returns T 타입의 동기화된 데이터 또는 데이터가 설정되지 않은 경우 null을 반환합니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "get data(): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "T | null"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";\n\nset data(data: T | null);"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "data",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@toktokhan-dev/react-web!ReactSynced#listener:member",
+              "docComment": "/**\n * 리스너 함수입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "listener: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "(() => void) | null"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "listener",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@toktokhan-dev/react-web!ReactSynced#unConnect:member",
+              "docComment": "/**\n * 리스너 함수를 연결 해제합니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "unConnect: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "() => void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "unConnect",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            }
+          ],
+          "implementsTokenRanges": [],
+          "parameters": []
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "@toktokhan-dev/react-web!SocialOauthInit:class",
+          "docComment": "/**\n * SocialOauthInit 클래스는 소셜 로그인 초기화를 담당합니다.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare class SocialOauthInit "
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "isAbstract": false,
+          "name": "SocialOauthInit",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "Constructor",
+              "canonicalReference": "@toktokhan-dev/react-web!SocialOauthInit:constructor(1)",
+              "docComment": "/**\n * 생성자 함수에서는 클라이언트 ID를 받아 초기화합니다.\n *\n * @param clientID - 소셜 로그인을 위한 클라이언트 ID\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "constructor(clientID: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ");"
+                }
+              ],
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "clientID",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  },
+                  "isOptional": false
+                }
+              ]
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@toktokhan-dev/react-web!SocialOauthInit#clientID:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "clientID: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "clientID",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Method",
+              "canonicalReference": "@toktokhan-dev/react-web!SocialOauthInit#createOauthUrl:member(1)",
+              "docComment": "/**\n * createOauthUrl 메서드는 OAuth 인증 URL을 생성합니다.\n *\n * @param params - OAuth 인증 요청에 필요한 파라미터\n *\n * @returns 생성된 OAuth 인증 URL\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "createOauthUrl(params: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Record",
+                  "canonicalReference": "!Record:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<string, any>"
+                },
+                {
+                  "kind": "Content",
+                  "text": "): "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isStatic": false,
+              "returnTypeTokenRange": {
+                "startIndex": 4,
+                "endIndex": 5
+              },
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "params",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 3
+                  },
+                  "isOptional": false
+                }
+              ],
+              "isOptional": false,
+              "isAbstract": false,
+              "name": "createOauthUrl"
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@toktokhan-dev/react-web!SocialOauthInit#decodeOAuthState:member",
+              "docComment": "/**\n * decodeOAuthState 메서드는 인코딩된 OAuth 상태를 디코딩합니다.\n *\n * @param state - 인코딩된 OAuth 상태\n *\n * @returns 디코딩된 OAuth 상태. 디코딩에 실패하면 null을 반환합니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "decodeOAuthState: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "(state?: string | string[] | null) => "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "OauthStateReturnType$1",
+                  "canonicalReference": "@toktokhan-dev/react-web!OauthStateReturnType:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": " | null"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "decodeOAuthState",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 4
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@toktokhan-dev/react-web!SocialOauthInit#encodeOAuthState:member",
+              "docComment": "/**\n * encodeOAuthState 메서드는 OAuth 상태를 인코딩합니다.\n *\n * @param type - 소셜 로그인 타입\n *\n * @param returnUrl - 로그인 후 리다이렉트 될 URL\n *\n * @returns 인코딩된 OAuth 상태\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "encodeOAuthState: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "(type: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "SocialType",
+                  "canonicalReference": "@toktokhan-dev/react-web!SocialType:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", returnUrl?: string) => string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "encodeOAuthState",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 4
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@toktokhan-dev/react-web!SocialOauthInit#oAuthBaseUrl:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "oAuthBaseUrl: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "oAuthBaseUrl",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            }
+          ],
+          "implementsTokenRanges": [],
+          "parameters": []
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/react-web!SocialType:type",
+          "docComment": "/**\n * SocialType은 지원하는 소셜 로그인 타입을 나타냅니다.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type SocialType = "
+            },
+            {
+              "kind": "Content",
+              "text": "'kakao' | 'naver' | 'facebook' | 'google' | 'apple'"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "SocialType",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          },
+          "parameters": []
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "@toktokhan-dev/react-web!SyncedStorage:class",
+          "docComment": "/**\n  *\n * 데이터를 동기화하는 SyncedStorage 클래스입니다. 데이터가 업데이트될 때 리스너 함수를 호출합니다. {@link @toktokhan-dev/react-web#ReactSyncConnector | `ReactSyncConnector`} 와 연결하여 사용합니다.\n *\n * @example\n * ```ts\n * const textStorage = new SyncedStorage<string>(\"text\", localStorage)\n * const textConnector = new ReactSyncConnector(textStorage)\n *\n * textStorage.set(\"Hello, World!\")\n * textStorage.set((prev) => prev + \"!\")\n *\n * textStorage.get() // \"Hello, World!!\"\n * textStorage.remove()\n *\n * textStorage.get() // null\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare class SyncedStorage<Data> extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "ReactSynced",
+              "canonicalReference": "@toktokhan-dev/react-web!ReactSynced:class"
+            },
+            {
+              "kind": "Content",
+              "text": "<Data>"
+            },
+            {
+              "kind": "Content",
+              "text": " "
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "typeParameters": [
+            {
+              "typeParameterName": "Data",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "isAbstract": false,
+          "name": "SyncedStorage",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "Constructor",
+              "canonicalReference": "@toktokhan-dev/react-web!SyncedStorage:constructor(1)",
+              "docComment": "/**\n * SyncedStorage 인스턴스를 생성합니다. 데이터를 저장할 키와 Storage 객체를 받습니다.\n *\n * 생성될때, storage 이벤트가 등록되며 다른 브라우저에서의 change event를 감지하여, 최신값을 가져옵니다.\n *\n * @param key - 데이터를 저장할 키입니다.\n *\n * @param storage - 데이터를 저장할 Storage 객체입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "constructor(key: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ", storage: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Storage",
+                  "canonicalReference": "!Storage:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ");"
+                }
+              ],
+              "releaseTag": "Public",
+              "isProtected": false,
+              "overloadIndex": 1,
+              "parameters": [
+                {
+                  "parameterName": "key",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 1,
+                    "endIndex": 2
+                  },
+                  "isOptional": false
+                },
+                {
+                  "parameterName": "storage",
+                  "parameterTypeTokenRange": {
+                    "startIndex": 3,
+                    "endIndex": 4
+                  },
+                  "isOptional": false
+                }
+              ]
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@toktokhan-dev/react-web!SyncedStorage#get:member",
+              "docComment": "/**\n * Storage에 저장된 json 데이터를 parse 한 후 가져옵니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "get: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "() => Data | null"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "get",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@toktokhan-dev/react-web!SyncedStorage#key:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "key: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "key",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@toktokhan-dev/react-web!SyncedStorage#remove:member",
+              "docComment": "/**\n * Storage에 저장된 데이터를 삭제합니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "remove: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "() => void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "remove",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@toktokhan-dev/react-web!SyncedStorage#set:member",
+              "docComment": "/**\n * Storage에 데이터를 저장합니다. 저장할 데이터 혹은 함수를 받아서 데이터를 저장합니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "set: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "(data: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "DataOrFn",
+                  "canonicalReference": "@toktokhan-dev/universal!DataOrFn$1:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<Data | null>) => void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "set",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 4
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            }
+          ],
+          "extendsTokenRange": {
+            "startIndex": 1,
+            "endIndex": 3
+          },
+          "implementsTokenRanges": [],
+          "parameters": []
+        },
+        {
+          "kind": "Class",
+          "canonicalReference": "@toktokhan-dev/react-web!SyncedStorageFactory:class",
+          "docComment": "/**\n  *\n * 동기화된 스토리지를 생성하는 팩토리 역할을 합니다. 해당 클래스의 각 method 는 {@link @toktokhan-dev/react-web#ReactSyncConnector | `ReactSyncConnector`}와 {@link @toktokhan-dev/react-web#SyncedStorage | `SyncedStorage`}를 동시에 생성해줍니다.\n *\n * @example\n * ```ts\n * type TokenType = {\n *  access: string\n *  refresh: string\n * }\n * const { storage, connector } = SyncedStorageFactory.createLocal<TokenType>('token')\n *\n * storage.set({ access: 'access', refresh: 'refresh' })\n *\n * const token = useWebStorage(connector)\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare class SyncedStorageFactory "
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "isAbstract": false,
+          "name": "SyncedStorageFactory",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "Property",
+              "canonicalReference": "@toktokhan-dev/react-web!SyncedStorageFactory.create:member",
+              "docComment": "/**\n * 스토리지를 생성합니다.\n *\n * @param key - 스토리지 키\n *\n * @param store - 스토리지 객체\n *\n * @returns 생성된 스토리지와 커넥터 객체\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "static create: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "<Data>(key: string, store: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Storage",
+                  "canonicalReference": "!Storage:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": " | null) => {\n    storage: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "SyncedStorage",
+                  "canonicalReference": "@toktokhan-dev/react-web!SyncedStorage:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<Data> | null;\n    connector: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ReactSyncConnector",
+                  "canonicalReference": "@toktokhan-dev/react-web!ReactSyncConnector:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<Data>;\n  }"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "create",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 8
+              },
+              "isStatic": true,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@toktokhan-dev/react-web!SyncedStorageFactory.createLocal:member",
+              "docComment": "/**\n * 로컬 스토리지를 생성합니다.\n *\n * @param key - 스토리지 키\n *\n * @returns 생성된 스토리지와 커넥터 객체\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "static createLocal: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "<Data>(key: string) => {\n    storage: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "SyncedStorage",
+                  "canonicalReference": "@toktokhan-dev/react-web!SyncedStorage:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<Data> | null;\n    connector: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ReactSyncConnector",
+                  "canonicalReference": "@toktokhan-dev/react-web!ReactSyncConnector:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<Data>;\n  }"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "createLocal",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 6
+              },
+              "isStatic": true,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@toktokhan-dev/react-web!SyncedStorageFactory.createSession:member",
+              "docComment": "/**\n * 세션 스토리지를 생성합니다.\n *\n * @param key - 스토리지 키\n *\n * @returns 생성된 스토리지와 커넥터 객체\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "static createSession: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "<Data>(key: string) => {\n    storage: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "SyncedStorage",
+                  "canonicalReference": "@toktokhan-dev/react-web!SyncedStorage:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<Data> | null;\n    connector: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ReactSyncConnector",
+                  "canonicalReference": "@toktokhan-dev/react-web!ReactSyncConnector:class"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<Data>;\n  }"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "createSession",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 6
+              },
+              "isStatic": true,
+              "isProtected": false,
+              "isAbstract": false
+            }
+          ],
+          "implementsTokenRanges": [],
+          "parameters": []
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/react-web!Text_2:function(1)",
+          "docComment": "/**\n * 임시예제\n *\n * @param props - TextProps\n *\n * @returns JSX.Element\n *\n * @additional example/content.md\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "Text: (props: "
+            },
+            {
+              "kind": "Reference",
+              "text": "TextProps",
+              "canonicalReference": "@toktokhan-dev/react-web!~TextProps:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Reference",
+              "text": "react_jsx_runtime.JSX.Element",
+              "canonicalReference": "@types/react!JSX.Element:interface"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "props",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "Text_2"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/react-web!useIntersectionObserver:function(1)",
+          "docComment": "/**\n  */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "useIntersectionObserver: ({\n  onVisible,\n  onHidden,\n  options\n}: "
+            },
+            {
+              "kind": "Reference",
+              "text": "UseIntersectionObserverParams",
+              "canonicalReference": "@toktokhan-dev/react-web!~UseIntersectionObserverParams:type"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n  targetRef: "
+            },
+            {
+              "kind": "Reference",
+              "text": "react.RefObject",
+              "canonicalReference": "@types/react!React.RefObject:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "HTMLDivElement",
+              "canonicalReference": "!HTMLDivElement:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ">;\n}"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 8
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "{  onVisible,  onHidden,  options}",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "useIntersectionObserver"
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/react-web!useOauthCallbackParams:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type useOauthCallbackParams<T = "
+            },
+            {
+              "kind": "Content",
+              "text": "any"
+            },
+            {
+              "kind": "Content",
+              "text": "> = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n  onSuccess?: (params: T) => void;\n  onFail?: () => void;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "useOauthCallbackParams",
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "typeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 4
+          },
+          "parameters": []
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/react-web!useOauthLinkCallback:function(1)",
+          "docComment": "/**\n  *\n * OAuth 링크 콜백을 처리하는 React Hook입니다. 이 Hook은 OAuth 인증 후 리다이렉트된 페이지에서 사용됩니다.\n *\n * @param cb - 콜백 함수 파라미터. `onSuccess`와 `onFail` 콜백 함수를 포함할 수 있습니다.\n *\n * @returns {LinkReturnType} OAuth 응답 데이터와 로딩 상태를 반환합니다.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "useOauthLinkCallback: (cb?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "useOauthCallbackParams",
+              "canonicalReference": "@toktokhan-dev/react-web!useOauthCallbackParams:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "LinkReturnType",
+              "canonicalReference": "@toktokhan-dev/react-web!LinkReturnType:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n  data: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OauthResponse",
+              "canonicalReference": "@toktokhan-dev/react-web!OauthResponse:type"
+            },
+            {
+              "kind": "Content",
+              "text": " | null;\n  isLoading: boolean;\n}"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 6,
+            "endIndex": 9
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "cb",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 5
+              },
+              "isOptional": true
+            }
+          ],
+          "name": "useOauthLinkCallback"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/react-web!useOauthPopupCallback:function(1)",
+          "docComment": "/**\n  *\n * OAuth 팝업 콜백을 처리하는 React Hook입니다. 이 Hook은 OAuth 인증 후 팝업에서 사용됩니다.\n *\n * @param cb - 콜백 함수 파라미터. `onSuccess`와 `onFail` 콜백 함수를 포함할 수 있습니다.\n *\n * @returns {PopupReturnType} OAuth 응답 데이터, 로딩 상태, 팝업을 닫는 함수를 반환합니다.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "useOauthPopupCallback: (cb?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "useOauthCallbackParams",
+              "canonicalReference": "@toktokhan-dev/react-web!useOauthCallbackParams:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "PopupReturnType",
+              "canonicalReference": "@toktokhan-dev/react-web!PopupReturnType:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n  data: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OauthResponse",
+              "canonicalReference": "@toktokhan-dev/react-web!OauthResponse:type"
+            },
+            {
+              "kind": "Content",
+              "text": " | null;\n  isLoading: boolean;\n  closePopup: () => () => void;\n}"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 6,
+            "endIndex": 9
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "cb",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 5
+              },
+              "isOptional": true
+            }
+          ],
+          "name": "useOauthPopupCallback"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/react-web!useOauthPopupListener:function(1)",
+          "docComment": "/**\n  *\n * OAuth 팝업에서 전달된 메시지를 수신하는 React Hook입니다. 이 Hook은 OAuth 인증 후 팝업에서 전달된 메시지를 수신하여 처리합니다.\n *\n * @returns {boolean} isLoading - OAuth 콜백 처리 상태를 나타냅니다. 처리 중이면 `true`, 아니면 `false`입니다.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "useOauthPopupListener: () => "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n  data: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OauthResponse",
+              "canonicalReference": "@toktokhan-dev/react-web!OauthResponse:type"
+            },
+            {
+              "kind": "Content",
+              "text": " | null;\n  isLoading: boolean;\n}"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [],
+          "name": "useOauthPopupListener"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/react-web!useSyncWebStorage:function(1)",
+          "docComment": "/**\n  *\n * useSyncExternalStore 의 wrapper 입니다. {@link @toktokhan-dev/react-web#ReactSyncConnector | `ReactSyncConnector`}를 통해 외부 스토리지와 동기화를 합니다.\n *\n * @example\n * ```ts\n * const textStorage = new SyncedStorage<string>(\"text\", localStorage)\n * const textConnector = new ReactSyncConnector(textStorage)\n *\n * textStorage.set(\"Hello, World!\")\n * textStorage.set((prev) => prev + \"!\")\n *\n * textStorage.get() // \"Hello, World!!\"\n *\n * const text = useSyncWebStorage(textConnector)\n *\n * console.log(text) // \"Hello, World!!\"\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "useSyncWebStorage: <T>(connector: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ReactSyncConnector",
+              "canonicalReference": "@toktokhan-dev/react-web!ReactSyncConnector:class"
+            },
+            {
+              "kind": "Content",
+              "text": "<T>"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Reference",
+              "text": "NonNullable",
+              "canonicalReference": "!NonNullable:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<T> | null"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 4,
+            "endIndex": 6
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "connector",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              },
+              "isOptional": false
+            }
+          ],
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "name": "useSyncWebStorage"
+        }
+      ]
+    }
+  ]
+}

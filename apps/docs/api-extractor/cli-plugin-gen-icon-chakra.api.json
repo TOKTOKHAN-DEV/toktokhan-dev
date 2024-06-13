@@ -1,0 +1,343 @@
+{
+  "metadata": {
+    "toolPackage": "@microsoft/api-extractor",
+    "toolVersion": "7.46.1",
+    "schemaVersion": 1011,
+    "oldestForwardsCompatibleVersion": 1001,
+    "tsdocConfig": {
+      "$schema": "https://developer.microsoft.com/json-schemas/tsdoc/v0/tsdoc.schema.json",
+      "noStandardTags": true,
+      "tagDefinitions": [
+        {
+          "tagName": "@alpha",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@beta",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@defaultValue",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@decorator",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@deprecated",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@eventProperty",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@example",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@experimental",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@inheritDoc",
+          "syntaxKind": "inline"
+        },
+        {
+          "tagName": "@internal",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@label",
+          "syntaxKind": "inline"
+        },
+        {
+          "tagName": "@link",
+          "syntaxKind": "inline",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@override",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@packageDocumentation",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@param",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@privateRemarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@public",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@readonly",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@remarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@returns",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@sealed",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@see",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@throws",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@typeParam",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@virtual",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@betaDocumentation",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@internalRemarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@preapproved",
+          "syntaxKind": "modifier"
+        }
+      ],
+      "supportForTags": {
+        "@alpha": true,
+        "@beta": true,
+        "@defaultValue": true,
+        "@decorator": true,
+        "@deprecated": true,
+        "@eventProperty": true,
+        "@example": true,
+        "@experimental": true,
+        "@inheritDoc": true,
+        "@internal": true,
+        "@label": true,
+        "@link": true,
+        "@override": true,
+        "@packageDocumentation": true,
+        "@param": true,
+        "@privateRemarks": true,
+        "@public": true,
+        "@readonly": true,
+        "@remarks": true,
+        "@returns": true,
+        "@sealed": true,
+        "@see": true,
+        "@throws": true,
+        "@typeParam": true,
+        "@virtual": true,
+        "@betaDocumentation": true,
+        "@internalRemarks": true,
+        "@preapproved": true
+      },
+      "reportUnsupportedHtmlElements": false
+    }
+  },
+  "kind": "Package",
+  "canonicalReference": "@toktokhan-dev/cli-plugin-gen-icon-chakra!",
+  "docComment": "/**\n * 지정된 경로의 `svg`파일 기반으로 **Chakra UI Icon Component** 를 생성합니다.\n *\n * @packageDocumentation\n */\n",
+  "name": "@toktokhan-dev/cli-plugin-gen-icon-chakra",
+  "preserveMemberOrder": false,
+  "members": [
+    {
+      "kind": "EntryPoint",
+      "canonicalReference": "@toktokhan-dev/cli-plugin-gen-icon-chakra!",
+      "name": "",
+      "preserveMemberOrder": false,
+      "members": [
+        {
+          "kind": "Variable",
+          "canonicalReference": "@toktokhan-dev/cli-plugin-gen-icon-chakra!genIcon:var",
+          "docComment": "/**\n  */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "genIcon: "
+            },
+            {
+              "kind": "Reference",
+              "text": "_toktokhan_dev_cli.MyCommand",
+              "canonicalReference": "@toktokhan-dev/cli!MyCommand:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "GenIconConfig",
+              "canonicalReference": "@toktokhan-dev/cli-plugin-gen-icon-chakra!GenIconConfig:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", \"gen:icon\">"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "genIcon",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 5
+          },
+          "parameters": []
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@toktokhan-dev/cli-plugin-gen-icon-chakra!GenIconConfig:interface",
+          "docComment": "/**\n  */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "interface GenIconConfig "
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "GenIconConfig",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/cli-plugin-gen-icon-chakra!GenIconConfig#basePath:member",
+              "docComment": "/**\n * 생성될 객체의 value 에 할당될 경로의 base-path 입니다\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "basePath?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "basePath",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/cli-plugin-gen-icon-chakra!GenIconConfig#ignored:member",
+              "docComment": "/**\n * 제외 될 아이콘 파일을 판별하는 패턴으로써, 파일이름이 패턴과 일치할 경우에 객체에서 제외 됩니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "ignored?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string[]"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "ignored",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/cli-plugin-gen-icon-chakra!GenIconConfig#input:member",
+              "docComment": "/**\n * 조회할 svg 파일들이 포함되어있는 폴더 입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "input: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "input",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/cli-plugin-gen-icon-chakra!GenIconConfig#output:member",
+              "docComment": "/**\n * 생성될 파일이 위치할 경로입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "output: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "output",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": [],
+          "parameters": []
+        }
+      ]
+    }
+  ]
+}

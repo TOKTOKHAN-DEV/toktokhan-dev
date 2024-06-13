@@ -1,0 +1,2223 @@
+{
+  "metadata": {
+    "toolPackage": "@microsoft/api-extractor",
+    "toolVersion": "7.46.1",
+    "schemaVersion": 1011,
+    "oldestForwardsCompatibleVersion": 1001,
+    "tsdocConfig": {
+      "$schema": "https://developer.microsoft.com/json-schemas/tsdoc/v0/tsdoc.schema.json",
+      "noStandardTags": true,
+      "tagDefinitions": [
+        {
+          "tagName": "@alpha",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@beta",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@defaultValue",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@decorator",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@deprecated",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@eventProperty",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@example",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@experimental",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@inheritDoc",
+          "syntaxKind": "inline"
+        },
+        {
+          "tagName": "@internal",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@label",
+          "syntaxKind": "inline"
+        },
+        {
+          "tagName": "@link",
+          "syntaxKind": "inline",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@override",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@packageDocumentation",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@param",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@privateRemarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@public",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@readonly",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@remarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@returns",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@sealed",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@see",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@throws",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@typeParam",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@virtual",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@betaDocumentation",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@internalRemarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@preapproved",
+          "syntaxKind": "modifier"
+        }
+      ],
+      "supportForTags": {
+        "@alpha": true,
+        "@beta": true,
+        "@defaultValue": true,
+        "@decorator": true,
+        "@deprecated": true,
+        "@eventProperty": true,
+        "@example": true,
+        "@experimental": true,
+        "@inheritDoc": true,
+        "@internal": true,
+        "@label": true,
+        "@link": true,
+        "@override": true,
+        "@packageDocumentation": true,
+        "@param": true,
+        "@privateRemarks": true,
+        "@public": true,
+        "@readonly": true,
+        "@remarks": true,
+        "@returns": true,
+        "@sealed": true,
+        "@see": true,
+        "@throws": true,
+        "@typeParam": true,
+        "@virtual": true,
+        "@betaDocumentation": true,
+        "@internalRemarks": true,
+        "@preapproved": true
+      },
+      "reportUnsupportedHtmlElements": false
+    }
+  },
+  "kind": "Package",
+  "canonicalReference": "@toktokhan-dev/node!",
+  "docComment": "/**\n * node환경에서 사용할 수 있는 유틸리티 라이브러리입니다.\n *\n * @packageDocumentation\n */\n",
+  "name": "@toktokhan-dev/node",
+  "preserveMemberOrder": false,
+  "members": [
+    {
+      "kind": "EntryPoint",
+      "canonicalReference": "@toktokhan-dev/node!",
+      "name": "",
+      "preserveMemberOrder": false,
+      "members": [
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/node!$:function(1)",
+          "docComment": "/**\n * execa를 사용하여 주어진 명령어를 실행합니다.\n *\n  *\n * @param cmd - 실행할 명령어입니다.\n *\n * @param args - 명령어에 전달할 인수들입니다.\n *\n * @param options - execa 옵션입니다.\n *\n * @returns execaChildProcess 객체를 반환합니다.\n *\n * @example\n * ```typescript\n * // execa를 사용하여 명령어를 실행하는 예시\n * const result = $(cmd, args, options);\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function $(cmd: "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": ", args: "
+            },
+            {
+              "kind": "Content",
+              "text": "string[]"
+            },
+            {
+              "kind": "Content",
+              "text": ", options?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "SpawnSyncOptionsWithBufferEncoding",
+              "canonicalReference": "!\"\\\"child_process\\\"\".SpawnSyncOptionsWithBufferEncoding:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "ChildProcess",
+              "canonicalReference": "!\"\\\"child_process\\\"\".ChildProcess:class"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 7,
+            "endIndex": 8
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "cmd",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "args",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "options",
+              "parameterTypeTokenRange": {
+                "startIndex": 5,
+                "endIndex": 6
+              },
+              "isOptional": true
+            }
+          ],
+          "name": "$"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/node!boxLog:function(1)",
+          "docComment": "/**\n * box형태의 로그를 출력하는 함수입니다.\n *\n  *\n * @param value - box 로그에 추가할 값\n *\n * @returns -\n *\n * @example\n * ```typescript\n * // Box 로그를 출력하는 예시\n * boxLog(['box log 1', 'box log 2'], {title: 'Toktokhan'})\n * ┌ Toktokhan_Dev ┐\n * │               │\n * │   box log 1   │\n * │   box log 2   │\n * │               │\n * └───────────────┘\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "boxLog: (value: "
+            },
+            {
+              "kind": "Content",
+              "text": "string[]"
+            },
+            {
+              "kind": "Content",
+              "text": ", options: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Options$1",
+              "canonicalReference": "boxen!Options:type"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "void"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 5,
+            "endIndex": 6
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "value",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "options",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "boxLog"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/node!checkFileAccess:function(1)",
+          "docComment": "/**\n * 파일 접근 권한을 확인합니다.\n *\n  */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "checkFileAccess: ({\n  filename,\n  include,\n  ignored\n}: "
+            },
+            {
+              "kind": "Reference",
+              "text": "CheckFileAccessParam",
+              "canonicalReference": "@toktokhan-dev/node!CheckFileAccessParam:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "boolean"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "{  filename,  include,  ignored}",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "checkFileAccess"
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@toktokhan-dev/node!CheckFileAccessParam:interface",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "interface CheckFileAccessParam "
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "CheckFileAccessParam",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/node!CheckFileAccessParam#filename:member",
+              "docComment": "/**\n * 체크할 파일 경로\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "filename: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "filename",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/node!CheckFileAccessParam#ignored:member",
+              "docComment": "/**\n * 제외할 파일 경로 glob 패턴\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "ignored?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string[]"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "ignored",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/node!CheckFileAccessParam#include:member",
+              "docComment": "/**\n * 포함할 파일 경로 glob 패턴\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "include?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string[]"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "include",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": [],
+          "parameters": []
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/node!convertFilePathToObject:function(1)",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "convertFilePathToObject: <T>(params: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Options",
+              "canonicalReference": "@toktokhan-dev/node!~Options_2:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<T>"
+            },
+            {
+              "kind": "Content",
+              "text": ", targetPath: "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Reference",
+              "text": "PathObj",
+              "canonicalReference": "@toktokhan-dev/node!~PathObj:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<T>"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 6,
+            "endIndex": 8
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "params",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "targetPath",
+              "parameterTypeTokenRange": {
+                "startIndex": 4,
+                "endIndex": 5
+              },
+              "isOptional": false
+            }
+          ],
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "name": "convertFilePathToObject"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/node!createPackageRoot:function(1)",
+          "docComment": "/**\n * 주어진 디렉터리부터 상위 디렉터리에 있는 package.json 파일의 경로를 기준으로 상대 경로를 사용하여 디렉터리를 생성하는 함수를 반환합니다.\n *\n  *\n * @param dir - 상위 디렉터리에 있는 package.json 파일을 찾을 시작 디렉터리의 경로\n *\n * @returns 생성된 디렉터리의 경로를 반환하는 함수\n *\n * @example\n * ```typescript\n * // 주어진 디렉터리부터 상위 디렉터리의 package.json 파일을 찾아 상대 경로를 사용하여 디렉터리를 생성하는 함수를 생성하는 예시\n * const createRootDir = createPackageRoot(__dirname);\n * const myDir = createRootDir('src', 'components', 'Button');\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "createPackageRoot: (dir: "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "(...paths: string[]) => string"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "dir",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "createPackageRoot"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/node!cwd:function(1)",
+          "docComment": "/**\n * 현재 작업 디렉터리(CWD)의 경로를 계산하여 반환하는 함수입니다.\n *\n  *\n * @param paths - 작업 디렉터리에 추가될 하위 경로들\n *\n * @returns 현재 작업 디렉터리(CWD)의 경로\n *\n * @example\n * ```typescript\n * // 현재 작업 디렉터리의 경로를 계산하는 예시\n * const filePath = cwd('src', 'components', 'Button');\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "cwd: (...paths: "
+            },
+            {
+              "kind": "Content",
+              "text": "string[]"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "paths",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "cwd"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/node!error:function(1)",
+          "docComment": "/**\n * 오류 메시지를 생성하는 함수입니다.\n *\n  *\n * @param value - 오류 메시지에 추가할 값\n *\n * @returns 오류 메시지 문자열\n *\n * @example\n * ```typescript\n * // 오류 메시지를 생성하는 예시\n * const message = error('An error occurred.');\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "error: (value: "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "value",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "error"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/node!errorLog:function(1)",
+          "docComment": "/**\n * 오류 로그를 출력하는 함수입니다.\n *\n  *\n * @param title - 로그 제목\n *\n * @param value - 로그 값\n *\n * @returns 입력된 값\n *\n * @example\n * ```typescript\n * // 오류 로그를 출력하는 예시\n * errorLog('Error', errorMessage);\n * errorLog('Error')(errorMessage);\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "errorLog: <T>(title: "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": ", value: "
+            },
+            {
+              "kind": "Content",
+              "text": "T"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "T"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 5,
+            "endIndex": 6
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "title",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "value",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": false
+            }
+          ],
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "name": "errorLog"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/node!existLog:function(1)",
+          "docComment": "/**\n * 존재 로그를 출력하는 함수입니다.\n *\n  *\n * @param value - 존재 로그에 추가할 값\n *\n * @returns -\n *\n * @example\n * ```typescript\n * // 존재 로그를 출력하는 예시\n * existLog('File exists.');\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "existLog: (value: "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "void"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "value",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "existLog"
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@toktokhan-dev/node!ExtendedPrettierOptions:interface",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "interface ExtendedPrettierOptions extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "prettier.Options",
+              "canonicalReference": "prettier!Options:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " "
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "ExtendedPrettierOptions",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/node!ExtendedPrettierOptions#configPath:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "configPath?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string | ('auto' & {})"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "configPath",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": [
+            {
+              "startIndex": 1,
+              "endIndex": 2
+            }
+          ],
+          "parameters": []
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/node!findFile:function(1)",
+          "docComment": "/**\n * 주어진 디렉터리에서 파일을 검색하여 해당 파일의 경로를 반환하는 함수입니다.\n *\n  *\n * @param dir - 검색할 디렉터리의 경로\n *\n * @param filename - 검색할 파일의 이름\n *\n * @returns 해당 파일의 경로, 찾지 못한 경우 null 반환\n *\n * @example\n * ```typescript\n * // 주어진 디렉터리에서 파일을 검색하는 예시\n * const filePath = findFile('src/components', 'index.js');\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "findFile: (dir: "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": ", filename: "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "string | null"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 5,
+            "endIndex": 6
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "dir",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "filename",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "findFile"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/node!findFileToBottom:function(1)",
+          "docComment": "/**\n * 주어진 디렉터리부터 하위 디렉터리까지 파일을 검색하여 해당 파일의 경로를 반환하는 함수입니다.\n *\n  *\n * @param dir - 검색을 시작할 디렉터리의 경로\n *\n * @param filename - 검색할 파일의 이름\n *\n * @returns 해당 파일의 경로, 찾지 못한 경우 null 반환\n *\n * @example\n * ```typescript\n * // 주어진 디렉터리부터 하위 디렉터리까지 파일을 검색하는 예시\n * const filePath = findFileToBottom('src', 'index.js');\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "findFileToBottom: (dir: "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": ", filename: "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "string | null"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 5,
+            "endIndex": 6
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "dir",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "filename",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "findFileToBottom"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/node!findFileToTop:function(1)",
+          "docComment": "/**\n * 주어진 디렉터리부터 상위 디렉터리까지 파일을 검색하여 해당 파일의 경로를 반환하는 함수입니다.\n *\n  *\n * @param dir - 검색을 시작할 디렉터리의 경로\n *\n * @param filename - 검색할 파일의 이름\n *\n * @returns 해당 파일의 경로, 찾지 못한 경우 null 반환\n *\n * @example\n * ```typescript\n * // 주어진 디렉터리부터 상위 디렉터리까지 파일을 검색하는 예시\n * const filePath = findFileToTop('src/components', 'index.js');\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "findFileToTop: (dir: "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": ", filename: "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "string | null"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 5,
+            "endIndex": 6
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "dir",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "filename",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "findFileToTop"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/node!forEachFiles:function(1)",
+          "docComment": "/**\n * 주어진 디렉터리 내의 모든 파일 및 디렉터리에 대해 지정된 작업을 수행하는 함수입니다.\n *\n  *\n * @param param - 각 파일 또는 디렉터리에 대해 실행할 작업과 설정\n *\n * @param TPath - 작업을 수행할 디렉터리의 경로\n *\n * @example\n * ```typescript\n * // 주어진 디렉터리 내의 모든 파일 및 디렉터리에 대해 작업을 수행하는 예시\n * forEachFiles({\n *   each: (file) => console.log(file.name),\n *   recursive: true,\n *   filter: (file) => file.isDirectory(),\n * }, 'src');\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "forEachFiles: (param: "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n  each: (file: "
+            },
+            {
+              "kind": "Reference",
+              "text": "fs.Dirent",
+              "canonicalReference": "!\"\\\"fs\\\"\".Dirent:class"
+            },
+            {
+              "kind": "Content",
+              "text": ") => void;\n  recursive?: boolean;\n  filter?: (file: "
+            },
+            {
+              "kind": "Reference",
+              "text": "fs.Dirent",
+              "canonicalReference": "!\"\\\"fs\\\"\".Dirent:class"
+            },
+            {
+              "kind": "Content",
+              "text": ") => boolean;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ", TPath: "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "void"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 9,
+            "endIndex": 10
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "param",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 6
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "TPath",
+              "parameterTypeTokenRange": {
+                "startIndex": 7,
+                "endIndex": 8
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "forEachFiles"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/node!generateCodeFile:function(1)",
+          "docComment": "/**\n * 코드를 파일로 생성하는 함수입니다.\n *\n  *\n * @param config - 코드 파일 생성에 필요한 설정 객체\n *\n * @param  - config.outputPath - 생성된 코드 파일의 경로\n *\n * @param  - config.prettier - 코드 파일을 포맷팅할 때 사용할 Prettier 옵션 (선택 사항)\n *\n * @param code - 생성할 코드 문자열\n *\n * @example\n * ```typescript\n * // 코드 파일 생성 예시\n * const code = 'const message = \"Hello, world!\";'\n *\n * await generateCodeFile({\n *   outputPath: 'output/example.js',\n * }, code)\n *\n * await generateCodeFile({\n *   outputPath: 'output/example.js',\n * })(code)\n *\n * const genExample = generateCodeFile({\n *   outputPath: 'output/example.js',\n *   prettier: { semi: false, singleQuote: true },\n * })\n *\n * await genExample(code)\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "generateCodeFile: (config: "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n  outputPath: string;\n  prettier?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ExtendedPrettierOptions",
+              "canonicalReference": "@toktokhan-dev/node!ExtendedPrettierOptions:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "(code: string) => "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<void>"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 5,
+            "endIndex": 8
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "config",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 4
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "generateCodeFile"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/node!generateLog:function(1)",
+          "docComment": "/**\n * 생성 로그를 출력하는 함수입니다.\n *\n  *\n * @param value - 생성 로그에 추가할 값\n *\n * @returns -\n *\n * @example\n * ```typescript\n * // 생성 로그를 출력하는 예시\n * generateLog('File generated successfully.');\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "generateLog: (value: "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "void"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "value",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "generateLog"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/node!getFilePaths:function(1)",
+          "docComment": "/**\n * 주어진 파일 경로의 모든 하위 경로를 반환합니다.\n *\n  *\n * @param path - 파일 경로. 이 경로의 모든 하위 경로가 반환됩니다.\n *\n * @example\n * ```typescript\n * const paths = await getFilePaths('./src');\n * console.log(paths); // ['./src/index.ts', './src/utils.ts', ...]\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "getFilePaths: (path: "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<string[]>"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 5
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "path",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "getFilePaths"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/node!info:function(1)",
+          "docComment": "/**\n * 정보 메시지를 생성하는 함수입니다.\n *\n  *\n * @param value - 정보 메시지에 추가할 값\n *\n * @returns 정보 메시지 문자열\n *\n * @example\n * ```typescript\n * // 정보 메시지를 생성하는 예시\n * const message = info('Additional information.');\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "info: (value: "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "value",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "info"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/node!infoLog:function(1)",
+          "docComment": "/**\n * 정보 로그를 출력하는 함수입니다.\n *\n  *\n * @param title - 로그 제목\n *\n * @param value - 로그 값\n *\n * @returns 입력된 값\n *\n * @example\n * ```typescript\n * // 정보 로그를 출력하는 예시\n * infoLog('Information', infoMessage);\n * infoLog('Information')(infoMessage);\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "infoLog: <T>(title: "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": ", value: "
+            },
+            {
+              "kind": "Content",
+              "text": "T"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "T"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 5,
+            "endIndex": 6
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "title",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "value",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": false
+            }
+          ],
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "name": "infoLog"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/node!json:function(1)",
+          "docComment": "/**\n * 주어진 JSON 파일을 읽어 파싱하여 객체로 반환하는 함수입니다.\n *\n  *\n * @param path - 읽을 JSON 파일의 경로\n *\n * @typeParam T - 반환될 객체의 타입\n *\n * @returns JSON 파일을 파싱한 객체\n *\n * @example\n * ```typescript\n * // JSON 파일을 읽어 객체로 반환하는 예시\n * const data = json<{ name: string; age: number }>('data.json');\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "json: <T extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Obj",
+              "canonicalReference": "@toktokhan-dev/universal!Obj:type"
+            },
+            {
+              "kind": "Content",
+              "text": " = "
+            },
+            {
+              "kind": "Reference",
+              "text": "Obj",
+              "canonicalReference": "@toktokhan-dev/universal!Obj:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">(path: "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "T"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 7,
+            "endIndex": 8
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "path",
+              "parameterTypeTokenRange": {
+                "startIndex": 5,
+                "endIndex": 6
+              },
+              "isOptional": false
+            }
+          ],
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              }
+            }
+          ],
+          "name": "json"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/node!packageRoot:function(1)",
+          "docComment": "/**\n  *\n * 현재 모듈의 디렉터리를 기준으로 package.json 파일의 상위 디렉터리에 있는 package.json 파일의 경로를 기준으로 상대 경로를 사용하여 디렉터리를 생성하는 함수입니다.\n *\n * @example\n * ```typescript\n * // 현재 모듈의 디렉터리를 기준으로 디렉터리를 생성하는 함수를 생성하는 예시\n * const myDir = packageRoot('src', 'components', 'Button');\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "packageRoot: (...paths: "
+            },
+            {
+              "kind": "Content",
+              "text": "string[]"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "paths",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "packageRoot"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/node!pathOf:function(1)",
+          "docComment": "/**\n * 주어진 대상 경로를 기준 경로와 결합하여 새 경로를 생성합니다.\n *\n  *\n * @param target - 대상 경로입니다.\n *\n * @param base - 기준 경로입니다.\n *\n * @returns 대상 경로와 기준 경로를 결합한 새 경로를 반환합니다.\n *\n * @example\n * ```typescript\n * // 주어진 대상 경로를 기준 경로와 결합하여 새 경로를 생성하는 예시\n * const resolvePath = pathOf('file.txt');\n * const result = resolvePath('/home/user'); // '/home/user/file.txt'\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "pathOf: (target: "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "(base: string) => string"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "target",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "pathOf"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/node!pathOn:function(1)",
+          "docComment": "/**\n * 주어진 기준 경로를 대상 경로와 결합하여 새 경로를 생성합니다.\n *\n  *\n * @param base - 기준 경로입니다.\n *\n * @param target - 대상 경로입니다.\n *\n * @returns 기준 경로와 대상 경로를 결합한 새 경로를 반환합니다.\n *\n * @example\n * ```typescript\n * // 주어진 기준 경로를 대상 경로와 결합하여 새 경로를 생성하는 예시\n * const resolvePath = pathOn('/home/user');\n * const result = resolvePath('file.txt'); // '/home/user/file.txt'\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "pathOn: (base: "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "(target: string) => string"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "base",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "pathOn"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/node!prettierFile:function(1)",
+          "docComment": "/**\n * 주어진 파일의 내용을 prettier를 사용하여 서식을 맞춥니다.\n *\n  *\n * @param outputPath - 서식을 맞출 파일의 경로입니다.\n *\n * @param options - prettier의 옵션입니다.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function prettierFile(outputPath: "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": ", options?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ExtendedPrettierOptions",
+              "canonicalReference": "@toktokhan-dev/node!ExtendedPrettierOptions:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<void>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 5,
+            "endIndex": 7
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "outputPath",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "options",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": true
+            }
+          ],
+          "name": "prettierFile"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/node!prettierLog:function(1)",
+          "docComment": "/**\n * Prettier 로그를 출력하는 함수입니다.\n *\n  *\n * @param value - Prettier 로그에 추가할 값\n *\n * @returns -\n *\n * @example\n * ```typescript\n * // Prettier 로그를 출력하는 예시\n * prettierLog('Code formatted successfully.');\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "prettierLog: (value: "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "void"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "value",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "prettierLog"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/node!prettierString:function(1)",
+          "docComment": "/**\n * 주어진 문자열을 prettier를 사용하여 서식을 맞춥니다.\n *\n  *\n * @param string - 서식을 맞출 문자열입니다.\n *\n * @param options - prettier의 옵션입니다.\n *\n * @returns 서식을 맞춘 결과를 반환합니다.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function prettierString(string: "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": ", options?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ExtendedPrettierOptions",
+              "canonicalReference": "@toktokhan-dev/node!ExtendedPrettierOptions:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<string>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 5,
+            "endIndex": 7
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "string",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "options",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": true
+            }
+          ],
+          "name": "prettierString"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/node!readFileSync:function(1)",
+          "docComment": "/**\n * 동기적으로 파일을 읽어오는 함수입니다.\n *\n  *\n * @param encoding - 파일의 인코딩 유형\n *\n * @param path - 읽을 파일의 경로\n *\n * @returns 파일의 내용을 문자열로 반환합니다.\n *\n * @example\n * ```typescript\n * // 파일을 동기적으로 읽어오는 예시\n * const content = readFileSync('utf-8', 'example.txt');\n * const content = readFileSync('utf-8')('example.txt');\n *\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "readFileSync: (encoding: "
+            },
+            {
+              "kind": "Reference",
+              "text": "BufferEncoding",
+              "canonicalReference": "!\"\\\"buffer\\\"\".__global.BufferEncoding:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", path: "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 5,
+            "endIndex": 6
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "encoding",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "path",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "readFileSync"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/node!removeAll:function(1)",
+          "docComment": "/**\n * 주어진 경로의 디렉터리 또는 파일을 재귀적으로 제거하는 함수입니다.  *\n * @param path - 제거할 디렉터리 또는 파일의 경로\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "removeAll: (path: "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "void"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "path",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "removeAll"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/node!renderExportConst:function(1)",
+          "docComment": "/**\n * 지정된 변수 이름과 데이터를 사용하여 내보낼 상수를 렌더링합니다.\n *\n  *\n * @param varName - 상수의 변수 이름입니다.\n *\n * @param data - 상수의 데이터입니다.\n *\n * @returns 렌더링된 상수를 반환합니다.\n *\n * @throws\n *\n * {Error} 대상 템플릿을 찾을 수 없을 때 발생합니다.\n *\n * @example\n * ```typescript\n * // 내보낼 상수를 렌더링하는 예시\n * const renderedConst = renderExportConst('myConst', 'someData');\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "renderExportConst: (varName: "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": ", data: "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 5,
+            "endIndex": 6
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "varName",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "data",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "renderExportConst"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/node!resetDirSync:function(1)",
+          "docComment": "/**\n * 주어진 경로에 해당하는 디렉터리를 재설정하는 함수입니다. 주어진 경로의 디렉터리를 먼저 재귀적으로 제거한 후, 새로운 디렉터리를 생성합니다.\n *\n  *\n * @param path - 디렉터리를 재설정할 경로\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "resetDirSync: (path: "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "void"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "path",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "resetDirSync"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/node!success:function(1)",
+          "docComment": "/**\n * 성공 메시지를 생성하는 함수입니다.\n *\n  *\n * @param value - 성공 메시지에 추가할 값\n *\n * @returns 성공 메시지 문자열\n *\n * @example\n * ```typescript\n * // 성공 메시지를 생성하는 예시\n * const message = success('Operation completed successfully.');\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "success: (value: "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "value",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "success"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/node!successLog:function(1)",
+          "docComment": "/**\n * 성공 로그를 출력하는 함수입니다.\n *\n  *\n * @param title - 로그 제목\n *\n * @param value - 로그 값\n *\n * @returns 입력된 값\n *\n * @example\n * ```typescript\n * // 성공 로그를 출력하는 예시\n * successLog('Operation', result);\n * successLog('Operation')(result);\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "successLog: <T>(title: "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": ", value: "
+            },
+            {
+              "kind": "Content",
+              "text": "T"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "T"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 5,
+            "endIndex": 6
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "title",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "value",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": false
+            }
+          ],
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "name": "successLog"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/node!withLoading:function(1)",
+          "docComment": "/**\n * 로딩 상태를 보여주면서 비동기 작업을 실행합니다.\n *\n  *\n * @param title - 로딩 상태 메시지의 제목입니다.\n *\n * @param description - 로딩 상태 메시지의 설명입니다.\n *\n * @param callback - 비동기 작업을 수행하는 함수입니다. 로딩 상태를 갱신하기 위해 `spinner` 객체를 전달받습니다.\n *\n * @param options - 옵션 객체로, 오류 발생 시 처리 방법을 지정합니다.\n *\n * @param  - options.onError - 오류가 발생했을 때 실행할 콜백 함수입니다.\n *\n * @returns 비동기 작업의 결과를 반환합니다.\n *\n * @example\n * ```typescript\n * // 로딩 상태를 보여주면서 비동기 작업을 실행하는 예시\n * const result = await withLoading(\n *   'Loading',\n *   'Some description',\n *   async (spinner) => {\n *     // 비동기 작업 수행\n *   },\n *   {\n *     onError: (err) => {\n *       // 오류 처리\n *     },\n *   }\n * );\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function withLoading<T, E = "
+            },
+            {
+              "kind": "Content",
+              "text": "any"
+            },
+            {
+              "kind": "Content",
+              "text": ">(title: "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": ", description: "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": ", callback: "
+            },
+            {
+              "kind": "Content",
+              "text": "(spinner: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Ora",
+              "canonicalReference": "ora!Ora:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ") => T"
+            },
+            {
+              "kind": "Content",
+              "text": ", options?: "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n  onError: (err: E) => void;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<T | undefined>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 13,
+            "endIndex": 15
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "title",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "description",
+              "parameterTypeTokenRange": {
+                "startIndex": 5,
+                "endIndex": 6
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "callback",
+              "parameterTypeTokenRange": {
+                "startIndex": 7,
+                "endIndex": 10
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "options",
+              "parameterTypeTokenRange": {
+                "startIndex": 11,
+                "endIndex": 12
+              },
+              "isOptional": true
+            }
+          ],
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            },
+            {
+              "typeParameterName": "E",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "name": "withLoading"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/node!yaml:function(1)",
+          "docComment": "/**\n * YAML 파일을 읽어 파싱하여 객체로 반환하는 함수입니다.\n *\n  *\n * @param path - 읽을 YAML 파일의 경로\n *\n * @typeParam T - 반환될 객체의 타입\n *\n * @returns YAML 파일을 파싱한 객체\n *\n * @example\n * ```typescript\n * // YAML 파일을 읽어 객체로 반환하는 예시\n * const data = yaml<{ name: string; age: number }>('data.yaml');\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "yaml: <T extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Obj",
+              "canonicalReference": "@toktokhan-dev/universal!Obj:type"
+            },
+            {
+              "kind": "Content",
+              "text": " = "
+            },
+            {
+              "kind": "Reference",
+              "text": "Obj",
+              "canonicalReference": "@toktokhan-dev/universal!Obj:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">(path: "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "T"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 7,
+            "endIndex": 8
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "path",
+              "parameterTypeTokenRange": {
+                "startIndex": 5,
+                "endIndex": 6
+              },
+              "isOptional": false
+            }
+          ],
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              }
+            }
+          ],
+          "name": "yaml"
+        }
+      ]
+    }
+  ]
+}

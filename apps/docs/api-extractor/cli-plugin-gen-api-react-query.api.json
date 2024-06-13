@@ -1,0 +1,626 @@
+{
+  "metadata": {
+    "toolPackage": "@microsoft/api-extractor",
+    "toolVersion": "7.46.1",
+    "schemaVersion": 1011,
+    "oldestForwardsCompatibleVersion": 1001,
+    "tsdocConfig": {
+      "$schema": "https://developer.microsoft.com/json-schemas/tsdoc/v0/tsdoc.schema.json",
+      "noStandardTags": true,
+      "tagDefinitions": [
+        {
+          "tagName": "@alpha",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@beta",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@defaultValue",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@decorator",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@deprecated",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@eventProperty",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@example",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@experimental",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@inheritDoc",
+          "syntaxKind": "inline"
+        },
+        {
+          "tagName": "@internal",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@label",
+          "syntaxKind": "inline"
+        },
+        {
+          "tagName": "@link",
+          "syntaxKind": "inline",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@override",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@packageDocumentation",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@param",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@privateRemarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@public",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@readonly",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@remarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@returns",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@sealed",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@see",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@throws",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@typeParam",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@virtual",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@betaDocumentation",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@internalRemarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@preapproved",
+          "syntaxKind": "modifier"
+        }
+      ],
+      "supportForTags": {
+        "@alpha": true,
+        "@beta": true,
+        "@defaultValue": true,
+        "@decorator": true,
+        "@deprecated": true,
+        "@eventProperty": true,
+        "@example": true,
+        "@experimental": true,
+        "@inheritDoc": true,
+        "@internal": true,
+        "@label": true,
+        "@link": true,
+        "@override": true,
+        "@packageDocumentation": true,
+        "@param": true,
+        "@privateRemarks": true,
+        "@public": true,
+        "@readonly": true,
+        "@remarks": true,
+        "@returns": true,
+        "@sealed": true,
+        "@see": true,
+        "@throws": true,
+        "@typeParam": true,
+        "@virtual": true,
+        "@betaDocumentation": true,
+        "@internalRemarks": true,
+        "@preapproved": true
+      },
+      "reportUnsupportedHtmlElements": false
+    }
+  },
+  "kind": "Package",
+  "canonicalReference": "@toktokhan-dev/cli-plugin-gen-api-react-query!",
+  "docComment": "/**\n * `Swagger` 의 json 을 조회하여 타입정의와 `api class`, `react-query` 관련 모듈을 생성합니다. `axios` 를 사용하는 환경에서 사용가능합니다.\n *\n * @packageDocumentation\n */\n",
+  "name": "@toktokhan-dev/cli-plugin-gen-api-react-query",
+  "preserveMemberOrder": false,
+  "members": [
+    {
+      "kind": "EntryPoint",
+      "canonicalReference": "@toktokhan-dev/cli-plugin-gen-api-react-query!",
+      "name": "",
+      "preserveMemberOrder": false,
+      "members": [
+        {
+          "kind": "Variable",
+          "canonicalReference": "@toktokhan-dev/cli-plugin-gen-api-react-query!genApi:var",
+          "docComment": "/**\n  */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "genApi: "
+            },
+            {
+              "kind": "Reference",
+              "text": "_toktokhan_dev_cli.MyCommand",
+              "canonicalReference": "@toktokhan-dev/cli!MyCommand:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "GenerateSwaggerApiConfig",
+              "canonicalReference": "@toktokhan-dev/cli-plugin-gen-api-react-query!GenerateSwaggerApiConfig:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", \"gen:api\">"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "genApi",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 5
+          },
+          "parameters": []
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/cli-plugin-gen-api-react-query!GenerateFn:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type GenerateFn = "
+            },
+            {
+              "kind": "Content",
+              "text": "(param: {\n  apiInstanceName: string;\n  functionName: string;\n  pagination: {\n    keywords: string[];\n    nextKey: string;\n  };\n}) => string"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "GenerateFn",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          },
+          "parameters": []
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@toktokhan-dev/cli-plugin-gen-api-react-query!GenerateSwaggerApiConfig:interface",
+          "docComment": "/**\n  */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "interface GenerateSwaggerApiConfig "
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "GenerateSwaggerApiConfig",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/cli-plugin-gen-api-react-query!GenerateSwaggerApiConfig#httpClientType:member",
+              "docComment": "/**\n * http client 타입입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "httpClientType: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "HttpClientType",
+                  "canonicalReference": "swagger-typescript-api!HttpClientType:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "httpClientType",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/cli-plugin-gen-api-react-query!GenerateSwaggerApiConfig#includeReactInfiniteQuery:member",
+              "docComment": "/**\n * 생성되는 코드의 InfiniteQuery 포함 여부 입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "includeReactInfiniteQuery: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "boolean"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "includeReactInfiniteQuery",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/cli-plugin-gen-api-react-query!GenerateSwaggerApiConfig#includeReactQuery:member",
+              "docComment": "/**\n * 생성되는 코드의 React Query 포함 여부 입니다. 해당 옵션이 false 일경우 infiniteQuery 를 포함한 모든 Query 가 생성되지 않습니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "includeReactQuery: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "boolean"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "includeReactQuery",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/cli-plugin-gen-api-react-query!GenerateSwaggerApiConfig#instancePath:member",
+              "docComment": "/**\n * Api 의 axios 혹은 fetch 요청 instance 주소입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "instancePath: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "instancePath",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/cli-plugin-gen-api-react-query!GenerateSwaggerApiConfig#output:member",
+              "docComment": "/**\n * 생성될 파일들이 위치할 경로입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "output: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "output",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/cli-plugin-gen-api-react-query!GenerateSwaggerApiConfig#paginations:member",
+              "docComment": "/**\n * infiniteQuery 를 생성할 함수 필터 목록 입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "paginations: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "PaginationConfig",
+                  "canonicalReference": "@toktokhan-dev/cli-plugin-gen-api-react-query!PaginationConfig:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "[]"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "paginations",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/cli-plugin-gen-api-react-query!GenerateSwaggerApiConfig#swaggerSchemaUrl:member",
+              "docComment": "/**\n * 조회할 스웨거의 url 혹은 file(yaml, json) 경로 입니다. 통상적으로 백앤드 개발자에게 공유받은 api-swagger-url 의 '/openapi.json' 경로에 해당합니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "swaggerSchemaUrl: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "swaggerSchemaUrl",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": [],
+          "parameters": []
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@toktokhan-dev/cli-plugin-gen-api-react-query!PaginationConfig:interface",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "interface PaginationConfig "
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "PaginationConfig",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/cli-plugin-gen-api-react-query!PaginationConfig#getNextPage:member",
+              "docComment": "/**\n * InfiniteQuery 의 nextPage 를 구하는 함수를 커스텀하기 위해 사용됩니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "getNextPage?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string | "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "GenerateFn",
+                  "canonicalReference": "@toktokhan-dev/cli-plugin-gen-api-react-query!GenerateFn:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "getNextPage",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/cli-plugin-gen-api-react-query!PaginationConfig#getNextPageParam:member",
+              "docComment": "/**\n * InfiniteQuery 의 nextPageParam 을 구하는 함수를 커스텀하기 위해 사용됩니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "getNextPageParam?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string | "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "GenerateFn",
+                  "canonicalReference": "@toktokhan-dev/cli-plugin-gen-api-react-query!GenerateFn:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "getNextPageParam",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/cli-plugin-gen-api-react-query!PaginationConfig#initialPageParam:member",
+              "docComment": "/**\n * InfiniteQuery 의 initialPage 를 커스텀하기 위해 사용됩니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "initialPageParam?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string | "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "GenerateFn",
+                  "canonicalReference": "@toktokhan-dev/cli-plugin-gen-api-react-query!GenerateFn:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "initialPageParam",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/cli-plugin-gen-api-react-query!PaginationConfig#keywords:member",
+              "docComment": "/**\n * api 의 queryParams key 에 keywords 가 포함되어 있는 항목만 생성됩니다. 키워드 배열은 AND 연산으로써 사용됩니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "keywords: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string[]"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "keywords",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/cli-plugin-gen-api-react-query!PaginationConfig#nextKey:member",
+              "docComment": "/**\n * InfiniteQuery 의 nextPage 와 nextPageParam 을 구하는 함수를 작성하기 위해 사용됩니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "nextKey: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "nextKey",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": [],
+          "parameters": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1111 @@
+{
+  "metadata": {
+    "toolPackage": "@microsoft/api-extractor",
+    "toolVersion": "7.46.1",
+    "schemaVersion": 1011,
+    "oldestForwardsCompatibleVersion": 1001,
+    "tsdocConfig": {
+      "$schema": "https://developer.microsoft.com/json-schemas/tsdoc/v0/tsdoc.schema.json",
+      "noStandardTags": true,
+      "tagDefinitions": [
+        {
+          "tagName": "@alpha",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@beta",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@defaultValue",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@decorator",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@deprecated",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@eventProperty",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@example",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@experimental",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@inheritDoc",
+          "syntaxKind": "inline"
+        },
+        {
+          "tagName": "@internal",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@label",
+          "syntaxKind": "inline"
+        },
+        {
+          "tagName": "@link",
+          "syntaxKind": "inline",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@override",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@packageDocumentation",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@param",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@privateRemarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@public",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@readonly",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@remarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@returns",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@sealed",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@see",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@throws",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@typeParam",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@virtual",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@betaDocumentation",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@internalRemarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@preapproved",
+          "syntaxKind": "modifier"
+        }
+      ],
+      "supportForTags": {
+        "@alpha": true,
+        "@beta": true,
+        "@defaultValue": true,
+        "@decorator": true,
+        "@deprecated": true,
+        "@eventProperty": true,
+        "@example": true,
+        "@experimental": true,
+        "@inheritDoc": true,
+        "@internal": true,
+        "@label": true,
+        "@link": true,
+        "@override": true,
+        "@packageDocumentation": true,
+        "@param": true,
+        "@privateRemarks": true,
+        "@public": true,
+        "@readonly": true,
+        "@remarks": true,
+        "@returns": true,
+        "@sealed": true,
+        "@see": true,
+        "@throws": true,
+        "@typeParam": true,
+        "@virtual": true,
+        "@betaDocumentation": true,
+        "@internalRemarks": true,
+        "@preapproved": true
+      },
+      "reportUnsupportedHtmlElements": false
+    }
+  },
+  "kind": "Package",
+  "canonicalReference": "@toktokhan-dev/react-universal!",
+  "docComment": "/**\n * React 환경에서 전역적으로 사용할 수 있는 유틸리티 라이브러리입니다. {@link @toktokhan-dev/react-app#React-app | `@toktokhan-dev/react-app`} 와 {@link @toktokhan-dev/react-web#React-web | `@toktokhan-dev/react-web`}은 `@toktokhan-dev/react-universal`를 포함하고 있습니다.\n *\n * @packageDocumentation\n */\n",
+  "name": "@toktokhan-dev/react-universal",
+  "preserveMemberOrder": false,
+  "members": [
+    {
+      "kind": "EntryPoint",
+      "canonicalReference": "@toktokhan-dev/react-universal!",
+      "name": "",
+      "preserveMemberOrder": false,
+      "members": [
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/react-universal!apiLogger:function(1)",
+          "docComment": "/**\n * @param  -  */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "apiLogger: (params: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ApiLoggerArgs",
+              "canonicalReference": "@toktokhan-dev/react-universal!ApiLoggerArgs:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "void"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "params",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "apiLogger"
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@toktokhan-dev/react-universal!ApiLoggerArgs:interface",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "interface ApiLoggerArgs extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Pick",
+              "canonicalReference": "!Pick:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "StyledConsoleArgs",
+              "canonicalReference": "@toktokhan-dev/react-universal!StyledConsoleArgs:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", 'method'>"
+            },
+            {
+              "kind": "Content",
+              "text": " "
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "ApiLoggerArgs",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/react-universal!ApiLoggerArgs#reqData:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "reqData?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "AxiosRequestConfig",
+                  "canonicalReference": "axios!AxiosRequestConfig:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "reqData",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/react-universal!ApiLoggerArgs#resData:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "resData: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "any"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "resData",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/react-universal!ApiLoggerArgs#status:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "status: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string | number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "status",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": [
+            {
+              "startIndex": 1,
+              "endIndex": 5
+            }
+          ],
+          "parameters": []
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/react-universal!createContextSelector:function(1)",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "createContextSelector: <T>(useHook: "
+            },
+            {
+              "kind": "Content",
+              "text": "() => T"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Reference",
+              "text": "CreateContextSelectorReturn",
+              "canonicalReference": "@toktokhan-dev/react-universal!CreateContextSelectorReturn:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<T>"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 5
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "useHook",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "name": "createContextSelector"
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/react-universal!CreateContextSelectorReturn:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type CreateContextSelectorReturn<T> = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n  useContext: <Selected>(selector: (value: T) => Selected) => Selected;\n  Provider: ({\n    children\n  }: {\n    children: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ReactNode",
+              "canonicalReference": "@types/react!React.ReactNode:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n  }) => "
+            },
+            {
+              "kind": "Reference",
+              "text": "JSX.Element",
+              "canonicalReference": "@types/react!__global.JSX.Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n  withProvider: <C extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentType",
+              "canonicalReference": "@types/react!React.ComponentType:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<any>>(Component: C) => (props: "
+            },
+            {
+              "kind": "Reference",
+              "text": "PropsOf",
+              "canonicalReference": "@toktokhan-dev/react-universal!PropsOf:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<C>) => "
+            },
+            {
+              "kind": "Reference",
+              "text": "JSX.Element",
+              "canonicalReference": "@types/react!__global.JSX.Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "CreateContextSelectorReturn",
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 12
+          },
+          "parameters": []
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/react-universal!createSlice:function(1)",
+          "docComment": "/**\n * @param  -  */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "createSlice: <S, R extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "ReducerMap",
+              "canonicalReference": "@toktokhan-dev/react-universal!~ReducerMap:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<S, any>"
+            },
+            {
+              "kind": "Content",
+              "text": ">({\n  initialState,\n  reducers\n}: "
+            },
+            {
+              "kind": "Reference",
+              "text": "CreateReducerParams",
+              "canonicalReference": "@toktokhan-dev/react-universal!~CreateReducerParams:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<S, R>"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n  initialState: S;\n  reducer: void | S extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "ValidRecipeReturnType",
+              "canonicalReference": "@toktokhan-dev/react-universal!~ValidRecipeReturnType:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<S> ? (base: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Immutable",
+              "canonicalReference": "immer!Immutable:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<S>, action: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ActionsByMap",
+              "canonicalReference": "@toktokhan-dev/react-universal!~ActionsByMap:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<S, R>) => S : never;\n}"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 7,
+            "endIndex": 14
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "{  initialState,  reducers}",
+              "parameterTypeTokenRange": {
+                "startIndex": 4,
+                "endIndex": 6
+              },
+              "isOptional": false
+            }
+          ],
+          "typeParameters": [
+            {
+              "typeParameterName": "S",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            },
+            {
+              "typeParameterName": "R",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "name": "createSlice"
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@toktokhan-dev/react-universal!defMessage:var",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "defMessage = "
+            },
+            {
+              "kind": "Content",
+              "text": "\"\\uC5D0\\uB7EC\\uAC00 \\uBC1C\\uC0DD\\uD588\\uC2B5\\uB2C8\\uB2E4. \\uACE0\\uAC1D\\uC13C\\uD130\\uC5D0 \\uBB38\\uC758\\uD574\\uC8FC\\uC138\\uC694.\""
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "initializerTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          },
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "defMessage",
+          "variableTypeTokenRange": {
+            "startIndex": 0,
+            "endIndex": 0
+          },
+          "parameters": []
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/react-universal!ErrorMessage:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type ErrorMessage = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n  [key: string]: any;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "ErrorMessage",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          },
+          "parameters": []
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/react-universal!fileToBase64:function(1)",
+          "docComment": "/**\n * @param  -  *\n * 개선\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "fileToBase64: (file: "
+            },
+            {
+              "kind": "Reference",
+              "text": "File",
+              "canonicalReference": "!File:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<string | "
+            },
+            {
+              "kind": "Reference",
+              "text": "ArrayBuffer",
+              "canonicalReference": "!ArrayBuffer:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " | null>"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 7
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "file",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "fileToBase64"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/react-universal!formatNumberKR:function(1)",
+          "docComment": "/**\n * @param  -  */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "formatNumberKR: (num: "
+            },
+            {
+              "kind": "Content",
+              "text": "number"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "num",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "formatNumberKR"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/react-universal!formatPhoneNumberKR:function(1)",
+          "docComment": "/**\n * @param  -  */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "formatPhoneNumberKR: (phone: "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "phone",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "formatPhoneNumberKR"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/react-universal!genErrorByServer:function(1)",
+          "docComment": "/**\n * 서버에서 발생한 오류를 기반으로 에러 메세지 객체를 반환합니다. 외부 백엔드와 협업시에 에러타입을 확인해주세요. api logger에서 사용하고 있으며, 에러 메세지를 통해 toast, alert 등에 적용시킬 수 있습니다.\n *\n * @category Utils/Logger  @template T - AxiosError 타입의 제네릭 매개변수입니다.\n *\n * @param errors - AxiosError 객체입니다.\n *\n * @returns 서버에서 발생한 오류에 기반한 에러메세지 객체입니다.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "genErrorByServer: <T extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "AxiosError",
+              "canonicalReference": "axios!AxiosError:class"
+            },
+            {
+              "kind": "Content",
+              "text": "<{\n  message: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ErrorMessage",
+              "canonicalReference": "@toktokhan-dev/react-universal!ErrorMessage:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n}, any>"
+            },
+            {
+              "kind": "Content",
+              "text": ">(errors: "
+            },
+            {
+              "kind": "Content",
+              "text": "T"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Reference",
+              "text": "GenErrorByServerType",
+              "canonicalReference": "@toktokhan-dev/react-universal!GenErrorByServerType:type"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 8,
+            "endIndex": 9
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "errors",
+              "parameterTypeTokenRange": {
+                "startIndex": 6,
+                "endIndex": 7
+              },
+              "isOptional": false
+            }
+          ],
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 5
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "name": "genErrorByServer"
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/react-universal!GenErrorByServerType:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type GenErrorByServerType = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n  defMessage?: string;\n  list?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "FormattedError",
+              "canonicalReference": "@toktokhan-dev/react-universal!~FormattedError:type"
+            },
+            {
+              "kind": "Content",
+              "text": "[];\n  messagesWithKey?: string;\n  messages?: string;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "GenErrorByServerType",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 4
+          },
+          "parameters": []
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/react-universal!PropsOf:type",
+          "docComment": "/**\n * 주어진 컴포넌트의 props 타입을 추론하는 유틸리티 타입입니다.  *\n * @template T - props 타입을 추론할 컴포넌트.\n *\n * @returns `T`가 `ComponentType` 또는 `Component`를 확장하는 경우 추론된 props 타입, 그렇지 않은 경우 `never`.\n *\n * @example\n * ```tsx\n * type Example = ComponentProps<(props: { number: number }) => JSX.Element>;\n * Example === { number : number }\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type PropsOf<T> = "
+            },
+            {
+              "kind": "Content",
+              "text": "T extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "ComponentType",
+              "canonicalReference": "@types/react!React.ComponentType:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<infer P> | "
+            },
+            {
+              "kind": "Reference",
+              "text": "Component",
+              "canonicalReference": "@types/react!React.Component:class"
+            },
+            {
+              "kind": "Content",
+              "text": "<infer P> ? P : never"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "PropsOf",
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 6
+          },
+          "parameters": []
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/react-universal!styledConsole:function(1)",
+          "docComment": "/**\n * @param  -  */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "declare function styledConsole({\n  topic,\n  title,\n  data,\n  topicColor,\n  method,\n  errors\n}: "
+            },
+            {
+              "kind": "Reference",
+              "text": "StyledConsoleArgs",
+              "canonicalReference": "@toktokhan-dev/react-universal!StyledConsoleArgs:type"
+            },
+            {
+              "kind": "Content",
+              "text": "): "
+            },
+            {
+              "kind": "Content",
+              "text": "void"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "{  topic,  title,  data,  topicColor,  method,  errors}",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "styledConsole"
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/react-universal!StyledConsoleArgs:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type StyledConsoleArgs = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n  topic?: string;\n  title?: string;\n  data: unknown;\n  topicColor?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "CSSProperties",
+              "canonicalReference": "@types/react!React.CSSProperties:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "['color'];\n  method?: 'log' | 'warn' | 'error' | 'info';\n  errors?: string;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "StyledConsoleArgs",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 4
+          },
+          "parameters": []
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/react-universal!useCallbackRef:function(1)",
+          "docComment": "/**\n  */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "useCallbackRef: <T extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Fn",
+              "canonicalReference": "@toktokhan-dev/universal!Fn:type"
+            },
+            {
+              "kind": "Content",
+              "text": ">(callback: "
+            },
+            {
+              "kind": "Content",
+              "text": "T"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "T"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 5,
+            "endIndex": 6
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "callback",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": false
+            }
+          ],
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "name": "useCallbackRef"
+        }
+      ]
+    }
+  ]
+}

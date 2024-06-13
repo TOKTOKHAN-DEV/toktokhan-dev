@@ -1,0 +1,822 @@
+{
+  "metadata": {
+    "toolPackage": "@microsoft/api-extractor",
+    "toolVersion": "7.46.1",
+    "schemaVersion": 1011,
+    "oldestForwardsCompatibleVersion": 1001,
+    "tsdocConfig": {
+      "$schema": "https://developer.microsoft.com/json-schemas/tsdoc/v0/tsdoc.schema.json",
+      "noStandardTags": true,
+      "tagDefinitions": [
+        {
+          "tagName": "@alpha",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@beta",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@defaultValue",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@decorator",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@deprecated",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@eventProperty",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@example",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@experimental",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@inheritDoc",
+          "syntaxKind": "inline"
+        },
+        {
+          "tagName": "@internal",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@label",
+          "syntaxKind": "inline"
+        },
+        {
+          "tagName": "@link",
+          "syntaxKind": "inline",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@override",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@packageDocumentation",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@param",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@privateRemarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@public",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@readonly",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@remarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@returns",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@sealed",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@see",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@throws",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@typeParam",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@virtual",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@betaDocumentation",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@internalRemarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@preapproved",
+          "syntaxKind": "modifier"
+        }
+      ],
+      "supportForTags": {
+        "@alpha": true,
+        "@beta": true,
+        "@defaultValue": true,
+        "@decorator": true,
+        "@deprecated": true,
+        "@eventProperty": true,
+        "@example": true,
+        "@experimental": true,
+        "@inheritDoc": true,
+        "@internal": true,
+        "@label": true,
+        "@link": true,
+        "@override": true,
+        "@packageDocumentation": true,
+        "@param": true,
+        "@privateRemarks": true,
+        "@public": true,
+        "@readonly": true,
+        "@remarks": true,
+        "@returns": true,
+        "@sealed": true,
+        "@see": true,
+        "@throws": true,
+        "@typeParam": true,
+        "@virtual": true,
+        "@betaDocumentation": true,
+        "@internalRemarks": true,
+        "@preapproved": true
+      },
+      "reportUnsupportedHtmlElements": false
+    }
+  },
+  "kind": "Package",
+  "canonicalReference": "@toktokhan-dev/cli!",
+  "docComment": "/**\n * 똑똑한 개발자의 플러그인을 사용할 수 있는 **CLI TOOL**입니다. `gen:api`, `gen:theme`, `gen:route`, `gen:sitemap` 등 다양한 플러그인을 지원하며, 사용자가 개발한 스크립트를 플러그인으로 등록할 수 있습니다.\n *\n * @packageDocumentation\n */\n",
+  "name": "@toktokhan-dev/cli",
+  "preserveMemberOrder": false,
+  "members": [
+    {
+      "kind": "EntryPoint",
+      "canonicalReference": "@toktokhan-dev/cli!",
+      "name": "",
+      "preserveMemberOrder": false,
+      "members": [
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/cli!cli:function(1)",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "cli: () => "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<void>"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 3
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [],
+          "name": "cli"
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/cli!ConfigType:type",
+          "docComment": "/**\n * 설정 객체의 유형을 설명하는 타입입니다.\n *\n  *\n * @typeParam Config - 설정 객체의 타입입니다.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type ConfigType<Config> = "
+            },
+            {
+              "kind": "Content",
+              "text": "{ [key in keyof Config]?: {\n  name: key;\n  alias?: string;\n  type?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "NonNullable",
+              "canonicalReference": "!NonNullable:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<Config[key]> extends string ? 'string' : "
+            },
+            {
+              "kind": "Reference",
+              "text": "NonNullable",
+              "canonicalReference": "!NonNullable:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<Config[key]> extends boolean ? 'boolean' : "
+            },
+            {
+              "kind": "Reference",
+              "text": "NonNullable",
+              "canonicalReference": "!NonNullable:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<Config[key]> extends number ? 'number' : "
+            },
+            {
+              "kind": "Reference",
+              "text": "NonNullable",
+              "canonicalReference": "!NonNullable:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<Config[key]> extends string[] ? 'string[]' : "
+            },
+            {
+              "kind": "Reference",
+              "text": "NonNullable",
+              "canonicalReference": "!NonNullable:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<Config[key]> extends boolean[] ? 'boolean[]' : "
+            },
+            {
+              "kind": "Reference",
+              "text": "NonNullable",
+              "canonicalReference": "!NonNullable:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<Config[key]> extends number[] ? 'number[]' : "
+            },
+            {
+              "kind": "Reference",
+              "text": "NonNullable",
+              "canonicalReference": "!NonNullable:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<Config[key]> extends any[][] ? 'array[]' : "
+            },
+            {
+              "kind": "Reference",
+              "text": "NonNullable",
+              "canonicalReference": "!NonNullable:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<Config[key]> extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Record",
+              "canonicalReference": "!Record:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<any, any>[] ? 'object[]' : "
+            },
+            {
+              "kind": "Reference",
+              "text": "NonNullable",
+              "canonicalReference": "!NonNullable:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<Config[key]> extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Record",
+              "canonicalReference": "!Record:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<any, any> ? 'object' : 'any';\n  description?: string;\n} }"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "ConfigType",
+          "typeParameters": [
+            {
+              "typeParameterName": "Config",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 24
+          },
+          "parameters": []
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/cli!defineCommand:function(1)",
+          "docComment": "/**\n * 명령어를 정의하는 함수입니다.\n *\n  *\n * @param config - 명령어의 설정입니다.\n *\n * @typeParam Name - 명령어의 이름 타입입니다.\n *\n * @typeParam Config - 명령어의 구성 타입입니다.\n *\n * @returns 정의된 명령어 설정을 반환합니다.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "defineCommand: <Name extends "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": ", Config extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Record",
+              "canonicalReference": "!Record:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<string, any>"
+            },
+            {
+              "kind": "Content",
+              "text": ">(config: "
+            },
+            {
+              "kind": "Reference",
+              "text": "MyCommand",
+              "canonicalReference": "@toktokhan-dev/cli!MyCommand:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<Config, Name>"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Reference",
+              "text": "MyCommand",
+              "canonicalReference": "@toktokhan-dev/cli!MyCommand:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<Config, Name>"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 9,
+            "endIndex": 11
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "config",
+              "parameterTypeTokenRange": {
+                "startIndex": 6,
+                "endIndex": 8
+              },
+              "isOptional": false
+            }
+          ],
+          "typeParameters": [
+            {
+              "typeParameterName": "Name",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            },
+            {
+              "typeParameterName": "Config",
+              "constraintTokenRange": {
+                "startIndex": 3,
+                "endIndex": 5
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "name": "defineCommand"
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@toktokhan-dev/cli!MyCommand:interface",
+          "docComment": "/**\n * 사용자 정의 명령어를 나타내는 인터페이스입니다.\n *\n  *\n * @typeParam Config - 명령어의 구성을 나타내는 설정 객체의 타입입니다. 기본값은 `any`입니다.\n *\n * @typeParam Name - 명령어의 이름의 타입입니다. 기본값은 `string`입니다.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "interface MyCommand<Config = "
+            },
+            {
+              "kind": "Content",
+              "text": "any"
+            },
+            {
+              "kind": "Content",
+              "text": ", Name extends "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": " = "
+            },
+            {
+              "kind": "Content",
+              "text": "string"
+            },
+            {
+              "kind": "Content",
+              "text": "> "
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "typeParameters": [
+            {
+              "typeParameterName": "Config",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "typeParameterName": "Name",
+              "constraintTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 5,
+                "endIndex": 6
+              }
+            }
+          ],
+          "name": "MyCommand",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/cli!MyCommand#cliOptions:member",
+              "docComment": "/**\n * 명령어의 CLI 옵션 목록입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "cliOptions?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ConfigType",
+                  "canonicalReference": "@toktokhan-dev/cli!ConfigType:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<Config>[keyof Config][]"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "cliOptions",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/cli!MyCommand#default:member",
+              "docComment": "/**\n * 명령어의 기본 구성입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "default: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Partial",
+                  "canonicalReference": "!Partial:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<Config>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "default",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/cli!MyCommand#description:member",
+              "docComment": "/**\n * 명령어의 설명입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "description: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "description",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/cli!MyCommand#name:member",
+              "docComment": "/**\n * 명령어의 이름입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "name: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "Name"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "name",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/cli!MyCommand#run:member",
+              "docComment": "/**\n * 명령어를 실행하는 함수입니다.\n *\n * @param config - 명령어의 구성을 나타내는 설정 객체입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "run: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "(config: Config) => void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "run",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": [],
+          "parameters": []
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/cli!registry:function(1)",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "registry: (program: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Command",
+              "canonicalReference": "commander!Command:class"
+            },
+            {
+              "kind": "Content",
+              "text": ", config: "
+            },
+            {
+              "kind": "Reference",
+              "text": "RootConfig",
+              "canonicalReference": "@toktokhan-dev/cli!RootConfig:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", command: "
+            },
+            {
+              "kind": "Reference",
+              "text": "MyCommand",
+              "canonicalReference": "@toktokhan-dev/cli!MyCommand:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "void"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 7,
+            "endIndex": 8
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "program",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "config",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "command",
+              "parameterTypeTokenRange": {
+                "startIndex": 5,
+                "endIndex": 6
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "registry"
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/cli!RootConfig:type",
+          "docComment": "/**\n * 루트 구성을 정의하는 타입입니다.\n *\n  *\n * @typeParam P - 플러그인 명령어 배열을 포함하는 객체의 타입입니다. 기본값은 `{ plugins: MyCommand[] }` 입니다.\n *\n * @typeParam P - ['plugins'] - 플러그인 명령어 배열의 타입입니다.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type RootConfig<P extends "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n  plugins: "
+            },
+            {
+              "kind": "Reference",
+              "text": "MyCommand",
+              "canonicalReference": "@toktokhan-dev/cli!MyCommand:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "[];\n}"
+            },
+            {
+              "kind": "Content",
+              "text": " = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n  plugins: "
+            },
+            {
+              "kind": "Reference",
+              "text": "MyCommand",
+              "canonicalReference": "@toktokhan-dev/cli!MyCommand:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "[];\n}"
+            },
+            {
+              "kind": "Content",
+              "text": "> = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n  basePath?: string;\n  plugins?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "MyCommand",
+              "canonicalReference": "@toktokhan-dev/cli!MyCommand:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "[];\n} & { [key in P['plugins'][number]['name']]?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Extract",
+              "canonicalReference": "!Extract:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<P['plugins'][number], {\n  name: key;\n}>['default'] }"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "RootConfig",
+          "typeParameters": [
+            {
+              "typeParameterName": "P",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 4
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 5,
+                "endIndex": 8
+              }
+            }
+          ],
+          "typeTokenRange": {
+            "startIndex": 9,
+            "endIndex": 14
+          },
+          "parameters": []
+        }
+      ]
+    }
+  ]
+}
