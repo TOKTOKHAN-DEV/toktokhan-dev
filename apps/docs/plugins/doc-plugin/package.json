@@ -1,7 +1,7 @@
 {
   "name": "@toktokhan-dev/doc-plugin",
   "description": "@microsoft/api-documenter plugin for @toktokhan-dev",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "license": "MIT",
   "private": true,
   "main": "dist/index.js",
