@@ -1,0 +1,40 @@
+{
+  "name": "@toktokhan-dev/github",
+  "version": "0.0.0",
+  "description": "",
+  "type": "module",
+  "files": [
+    "dist",
+    "!dist/*.map"
+  ],
+  "main": "dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "dev": "pnpm build && node dist/index.js",
+    "build": "rollup -c",
+    "build:watch": "rollup -c --watch",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "api-extractor": "api-extractor run --local --verbose"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@toktokhan-dev/ts-config": "workspace:*",
+    "@types/lodash": "^4.17.4"
+  },
+  "dependencies": {
+    "@octokit/rest": "^20.0.2",
+    "@toktokhan-dev/node": "workspace:*",
+    "@toktokhan-dev/universal": "workspace:*",
+    "lodash": "^4.17.21",
+    "matcher": "^5.0.0"
+  }
+}
