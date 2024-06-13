@@ -1,0 +1,55 @@
+{
+  "name": "@toktokhan-dev/react-web",
+  "version": "0.0.0",
+  "author": "TOKTOKHAN.DEV <dev@toktokhan.dev>",
+  "description": "Tokotokhan-fe react-web library",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TOKTOKHAN-DEV/toktokhan-dev.git",
+    "directory": "packages/react/web"
+  },
+  "keywords": [
+    "react-web",
+    "utils",
+    "hooks",
+    "toktokhan-dev"
+  ],
+  "bugs": {
+    "url": "https://github.com/TOKTOKHAN-DEV/toktokhan-dev/issues"
+  },
+  "homepage": "https://github.com/TOKTOKHAN-DEV/toktokhan-dev#readme",
+  "main": "dist/index.js",
+  "files": [
+    "dist",
+    "!dist/*.map"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "api-extractor": "api-extractor run --local --verbose"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^4.2.3",
+    "@toktokhan-dev/react-universal": "workspace:*",
+    "@toktokhan-dev/universal": "workspace:*",
+    "dayjs": "^1.10.6",
+    "lodash": "^4.17.21",
+    "react": "^18.2.0",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@toktokhan-dev/ts-config": "workspace:*",
+    "@types/lodash": "^4.17.0",
+    "@types/react": "^18.3.2",
+    "@types/react-dom": "^18.0.11"
+  }
+}

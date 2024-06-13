@@ -1,0 +1,9 @@
+{
+  "extends": "@toktokhan-dev/ts-config/base.json",
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "removeComments": false,
+    "module": "ESNext",
+    "moduleResolution": "Bundler"
+  }
+}
