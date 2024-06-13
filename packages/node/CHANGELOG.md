@@ -1,5 +1,14 @@
 # @toktokhan-dev/node
 
+## 0.0.1
+
+### Patch Changes
+
+- 6c928f0: node환경에서 사용할 수 있는 유틸리티 라이브러리입니다.
+  [Docs: @toktokhan-dev/node](https://toktokhan-dev-docs.vercel.app/docs/node)
+- Updated dependencies [6f42208]
+  - @toktokhan-dev/universal@0.0.1
+
 ## 2.0.0
 
 ### Major Changes

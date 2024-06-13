@@ -1,5 +1,12 @@
 # @toktokhan-dev/doc-plugin
 
+## 0.0.1
+
+### Patch Changes
+
+- Updated dependencies [de4164c]
+  - @toktokhan-dev/ts-config@0.0.1
+
 ## 0.3.1
 
 ### Patch Changes
