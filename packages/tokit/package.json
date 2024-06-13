@@ -1,0 +1,52 @@
+{
+  "name": "@toktokhan-dev/tokit",
+  "bin": {
+    "tokit": "bin/run.js"
+  },
+  "version": "0.0.0",
+  "description": "",
+  "type": "module",
+  "main": "dist/index.js",
+  "files": [
+    "bin",
+    "!dist/*.map"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "rollup -c && pnpm insert-bin",
+    "build:watch": "rollup -c --watch",
+    "insert-bin": "node src/scripts/insert-bin-flag.js",
+    "dev": "pnpm build && node bin/run.js",
+    "play": "pnpm build:watch & node --watch play/playground.js",
+    "test": "jest --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@toktokhan-dev/ts-config": "workspace:*",
+    "@types/clear": "^0.1.4",
+    "@types/figlet": "^1.5.8",
+    "@types/lodash": "^4.17.0"
+  },
+  "dependencies": {
+    "@octokit/rest": "^20.0.2",
+    "@toktokhan-dev/github": "workspace:*",
+    "@toktokhan-dev/node": "workspace:*",
+    "@toktokhan-dev/universal": "workspace:*",
+    "@types/yaml": "^1.9.7",
+    "chalk": "^5.3.0",
+    "clear": "^0.1.0",
+    "commander": "^12.0.0",
+    "enquirer": "^2.4.1",
+    "figlet": "^1.7.0",
+    "lodash": "^4.17.21",
+    "simple-git": "^3.25.0"
+  }
+}
