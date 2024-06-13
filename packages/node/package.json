@@ -1,0 +1,51 @@
+{
+  "name": "@toktokhan-dev/node",
+  "version": "0.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "type": "module",
+  "files": [
+    "dist",
+    "!dist/*.map"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "dev": "pnpm build && node dist/index.js",
+    "build": "rollup -c",
+    "build:watch": "rollup -c --watch",
+    "play": "pnpm build:watch & node --watch play/playground.js",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch --coverage",
+    "api-extractor": "api-extractor run --local --verbose"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@toktokhan-dev/ts-config": "workspace:*",
+    "@types/execa": "^2.0.0",
+    "@types/lodash": "^4.17.0",
+    "@types/yaml": "^1.9.7",
+    "memfs": "^4.9.2",
+    "rollup-jest": "^3.1.0"
+  },
+  "dependencies": {
+    "@toktokhan-dev/universal": "workspace:*",
+    "boxen": "^7.1.1",
+    "chalk": "^5.3.0",
+    "eta": "^3.4.0",
+    "execa": "^8.0.1",
+    "globby": "^13.2.2",
+    "lodash": "^4.17.21",
+    "minimatch": "^9.0.3",
+    "ora": "^8.0.1",
+    "prettier": "^3.2.5",
+    "yaml": "^2.4.1"
+  }
+}
