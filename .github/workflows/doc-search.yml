@@ -1,0 +1,20 @@
+# on: [never]
+name: Algolia Crawl After Deploy
+on: deployment_status
+
+jobs:
+  algolia_recrawl:
+    name: Algolia Recrawl
+    runs-on: ubuntu-latest
+    if: github.event.deployment_status.state == 'success'
+    steps:
+      - name: Algolia crawler creation and crawl
+        uses: algolia/algoliasearch-crawler-github-actions@v1.0.10
+        id: algolia_crawler
+        with:
+          crawler-user-id: ${{ secrets.CRAWLER_USER_ID }}
+          crawler-api-key: ${{ secrets.CRAWLER_API_KEY }}
+          algolia-app-id: ${{ secrets.ALGOLIA_APP_ID }}
+          algolia-api-key: ${{ secrets.ALGOLIA_API_KEY }}
+          site-url: 'https://toktokhan-dev-docs.vercel.app'
+          crawler-name: 'toktokhan-dev-vercel'

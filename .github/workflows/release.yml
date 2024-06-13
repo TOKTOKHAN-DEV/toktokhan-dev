@@ -1,0 +1,66 @@
+name: Release
+
+on:
+  push:
+    # 안정화되면 추가
+    # paths:
+    #   - '.changeset/**'
+    #   - 'packages/**'
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  release:
+    name: Release
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    env:
+      TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+      TURBO_TEAM: ${{ vars.TURBO_TEAM }}
+    steps:
+      - name: checkout code repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Cache turbo build setup
+        uses: actions/cache@v4
+        with:
+          path: .turbo
+          key: ${{ runner.os }}-turbo-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-turbo-
+
+      - name: Basic Install
+        uses: ./.github/composite-actions/install
+
+      - name: Build
+        run: pnpm build
+        env:
+          TOKTOKEN_GITHUB_TOKEN: ${{ secrets.TOKTOKEN_GITHUB_TOKEN }}
+          TOKTOKEN_INTERNAL_PW: ${{ secrets.TOKTOKEN_INTERNAL_PW }}
+
+      # - name: Generate to Documentation
+      #   uses: ./.github/composite-actions/gen-docs
+
+      - name: Setup npmrc
+        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
+
+      - name: Create PR and Publish Versions
+        uses: changesets/action@v1
+        with:
+          publish: pnpm release
+          commit: 'ci(changesets): version packages'
+          setupGitUser: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      # - name: Slack notification
+      #   if: steps.changesets.outputs.published == 'true'
+      #   run: pnpm slack or
+      #   run: my-slack-bot send-notification --message "A new version of ${GITHUB_REPOSITORY} was published!"
+      #   env:
+      #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}

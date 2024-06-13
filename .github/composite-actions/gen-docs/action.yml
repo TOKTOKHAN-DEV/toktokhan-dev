@@ -1,0 +1,32 @@
+name: 'Generate Documentation'
+description: 'Generate Documentation Using API Extractor'
+
+runs:
+  using: composite
+  steps:
+    - name: Run API tasks
+      shell: bash
+      run: |
+        pnpm gen:doc
+
+    - name: Build test
+      shell: bash
+      run: |
+        pnpm --filter @toktokhan-dev/docs build:web || exit 0
+
+    - name: Configure Git
+      shell: bash
+      run: |
+        git config --global user.email "algoroot524@gmail.com"
+        git config --global user.name "AlgoRoots"
+
+    - name: Commit changes
+      shell: bash
+      run: |
+        git add .
+        if ! git diff --staged --quiet; then
+          git commit -m "Update documentation"
+          git push
+        else
+          echo "No changes to commit"
+        fi

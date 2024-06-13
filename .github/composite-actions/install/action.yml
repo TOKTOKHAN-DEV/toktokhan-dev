@@ -1,0 +1,40 @@
+name: 'Basic Install'
+description: 'Sets up Node.js and runs install'
+
+runs:
+  using: composite
+  steps:
+    - name: Install pnpm
+      uses: pnpm/action-setup@v3
+      with:
+        version: 8
+        run_install: false
+
+    - name: Setup Node.js 18.x
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18.x
+        cache: 'pnpm'
+
+    - name: Get pnpm store directory
+      shell: bash
+      run: |
+        echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+    # - name: Setup pnpm cache // cache 'pnpm 으로 대체'
+    #   uses: actions/cache@v3
+    #   with:
+    #     path: ${{ env.STORE_PATH }}
+    #     key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+    #     restore-keys: |
+    #       ${{ runner.os }}-pnpm-store-
+
+    - name: Setup Git User
+      shell: bash
+      run: |
+        git config --global user.email "algoroot524@gmail.com"
+        git config --global user.name "AlgoRoots"
+
+    - name: install dependencies
+      shell: bash
+      run: pnpm install

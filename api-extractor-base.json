@@ -1,0 +1,27 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/api-extractor/v7/api-extractor.schema.json",
+  "mainEntryPointFilePath": "<projectFolder>/dist/index.doc.d.ts",
+  "compiler": {},
+  "apiReport": { "enabled": false },
+  "dtsRollup": {
+    "enabled": false
+  },
+  "tsdocMetadata": { "enabled": false },
+  "docModel": {
+    "enabled": true,
+    "apiJsonFilePath": "./apps/docs/api-extractor/<unscopedPackageName>.api.json"
+  },
+  "messages": {
+    /** default value 참고 https://api-extractor.com/pages/configs/api-extractor_json/ */
+    "extractorMessageReporting": {
+      "default": {
+        "logLevel": "warning",
+        "addToApiReportFile": true
+      },
+      "ae-missing-release-tag": {
+        //  API 항목의 릴리스 상태가 명시되지 않더라도 로그 출력을 하지 않습니다.
+        "logLevel": "none"
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+packages:
+  # Apps
+  - 'apps/*'
+  - 'apps/docs/plugins/doc-plugin'
+
+  # Configs
+  - 'configs/*'
+
+  # Packages
+  - 'packages/*'
+  - 'packages/react/*'
+  - 'packages/cli-plugins/*'
+
+  # Templates
+  - 'templates/*'
+  - 'templates/rn-native-base/template'
