@@ -6,7 +6,7 @@
     "release": "changeset publish",
     "ci:publish": "pnpm publish -r",
     "build": "turbo run build --cache-dir=.turbo",
-    "build:packages": "turbo run build --filter='./packages/*' --filter='./packages/cli-plugins/*' --filter='./packages/react/*' --cache-dir=.turbo",
+    "build:packages": "turbo run build --filter='./configs/*' --filter='./packages/*' --filter='./packages/cli-plugins/*' --filter='./packages/react/*' --cache-dir=.turbo",
     "dev": "turbo dev",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",

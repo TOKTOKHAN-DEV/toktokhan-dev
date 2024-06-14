@@ -4,19 +4,7 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const InlineChunkHtmlPlugin = require('react-dev-utils/InlineChunkHtmlPlugin')
 const path = require('path')
-require('dotenv').config({
-  override: true,
-})
-
-console.log(
-  'process.env.TOKTOKEN_GITHUB_TOKEN,',
-  process.env.TOKTOKEN_GITHUB_TOKEN,
-)
-
-console.log(
-  'process.env.TOKTOKEN_INTERNAL_PW,',
-  process.env.TOKTOKEN_INTERNAL_PW,
-)
+require('dotenv').config()
 
 module.exports = (env, argv) => ({
   mode: argv.mode === 'production' ? 'production' : 'development',
