@@ -1,5 +1,12 @@
 # @toktokhan-dev/cli-plugin-gen-sitemap-next-page
 
+## 0.0.2
+
+### Patch Changes
+
+- Updated dependencies [515de8f]
+  - @toktokhan-dev/cli@0.0.2
+
 ## 0.0.1
 
 ### Patch Changes
