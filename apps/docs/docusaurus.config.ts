@@ -3,84 +3,87 @@
 // (when paired with `@ts-check`).
 // There are various equivalent ways to declare your Docusaurus config.
 // See: https://docusaurus.io/docs/api/docusaurus-config
-import { themes as prismThemes } from "prism-react-renderer";
+import { themes as prismThemes } from 'prism-react-renderer'
 
-import tailwindPlugin from "./plugins/tailwind-plugin.cjs";
+import tailwindPlugin from './plugins/tailwind-plugin.cjs'
 
-const BASE_THEME = prismThemes.dracula;
+const BASE_THEME = prismThemes.dracula
 
 const THEME = {
   ...BASE_THEME,
   plain: {
     ...BASE_THEME.plain,
-    backgroundColor: "#000000",
+    backgroundColor: '#000000',
   },
-};
+}
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   plugins: [tailwindPlugin],
-  title: "Toktokhan Front-end Documentation",
-  tagline: "똑똑한 개발자 프론트엔드 문서입니다.",
-  favicon: "img/favicon.ico",
+  future: {
+    experimental_router: 'browser',
+  },
+  title: 'Toktokhan Front-end Documentation',
+  tagline: '똑똑한 개발자 프론트엔드 문서입니다.',
+  favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: "https://toktokhan-dev-docs.vercel.app",
+  url: 'https://toktokhan-dev-docs.vercel.app',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: "/",
+  baseUrl: '/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: "toktokhan-dev", // Usually your GitHub org/user name.
-  projectName: "TokDocs", // Usually your repo name.
+  organizationName: 'toktokhan-dev', // Usually your GitHub org/user name.
+  projectName: 'TokDocs', // Usually your repo name.
 
-  onBrokenLinks: "throw",
-  onBrokenMarkdownLinks: "warn",
+  onBrokenLinks: 'throw',
+  onBrokenMarkdownLinks: 'warn',
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: "en",
-    locales: ["en"],
+    defaultLocale: 'en',
+    locales: ['en'],
   },
 
   presets: [
     [
-      "classic",
+      'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       {
         docs: {
-          sidebarPath: "./sidebars.js",
+          sidebarPath: './sidebars.js',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           sidebarItemsGenerator: async ({
             defaultSidebarItemsGenerator,
             ...args
           }) => {
-            const sidebarItems = await defaultSidebarItemsGenerator(args);
-            return reverseSidebarItems(sidebarItems);
+            const sidebarItems = await defaultSidebarItemsGenerator(args)
+            return reverseSidebarItems(sidebarItems)
           },
           editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
         theme: {
-          customCss: "./src/css/custom.css",
+          customCss: './src/css/custom.css',
         },
       },
     ],
     [
-      "@docusaurus/plugin-client-redirects",
+      '@docusaurus/plugin-client-redirects',
       {
-        fromExtensions: ["md"],
+        fromExtensions: ['md'],
       },
     ],
   ],
@@ -88,59 +91,59 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     {
-      image: "img/ui/logo.webp",
+      image: 'img/ui/logo.webp',
       algolia: {
-        appId: "DJ63VWJG54",
-        apiKey: "73b5ccff60847283cd939c892388e768",
-        indexName: "toktokhan-dev-vercel",
+        appId: 'DJ63VWJG54',
+        apiKey: '73b5ccff60847283cd939c892388e768',
+        indexName: 'toktokhan-dev-vercel',
         contextualSearch: true,
       },
       colorMode: {
-        defaultMode: "light",
+        defaultMode: 'light',
         disableSwitch: false,
         respectPrefersColorScheme: true,
       },
       navbar: {
         // title: 'TokDocs',
         logo: {
-          href: "/",
-          alt: "TokDocs Logo",
-          src: "img/ui/logo.webp",
-          srcDark: "img/ui/logo.webp",
+          href: '/',
+          alt: 'TokDocs Logo',
+          src: 'img/ui/logo.webp',
+          srcDark: 'img/ui/logo.webp',
           width: 108,
         },
         items: [
           {
             // type: 'doc',
             // docId: 'intro',
-            type: "docSidebar",
-            sidebarId: "docsSidebar",
-            position: "left",
-            label: "Docs",
-            className: "nav-item",
+            type: 'docSidebar',
+            sidebarId: 'docsSidebar',
+            position: 'left',
+            label: 'Docs',
+            className: 'nav-item',
           },
           // { to: '/blog', label: 'Blog', position: 'left' },
           {
             // type: 'doc',
             // docId: 'api/index',
-            type: "docSidebar",
-            sidebarId: "apiSidebar",
-            label: "API",
-            position: "left",
-            className: "nav-item",
+            type: 'docSidebar',
+            sidebarId: 'apiSidebar',
+            label: 'API',
+            position: 'left',
+            className: 'nav-item',
           },
           {
-            type: "docSidebar",
-            sidebarId: "onboardingSidebar",
-            label: "Onboarding",
-            position: "left",
-            className: "nav-item",
+            type: 'docSidebar',
+            sidebarId: 'onboardingSidebar',
+            label: 'Onboarding',
+            position: 'left',
+            className: 'nav-item',
           },
           {
-            href: "https://github.com/TOKTOKHAN-DEV/toktokhan-dev",
-            position: "right",
-            className: "header-github-link",
-            "aria-label": "GitHub repository",
+            href: 'https://github.com/TOKTOKHAN-DEV/toktokhan-dev',
+            position: 'right',
+            className: 'header-github-link',
+            'aria-label': 'GitHub repository',
           },
           // {
           //   type: 'docsVersionDropdown',
@@ -205,28 +208,28 @@ const config = {
         darkTheme: prismThemes.dracula,
       },
     },
-};
+}
 
 const API_ORDERS = [
-  "Overview",
-  "Universal",
-  "React",
-  "Cli",
-  "Node",
-  "cli-plugins",
-  "Services",
-];
+  'Overview',
+  'Universal',
+  'React',
+  'Cli',
+  'Node',
+  'cli-plugins',
+  'Services',
+]
 
 const reverseSidebarItems = (items) => {
   const sort = (orders) => {
     return items.sort(
       (a, b) => orders.indexOf(a.label) - orders.indexOf(b.label),
-    );
-  };
-  const isApi = items.some((item) => item.label === "React");
+    )
+  }
+  const isApi = items.some((item) => item.label === 'React')
 
-  if (isApi) return sort(API_ORDERS);
-  return items;
-};
+  if (isApi) return sort(API_ORDERS)
+  return items
+}
 
-export default config;
+export default config

@@ -161,25 +161,25 @@
     }
   },
   "kind": "Package",
-  "canonicalReference": "@toktokhan-dev/cli-plugin-gen-icon-chakra!",
-  "docComment": "/**\n * 지정된 경로의 `svg`파일 기반으로 **Chakra UI Icon Component** 를 생성합니다.\n *\n * @packageDocumentation\n */\n",
-  "name": "@toktokhan-dev/cli-plugin-gen-icon-chakra",
+  "canonicalReference": "@toktokhan-dev/cli-plugin-commit!",
+  "docComment": "",
+  "name": "@toktokhan-dev/cli-plugin-commit",
   "preserveMemberOrder": false,
   "members": [
     {
       "kind": "EntryPoint",
-      "canonicalReference": "@toktokhan-dev/cli-plugin-gen-icon-chakra!",
+      "canonicalReference": "@toktokhan-dev/cli-plugin-commit!",
       "name": "",
       "preserveMemberOrder": false,
       "members": [
         {
           "kind": "Variable",
-          "canonicalReference": "@toktokhan-dev/cli-plugin-gen-icon-chakra!genIcon:var",
-          "docComment": "/**\n  */\n",
+          "canonicalReference": "@toktokhan-dev/cli-plugin-commit!commit:var",
+          "docComment": "",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "genIcon: "
+              "text": "commit: "
             },
             {
               "kind": "Reference",
@@ -192,18 +192,18 @@
             },
             {
               "kind": "Reference",
-              "text": "GenIconConfig",
-              "canonicalReference": "@toktokhan-dev/cli-plugin-gen-icon-chakra!GenIconConfig:interface"
+              "text": "CommitConfig",
+              "canonicalReference": "@toktokhan-dev/cli-plugin-commit!CommitConfig:type"
             },
             {
               "kind": "Content",
-              "text": ", \"gen:icon\">"
+              "text": ", \"commit\">"
             }
           ],
           "fileUrlPath": "dist/index.doc.d.ts",
           "isReadonly": true,
           "releaseTag": "Public",
-          "name": "genIcon",
+          "name": "commit",
           "variableTypeTokenRange": {
             "startIndex": 1,
             "endIndex": 5
@@ -211,130 +211,57 @@
           "parameters": []
         },
         {
-          "kind": "Interface",
-          "canonicalReference": "@toktokhan-dev/cli-plugin-gen-icon-chakra!GenIconConfig:interface",
-          "docComment": "/**\n  */\n",
+          "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/cli-plugin-commit!CommitConfig:type",
+          "docComment": "/**\n * 커밋 명령어의 설정입니다.\n *\n  */\n",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "interface GenIconConfig "
+              "text": "type CommitConfig = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n  workspaces?: string[];\n  types?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "CommitType",
+              "canonicalReference": "@toktokhan-dev/cli-plugin-commit!~CommitType:type"
+            },
+            {
+              "kind": "Content",
+              "text": "[] | ((initial: "
+            },
+            {
+              "kind": "Reference",
+              "text": "CommitType",
+              "canonicalReference": "@toktokhan-dev/cli-plugin-commit!~CommitType:type"
+            },
+            {
+              "kind": "Content",
+              "text": "[]) => "
+            },
+            {
+              "kind": "Reference",
+              "text": "CommitType",
+              "canonicalReference": "@toktokhan-dev/cli-plugin-commit!~CommitType:type"
+            },
+            {
+              "kind": "Content",
+              "text": "[]);\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
             }
           ],
           "fileUrlPath": "dist/index.doc.d.ts",
           "releaseTag": "Public",
-          "name": "GenIconConfig",
-          "preserveMemberOrder": false,
-          "members": [
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "@toktokhan-dev/cli-plugin-gen-icon-chakra!GenIconConfig#basePath:member",
-              "docComment": "/**\n * 생성될 객체의 value 에 할당될 경로의 base-path 입니다\n */\n",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "basePath?: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "string"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "isReadonly": false,
-              "isOptional": true,
-              "releaseTag": "Public",
-              "name": "basePath",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            },
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "@toktokhan-dev/cli-plugin-gen-icon-chakra!GenIconConfig#ignored:member",
-              "docComment": "/**\n * 제외 될 아이콘 파일을 판별하는 패턴으로써, 파일이름이 패턴과 일치할 경우에 객체에서 제외 됩니다.\n */\n",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "ignored?: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "string[]"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "isReadonly": false,
-              "isOptional": true,
-              "releaseTag": "Public",
-              "name": "ignored",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            },
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "@toktokhan-dev/cli-plugin-gen-icon-chakra!GenIconConfig#input:member",
-              "docComment": "/**\n * 조회할 svg 파일들이 포함되어있는 폴더 입니다.\n */\n",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "input: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "string"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "isReadonly": false,
-              "isOptional": false,
-              "releaseTag": "Public",
-              "name": "input",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            },
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "@toktokhan-dev/cli-plugin-gen-icon-chakra!GenIconConfig#output:member",
-              "docComment": "/**\n * 생성될 파일이 위치할 경로입니다.\n */\n",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "output: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "string"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "isReadonly": false,
-              "isOptional": false,
-              "releaseTag": "Public",
-              "name": "output",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            }
-          ],
-          "extendsTokenRanges": [],
+          "name": "CommitConfig",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 8
+          },
           "parameters": []
         }
       ]

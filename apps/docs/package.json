@@ -18,10 +18,10 @@
     "gen:colors": "tsx scripts/ui/gen-color-theme.ts"
   },
   "dependencies": {
-    "@docusaurus/core": "3.1.1",
-    "@docusaurus/plugin-client-redirects": "^3.1.1",
-    "@docusaurus/preset-classic": "3.1.1",
-    "@docusaurus/theme-classic": "^3.2.0",
+    "@docusaurus/core": "^3.4.0",
+    "@docusaurus/plugin-client-redirects": "^3.4.0",
+    "@docusaurus/preset-classic": "^3.4.0",
+    "@docusaurus/theme-classic": "^3.4.0",
     "@gsap/react": "^2.1.1",
     "@mdx-js/react": "^3.0.0",
     "@toktokhan-dev/doc-plugin": "workspace:*",
@@ -33,9 +33,9 @@
     "tailwind-merge": "^2.3.0"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "3.1.1",
-    "@docusaurus/tsconfig": "^3.2.0",
-    "@docusaurus/types": "3.1.1",
+    "@docusaurus/module-type-aliases": "^3.4.0",
+    "@docusaurus/tsconfig": "^3.4.0",
+    "@docusaurus/types": "^3.4.0",
     "@tailwindcss/typography": "^0.5.10",
     "@toktokhan-dev/node": "workspace:*",
     "@toktokhan-dev/universal": "workspace:*",

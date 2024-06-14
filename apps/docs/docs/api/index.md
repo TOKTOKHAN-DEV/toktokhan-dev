@@ -35,6 +35,15 @@ Description
 </td></tr>
 <tr><td>
 
+[@toktokhan-dev/cli-plugin-commit](./cli-plugin-commit)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
 [@toktokhan-dev/cli-plugin-gen-api-react-query](./cli-plugin-gen-api-react-query)
 
 
