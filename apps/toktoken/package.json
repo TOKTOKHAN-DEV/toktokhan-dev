@@ -25,6 +25,7 @@
     "@types/react-dom": "^18.0.11",
     "autoprefixer": "^10.4.19",
     "css-loader": "^7.0.0",
+    "dotenv": "^16.0.0",
     "html-webpack-plugin": "^5.6.0",
     "postcss": "^8.4.38",
     "postcss-loader": "^8.1.1",
@@ -41,8 +42,8 @@
   "dependencies": {
     "@hookform/resolvers": "^2.8.8",
     "@octokit/rest": "^20.0.2",
-    "@toktokhan-dev/universal": "workspace:*",
     "@toktokhan-dev/github": "workspace:*",
+    "@toktokhan-dev/universal": "workspace:*",
     "clsx": "^2.0.0",
     "lodash": "^4.17.21",
     "prism-themes": "^1.9.0",
