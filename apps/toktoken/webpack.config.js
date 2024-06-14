@@ -4,7 +4,9 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const InlineChunkHtmlPlugin = require('react-dev-utils/InlineChunkHtmlPlugin')
 const path = require('path')
-require('dotenv').config()
+require('dotenv').config({
+  override: true,
+})
 
 console.log(
   'process.env.TOKTOKEN_GITHUB_TOKEN,',
