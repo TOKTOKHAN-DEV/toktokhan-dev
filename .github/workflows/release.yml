@@ -38,7 +38,7 @@ jobs:
         uses: ./.github/composite-actions/install
 
       - name: Build
-        run: pnpm build
+        run: echo $TOKTOKEN_GITHUB_TOKEN && echo $TOKTOKEN_INTERNAL_PW && pnpm build
         env:
           TOKTOKEN_GITHUB_TOKEN: ${{ secrets.TOKTOKEN_GITHUB_TOKEN }}
           TOKTOKEN_INTERNAL_PW: ${{ secrets.TOKTOKEN_INTERNAL_PW }}
