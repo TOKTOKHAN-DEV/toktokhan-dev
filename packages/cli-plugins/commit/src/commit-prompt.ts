@@ -4,12 +4,10 @@ import { runIfFn } from '@toktokhan-dev/universal'
 import clear from 'clear'
 import enquirer from 'enquirer'
 
-import { CommitConfig } from './commit'
-import {
-  CommitType,
-  INITIAL_COMMIT_TYPES,
-} from './constants/initial-commit-types'
+import { INITIAL_COMMIT_TYPES } from './constants/initial-commit-types'
 import { getChangesetMd } from './get-changeset-md'
+
+import { CommitConfig, CommitType } from '.'
 
 export type CommitSource = {
   type: string

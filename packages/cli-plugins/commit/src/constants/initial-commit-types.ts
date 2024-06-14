@@ -1,8 +1,4 @@
-export type CommitType = {
-  name: string
-  description: string
-  emoji?: string
-}
+import { CommitType } from '..'
 
 export const INITIAL_COMMIT_TYPES: CommitType[] = [
   {

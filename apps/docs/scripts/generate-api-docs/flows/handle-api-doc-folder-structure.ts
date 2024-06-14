@@ -25,6 +25,7 @@ class FileOrganizer {
     'cli-plugin-gen-route-pages': 'api/cli-plugins/gen-route-pages',
     'cli-plugin-gen-sitemap-next-page': 'api/cli-plugins/gen-sitemap-next-page',
     'cli-plugin-gen-theme-chakra': 'api/cli-plugins/gen-theme-chakra',
+    'cli-plugin-commit': 'api/cli-plugins/commit',
     github: 'api/Services/Github',
   } as const
 

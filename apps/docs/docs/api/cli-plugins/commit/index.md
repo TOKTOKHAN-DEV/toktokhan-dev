@@ -12,12 +12,39 @@ slug: /cli-plugin-commit
 
 
 
-## Type
+## Commands
 
 <table>
 <thead>
 <tr>
-<th>Type</th>
+<th>Commands</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>
+
+[commit](./cli-plugin-commit.commit)
+
+</td>
+
+
+<td>
+
+
+
+</td></tr>
+</tbody>
+</table>
+
+
+
+## Types
+
+<table>
+<thead>
+<tr>
+<th>Types</th>
 <th>Description</th>
 </tr>
 </thead>
