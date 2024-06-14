@@ -6,6 +6,16 @@ const InlineChunkHtmlPlugin = require('react-dev-utils/InlineChunkHtmlPlugin')
 const path = require('path')
 require('dotenv').config()
 
+console.log(
+  'process.env.TOKTOKEN_GITHUB_TOKEN,',
+  process.env.TOKTOKEN_GITHUB_TOKEN,
+)
+
+console.log(
+  'process.env.TOKTOKEN_INTERNAL_PW,',
+  process.env.TOKTOKEN_INTERNAL_PW,
+)
+
 module.exports = (env, argv) => ({
   mode: argv.mode === 'production' ? 'production' : 'development',
 
