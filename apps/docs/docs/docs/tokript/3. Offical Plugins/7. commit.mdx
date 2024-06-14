@@ -1,0 +1,171 @@
+import Installations from '@site/src/components/@mdx/_Installation.mdx'
+
+import TokriptConfigItem from '@site/src/components/@mdx/tokript/_TokriptConfigItem.mdx'
+import TokriptRunScript from '@site/src/components/@mdx/tokript/_TokriptRunScript.mdx'
+import TokriptConfigExample from '@site/src/components/@mdx/tokript/_TokriptConfigExample.mdx'
+
+import GithubIcon from '@site/src/components/@mdx/_GithubIcon.mdx'
+import NpmIcon from '@site/src/components/@mdx/_NpmIcon.mdx'
+
+# commit 
+
+#### <GithubIcon href="#installation"/> <NpmIcon  href="#installation"/>
+
+대화형 cli 를 통해 일관된 형식의 커밋 메시지 작성을 도와주는 플러그인 입니다.
+
+```
+✔ Pick Commit Type · feat
+✔ Pick Change Scope(skip by: Enter) · GoodsPage
+✔ What did you do? · for add cart
+✔ has BREAKING CHANGE for major update?(skip by: Enter) · 
+? has detail?(skip by: Enter) ›  ...
+
+=> feat(GoodsPage): for add cart
+```
+
+
+
+## Installation
+
+<Installations
+  isDev
+  package={'@toktokhan-dev/cli @toktokhan-dev/cli-plugin-commit'}
+/>
+
+## Run Script
+
+<TokriptRunScript cmd="commit"/>
+
+## Changeset
+
+프로젝트 내에서 changeset 을 사용하는 경우, changeset 에서 입력한 변경사항을 커밋에 그대로 입력하는 경우가 많습니다.
+commit 플러그인을 사용하면, changeset md 파일이 존재 할시, 자동으로 커밋 메시지를 기본 입력값으로 제공합니다.
+
+### Example
+
+changeset 을 실행시켜 대화형모드를 통해 변경사항을 작성합니다.
+```
+pnpm changeset
+
+🦋  Please enter a summary for this change (this will be in the changelogs).
+🦋  Summary · change util function_
+```
+
+changset 을 통해 .changset 경로에 md 파일이 생성됩니다.
+```markdown title=".changeset/stupid-turtles-protect.md"
+---
+'@toktokhan-dev/util': patch
+---
+
+change util function
+
+
+# Update Add Function
+
+add 함수의 정의가 변경되었습니다.
+```
+
+git staging 된 파일 중 changeset md 파일이 존재 할 시
+
+```bash
+A  .changeset/stupid-turtles-protect.md  #changeset md 파일
+A  "apps/docs/docs/docs/tokript/3. Offical Plugins/7. commit.mdx"
+M  apps/docs/src/components/@mdx/tokript/_TokriptConfigItem.mdx
+M  pnpm-lock.yaml
+```
+
+아래와 같이 커밋 메시지가 자동으로 입력됩니다.
+```
+✔ Pick Commit Type · chore
+✔ Pick Change Scope(skip by: Enter) · util
+✔ What did you do? · change util function
+✔ has BREAKING CHANGE for major update?(skip by: Enter) · 
+? has detail?(skip by: Enter) › # Update Add Function
+
+add 함수의 정의가 변경되었습니다.
+```
+
+
+## Configuration
+
+<TokriptConfigExample cmd="commit" exportedName="commit" packageName="@toktokhan-dev/cli-plugin-commit"/>
+
+### types
+
+<TokriptConfigItem
+    command="commit"
+    optName="types"
+    desc="커밋 타입을 지정합니다."
+    type="CommitType[] | ((initial: CommitType[]) => CommitType[])" 
+    typeLang="typescript"
+    default={`
+[
+  {
+    name: 'deploy',
+    description: '프로젝트 배포',
+    emoji: '🚀',
+  },
+  {
+    name: 'chore',
+    description: '자잘한 수정',
+    emoji: '🤖',
+  },
+  {
+    name: 'docs',
+    description: '문서 관련',
+    emoji: '📝 ',
+  },
+  {
+    name: 'feat',
+    description: '새로운 기능, 페이지 추가',
+    emoji: '🎸',
+  },
+  {
+    name: 'fix',
+    description: '버그 수정',
+    emoji: '🐛',
+  },
+  {
+    name: 'perf',
+    description: '성능 개선',
+    emoji: '👽',
+  },
+  {
+    name: 'refactor',
+    description: '코드 리팩토링',
+    emoji: '💡',
+  },
+  {
+    name: 'test',
+    description: '테스트 관련',
+    emoji: '💍',
+  },
+  {
+    name: 'style',
+    description: '스타일링 관련',
+    emoji: '🎨',
+  },
+]
+    `} 
+    exampleValue="[{name: 'deploy', description: '프로젝트 배포', emoji: '🚀'}]"
+ />
+
+#### by Function
+ ```ts
+{
+  'commit': {
+    types: (prev) => prev.concat([{name: 'deploy', description: '프로젝트 배포', emoji: '🚀'}]),
+    ...
+  },
+}
+```
+
+#### CommitType
+ ```ts
+type CommitType = {
+  name: string
+  description: string
+  emoji?: string
+}
+ ```
+
