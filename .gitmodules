@@ -1,3 +1,6 @@
 [submodule "templates/next-page-init"]
 	path = templates/next-page-init
 	url = https://github.com/TOKTOKHAN-DEV/next-page-init
+[submodule "templates/next-app-init"]
+	path = templates/next-app-init
+	url = https://github.com/TOKTOKHAN-DEV/next-app-init.git
