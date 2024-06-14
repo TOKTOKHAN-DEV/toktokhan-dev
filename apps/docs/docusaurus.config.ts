@@ -93,8 +93,8 @@ const config = {
     {
       image: 'img/ui/logo.webp',
       algolia: {
-        appId: 'DJ63VWJG54',
-        apiKey: '73b5ccff60847283cd939c892388e768',
+        appId: 'FX1MB92IM7',
+        apiKey: '9868a93249fc68bf66c1fa15e5b57672',
         indexName: 'toktokhan-dev-vercel',
         contextualSearch: true,
       },
