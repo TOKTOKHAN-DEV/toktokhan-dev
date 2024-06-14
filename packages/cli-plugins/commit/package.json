@@ -1,0 +1,41 @@
+{
+  "name": "@toktokhan-dev/cli-plugin-commit",
+  "version": "0.0.0",
+  "description": "",
+  "type": "module",
+  "main": "dist/index.js",
+  "files": [
+    "dist",
+    "!dist/*.map"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "build:watch": "rollup -c --watch",
+    "play": "pnpm build:watch & node --watch play/playground.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "api-extractor": "api-extractor run --local --verbose"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@toktokhan-dev/ts-config": "workspace:*",
+    "@types/clear": "^0.1.4",
+    "@types/lodash": "^4.17.0"
+  },
+  "dependencies": {
+    "@toktokhan-dev/cli": "workspace:*",
+    "@toktokhan-dev/node": "workspace:*",
+    "@toktokhan-dev/universal": "workspace:*",
+    "clear": "^0.1.0",
+    "enquirer": "^2.4.1",
+    "lodash": "^4.17.21"
+  }
+}
