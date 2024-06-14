@@ -18,7 +18,8 @@
     "start:next:page": "pnpm --filter @toktokhan-dev/template-next-page-router dev",
     "start:next:app": "pnpm --filter @toktokhan-dev/template-next-app-router dev",
     "start:tokript": "pnpm --filter @toktokhan-dev/cli dev",
-    "start:toktoken": "pnpm --filter Toktoken build:watch"
+    "start:toktoken": "pnpm --filter Toktoken build:watch",
+    "tokript": "tokript2"
   },
   "devDependencies": {
     "@babel/core": "^7.24.4",
@@ -40,6 +41,8 @@
     "@toktokhan-dev/prettier-config": "workspace:*",
     "@toktokhan-dev/rollup-config": "workspace:*",
     "@toktokhan-dev/ts-config": "workspace:*",
+    "@toktokhan-dev/cli": "workspace:*",
+    "@toktokhan-dev/cli-plugin-commit": "workspace:*",
     "@types/babel__core": "^7.20.5",
     "@types/jest": "^28.1.8",
     "@types/node": "^20.11.30",
