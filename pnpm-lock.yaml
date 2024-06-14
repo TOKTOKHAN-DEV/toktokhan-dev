@@ -974,8 +974,11 @@ importers:
         specifier: ^14.0.0
         version: 14.3.1(react-dom@18.3.1)(react@18.3.1)
       '@toktokhan-dev/cli':
+        specifier: ^0.0.2
+        version: link:../../packages/cli
+      '@toktokhan-dev/cli-plugin-commit':
         specifier: ^0.0.1
-        version: 0.0.1(esbuild@0.21.5)
+        version: link:../../packages/cli-plugins/commit
       '@toktokhan-dev/cli-plugin-gen-api-react-query':
         specifier: ^0.0.1
         version: 0.0.1(esbuild@0.21.5)(prettier@2.8.8)(typescript@5.4.5)
@@ -1152,8 +1155,11 @@ importers:
         specifier: ^14.0.0
         version: 14.3.1(react-dom@18.3.1)(react@18.3.1)
       '@toktokhan-dev/cli':
+        specifier: ^0.0.2
+        version: link:../../packages/cli
+      '@toktokhan-dev/cli-plugin-commit':
         specifier: ^0.0.1
-        version: 0.0.1(esbuild@0.21.5)
+        version: link:../../packages/cli-plugins/commit
       '@toktokhan-dev/cli-plugin-gen-api-react-query':
         specifier: ^0.0.1
         version: 0.0.1(esbuild@0.21.5)(prettier@3.3.2)(typescript@4.9.5)

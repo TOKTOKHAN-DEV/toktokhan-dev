@@ -11,6 +11,6 @@ packages:
   - 'packages/react/*'
   - 'packages/cli-plugins/*'
 
-  # Templates
+  # # Templates
   - 'templates/*'
   - 'templates/rn-native-base/template'
