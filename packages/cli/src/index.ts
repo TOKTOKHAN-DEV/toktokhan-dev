@@ -1,4 +1,4 @@
-import { program } from 'commander'
+import { Command } from 'commander'
 
 import { json } from '@toktokhan-dev/node'
 
@@ -7,11 +7,12 @@ import clear from 'clear'
 import enquirer from 'enquirer'
 import figlet from 'figlet'
 
-import { commit } from './commands/commit'
 import { ConfigType, MyCommand } from './types/my-command'
 import { RootConfig } from './types/root-config'
 import { defineCommand, registry } from './utils'
 import { loadConfigFile } from './utils/load'
+
+const program = new Command()
 
 const appName = 'tokript'
 const version = json<{ version: string }>('package.json').version
@@ -26,9 +27,9 @@ const cli = async () => {
   clear()
   await welcome()
 
+  program.name(appName).version(version)
+
   program
-    .name(appName)
-    .version(version)
     .description("CLI to help tok's working")
     .option('-c, --config', 'config file path')
     .helpCommand(true)
@@ -49,8 +50,7 @@ const cli = async () => {
     })
 
   const config = await loadConfigFile(process.cwd())
-  const internalCommands = [commit]
-  const commands = internalCommands.concat(config?.data.plugins || [])
+  const commands = config?.data.plugins || []
 
   commands.forEach(registry(program, config?.data))
 

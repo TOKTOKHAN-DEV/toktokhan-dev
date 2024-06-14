@@ -1,10 +1,9 @@
-import { commit } from './src/commands/commit'
+import { test } from './src/commands/test'
 import { RootConfig } from './src/types/root-config'
 
-const config: RootConfig<{ plugins: [typeof commit] }> = {
-  plugins: [],
+const config: RootConfig<{ plugins: [typeof test] }> = {
+  plugins: [test],
   basePath: process.cwd(),
-  commit: {},
 }
 
 export default config

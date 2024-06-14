@@ -29,6 +29,6 @@ export const loadConfigFile = async (cwd: string, configFile?: string) => {
 
   return {
     path: configPath,
-    data: config.mod.tsup || config.mod.default || config.mod,
+    data: config.mod.tok || config.mod.default || config.mod,
   }
 }
