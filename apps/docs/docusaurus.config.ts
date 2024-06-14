@@ -95,7 +95,7 @@ const config = {
       algolia: {
         appId: 'FX1MB92IM7',
         apiKey: '9868a93249fc68bf66c1fa15e5b57672',
-        indexName: 'toktokhan-dev-vercel',
+        indexName: 'toktokhan-dev-docs',
         contextualSearch: true,
       },
       colorMode: {

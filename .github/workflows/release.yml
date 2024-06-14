@@ -40,8 +40,8 @@ jobs:
       - name: Build
         run: pnpm build:packages
 
-      # - name: Generate to Documentation
-      #   uses: ./.github/composite-actions/gen-docs
+      - name: Generate to Documentation
+        uses: ./.github/composite-actions/gen-docs
 
       - name: Setup npmrc
         run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
