@@ -3,13 +3,13 @@ import path from 'path'
 import { defineCommand } from '@toktokhan-dev/cli'
 import { generateCodeFile, pathOn } from '@toktokhan-dev/node'
 import {
+  awaitted,
   createObjBySelector,
   log,
   not,
   pass,
   prefix,
   removeStr,
-  then,
 } from '@toktokhan-dev/universal'
 
 import { globby } from 'globby'
@@ -204,7 +204,7 @@ export const genSitemap = defineCommand<'gen:sitemap', GenSitemapConfig>({
       pass(includes?.map(pathOn(input))),
       union(ignored?.map(flow(pathOn(input), prefix('!')))),
       globby,
-      then(
+      awaitted(
         map(
           flow(
             (t) => path.relative(input, t),
@@ -214,8 +214,8 @@ export const genSitemap = defineCommand<'gen:sitemap', GenSitemapConfig>({
           ),
         ),
       ),
-      then((d) => Promise.all(d)),
-      then(
+      awaitted((d) => Promise.all(d)),
+      awaitted(
         flow(
           log("sitemap's routes"),
           flatMap,

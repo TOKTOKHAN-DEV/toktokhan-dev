@@ -1,5 +1,5 @@
 import { $ } from '@toktokhan-dev/node'
-import { then } from '@toktokhan-dev/universal'
+import { awaitted } from '@toktokhan-dev/universal'
 
 import { flow } from 'lodash'
 import simpleGit from 'simple-git'
@@ -15,19 +15,19 @@ export const proceedGit = async ({ cloneUrl, baseDir }: RemoteGitParams) => {
   try {
     await flow(
       async () => $('rm', ['-rf', '.git']),
-      // then(infoLog('Remove .git')),
-      then(() => git.init()),
-      // then(infoLog('Initialized git repository')),
-      then(() => git.add('.')),
-      // then(infoLog('Added all files')),
-      then(() => git.commit('Upload TOKIT`s template')),
-      // then(infoLog('Committed changes')),
-      then(() => git.branch(['-M', 'main'])),
-      // then(infoLog('Renamed branch to main')),
-      then(() => git.addRemote('origin', cloneUrl)),
-      // then(infoLog('Added remote origin')),
-      then(() => git.push(['-u', 'origin', 'main'])),
-      // then(infoLog('Pushed to origin/main')),
+      // awaitted(infoLog('Remove .git')),
+      awaitted(() => git.init()),
+      // awaitted(infoLog('Initialized git repository')),
+      awaitted(() => git.add('.')),
+      // awaitted(infoLog('Added all files')),
+      awaitted(() => git.commit('Upload TOKIT`s template')),
+      // awaitted(infoLog('Committed changes')),
+      awaitted(() => git.branch(['-M', 'main'])),
+      // awaitted(infoLog('Renamed branch to main')),
+      awaitted(() => git.addRemote('origin', cloneUrl)),
+      // awaitted(infoLog('Added remote origin')),
+      awaitted(() => git.push(['-u', 'origin', 'main'])),
+      // awaitted(infoLog('Pushed to origin/main')),
     )()
   } catch (error) {
     console.error('Error git process:', error)

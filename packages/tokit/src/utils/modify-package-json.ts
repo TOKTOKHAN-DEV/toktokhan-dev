@@ -1,7 +1,13 @@
 import { writeFileSync } from 'fs'
 
 import { json, pathOf, prettierString } from '@toktokhan-dev/node'
-import { DataOrFn, Obj, pass, runIfFn, then } from '@toktokhan-dev/universal'
+import {
+  DataOrFn,
+  Obj,
+  awaitted,
+  pass,
+  runIfFn,
+} from '@toktokhan-dev/universal'
 
 import { flow, merge } from 'lodash'
 
@@ -18,5 +24,5 @@ export const modifyPackageJson = (data: DataOrFn<Obj>, path: string) =>
     updator(data),
     JSON.stringify,
     (src) => prettierString(src, { parser: 'json' }),
-    then((src) => writeFileSync(pathOf('package.json', path), src)),
+    awaitted((src) => writeFileSync(pathOf('package.json', path), src)),
   )()
