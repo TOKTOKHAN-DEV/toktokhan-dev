@@ -1,6 +1,6 @@
 export * from './run-if-fn'
 export * from './effect'
-export * from './then'
+export * from './awaitted'
 export * from './pass'
 export * from './or'
 export * from './is-every'
