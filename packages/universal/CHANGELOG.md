@@ -1,5 +1,11 @@
 # @toktokhan-dev/universal
 
+## 0.0.3
+
+### Patch Changes
+
+- 7ebbf37: feat: add extended fetch function and test code
+
 ## 0.0.2
 
 ### Patch Changes
