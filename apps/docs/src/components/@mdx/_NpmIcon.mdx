@@ -1,6 +1,7 @@
 
 import npm from '@site/static/img/npm.jpg';
+import NpmIcon from '@site/static/icons/npm.svg';
 
-<a href={props.href}>
-    <img style={{width:"32px", height:"32px"}} src={npm}/>
+<a href={props.href} target="_blank">
+    <NpmIcon className="link-icon" style={props.style}/>
 </a>

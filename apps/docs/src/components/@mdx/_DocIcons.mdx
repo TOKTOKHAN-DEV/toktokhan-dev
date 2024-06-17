@@ -1,0 +1,14 @@
+import GithubIcon from '@site/src/components/@mdx/_GithubIcon.mdx'
+import NpmIcon from '@site/src/components/@mdx/_NpmIcon.mdx'
+
+
+<div style={{display:"flex", alignItems: "center", gap: "8px"}}>
+   {props.github && <GithubIcon href={props.github}/>}
+    {props.npm && <NpmIcon  style={{ position:"relative", top:"10px" }} href={props.npm}/>}
+    {props.doc && (
+        <a className="link-icon" style={{cursor:"pointer"}} href={props.doc} target="_blank">
+        <p style={{whiteSpace:'pre', position:"relative", top:"-2px", fontWeight: 900, }}>Doc</p>
+        </a>)
+    }
+</div> 
+
