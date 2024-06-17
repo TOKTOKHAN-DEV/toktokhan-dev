@@ -1,5 +1,12 @@
 # @toktokhan-dev/react-universal
 
+## 0.0.2
+
+### Patch Changes
+
+- Updated dependencies [70acba8]
+  - @toktokhan-dev/universal@0.0.2
+
 ## 0.0.1
 
 ### Patch Changes
