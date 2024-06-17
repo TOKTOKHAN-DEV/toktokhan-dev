@@ -6,7 +6,6 @@ import { curry } from 'lodash'
  * Promise 를 받아 resolve 된 값으로 함수를 실행합니다.
  *
  * @example
- *
  * ```ts
  * const double = (x: number) => x * 2
  * const target = 5
@@ -17,7 +16,6 @@ import { curry } from 'lodash'
  *
  * // curried
  * flow(() => Promise.resolve(5), awaitted(double))
- *
  * ```
  */
 export const awaitted: {

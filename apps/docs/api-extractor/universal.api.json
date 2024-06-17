@@ -563,6 +563,96 @@
         },
         {
           "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/universal!awaitted:function(1)",
+          "docComment": "/**\n  *\n * Promise 를 받아 resolve 된 값으로 함수를 실행합니다.\n *\n * @example\n * ```ts\n * const double = (x: number) => x * 2\n * const target = 5\n * const targetPromise = Promise.resolve(5)\n *\n * const result = awaitted(double, target) // 10\n * const resultPromise = awaitted(double, targetPromise) // 10\n *\n * // curried\n * flow(() => Promise.resolve(5), awaitted(double))\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "awaitted: <P, R>(fn: "
+            },
+            {
+              "kind": "Content",
+              "text": "(p: P) => R"
+            },
+            {
+              "kind": "Content",
+              "text": ", data: "
+            },
+            {
+              "kind": "Content",
+              "text": "P | "
+            },
+            {
+              "kind": "Reference",
+              "text": "PromiseLike",
+              "canonicalReference": "!PromiseLike:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<P>"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "R"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 7,
+            "endIndex": 8
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "fn",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "data",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 6
+              },
+              "isOptional": false
+            }
+          ],
+          "typeParameters": [
+            {
+              "typeParameterName": "P",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            },
+            {
+              "typeParameterName": "R",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "name": "awaitted"
+        },
+        {
+          "kind": "Function",
           "canonicalReference": "@toktokhan-dev/universal!byteFrom:function(1)",
           "docComment": "/**\n  *\n * 특정 바이트 단위를 바이트로 변환합니다.\n *\n * @param from - 변환할 바이트 단위\n *\n * @param value - 변환할 값\n *\n * @returns 변환된 바이트 값\n *\n * @example\n * ```ts\n * byteFrom('KB', 1) // 1024\n * byteFrom('KB')(1) // 1024\n * ```\n *\n */\n",
           "excerptTokens": [
@@ -5524,96 +5614,6 @@
             }
           ],
           "name": "suffix"
-        },
-        {
-          "kind": "Function",
-          "canonicalReference": "@toktokhan-dev/universal!then:function(1)",
-          "docComment": "",
-          "excerptTokens": [
-            {
-              "kind": "Content",
-              "text": "then: <P, R>(fn: "
-            },
-            {
-              "kind": "Content",
-              "text": "(p: P) => R"
-            },
-            {
-              "kind": "Content",
-              "text": ", data: "
-            },
-            {
-              "kind": "Content",
-              "text": "P | "
-            },
-            {
-              "kind": "Reference",
-              "text": "PromiseLike",
-              "canonicalReference": "!PromiseLike:interface"
-            },
-            {
-              "kind": "Content",
-              "text": "<P>"
-            },
-            {
-              "kind": "Content",
-              "text": ") => "
-            },
-            {
-              "kind": "Content",
-              "text": "R"
-            }
-          ],
-          "fileUrlPath": "dist/index.doc.d.ts",
-          "returnTypeTokenRange": {
-            "startIndex": 7,
-            "endIndex": 8
-          },
-          "releaseTag": "Public",
-          "overloadIndex": 1,
-          "parameters": [
-            {
-              "parameterName": "fn",
-              "parameterTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              },
-              "isOptional": false
-            },
-            {
-              "parameterName": "data",
-              "parameterTypeTokenRange": {
-                "startIndex": 3,
-                "endIndex": 6
-              },
-              "isOptional": false
-            }
-          ],
-          "typeParameters": [
-            {
-              "typeParameterName": "P",
-              "constraintTokenRange": {
-                "startIndex": 0,
-                "endIndex": 0
-              },
-              "defaultTypeTokenRange": {
-                "startIndex": 0,
-                "endIndex": 0
-              }
-            },
-            {
-              "typeParameterName": "R",
-              "constraintTokenRange": {
-                "startIndex": 0,
-                "endIndex": 0
-              },
-              "defaultTypeTokenRange": {
-                "startIndex": 0,
-                "endIndex": 0
-              }
-            }
-          ],
-          "name": "then"
         },
         {
           "kind": "Function",

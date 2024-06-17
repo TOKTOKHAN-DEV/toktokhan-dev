@@ -578,6 +578,19 @@ slug: /universal
 <tbody>
 <tr><td>
 
+[awaitted(fn, data)](./universal.awaitted)
+
+</td>
+
+
+<td>
+
+Promise 를 받아 resolve 된 값으로 함수를 실행합니다.
+
+</td></tr>
+
+<tr><td>
+
 [collect(args)](./universal.collect)
 
 </td>

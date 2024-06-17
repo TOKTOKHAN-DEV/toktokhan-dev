@@ -9,6 +9,8 @@ slug: /cli-plugin-commit
 
 
 
+대화형 cli 를 통해 일관된 형식의 커밋 메시지 작성을 도와주는 플러그인 입니다.
+
 
 
 
@@ -58,7 +60,7 @@ slug: /cli-plugin-commit
 
 <td>
 
-커밋 명령어의 설정입니다.
+
 
 </td></tr>
 </tbody>

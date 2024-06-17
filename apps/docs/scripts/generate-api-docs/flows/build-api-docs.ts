@@ -1,37 +1,37 @@
-import { $ } from "@toktokhan-dev/node";
-import { then } from "@toktokhan-dev/universal";
+import { $ } from '@toktokhan-dev/node'
+import { awaitted } from '@toktokhan-dev/universal'
 
-import { flow } from "lodash/fp";
+import { flow } from 'lodash/fp'
 
 const buildApiDocumentorPlugin = () =>
   new Promise((resolve, reject) =>
-    $("pnpm", ["--filter", "@toktokhan-dev/doc-plugin", "build"], {
-      stdio: "ignore",
+    $('pnpm', ['--filter', '@toktokhan-dev/doc-plugin', 'build'], {
+      stdio: 'ignore',
     })
-      .on("close", resolve)
-      .on("error", (error) => reject(error)),
-  );
+      .on('close', resolve)
+      .on('error', (error) => reject(error)),
+  )
 
 const buildApiMakrdownDocs = () =>
   new Promise((resolve, reject) =>
     $(
-      "api-documenter",
+      'api-documenter',
       [
-        "generate",
-        "-i",
-        "./apps/docs/api-extractor",
-        "-o",
-        "./apps/docs/docs/api/",
+        'generate',
+        '-i',
+        './apps/docs/api-extractor',
+        '-o',
+        './apps/docs/docs/api/',
       ],
       {
-        stdio: "ignore",
+        stdio: 'ignore',
       },
     )
-      .on("close", resolve)
-      .on("error", (error) => reject(error)),
-  );
+      .on('close', resolve)
+      .on('error', (error) => reject(error)),
+  )
 
 export const buildApiDocs = flow(
   buildApiDocumentorPlugin,
-  then(buildApiMakrdownDocs),
-);
+  awaitted(buildApiMakrdownDocs),
+)

@@ -9,13 +9,71 @@ slug: /cli-plugin-commit.commitconfig
 
 
 
-커밋 명령어의 설정입니다.
-
 ## Signature
 
 ```typescript
-type CommitConfig = {
-  workspaces?: string[];
-  types?: CommitType[] | ((initial: CommitType[]) => CommitType[]);
-};
+interface CommitConfig 
 ```
+
+## Properties
+
+<table><thead><tr><th>
+
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[types?](./cli-plugin-commit.commitconfig.types)
+
+
+</td><td>
+
+
+</td><td>
+
+[CommitType](./cli-plugin-commit.committype)[] \| ((initial: [CommitType](./cli-plugin-commit.committype)[]) =&gt; [CommitType](./cli-plugin-commit.committype)[])
+
+
+</td><td>
+
+_(Optional)_ 커밋 타입을 지정합니다.
+
+
+</td></tr>
+<tr><td>
+
+[workspaces?](./cli-plugin-commit.commitconfig.workspaces)
+
+
+</td><td>
+
+
+</td><td>
+
+string[]
+
+
+</td><td>
+
+_(Optional)_ 모노래포 사용시, workspace 로 커밋 범위 설정할수 있습니다.
+
+
+</td></tr>
+</tbody></table>

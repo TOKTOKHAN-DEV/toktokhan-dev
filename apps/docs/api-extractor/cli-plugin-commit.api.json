@@ -162,7 +162,7 @@
   },
   "kind": "Package",
   "canonicalReference": "@toktokhan-dev/cli-plugin-commit!",
-  "docComment": "",
+  "docComment": "/**\n * 대화형 cli 를 통해 일관된 형식의 커밋 메시지 작성을 도와주는 플러그인 입니다.\n *\n * @packageDocumentation\n */\n",
   "name": "@toktokhan-dev/cli-plugin-commit",
   "preserveMemberOrder": false,
   "members": [
@@ -175,7 +175,7 @@
         {
           "kind": "Variable",
           "canonicalReference": "@toktokhan-dev/cli-plugin-commit!commit:var",
-          "docComment": "",
+          "docComment": "/**\n  */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -193,7 +193,7 @@
             {
               "kind": "Reference",
               "text": "CommitConfig",
-              "canonicalReference": "@toktokhan-dev/cli-plugin-commit!CommitConfig:type"
+              "canonicalReference": "@toktokhan-dev/cli-plugin-commit!CommitConfig:interface"
             },
             {
               "kind": "Content",
@@ -211,57 +211,199 @@
           "parameters": []
         },
         {
-          "kind": "TypeAlias",
-          "canonicalReference": "@toktokhan-dev/cli-plugin-commit!CommitConfig:type",
-          "docComment": "/**\n * 커밋 명령어의 설정입니다.\n *\n  */\n",
+          "kind": "Interface",
+          "canonicalReference": "@toktokhan-dev/cli-plugin-commit!CommitConfig:interface",
+          "docComment": "/**\n  */\n",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type CommitConfig = "
-            },
-            {
-              "kind": "Content",
-              "text": "{\n  workspaces?: string[];\n  types?: "
-            },
-            {
-              "kind": "Reference",
-              "text": "CommitType",
-              "canonicalReference": "@toktokhan-dev/cli-plugin-commit!~CommitType:type"
-            },
-            {
-              "kind": "Content",
-              "text": "[] | ((initial: "
-            },
-            {
-              "kind": "Reference",
-              "text": "CommitType",
-              "canonicalReference": "@toktokhan-dev/cli-plugin-commit!~CommitType:type"
-            },
-            {
-              "kind": "Content",
-              "text": "[]) => "
-            },
-            {
-              "kind": "Reference",
-              "text": "CommitType",
-              "canonicalReference": "@toktokhan-dev/cli-plugin-commit!~CommitType:type"
-            },
-            {
-              "kind": "Content",
-              "text": "[]);\n}"
-            },
-            {
-              "kind": "Content",
-              "text": ";"
+              "text": "interface CommitConfig "
             }
           ],
           "fileUrlPath": "dist/index.doc.d.ts",
           "releaseTag": "Public",
           "name": "CommitConfig",
-          "typeTokenRange": {
-            "startIndex": 1,
-            "endIndex": 8
-          },
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/cli-plugin-commit!CommitConfig#types:member",
+              "docComment": "/**\n * 커밋 타입을 지정합니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "types?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "CommitType",
+                  "canonicalReference": "@toktokhan-dev/cli-plugin-commit!CommitType:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "[] | ((initial: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "CommitType",
+                  "canonicalReference": "@toktokhan-dev/cli-plugin-commit!CommitType:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "[]) => "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "CommitType",
+                  "canonicalReference": "@toktokhan-dev/cli-plugin-commit!CommitType:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "[])"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "types",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 7
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/cli-plugin-commit!CommitConfig#workspaces:member",
+              "docComment": "/**\n * 모노래포 사용시, workspace 로 커밋 범위 설정할수 있습니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "workspaces?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string[]"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "workspaces",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": [],
+          "parameters": []
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@toktokhan-dev/cli-plugin-commit!CommitType:interface",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "interface CommitType "
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "CommitType",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/cli-plugin-commit!CommitType#description:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "description: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "description",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/cli-plugin-commit!CommitType#emoji:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "emoji?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "emoji",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/cli-plugin-commit!CommitType#name:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "name: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "name",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": [],
           "parameters": []
         }
       ]

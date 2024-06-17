@@ -40,6 +40,8 @@ Description
 
 </td><td>
 
+대화형 cli 를 통해 일관된 형식의 커밋 메시지 작성을 도와주는 플러그인 입니다.
+
 
 </td></tr>
 <tr><td>
@@ -127,17 +129,6 @@ Octokit을 사용하여 Github Api를 쉽게 사용할 수 있도록 하는 모�
 </td><td>
 
 node환경에서 사용할 수 있는 유틸리티 라이브러리입니다.
-
-
-</td></tr>
-<tr><td>
-
-[@toktokhan-dev/react-app](./react-app)
-
-
-</td><td>
-
-React App에서 전역적으로 사용할 수 있는 유틸리티 라이브러리입니다.
 
 
 </td></tr>
