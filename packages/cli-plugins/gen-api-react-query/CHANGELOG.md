@@ -1,5 +1,12 @@
 # @toktokhan-dev/cli-plugin-gen-api-react-query
 
+## 0.0.3
+
+### Patch Changes
+
+- @toktokhan-dev/cli@0.0.3
+- @toktokhan-dev/node@0.0.2
+
 ## 0.0.2
 
 ### Patch Changes

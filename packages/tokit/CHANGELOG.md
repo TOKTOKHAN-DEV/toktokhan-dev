@@ -1,5 +1,15 @@
 # @toktokhan-dev/tokit
 
+## 0.0.2
+
+### Patch Changes
+
+- 713655d: version up of universal package
+- Updated dependencies [70acba8]
+  - @toktokhan-dev/universal@0.0.2
+  - @toktokhan-dev/github@0.0.2
+  - @toktokhan-dev/node@0.0.2
+
 ## 0.0.1
 
 ### Patch Changes

@@ -1,5 +1,15 @@
 # @toktokhan-dev/cli-plugin-gen-icon-chakra
 
+## 0.0.3
+
+### Patch Changes
+
+- 713655d: version up of universal package
+- Updated dependencies [70acba8]
+  - @toktokhan-dev/universal@0.0.2
+  - @toktokhan-dev/cli@0.0.3
+  - @toktokhan-dev/node@0.0.2
+
 ## 0.0.2
 
 ### Patch Changes

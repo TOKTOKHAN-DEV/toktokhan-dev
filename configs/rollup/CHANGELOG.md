@@ -1,5 +1,11 @@
 # @toktokhan-dev/rollup-config
 
+## 0.0.2
+
+### Patch Changes
+
+- @toktokhan-dev/node@0.0.2
+
 ## 0.0.1
 
 ### Patch Changes
