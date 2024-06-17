@@ -1,5 +1,14 @@
 # @toktokhan-dev/cli-plugin-gen-img
 
+## 0.0.4
+
+### Patch Changes
+
+- Updated dependencies [7ebbf37]
+  - @toktokhan-dev/universal@0.0.3
+  - @toktokhan-dev/cli@0.0.4
+  - @toktokhan-dev/node@0.0.3
+
 ## 0.0.3
 
 ### Patch Changes
