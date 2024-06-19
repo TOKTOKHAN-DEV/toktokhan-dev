@@ -393,6 +393,45 @@
             },
             {
               "kind": "Property",
+              "canonicalReference": "@toktokhan-dev/github!GitHubManager#checkOrganizationValidity:member",
+              "docComment": "/**\n * 유효한 조직(Organization)인지 확인하는 메소드입니다. {@link https://docs.github.com/en/rest/orgs/orgs?apiVersion=2022-11-28 | @see GitHub API - Get an organization}\n *\n * @returns 조직(Organization)이 유효하면 `true`를 반환합니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "checkOrganizationValidity: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "(org: string) => "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise",
+                  "canonicalReference": "!Promise:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<boolean>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "checkOrganizationValidity",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 4
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
               "canonicalReference": "@toktokhan-dev/github!GitHubManager#checkTokenValidity:member",
               "docComment": "/**\n * 유효한 토큰인지 확인하는 메소드입니다. {@link https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-the-authenticated-app | @see GitHub API - Get the authenticated app}\n *\n * @returns 토큰이 유효하면 `true`를 반환합니다.\n */\n",
               "excerptTokens": [
@@ -433,11 +472,59 @@
             {
               "kind": "Property",
               "canonicalReference": "@toktokhan-dev/github!GitHubManager#createRepo:member",
-              "docComment": "/**\n * 새로운 레포지토리를 생성하는 메소드입니다. {@link https://docs.github.com/ko/rest/repos/repos?apiVersion=2022-11-28#create-an-organization-repository | @see GitHub API - Create an organization repository}\n */\n",
+              "docComment": "/**\n * 새로운 레포지토리를 생성하는 메소드입니다.\n *\n * @param isOrg - 저장소가 조직을 위한 것인지, 인증된 사용자를 위한 것인지를 나타내는 불리언 값입니다. {@link https://docs.github.com/ko/rest/repos/repos?apiVersion=2022-11-28#create-an-organization-repository | @see GitHub API - Create an organization repository} {@link https://docs.github.com/en/rest/repos/repos#create-a-repository-for-the-authenticated-user | @see GitHub API - Create a repository for the authenticated user}\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
                   "text": "createRepo: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "(owner: string, repo: string) => "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise",
+                  "canonicalReference": "!Promise:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "RestEndpointMethodTypes",
+                  "canonicalReference": "@octokit/plugin-rest-endpoint-methods!RestEndpointMethodTypes:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "['repos']['createInOrg']['response']['data'] & {\n    isOrg: boolean;\n  }>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "createRepo",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 6
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@toktokhan-dev/github!GitHubManager#getUser:member",
+              "docComment": "/**\n * 인증된 유지의 정보를 조회하는 메소드입니다. {@link https://docs.github.com/en/rest/users/users?apiVersion=2022-11-28#get-the-authenticated-user | @see GitHub API - Get the authenticated app}\n *\n * @returns 인증된 유저에 대한 정보를 반환합니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "getUser: "
                 },
                 {
                   "kind": "Content",
@@ -459,7 +546,7 @@
                 },
                 {
                   "kind": "Content",
-                  "text": "['repos']['createInOrg']['response']>"
+                  "text": "['users']['getAuthenticated']['response']['data']>"
                 },
                 {
                   "kind": "Content",
@@ -469,7 +556,7 @@
               "isReadonly": false,
               "isOptional": false,
               "releaseTag": "Public",
-              "name": "createRepo",
+              "name": "getUser",
               "propertyTypeTokenRange": {
                 "startIndex": 1,
                 "endIndex": 6
@@ -520,7 +607,7 @@
             {
               "kind": "Property",
               "canonicalReference": "@toktokhan-dev/github!GitHubManager#isRepoExist:member",
-              "docComment": "/**\n * 레포지토리가 존재하는지 확인하는 메소드입니다. {@link https://docs.github.com/ko/rest/repos/repos?apiVersion=2022-11-28#get-a-repository | @see @see GitHub API - Get a repository}\n *\n * @param org - 조직 이름입니다.\n *\n * @param repo - 레포지토리 이름입니다.\n *\n * @returns - 레포지토리가 존재하면 true를 반환합니다.\n */\n",
+              "docComment": "/**\n * 레포지토리가 존재하는지 확인하는 메소드입니다. {@link https://docs.github.com/ko/rest/repos/repos?apiVersion=2022-11-28#get-a-repository | @see @see GitHub API - Get a repository}\n *\n * @param owner - owner 이름입니다.\n *\n * @param repo - 레포지토리 이름입니다.\n *\n * @returns - 레포지토리가 존재하면 true를 반환합니다.\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -528,7 +615,7 @@
                 },
                 {
                   "kind": "Content",
-                  "text": "(org: string, repo: string) => "
+                  "text": "(owner: string, repo: string) => "
                 },
                 {
                   "kind": "Reference",

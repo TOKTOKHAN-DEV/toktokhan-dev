@@ -1,0 +1,75 @@
+---
+title: Create Personal Access Token
+sidebar_label: Create Personal Access Token
+sidebar_position: 3
+---
+
+import Installations from '@site/src/components/@mdx/_Installation.mdx'
+import TipPackageScript from '@site/src/components/@mdx/_TipPackageScript.mdx'
+import CodeBlock from '@theme/CodeBlock'
+import TabItem from '@theme/TabItem'
+import Tabs from '@theme/Tabs'
+
+import TokenPermissions from '/img/tokit/tokit-token-permission.png'
+import TokenSetup from '/img/tokit/tokit-token-setup.png'
+import WindowEnv from '/img/tokit/tokit-window-env.png'
+
+# Create Your Personal Access Token
+
+:::tip 아래의 경우에 해당됩니다.
+
+- 외부 클라이언트 레포지토리에서 작업
+- 외부 프론트엔드 개발자가 작업
+- 개인 소유자 레포지토리에서 작업
+  :::
+
+  :::info
+
+  - 토큰은 **[Github 공식문서의 Fine-grained personal access tokens](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#fine-grained-personal-access-tokens)** 기준으로 기재하였습니다.
+
+  :::
+
+### [토큰 설정 바로가기](https://github.com/settings/personal-access-tokens/new)
+
+## 1. 이름, 만료기한, 설명, 소유자 선택
+
+**[(@Reference) Github 공식문서: personal access token 발급법](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token)**
+
+소유자 선택(Resource owner) 시 작업을 원하는 조직 또는 개인 소유자를 선택해주세요.
+
+:::tip 조직이 아닌 개인 소유자 레포지토리에 연결하기 위해서는 **Resourse owner** 에서 본인소유자(보통 username) 를 선택해주시면 됩니다.
+:::
+
+:::warning 조직 선택시 발급후 조직 관리자의 승인을 받아야합니다. => **[조직에서 개인 토큰을 승인하는 방법](https://docs.github.com/en/organizations/managing-programmatic-access-to-your-organization/reviewing-and-revoking-personal-access-tokens-in-your-organization)**
+:::
+
+<img src={TokenSetup} alt="tokit-token-setup" style={{ width: 800 }} />
+
+## 2. 레포지토리 권한 설정 (Permissions)
+
+### 2-1. 권한 설정
+
+항목을 모두 설정해주세요.
+
+- `administration:read and write` <br></br>
+- `Metadata:read-only` <br></br>
+
+### 2-2. 확인
+
+토큰을 발급하기 전, Overview를 통해 이미지와 동일하게 설정이 되어있는지 다시 한 번 확인해주세요.
+
+<img
+  src={TokenPermissions}
+  alt="tokit-token-permissions"
+  style={{ width: 800 }}
+/>
+
+`Gtihub Personal Access Token`을 발급 한 후 `TOKIT_GITHUB_TOKEN` 에 등록해주세요. <br/>
+
+### 2-3. 발급
+
+**발급 된 토큰은 다시 볼 수 없으니 꼭 복사해 주세요.**
+
+### 2-4. 적용
+
+이후에 발급받은 토큰을 `TOKIT_GITHUB_TOKEN` 환경 변수로 등록해주세요.

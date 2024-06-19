@@ -1,0 +1,109 @@
+import Table from '@site/src/components/Table/Table.tsx'
+
+# [작업중]
+
+# OVERVIEW
+
+새로워진 똑똑한 개발자 프론트엔드 보일러플레이트를 경험해보세요.
+실무진 분들이 새로운 보일러플레이트 적응을 위해 제작 된 온보딩입니다.<br/>
+시작 전, 아래 표를 통해 이전과 이후의 변화를 한눈에 확인해보세요.
+
+<Table
+  headers={[
+    { name: '-', width: '1%' },
+    { name: 'Before', width: '10%' },
+    { name: 'After', width: '10%' },
+  ]}
+  data={[
+    [
+      <b>Templates</b>,
+      <pre>
+        단일 보일러 플레이트 저장소에서 관리
+        <br />
+        <code>
+          [web]next-page-init <br />
+          [app]react-native-init{' '}
+        </code>
+      </pre>,
+      <pre>
+        시스템 관리를 위한{' '}
+        <a href="https://github.com/TOKTOKHAN-DEV/toktokhan-dev">모노레포</a>
+        로 관리 및 개별 저장소에서 관리 <br />
+        <code>
+          templates/ <br />
+          ├── next-page-init <br />
+          ├── next-app-init <br />
+          └── react-native-init (준비중)
+        </code>
+      </pre>,
+    ],
+    [
+      <b>Installation</b>,
+      <pre>
+        Github organiztions 에 접근하여 지정된 Repository template을 사용한
+        Repository 생성
+      </pre>,
+      <pre>
+        <a href="https://toktokhan-dev-docs.vercel.app/docs/docs/tokit/Overview">
+          Tokit
+        </a>{' '}
+        CLI tool을 통한 로컬 및 원격(optional) 템플릿 생성
+      </pre>,
+    ],
+    [
+      <b>Utilities</b>,
+      <pre>
+        단일 보일러 플레이트 내 위치
+        <code>
+          src/ <br />
+          ├── utils <br />
+          ├── hooks <br />
+          └── components (준비중)
+        </code>
+      </pre>,
+      <pre>
+        용도, 기능 별 패키지 분리하여 관리:{' '}
+        <a href="https://toktokhan-dev-docs.vercel.app/docs/index">
+          Package List
+        </a>
+        <code>
+          @toktokhan-dev/node <br />
+          @toktokhan-dev/universal <br />
+          @toktokhan-dev/react-universal <br />
+          @toktokhan-dev/react-web <br />
+          @toktokhan-dev/react-app <br />
+          ...
+        </code>
+      </pre>,
+    ],
+    [
+      <b>Theming</b>,
+      <pre>피그마 디자인 시스템에 맞춰 수동 작업</pre>,
+      <pre>
+        <a href="https://toktokhan-dev-docs.vercel.app/docs/docs/toktoken/Introductionx">
+          Figma Toktoken Plugin
+        </a>{' '}
+        을 통한 토큰 자동화
+      </pre>,
+    ],
+    [
+      <pre>
+        <b>
+          [web]
+          <br /> Social Login
+        </b>
+      </pre>,
+      <pre>동일한 로직의 Oauth 로그인 처리, 미흡한 Social 별 컴포넌트</pre>,
+      <pre>
+        로그인 (팝업 / 링크) 방식에 따른 유틸 분리, 각 Social별 지정된
+        컬러(컬러모드 대응), 스타일 사용 한 컴포넌트 모듈 생성:
+        <br />
+        <a href="https://toktokhan-dev-docs.vercel.app/docs/react-web#socials">
+          @toktokhan/dev/react-web
+        </a>
+        <br />
+        <code>(Google, Kakao, Naver, Apple, Facebook)</code>
+      </pre>,
+    ],
+  ]}
+/>

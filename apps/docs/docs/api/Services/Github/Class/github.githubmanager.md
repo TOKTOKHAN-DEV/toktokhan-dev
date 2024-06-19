@@ -95,6 +95,25 @@ Description
 </td></tr>
 <tr><td>
 
+[checkOrganizationValidity](./github.githubmanager.checkorganizationvalidity)
+
+
+</td><td>
+
+
+</td><td>
+
+(org: string) =&gt; Promise&lt;boolean&gt;
+
+
+</td><td>
+
+유효한 조직(Organization)인지 확인하는 메소드입니다. [@see GitHub API - Get an organization](https://docs.github.com/en/rest/orgs/orgs?apiVersion=2022-11-28)
+
+
+</td></tr>
+<tr><td>
+
 [checkTokenValidity](./github.githubmanager.checktokenvalidity)
 
 
@@ -122,12 +141,31 @@ Description
 
 </td><td>
 
-() =&gt; Promise&lt;RestEndpointMethodTypes['repos']['createInOrg']['response']&gt;
+(owner: string, repo: string) =&gt; Promise&lt;RestEndpointMethodTypes['repos']['createInOrg']['response']['data'] &amp; \{ isOrg: boolean; \}&gt;
 
 
 </td><td>
 
-새로운 레포지토리를 생성하는 메소드입니다. [@see GitHub API - Create an organization repository](https://docs.github.com/ko/rest/repos/repos?apiVersion=2022-11-28#create-an-organization-repository)
+새로운 레포지토리를 생성하는 메소드입니다.
+
+
+</td></tr>
+<tr><td>
+
+[getUser](./github.githubmanager.getuser)
+
+
+</td><td>
+
+
+</td><td>
+
+() =&gt; Promise&lt;RestEndpointMethodTypes['users']['getAuthenticated']['response']['data']&gt;
+
+
+</td><td>
+
+인증된 유지의 정보를 조회하는 메소드입니다. [@see GitHub API - Get the authenticated app](https://docs.github.com/en/rest/users/users?apiVersion=2022-11-28#get-the-authenticated-user)
 
 
 </td></tr>
@@ -160,7 +198,7 @@ Description
 
 </td><td>
 
-(org: string, repo: string) =&gt; Promise&lt;boolean&gt;
+(owner: string, repo: string) =&gt; Promise&lt;boolean&gt;
 
 
 </td><td>

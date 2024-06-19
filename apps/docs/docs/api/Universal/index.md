@@ -500,6 +500,33 @@ slug: /universal
 
 
 
+## Utils/Fetch
+
+<table>
+<thead>
+<tr>
+<th>Utils/Fetch</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>
+
+[fetchHelper(defaultOptions)](./universal.fetchhelper)
+
+</td>
+
+
+<td>
+
+고차 함수로 fetch를 확장하거나, interceptor, baseUrl, headers 을 옵션으로 넣어 사용할 수 있습니다.
+
+</td></tr>
+</tbody>
+</table>
+
+
+
 ## Utils/File
 
 <table>

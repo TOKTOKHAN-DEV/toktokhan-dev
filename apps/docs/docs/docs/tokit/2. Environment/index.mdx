@@ -7,19 +7,27 @@ sidebar_position: 2
 import Installations from '@site/src/components/@mdx/_Installation.mdx'
 import TipPackageScript from '@site/src/components/@mdx/_TipPackageScript.mdx'
 import CodeBlock from '@theme/CodeBlock'
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+import TabItem from '@theme/TabItem'
+import Tabs from '@theme/Tabs'
+
 import TokenPermissions from '/img/tokit/tokit-token-permission.png'
+import TokenSetup from '/img/tokit/tokit-token-setup.png'
 import WindowEnv from '/img/tokit/tokit-window-env.png'
-
-
 
 # Set Up Your Environment
 
-:::tip tokit의 템플릿을 Github 원격 저장소에 업로드 하기 위해 필요한 환경 변수 설정 법을 설명합니다. 
+:::tip tokit의 템플릿을 Github 원격 레포지토리에 업로드 하기 위해 필요한 환경 변수 설정 법을 설명합니다.
 :::
 
+:::info 아래의 경우에 해당된다면 [Create Your Personal Access Token](/docs/docs/tokit/Environment/Create-Personal-Access-Token) 문서를 참고하여 토큰을 먼저 발급해주세요.
+
+- 외부 클라이언트 레포지토리에서 작업
+- 외부 프론트엔드 개발자가 작업
+- 개인 소유자 레포지토리에서 작업
+  :::
+
 ## 1. 환경 변수 등록
+
 터미널에서 본인이 사용하고 있는 쉘(Shell)의 환경 변수를 설정할 수 있는 명령어를 입력해주세요.
 
 <Tabs>
@@ -37,15 +45,31 @@ import WindowEnv from '/img/tokit/tokit-window-env.png'
 
     ### 1.2 환경 변수 등록
       <CodeBlock title='terminal'  language={'bash'}>
+
 {`export TOKIT_GITHUB_TOKEN=<your-github-token> 
-export TOKIT_GITHUB_ORG_NAME=<your-github-organization-name> 
+export TOKIT_GITHUB_OWNER=<your-github-owner> 
 export TOKIT_GITHUB_USERNAME=<your-github-username>`}
-      </CodeBlock>
 
-      `<your-github-token>`, `<your-github-organization-name>`, `<your-github-username>` 를 Github 정보로 업데이트 해주세요.
+</CodeBlock>
 
-      환경변수 설정 후 현재 터미널에서 아래 명령어를 통해 실행시켜주세요.
-      ```source ~/.zprofile (or source ~/.bash_profile for bash)```
+      `<your-github-token>`, `<your-github-owner>`, `<your-github-username>` 를 Github 정보로 업데이트 해주세요.
+
+:::tip owner 와 repo 정보는 어디서 가져오나요?
+작업하실 github url을 확인해주세요.<br/>
+`https://github.com/[owner]/[repo]`
+:::
+
+환경변수 설정 후 현재 터미널에서 아래 명령어를 통해 실행시켜주시거나 종료 후 재실행 해주세요.
+`source ~/.zprofile (or source ~/.bash_profile for bash)`
+
+작업하시는 터미널에서 환경변수가 잘 적용이 되었는지 다시 한 번 확인해주세요.
+
+<CodeBlock title={'terminal'}>
+  {`echo $TOKIT_GITHUB_TOKEN
+echo $TOKIT_GITHUB_OWNER
+echo $TOKIT_GITHUB_USERNAME`}
+</CodeBlock>
+
   </TabItem>
   <TabItem value="window" label="Window" default>
     1. 시작 메뉴를 열고 `시스템 환경 변수 편집`을 검색합니다.
@@ -59,47 +83,21 @@ export TOKIT_GITHUB_USERNAME=<your-github-username>`}
       alt="tokit-window-env"
       style={{ width: 800 }}
     />
+
   </TabItem>
 </Tabs>
 
+## 환경변수 정보
 
-## 2. 사용자에 따른 환경 변수 등록
-
-### 2-1 For TOKTOKHAN-DEV Organizer
 :::tip `https://github.com/TOKTOKHAN-DEV/toktokhan-dev/{repo}` 에서 레포지토리를 생성하는 경우에 해당됩니다.
 :::
 
-`TOKIT_GITHUB_TOKEN` 환경변수는 똑똑한 개발자 시스템 계정에서 공통적으로 관리하고 있습니다. 
+`TOKIT_GITHUB_TOKEN` 환경변수는 똑똑한 개발자 시스템 계정에서 공통적으로 관리하고 있습니다.
 링크를 참고하여 설정해주세요. => **[TOKIT 환경 변수 설정](https://www.notion.so/toktokhan/Tokit-c2b592760e824f2ca877d2a95445d5b8?pvs=4)**
 
+:::info 아래의 경우에 해당된다면 [Create Your Personal Access Token](/docs/docs/tokit/Environment/Create-Personal-Access-Token) 문서를 참고하여 발급한 토큰으로 적용해야 합니다.
 
-### 2-2 For External Organizer
-:::tip 아래의 경우에 해당됩니다.
 - 외부 클라이언트 레포지토리에서 작업
 - 외부 프론트엔드 개발자가 작업
-:::
-
-`Gtihub Personal Access Token`을 발급 한 후 `TOKIT_GITHUB_TOKEN` 에 등록해주세요. <br/>
-<b>발급 된 토큰은 다시 볼 수 없으니 꼭 복사해 두세요.</b>
-
-
-- 토큰을 발급하는 방법은 **[Github 공식문서](https://docs.github.com/ko/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)** 를 참고해주세요.<br/>
-- Permission 설정시 아래 기재된 권한을 모두 충족해야 합니다.<br/>
-
-:::info **Fine-Grained Permission Setup**
-
-#### 1. 항목을 모두 설정해주세요.
-- `administration:read and write` <br></br>
-- `contents:read and write` <br></br>
-- `Acess:read-only` <br></br>
-
-#### 2. 토큰을 발급하기 전, Overview를 통해 이미지와 동일하게 설정이 되어있는지 다시 한 번 확인해주세요.
-<img
-  src={TokenPermissions}
-  alt="tokit-token-permissions"
-  style={{ width: 800 }}
-/>
-
-#### 3. 이후에 발급받은 토큰을 `TOKIT_GITHUB_TOKEN` 환경 변수로 등록해주세요.
-
-:::
+- 개인 소유자 레포지토리에서 작업
+  :::

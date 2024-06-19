@@ -13,48 +13,33 @@ sidebar_position: 0
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 ></iframe> -->
 
-똑똑한 개발자 프론트엔드 공식문서입니다.
+똑똑한 개발자 프론트엔드 공식문서에 오신 것을 환영합니다.
+똑똑한 개발자는 2024년 6월 19일 이후로 새로운 방식으로 변경되었습니다.
+새로운 방식에 익숙하지 않으신 분들은 아래의 온보딩 세션을 먼저 경험해보세요. <br/>
 
-<!--
-Let's discover
-**Docusaurus in less than 5 minutes**.
+### [온보딩 세션 바로가기](https://toktokhan-dev-docs.vercel.app/docs/onboarding/new-onboarding/1.%20OVERVIEW)
 
 ## Getting Started
 
-Get started by **creating a new site**.
-
-Or **try Docusaurus immediately** with [**docusaurus.new**](https://docusaurus.new).
+<code>**tokit**</code>을 통해 원하는 템플릿을 설치해보세요.
 
 ### What you'll need
 
-- [Node.js](https://nodejs.org/en/download/) version 18.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+- [Node.js](https://nodejs.org/en/download/) version 18.0 이상이여야 합니다.
 
-## Generate a new site
-
-Generate a new Docusaurus site using the **classic template**.
-
-The classic template will automatically be added to your project after you run the command:
+## Clone new Template
 
 ```bash
-npm init docusaurus@latest my-website classic
+npm i -g @toktokhan-dev/tokit
 ```
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
+해당 명령어를 터미널에 입력해 원하는 템플릿을 선택해주세요. 모든 선택이 완료되면 의존성 패키지까지 모두 설치가 됩니다.
 
-The command also installs all necessary dependencies you need to run Docusaurus.
+## Start your app
 
-## Start your site
-
-Run the development server:
+클론받은 템플릿을 실행해주세요.
 
 ```bash
 cd my-website
-npm run start
+npm/yarn/pnpm dev
 ```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes. -->
