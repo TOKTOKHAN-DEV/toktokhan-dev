@@ -11,8 +11,6 @@ import { initialQuestion } from './prompts/initial'
 import { cacheToLocal } from './utils/cache-to-local'
 import { cachedPackage } from './utils/cached-package'
 import { createRepository } from './utils/create-repository'
-import { getSummaryByPackageName } from './utils/get-summary-by-package-name'
-import { logMissingConfigMessage } from './utils/log-missing-config-msg'
 import { proceedGit } from './utils/proceed-git'
 import { storeCache } from './utils/store-cache'
 
@@ -55,7 +53,7 @@ async function main() {
   infoLog('Successfully cached to local', config.pathname)
 
   if (config.createRemoteRepo === 'Yes') {
-    const { data } = await createRepository(config)
+    const data = await createRepository(config)
 
     await proceedGit({
       baseDir: config.pathname,

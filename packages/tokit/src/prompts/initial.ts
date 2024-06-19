@@ -32,11 +32,11 @@ const checkMissingConfig = async (
 
   if (createRemoteRepo === 'Yes') {
     const githubToken = process.env.TOKIT_GITHUB_TOKEN
-    const githubOrg = process.env.TOKIT_GITHUB_ORG_NAME
+    const githubOwner = process.env.TOKIT_GITHUB_OWNER
     const githubUserName = process.env.TOKIT_GITHUB_USERNAME
 
     if (!githubToken) missing.push('GitHub Token Environment')
-    if (!githubOrg) missing.push('GitHub Org Environment')
+    if (!githubOwner) missing.push('GitHub Owner Environment')
     if (!githubUserName) missing.push('GitHub Username Environment')
   }
 

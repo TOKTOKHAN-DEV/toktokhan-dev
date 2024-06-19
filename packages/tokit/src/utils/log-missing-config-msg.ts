@@ -18,10 +18,10 @@ export const logMissingConfigMessage = (missing: string[]) => {
   Please set the following environment variables in your terminal:
     
   ${chalk.bgWhite.blackBright('export TOKIT_GITHUB_TOKEN=<your-github-token>')}
-  ${chalk.bgWhite.blackBright('export TOKIT_GITHUB_ORG_NAME=<your-github-organization-name>')}
+  ${chalk.bgWhite.blackBright('export TOKIT_GITHUB_OWNER=<your-github-owner>')}
   ${chalk.bgWhite.blackBright('export TOKIT_GITHUB_USERNAME=<your-github-username>')}
   
-  Replace <your-github-token>, <your-github-organization-name>, and <your-github-username> with your actual GitHub information.
+  Replace <your-github-token>, <your-github-owner>, and <your-github-username> with your actual GitHub information.
   
   For more detailed instructions on how to do this, please refer to ${chalk.blue.bold.underline('https://www.xx')}.`
 

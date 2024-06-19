@@ -4,29 +4,36 @@ import { infoLog } from '@toktokhan-dev/node'
 import { InitialQuestionResponse } from '../prompts/initial'
 
 const GIT_TOKEN = process.env.TOKIT_GITHUB_TOKEN || ''
-const GIT_ORG = process.env.TOKIT_GITHUB_ORG_NAME || ''
+const GIT_OWNER = process.env.TOKIT_GITHUB_OWNER || ''
 const GIT_USERNAME = process.env.TOKIT_GITHUB_USERNAME || ''
 
 export const createRepository = async (config: InitialQuestionResponse) => {
-  const url = `https://github.com/${GIT_ORG}/${config.projectname}`
+  const url = `https://github.com/${GIT_OWNER}/${config.projectname}`
 
+  const owner = GIT_OWNER
+  const repo = config.projectname
   const github = new GitHubManager({
     token: GIT_TOKEN || '',
-    repo: config.projectname,
-    owner: GIT_ORG,
+    owner,
+    repo,
   })
 
-  const { data } = await github.createRepo()
+  const { clone_url, html_url, isOrg } = await github.createRepo(owner, repo)
+
   infoLog('successfully published to ', url)
 
-  await github.addCollaborator({
-    owner: GIT_ORG,
-    repo: config.projectname,
-    username: GIT_USERNAME,
-  })
-  infoLog(
-    `Successfully added the user ${GIT_USERNAME} as a collaborator to the ${GIT_ORG}/${config.projectname} repository.`,
-  )
+  if (!isOrg) {
+    infoLog(`Skipped add collaborator`)
+  } else {
+    await github.addCollaborator({
+      owner: GIT_OWNER,
+      repo: config.projectname,
+      username: GIT_USERNAME,
+    })
+    infoLog(
+      `Successfully added the user ${GIT_USERNAME} as a collaborator to the ${GIT_OWNER}/${config.projectname} repository.`,
+    )
+  }
 
-  return { data: { cloneUrl: data.clone_url, url: data.html_url } }
+  return { cloneUrl: clone_url, url: html_url }
 }

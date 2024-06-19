@@ -101,7 +101,7 @@ export class GitHubManager {
     } = params
     await this.checkTokenValidity()
 
-    await this.createRepo()
+    await this.createRepo(this.owner, this.repo)
 
     const blobFile = await Promise.all(fileContents.map(this.createBlob))
 
@@ -125,13 +125,13 @@ export class GitHubManager {
   /**
    * 레포지토리가 존재하는지 확인하는 메소드입니다.
    * {@link https://docs.github.com/ko/rest/repos/repos?apiVersion=2022-11-28#get-a-repository | @see @see GitHub API - Get a repository}
-   * @param org - 조직 이름입니다.
+   * @param owner - owner 이름입니다.
    * @param repo - 레포지토리 이름입니다.
    * @returns - 레포지토리가 존재하면 true를 반환합니다.
    */
-  isRepoExist = async (org: string, repo: string) => {
+  isRepoExist = async (owner: string, repo: string) => {
     try {
-      await this.octokit.repos.get({ owner: org, repo })
+      await this.octokit.repos.get({ owner, repo })
       return true
     } catch (error: any) {
       if (error.status === 404) {
@@ -143,33 +143,79 @@ export class GitHubManager {
 
   /**
    * 새로운 레포지토리를 생성하는 메소드입니다.
+   * @param isOrg - 저장소가 조직을 위한 것인지, 인증된 사용자를 위한 것인지를 나타내는 불리언 값입니다.
    * {@link https://docs.github.com/ko/rest/repos/repos?apiVersion=2022-11-28#create-an-organization-repository | @see GitHub API - Create an organization repository}
+   * {@link https://docs.github.com/en/rest/repos/repos#create-a-repository-for-the-authenticated-user | @see GitHub API - Create a repository for the authenticated user}
    */
-  createRepo: () => Promise<
-    RestEndpointMethodTypes['repos']['createInOrg']['response']
-  > = async () => {
-    const isRepoExist = await this.isRepoExist(this.owner, this.repo)
+  createRepo = async (
+    owner: string,
+    repo: string,
+  ): Promise<
+    RestEndpointMethodTypes['repos']['createInOrg']['response']['data'] & {
+      isOrg: boolean
+    }
+  > => {
+    const isRepoExist = await this.isRepoExist(owner, repo)
     if (isRepoExist) {
-      throw Error(`This repository already exists: ${this.owner}/${this.repo}`)
+      throw Error(`This repository already exists: ${owner}/${repo}`)
     }
 
-    const response = await this.octokit.repos.createInOrg({
-      org: this.owner,
-      name: this.repo,
-      auto_init: false,
-      private: true,
-    })
+    const isOrg = await this.checkOrganizationValidity(owner)
 
-    return response
+    if (isOrg) {
+      const { data } = await this.octokit.repos.createInOrg({
+        org: owner,
+        name: repo,
+      })
+
+      return { isOrg, ...data }
+    } else {
+      const { data } = await this.octokit.repos.createForAuthenticatedUser({
+        name: repo,
+      })
+      return { isOrg, ...data }
+    }
   }
+
+  /**
+   *  유효한 조직(Organization)인지 확인하는 메소드입니다.
+   * {@link https://docs.github.com/en/rest/orgs/orgs?apiVersion=2022-11-28 | @see GitHub API - Get an organization}
+   * @returns 조직(Organization)이 유효하면 `true`를 반환합니다.
+   */
+  checkOrganizationValidity = async (org: string): Promise<boolean> => {
+    try {
+      await this.octokit.rest.orgs.get({
+        org,
+      })
+      return true
+    } catch (error: any) {
+      if (error.status === 404) {
+        return false
+      }
+      throw error
+    }
+  }
+
+  /**
+   * 인증된 유지의 정보를 조회하는 메소드입니다.
+   * {@link https://docs.github.com/en/rest/users/users?apiVersion=2022-11-28#get-the-authenticated-user | @see GitHub API - Get the authenticated app}
+   * @returns 인증된 유저에 대한 정보를 반환합니다.
+   */
+  getUser = async (): Promise<
+    RestEndpointMethodTypes['users']['getAuthenticated']['response']['data']
+  > => {
+    const { data } = await this.octokit.rest.users.getAuthenticated()
+    return data
+  }
+
   /**
    * 유효한 토큰인지 확인하는 메소드입니다.
    * {@link https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-the-authenticated-app | @see GitHub API - Get the authenticated app}
    * @returns 토큰이 유효하면 `true`를 반환합니다.
    */
-  checkTokenValidity: () => Promise<boolean> = async () => {
+  checkTokenValidity = async (): Promise<boolean> => {
     try {
-      await this.octokit.rest.users.getAuthenticated()
+      await this.octokit.rest.apps.getAuthenticated()
       return true
     } catch (error: any) {
       if (error.status === 404) {
