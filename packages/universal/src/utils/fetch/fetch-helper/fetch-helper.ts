@@ -4,30 +4,42 @@
  */
 
 /**
+ * 
+ * @category Utils/Fetch
+ * 
  * fetch 함수의 args
  *
  * @throws {Error} 만약 fetch의 첫 번째 인자가 'Request' 객체인 경우에는 문자열과 URL만 지원됩니다.
 
- * @see {fetch, RequestInfo, Request}
+ * @see {@link https://developer.mozilla.org/ko/docs/Web/API/Fetch_API Fetch API}
+ * @see {@link https://developer.mozilla.org/ko/docs/Web/API/Request Request}
+ * @see {@link https://developer.mozilla.org/ko/docs/Web/API/Request/Request RequestInfo}
  *
  * @public
  */
+
 export type FetchArgs = [string | URL, RequestInit | undefined]
 
 /**
+ *
+ * @category Utils/Fetch
+ *
  * `fetchHelper` 함수의 타입입니다.
- * 이는 사용자 지정 `fetchHelper` 함수를 작성하고자 하는 사람들에게 유용합니다.
+ * 이는 사용자 지정 `fetchHelper` 함수를 작성하고자 할 때 유용합니다.
  *
  * @public
  */
-export type FetchHelper = typeof fetchHelper
+export type FetchHelperType = typeof fetchHelper
 
 /**
+ *
+ * @category Utils/Fetch
+ *
  * `fetchHelper` 함수의 옵션입니다.
  *
  * @public
  */
-export type FetchHelperDefaultOptions = {
+export interface FetchHelperDefaultOptions {
   /**
    * fetchHelper 함수에서 사용될 fetch 함수입니다.
    * 제공되지 않으면 전역 스코프의 fetch 함수가 사용됩니다.
@@ -36,7 +48,7 @@ export type FetchHelperDefaultOptions = {
    *
    * @public
    */
-  fetch?: ReturnType<FetchHelper>
+  fetch?: ReturnType<FetchHelperType>
   /**
    * fetch의 baseURL입니다.
    *
@@ -150,8 +162,6 @@ const normalizeArgs = async (
  * 고차 함수로 fetch를 확장하거나, interceptor, baseUrl, headers 을 옵션으로 넣어 사용할 수 있습니다.
  *
  * @param defaultOptions - fetchHelper 함수의 옵션입니다.
- *
- * @returns Promise<Response>
  *
  * @example
  *

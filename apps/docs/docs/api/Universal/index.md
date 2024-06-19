@@ -522,6 +522,32 @@ slug: /universal
 고차 함수로 fetch를 확장하거나, interceptor, baseUrl, headers 을 옵션으로 넣어 사용할 수 있습니다.
 
 </td></tr>
+
+<tr><td>
+
+[FetchHelperDefaultOptions](./universal.fetchhelperdefaultoptions)
+
+</td>
+
+
+<td>
+
+`fetchHelper` 함수의 옵션입니다.
+
+</td></tr>
+
+<tr><td>
+
+[FetchHelperType](./universal.fetchhelpertype)
+
+</td>
+
+
+<td>
+
+`fetchHelper` 함수의 타입입니다. 이는 사용자 지정 `fetchHelper` 함수를 작성하고자 할 때 유용합니다.
+
+</td></tr>
 </tbody>
 </table>
 
