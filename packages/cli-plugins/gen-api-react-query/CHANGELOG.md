@@ -1,5 +1,13 @@
 # @toktokhan-dev/cli-plugin-gen-api-react-query
 
+## 0.0.5
+
+### Patch Changes
+
+- b854210: fix react query type
+
+  '<' 와 같은 꺽쇠가 escape 처리 되는 이슈를 수정했습니다.
+
 ## 0.0.4
 
 ### Patch Changes
