@@ -1,10 +1,10 @@
-import { $ } from "@toktokhan-dev/node";
+import { $ } from '@toktokhan-dev/node'
 
 export const buildApiExtractorJson = () =>
   new Promise((resolve, reject) =>
-    $("turbo", ["api-extractor"], {
-      stdio: "ignore",
+    $('turbo', ['api-extractor'], {
+      stdio: 'inherit',
     })
-      .on("close", resolve)
-      .on("error", reject),
-  );
+      .on('close', resolve)
+      .on('error', reject),
+  )

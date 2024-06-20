@@ -1,10 +1,10 @@
-import { $ } from "@toktokhan-dev/node";
+import { $ } from '@toktokhan-dev/node'
 
 export const buildPackages = () =>
   new Promise((resolve, reject) =>
-    $("pnpm", ["build:packages"], {
-      stdio: "inherit",
+    $('pnpm', ['build:packages'], {
+      stdio: 'inherit',
     })
-      .on("close", resolve)
-      .on("error", reject),
-  );
+      .on('close', resolve)
+      .on('error', reject),
+  )

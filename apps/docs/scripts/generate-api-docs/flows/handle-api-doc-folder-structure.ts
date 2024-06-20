@@ -3,8 +3,6 @@ import path from 'path'
 
 import { errorLog } from '@toktokhan-dev/node'
 
-import { flow } from 'lodash'
-
 type DefaultReturnType = {
   dir: string
   sections: string[]

@@ -6,7 +6,7 @@ import { flow } from 'lodash/fp'
 const buildApiDocumentorPlugin = () =>
   new Promise((resolve, reject) =>
     $('pnpm', ['--filter', '@toktokhan-dev/doc-plugin', 'build'], {
-      stdio: 'ignore',
+      stdio: 'inherit',
     })
       .on('close', resolve)
       .on('error', (error) => reject(error)),
@@ -24,7 +24,7 @@ const buildApiMakrdownDocs = () =>
         './apps/docs/docs/api/',
       ],
       {
-        stdio: 'ignore',
+        stdio: 'inherit',
       },
     )
       .on('close', resolve)

@@ -17,7 +17,6 @@
  *
  * @public
  */
-
 export type FetchArgs = [string | URL, RequestInit | undefined]
 
 /**
