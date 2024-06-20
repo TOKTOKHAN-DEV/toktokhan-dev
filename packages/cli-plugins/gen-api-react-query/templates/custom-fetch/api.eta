@@ -122,7 +122,7 @@ const dataForReactHookTemplate = {
 };
 %>
 
-import { useQuery, useMutation, useInfiniteQuery } from '@tanstack/react-query';
+import { useQuery, useMutation, useInfiniteQuery, InfiniteData } from '@tanstack/react-query';
 import { QueryHookParams, InfiniteQueryHookParams, MutationHookParams, Parameter, RequestFnReturn } from "../@types/react-query-type";
 import { paramsSerializerBy } from "../@utils/param-serializer-by";
 import fetchExtended from "<%= instancePath %>";

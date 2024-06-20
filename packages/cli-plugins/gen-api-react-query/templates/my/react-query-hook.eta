@@ -75,7 +75,10 @@
 
 <% if (isQuery) { %>
   export const use<%~ classNameCase(functionName) %>Query = <
-    TData = RequestFnReturn<typeof <%= apiInstanceName %>.<%~ functionName %>>,
+      TData = InfiniteData<
+       RequestFnReturn<typeof <%= apiInstanceName %>.<%~ functionName %>>,
+       Parameter<typeof <%= apiInstanceName %>.<%~ functionName %>>
+  >,
   >(
   <%~ conditionalParamsText %>: QueryHookParams<typeof <%= apiInstanceName %>.<%~ functionName %>,
     <% if (isAxiosInstance) { %>

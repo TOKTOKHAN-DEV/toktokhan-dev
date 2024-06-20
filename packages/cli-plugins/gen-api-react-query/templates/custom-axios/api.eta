@@ -131,7 +131,7 @@ const dataForReactHookTemplate = {
 <% if (config.httpClientType === config.constants.HTTP_CLIENT.AXIOS) { %> import { AxiosRequestConfig, AxiosResponse } from "axios"; <% } %>
 
 import { AxiosError } from 'axios';
-import { useQuery, useMutation, useInfiniteQuery } from '@tanstack/react-query';
+import { useQuery, useMutation, useInfiniteQuery, InfiniteData } from '@tanstack/react-query';
 import { QueryHookParams, InfiniteQueryHookParams, MutationHookParams, Parameter, RequestFnReturn } from "../@types/react-query-type";
 import { paramsSerializerBy } "../@utils/param-serializer-by"
 
