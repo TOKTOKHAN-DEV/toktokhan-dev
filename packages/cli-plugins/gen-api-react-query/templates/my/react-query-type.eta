@@ -12,7 +12,7 @@ import {
 
 export type QueryHookParams<
   T extends CustomRequestFn,
-  Error = <%= errorType %>,
+  Error = <%~ errorType %>,
   TData = RequestFnReturn<T>,
   OriginData = RequestFnReturn<T>,
   Variables = Parameter<T>,
@@ -25,7 +25,7 @@ export type QueryHookParams<
 
 export type InfiniteQueryHookParams<
   T extends CustomRequestFn,
-  Error = <%= errorType %>,
+  Error = <%~ errorType %>,
   TData = RequestFnReturn<T>,
   OriginData = RequestFnReturn<T>,
   Variables = Parameter<T>,
@@ -40,7 +40,7 @@ export type InfiniteQueryHookParams<
 
 export type MutationHookParams<
   T extends CustomRequestFn,
-  Error = <%= errorType %>,
+  Error = <%~ errorType %>,
   Data = RequestFnReturn<T>,
   Variables = Parameter<T>,
 > = {
