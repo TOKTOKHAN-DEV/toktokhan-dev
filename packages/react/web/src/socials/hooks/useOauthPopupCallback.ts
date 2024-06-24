@@ -24,6 +24,20 @@ export type PopupReturnType = {
    */
   closePopup: () => void
 }
+/**
+ * `useOauthPopupCallback` 훅의 callback 파라미터 console.error('타입입니다',타입입니다)
+ */
+export type PopupCallBackParamType = {
+  /**
+   * OAuth 응답 데이터를 나타냅니다.
+   */
+  data: OauthResponse | null
+
+  /**
+   * 팝업을 닫는 함수를 나타냅니다.
+   */
+  closePopup: () => void
+}
 
 /**
  * @category Socials
@@ -35,7 +49,7 @@ export type PopupReturnType = {
  * @returns {PopupReturnType} OAuth 응답 데이터, 로딩 상태, 팝업을 닫는 함수를 반환합니다.
  */
 export const useOauthPopupCallback = (
-  cb?: useOauthCallbackParams<PopupReturnType>,
+  cb?: useOauthCallbackParams<PopupCallBackParamType>,
 ) => {
   const [oAuthResponse, setOauthResponse] = useState<OauthResponse | null>(null)
   const [isLoading, setIsLoading] = useState(true)
@@ -48,18 +62,18 @@ export const useOauthPopupCallback = (
 
   const createClosePopup = useCallback(
     (params: OauthResponse | null) => () => {
-      if (!isOpenedPopup) throw new Error('No popup')
+      if (!window.opener) throw new Error('No popup')
       if (!params) onFailRef?.current?.()
       const openerURL = window.opener.location.href
       window.opener.postMessage(params, openerURL)
       window.close()
     },
-    [isOpenedPopup],
+    [],
   )
 
   const closePopup = useCallback(
     () => createClosePopup(oAuthResponse),
-    [createClosePopup, oAuthResponse],
+    [oAuthResponse],
   )
 
   const handleOAuthCallback = useCallback(() => {
@@ -85,8 +99,8 @@ export const useOauthPopupCallback = (
     setIsLoading(false)
 
     const closePopup = createClosePopup(result)
-    onSuccessRef.current?.({ data: result, isLoading, closePopup })
-  }, [createClosePopup, isLoading])
+    onSuccessRef.current?.({ data: result, closePopup })
+  }, [createClosePopup])
 
   useEffect(() => {
     setIsOpenedPopup(!!window.opener)
@@ -101,5 +115,6 @@ export const useOauthPopupCallback = (
     data: oAuthResponse,
     isLoading,
     closePopup,
+    isOpenedPopup,
   }
 }

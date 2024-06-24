@@ -15,6 +15,6 @@ export type OauthCallbackParams = {
 
 export type OauthResponse = {
   token: string | null
-  socialType: string | null
+  socialType: 'kakao' | 'google' | 'naver' | 'facebook' | 'apple' | null
   returnUrl: string | null
 }

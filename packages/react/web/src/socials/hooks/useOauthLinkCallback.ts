@@ -21,6 +21,16 @@ export type LinkReturnType = {
 }
 
 /**
+ * `useOauthLinkCallback` 훅의 callback 파라미터 타입입니다.
+ */
+export type LinkCallBackParamType = {
+  /**
+   * OAuth 응답 데이터를 나타냅니다.
+   */
+  data: OauthResponse | null
+}
+
+/**
  * @category Socials
  *
  * OAuth 링크 콜백을 처리하는 React Hook입니다.
@@ -30,7 +40,7 @@ export type LinkReturnType = {
  * @returns {LinkReturnType} OAuth 응답 데이터와 로딩 상태를 반환합니다.
  */
 export const useOauthLinkCallback = (
-  cb?: useOauthCallbackParams<LinkReturnType>,
+  cb?: useOauthCallbackParams<LinkCallBackParamType>,
 ) => {
   const [oAuthResponse, setOauthResponse] = useState<OauthResponse | null>(null)
   const [isLoading, setIsLoading] = useState(true)
@@ -60,14 +70,17 @@ export const useOauthLinkCallback = (
       returnUrl: parsedState.returnUrl,
     }
     setOauthResponse(result)
-    onSuccessRef.current?.({ data: result, isLoading })
-    setIsLoading(false)
-  }, [isLoading])
+    onSuccessRef.current?.({ data: result })
+  }, [])
 
   useEffect(() => {
     if (window.opener) return
     handleOAuthCallback()
   }, [handleOAuthCallback])
+
+  useEffect(() => {
+    if (!!oAuthResponse) setIsLoading(false)
+  }, [oAuthResponse])
 
   return {
     data: oAuthResponse,

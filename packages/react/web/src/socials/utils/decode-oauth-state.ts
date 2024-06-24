@@ -1,5 +1,7 @@
+import { OauthResponse } from 'socials/types/callback'
+
 export type OauthStateReturnType = {
-  type: string | null
+  type: OauthResponse['socialType'] | null
   returnUrl: string | null
 }
 export const decodeOAuthState = (
