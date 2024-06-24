@@ -29,6 +29,7 @@ export const getExternals = (packageJsonPath) => {
  * @param {string} params.packageJsonPath
  * @param {string} params.entry
  * @param {string[]} params.formats
+ * @param {string[]} params.cjsInternals
  *
  * @return {import('rollup').RollupOptions[]}
  * */
@@ -68,10 +69,12 @@ export const setUpRollupByPackageJson = (params) => {
       format,
       options:
         format !== 'cjs' ?
-          {
-            external,
-          }
-        : undefined,
+          { external }
+        : {
+            external: external.filter(
+              (name) => !params.cjsInternals?.includes(name),
+            ),
+          },
     }),
   )
 }
@@ -94,7 +97,7 @@ export const setUpRollUp = (params) => {
     input,
     output: [
       {
-        sourcemap: true,
+        sourcemap: false,
         format: isDts ? 'es' : format,
         ...(isEsm ?
           {
