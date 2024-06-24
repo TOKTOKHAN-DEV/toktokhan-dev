@@ -54,6 +54,7 @@ describe('SyncedCookie', () => {
     const options = { path: '/newPath' }
     syncedCookie.set(data, options)
     expect(cookies.set).toHaveBeenCalledWith('testKey', data, {
+      ...syncedCookie.defaultOptions,
       ...options,
     })
   })
@@ -62,6 +63,7 @@ describe('SyncedCookie', () => {
     const options = { path: '/newPath' }
     syncedCookie.remove(options)
     expect(cookies.remove).toHaveBeenCalledWith('testKey', {
+      ...syncedCookie.defaultOptions,
       ...options,
     })
   })
