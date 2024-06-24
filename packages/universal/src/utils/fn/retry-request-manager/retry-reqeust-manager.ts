@@ -43,7 +43,8 @@ export const retryReqeustManager = () => {
         token = getToken()
       }
       const refreshed = await token
-      return onRefetch(refreshed)
+      const refectehd = await onRefetch(refreshed)
+      return refectehd
     } catch (err: any) {
       onError?.(err)
       throw err
