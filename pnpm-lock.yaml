@@ -391,6 +391,43 @@ importers:
 
   configs/ts-config: {}
 
+  packages/chakra:
+    dependencies:
+      '@chakra-ui/layout':
+        specifier: ^2.3.1
+        version: 2.3.1(@chakra-ui/system@2.6.2)(react@18.3.1)
+      '@chakra-ui/spinner':
+        specifier: ^2.1.0
+        version: 2.1.0(@chakra-ui/system@2.6.2)(react@18.3.1)
+      '@toktokhan-dev/react-web':
+        specifier: workspace:*
+        version: link:../react/web
+      '@toktokhan-dev/universal':
+        specifier: workspace:*
+        version: link:../universal
+      lodash:
+        specifier: ^4.17.21
+        version: 4.17.21
+    devDependencies:
+      '@toktokhan-dev/ts-config':
+        specifier: workspace:*
+        version: link:../../configs/ts-config
+      '@types/lodash':
+        specifier: ^4.17.0
+        version: 4.17.5
+      '@types/react':
+        specifier: ^18.3.3
+        version: 18.3.3
+      '@types/react-dom':
+        specifier: ^18.0.11
+        version: 18.3.0
+      react:
+        specifier: ^18.3.1
+        version: 18.3.1
+      react-dom:
+        specifier: ^18.3.1
+        version: 18.3.1(react@18.3.1)
+
   packages/cli:
     dependencies:
       '@toktokhan-dev/node':

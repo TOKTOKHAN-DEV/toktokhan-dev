@@ -24,6 +24,17 @@ Description
 </th></tr></thead>
 <tbody><tr><td>
 
+[@toktokhan-dev/chakra](./chakra)
+
+
+</td><td>
+
+charka-ui 와 함께 사용할 수 있는 component, hooks 가 포함된 패키지 입니다.
+
+
+</td></tr>
+<tr><td>
+
 [@toktokhan-dev/cli](./cli)
 
 

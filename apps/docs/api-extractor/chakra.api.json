@@ -1,0 +1,850 @@
+{
+  "metadata": {
+    "toolPackage": "@microsoft/api-extractor",
+    "toolVersion": "7.47.0",
+    "schemaVersion": 1011,
+    "oldestForwardsCompatibleVersion": 1001,
+    "tsdocConfig": {
+      "$schema": "https://developer.microsoft.com/json-schemas/tsdoc/v0/tsdoc.schema.json",
+      "noStandardTags": true,
+      "tagDefinitions": [
+        {
+          "tagName": "@alpha",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@beta",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@defaultValue",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@decorator",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@deprecated",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@eventProperty",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@example",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@experimental",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@inheritDoc",
+          "syntaxKind": "inline"
+        },
+        {
+          "tagName": "@internal",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@label",
+          "syntaxKind": "inline"
+        },
+        {
+          "tagName": "@link",
+          "syntaxKind": "inline",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@override",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@packageDocumentation",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@param",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@privateRemarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@public",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@readonly",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@remarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@returns",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@sealed",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@see",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@throws",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@typeParam",
+          "syntaxKind": "block",
+          "allowMultiple": true
+        },
+        {
+          "tagName": "@virtual",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@betaDocumentation",
+          "syntaxKind": "modifier"
+        },
+        {
+          "tagName": "@internalRemarks",
+          "syntaxKind": "block"
+        },
+        {
+          "tagName": "@preapproved",
+          "syntaxKind": "modifier"
+        }
+      ],
+      "supportForTags": {
+        "@alpha": true,
+        "@beta": true,
+        "@defaultValue": true,
+        "@decorator": true,
+        "@deprecated": true,
+        "@eventProperty": true,
+        "@example": true,
+        "@experimental": true,
+        "@inheritDoc": true,
+        "@internal": true,
+        "@label": true,
+        "@link": true,
+        "@override": true,
+        "@packageDocumentation": true,
+        "@param": true,
+        "@privateRemarks": true,
+        "@public": true,
+        "@readonly": true,
+        "@remarks": true,
+        "@returns": true,
+        "@sealed": true,
+        "@see": true,
+        "@throws": true,
+        "@typeParam": true,
+        "@virtual": true,
+        "@betaDocumentation": true,
+        "@internalRemarks": true,
+        "@preapproved": true
+      },
+      "reportUnsupportedHtmlElements": false
+    }
+  },
+  "kind": "Package",
+  "canonicalReference": "@toktokhan-dev/chakra!",
+  "docComment": "/**\n * charka-ui 와 함께 사용할 수 있는 component, hooks 가 포함된 패키지 입니다.\n *\n * @packageDocumentation\n */\n",
+  "name": "@toktokhan-dev/chakra",
+  "preserveMemberOrder": false,
+  "members": [
+    {
+      "kind": "EntryPoint",
+      "canonicalReference": "@toktokhan-dev/chakra!",
+      "name": "",
+      "preserveMemberOrder": false,
+      "members": [
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/chakra!InfinityContent:function(1)",
+          "docComment": "/**\n  *\n * 무한 스크롤을 구현할 수 있는 컴포넌트입니다. 자식에 랜더링하고 싶은 컴포넌트(리스트 컴포넌트)를 받아 랜더링합니다. 유저의 화면이 스크롤 될때 observer 가 보고 있는 요소가 화면에 보이면 `onFetchMore` 함수를 호출합니다.\n *\n * @example\n * ```tsx\n *\n * const ExampleComponent = () => {\n *  const { data, fetchNextPage, hasNextPage, isFetchingNextPage } = usePostsInfiniteQuery();\n *\n *  return (\n *   <InfinityContent\n *      hasMore={hasNextPage}\n *      isFetching={isFetchingNextPage}\n *      onFetchMore={fetchNextPage}\n *   >\n *    <PostList data={data} />\n *  </InfinityContent>\n *  )\n * }\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "InfinityContent: ({\n  children,\n  hasMore,\n  isFetching,\n  onFetchMore,\n  observerOption,\n  styles,\n  spinner\n}: "
+            },
+            {
+              "kind": "Reference",
+              "text": "InfinityContentProps",
+              "canonicalReference": "@toktokhan-dev/chakra!InfinityContentProps:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Reference",
+              "text": "react_jsx_runtime.JSX.Element",
+              "canonicalReference": "@types/react!JSX.Element:interface"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "{  children,  hasMore,  isFetching,  onFetchMore,  observerOption,  styles,  spinner}",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "InfinityContent"
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@toktokhan-dev/chakra!InfinityContentProps:interface",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "interface InfinityContentProps "
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "InfinityContentProps",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/chakra!InfinityContentProps#children:member",
+              "docComment": "/**\n * 자식 컴포넌트\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "children: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ReactNode",
+                  "canonicalReference": "@types/react!React.ReactNode:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "children",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/chakra!InfinityContentProps#hasMore:member",
+              "docComment": "/**\n * 다음 페이지가 있는지 여부\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "hasMore: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "boolean"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "hasMore",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/chakra!InfinityContentProps#isFetching:member",
+              "docComment": "/**\n * 데이터를 가져오고 있는지 여부\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "isFetching: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "boolean"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "isFetching",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/chakra!InfinityContentProps#observerOption:member",
+              "docComment": "/**\n * IntersectionObserver 옵션\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "observerOption?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "IntersectionObserverInit",
+                  "canonicalReference": "!IntersectionObserverInit:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "observerOption",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/chakra!InfinityContentProps#onFetchMore:member",
+              "docComment": "/**\n * 데이터를 가져오는 함수\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "onFetchMore: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "() => void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "onFetchMore",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/chakra!InfinityContentProps#spinner:member",
+              "docComment": "/**\n * isFetching 시 보여줄 스피너\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "spinner?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ReactNode",
+                  "canonicalReference": "@types/react!React.ReactNode:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "spinner",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/chakra!InfinityContentProps#styles:member",
+              "docComment": "/**\n * 스타일\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "styles?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "{\n    container?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "BoxProps",
+                  "canonicalReference": "@chakra-ui/layout!BoxProps:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";\n    bottomFlag?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "BoxProps",
+                  "canonicalReference": "@chakra-ui/layout!BoxProps:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";\n  }"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "styles",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 6
+              }
+            }
+          ],
+          "extendsTokenRanges": [],
+          "parameters": []
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/chakra!InfinityList:function(1)",
+          "docComment": "/**\n  *\n * 무한 스크롤을 구현할 수 있는 컴포넌트입니다. data 와 renderItem 을 직접 받아 랜더링합니다.\n *\n * 스크롤이 끝에 도달하여 observer 가 보고 있는 요소가 화면에 보이면 `onFetchMore` 함수를 호출합니다.\n *\n * @example\n * ```tsx\n *\n * const ExampleComponent = () => {\n * const { data, fetchNextPage, hasNextPage, isFetchingNextPage } = usePostsInfiniteQuery();\n *\n * return (\n *  <InfinityList\n *    data={data}\n *    hasMore={hasNextPage}\n *    isFetching={isFetchingNextPage}\n *    onFetchMore={fetchNextPage}\n *    renderItem={({ item, index }) => <PostItem key={index} item={item} />}\n *    />\n *  )\n * }\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "InfinityList: <T>({\n  data,\n  renderItem,\n  hasMore,\n  isFetching,\n  onFetchMore,\n  observerOption,\n  empty,\n  spinner,\n  styles\n}: "
+            },
+            {
+              "kind": "Reference",
+              "text": "InfinityListProps",
+              "canonicalReference": "@toktokhan-dev/chakra!InfinityListProps:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<T>"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "string | number | boolean | "
+            },
+            {
+              "kind": "Reference",
+              "text": "Iterable",
+              "canonicalReference": "!Iterable:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "ReactNode",
+              "canonicalReference": "@types/react!React.ReactNode:type"
+            },
+            {
+              "kind": "Content",
+              "text": "> | "
+            },
+            {
+              "kind": "Reference",
+              "text": "react_jsx_runtime.JSX.Element",
+              "canonicalReference": "@types/react!JSX.Element:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " | null | undefined"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 4,
+            "endIndex": 11
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "{  data,  renderItem,  hasMore,  isFetching,  onFetchMore,  observerOption,  empty,  spinner,  styles}",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              },
+              "isOptional": false
+            }
+          ],
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "name": "InfinityList"
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@toktokhan-dev/chakra!InfinityListProps:interface",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "interface InfinityListProps<T> "
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "name": "InfinityListProps",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/chakra!InfinityListProps#data:member",
+              "docComment": "/**\n * 렌더링할 아이템\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "data: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "T[]"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "data",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/chakra!InfinityListProps#empty:member",
+              "docComment": "/**\n * 데이터가 없을 때 보여줄 컴포넌트\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "empty?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ReactNode",
+                  "canonicalReference": "@types/react!React.ReactNode:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "empty",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/chakra!InfinityListProps#hasMore:member",
+              "docComment": "/**\n * 다음 페이지가 있는지 여부\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "hasMore: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "boolean"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "hasMore",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/chakra!InfinityListProps#isFetching:member",
+              "docComment": "/**\n * 데이터를 가져오고 있는지 여부\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "isFetching: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "boolean"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "isFetching",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/chakra!InfinityListProps#observerOption:member",
+              "docComment": "/**\n * IntersectionObserver 옵션\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "observerOption?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "IntersectionObserverInit",
+                  "canonicalReference": "!IntersectionObserverInit:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "observerOption",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/chakra!InfinityListProps#onFetchMore:member",
+              "docComment": "/**\n * 데이터를 가져오는 함수\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "onFetchMore: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "() => void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "onFetchMore",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/chakra!InfinityListProps#renderItem:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "renderItem: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "({\n    item,\n    index\n  }: {\n    item: T;\n    index: number;\n  }) => "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ReactNode",
+                  "canonicalReference": "@types/react!React.ReactNode:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": " | null"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "renderItem",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 4
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/chakra!InfinityListProps#spinner:member",
+              "docComment": "/**\n * isFetching 시 보여줄 스피너\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "spinner?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ReactNode",
+                  "canonicalReference": "@types/react!React.ReactNode:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "spinner",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/chakra!InfinityListProps#styles:member",
+              "docComment": "/**\n * 스타일\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "styles?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "{\n    container?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "StackProps",
+                  "canonicalReference": "@chakra-ui/layout!StackProps:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";\n    itemContainer?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "BoxProps",
+                  "canonicalReference": "@chakra-ui/layout!BoxProps:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";\n    bottomFlag?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "BoxProps",
+                  "canonicalReference": "@chakra-ui/layout!BoxProps:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";\n  }"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "styles",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 8
+              }
+            }
+          ],
+          "extendsTokenRanges": [],
+          "parameters": []
+        }
+      ]
+    }
+  ]
+}

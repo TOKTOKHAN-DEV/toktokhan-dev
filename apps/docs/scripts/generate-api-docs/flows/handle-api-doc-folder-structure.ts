@@ -17,6 +17,7 @@ class FileOrganizer {
     'react-web': 'api/React/Web',
     cli: 'api/cli',
     node: 'api/node',
+    chakra: 'api/Chakra',
     'cli-plugin-gen-api-react-query': 'api/cli-plugins/gen-api-react-query',
     'cli-plugin-gen-icon-chakra': 'api/cli-plugins/gen-icon-chakra',
     'cli-plugin-gen-img': 'api/cli-plugins/gen-img',
