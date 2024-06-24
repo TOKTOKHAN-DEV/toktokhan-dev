@@ -1,6 +1,5 @@
-import { CookieOptions, SyncedCookie } from 'storage/synced-cookie'
-
 import { ReactSyncConnector } from '../react-sync-connector'
+import { CookieOptions, SyncedCookie } from '../synced-cookie'
 import { SyncedStorage } from '../synced-storage'
 
 /**
