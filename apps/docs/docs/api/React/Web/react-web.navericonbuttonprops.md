@@ -10,7 +10,7 @@ slug: /react-web.navericonbuttonprops
 
 
 
-NaverIconButtonProps는 IconButtonProps에서 'socialType'과 'icon'을 제외한 속성들을 상속받습니다.
+IconButtonProps에서 'socialType'과 'icon'을 제외한 속성들을 상속받습니다.
 
 ## Signature
 

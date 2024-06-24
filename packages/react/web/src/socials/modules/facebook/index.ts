@@ -1,2 +1,3 @@
-export * from './FacebookButtons'
+export * from './FacebookIconButton'
+export * from './FacebookButton'
 export * from './facebook'

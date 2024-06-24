@@ -35,14 +35,14 @@
     "@next/mdx": "^14.1.4",
     "@testing-library/jest-dom": "^6.4.5",
     "@testing-library/react": "^14.0.0",
+    "@toktokhan-dev/cli": "workspace:*",
+    "@toktokhan-dev/cli-plugin-commit": "workspace:*",
     "@toktokhan-dev/doc-plugin": "workspace:*",
     "@toktokhan-dev/eslint-config": "workspace:*",
     "@toktokhan-dev/node": "workspace:*",
     "@toktokhan-dev/prettier-config": "workspace:*",
     "@toktokhan-dev/rollup-config": "workspace:*",
     "@toktokhan-dev/ts-config": "workspace:*",
-    "@toktokhan-dev/cli": "workspace:*",
-    "@toktokhan-dev/cli-plugin-commit": "workspace:*",
     "@types/babel__core": "^7.20.5",
     "@types/jest": "^28.1.8",
     "@types/node": "^20.11.30",
@@ -61,5 +61,8 @@
   "packageManager": "pnpm@8.9.0",
   "engines": {
     "node": ">=18"
+  },
+  "dependencies": {
+    "@toktokhan-dev/react-web": "^0.0.3"
   }
 }

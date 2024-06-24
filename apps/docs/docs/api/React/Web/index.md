@@ -119,27 +119,67 @@ Apple OAuth 인증을 처리하는 클래스입니다. SocialOauthInit 클래스
 
 <tr><td>
 
-[AppleButton](./react-web.applebutton)
+[AppleButton(props)](./react-web.applebutton)
 
 </td>
 
 
 <td>
 
-애플 소셜 로그인 버튼 UI 컴포넌트입니다. [`FullButton`](./react-web.fullbutton) 컴포넌트를 기반으로 하여, 애플 아이콘과 스타일, 레이블을 포함합니다.
+애플 버튼 UI 컴포넌트입니다.  컴포넌트를 기반으로 하여, 애플 아이콘과 스타일, 레이블을 포함합니다.
 
 </td></tr>
 
 <tr><td>
 
-[AppleIconButton](./react-web.appleiconbutton)
+[AppleIconButton(props)](./react-web.appleiconbutton)
 
 </td>
 
 
 <td>
 
-애플 소셜 로그인 아이콘 버튼 UI 컴포넌트입니다. 아이콘 버튼으로 사용되며 레이블과 함께 표기됩니다. [`IconButton`](./react-web.iconbutton) 컴포넌트를 기반으로 하며, 애플 아이콘 및 버튼 스타일링이 가능합니다.
+애플 아이콘 버튼 UI 컴포넌트입니다.  컴포넌트를 기반으로 하며, 애플 아이콘 및 버튼 스타일링이 가능합니다.
+
+</td></tr>
+</tbody>
+</table>
+
+
+
+## Socials/Facebook
+
+<table>
+<thead>
+<tr>
+<th>Socials/Facebook</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>
+
+[FacebookButton(props)](./react-web.facebookbutton)
+
+</td>
+
+
+<td>
+
+페이스북 버튼 UI 컴포넌트입니다.  컴포넌트를 기반으로 하여, 페이스북 아이콘과 스타일, 레이블을 포함합니다.
+
+</td></tr>
+
+<tr><td>
+
+[FacebookIconButton(props)](./react-web.facebookiconbutton)
+
+</td>
+
+
+<td>
+
+페이스북 아이콘 버튼 UI 컴포넌트입니다.  컴포넌트를 기반으로 하며, 페이스북 아이콘 및 버튼 스타일링이 가능합니다.
 
 </td></tr>
 </tbody>
@@ -167,32 +207,6 @@ Apple OAuth 인증을 처리하는 클래스입니다. SocialOauthInit 클래스
 <td>
 
 Facebook OAuth 인증을 처리하는 클래스입니다. SocialOauthInit 클래스를 상속받아 구현되었습니다.
-
-</td></tr>
-
-<tr><td>
-
-[FacebookButton](./react-web.facebookbutton)
-
-</td>
-
-
-<td>
-
-페이스북 소셜 로그인 버튼 UI 컴포넌트입니다. [`FullButton`](./react-web.fullbutton) 컴포넌트를 기반으로 하여, 페이스북 아이콘과 스타일, 레이블을 포함합니다.
-
-</td></tr>
-
-<tr><td>
-
-[FacebookIconButton](./react-web.facebookiconbutton)
-
-</td>
-
-
-<td>
-
-페이스북 소셜 로그인 아이콘 버튼 UI 컴포넌트입니다. 아이콘 버튼으로 사용되며 레이블과 함께 표기됩니다. [`IconButton`](./react-web.iconbutton) 컴포넌트를 기반으로 하며, 페이스북 아이콘 및 버튼 스타일링이 가능합니다.
 
 </td></tr>
 </tbody>
@@ -225,27 +239,27 @@ Google OAuth 인증을 처리하는 클래스입니다. SocialOauthInit 클래�
 
 <tr><td>
 
-[GoogleButton](./react-web.googlebutton)
+[GoogleButton(\{ style, ...props\})](./react-web.googlebutton)
 
 </td>
 
 
 <td>
 
-구글소셜 로그인 버튼 UI 컴포넌트입니다. [`FullButton`](./react-web.fullbutton) 컴포넌트를 기반으로 하여, 구글 아이콘과 스타일, 레이블을 포함합니다.
+구글 버튼 UI 컴포넌트입니다.  컴포넌트를 기반으로 하여, 구글 아이콘과 스타일, 레이블을 포함합니다.
 
 </td></tr>
 
 <tr><td>
 
-[GoogleIconButton](./react-web.googleiconbutton)
+[GoogleIconButton(\{ style, iconStyle, ...props\})](./react-web.googleiconbutton)
 
 </td>
 
 
 <td>
 
-구글 소셜 로그인 아이콘 버튼 UI 컴포넌트입니다. 아이콘 버튼으로 사용되며 레이블과 함께 표기됩니다. [`IconButton`](./react-web.iconbutton) 컴포넌트를 기반으로 하며, 구글 아이콘 및 버튼 스타일링이 가능합니다.
+구글 아이콘 버튼 UI 컴포넌트입니다.  컴포넌트를 기반으로 하며, 구글 아이콘 및 버튼 스타일링이 가능합니다.
 
 </td></tr>
 </tbody>
@@ -278,27 +292,27 @@ Kakao OAuth 인증을 처리하는 클래스입니다. SocialOauthInit 클래스
 
 <tr><td>
 
-[KakaoButton](./react-web.kakaobutton)
+[KakaoButton(props)](./react-web.kakaobutton)
 
 </td>
 
 
 <td>
 
-카카오 소셜 로그인 버튼 UI 컴포넌트입니다. [`FullButton`](./react-web.fullbutton) 컴포넌트를 기반으로 하여, 카카오 아이콘과 스타일, 레이블을 포함합니다.
+네이버 버튼 UI 컴포넌트입니다.  컴포넌트를 기반으로 하여, 네이버 아이콘과 스타일, 레이블을 포함합니다.
 
 </td></tr>
 
 <tr><td>
 
-[KakaoIconButton](./react-web.kakaoiconbutton)
+[KakaoIconButton(props)](./react-web.kakaoiconbutton)
 
 </td>
 
 
 <td>
 
-카카오 소셜 로그인 아이콘 버튼 UI 컴포넌트입니다. [`IconButton`](./react-web.iconbutton) 컴포넌트를 기반으로 하며, 카카오 아이콘과 스타일, 레이블을 포함합니다.
+카카오 아이콘 버튼 UI 컴포넌트입니다.  컴포넌트를 기반으로 하며, 카카오 아이콘 및 버튼 스타일링이 가능합니다.
 
 </td></tr>
 </tbody>
@@ -331,27 +345,27 @@ Kakao OAuth 인증을 처리하는 클래스입니다. SocialOauthInit 클래스
 
 <tr><td>
 
-[NaverButton](./react-web.naverbutton)
+[NaverButton(props)](./react-web.naverbutton)
 
 </td>
 
 
 <td>
 
-네이버 소셜 로그인 버튼 UI 컴포넌트입니다. [`FullButton`](./react-web.fullbutton) 컴포넌트를 기반으로 하여, 네이버 아이콘과 스타일, 레이블을 포함합니다.
+네이버 버튼 UI 컴포넌트입니다.  컴포넌트를 기반으로 하여, 네이버 아이콘과 스타일, 레이블을 포함합니다.
 
 </td></tr>
 
 <tr><td>
 
-[NaverIconButton](./react-web.navericonbutton)
+[NaverIconButton(props)](./react-web.navericonbutton)
 
 </td>
 
 
 <td>
 
-네이버 소셜 로그인 아이콘 버튼 UI 컴포넌트입니다. 아이콘 버튼으로 사용되며 레이블과 함께 표기됩니다. [`IconButton`](./react-web.iconbutton) 컴포넌트를 기반으로 하며, 네이버 아이콘 및 버튼 스타일링이 가능합니다.
+네이버 아이콘 버튼 UI 컴포넌트입니다.  컴포넌트를 기반으로 하며, 네이버 아이콘 및 버튼 스타일링이 가능합니다.
 
 </td></tr>
 </tbody>

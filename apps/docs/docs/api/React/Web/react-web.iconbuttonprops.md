@@ -15,9 +15,8 @@ slug: /react-web.iconbuttonprops
 ## Signature
 
 ```typescript
-interface IconButtonProps extends HTMLAttributes<HTMLAnchorElement> 
+interface IconButtonProps 
 ```
-**Extends:** HTMLAttributes&lt;HTMLAnchorElement&gt;
 
 ## Properties
 
@@ -158,6 +157,25 @@ _(Optional)_ 버튼의 언어를 설정합니다. 'en' 또는 'ko' 중 하나를
 </td></tr>
 <tr><td>
 
+[onClick?](./react-web.iconbuttonprops.onclick)
+
+
+</td><td>
+
+
+</td><td>
+
+HTMLAttributes&lt;HTMLAnchorElement&gt;['onClick']
+
+
+</td><td>
+
+_(Optional)_ onClick 속성을 설정합니다.
+
+
+</td></tr>
+<tr><td>
+
 [socialType](./react-web.iconbuttonprops.socialtype)
 
 
@@ -172,6 +190,25 @@ _(Optional)_ 버튼의 언어를 설정합니다. 'en' 또는 'ko' 중 하나를
 </td><td>
 
 소셜 타입을 지정합니다. 이를 통해 버튼의 스타일과 레이블이 결정됩니다.
+
+
+</td></tr>
+<tr><td>
+
+[style?](./react-web.iconbuttonprops.style)
+
+
+</td><td>
+
+
+</td><td>
+
+HTMLAttributes&lt;HTMLAnchorElement&gt;['style']
+
+
+</td><td>
+
+_(Optional)_ anchor 태그의 스타일을 설정합니다.
 
 
 </td></tr>

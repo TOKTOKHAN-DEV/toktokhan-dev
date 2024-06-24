@@ -16,7 +16,15 @@ import { SocialType } from '../types/social'
  * `IconButtonProps`는 `IconButton` 컴포넌트가 받는 속성들을 정의합니다.
  * HTMLAnchorElement의 속성을 상속하며, 추가적으로 아래의 속성들을 가집니다.
  */
-export interface IconButtonProps extends HTMLAttributes<HTMLAnchorElement> {
+export interface IconButtonProps {
+  /**
+   * anchor 태그의 스타일을 설정합니다.
+   */
+  style?: HTMLAttributes<HTMLAnchorElement>['style']
+  /**
+   * onClick 속성을 설정합니다.
+   */
+  onClick?: HTMLAttributes<HTMLAnchorElement>['onClick']
   /**
    * 아이콘 버튼의 모양을 결정합니다. 'full', 'rounded', 'square' 중 하나를 선택할 수 있습니다.
    * @default 'full'
