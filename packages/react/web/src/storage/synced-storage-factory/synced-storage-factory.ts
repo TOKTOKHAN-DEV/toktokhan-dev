@@ -1,3 +1,5 @@
+import { CookieOptions, SyncedCookie } from 'storage/synced-cookie'
+
 import { ReactSyncConnector } from '../react-sync-connector'
 import { SyncedStorage } from '../synced-storage'
 
@@ -40,6 +42,19 @@ export class SyncedStorageFactory {
   static createSession = <Data>(key: string) => {
     const store = typeof window === 'undefined' ? null : sessionStorage
     return this.create<Data>(key, store)
+  }
+
+  /**
+   * 쿠키를 생성합니다.
+   * @param key 쿠키 키
+   * @param store 쿠키 객체
+   * @returns 생성된 쿠키와 커넥터 객체
+   */
+  static createCookie = <Data>(key: string, options?: CookieOptions) => {
+    const storage = new SyncedCookie<Data>(key, options)
+    const connector = new ReactSyncConnector(storage)
+
+    return { storage, connector }
   }
 
   /**
