@@ -48,7 +48,7 @@ export class SyncedCookie<Data> extends ReactSynced<Data> {
   ) {
     super()
     if (options) {
-      this.defaultOptions = { ...this.defaultOptions, ...options }
+      this.defaultOptions = Object.assign({}, this.defaultOptions, options)
     }
     this.key = key
     this.data = this.get()
@@ -73,10 +73,8 @@ export class SyncedCookie<Data> extends ReactSynced<Data> {
    */
   set = (data: DataOrFn<Data | null>, options?: CookieOptions): void => {
     this.data = runIfFn(data, this.data)
-    this.storage.set(this.key, this.data, {
-      ...this.defaultOptions,
-      ...(options || {}),
-    })
+    const finalOptions = Object.assign({}, this.defaultOptions, options)
+    this.storage.set(this.key, this.data, finalOptions)
   }
 
   /**
@@ -86,9 +84,7 @@ export class SyncedCookie<Data> extends ReactSynced<Data> {
    */
   remove = (options?: CookieOptions): void => {
     this.data = null
-    this.storage.remove(this.key, {
-      ...this.defaultOptions,
-      ...(options || {}),
-    })
+    const finalOptions = Object.assign({}, this.defaultOptions, options)
+    this.storage.remove(this.key, finalOptions)
   }
 }
