@@ -34,11 +34,20 @@ export class ReactSyncConnector<Data> {
   private synced: ReactSynced<Data> | null
 
   /**
+   * 서버 초깃값에 해당합니다.
+   */
+  private serverSynced?: Data | null
+
+  /**
    * ReactSyncConnector 인스턴스를 생성합니다.
    * Storage 모듈에 emitChange 함수를 연결합니다.
+   *
+   * @param synced - ReactSynced 인터페이스를 구현한 객체입니다.
+   * @param serverSynced - 사용자가 제공하는 서버 초기값입니다.
    */
-  constructor(synced: ReactSynced<Data> | null) {
+  constructor(synced: ReactSynced<Data> | null, serverSynced?: Data) {
     this.synced = synced
+    this.serverSynced = serverSynced
     this.synced?.connect(this.emitChange)
   }
 
@@ -67,10 +76,10 @@ export class ReactSyncConnector<Data> {
   /**
    * 서버 데이터의 스냅샷을 반환합니다.
    *
-   * @returns 서버에서 Storage는 없기 때문에 `null`을 반환합니다.
+   * @returns 서버 초깃값 또는 null을 반환합니다.
    */
   public getServerSnapShot = () => {
-    return null
+    return this.serverSynced ?? null
   }
 
   /**
