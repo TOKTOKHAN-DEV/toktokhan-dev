@@ -1,5 +1,13 @@
 # @toktokhan-dev/react-web
 
+## 0.0.5
+
+### Patch Changes
+
+- 5ac71c0: Social hook 을 수정하였습니다.
+
+  - onSuccess 의 파라미터에서 isLoading을 제거하였습니다.
+
 ## 0.0.4
 
 ### Patch Changes
