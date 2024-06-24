@@ -1,5 +1,12 @@
 # @toktokhan-dev/universal
 
+## 0.0.5
+
+### Patch Changes
+
+- Updated dependencies [b895311]
+  - @toktokhan-dev/node@0.0.4
+
 ## 0.0.4
 
 ### Patch Changes

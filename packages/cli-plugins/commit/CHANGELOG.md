@@ -1,5 +1,13 @@
 # @toktokhan-dev/cli-plugin-commit
 
+## 0.0.4
+
+### Patch Changes
+
+- Updated dependencies [b895311]
+  - @toktokhan-dev/node@0.0.4
+  - @toktokhan-dev/cli@0.0.5
+
 ## 0.0.3
 
 ### Patch Changes
