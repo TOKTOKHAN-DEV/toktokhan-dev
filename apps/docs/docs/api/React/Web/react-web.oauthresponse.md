@@ -14,7 +14,7 @@ slug: /react-web.oauthresponse
 
 ```typescript
 type OauthResponse = {
-  token: string | null;
+  code: string | null;
   socialType: 'kakao' | 'google' | 'naver' | 'facebook' | 'apple' | null;
   returnUrl: string | null;
 };
