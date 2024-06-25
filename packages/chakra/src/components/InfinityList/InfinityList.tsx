@@ -15,7 +15,7 @@ export interface InfinityListProps<T> {
   /**
    *
    */
-  renderItem: ({ item, index }: { item: T; index: number }) => ReactNode | null
+  renderItem: (item: T, index: number) => ReactNode | null
 
   /**
    * 다음 페이지가 있는지 여부
@@ -145,7 +145,7 @@ export const InfinityList = <T,>({
       >
         {data?.map((item, index) => (
           <Box as={'li'} w={'100%'} key={index} {...styles?.itemContainer}>
-            {renderItem({ item, index })}
+            {renderItem(item, index)}
           </Box>
         ))}
       </VStack>
