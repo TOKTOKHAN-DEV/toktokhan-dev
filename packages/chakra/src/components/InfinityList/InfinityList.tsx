@@ -57,6 +57,11 @@ export interface InfinityListProps<T> {
     container?: StackProps
 
     /**
+     * 리스트 컨테이너 스타일
+     */
+    listContainer?: BoxProps
+
+    /**
      * 아이템 컨테이너 스타일
      */
     itemContainer?: BoxProps
@@ -110,31 +115,42 @@ export const InfinityList = <T,>({
   ),
   styles,
 }: InfinityListProps<T>) => {
-  const { targetRef: bottomRef } = useIntersectionObserver({
-    onVisible: () => {
-      if (!isFetching && hasMore) {
-        onFetchMore()
-      }
+  const { targetRef: bottomRef } = useIntersectionObserver(
+    {
+      onVisible: () => {
+        if (!isFetching && hasMore) {
+          onFetchMore()
+        }
+      },
+      options: {
+        root: observerOption?.root ?? null,
+        rootMargin: observerOption?.rootMargin ?? '0px',
+        threshold: observerOption?.threshold ?? 0.5,
+      },
     },
-    options: {
-      root: observerOption?.root ?? null,
-      rootMargin: observerOption?.rootMargin ?? '0px',
-      threshold: observerOption?.threshold ?? 0.5,
-    },
-  })
+    [isFetching, hasMore],
+  )
 
   if (isEmpty(data)) return empty
 
   return (
-    <VStack as={'ul'} spacing={'0px'} w={'100%'} {...styles?.container}>
-      {data?.map((item, index) => (
-        <Box as={'li'} w={'100%'} key={index} {...styles?.itemContainer}>
-          {renderItem({ item, index })}
-        </Box>
-      ))}
+    <Box {...styles?.container}>
+      <VStack
+        as={'ul'}
+        w={'100%'}
+        spacing={'0px'}
+        listStyleType={'none'}
+        {...styles?.listContainer}
+      >
+        {data?.map((item, index) => (
+          <Box as={'li'} w={'100%'} key={index} {...styles?.itemContainer}>
+            {renderItem({ item, index })}
+          </Box>
+        ))}
+      </VStack>
       <Box ref={bottomRef} {...styles?.bottomFlag}>
         {isFetching && spinner}
       </Box>
-    </VStack>
+    </Box>
   )
 }

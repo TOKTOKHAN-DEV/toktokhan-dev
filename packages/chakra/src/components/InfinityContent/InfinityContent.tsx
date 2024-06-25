@@ -83,18 +83,21 @@ export const InfinityContent = ({
     </Center>
   ),
 }: InfinityContentProps) => {
-  const { targetRef: bottomRef } = useIntersectionObserver({
-    onVisible: () => {
-      if (!isFetching && hasMore) {
-        onFetchMore()
-      }
+  const { targetRef: bottomRef } = useIntersectionObserver(
+    {
+      onVisible: () => {
+        if (!isFetching && hasMore) {
+          onFetchMore()
+        }
+      },
+      options: {
+        root: observerOption?.root ?? null,
+        rootMargin: observerOption?.rootMargin ?? '0px',
+        threshold: observerOption?.threshold ?? 0.5,
+      },
     },
-    options: {
-      root: observerOption?.root ?? null,
-      rootMargin: observerOption?.rootMargin ?? '0px',
-      threshold: observerOption?.threshold ?? 0.5,
-    },
-  })
+    [isFetching, hasMore],
+  )
 
   return (
     <Box w={'100%'} {...styles?.container}>
