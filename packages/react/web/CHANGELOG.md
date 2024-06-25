@@ -1,5 +1,11 @@
 # @toktokhan-dev/react-web
 
+## 0.0.7
+
+### Patch Changes
+
+- ed18c00: Oauth 반환 code를 token 에서 code로 변경하였습니다.
+
 ## 0.0.6
 
 ### Patch Changes
