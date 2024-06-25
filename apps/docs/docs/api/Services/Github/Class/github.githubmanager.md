@@ -84,7 +84,7 @@ Description
 
 </td><td>
 
-(params: [Partible](./github.partible)&lt;[OctokitParameterType](./github.octokitparametertype)&lt;Octokit['rest']['repos']['addCollaborator']&gt;, 'repo' \| 'owner' \| 'username'&gt;) =&gt; Promise&lt;void&gt;
+(params: [Partible](./github.partible)&lt;[OctokitParameterType](./github.octokitparametertype)&lt;Octokit["rest"]["repos"]["addCollaborator"]&gt;, "repo" \| "owner" \| "username"&gt;) =&gt; Promise&lt;void&gt;
 
 
 </td><td>
@@ -141,7 +141,7 @@ Description
 
 </td><td>
 
-(owner: string, repo: string) =&gt; Promise&lt;RestEndpointMethodTypes['repos']['createInOrg']['response']['data'] &amp; \{ isOrg: boolean; \}&gt;
+(owner: string, repo: string) =&gt; Promise&lt;RestEndpointMethodTypes["repos"]["createInOrg"]["response"]["data"] &amp; \{ isOrg: boolean; \}&gt;
 
 
 </td><td>
@@ -160,7 +160,7 @@ Description
 
 </td><td>
 
-() =&gt; Promise&lt;RestEndpointMethodTypes['users']['getAuthenticated']['response']['data']&gt;
+() =&gt; Promise&lt;RestEndpointMethodTypes["users"]["getAuthenticated"]["response"]["data"]&gt;
 
 
 </td><td>
@@ -236,7 +236,7 @@ Description
 
 </td><td>
 
-(params: [Partible](./github.partible)&lt;[OctokitParameterType](./github.octokitparametertype)&lt;Octokit['rest']['repos']['removeCollaborator']&gt;, 'repo' \| 'owner' \| 'username'&gt;) =&gt; Promise&lt;void&gt;
+(params: [Partible](./github.partible)&lt;[OctokitParameterType](./github.octokitparametertype)&lt;Octokit["rest"]["repos"]["removeCollaborator"]&gt;, "repo" \| "owner" \| "username"&gt;) =&gt; Promise&lt;void&gt;
 
 
 </td><td>

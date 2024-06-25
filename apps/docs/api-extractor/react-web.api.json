@@ -2714,6 +2714,42 @@
         },
         {
           "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/react-web!LinkCallBackParamType:type",
+          "docComment": "/**\n * `useOauthLinkCallback` 훅의 callback 파라미터 타입입니다.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type LinkCallBackParamType = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n  data: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OauthResponse",
+              "canonicalReference": "@toktokhan-dev/react-web!OauthResponse:type"
+            },
+            {
+              "kind": "Content",
+              "text": " | null;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "LinkCallBackParamType",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 4
+          },
+          "parameters": []
+        },
+        {
+          "kind": "TypeAlias",
           "canonicalReference": "@toktokhan-dev/react-web!LinkReturnType:type",
           "docComment": "/**\n * `useOauthLinkCallback` 훅의 반환 타입을 정의합니다.\n */\n",
           "excerptTokens": [
@@ -3264,7 +3300,7 @@
             },
             {
               "kind": "Content",
-              "text": "{\n  token: string | null;\n  socialType: string | null;\n  returnUrl: string | null;\n}"
+              "text": "{\n  token: string | null;\n  socialType: 'kakao' | 'google' | 'naver' | 'facebook' | 'apple' | null;\n  returnUrl: string | null;\n}"
             },
             {
               "kind": "Content",
@@ -3367,6 +3403,42 @@
           "typeTokenRange": {
             "startIndex": 3,
             "endIndex": 7
+          },
+          "parameters": []
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/react-web!PopupCallBackParamType:type",
+          "docComment": "/**\n * `useOauthPopupCallback` 훅의 callback 파라미터 console.error('타입입니다',타입입니다)\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type PopupCallBackParamType = "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n  data: "
+            },
+            {
+              "kind": "Reference",
+              "text": "OauthResponse",
+              "canonicalReference": "@toktokhan-dev/react-web!OauthResponse:type"
+            },
+            {
+              "kind": "Content",
+              "text": " | null;\n  closePopup: () => void;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "PopupCallBackParamType",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 4
           },
           "parameters": []
         },
@@ -4605,8 +4677,8 @@
             },
             {
               "kind": "Reference",
-              "text": "LinkReturnType",
-              "canonicalReference": "@toktokhan-dev/react-web!LinkReturnType:type"
+              "text": "LinkCallBackParamType",
+              "canonicalReference": "@toktokhan-dev/react-web!LinkCallBackParamType:type"
             },
             {
               "kind": "Content",
@@ -4669,8 +4741,8 @@
             },
             {
               "kind": "Reference",
-              "text": "PopupReturnType",
-              "canonicalReference": "@toktokhan-dev/react-web!PopupReturnType:type"
+              "text": "PopupCallBackParamType",
+              "canonicalReference": "@toktokhan-dev/react-web!PopupCallBackParamType:type"
             },
             {
               "kind": "Content",
@@ -4691,7 +4763,7 @@
             },
             {
               "kind": "Content",
-              "text": " | null;\n  isLoading: boolean;\n  closePopup: () => () => void;\n}"
+              "text": " | null;\n  isLoading: boolean;\n  closePopup: () => () => void;\n  isOpenedPopup: boolean;\n}"
             }
           ],
           "fileUrlPath": "dist/index.doc.d.ts",

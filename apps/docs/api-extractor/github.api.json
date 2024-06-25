@@ -363,7 +363,7 @@
                 },
                 {
                   "kind": "Content",
-                  "text": "['rest']['repos']['addCollaborator']>, 'repo' | 'owner' | 'username'>) => "
+                  "text": "[\"rest\"][\"repos\"][\"addCollaborator\"]>, \"repo\" | \"owner\" | \"username\">) => "
                 },
                 {
                   "kind": "Reference",
@@ -498,7 +498,7 @@
                 },
                 {
                   "kind": "Content",
-                  "text": "['repos']['createInOrg']['response']['data'] & {\n    isOrg: boolean;\n  }>"
+                  "text": "[\"repos\"][\"createInOrg\"][\"response\"][\"data\"] & {\n    isOrg: boolean;\n  }>"
                 },
                 {
                   "kind": "Content",
@@ -546,7 +546,7 @@
                 },
                 {
                   "kind": "Content",
-                  "text": "['users']['getAuthenticated']['response']['data']>"
+                  "text": "[\"users\"][\"getAuthenticated\"][\"response\"][\"data\"]>"
                 },
                 {
                   "kind": "Content",
@@ -729,7 +729,7 @@
                 },
                 {
                   "kind": "Content",
-                  "text": "['rest']['repos']['removeCollaborator']>, 'repo' | 'owner' | 'username'>) => "
+                  "text": "[\"rest\"][\"repos\"][\"removeCollaborator\"]>, \"repo\" | \"owner\" | \"username\">) => "
                 },
                 {
                   "kind": "Reference",

@@ -15,5 +15,5 @@ slug: /github.githubmanager.addcollaborator
 ## Signature
 
 ```typescript
-addCollaborator: (params: Partible<OctokitParameterType<Octokit['rest']['repos']['addCollaborator']>, 'repo' | 'owner' | 'username'>) => Promise<void>;
+addCollaborator: (params: Partible<OctokitParameterType<Octokit["rest"]["repos"]["addCollaborator"]>, "repo" | "owner" | "username">) => Promise<void>;
 ```

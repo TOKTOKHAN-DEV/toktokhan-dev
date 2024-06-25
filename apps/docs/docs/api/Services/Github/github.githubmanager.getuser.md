@@ -15,5 +15,5 @@ slug: /github.githubmanager.getuser
 ## Signature
 
 ```typescript
-getUser: () => Promise<RestEndpointMethodTypes['users']['getAuthenticated']['response']['data']>;
+getUser: () => Promise<RestEndpointMethodTypes["users"]["getAuthenticated"]["response"]["data"]>;
 ```
