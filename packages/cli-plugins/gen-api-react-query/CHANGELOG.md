@@ -1,5 +1,13 @@
 # @toktokhan-dev/cli-plugin-gen-api-react-query
 
+## 0.0.9
+
+### Patch Changes
+
+- 0ff680a: generic type of custom-query-hooks
+
+  useQuery 와 useInfiniteQuery 의 제너릭이 각각 바뀌어 들어가 있던 버그를 수정했습니다.
+
 ## 0.0.8
 
 ### Patch Changes
