@@ -1,5 +1,26 @@
 # @toktokhan-dev/react-web
 
+## 0.0.8
+
+### Patch Changes
+
+- cbe23ec: add dependency on useIntersectionObserver
+
+  useIntersectionObserver hook 에 observer instance 생성 초기화를 위한 dependency param 이 추가되었습니다.
+
+  ```ts
+  useIntersectionObserver(
+    {
+      onVisible: () => {
+        if (!isFetcing) {
+          refetch()
+        }
+      },
+    },
+    [isFetching],
+  )
+  ```
+
 ## 0.0.7
 
 ### Patch Changes
