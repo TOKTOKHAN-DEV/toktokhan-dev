@@ -10,7 +10,7 @@
       hasPagination,
       isQuery,
       isMutation,
-      isOptialnalVariabels,
+      isOptionalVariables,
     },
     data: {
       rawWrapperArgs,
@@ -33,7 +33,7 @@
 
   const { _, classNameCase } = utils;
 
-  const conditionalParamsText = isOptialnalVariabels ? "params?" : "params"
+  const conditionalParamsText = isOptionalVariables ? "params?" : "params"
   const conditionCallWithVariabels = isQuery ? `(${conditionalParamsText}.variables)` : "";
   const conditionParamQueryKey = isQuery ? `,${conditionalParamsText}.variables` : "";
   const conditionWrapFunc =  isQuery ? "() =>" : "";

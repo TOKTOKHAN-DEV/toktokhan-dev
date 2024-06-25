@@ -47,11 +47,11 @@ const wrapperArgs = _
     .map(argToTmpl)
     .join('; ');
 
-const isOptialnalVariabels  = _
+const isOptionalVariables  = _
 // Find optional value
 .filter(rawWrapperArgs, o => o.optional).length === rawWrapperArgs.length;
 
-const conditionalVriablesText = isOptialnalVariabels? "variables?" : "variables";
+const conditionalVriablesText = isOptionalVariables? "variables?" : "variables";
 const repalceTarget = "${" + conditionalVriablesText + ".";
 const pathWithVariables = path.replace(/\$\{/g, repalceTarget);
     

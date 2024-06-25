@@ -7,7 +7,7 @@ genApi.run({
   includeReactInfiniteQuery: true,
   httpClientType: 'fetch',
   instancePath: 'src/generated/apis/http-client',
-  paginations: [
+  paginationSets: [
     {
       keywords: ['cursor'],
       nextKey: 'cursor',

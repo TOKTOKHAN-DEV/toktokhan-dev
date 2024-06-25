@@ -80,11 +80,11 @@ const getConfigByRoute = (route) => {
   const isMutation = hookVariant === "Mutation";
   const hasPagination = !!pagination;
 
-  const isOptialnalVariabels = _
+  const isOptionalVariables = _
     // Find optional value
     .filter(rawWrapperArgs, o => o.optional).length === rawWrapperArgs.length;
 
-  const conditionalVriablesText = isOptialnalVariabels ? "variables?" : "variables";
+  const conditionalVriablesText = isOptionalVariables ? "variables?" : "variables";
   const repalceTarget = "${" + conditionalVriablesText + ".";
 
   return {
@@ -92,7 +92,7 @@ const getConfigByRoute = (route) => {
       hasPagination,
       isQuery,
       isMutation,
-      isOptialnalVariabels,
+      isOptionalVariables,
     },
     data: {
       rawWrapperArgs,

@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@toktokhan-dev/react-web':
         specifier: ^0.0.3
-        version: link:packages/react/web
+        version: 0.0.3(scheduler@0.23.2)
     devDependencies:
       '@babel/core':
         specifier: ^7.24.4
@@ -1111,7 +1111,7 @@ importers:
         specifier: ^2.8.2
         version: 2.8.2(@emotion/react@11.11.4)(@emotion/styled@11.11.5)(@types/react@18.3.3)(framer-motion@10.18.0)(react-dom@18.3.1)(react@18.3.1)
       '@chakra-ui/styled-system':
-        specifier: ^2.9.2
+        specifier: ^2.9.1
         version: 2.9.2
       '@emotion/react':
         specifier: ^11.11.4
@@ -1120,7 +1120,7 @@ importers:
         specifier: ^11.11.5
         version: 11.11.5(@emotion/react@11.11.4)(@types/react@18.3.3)(react@18.3.1)
       '@hookform/resolvers':
-        specifier: ^2.9.11
+        specifier: ^2.8.8
         version: 2.9.11(react-hook-form@7.52.0)
       '@tanstack/react-query':
         specifier: ^4.36.1
@@ -1129,59 +1129,59 @@ importers:
         specifier: ^4.36.1
         version: 4.36.1(@tanstack/react-query@4.36.1)(react-dom@18.3.1)(react@18.3.1)
       '@toktokhan-dev/react-universal':
-        specifier: workspace:*
-        version: link:../../packages/react/universal
+        specifier: ^0.0.1
+        version: 0.0.1(react-dom@18.3.1)(scheduler@0.23.2)
       '@toktokhan-dev/react-web':
-        specifier: workspace:*
-        version: link:../../packages/react/web
+        specifier: ^0.0.1
+        version: 0.0.1(scheduler@0.23.2)
       '@toktokhan-dev/universal':
-        specifier: workspace:*
-        version: link:../../packages/universal
+        specifier: ^0.0.1
+        version: 0.0.1
       axios:
-        specifier: ^1.7.2
+        specifier: ^1.3.4
         version: 1.7.2
       chakra-react-select:
-        specifier: ^4.8.0
+        specifier: ^4.6.0
         version: 4.8.0(@chakra-ui/form-control@2.2.0)(@chakra-ui/icon@3.2.0)(@chakra-ui/layout@2.3.1)(@chakra-ui/media-query@3.3.0)(@chakra-ui/menu@2.2.1)(@chakra-ui/spinner@2.1.0)(@chakra-ui/system@2.6.2)(@emotion/react@11.11.4)(@types/react@18.3.3)(react-dom@18.3.1)(react@18.3.1)
       dayjs:
-        specifier: ^1.11.11
+        specifier: ^1.10.6
         version: 1.11.11
       framer-motion:
         specifier: ^10.18.0
         version: 10.18.0(react-dom@18.3.1)(react@18.3.1)
       immer:
-        specifier: ^10.1.1
+        specifier: ^10.0.1
         version: 10.1.1
       lodash:
         specifier: ^4.17.21
         version: 4.17.21
       next:
-        specifier: ^13.5.6
+        specifier: ^13.2.4
         version: 13.5.6(@babel/core@7.24.7)(react-dom@18.3.1)(react@18.3.1)
       next-seo:
-        specifier: ^6.5.0
+        specifier: ^6.1.0
         version: 6.5.0(next@13.5.6)(react-dom@18.3.1)(react@18.3.1)
       react:
-        specifier: ^18.3.1
+        specifier: ^18.0.0
         version: 18.3.1
       react-device-detect:
-        specifier: ^2.2.3
+        specifier: ^2.1.2
         version: 2.2.3(react-dom@18.3.1)(react@18.3.1)
       react-dom:
-        specifier: ^18.3.1
+        specifier: ^18.0.0
         version: 18.3.1(react@18.3.1)
       react-hook-form:
-        specifier: ^7.52.0
+        specifier: ^7.43.5
         version: 7.52.0(react@18.3.1)
       use-context-selector:
-        specifier: ^1.4.4
+        specifier: ^1.4.1
         version: 1.4.4(react-dom@18.3.1)(react@18.3.1)(scheduler@0.23.2)
       yup:
         specifier: ^0.32.11
         version: 0.32.11
     devDependencies:
       '@chakra-ui/cli':
-        specifier: ^2.4.1
+        specifier: ^2.4.0
         version: 2.4.1
       '@changesets/cli':
         specifier: ^2.27.5
@@ -1190,10 +1190,10 @@ importers:
         specifier: ^14.2.4
         version: 14.2.4
       '@testing-library/jest-dom':
-        specifier: ^5.17.0
+        specifier: ^5.16.5
         version: 5.17.0
       '@testing-library/react':
-        specifier: ^14.3.1
+        specifier: ^14.0.0
         version: 14.3.1(react-dom@18.3.1)(react@18.3.1)
       '@toktokhan-dev/cli':
         specifier: ^0.0.2
@@ -1202,8 +1202,8 @@ importers:
         specifier: ^0.0.1
         version: 0.0.1(esbuild@0.21.5)
       '@toktokhan-dev/cli-plugin-gen-api-react-query':
-        specifier: ^0.0.1
-        version: 0.0.1(esbuild@0.21.5)(prettier@3.3.2)(typescript@4.9.5)
+        specifier: workspace:*
+        version: link:../../packages/cli-plugins/gen-api-react-query
       '@toktokhan-dev/cli-plugin-gen-icon-chakra':
         specifier: ^0.0.1
         version: 0.0.1(esbuild@0.21.5)
@@ -1217,55 +1217,55 @@ importers:
         specifier: ^0.0.1
         version: 0.0.1(esbuild@0.21.5)
       '@toktokhan-dev/eslint-config':
-        specifier: workspace:^
+        specifier: ^0.0.2
         version: link:../../configs/eslint
       '@toktokhan-dev/prettier-config':
-        specifier: workspace:^
+        specifier: ^0.0.1
         version: link:../../configs/prettier
       '@toktokhan-dev/ts-config':
-        specifier: workspace:^
+        specifier: ^0.0.1
         version: link:../../configs/ts-config
       '@types/jest':
         specifier: ^28.1.8
         version: 28.1.8
       '@types/lodash':
-        specifier: ^4.17.5
+        specifier: ^4.17.0
         version: 4.17.5
       '@types/lodash-es':
-        specifier: ^4.17.12
+        specifier: ^4.17.8
         version: 4.17.12
       '@types/node':
         specifier: 18.15.11
         version: 18.15.11
       '@types/react':
-        specifier: ^18.3.3
+        specifier: ^18.0.0
         version: 18.3.3
       '@types/react-dom':
-        specifier: ^18.3.0
+        specifier: ^18.0.0
         version: 18.3.0
       dotenv:
-        specifier: ^16.4.5
+        specifier: ^16.0.0
         version: 16.4.5
       eslint:
-        specifier: ^8.57.0
+        specifier: ^8.39.0
         version: 8.57.0
       husky:
         specifier: ^9.0.11
         version: 9.0.11
       jest:
-        specifier: ^29.7.0
+        specifier: ^29.5.0
         version: 29.7.0(@types/node@18.15.11)(ts-node@10.9.2)
       jest-environment-jsdom:
-        specifier: ^29.7.0
+        specifier: ^29.5.0
         version: 29.7.0
       lint-staged:
         specifier: ^10.5.4
         version: 10.5.4
       prettier:
-        specifier: ^3.3.2
+        specifier: ^3.2.5
         version: 3.3.2
       typescript:
-        specifier: ^4.9.5
+        specifier: ^4.9.4
         version: 4.9.5
 
 packages:
@@ -5736,14 +5736,14 @@ packages:
       '@jest/test-result': 29.7.0
       '@jest/transform': 29.7.0
       '@jest/types': 29.6.3
-      '@types/node': 18.15.11
+      '@types/node': 20.14.2
       ansi-escapes: 4.3.2
       chalk: 4.1.2
       ci-info: 3.9.0
       exit: 0.1.2
       graceful-fs: 4.2.11
       jest-changed-files: 29.7.0
-      jest-config: 29.7.0(@types/node@18.15.11)(ts-node@10.9.2)
+      jest-config: 29.7.0(@types/node@20.14.2)(ts-node@10.9.2)
       jest-haste-map: 29.7.0
       jest-message-util: 29.7.0
       jest-regex-util: 29.6.3
@@ -7235,24 +7235,6 @@ packages:
       - typescript
     dev: true
 
-  /@toktokhan-dev/cli-plugin-gen-api-react-query@0.0.1(esbuild@0.21.5)(prettier@3.3.2)(typescript@4.9.5):
-    resolution: {integrity: sha512-76GNytUxqfrJxTSm7jfeXELhg5H67a1S/dLJiUgexOzUQgGZdZDldCfS3C/8S4DsjigWNBxxjiAsad1vR3wRfA==}
-    dependencies:
-      '@toktokhan-dev/cli': 0.0.1(esbuild@0.21.5)
-      '@toktokhan-dev/node': 0.0.1
-      eta: 3.4.0
-      lodash: 4.17.21
-      prettier-plugin-organize-imports: 3.2.4(prettier@3.3.2)(typescript@4.9.5)
-      swagger-typescript-api: 13.0.8
-    transitivePeerDependencies:
-      - '@volar/vue-language-plugin-pug'
-      - '@volar/vue-typescript'
-      - encoding
-      - esbuild
-      - prettier
-      - typescript
-    dev: true
-
   /@toktokhan-dev/cli-plugin-gen-icon-chakra@0.0.1(esbuild@0.21.5):
     resolution: {integrity: sha512-Ww4WwbnUcYA5HAwUhIPSOU9k3IltT5P0fErZ/YadeiJlPB61BG9kMuxxziNVDwGvDJBgI52DNpi/xlJ0bhEcuA==}
     dependencies:
@@ -7385,6 +7367,24 @@ packages:
       - scheduler
     dev: false
 
+  /@toktokhan-dev/react-universal@0.0.3(react-dom@18.3.1)(scheduler@0.23.2):
+    resolution: {integrity: sha512-4G2A6q0FKo5iczk5pGDjP8+FUSER6S1SrRcdPCBXJ/kjjsy90nAkm41/eaoj5X5XK9T8YnWxXCEdFAArLG/zlA==}
+    dependencies:
+      '@tanstack/react-query': 4.36.1(react-dom@18.3.1)(react@18.3.1)
+      '@toktokhan-dev/universal': 0.0.3
+      axios: 1.7.2
+      csstype: 3.1.3
+      dayjs: 1.11.11
+      immer: 10.1.1
+      react: 18.3.1
+      use-context-selector: 1.4.4(react-dom@18.3.1)(react@18.3.1)(scheduler@0.23.2)
+    transitivePeerDependencies:
+      - debug
+      - react-dom
+      - react-native
+      - scheduler
+    dev: false
+
   /@toktokhan-dev/react-web@0.0.1(scheduler@0.23.2):
     resolution: {integrity: sha512-w9+UkDm2i8KAvUv1pf1iYRKRMTWfKZcpbFa/D/5FD0CPCzS3BxdP+ulBj6xL1nzWVLzod+T/iREkUwbGgZ6iZQ==}
     dependencies:
@@ -7401,10 +7401,32 @@ packages:
       - scheduler
     dev: false
 
+  /@toktokhan-dev/react-web@0.0.3(scheduler@0.23.2):
+    resolution: {integrity: sha512-O8TQSYpwpW0d1JbwjYSuFH0crYowPQ9SkEHEcfIbztpBVu4o55axT/TLz8TiL/68aTNjzDGB0yYiMwzdxrq7Ng==}
+    dependencies:
+      '@tanstack/react-query': 4.36.1(react-dom@18.3.1)(react@18.3.1)
+      '@toktokhan-dev/react-universal': 0.0.3(react-dom@18.3.1)(scheduler@0.23.2)
+      '@toktokhan-dev/universal': 0.0.3
+      dayjs: 1.11.11
+      lodash: 4.17.21
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+    transitivePeerDependencies:
+      - debug
+      - react-native
+      - scheduler
+    dev: false
+
   /@toktokhan-dev/universal@0.0.1:
     resolution: {integrity: sha512-8SwhqIT4Y8hFI2UE+lQCwazqw3jRVT53pcvf4YD2XGlBDgpk5bIrDxWO8dUHKyVSEEy7XclbgFEqg+91wNRLoQ==}
     dependencies:
       lodash: 4.17.21
+
+  /@toktokhan-dev/universal@0.0.3:
+    resolution: {integrity: sha512-BWmTtNMacz5eIHGt2SErPBxp31Jg8SQOsHDADiA/VswYxi7OYWB15MOsBmOfxJgSEuKZfJM/U70GWWjOyWYnug==}
+    dependencies:
+      lodash: 4.17.21
+    dev: false
 
   /@tootallnate/once@2.0.0:
     resolution: {integrity: sha512-XCuKFP5PS55gnMVu3dty8KPatLqUoy/ZYzDzAGCQ8JNFCkLXzmI7vNHCR+XpbZaMWQK/vQubr7PkYq8g470J/A==}
@@ -12811,7 +12833,7 @@ packages:
       '@jest/fake-timers': 29.7.0
       '@jest/types': 29.6.3
       '@types/jsdom': 20.0.1
-      '@types/node': 18.15.11
+      '@types/node': 20.14.2
       jest-mock: 29.7.0
       jest-util: 29.7.0
       jsdom: 20.0.3
@@ -15625,23 +15647,6 @@ packages:
     dependencies:
       prettier: 2.8.8
       typescript: 5.4.5
-    dev: true
-
-  /prettier-plugin-organize-imports@3.2.4(prettier@3.3.2)(typescript@4.9.5):
-    resolution: {integrity: sha512-6m8WBhIp0dfwu0SkgfOxJqh+HpdyfqSSLfKKRZSFbDuEQXDDndb8fTpRWkUrX/uBenkex3MgnVk0J3b3Y5byog==}
-    peerDependencies:
-      '@volar/vue-language-plugin-pug': ^1.0.4
-      '@volar/vue-typescript': ^1.0.4
-      prettier: '>=2.0'
-      typescript: '>=2.9'
-    peerDependenciesMeta:
-      '@volar/vue-language-plugin-pug':
-        optional: true
-      '@volar/vue-typescript':
-        optional: true
-    dependencies:
-      prettier: 3.3.2
-      typescript: 4.9.5
     dev: true
 
   /prettier-plugin-organize-imports@3.2.4(prettier@3.3.2)(typescript@5.5.2):

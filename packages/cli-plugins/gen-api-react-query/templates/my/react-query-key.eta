@@ -20,7 +20,7 @@ export const <%= queryKeyName %> = {
           hasPagination,
           isQuery,
           isMutation,
-          isOptialnalVariabels,
+          isOptionalVariables,
         },
         data: {
           rawWrapperArgs,

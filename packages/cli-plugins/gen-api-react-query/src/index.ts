@@ -57,7 +57,7 @@ export interface GenerateSwaggerApiConfig {
   /**
    * infiniteQuery 를 생성할 함수 필터 목록 입니다.
    * */
-  paginations: PaginationConfig[]
+  paginationSets: PaginationConfig[]
 }
 
 /**
@@ -74,7 +74,7 @@ export const genApi = defineCommand<'gen:api', GenerateSwaggerApiConfig>({
     includeReactInfiniteQuery: true,
     httpClientType: 'axios',
     instancePath: GENERATE_SWAGGER_DATA.AXIOS_DEFAULT_INSTANCE_PATH,
-    paginations: [
+    paginationSets: [
       {
         keywords: ['cursor'],
         nextKey: 'cursor',
