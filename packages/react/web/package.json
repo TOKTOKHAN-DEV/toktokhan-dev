@@ -1,6 +1,6 @@
 {
   "name": "@toktokhan-dev/react-web",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "author": "TOKTOKHAN.DEV <dev@toktokhan.dev>",
   "description": "Tokotokhan-fe react-web library",
   "type": "module",

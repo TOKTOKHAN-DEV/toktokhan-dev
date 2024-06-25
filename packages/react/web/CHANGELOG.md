@@ -1,5 +1,13 @@
 # @toktokhan-dev/react-web
 
+## 0.0.6
+
+### Patch Changes
+
+- Updated dependencies [d96ea33]
+  - @toktokhan-dev/universal@0.0.4
+  - @toktokhan-dev/react-universal@0.0.4
+
 ## 0.0.5
 
 ### Patch Changes
