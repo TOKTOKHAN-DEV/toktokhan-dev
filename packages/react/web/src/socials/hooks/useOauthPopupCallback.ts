@@ -90,7 +90,7 @@ export const useOauthPopupCallback = (
     if (!parsedState) return
 
     const result = {
-      token: urlParams.code || urlParams.access_token,
+      code: urlParams.code || urlParams.access_token,
       socialType: parsedState.type,
       returnUrl: parsedState.returnUrl,
     }

@@ -20,7 +20,7 @@ export const useOauthPopupListener = () => {
   const oAuthCodeListener = useCallback((event: MessageEvent) => {
     if (event.origin !== window.location.origin) return
     const res = event.data as OauthResponse
-    if (!res?.token) return
+    if (!res?.code) return
     setOauthResponse(res)
     setIsLoading(false)
   }, [])
