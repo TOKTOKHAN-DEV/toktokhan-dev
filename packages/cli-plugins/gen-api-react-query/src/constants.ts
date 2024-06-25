@@ -7,6 +7,6 @@ export const GENERATE_SWAGGER_DATA = {
   TYPE_FILE: ['react-query-type.ts', 'data-contracts.ts', 'util-types.ts'],
   UTIL_FILE: ['param-serializer-by.ts'],
   QUERY_HOOK_INDICATOR: '@indicator-for-query-hook',
-  AXIOS_DEFAULT_INSTANCE_PATH: '@apis/_axios/instance',
+  AXIOS_DEFAULT_INSTANCE_PATH: '@/configs/axios/instance',
   FETCH_DEFAULT_INSTANCE_PATH: '@/configs/fetch/fetch-extend',
 }

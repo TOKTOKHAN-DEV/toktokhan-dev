@@ -1,8 +1,17 @@
 <%
 const { utils, route, config, modelTypes,dataFromApiTemplate } = it;
 const routes = route.routes;
-const { getConfigByRoute ,queryKeyName } = dataFromApiTemplate;
+const { getConfigByRoute, queryKeyName } = dataFromApiTemplate;
 %>
+
+/**
+ * query key 에 undfined 를 포함시키지 않기 위한 함수입니다.
+ */
+const isDefined = (v: unknown) => typeof v !== "undefined"
+
+/**
+ * query-keys
+ */
 export const <%= queryKeyName %> = {
   <% routes.forEach((route) => { %>
     <% 
@@ -29,12 +38,13 @@ export const <%= queryKeyName %> = {
           argToTmpl,
         }
       } = getConfigByRoute(route);
-      const conditionalParam = isQuery ?  `(variables? : Parameter<typeof ${apiInstanceName}.${functionName}>)`: "()"
-      const conditionalHookKeyVariant = isQuery ? "variables" : ""
+      const queryKey = `(variables? : Parameter<typeof ${apiInstanceName}.${functionName}>) => ["${key}", variables].filter(isDefined)`
+      const mutationKey = `() => ["${key}"]`
+      const infiniteQueryKey = `(variables? : Parameter<typeof ${apiInstanceName}.${functionName}>) => ["${key}_INFINITE", variables].filter(isDefined)`
     %>
-    <%~ methodKey %>: <%~ conditionalParam %> => ["<%~ key %>", <%~ conditionalHookKeyVariant %>].filter(key => typeof key !== 'undefined'),
+    <%~ methodKey %>: <%~ isQuery ? queryKey : mutationKey  %>,
     <% if(hasPagination) { %>
-     <%~ methodKey %>_INFINITE : <%~ conditionalParam %> => ["<%~ key %>_INFINITE", <%~ conditionalHookKeyVariant %>].filter(key => typeof key !== 'undefined'),
+     <%~ methodKey %>_INFINITE : <%~ infiniteQueryKey %>,
     <% }%>
   <% }) %>
 }; 

@@ -5,8 +5,8 @@ genApi.run({
   output: 'src/generated/apis',
   includeReactQuery: true,
   includeReactInfiniteQuery: true,
-  httpClientType: 'axios',
-  instancePath: '@apis/_axios/instance',
+  httpClientType: 'fetch',
+  instancePath: 'src/generated/apis/http-client',
   paginations: [
     {
       keywords: ['cursor'],

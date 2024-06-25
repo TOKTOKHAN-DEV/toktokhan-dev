@@ -3,7 +3,7 @@ import path from 'path'
 
 import { prettierFile, prettierString } from '@toktokhan-dev/node'
 
-import { camelCase } from 'lodash'
+import { camelCase, upperFirst } from 'lodash'
 import { GenerateApiOutput } from 'swagger-typescript-api'
 
 import { GENERATE_SWAGGER_DATA } from './constants'
@@ -64,14 +64,17 @@ export const writeSwaggerApiFile = (params: {
 }
 
 async function genreatePretty(path: string, contents: string) {
-  generate(
-    path,
-    await prettierString(contents, {
-      parser: 'babel-ts',
-      plugins: ['prettier-plugin-organize-imports'],
-    }),
-  )
-  await prettierFile(path, { parser: 'typescript' })
+  const organized = await prettierString(contents, {
+    parser: 'babel-ts',
+    plugins: ['prettier-plugin-organize-imports'],
+  })
+
+  const formatted = await prettierString(organized, {
+    parser: 'typescript',
+    configPath: 'auto',
+  })
+
+  generate(path, formatted)
 }
 
 function generate(path: string, contents: string) {
@@ -85,7 +88,7 @@ export function spilitHookContents(filename: string, content: string) {
   const lines = content.split('\n')
 
   const importArea = [
-    `import { ${camelCase(filename)}Api } from './${filename}.api';`,
+    `import { ${upperFirst(camelCase(filename))}Api } from './${filename}.api';`,
     ...lines.slice(0, lastImport),
   ].join('\n')
 

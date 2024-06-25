@@ -73,7 +73,7 @@ export const genApi = defineCommand<'gen:api', GenerateSwaggerApiConfig>({
     includeReactQuery: true,
     includeReactInfiniteQuery: true,
     httpClientType: 'axios',
-    instancePath: '@apis/_axios/instance',
+    instancePath: GENERATE_SWAGGER_DATA.AXIOS_DEFAULT_INSTANCE_PATH,
     paginations: [
       {
         keywords: ['cursor'],
@@ -82,8 +82,6 @@ export const genApi = defineCommand<'gen:api', GenerateSwaggerApiConfig>({
     ],
   },
   run: async (config) => {
-    console.log(config)
-
     const isWebUrl = (string: string) =>
       string.startsWith('http://') || string.startsWith('https://')
 

@@ -160,10 +160,7 @@ export const use<%~ classNameCase(functionName) %>InfiniteQuery = <
         <%~ getNextPageParam() %> 
         <% } else { %>
           (lastPage) => {
-            const params = lastPage.next
-              ? new URL(lastPage.next).searchParams
-              : null;
-            const <%~ pagination.nextKey %> = params ? params.get('<%~ pagination.nextKey %>') : null;
+            const <%~ pagination.nextKey %> = lastPage.cursor ?? null;
             return <%~ pagination.nextKey %>;
           }
         <% } %>,
