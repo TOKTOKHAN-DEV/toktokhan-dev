@@ -115,12 +115,13 @@ export const InfinityList = <T,>({
   ),
   styles,
 }: InfinityListProps<T>) => {
+  const canFetch = hasMore && !isFetching
   const { targetRef: bottomRef } = useIntersectionObserver(
     {
       onVisible: () => {
-        if (!isFetching && hasMore) {
-          onFetchMore()
-        }
+        if (!canFetch) return
+
+        onFetchMore()
       },
       options: {
         root: observerOption?.root ?? null,
@@ -128,7 +129,7 @@ export const InfinityList = <T,>({
         threshold: observerOption?.threshold ?? 0.5,
       },
     },
-    [isFetching, hasMore],
+    [canFetch],
   )
 
   if (isEmpty(data)) return empty
