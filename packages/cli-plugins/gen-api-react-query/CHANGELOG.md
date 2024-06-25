@@ -1,5 +1,14 @@
 # @toktokhan-dev/cli-plugin-gen-api-react-query
 
+## 0.0.10
+
+### Patch Changes
+
+- 2ec5863: cli 관련 네이밍 오타를 수정하였습니다.
+
+  - paginations -> paginationSets
+  - isOptialnalVariabels -> isOptionalVariables
+
 ## 0.0.9
 
 ### Patch Changes
