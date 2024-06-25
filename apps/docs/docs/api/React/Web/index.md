@@ -26,7 +26,7 @@ React Web 환경에서 전역적으로 사용할 수 있는 유틸리티 라이�
 <tbody>
 <tr><td>
 
-[useIntersectionObserver(\{ onVisible, onHidden, options\})](./react-web.useintersectionobserver)
+[useIntersectionObserver(\{ onVisible, onHidden, options\}, deps)](./react-web.useintersectionobserver)
 
 </td>
 

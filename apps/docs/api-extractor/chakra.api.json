@@ -733,7 +733,7 @@
                 },
                 {
                   "kind": "Content",
-                  "text": "({\n    item,\n    index\n  }: {\n    item: T;\n    index: number;\n  }) => "
+                  "text": "(item: T, index: number) => "
                 },
                 {
                   "kind": "Reference",
@@ -806,6 +806,15 @@
                 },
                 {
                   "kind": "Content",
+                  "text": ";\n    listContainer?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "BoxProps",
+                  "canonicalReference": "@chakra-ui/layout!BoxProps:interface"
+                },
+                {
+                  "kind": "Content",
                   "text": ";\n    itemContainer?: "
                 },
                 {
@@ -837,7 +846,7 @@
               "name": "styles",
               "propertyTypeTokenRange": {
                 "startIndex": 1,
-                "endIndex": 8
+                "endIndex": 10
               }
             }
           ],

@@ -16,7 +16,7 @@ useIntersectionObserver: ({
   onVisible,
   onHidden,
   options
-}: UseIntersectionObserverParams) => {
+}: UseIntersectionObserverParams, deps: unknown[]) => {
   targetRef: react.RefObject<HTMLDivElement>;
 }
 ```
@@ -47,6 +47,20 @@ Description
 </td><td>
 
 UseIntersectionObserverParams
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+deps
+
+
+</td><td>
+
+unknown[]
 
 
 </td><td>

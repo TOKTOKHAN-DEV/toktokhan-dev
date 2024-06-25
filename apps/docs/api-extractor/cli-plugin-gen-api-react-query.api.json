@@ -390,12 +390,12 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "@toktokhan-dev/cli-plugin-gen-api-react-query!GenerateSwaggerApiConfig#paginations:member",
+              "canonicalReference": "@toktokhan-dev/cli-plugin-gen-api-react-query!GenerateSwaggerApiConfig#paginationSets:member",
               "docComment": "/**\n * infiniteQuery 를 생성할 함수 필터 목록 입니다.\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
-                  "text": "paginations: "
+                  "text": "paginationSets: "
                 },
                 {
                   "kind": "Reference",
@@ -414,7 +414,7 @@
               "isReadonly": false,
               "isOptional": false,
               "releaseTag": "Public",
-              "name": "paginations",
+              "name": "paginationSets",
               "propertyTypeTokenRange": {
                 "startIndex": 1,
                 "endIndex": 3

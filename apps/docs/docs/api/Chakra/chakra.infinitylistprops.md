@@ -163,7 +163,7 @@ _(Optional)_ IntersectionObserver 옵션
 
 </td><td>
 
-(\{ item, index \}: \{ item: T; index: number; \}) =&gt; ReactNode \| null
+(item: T, index: number) =&gt; ReactNode \| null
 
 
 </td><td>
@@ -199,7 +199,7 @@ _(Optional)_ isFetching 시 보여줄 스피너
 
 </td><td>
 
-\{ container?: StackProps; itemContainer?: BoxProps; bottomFlag?: BoxProps; \}
+\{ container?: StackProps; listContainer?: BoxProps; itemContainer?: BoxProps; bottomFlag?: BoxProps; \}
 
 
 </td><td>

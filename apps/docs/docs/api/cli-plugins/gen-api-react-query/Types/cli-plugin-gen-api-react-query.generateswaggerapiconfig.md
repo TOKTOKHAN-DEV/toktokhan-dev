@@ -135,7 +135,7 @@ string
 </td></tr>
 <tr><td>
 
-[paginations](./cli-plugin-gen-api-react-query.generateswaggerapiconfig.paginations)
+[paginationSets](./cli-plugin-gen-api-react-query.generateswaggerapiconfig.paginationsets)
 
 
 </td><td>

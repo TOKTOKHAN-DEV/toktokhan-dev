@@ -17,6 +17,7 @@ slug: /chakra.infinitylistprops.styles
 ```typescript
 styles?: {
     container?: StackProps;
+    listContainer?: BoxProps;
     itemContainer?: BoxProps;
     bottomFlag?: BoxProps;
   };

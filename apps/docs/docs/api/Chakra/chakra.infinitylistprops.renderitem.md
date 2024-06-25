@@ -13,11 +13,5 @@ slug: /chakra.infinitylistprops.renderitem
 ## Signature
 
 ```typescript
-renderItem: ({
-    item,
-    index
-  }: {
-    item: T;
-    index: number;
-  }) => ReactNode | null;
+renderItem: (item: T, index: number) => ReactNode | null;
 ```
