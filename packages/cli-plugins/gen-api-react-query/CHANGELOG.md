@@ -1,5 +1,11 @@
 # @toktokhan-dev/cli-plugin-gen-api-react-query
 
+## 0.0.11
+
+### Patch Changes
+
+- 4b535c5: paginations 으로 적용되어있는 곳을 수정했습니다.
+
 ## 0.0.10
 
 ### Patch Changes
