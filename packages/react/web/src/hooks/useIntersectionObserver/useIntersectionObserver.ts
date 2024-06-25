@@ -17,11 +17,14 @@ type UseIntersectionObserverParams = {
 /**
  * @category Hooks
  */
-export const useIntersectionObserver = ({
-  onVisible,
-  onHidden,
-  options = { threshold: 0.5 },
-}: UseIntersectionObserverParams) => {
+export const useIntersectionObserver = (
+  {
+    onVisible,
+    onHidden,
+    options = { threshold: 0.5 },
+  }: UseIntersectionObserverParams,
+  deps: unknown[],
+) => {
   const targetRef = useRef<HTMLDivElement>(null)
 
   const onVisibleRef = useCallbackRef(onVisible || (() => {}))
@@ -70,6 +73,7 @@ export const useIntersectionObserver = ({
     options.root,
     options.rootMargin,
     options.threshold,
+    ...deps,
   ])
 
   return { targetRef }
