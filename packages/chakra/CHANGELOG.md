@@ -1,5 +1,39 @@
 # @toktokhan-dev/chakra
 
+## 0.0.6
+
+### Patch Changes
+
+- 2227c4a: InfinteContent & InfiniteList
+
+  useIntersectionObserver 가 dependency 를 받게 수정됨에 따라
+  기존 isFetching 과 hasMore 을 감지하지 못한 버그가 수정 되었습니다.
+
+- 7f02962: prop type of InfinityList
+
+  InfinityList 의 props 중 renderItem 함수의 타입이 변경되었습니다.
+
+  #### 기존
+
+  ```tsx
+  interface InfinityListProps {
+    ...
+    renderItem: ({ item, index }: { item: T, index: number }) => ReactNode | null
+  }
+  ```
+
+  #### 변경
+
+  ```tsx
+  interface InfinityListProps {
+    ...
+    renderItem: (item: T, index: number ) => ReactNode | null
+  }
+  ```
+
+- Updated dependencies [cbe23ec]
+  - @toktokhan-dev/react-web@0.0.8
+
 ## 0.0.5
 
 ### Patch Changes
