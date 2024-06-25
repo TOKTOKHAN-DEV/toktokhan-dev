@@ -13,7 +13,7 @@ const reactQueryTemplatePath = `${myTemeplatePath}/react-query-hook.eta`
 const reactQuerKeyTemplatePath = `${myTemeplatePath}/react-query-key.eta`
 
 const apiClassName = classNameCase(route.moduleName) + 'Api';
-const paginations = myConfig?.paginations
+const paginationSets = myConfig?.paginationSets
 const instancePath = myConfig?.instancePath
 
 const apiInstanceName =route.moduleName + "Api";
@@ -78,7 +78,7 @@ const getConfigByRoute = (route) => {
   const hookVariant = _.upperCase(method) === "GET" ? "Query" : "Mutation"
   const key = upperSnakeCase(functionName);
   const methodKey = upperSnakeCase(removeModuleName(functionName));
-  const pagination = paginations.find(d => !!query?.type &&  hasPaginationKeyword(query?.type.split("\n").join(""), d.keywords));
+  const pagination = paginationSets.find(d => !!query?.type &&  hasPaginationKeyword(query?.type.split("\n").join(""), d.keywords));
 
   const isQuery = hookVariant === "Query";
   const isMutation = hookVariant === "Mutation";
