@@ -1,5 +1,11 @@
 # @toktokhan-dev/tokit
 
+## 0.0.7
+
+### Patch Changes
+
+- 7612466: remove unlink pnpm lock file
+
 ## 0.0.6
 
 ### Patch Changes
