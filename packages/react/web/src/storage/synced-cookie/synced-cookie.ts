@@ -40,7 +40,7 @@ export class SyncedCookie<Data> extends ReactSynced<Data> {
    * 데이터를 저장할 키와 쿠키 옵션을 받습니다.
    *
    * @param key - 데이터를 저장할 키입니다.
-   * @param options - 쿠키 옵션입니다.
+   * @param options - 쿠키 옵션입니다. (default: { secure: true, sameSite: 'strict', path: '/' })
    */
   constructor(
     public key: string,
