@@ -48,7 +48,7 @@ const HomeFooter = () => {
           Copyright © 2024 TokDocs, Inc.
         </p>
       </div>
-      <div
+      {/* <div
         className={twJoin(
           'w-fit',
           'bg-tokColor-background.inverse.secondary',
@@ -65,7 +65,7 @@ const HomeFooter = () => {
           <DocusaurusIcon />
           Docusaurus
         </span>
-      </div>
+      </div> */}
     </div>
   )
 }

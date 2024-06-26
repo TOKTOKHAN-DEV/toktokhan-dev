@@ -1,0 +1,83 @@
+import Table from '@site/src/components/Table/Table.tsx'
+import CodeBlock from '@theme/CodeBlock'
+
+import OauthBtnImg from '/img/auth/oauth-buttons.png'
+
+import Link from '@docusaurus/Link'
+
+# Overview
+
+똑똑한개발자는 소셜로그인을 위한 패키지를 제공합니다.
+현재는 React web 환경에서 사용가능합니다.
+
+[@toktokhan-dev/react-web](/docs/react-web.apple)
+
+<img src={OauthBtnImg} alt="oauth-button" />
+
+<br />
+<br />
+## Modules
+<Table
+  headers={[
+    { name: 'type', width: '10%' },
+    { name: 'react-web', width: '50%' },
+  ]}
+  data={['kakao', 'naver', 'google', 'facebook', 'apple'].map((social) => [
+    <b>{social}</b>,
+    <ul>
+      <li>
+        <a href={`/docs/react-web.${social}`}>{social}</a>
+      </li>
+      <li>
+        <a href={`/docs/react-web.${social}button`}>{`${social}Button`}</a>
+      </li>
+      <li>
+        <a
+          href={`/docs/react-web.${social}iconbutton`}
+        >{`${social}IconButton`}</a>
+      </li>
+    </ul>,
+  ])}
+/>
+
+## Hooks
+
+<Table
+  headers={[
+    { name: 'hook', width: '1%' },
+    { name: 'Link', width: '10%' },
+    { name: 'Popup', width: '10%' },
+  ]}
+  data={[
+    [
+      <code>callback</code>,
+      <pre>
+        <a href={'/docs/react-web.useoauthlinkcallback'}>
+          useOauthLinkCallback
+        </a>
+        <br />
+        OAuth 링크 콜백을 처리하는 React Hook입니다. 이 Hook은 OAuth 인증 후 리다이렉트된 페이지에서 사용됩니다.
+      </pre>,
+      <pre>
+        <a href={'/docs/react-web.useoauthpopupcallback'}>
+          useOauthPopupCallback
+        </a>
+        <br />
+     OAuth 팝업 콜백을 처리하는 React Hook입니다. 이 Hook은 OAuth 인증 후 팝업에서 사용됩니다.
+      </pre>,
+    ],
+    [
+      <code>listener</code>,
+      <pre>-</pre>,
+      <pre>
+        <a href={'/docs/react-web.useoauthpopuplistener'}>
+          useOauthPopupListener()
+        </a>{' '}
+        <br />
+        OAuth 팝업에서 전달된 메시지를 수신하는 React Hook입니다. 이 Hook은 OAuth 인증 후 팝업에서 전달된 메시지를 수신하여 처리합니다.
+        <br />
+      </pre>,
+    ],
+
+]}
+/>

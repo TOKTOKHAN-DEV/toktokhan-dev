@@ -1,0 +1,8 @@
+{
+  "label": "2. Social Login",
+  "position": 5,
+  "link": {
+    "type": "generated-index",
+    "description": "똑똑한개발자의 auth 관련 모듈 사용법을 소개합니다."
+  }
+}
