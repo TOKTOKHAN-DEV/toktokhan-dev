@@ -21,13 +21,22 @@ export type LinkReturnType = {
 }
 
 /**
- * `useOauthLinkCallback` 훅의 callback 파라미터 타입입니다.
+ * `useOauthLinkCallback` 훅의 onSuccess 파라미터 타입입니다.
  */
-export type LinkCallBackParamType = {
+export type LinkCbSuccessParamType = {
   /**
    * OAuth 응답 데이터를 나타냅니다.
    */
   data: OauthResponse | null
+}
+/**
+ * `useOauthLinkCallback` 훅의 onFail 파라미터 타입입니다.
+ */
+export type LinkCbFailParamType = {
+  /**
+   * OAuth state에 담은 returnUrl입니다.
+   */
+  returnUrl?: OauthResponse['returnUrl']
 }
 
 /**
@@ -40,7 +49,7 @@ export type LinkCallBackParamType = {
  * @returns {LinkReturnType} OAuth 응답 데이터와 로딩 상태를 반환합니다.
  */
 export const useOauthLinkCallback = (
-  cb?: useOauthCallbackParams<LinkCallBackParamType>,
+  cb?: useOauthCallbackParams<LinkCbSuccessParamType, LinkCbFailParamType>,
 ) => {
   const [oAuthResponse, setOauthResponse] = useState<OauthResponse | null>(null)
   const [isLoading, setIsLoading] = useState(true)
@@ -54,16 +63,17 @@ export const useOauthLinkCallback = (
     const urlParams = extractOAuthParams(window.location.search)
     const parsedState = decodeOAuthState(urlParams.state)
     const { state, ...restParams } = urlParams
-    if (
-      handleOauthErrors({
-        onFail: onFailRef.current,
-        params: { ...restParams, parsedState },
-      })
-    )
-      return
+
     if (!parsedState) {
-      return onFailRef.current?.()
+      return onFailRef?.current?.({})
     }
+
+    const isOauthError = handleOauthErrors({
+      params: { ...restParams, parsedState },
+    })
+    if (isOauthError)
+      return onFailRef?.current?.({ returnUrl: parsedState?.returnUrl })
+
     const result = {
       code: urlParams.code || urlParams.access_token,
       socialType: parsedState.type,

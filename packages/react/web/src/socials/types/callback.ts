@@ -1,8 +1,8 @@
 import { OauthStateReturnType } from '../utils/decode-oauth-state'
 
-export type useOauthCallbackParams<T = any> = {
+export type useOauthCallbackParams<T = any, U = any> = {
   onSuccess?: (params: T) => void
-  onFail?: () => void
+  onFail?: (params: U) => void
 }
 
 export type OauthCallbackParams = {

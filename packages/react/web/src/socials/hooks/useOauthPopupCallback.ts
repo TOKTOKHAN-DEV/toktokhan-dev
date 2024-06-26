@@ -27,11 +27,22 @@ export type PopupReturnType = {
 /**
  * `useOauthPopupCallback` 훅의 callback 파라미터 console.error('타입입니다',타입입니다)
  */
-export type PopupCallBackParamType = {
+export type PopupCbSuccessParamType = {
   /**
    * OAuth 응답 데이터를 나타냅니다.
    */
   data: OauthResponse | null
+
+  /**
+   * 팝업을 닫는 함수를 나타냅니다.
+   */
+  closePopup: () => void
+}
+export type PopupCbFailParamType = {
+  /**
+   * OAuth state에 담은 returnUrl입니다.
+   */
+  returnUrl?: OauthResponse['returnUrl']
 
   /**
    * 팝업을 닫는 함수를 나타냅니다.
@@ -49,7 +60,7 @@ export type PopupCallBackParamType = {
  * @returns {PopupReturnType} OAuth 응답 데이터, 로딩 상태, 팝업을 닫는 함수를 반환합니다.
  */
 export const useOauthPopupCallback = (
-  cb?: useOauthCallbackParams<PopupCallBackParamType>,
+  cb?: useOauthCallbackParams<PopupCbSuccessParamType, PopupCbFailParamType>,
 ) => {
   const [oAuthResponse, setOauthResponse] = useState<OauthResponse | null>(null)
   const [isLoading, setIsLoading] = useState(true)
@@ -63,7 +74,13 @@ export const useOauthPopupCallback = (
   const createClosePopup = useCallback(
     (params: OauthResponse | null) => () => {
       if (!window.opener) throw new Error('No popup')
-      if (!params) onFailRef?.current?.()
+      if (!params?.code)
+        onFailRef?.current?.({
+          returnUrl: params?.returnUrl,
+          closePopup: window.close,
+        })
+
+      if (!params) onFailRef?.current?.({ closePopup: window.close })
       const openerURL = window.opener.location.href
       window.opener.postMessage(params, openerURL)
       window.close()
@@ -80,14 +97,19 @@ export const useOauthPopupCallback = (
     const urlParams = extractOAuthParams(window.location.search)
     const parsedState = decodeOAuthState(urlParams.state)
     const { state, ...restParams } = urlParams
-    if (
-      handleOauthErrors({
-        onFail: onFailRef.current,
-        params: { ...restParams, parsedState },
+
+    if (!parsedState) {
+      return onFailRef?.current?.({ closePopup: window.close })
+    }
+
+    const isOauthError = handleOauthErrors({
+      params: { ...restParams, parsedState },
+    })
+    if (isOauthError)
+      return onFailRef?.current?.({
+        closePopup: window.close,
+        returnUrl: parsedState?.returnUrl,
       })
-    )
-      return
-    if (!parsedState) return
 
     const result = {
       code: urlParams.code || urlParams.access_token,
