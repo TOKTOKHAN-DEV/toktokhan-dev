@@ -1,5 +1,12 @@
 # @toktokhan-dev/chakra
 
+## 0.0.8
+
+### Patch Changes
+
+- Updated dependencies [c61b283]
+  - @toktokhan-dev/react-web@0.0.10
+
 ## 0.0.7
 
 ### Patch Changes
