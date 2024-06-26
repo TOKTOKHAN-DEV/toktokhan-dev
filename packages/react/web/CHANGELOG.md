@@ -1,5 +1,11 @@
 # @toktokhan-dev/react-web
 
+## 0.0.9
+
+### Patch Changes
+
+- 15459c1: oauth callback 함수의 onFail 인자에 returnUrl, onClose(팝업의 경우)함수를 추가했습니다.
+
 ## 0.0.8
 
 ### Patch Changes
