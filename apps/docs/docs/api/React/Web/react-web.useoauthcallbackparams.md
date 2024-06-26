@@ -13,8 +13,8 @@ slug: /react-web.useoauthcallbackparams
 ## Signature
 
 ```typescript
-type useOauthCallbackParams<T = any> = {
+type useOauthCallbackParams<T = any, U = any> = {
   onSuccess?: (params: T) => void;
-  onFail?: () => void;
+  onFail?: (params: U) => void;
 };
 ```

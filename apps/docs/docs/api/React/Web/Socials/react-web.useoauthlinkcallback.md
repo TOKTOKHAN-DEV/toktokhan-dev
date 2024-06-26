@@ -14,7 +14,7 @@ OAuth 링크 콜백을 처리하는 React Hook입니다. 이 Hook은 OAuth 인�
 ## Signature
 
 ```typescript
-useOauthLinkCallback: (cb?: useOauthCallbackParams<LinkCallBackParamType>) => {
+useOauthLinkCallback: (cb?: useOauthCallbackParams<LinkCbSuccessParamType, LinkCbFailParamType>) => {
   data: OauthResponse | null;
   isLoading: boolean;
 }
@@ -45,7 +45,7 @@ cb
 
 </td><td>
 
-[useOauthCallbackParams](./react-web.useoauthcallbackparams)&lt;[LinkCallBackParamType](./react-web.linkcallbackparamtype)&gt;
+[useOauthCallbackParams](./react-web.useoauthcallbackparams)&lt;[LinkCbSuccessParamType](./react-web.linkcbsuccessparamtype), [LinkCbFailParamType](./react-web.linkcbfailparamtype)&gt;
 
 
 </td><td>

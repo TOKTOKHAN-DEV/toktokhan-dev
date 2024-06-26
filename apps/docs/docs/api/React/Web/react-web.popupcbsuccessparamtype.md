@@ -1,9 +1,9 @@
 ---
 sidebar_class_name : hidden
-id: react-web.popupcallbackparamtype
-title: PopupCallBackParamType
-sidebar_label: PopupCallBackParamType
-slug: /react-web.popupcallbackparamtype
+id: react-web.popupcbsuccessparamtype
+title: PopupCbSuccessParamType
+sidebar_label: PopupCbSuccessParamType
+slug: /react-web.popupcbsuccessparamtype
 ---
 
 
@@ -15,7 +15,7 @@ slug: /react-web.popupcallbackparamtype
 ## Signature
 
 ```typescript
-type PopupCallBackParamType = {
+type PopupCbSuccessParamType = {
   data: OauthResponse | null;
   closePopup: () => void;
 };

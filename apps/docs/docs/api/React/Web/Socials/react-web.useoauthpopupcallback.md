@@ -14,7 +14,7 @@ OAuth 팝업 콜백을 처리하는 React Hook입니다. 이 Hook은 OAuth 인�
 ## Signature
 
 ```typescript
-useOauthPopupCallback: (cb?: useOauthCallbackParams<PopupCallBackParamType>) => {
+useOauthPopupCallback: (cb?: useOauthCallbackParams<PopupCbSuccessParamType, PopupCbFailParamType>) => {
   data: OauthResponse | null;
   isLoading: boolean;
   closePopup: () => () => void;
@@ -47,7 +47,7 @@ cb
 
 </td><td>
 
-[useOauthCallbackParams](./react-web.useoauthcallbackparams)&lt;[PopupCallBackParamType](./react-web.popupcallbackparamtype)&gt;
+[useOauthCallbackParams](./react-web.useoauthcallbackparams)&lt;[PopupCbSuccessParamType](./react-web.popupcbsuccessparamtype), [PopupCbFailParamType](./react-web.popupcbfailparamtype)&gt;
 
 
 </td><td>
