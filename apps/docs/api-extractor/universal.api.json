@@ -2881,13 +2881,22 @@
             },
             {
               "kind": "Content",
-              "text": "<null | undefined, T>"
+              "text": "<undefined, T> | "
+            },
+            {
+              "kind": "Reference",
+              "text": "Extract",
+              "canonicalReference": "!Extract:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<null, T>"
             }
           ],
           "fileUrlPath": "dist/index.doc.d.ts",
           "returnTypeTokenRange": {
             "startIndex": 3,
-            "endIndex": 7
+            "endIndex": 9
           },
           "releaseTag": "Public",
           "overloadIndex": 1,
@@ -4171,7 +4180,7 @@
             },
             {
               "kind": "Content",
-              "text": "<T>) & {\n  map: <T, R>(fn: (value: T) => R) => (maybe: "
+              "text": "<T>) & {\n  map: <T_1, R>(fn: (value: T_1) => R) => (maybe: "
             },
             {
               "kind": "Reference",
@@ -4180,7 +4189,7 @@
             },
             {
               "kind": "Content",
-              "text": "<T>) => "
+              "text": "<T_1>) => "
             },
             {
               "kind": "Reference",
@@ -4189,7 +4198,7 @@
             },
             {
               "kind": "Content",
-              "text": "<R>;\n  value: <T>(maybe: "
+              "text": "<R>;\n  value: <T_2>(maybe: "
             },
             {
               "kind": "Reference",
@@ -4198,7 +4207,7 @@
             },
             {
               "kind": "Content",
-              "text": "<T>) => T | null | undefined;\n}"
+              "text": "<T_2>) => T_2 | null | undefined;\n}"
             }
           ],
           "fileUrlPath": "dist/index.doc.d.ts",

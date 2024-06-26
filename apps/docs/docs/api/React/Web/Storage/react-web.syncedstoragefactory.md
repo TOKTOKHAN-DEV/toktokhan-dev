@@ -78,6 +78,27 @@ Description
 </td></tr>
 <tr><td>
 
+[createCookie](./react-web.syncedstoragefactory.createcookie)
+
+
+</td><td>
+
+`static`
+
+
+</td><td>
+
+&lt;Data&gt;(key: string, options?: [CookieOptions](./react-web.cookieoptions)) =&gt; \{ storage: [SyncedCookie](./react-web.syncedcookie)&lt;Data&gt;; connector: [ReactSyncConnector](./react-web.reactsyncconnector)&lt;Data&gt;; \}
+
+
+</td><td>
+
+쿠키를 생성합니다.
+
+
+</td></tr>
+<tr><td>
+
 [createLocal](./react-web.syncedstoragefactory.createlocal)
 
 

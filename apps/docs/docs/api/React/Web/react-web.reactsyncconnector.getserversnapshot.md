@@ -15,5 +15,5 @@ slug: /react-web.reactsyncconnector.getserversnapshot
 ## Signature
 
 ```typescript
-getServerSnapShot: () => null;
+getServerSnapShot: () => NonNullable<Data> | null;
 ```

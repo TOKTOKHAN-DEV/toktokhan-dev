@@ -15,7 +15,7 @@ ReactSyncConnector 인스턴스를 생성합니다. Storage 모듈에 emitChange
 ## Signature
 
 ```typescript
-constructor(synced: ReactSynced<Data> | null);
+constructor(synced: ReactSynced<Data> | null, serverSynced?: Data);
 ```
 
 ## Parameters
@@ -47,6 +47,24 @@ synced
 
 
 </td><td>
+
+ReactSynced 인터페이스를 구현한 객체입니다.
+
+
+</td></tr>
+<tr><td>
+
+serverSynced
+
+
+</td><td>
+
+Data
+
+
+</td><td>
+
+_(Optional)_ 사용자가 제공하는 서버 초기값입니다.
 
 
 </td></tr>

@@ -411,6 +411,19 @@ Kakao OAuth 인증을 처리하는 클래스입니다. SocialOauthInit 클래스
 
 <tr><td>
 
+[SyncedCookie](./react-web.syncedcookie)
+
+</td>
+
+
+<td>
+
+데이터를 쿠키에 동기화하는 SyncedCookie 클래스입니다. 데이터가 업데이트될 때 리스너 함수를 호출합니다. [`ReactSyncConnector`](./react-web.reactsyncconnector)와 연결하여 사용합니다.
+
+</td></tr>
+
+<tr><td>
+
 [SyncedStorage](./react-web.syncedstorage)
 
 </td>

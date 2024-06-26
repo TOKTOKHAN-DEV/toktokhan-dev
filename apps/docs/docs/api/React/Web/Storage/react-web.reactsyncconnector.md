@@ -56,7 +56,7 @@ Description
 </th></tr></thead>
 <tbody><tr><td>
 
-[(constructor)(synced)](./react-web.reactsyncconnector._constructor_)
+[(constructor)(synced, serverSynced)](./react-web.reactsyncconnector._constructor_)
 
 
 </td><td>
@@ -103,7 +103,7 @@ Description
 
 </td><td>
 
-() =&gt; null
+() =&gt; NonNullable&lt;Data&gt; \| null
 
 
 </td><td>
