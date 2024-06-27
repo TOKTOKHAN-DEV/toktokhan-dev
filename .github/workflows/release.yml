@@ -40,23 +40,22 @@ jobs:
       - name: Build packages
         run: pnpm build:packages
 
-      - name: Check for changes in app, config, packages
+      - name: Check for changes in packages and config directories
         id: check_changes
         run: |
-          if git diff --quiet HEAD^ HEAD -- ./app ./packages ./configs; then
-            echo "No changes detected. Exiting subsequent actions."
-            exit 1
+          if git diff --quiet HEAD^ HEAD -- ./packages ./configs; then
+            echo "No changes detected in packages and configs."
+            exit 78  # Exit with code 78 (abort)
           else
-            echo "Changes detected."
+            echo "Changes detected in packages and configs."
           fi
 
-      - name: Generate documentation
-        uses: ./.github/composite-actions/gen-docs
-
       - name: Setup npmrc
+        if: success()
         run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
 
       - name: Create PR and publish versions
+        if: success()
         uses: changesets/action@v1
         with:
           publish: pnpm release
@@ -65,6 +64,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Generate documentation
+        uses: ./.github/composite-actions/gen-docs
 
       # - name: Slack notification
       #   if: steps.changesets.outputs.published == 'true'

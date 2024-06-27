@@ -31,7 +31,7 @@ export type OauthUserReqParams<T extends CommonOauthParams> = Omit<
 export type KakaoAuthQueryParams = {
   client_id: string
   redirect_uri: string
-  response_type: string // code 고정
+  response_type: string // code고정
   scope?: string
   prompt?: 'none' | 'login' | 'create' | 'select_account'
   login_hint?: string

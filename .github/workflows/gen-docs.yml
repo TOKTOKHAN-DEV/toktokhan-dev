@@ -1,0 +1,37 @@
+# name: Generate Documentation
+
+# on:
+#   workflow_run:
+#     workflows: ['Release']
+#     types:
+#       - completed
+
+# jobs:
+#   on-success:
+#     runs-on: ubuntu-latest
+#     name: Generate Documentation
+#     if: ${{ github.event.workflow_run.conclusion == 'success' }}
+#     steps:
+#       - name: Check for changes in packages and configs #./app 변경사항은 버셀에서 해줍니다. 해당 액션은 주석을 통한 Doc생성이 필요할 경우를 위함입니다.
+#         id: check_app_changes
+#         run: |
+#           if git diff --quiet HEAD^ HEAD -- ./packages ./configs; then
+#             echo "No changes detected in app."
+#             exit 78  # Exit with code 78 (abort)
+#           else
+#             echo "Changes detected in app and packages, configs."
+#           fi
+#       - name: Generate documentation
+#         if: success()
+#         uses: ./.github/composite-actions/gen-docs
+#   on-failure:
+#     runs-on: ubuntu-latest
+#     name: Cancel Workflow on Failure
+#     if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+#     steps:
+#       - run: echo 'The triggering workflow failed'
+#       - name: Cancel this workflow run
+#         uses: styfle/cancel-workflow-action@0.9.1
+#         with:
+#           access_token: ${{ secrets.GITHUB_TOKEN }}
+#           workflow_id: ${{ github.event.workflow_run.id }}
