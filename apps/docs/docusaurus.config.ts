@@ -218,6 +218,7 @@ const API_ORDERS = [
   'Node',
   'cli-plugins',
   'Services',
+  'Chakra',
 ]
 
 const reverseSidebarItems = (items) => {
