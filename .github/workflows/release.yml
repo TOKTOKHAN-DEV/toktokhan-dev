@@ -21,7 +21,7 @@ jobs:
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
       TURBO_TEAM: ${{ vars.TURBO_TEAM }}
     steps:
-      - name: checkout code repository
+      - name: Checkout code repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
@@ -34,25 +34,29 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-turbo-
 
-      - name: Basic Install
+      - name: Basic install
         uses: ./.github/composite-actions/install
 
-      - name: Build
+      - name: Build packages
         run: pnpm build:packages
 
       - name: Check for changes in app, config, packages
         id: check_changes
         run: |
-          echo "docDiff=$(git diff --quiet HEAD^ HEAD -- ./app ./packages ./configs || echo true)" >> $GITHUB_ENV
+          if git diff --quiet HEAD^ HEAD -- ./app ./packages ./configs; then
+            echo "No changes detected. Exiting subsequent actions."
+            exit 1
+          else
+            echo "Changes detected."
+          fi
 
-      - name: Generate to Documentation
+      - name: Generate documentation
         uses: ./.github/composite-actions/gen-docs
-        if: env.docDiff == 'true'
 
       - name: Setup npmrc
         run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
 
-      - name: Create PR and Publish Versions
+      - name: Create PR and publish versions
         uses: changesets/action@v1
         with:
           publish: pnpm release
@@ -61,6 +65,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
       # - name: Slack notification
       #   if: steps.changesets.outputs.published == 'true'
       #   run: pnpm slack or
