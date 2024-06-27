@@ -40,8 +40,14 @@ jobs:
       - name: Build
         run: pnpm build:packages
 
+      - name: Check for changes in app or packages
+        id: check_changes
+        run: |
+          echo "::set-output name=docDiff::$(git diff --quiet HEAD^ HEAD -- ./app ./packages ./configs || echo true)"
+
       - name: Generate to Documentation
         uses: ./.github/composite-actions/gen-docs
+        if: steps.check_changes.outputs.docDiff == 'true'
 
       - name: Setup npmrc
         run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
