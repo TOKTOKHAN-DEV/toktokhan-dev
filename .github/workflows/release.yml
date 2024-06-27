@@ -44,8 +44,8 @@ jobs:
         id: check_changes
         run: |
           if git diff --quiet HEAD^ HEAD -- ./packages ./configs; then
-            echo "No changes detected in packages and configs."
-            exit 78  # Exit with code 78 (abort)
+            echo "Canceled by No changes detected in packages and configs."
+            exit 1
           else
             echo "Changes detected in packages and configs."
           fi
@@ -66,6 +66,7 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Generate documentation
+        if: success()
         uses: ./.github/composite-actions/gen-docs
 
       # - name: Slack notification
