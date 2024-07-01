@@ -15,9 +15,9 @@ OAuth 인증 URL을 생성합니다.
 ## Signature
 
 ```typescript
-createOauthUrl: ({
+createOauthUrl: <State>({
     scope,
-    return_url,
+    state,
     ...params
-  }: OauthUserReqParams<AppleAuthQueryParams>) => string;
+  }: OauthUserReqParams<AppleAuthQueryParams, State>) => string;
 ```

@@ -85,7 +85,7 @@ Description
 
 </td><td>
 
-(\{ scope, return_url, ...params \}: [OauthUserReqParams](./react-web.oauthuserreqparams)&lt;[NaverAuthQueryParams](./react-web.naverauthqueryparams)&gt;) =&gt; string
+&lt;State&gt;(\{ scope, state, ...params \}: [OauthUserReqParams](./react-web.oauthuserreqparams)&lt;[NaverAuthQueryParams](./react-web.naverauthqueryparams), State&gt;) =&gt; string
 
 
 </td><td>
@@ -104,7 +104,7 @@ OAuth 인증 URL을 생성합니다.
 
 </td><td>
 
-(params: [OauthUserReqParams](./react-web.oauthuserreqparams)&lt;[NaverAuthQueryParams](./react-web.naverauthqueryparams)&gt;) =&gt; void
+&lt;State&gt;(params: [OauthUserReqParams](./react-web.oauthuserreqparams)&lt;[NaverAuthQueryParams](./react-web.naverauthqueryparams), State&gt;) =&gt; void
 
 
 </td><td>
@@ -123,7 +123,7 @@ OAuth 인증 URL을 생성합니다.
 
 </td><td>
 
-(params: [OauthUserReqParams](./react-web.oauthuserreqparams)&lt;[NaverAuthQueryParams](./react-web.naverauthqueryparams)&gt;) =&gt; void
+&lt;State&gt;(params: [OauthUserReqParams](./react-web.oauthuserreqparams)&lt;[NaverAuthQueryParams](./react-web.naverauthqueryparams), State&gt;) =&gt; void
 
 
 </td><td>

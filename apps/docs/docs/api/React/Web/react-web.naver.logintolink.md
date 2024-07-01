@@ -15,5 +15,5 @@ slug: /react-web.naver.logintolink
 ## Signature
 
 ```typescript
-loginToLink: (params: OauthUserReqParams<NaverAuthQueryParams>) => void;
+loginToLink: <State>(params: OauthUserReqParams<NaverAuthQueryParams, State>) => void;
 ```

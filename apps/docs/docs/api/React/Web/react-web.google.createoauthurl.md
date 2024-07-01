@@ -15,9 +15,9 @@ OAuth 인증 URL을 생성합니다.
 ## Signature
 
 ```typescript
-createOauthUrl: ({
-    return_url,
+createOauthUrl: <State>({
+    state,
     scope,
     ...params
-  }: OauthUserReqParams<GoogleAuthQueryParams>) => string;
+  }: OauthUserReqParams<GoogleAuthQueryParams, State>) => string;
 ```

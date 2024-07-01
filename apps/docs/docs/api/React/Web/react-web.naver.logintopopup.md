@@ -15,5 +15,5 @@ slug: /react-web.naver.logintopopup
 ## Signature
 
 ```typescript
-loginToPopup: (params: OauthUserReqParams<NaverAuthQueryParams>) => void;
+loginToPopup: <State>(params: OauthUserReqParams<NaverAuthQueryParams, State>) => void;
 ```

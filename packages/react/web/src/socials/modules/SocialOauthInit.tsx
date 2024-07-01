@@ -1,4 +1,3 @@
-import { SocialType } from '../types/social'
 import { serialize } from '../utils/serialize'
 
 /**
@@ -6,7 +5,7 @@ import { serialize } from '../utils/serialize'
  * type: 소셜 로그인 타입을 나타냅니다.
  * returnUrl: 로그인 후 리다이렉트 될 URL을 나타냅니다.
  */
-export type OauthStateReturnType = {
+export interface OauthStateReturnType {
   type: string | null
   returnUrl: string | null
 }
@@ -40,10 +39,8 @@ export class SocialOauthInit {
    * @param returnUrl - 로그인 후 리다이렉트 될 URL
    * @returns 인코딩된 OAuth 상태
    */
-  encodeOAuthState = (type: SocialType, returnUrl?: string) => {
-    return Buffer.from(JSON.stringify({ type, returnUrl }), 'utf8').toString(
-      'base64',
-    )
+  static encodeOAuthState = <T,>(state: T): string => {
+    return Buffer.from(JSON.stringify(state), 'utf8').toString('base64')
   }
 
   /**
@@ -51,16 +48,13 @@ export class SocialOauthInit {
    * @param state - 인코딩된 OAuth 상태
    * @returns 디코딩된 OAuth 상태. 디코딩에 실패하면 null을 반환합니다.
    */
-  decodeOAuthState = (
-    state?: string | string[] | null,
-  ): OauthStateReturnType | null => {
-    if (typeof state !== 'string') return null
-    const parsed = JSON.parse(Buffer.from(state, 'base64').toString('utf8'))
-
-    if (typeof parsed !== 'object') return null
-    return {
-      type: parsed.type || null,
-      returnUrl: parsed.returnUrl || null,
+  static decodeOAuthState = <T,>(state: string): T | null => {
+    try {
+      const parsed = JSON.parse(Buffer.from(state, 'base64').toString('utf8'))
+      return parsed as T
+    } catch (e) {
+      console.error('Failed to decode OAuth state', e)
+      return null
     }
   }
 }

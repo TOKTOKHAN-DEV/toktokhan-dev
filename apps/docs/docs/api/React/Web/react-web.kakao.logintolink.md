@@ -15,5 +15,5 @@ OAuth 인증 링크로 리다이렉트합니다.
 ## Signature
 
 ```typescript
-loginToLink: (params: OauthUserReqParams<KakaoAuthQueryParams>) => void;
+loginToLink: <State>(params: OauthUserReqParams<KakaoAuthQueryParams, State>) => void;
 ```

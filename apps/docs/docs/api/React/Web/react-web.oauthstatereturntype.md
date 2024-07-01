@@ -15,8 +15,64 @@ OauthStateReturnType은 OAuth 상태 반환 타입을 정의합니다. type: 소
 ## Signature
 
 ```typescript
-type OauthStateReturnType$1 = {
-  type: string | null;
-  returnUrl: string | null;
-};
+interface OauthStateReturnType 
 ```
+
+## Properties
+
+<table><thead><tr><th>
+
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[returnUrl](./react-web.oauthstatereturntype.returnurl)
+
+
+</td><td>
+
+
+</td><td>
+
+string \| null
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[type](./react-web.oauthstatereturntype.type)
+
+
+</td><td>
+
+
+</td><td>
+
+string \| null
+
+
+</td><td>
+
+
+</td></tr>
+</tbody></table>

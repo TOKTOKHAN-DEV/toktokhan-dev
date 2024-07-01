@@ -13,8 +13,68 @@ slug: /react-web.useoauthcallbackparams
 ## Signature
 
 ```typescript
-type useOauthCallbackParams<T = any, U = any> = {
-  onSuccess?: (params: T) => void;
-  onFail?: (params: U) => void;
-};
+interface useOauthCallbackParams<T = any, U = any> 
 ```
+
+## Properties
+
+<table><thead><tr><th>
+
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[onFail?](./react-web.useoauthcallbackparams.onfail)
+
+
+</td><td>
+
+
+</td><td>
+
+(params: U) =&gt; void
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+<tr><td>
+
+[onSuccess?](./react-web.useoauthcallbackparams.onsuccess)
+
+
+</td><td>
+
+
+</td><td>
+
+(params: T) =&gt; void
+
+
+</td><td>
+
+_(Optional)_
+
+
+</td></tr>
+</tbody></table>

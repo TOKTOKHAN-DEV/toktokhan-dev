@@ -99,10 +99,12 @@ string
 
 </td><td>
 
+`static`
+
 
 </td><td>
 
-(state?: string \| string[] \| null) =&gt; [OauthStateReturnType$1](./react-web.oauthstatereturntype) \| null
+&lt;T&gt;(state: string) =&gt; T \| null
 
 
 </td><td>
@@ -118,10 +120,12 @@ decodeOAuthState 메서드는 인코딩된 OAuth 상태를 디코딩합니다.
 
 </td><td>
 
+`static`
+
 
 </td><td>
 
-(type: [SocialType](./react-web.socialtype), returnUrl?: string) =&gt; string
+&lt;T&gt;(state: T) =&gt; string
 
 
 </td><td>

@@ -15,5 +15,5 @@ OAuth 인증 팝업을 엽니다.
 ## Signature
 
 ```typescript
-loginToPopup: (params: OauthUserReqParams<GoogleAuthQueryParams>) => void;
+loginToPopup: <State>(params: OauthUserReqParams<GoogleAuthQueryParams, State>) => void;
 ```

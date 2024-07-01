@@ -53,7 +53,7 @@ React Web 환경에서 전역적으로 사용할 수 있는 유틸리티 라이�
 <tbody>
 <tr><td>
 
-[useOauthLinkCallback(cb)](./react-web.useoauthlinkcallback)
+[useOauthLinkCallback(params)](./react-web.useoauthlinkcallback)
 
 </td>
 
@@ -79,7 +79,7 @@ OAuth 팝업 콜백을 처리하는 React Hook입니다. 이 Hook은 OAuth 인�
 
 <tr><td>
 
-[useOauthPopupListener()](./react-web.useoauthpopuplistener)
+[useOauthPopupListener(params)](./react-web.useoauthpopuplistener)
 
 </td>
 

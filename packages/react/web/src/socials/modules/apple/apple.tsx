@@ -1,3 +1,5 @@
+import { isNotNullish } from '@toktokhan-dev/universal'
+
 import { isArray } from 'lodash'
 
 import { AppleAuthQueryParams, OauthUserReqParams } from '../../types/social'
@@ -29,21 +31,22 @@ export class Apple extends SocialOauthInit {
    * OAuth 인증 URL을 생성합니다.
    * @param params - OAuth 인증 요청에 필요한 파라미터
    * @param params.scope - 요청할 OAuth 스코프
-   * @param params.return_url - 인증 후 리다이렉션될 URL
+   * @param params.state - 트랜잭션 동안 유지할 상태
    * @returns 생성된 OAuth 인증 URL
    */
-  createOauthUrl = ({
+  createOauthUrl = <State,>({
     scope,
-    return_url,
+    state,
     ...params
-  }: OauthUserReqParams<AppleAuthQueryParams>): string => {
-    const state = this.encodeOAuthState('apple', return_url)
+  }: OauthUserReqParams<AppleAuthQueryParams, State>): string => {
+    const encoded =
+      isNotNullish(state) ? SocialOauthInit.encodeOAuthState(state) : undefined
 
     return super.createOauthUrl({
       scope: isArray(scope) ? scope?.join(' ') : scope,
       client_id: this.clientID,
       response_type: 'code', // 타입추론안됨
-      state,
+      state: encoded,
       ...params,
     })
   }
@@ -52,12 +55,12 @@ export class Apple extends SocialOauthInit {
    * 로그인을 위한 OAuth 인증 링크로 리다이렉트합니다.
    * @param params - OAuth 인증 요청에 필요한 파라미터
    * @param params.scope - 요청할 OAuth 스코프
-   * @param params.return_url - 인증 후 리다이렉션될 URL
+   * @param params.state - 트랜잭션 동안 유지할 상태
    */
-  loginToLink = (params: OauthUserReqParams<AppleAuthQueryParams>) => {
-    const authLink = this.createOauthUrl({
-      ...params,
-    })
+  loginToLink = <State,>(
+    params: OauthUserReqParams<AppleAuthQueryParams, State>,
+  ) => {
+    const authLink = this.createOauthUrl(params)
     pushToUrl(authLink)
   }
 
@@ -65,9 +68,11 @@ export class Apple extends SocialOauthInit {
    * 로그인을 위한 OAuth 인증 팝업을 엽니다.
    * @param params - OAuth 인증 요청에 필요한 파라미터
    * @param params.scope - 요청할 OAuth 스코프
-   * @param params.return_url - 인증 후 리다이렉션될 URL
+   * @param params.state - 트랜잭션 동안 유지할 상태
    */
-  loginToPopup = (params: OauthUserReqParams<AppleAuthQueryParams>) => {
+  loginToPopup = <State,>(
+    params: OauthUserReqParams<AppleAuthQueryParams, State>,
+  ) => {
     const authLink = this.createOauthUrl({
       ...params,
     })

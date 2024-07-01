@@ -64,7 +64,7 @@ options
 
 </td><td>
 
-_(Optional)_ 쿠키 옵션입니다.
+_(Optional)_ 쿠키 옵션입니다. (default: \{ secure: true, sameSite: 'strict', path: '/' \})
 
 
 </td></tr>

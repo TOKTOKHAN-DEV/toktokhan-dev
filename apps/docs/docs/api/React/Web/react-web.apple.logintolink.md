@@ -15,5 +15,5 @@ slug: /react-web.apple.logintolink
 ## Signature
 
 ```typescript
-loginToLink: (params: OauthUserReqParams<AppleAuthQueryParams>) => void;
+loginToLink: <State>(params: OauthUserReqParams<AppleAuthQueryParams, State>) => void;
 ```

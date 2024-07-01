@@ -15,8 +15,8 @@ OauthUserReqParams는 OAuth 인증 요청에 필요한 파라미터를 정의합
 ## Signature
 
 ```typescript
-type OauthUserReqParams<T extends CommonOauthParams> = Omit<T, keyof CommonOauthParams> & {
-  return_url: string;
+type OauthUserReqParams<T extends CommonOauthParams, State> = Omit<T, keyof CommonOauthParams> & {
+  state?: State;
   scope?: string | string[];
 };
 ```

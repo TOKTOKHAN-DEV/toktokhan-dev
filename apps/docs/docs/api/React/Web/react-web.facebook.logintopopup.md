@@ -15,5 +15,5 @@ slug: /react-web.facebook.logintopopup
 ## Signature
 
 ```typescript
-loginToPopup: (params: OauthUserReqParams<FacebookAuthQueryParams>) => void;
+loginToPopup: <State>(params: OauthUserReqParams<FacebookAuthQueryParams, State>) => void;
 ```

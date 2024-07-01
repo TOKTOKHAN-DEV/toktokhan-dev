@@ -1,4 +1,6 @@
-export const extractOAuthParams = (search: string) => {
+import { SocialAuthQueryResponse } from 'socials/types/social'
+
+export const extractOAuthParams = (search: string): SocialAuthQueryResponse => {
   const urlParams = new URLSearchParams(search)
   return {
     access_token: urlParams.get('access_token') || null, // for google

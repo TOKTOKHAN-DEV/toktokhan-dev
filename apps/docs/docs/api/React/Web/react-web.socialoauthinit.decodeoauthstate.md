@@ -15,5 +15,5 @@ decodeOAuthState 메서드는 인코딩된 OAuth 상태를 디코딩합니다.
 ## Signature
 
 ```typescript
-decodeOAuthState: (state?: string | string[] | null) => OauthStateReturnType$1 | null;
+static decodeOAuthState: <T>(state: string) => T | null;
 ```

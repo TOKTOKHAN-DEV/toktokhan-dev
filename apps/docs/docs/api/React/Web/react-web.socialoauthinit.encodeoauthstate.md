@@ -15,5 +15,5 @@ encodeOAuthState 메서드는 OAuth 상태를 인코딩합니다.
 ## Signature
 
 ```typescript
-encodeOAuthState: (type: SocialType, returnUrl?: string) => string;
+static encodeOAuthState: <T>(state: T) => string;
 ```

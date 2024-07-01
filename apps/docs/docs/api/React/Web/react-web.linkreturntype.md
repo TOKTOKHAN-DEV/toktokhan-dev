@@ -15,11 +15,68 @@ slug: /react-web.linkreturntype
 ## Signature
 
 ```typescript
-type LinkReturnType = {
-  data: OauthResponse | null;
-  isLoading: boolean;
-};
+interface LinkReturnType<T> 
 ```
-## References
- [OauthResponse](./react-web.oauthresponse)
 
+## Properties
+
+<table><thead><tr><th>
+
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[data](./react-web.linkreturntype.data)
+
+
+</td><td>
+
+
+</td><td>
+
+[OauthResponse](./react-web.oauthresponse)&lt;T&gt; \| null
+
+
+</td><td>
+
+OAuth 응답 데이터를 나타냅니다.
+
+
+</td></tr>
+<tr><td>
+
+[isLoading](./react-web.linkreturntype.isloading)
+
+
+</td><td>
+
+
+</td><td>
+
+boolean
+
+
+</td><td>
+
+OAuth 콜백 처리 상태를 나타냅니다. 처리 중이면 `true`, 아니면 `false`입니다.
+
+
+</td></tr>
+</tbody></table>

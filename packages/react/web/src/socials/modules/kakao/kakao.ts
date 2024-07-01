@@ -1,3 +1,5 @@
+import { isNotNullish } from '@toktokhan-dev/universal'
+
 import { isArray } from 'lodash'
 
 import { KakaoAuthQueryParams, OauthUserReqParams } from '../../types/social'
@@ -28,19 +30,22 @@ export class Kakao extends SocialOauthInit {
   /**
    * OAuth 인증 URL을 생성합니다.
    * @param params - OAuth 인증 요청에 필요한 파라미터
+   * @param params.state - 트랜잭션 동안 유지할 상태
    * @returns 생성된 OAuth 인증 URL
    */
-  createOauthUrl = ({
-    return_url,
+  createOauthUrl = <State>({
+    state,
     scope,
     ...params
-  }: OauthUserReqParams<KakaoAuthQueryParams>): string => {
-    const state = this.encodeOAuthState('kakao', return_url)
+  }: OauthUserReqParams<KakaoAuthQueryParams, State>): string => {
+    const encoded =
+      isNotNullish(state) ? SocialOauthInit.encodeOAuthState(state) : undefined
+
     return super.createOauthUrl({
       scope: isArray(scope) ? scope?.join(' ') : scope,
       client_id: this.clientID,
       response_type: 'code',
-      state,
+      state: encoded,
       ...params,
     })
   }
@@ -48,8 +53,11 @@ export class Kakao extends SocialOauthInit {
   /**
    * OAuth 인증 링크로 리다이렉트합니다.
    * @param params - OAuth 인증 요청에 필요한 파라미터
+   * @param params.state - 트랜잭션 동안 유지할 상태
    */
-  loginToLink = (params: OauthUserReqParams<KakaoAuthQueryParams>) => {
+  loginToLink = <State>(
+    params: OauthUserReqParams<KakaoAuthQueryParams, State>,
+  ) => {
     const authLink = this.createOauthUrl({
       ...params,
     })
@@ -59,8 +67,11 @@ export class Kakao extends SocialOauthInit {
   /**
    * OAuth 인증 팝업을 엽니다.
    * @param params - OAuth 인증 요청에 필요한 파라미터
+   * @param params.state - 트랜잭션 동안 유지할 상태
    */
-  loginToPopup = (params: OauthUserReqParams<KakaoAuthQueryParams>) => {
+  loginToPopup = <State>(
+    params: OauthUserReqParams<KakaoAuthQueryParams, State>,
+  ) => {
     const authLink = this.createOauthUrl({
       ...params,
     })

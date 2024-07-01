@@ -1,3 +1,5 @@
+import { isNotNullish } from '@toktokhan-dev/universal'
+
 import { isArray } from 'lodash'
 
 import { GoogleAuthQueryParams, OauthUserReqParams } from '../../types/social'
@@ -34,21 +36,22 @@ export class Google extends SocialOauthInit {
   /**
    * OAuth 인증 URL을 생성합니다.
    * @param params - OAuth 인증 요청에 필요한 파라미터
-   * @param params.return_url - 인증 후 리다이렉션될 URL
+   * @param params.state - 트랜잭션 동안 유지할 상태
    * @param params.scope - 요청할 OAuth 스코프
    * @returns 생성된 OAuth 인증 URL
    */
-  createOauthUrl = ({
-    return_url,
+  createOauthUrl = <State,>({
+    state,
     scope,
     ...params
-  }: OauthUserReqParams<GoogleAuthQueryParams>): string => {
-    const state = this.encodeOAuthState('google', return_url)
+  }: OauthUserReqParams<GoogleAuthQueryParams, State>): string => {
+    const encoded =
+      isNotNullish(state) ? SocialOauthInit.encodeOAuthState(state) : undefined
 
     return super.createOauthUrl({
       client_id: this.clientID,
       response_type: 'code',
-      state,
+      state: encoded,
       scope: isArray(scope) ? scope?.join(' ') : scope,
       ...params,
     })
@@ -57,10 +60,12 @@ export class Google extends SocialOauthInit {
   /**
    * OAuth 인증 링크로 리다이렉트합니다.
    * @param params - OAuth 인증 요청에 필요한 파라미터
-   * @param params.return_url - 인증 후 리다이렉션될 URL
+   * @param params.state - 트랜잭션 동안 유지할 상태
    * @param params.scope - 요청할 OAuth 스코프
    */
-  loginToLink = (params: OauthUserReqParams<GoogleAuthQueryParams>) => {
+  loginToLink = <State,>(
+    params: OauthUserReqParams<GoogleAuthQueryParams, State>,
+  ) => {
     const authLink = this.createOauthUrl({
       ...params,
     })
@@ -70,10 +75,12 @@ export class Google extends SocialOauthInit {
   /**
    * OAuth 인증 팝업을 엽니다.
    * @param params - OAuth 인증 요청에 필요한 파라미터
-   * @param params.return_url - 인증 후 리다이렉션될 URL
+   * @param params.state - 트랜잭션 동안 유지할 상태
    * @param params.scope - 요청할 OAuth 스코프 (이메일, 프로필 등)
    */
-  loginToPopup = (params: OauthUserReqParams<GoogleAuthQueryParams>) => {
+  loginToPopup = <State,>(
+    params: OauthUserReqParams<GoogleAuthQueryParams, State>,
+  ) => {
     const authLink = this.createOauthUrl({
       ...params,
     })

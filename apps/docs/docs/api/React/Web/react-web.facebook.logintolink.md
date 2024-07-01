@@ -15,5 +15,5 @@ slug: /react-web.facebook.logintolink
 ## Signature
 
 ```typescript
-loginToLink: (params: OauthUserReqParams<FacebookAuthQueryParams>) => void;
+loginToLink: <State>(params: OauthUserReqParams<FacebookAuthQueryParams, State>) => void;
 ```

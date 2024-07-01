@@ -85,7 +85,7 @@ Description
 
 </td><td>
 
-(\{ return_url, scope, ...params \}: [OauthUserReqParams](./react-web.oauthuserreqparams)&lt;[GoogleAuthQueryParams](./react-web.googleauthqueryparams)&gt;) =&gt; string
+&lt;State&gt;(\{ state, scope, ...params \}: [OauthUserReqParams](./react-web.oauthuserreqparams)&lt;[GoogleAuthQueryParams](./react-web.googleauthqueryparams), State&gt;) =&gt; string
 
 
 </td><td>
@@ -104,7 +104,7 @@ OAuth 인증 URL을 생성합니다.
 
 </td><td>
 
-(params: [OauthUserReqParams](./react-web.oauthuserreqparams)&lt;[GoogleAuthQueryParams](./react-web.googleauthqueryparams)&gt;) =&gt; void
+&lt;State&gt;(params: [OauthUserReqParams](./react-web.oauthuserreqparams)&lt;[GoogleAuthQueryParams](./react-web.googleauthqueryparams), State&gt;) =&gt; void
 
 
 </td><td>
@@ -123,7 +123,7 @@ OAuth 인증 링크로 리다이렉트합니다.
 
 </td><td>
 
-(params: [OauthUserReqParams](./react-web.oauthuserreqparams)&lt;[GoogleAuthQueryParams](./react-web.googleauthqueryparams)&gt;) =&gt; void
+&lt;State&gt;(params: [OauthUserReqParams](./react-web.oauthuserreqparams)&lt;[GoogleAuthQueryParams](./react-web.googleauthqueryparams), State&gt;) =&gt; void
 
 
 </td><td>

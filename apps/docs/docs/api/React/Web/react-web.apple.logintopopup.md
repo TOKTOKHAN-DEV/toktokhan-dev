@@ -15,5 +15,5 @@ slug: /react-web.apple.logintopopup
 ## Signature
 
 ```typescript
-loginToPopup: (params: OauthUserReqParams<AppleAuthQueryParams>) => void;
+loginToPopup: <State>(params: OauthUserReqParams<AppleAuthQueryParams, State>) => void;
 ```
