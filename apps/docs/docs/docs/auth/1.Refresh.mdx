@@ -1,91 +1,108 @@
 import CodeBlock from '@theme/CodeBlock'
 
-# 1. Refresh token
+# Refresh Token (Axios)
 
 만료된 액세스 토큰을 처리하기 위해 구현된 리프래시 토큰 로직을 설명합니다. 
 액세스 토큰이 만료되면 리프래시 토큰을 사용하여 새로운 액세스 토큰을 얻습니다. 
 이 과정에는 새로운 액세스 토큰으로 원래 요청을 재시도하거나, 리프래시 프로세스가 실패한 경우 오류를 처리하는 단계가 포함됩니다.
 
+## Overview
+```ts
+import axios, { AxiosError } from 'axios'
+import { tokenStorage } from '@/stores/local/token'
+import { retryReqeustManager } from './refresh'
+
+const instance = axios.create(...)
+
+const retry = retryReqeustManager()
+
+instance.interceptors.response.use(
+  (res) => {...},
+  /** 
+   * axios response error handler
+   */
+  async (error: AxiosError) => {
+    ...
+      const { response: res, config: reqData } = error || {}
+
+      const isExpiredToken = ... // 액세스 토큰 만료 확인
+
+      if (isExpiredToken) {
+        return retry({
+          /** 
+           * 새로운 access 토큰을 발급받습니다.
+           * 발급 받은 후에, tokenStorage 를 갱신 시켜줍니다.
+           * 발급받은 access token 을 반환합니다.
+           */
+          getToken: async () => {
+            const token = await instance.get<{
+              access_token: string
+              refresh_token: string
+            }>('/v1/user/refresh/')
+
+            tokenStorage?.set({
+              access: token.data.access_token,
+              refresh: token.data.refresh_token,
+            })
+            return token.data.access_token
+          },
+          /** 
+           * getToken 이 반환한 token 을 인자로 받고, axios reqeust 헤더에 추가해 재요청합니다.
+           */
+          onRefetch: (token) => {
+            reqData.headers.Authorization = `Bearer ${token}`
+            return instance.request(reqData)
+          },
+          onError: () => {
+            ...
+          },
+        })
+      }
+
+  },
+)
+
+export default instance
+
+```
+
+
 ## retryRequestManager()
 똑똑한 개발자 템플릿에는 리프래시 로직을 간단하게 구현하는 데에 도와주는 `retryRequestManager()` 함수가 있습니다. 
-해당 함수와 함께 리프래시 로직을 구현하는 플로우를 소개합니다.
+해당 함수는 Promise 를 사용하여, 새로운 토큰을 발급받는 부분에 해당하는 getToken 이 여러번 실행되지 않게 방지합니다.
+
 
 ```ts
-// next-page-init/src/configs/axios/retry-request-manager.ts
-retryRequestManager({
-  getToken: async () => {
-  },
-  onRefetch: (token) => {
-  },
-  onError: () => {
-  },
-})
-```
+export const retryReqeustManager = () => {
+  let token: Promise<string> | null = null 
 
+  return async (params: {
+    getToken: () => Promise<string>
+    onRefetch: <T = unknown>(refreshed: string) => T
+    onError: (error: unknown) => unknown
+  }) => {
+    const { onError, onRefetch, getToken } = params
 
-## Workflow
-
-### 1. 토큰 만료 확인
-요청이 들어오면, 시스템은 액세스 토큰이 만료되었는지 확인합니다.
-```ts
-instance.interceptors.response.use(
-  (res) => {
-    const { status, config: reqData, data: resData } = res
-    return res
-  },
-  async (error: AxiosError) => {
     try {
-      const { response: res, config: reqData } = error || {}
-      const { status } = res || { status: 400 }
-      const isExpiredToken = status === 444
+      if (!token) { 
+        token = getToken() // 실행되는 순간 응답 성공 여부와 관계없이 token 에 Promise 가 할당됩니다.  즉 getToken 이 요청 중이라면 getToken 을 다시 실행하지 않습니다.
+      }
+      const refreshed = await token // token Promise 가 완료될때 까지 기다립니다. n 번이 호출 되더라도 모든 호출동안 단 하나의 Promise 를 기다립니다.
+      const refetched = await onRefetch(refreshed) // 새로운 토큰을 사용하여 요청을 재시도합니다.
+      return refetched 
+    } catch (err) {
+      onError(err)
+    } finally {
+      token = null
     }
   }
-  ...
-)
-```
-
-
-### 2. getToken: 새로운 `access_token`  발급
-retryRequestManager() 함수를 사용하여 재시도 매커니즘을 구현합니다.
-getToken 함수를 통해 리프래시 토큰을 사용하여 새로운 액세스 토큰을 얻습니다.
-```ts
-getToken: async () => {
-  const token = await authApi.authControllerRefresh({
-    data: {
-      refreshToken: tokenStorage?.get()?.refresh_token || '',
-    },
-  })
-  tokenStorage?.set({
-    access_token: token.access_token,
-    refresh_token: token.refresh_token,
-  })
-
-  return token.access_token
-},  
-```
-
-## 3. onRefetch: 기존 요청 재시도
-onRefetch 함수를 호출하여 새로운 액세스 토큰을 헤더에 추가하고, 원래 요청을 재시도합니다.
-```ts 
-onRefetch: (token) => {
-  if (!reqData) return Promise.reject('reqData is not exist')
-  console.log('reqData', reqData)
-  reqData.headers.Authorization = `Bearer ${token}`
-  return instance
-    .request(reqData)
-    .then(() => console.log('******4. 리프래시 성공*******'))
-} 
-```
-
-## 4. onError: 에러 처리
-
-리프래시 토큰을 사용한 재시도가 실패하면, onError 함수를 호출하여 토큰을 제거하고 오류를 반환합니다.
-
-```ts 
-onError: () => {
-  tokenStorage?.remove()
-  return Promise.reject(error)
 }
+
 ```
+
+
+
+
+
 
 

@@ -109,7 +109,7 @@ import { useOauthLinkCallback } from '@toktokhan-dev/react-web'
 
 const LinkCallback = () => {
   
-      const result = useOauthLinkCallbac<{type: string; returnUrl:string}>({
+      const result = useOauthLinkCallback<{type: string; returnUrl:string}>({
           onSuccess: (res) => {
             console.log(res.state.returnUrl)
             // oauth 로그인 성공시에 대한 처리를 해주세요. 
@@ -145,19 +145,25 @@ import { useOauthLinkCallback } from '@toktokhan-dev/react-web'
 
 const PopupCallback = () => {
   
-      useOauthPopupCallback<{type: string; returnUrl:string}>({
+     const { data, closePopup } =  useOauthPopupCallback<{type: string; returnUrl:string}>({
         onSuccess: (res) => {
           console.log(res.state.returnUrl)
           // oauth 로그인 성공시에 대한 처리를 해주세요. 
           // 팝업을 바로 닫아주거나, 따로 UI를 구현 한 후 닫아줄 수 있습니다. (Link예시 참고)
-          res.closePopup({ extra: 'hello parents' })
+          // 팝업을 닫게되면 부모 window useOauthPopupListener hook 에 Oauth 응답 데이터가 전달됩니다.
+          // 아래처럼 closePopup 의 인자로 부모창에 추가적인 데이터를 전달 할 수 있습니다.
+          res.closePopup('hello parents!')
         },
         onFail: (res) => {
         // oauth 로그인 실패시에 대한 처리를 해주세요.
         },
       })
 
+
   return <div>Loading...</div>
+
+  // or 
+  return <Button onClick={() => closePopup(...)} />
 }
 
 export default PopupCallback
@@ -168,6 +174,7 @@ export default PopupCallback
 ## 4. litener 처리 (Use only the popup login)
 
 `callback` 페이지에서 팝업 창을 닫은 후 부모창에서 로그인 api를 요청이 필요한 경우 사용합니다.
+`closePopup` 으로 전달한 데이터는 응답의 `extra`로 전달됩니다.
 
 ```tsx
 import {
