@@ -47,7 +47,10 @@ return (
         onClick={() =>
           kakao.loginToPopup({
             redirect_uri: `${window.origin}/social/callback`,
-            return_url: returnUrl?.toString() || '/',
+            state: {
+              type: 'kakao',
+              returnUrl: '/my',
+            },
           })
         }
         style={{ height: '51px' }}
@@ -74,7 +77,10 @@ return (
         onClick={() =>
           kakao.loginToPopup({
             redirect_uri: `${window.origin}/social/callback`,
-            return_url: returnUrl?.toString() || '/',
+            state: {
+              type: 'kakao',
+              returnUrl: '/my',
+            },
           })
         }
         style={{ height: '51px' }}
@@ -103,8 +109,9 @@ import { useOauthLinkCallback } from '@toktokhan-dev/react-web'
 
 const LinkCallback = () => {
   
-      const result = useOauthLinkCallback({
+      const result = useOauthLinkCallbac<{type: string; returnUrl:string}>({
           onSuccess: (res) => {
+            console.log(res.state.returnUrl)
             // oauth 로그인 성공시에 대한 처리를 해주세요. 
             // 로그인 성공 버튼 없이 이곳에서 바로 라우트 이동을 할 수도 있습니다.
           },
@@ -138,11 +145,12 @@ import { useOauthLinkCallback } from '@toktokhan-dev/react-web'
 
 const PopupCallback = () => {
   
-      useOauthPopupCallback({
+      useOauthPopupCallback<{type: string; returnUrl:string}>({
         onSuccess: (res) => {
+          console.log(res.state.returnUrl)
           // oauth 로그인 성공시에 대한 처리를 해주세요. 
           // 팝업을 바로 닫아주거나, 따로 UI를 구현 한 후 닫아줄 수 있습니다. (Link예시 참고)
-          res.closePopup()
+          res.closePopup({ extra: 'hello parents' })
         },
         onFail: (res) => {
         // oauth 로그인 실패시에 대한 처리를 해주세요.
@@ -168,6 +176,8 @@ import {
 
 const ParentPage = () => {
   const { data } = useOauthPopupListener()
+  console.log(data, data.state.returnUrl, data.extra) // { code: '...', state: { returnUrl: '/my', type: 'kakao' }, extra: 'hello parents' }
+
 
    useEffect(() => {
      if (!data) return
