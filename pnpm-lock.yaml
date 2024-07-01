@@ -1135,7 +1135,7 @@ importers:
         specifier: 0.0.4
         version: link:../../packages/react/universal
       '@toktokhan-dev/react-web':
-        specifier: 0.0.9
+        specifier: 0.0.11
         version: link:../../packages/react/web
       '@toktokhan-dev/universal':
         specifier: 0.0.4
