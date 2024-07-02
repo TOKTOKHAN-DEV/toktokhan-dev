@@ -2,14 +2,20 @@ import CodeBlock from '@theme/CodeBlock'
 import TabItem from '@theme/TabItem'
 import Tabs from '@theme/Tabs'
 
-<Tabs>
-  <TabItem value="npm" label="npm" default>
+
+{props.isGlobal ?  (
     <CodeBlock language="bash">{`npm i${props.isGlobal ? ' -g' : ''}${props.isDev ? ' -D' : ''} ${props.package}`}</CodeBlock>
+): (
+  <Tabs>
+  <TabItem value="npm" label="npm" default>
+    <CodeBlock language="bash">{`npm i ${props.isDev ? '-D ' : ''}${props.package}`}</CodeBlock>
   </TabItem>
   <TabItem value="yarn" label="yarn">
-    <CodeBlock language="bash">{`yarn ${props.isGlobal ? 'dlx' : ''}${props.isDev ? ' add -D' : ''} ${props.package}`}</CodeBlock>
+    <CodeBlock language="bash">{`yarn add ${props.isDev ? '-D ' : ''}${props.package}`}</CodeBlock>
   </TabItem>
+
   <TabItem value="pnpm" label="pnpm">
-    <CodeBlock language="bash">{`pnpm add${props.isGlobal ? ' -g' : ''}${props.isDev ? ' -D' : ''} ${props.package}`}</CodeBlock>
+    <CodeBlock language="bash">{`pnpm add ${props.isDev ? '-D ' : ''}${props.package}`}</CodeBlock>
   </TabItem>
 </Tabs>
+)}
