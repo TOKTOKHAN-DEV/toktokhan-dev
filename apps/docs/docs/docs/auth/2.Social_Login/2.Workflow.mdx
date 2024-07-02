@@ -45,7 +45,7 @@ return (
         align={'left'}
         colorMode={colorMode}
         onClick={() =>
-          kakao.loginToPopup({
+          kakao.loginToLink({
             redirect_uri: `${window.origin}/social/callback`,
             state: {
               type: 'kakao',
