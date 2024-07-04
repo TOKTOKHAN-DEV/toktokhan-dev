@@ -84,6 +84,7 @@ export const FullButton = ({
   style,
   icon,
   iconStyle,
+  labelStyle,
   onClick,
   ...props
 }: FullButtonProps): ReactElement => {
@@ -162,6 +163,7 @@ export const FullButton = ({
           style={{
             whiteSpace: 'nowrap',
             ...alignStyle.label,
+            ...labelStyle,
           }}
         >
           {label || SOCIALS[socialType][lang]}
