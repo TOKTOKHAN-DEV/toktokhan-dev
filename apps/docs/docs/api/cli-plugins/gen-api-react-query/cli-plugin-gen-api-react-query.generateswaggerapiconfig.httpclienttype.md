@@ -15,5 +15,5 @@ http client 타입입니다.
 ## Signature
 
 ```typescript
-httpClientType: HttpClientType;
+httpClientType: 'axios' | 'fetch';
 ```

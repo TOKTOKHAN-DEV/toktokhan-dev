@@ -262,9 +262,8 @@
                   "text": "httpClientType: "
                 },
                 {
-                  "kind": "Reference",
-                  "text": "HttpClientType",
-                  "canonicalReference": "swagger-typescript-api!HttpClientType:type"
+                  "kind": "Content",
+                  "text": "'axios' | 'fetch'"
                 },
                 {
                   "kind": "Content",
