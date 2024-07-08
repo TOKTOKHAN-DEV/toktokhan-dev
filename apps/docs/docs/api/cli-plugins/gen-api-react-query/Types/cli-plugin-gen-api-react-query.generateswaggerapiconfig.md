@@ -48,7 +48,7 @@ Description
 
 </td><td>
 
-HttpClientType
+'axios' \| 'fetch'
 
 
 </td><td>
