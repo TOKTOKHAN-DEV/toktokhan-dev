@@ -1,8 +1,6 @@
 import { defineCommand } from '@toktokhan-dev/cli'
 import { cwd, withLoading } from '@toktokhan-dev/node'
 
-import { HttpClientType } from 'swagger-typescript-api'
-
 import { GENERATE_SWAGGER_DATA } from './constants'
 import { parseSwagger } from './parse-swagger'
 import { writeSwaggerApiFile } from './write-swagger'
@@ -53,7 +51,7 @@ export interface GenerateSwaggerApiConfig {
   /** Api 의 axios 혹은 fetch 요청 instance 주소입니다. */
   instancePath: string
   /** http client 타입입니다. */
-  httpClientType: HttpClientType
+  httpClientType: 'axios' | 'fetch'
   /**
    * infiniteQuery 를 생성할 함수 필터 목록 입니다.
    * */
