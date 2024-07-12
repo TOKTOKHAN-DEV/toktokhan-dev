@@ -1,3 +1,4 @@
+import { DeepNonNullAble } from './deep-non-nullable'
 import { Indices } from './indices'
 
 import { Obj } from '..'
@@ -23,24 +24,20 @@ import { Obj } from '..'
  * // type DeepKeys = 'a' | 'a.b' | 'a.c' | 'a.c.d' | `a.c.d.${number}`
  * ```
  */
-export type DeepKeyOf<T> =
-  T extends Array<any> ?
+export type DeepKeyOf<T, ExactT = DeepNonNullAble<T>> =
+  ExactT extends Array<any> ?
     {
-      [K in Indices<T>]: K extends number | string ?
-        T[K] extends Obj | Array<any> ?
-          K | `${K}.${DeepKeyOf<T[K]>}`
+      [K in Indices<ExactT>]: K extends number | string ?
+        ExactT[K] extends Obj | Array<any> ?
+          K | `${K}.${DeepKeyOf<ExactT[K]>}`
         : K
       : K
-    }[Indices<T>]
-  : T extends Obj ?
+    }[Indices<ExactT>]
+  : ExactT extends Obj ?
     {
-      [K in keyof T]: `${K extends string | number ?
+      [K in keyof ExactT]: K extends string | number ?
         | K
-        | (T[K] extends Obj | Array<any> ?
-            DeepKeyOf<T[K]> extends string | number ?
-              `${K}.${DeepKeyOf<T[K]>}`
-            : never
-          : K)
-      : never}`
-    }[keyof T]
+        | `${ExactT[K] extends Obj | Array<any> ? `${K}.${DeepKeyOf<ExactT[K]>}` : never}`
+      : never
+    }[keyof ExactT]
   : never

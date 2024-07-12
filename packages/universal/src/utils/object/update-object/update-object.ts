@@ -2,9 +2,19 @@ import { cloneDeep, curry, get, isFunction, set } from 'lodash'
 
 import { DeepKeyOf, DeepValueOf } from '../../../types'
 
-// import { runIfFn } from '../../fn'
+type DataOrFn<T, D> = T | ((prev: T, origin: D) => T)
+
+function runIfFn<T, U extends any[]>(
+  valueOrFn: T | ((...fnArgs: U) => T),
+  ...args: U
+): T {
+  return isFunction(valueOrFn) ? valueOrFn(...args) : valueOrFn
+}
 
 /**
+ * @deprecated
+ * use `update` instead
+ *
  * 객체의 지정된 깊은 위치에 값을 설정하거나 업데이트합니다.
  *
  * @category Utils/Object
@@ -37,16 +47,6 @@ import { DeepKeyOf, DeepValueOf } from '../../../types'
  *
  * @curried
  */
-
-type DataOrFn<T, D> = T | ((prev: T, origin: D) => T)
-
-function runIfFn<T, U extends any[]>(
-  valueOrFn: T | ((...fnArgs: U) => T),
-  ...args: U
-): T {
-  return isFunction(valueOrFn) ? valueOrFn(...args) : valueOrFn
-}
-
 export const updateObj: {
   <T, K extends DeepKeyOf<T> = DeepKeyOf<T>>(
     key: K,
