@@ -183,13 +183,15 @@ import {
 
 const ParentPage = () => {
   const { data } = useOauthPopupListener()
-  console.log(data, data.state.returnUrl, data.extra) // { code: '...', state: { returnUrl: '/my', type: 'kakao' }, extra: 'hello parents' }
-
-
-   useEffect(() => {
-     if (!data) return
-    // 로그인 api 요청 후 토큰 스토리지에 저장
-  }, [data])
+  useOauthPopupListener<OauthCallback>({
+    onSuccess: (res) => {
+      // res: { code: '...', state: { returnUrl: '/my', type: 'kakao' }, extra: 'hello parents' }
+      // ouath 로그인 성공시에 대한 처리를 홰주세요.
+    },
+    onFail: (res) => {
+      // ouath 로그인 실패시에 대한 처리를 홰주세요.
+    },
+  })
 }
 ``` 
 
