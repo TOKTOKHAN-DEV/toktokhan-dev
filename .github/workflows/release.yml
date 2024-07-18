@@ -40,14 +40,20 @@ jobs:
       - name: Build packages
         run: pnpm build:packages
 
+      - name: Fetch latest from origin
+        run: git fetch origin
+
       - name: Check for changes in packages and config directories
         id: check_changes
         run: |
-          if git diff --quiet HEAD^ HEAD -- ./packages ./configs; then
-            echo "Canceled by No changes detected in packages and configs."
+          previous_commit=${{ github.event.before }}
+          latest_commit=${{ github.sha }}
+          echo "Checking for changes between $previous_commit and $latest_commit..."
+          if git diff --quiet $previous_commit $latest_commit -- ./packages ./configs; then
+            echo "No changes detected in ./packages or ./configs."
             exit 1
           else
-            echo "Changes detected in packages and configs."
+            echo "Changes detected in ./packages or ./configs."
           fi
 
       - name: Setup npmrc
