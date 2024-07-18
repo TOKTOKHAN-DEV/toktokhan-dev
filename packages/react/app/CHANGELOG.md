@@ -1,5 +1,12 @@
 # @toktokhan-dev/react-app
 
+## 0.0.5
+
+### Patch Changes
+
+- Updated dependencies [96c995f]
+  - @toktokhan-dev/react-universal@0.0.5
+
 ## 0.0.4
 
 ### Patch Changes

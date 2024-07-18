@@ -1,5 +1,11 @@
 # @toktokhan-dev/chakra
 
+## 0.0.11
+
+### Patch Changes
+
+- @toktokhan-dev/react-web@0.0.13
+
 ## 0.0.10
 
 ### Patch Changes
