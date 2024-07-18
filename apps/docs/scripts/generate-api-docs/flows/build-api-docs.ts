@@ -1,5 +1,5 @@
 import { $ } from '@toktokhan-dev/node'
-import { awaitted } from '@toktokhan-dev/universal'
+import { awaited } from '@toktokhan-dev/universal'
 
 import { flow } from 'lodash/fp'
 
@@ -33,5 +33,5 @@ const buildApiMakrdownDocs = () =>
 
 export const buildApiDocs = flow(
   buildApiDocumentorPlugin,
-  awaitted(buildApiMakrdownDocs),
+  awaited(buildApiMakrdownDocs),
 )

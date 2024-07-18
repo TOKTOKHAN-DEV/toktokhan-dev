@@ -11,14 +11,14 @@ import { curry } from 'lodash'
  * const target = 5
  * const targetPromise = Promise.resolve(5)
  *
- * const result = awaitted(double, target) // 10
- * const resultPromise = awaitted(double, targetPromise) // 10
+ * const result = awaited(double, target) // 10
+ * const resultPromise = awaited(double, targetPromise) // 10
  *
  * // curried
- * flow(() => Promise.resolve(5), awaitted(double))
+ * flow(() => Promise.resolve(5), awaited(double))
  * ```
  */
-export const awaitted: {
+export const awaited: {
   <P, R>(fn: (p: P) => R, data: P | PromiseLike<P>): R
   <P, R>(fn: (p: P) => R): (data: P | PromiseLike<P>) => R
 } = curry(<P, R>(fn: (p: P) => R, data: P | PromiseLike<P>) => {

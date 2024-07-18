@@ -18,9 +18,9 @@
 
 ### Patch Changes
 
-- 70acba8: change function export name: then -> awaitted
+- 70acba8: change function export name: then -> awaited
 
-  `then` 함수가 `awaitted` 이름으로 변경되었습니다.
+  `then` 함수가 `awaited` 이름으로 변경되었습니다.
 
 ## 0.0.1
 

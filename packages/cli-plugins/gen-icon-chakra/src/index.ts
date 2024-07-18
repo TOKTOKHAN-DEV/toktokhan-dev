@@ -7,7 +7,7 @@ import {
   generateCodeFile,
   readFileSync,
 } from '@toktokhan-dev/node'
-import { awaitted, flatObject, prefix } from '@toktokhan-dev/universal'
+import { awaited, flatObject, prefix } from '@toktokhan-dev/universal'
 
 import { camelCase, startCase } from 'lodash'
 import { entries, flow, join, map, mapKeys, replace, tail } from 'lodash/fp'
@@ -136,7 +136,7 @@ export const genIcon = defineCommand<'gen:icon', GenIconConfig>({
     const transformSvgContent = async ([key, val]: [string, string]) => {
       const transformed = await flow(
         parse,
-        awaitted(
+        awaited(
           flow(
             toJsxSyntax,
             stringify,
@@ -156,14 +156,14 @@ export const genIcon = defineCommand<'gen:icon', GenIconConfig>({
       entries,
       map(transformSvgContent),
       (value) => Promise.all(value) as any,
-      awaitted(map(tail)),
-      awaitted(
+      awaited(map(tail)),
+      awaited(
         flow(
           join('\n'),
           prefix(`import { Icon, IconProps } from '@chakra-ui/react';\n\n`),
         ),
       ),
-      awaitted(
+      awaited(
         generateCodeFile({
           outputPath: output,
           prettier: {

@@ -563,12 +563,12 @@
         },
         {
           "kind": "Function",
-          "canonicalReference": "@toktokhan-dev/universal!awaitted:function(1)",
-          "docComment": "/**\n  *\n * Promise 를 받아 resolve 된 값으로 함수를 실행합니다.\n *\n * @example\n * ```ts\n * const double = (x: number) => x * 2\n * const target = 5\n * const targetPromise = Promise.resolve(5)\n *\n * const result = awaitted(double, target) // 10\n * const resultPromise = awaitted(double, targetPromise) // 10\n *\n * // curried\n * flow(() => Promise.resolve(5), awaitted(double))\n * ```\n *\n */\n",
+          "canonicalReference": "@toktokhan-dev/universal!awaited:function(1)",
+          "docComment": "/**\n  *\n * Promise 를 받아 resolve 된 값으로 함수를 실행합니다.\n *\n * @example\n * ```ts\n * const double = (x: number) => x * 2\n * const target = 5\n * const targetPromise = Promise.resolve(5)\n *\n * const result = awaited(double, target) // 10\n * const resultPromise = awaited(double, targetPromise) // 10\n *\n * // curried\n * flow(() => Promise.resolve(5), awaited(double))\n * ```\n *\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "awaitted: <P, R>(fn: "
+              "text": "awaited: <P, R>(fn: "
             },
             {
               "kind": "Content",
@@ -649,7 +649,7 @@
               }
             }
           ],
-          "name": "awaitted"
+          "name": "awaited"
         },
         {
           "kind": "Function",

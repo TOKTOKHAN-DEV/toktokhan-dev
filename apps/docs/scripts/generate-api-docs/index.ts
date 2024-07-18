@@ -1,5 +1,5 @@
 import { successLog } from '@toktokhan-dev/node'
-import { awaitted } from '@toktokhan-dev/universal'
+import { awaited } from '@toktokhan-dev/universal'
 
 import { flow } from 'lodash/fp'
 
@@ -13,19 +13,19 @@ import { handleDts } from './flows/handle-dts'
 import { handleIndexMarkdown } from './flows/handle-index-markdown'
 
 flow(
-  flow(buildPackages, awaitted(successLog('build packages'))),
-  awaitted(flow(handleDts, successLog('handle dts'))),
-  awaitted(flow(buildApiExtractorJson, successLog('build api-extractor.json'))),
-  awaitted(
+  flow(buildPackages, awaited(successLog('build packages'))),
+  awaited(flow(handleDts, successLog('handle dts'))),
+  awaited(flow(buildApiExtractorJson, successLog('build api-extractor.json'))),
+  awaited(
     flow(handleApiExtractorJson, successLog('handle api-extractor.json')),
   ),
-  awaitted(flow(buildApiDocs, awaitted(successLog('build api docs markdown')))),
-  awaitted(flow(handleIndexMarkdown, successLog('handle index markdown'))),
-  awaitted(
+  awaited(flow(buildApiDocs, awaited(successLog('build api docs markdown')))),
+  awaited(flow(handleIndexMarkdown, successLog('handle index markdown'))),
+  awaited(
     flow(
       handleApiDocFolderStructure,
       successLog('handle api-doc folder structure'),
     ),
   ),
-  awaitted(flow(cleanDts, successLog(`index.doc.d.ts file has been cleaned.`))),
+  awaited(flow(cleanDts, successLog(`index.doc.d.ts file has been cleaned.`))),
 )()
