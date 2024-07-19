@@ -792,25 +792,6 @@ importers:
         specifier: ^3.1.0
         version: 3.1.0(rollup@3.29.4)
 
-  packages/react/app:
-    dependencies:
-      '@tanstack/react-query':
-        specifier: ^4.2.3
-        version: 4.36.1(react-dom@18.3.1)(react@18.3.1)
-      '@toktokhan-dev/react-universal':
-        specifier: workspace:*
-        version: link:../universal
-      dayjs:
-        specifier: ^1.10.6
-        version: 1.11.11
-      react:
-        specifier: ^18.2.0
-        version: 18.3.1
-    devDependencies:
-      '@toktokhan-dev/ts-config':
-        specifier: workspace:*
-        version: link:../../../configs/ts-config
-
   packages/react/universal:
     dependencies:
       '@tanstack/react-query':
