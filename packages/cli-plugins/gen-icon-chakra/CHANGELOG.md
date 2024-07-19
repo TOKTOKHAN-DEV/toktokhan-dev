@@ -1,5 +1,17 @@
 # @toktokhan-dev/cli-plugin-gen-icon-chakra
 
+## 0.0.7
+
+### Patch Changes
+
+- af1668a: awaitted 함수명 오타 변경 => awaited
+- Updated dependencies [af1668a]
+- Updated dependencies [4f0b03f]
+- Updated dependencies [9493f66]
+  - @toktokhan-dev/universal@0.0.5
+  - @toktokhan-dev/cli@0.0.7
+  - @toktokhan-dev/node@0.0.6
+
 ## 0.0.6
 
 ### Patch Changes
