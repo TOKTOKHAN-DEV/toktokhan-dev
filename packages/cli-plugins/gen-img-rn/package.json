@@ -1,6 +1,6 @@
 {
   "name": "@toktokhan-dev/cli-plugin-gen-img-rn",
-  "version": "0.0.2",
+  "version": "0.0.1",
   "description": "",
   "type": "module",
   "main": "dist/index.js",

@@ -1,11 +1,5 @@
 # @toktokhan-dev/react-app
 
-## 0.0.6
-
-### Patch Changes
-
-- @toktokhan-dev/react-universal@0.0.6
-
 ## 0.0.5
 
 ### Patch Changes

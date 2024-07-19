@@ -1,6 +1,6 @@
 {
   "name": "@toktokhan-dev/chakra",
-  "version": "0.0.12",
+  "version": "0.0.11",
   "author": "TOKTOKHAN.DEV <dev@toktokhan.dev>",
   "description": "Tokotokhan-fe react-web library",
   "type": "module",

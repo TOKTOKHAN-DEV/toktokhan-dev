@@ -5,14 +5,7 @@ sidebar_label: Universal
 slug: /universal
 ---
 
-
-
-
-
 웹,앱 환경에서 사용가능한 유틸리티 라이브러리입니다.
-
-
-
 
 ## Functor
 
@@ -30,10 +23,7 @@ slug: /universal
 
 </td>
 
-
 <td>
-
-
 
 </td></tr>
 
@@ -43,10 +33,7 @@ slug: /universal
 
 </td>
 
-
 <td>
-
-
 
 </td></tr>
 
@@ -56,10 +43,7 @@ slug: /universal
 
 </td>
 
-
 <td>
-
-
 
 </td></tr>
 
@@ -69,16 +53,11 @@ slug: /universal
 
 </td>
 
-
 <td>
-
-
 
 </td></tr>
 </tbody>
 </table>
-
-
 
 ## Types/Static
 
@@ -96,7 +75,6 @@ slug: /universal
 
 </td>
 
-
 <td>
 
 데이터의 양을 나타내는 바이트 단위를 나타내는 타입입니다.
@@ -104,8 +82,6 @@ slug: /universal
 </td></tr>
 </tbody>
 </table>
-
-
 
 ## Types/Utility
 
@@ -123,7 +99,6 @@ slug: /universal
 
 </td>
 
-
 <td>
 
 비동기 함수의 타입을 정의합니다.
@@ -135,7 +110,6 @@ slug: /universal
 [AsyncFnReturn](./universal.asyncfnreturn)
 
 </td>
-
 
 <td>
 
@@ -149,7 +123,6 @@ slug: /universal
 
 </td>
 
-
 <td>
 
 객체의 깊은 키를 나타내는 타입을 추출합니다.
@@ -161,7 +134,6 @@ slug: /universal
 [DeepMutable](./universal.deepmutable)
 
 </td>
-
 
 <td>
 
@@ -175,7 +147,6 @@ slug: /universal
 
 </td>
 
-
 <td>
 
 객체의 모든 속성을 null 가능하게 만드는 타입을 정의합니다.
@@ -187,7 +158,6 @@ slug: /universal
 [DeepOmitReadOnly](./universal.deepomitreadonly)
 
 </td>
-
 
 <td>
 
@@ -201,7 +171,6 @@ slug: /universal
 
 </td>
 
-
 <td>
 
 객체의 모든 속성을 옵셔널하게 만듭니다
@@ -213,7 +182,6 @@ slug: /universal
 [DeepValueOf](./universal.deepvalueof)
 
 </td>
-
 
 <td>
 
@@ -227,7 +195,6 @@ slug: /universal
 
 </td>
 
-
 <td>
 
 함수의 타입을 정의합니다.
@@ -239,7 +206,6 @@ slug: /universal
 [IfEquals](./universal.ifequals)
 
 </td>
-
 
 <td>
 
@@ -253,7 +219,6 @@ slug: /universal
 
 </td>
 
-
 <td>
 
 배열의 인덱스 타입을 추출하는 타입을 정의합니다.
@@ -265,7 +230,6 @@ slug: /universal
 [ItemOf](./universal.itemof)
 
 </td>
-
 
 <td>
 
@@ -279,7 +243,6 @@ slug: /universal
 
 </td>
 
-
 <td>
 
 `MockedFn`은 Jest의 mock 함수를 타입으로 나타내는 유틸리티 타입입니다.
@@ -291,7 +254,6 @@ slug: /universal
 [Mutable](./universal.mutable)
 
 </td>
-
 
 <td>
 
@@ -305,7 +267,6 @@ slug: /universal
 
 </td>
 
-
 <td>
 
 객체에서 모든 property 가 NonNullable 타입이 되도록 합니다.
@@ -317,7 +278,6 @@ slug: /universal
 [NullAble](./universal.nullable)
 
 </td>
-
 
 <td>
 
@@ -331,7 +291,6 @@ slug: /universal
 
 </td>
 
-
 <td>
 
 키와 값의 타입이 있는 객체의 타입을 정의합니다.
@@ -343,7 +302,6 @@ slug: /universal
 [OmitReadOnly](./universal.omitreadonly)
 
 </td>
-
 
 <td>
 
@@ -357,7 +315,6 @@ slug: /universal
 
 </td>
 
-
 <td>
 
 함수의 첫번째 인자 타입을 가져옵니다.
@@ -369,7 +326,6 @@ slug: /universal
 [ReadonlyKeysOf](./universal.readonlykeysof)
 
 </td>
-
 
 <td>
 
@@ -383,7 +339,6 @@ slug: /universal
 
 </td>
 
-
 <td>
 
 재귀하는 타입을 가지는 객체를 정의합니다.
@@ -396,7 +351,6 @@ slug: /universal
 
 </td>
 
-
 <td>
 
 객체의 모든 속성의 타입을 추출합니다
@@ -404,8 +358,6 @@ slug: /universal
 </td></tr>
 </tbody>
 </table>
-
-
 
 ## Utils/Array
 
@@ -423,10 +375,9 @@ slug: /universal
 
 </td>
 
-
 <td>
 
-배열을 Map으로 변환합니다. 각 요소는 지정된 키 선택기 함수를 통해 매핑됩니다. *
+배열을 Map으로 변환합니다. 각 요소는 지정된 키 선택기 함수를 통해 매핑됩니다. \*
 
 </td></tr>
 
@@ -436,10 +387,9 @@ slug: /universal
 
 </td>
 
-
 <td>
 
-배열을 Record로 변환합니다. 각 요소는 지정된 키 선택기 함수를 통해 매핑됩니다. *
+배열을 Record로 변환합니다. 각 요소는 지정된 키 선택기 함수를 통해 매핑됩니다. \*
 
 </td></tr>
 
@@ -449,7 +399,6 @@ slug: /universal
 
 </td>
 
-
 <td>
 
 배열을 특정 갯수로 나누어주는 함수입니다.
@@ -457,8 +406,6 @@ slug: /universal
 </td></tr>
 </tbody>
 </table>
-
-
 
 ## Utils/Decode
 
@@ -476,10 +423,7 @@ slug: /universal
 
 </td>
 
-
 <td>
-
-
 
 </td></tr>
 
@@ -489,16 +433,11 @@ slug: /universal
 
 </td>
 
-
 <td>
-
-
 
 </td></tr>
 </tbody>
 </table>
-
-
 
 ## Utils/Fetch
 
@@ -516,7 +455,6 @@ slug: /universal
 
 </td>
 
-
 <td>
 
 고차 함수로 fetch를 확장하거나, interceptor, baseUrl, headers 을 옵션으로 넣어 사용할 수 있습니다.
@@ -528,7 +466,6 @@ slug: /universal
 [FetchHelperDefaultOptions](./universal.fetchhelperdefaultoptions)
 
 </td>
-
 
 <td>
 
@@ -542,7 +479,6 @@ slug: /universal
 
 </td>
 
-
 <td>
 
 `fetchHelper` 함수의 타입입니다. 이는 사용자 지정 `fetchHelper` 함수를 작성하고자 할 때 유용합니다.
@@ -550,8 +486,6 @@ slug: /universal
 </td></tr>
 </tbody>
 </table>
-
-
 
 ## Utils/File
 
@@ -569,7 +503,6 @@ slug: /universal
 
 </td>
 
-
 <td>
 
 특정 바이트 단위를 바이트로 변환합니다.
@@ -581,7 +514,6 @@ slug: /universal
 [byteFromTo(from, to, value)](./universal.bytefromto)
 
 </td>
-
 
 <td>
 
@@ -595,7 +527,6 @@ slug: /universal
 
 </td>
 
-
 <td>
 
 바이트를 특정 바이트 단위로 변환합니다.
@@ -608,16 +539,13 @@ slug: /universal
 
 </td>
 
-
 <td>
 
- Utils/File 주어진 파일 크기가 최대 크기를 초과하는지 확인하는 함수입니다.
+Utils/File 주어진 파일 크기가 최대 크기를 초과하는지 확인하는 함수입니다.
 
 </td></tr>
 </tbody>
 </table>
-
-
 
 ## Utils/Fn
 
@@ -635,7 +563,6 @@ slug: /universal
 
 </td>
 
-
 <td>
 
 Promise 를 받아 resolve 된 값으로 함수를 실행합니다.
@@ -647,7 +574,6 @@ Promise 를 받아 resolve 된 값으로 함수를 실행합니다.
 [collect(args)](./universal.collect)
 
 </td>
-
 
 <td>
 
@@ -661,7 +587,6 @@ arguments 를 배열로써 반환합니다.
 
 </td>
 
-
 <td>
 
 함수를 실행하고, 인자를 그대로 반환합니다. 컴포넌트 합성시(lodash.flow) 함수의 응닶값에 영향을 미치지 않고 특정 함수를 실행시키고 싶을 경우 유용합니다.
@@ -673,7 +598,6 @@ arguments 를 배열로써 반환합니다.
 [isEvery(fns)](./universal.isevery)
 
 </td>
-
 
 <td>
 
@@ -687,7 +611,6 @@ arguments 를 배열로써 반환합니다.
 
 </td>
 
-
 <td>
 
 주어진 함수의 부정값을 반환합니다. 주어진 함수를 실행하고 그 결과를 부정하여 반환합니다.
@@ -699,7 +622,6 @@ arguments 를 배열로써 반환합니다.
 [or(def, value)](./universal.or)
 
 </td>
-
 
 <td>
 
@@ -713,7 +635,6 @@ arguments 를 배열로써 반환합니다.
 
 </td>
 
-
 <td>
 
 주어진 데이터를 반환하는 함수를 생성합니다.
@@ -725,7 +646,6 @@ arguments 를 배열로써 반환합니다.
 [relay(params)](./universal.relay)
 
 </td>
-
 
 <td>
 
@@ -739,7 +659,6 @@ arguments 를 배열로써 반환합니다.
 
 </td>
 
-
 <td>
 
 주로 refresh token 이 필요한 요청을 관리하는 함수입니다. 토큰이 만료됐을 시, refresh token 을 요청하고, 새로운 토큰을 받아서 요청을 재시도합니다.
@@ -752,7 +671,6 @@ arguments 를 배열로써 반환합니다.
 
 </td>
 
-
 <td>
 
 주어진 값이 함수인 경우 주어진 인자들을 사용하여 실행하고, 그렇지 않으면 주어진 값을 그대로 반환합니다.
@@ -760,8 +678,6 @@ arguments 를 배열로써 반환합니다.
 </td></tr>
 </tbody>
 </table>
-
-
 
 ## Utils/Logger
 
@@ -779,7 +695,6 @@ arguments 를 배열로써 반환합니다.
 
 </td>
 
-
 <td>
 
 주어진 값을 로깅하고 반환합니다.
@@ -787,8 +702,6 @@ arguments 를 배열로써 반환합니다.
 </td></tr>
 </tbody>
 </table>
-
-
 
 ## Utils/Math
 
@@ -806,7 +719,6 @@ arguments 를 배열로써 반환합니다.
 
 </td>
 
-
 <td>
 
 두개의 숫자를 더합니다. 부정확 할 수 있는 부동 소수점 연산을 보정합니다.
@@ -818,7 +730,6 @@ arguments 를 배열로써 반환합니다.
 [devide(a, b)](./universal.devide)
 
 </td>
-
 
 <td>
 
@@ -832,7 +743,6 @@ arguments 를 배열로써 반환합니다.
 
 </td>
 
-
 <td>
 
 숫자들의 소수점 자리수중 가장 긴 소수점 자리의 길이를 구합니다.
@@ -844,7 +754,6 @@ arguments 를 배열로써 반환합니다.
 [multiply(a, b)](./universal.multiply)
 
 </td>
-
 
 <td>
 
@@ -858,7 +767,6 @@ arguments 를 배열로써 반환합니다.
 
 </td>
 
-
 <td>
 
 두개의 숫자를 뺍니다. 부정확 할 수 있는 부동 소수점 연산을 보정합니다.
@@ -866,8 +774,6 @@ arguments 를 배열로써 반환합니다.
 </td></tr>
 </tbody>
 </table>
-
-
 
 ## Utils/Object
 
@@ -885,10 +791,9 @@ arguments 를 배열로써 반환합니다.
 
 </td>
 
-
 <td>
 
-객체에서 선택된 속성을 기반으로 새로운 객체를 생성합니다. *
+객체에서 선택된 속성을 기반으로 새로운 객체를 생성합니다. \*
 
 </td></tr>
 
@@ -897,7 +802,6 @@ arguments 를 배열로써 반환합니다.
 [flatObject(params, obj)](./universal.flatobject)
 
 </td>
-
 
 <td>
 
@@ -911,7 +815,6 @@ arguments 를 배열로써 반환합니다.
 
 </td>
 
-
 <td>
 
 주어진 객체에서 빈 객체를 제거하는 함수입니다.
@@ -923,7 +826,6 @@ arguments 를 배열로써 반환합니다.
 [volumeUpObject(flag, obj)](./universal.volumeupobject)
 
 </td>
-
 
 <td>
 
@@ -937,7 +839,6 @@ arguments 를 배열로써 반환합니다.
 
 </td>
 
-
 <td>
 
 데이터 또는 함수를 나타내는 타입입니다.
@@ -945,8 +846,6 @@ arguments 를 배열로써 반환합니다.
 </td></tr>
 </tbody>
 </table>
-
-
 
 ## Utils/String
 
@@ -964,7 +863,6 @@ arguments 를 배열로써 반환합니다.
 
 </td>
 
-
 <td>
 
 문자열에 접두사를 추가합니다.
@@ -976,7 +874,6 @@ arguments 를 배열로써 반환합니다.
 [removeStr(str, s)](./universal.removestr)
 
 </td>
-
 
 <td>
 
@@ -990,7 +887,6 @@ arguments 를 배열로써 반환합니다.
 
 </td>
 
-
 <td>
 
 문자열에 접미사를 추가합니다.
@@ -998,4 +894,3 @@ arguments 를 배열로써 반환합니다.
 </td></tr>
 </tbody>
 </table>
-

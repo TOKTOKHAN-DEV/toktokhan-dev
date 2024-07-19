@@ -41,5 +41,3 @@ export const LoadingView = ({
   if (isLoading) return <>{fallback}</>
   return <>{children}</>
 }
-
-export default LoadingView

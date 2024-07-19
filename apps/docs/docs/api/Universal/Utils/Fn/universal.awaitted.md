@@ -1,13 +1,9 @@
 ---
 id: universal.awaited
-title: Awaited()
-sidebar_label: Awaited()
+title: awaited()
+sidebar_label: awaited()
 slug: /universal.awaited
 ---
-
-
-
-
 
 Promise 를 받아 resolve 된 값으로 함수를 실행합니다.
 
@@ -23,44 +19,35 @@ awaited: <P, R>(fn: (p: P) => R, data: P | PromiseLike<P>) => R
 
 Parameter
 
-
 </th><th>
 
 Type
 
-
 </th><th>
 
 Description
-
 
 </th></tr></thead>
 <tbody><tr><td>
 
 fn
 
-
 </td><td>
 
 (p: P) =&gt; R
 
-
 </td><td>
-
 
 </td></tr>
 <tr><td>
 
 data
 
-
 </td><td>
 
 P \| PromiseLike&lt;P&gt;
 
-
 </td><td>
-
 
 </td></tr>
 </tbody></table>
@@ -69,7 +56,6 @@ P \| PromiseLike&lt;P&gt;
 R
 
 ## Example
-
 
 ```ts
 const double = (x: number) => x * 2
@@ -82,4 +68,3 @@ const resultPromise = awaited(double, targetPromise) // 10
 // curried
 flow(() => Promise.resolve(5), awaited(double))
 ```
-

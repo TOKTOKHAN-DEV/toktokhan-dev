@@ -1,6 +1,6 @@
 {
   "name": "@toktokhan-dev/cli-plugin-gen-icon-chakra",
-  "version": "0.0.7",
+  "version": "0.0.6",
   "description": "",
   "type": "module",
   "main": "dist/index.js",

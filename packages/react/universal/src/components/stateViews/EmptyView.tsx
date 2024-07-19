@@ -36,5 +36,3 @@ export const EmptyView = ({ children, data, fallback }: EmptyViewProps) => {
   if (data?.length) return <>{children}</>
   return <>{fallback}</>
 }
-
-export default EmptyView

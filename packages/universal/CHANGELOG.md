@@ -1,11 +1,5 @@
 # @toktokhan-dev/universal
 
-## 0.0.5
-
-### Patch Changes
-
-- b01bd93: awaitted 함수명 오타 변경 => awaited
-
 ## 0.0.4
 
 ### Patch Changes

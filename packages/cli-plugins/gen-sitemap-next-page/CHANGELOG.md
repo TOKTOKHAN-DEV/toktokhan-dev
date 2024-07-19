@@ -1,15 +1,5 @@
 # @toktokhan-dev/cli-plugin-gen-sitemap-next-page
 
-## 0.0.7
-
-### Patch Changes
-
-- b01bd93: awaitted 함수명 오타 변경 => awaited
-- Updated dependencies [b01bd93]
-  - @toktokhan-dev/universal@0.0.5
-  - @toktokhan-dev/cli@0.0.7
-  - @toktokhan-dev/node@0.0.6
-
 ## 0.0.6
 
 ### Patch Changes

@@ -958,16 +958,13 @@ importers:
       '@toktokhan-dev/universal':
         specifier: workspace:*
         version: link:../../universal
-      immer:
-        specifier: ^10.1.1
-        version: 10.1.1
     devDependencies:
       '@toktokhan-dev/ts-config':
         specifier: workspace:*
         version: link:../../../configs/ts-config
       zustand:
         specifier: ^4.5.4
-        version: 4.5.4(immer@10.1.1)(react@18.3.1)
+        version: 4.5.4(react@18.3.1)
 
   templates/next-app-init:
     dependencies:
@@ -1199,7 +1196,7 @@ importers:
         version: 5.50.1(@tanstack/react-query@5.50.1)(react@18.3.1)
       '@toktokhan-dev/react-universal':
         specifier: 0.0.4
-        version: link:../../packages/react/universal
+        version: 0.0.4(react-dom@18.3.1)(scheduler@0.23.2)
       '@toktokhan-dev/react-web':
         specifier: 0.0.11
         version: 0.0.11(scheduler@0.23.2)
@@ -1272,7 +1269,7 @@ importers:
         version: link:../../packages/cli-plugins/commit
       '@toktokhan-dev/cli-plugin-gen-api-react-query':
         specifier: 0.0.11
-        version: link:../../packages/cli-plugins/gen-api-react-query
+        version: 0.0.11(esbuild@0.23.0)(prettier@3.3.2)(typescript@5.5.3)
       '@toktokhan-dev/cli-plugin-gen-icon-chakra':
         specifier: 0.0.6
         version: link:../../packages/cli-plugins/gen-icon-chakra
@@ -7704,6 +7701,24 @@ packages:
       - typescript
     dev: true
 
+  /@toktokhan-dev/cli-plugin-gen-api-react-query@0.0.11(esbuild@0.23.0)(prettier@3.3.2)(typescript@5.5.3):
+    resolution: {integrity: sha512-VYeVpNjmQ0FYvtZJifFUprmyY85ycEXyw/Sejd1CpPD9AMWznO0lEZkXJlAes55Qt5+x8yypZ+1iiDbpZXuvIQ==}
+    dependencies:
+      '@toktokhan-dev/cli': 0.0.6(esbuild@0.23.0)
+      '@toktokhan-dev/node': 0.0.5
+      eta: 3.4.0
+      lodash: 4.17.21
+      prettier-plugin-organize-imports: 3.2.4(prettier@3.3.2)(typescript@5.5.3)
+      swagger-typescript-api: 13.0.12
+    transitivePeerDependencies:
+      - '@volar/vue-language-plugin-pug'
+      - '@volar/vue-typescript'
+      - encoding
+      - esbuild
+      - prettier
+      - typescript
+    dev: true
+
   /@toktokhan-dev/cli-plugin-gen-img@0.0.1(esbuild@0.23.0):
     resolution: {integrity: sha512-ajrn0Mb9DiwiAEpOxspCP7cIx/ViECAPCOzRrZegpMwdLR3I8TnaRH6T+Aq+5zj8LctG+7PgG6NhrRYazE6z4w==}
     dependencies:
@@ -7789,10 +7804,45 @@ packages:
       - esbuild
     dev: true
 
+  /@toktokhan-dev/cli@0.0.6(esbuild@0.23.0):
+    resolution: {integrity: sha512-XFcUDRO0VXl5bEpnFDswv6zoqhZhZoSBBgT+JHSrlnXGxWLKZz7YS9FmHQkd+zmAAgZAa5Eh3Oa+4k+WFVFx/Q==}
+    hasBin: true
+    dependencies:
+      '@toktokhan-dev/node': 0.0.5
+      '@toktokhan-dev/universal': 0.0.4
+      '@types/figlet': 1.5.8
+      bundle-require: 4.2.1(esbuild@0.23.0)
+      chalk: 5.3.0
+      clear: 0.1.0
+      commander: 12.1.0
+      enquirer: 2.4.1
+      figlet: 1.7.0
+      joycon: 3.1.1
+      lodash: 4.17.21
+    transitivePeerDependencies:
+      - esbuild
+    dev: true
+
   /@toktokhan-dev/node@0.0.1:
     resolution: {integrity: sha512-MlNwzl9gjqaT8F9SpzV107Or6nmhzNtTXpPGCo+PXWOSu/AHSmN3m6nfW8kEViPk49BwmikVyDOc3/fcbNrwWg==}
     dependencies:
       '@toktokhan-dev/universal': 0.0.1
+      boxen: 7.1.1
+      chalk: 5.3.0
+      eta: 3.4.0
+      execa: 8.0.1
+      globby: 13.2.2
+      lodash: 4.17.21
+      minimatch: 9.0.5
+      ora: 8.0.1
+      prettier: 3.3.2
+      yaml: 2.4.5
+    dev: true
+
+  /@toktokhan-dev/node@0.0.5:
+    resolution: {integrity: sha512-Y10jf9jLHRKWe0xOn23nXSsr+vyoMiycpqmFptyYMcboax2eXwFrmK7Kp2NlRG5+w1QoEynkbEOghGqHYBKGZQ==}
+    dependencies:
+      '@toktokhan-dev/universal': 0.0.4
       boxen: 7.1.1
       chalk: 5.3.0
       eta: 3.4.0
@@ -7923,7 +7973,6 @@ packages:
     resolution: {integrity: sha512-5tzXewtIlyXyD99cEgh1ebyyeyLgVU8s9DKFVf7NyXA85WDUAY95PmN/kWkfqw6UC9uLFj4SyDr4pRcQXbDqJw==}
     dependencies:
       lodash: 4.17.21
-    dev: false
 
   /@tootallnate/once@2.0.0:
     resolution: {integrity: sha512-XCuKFP5PS55gnMVu3dty8KPatLqUoy/ZYzDzAGCQ8JNFCkLXzmI7vNHCR+XpbZaMWQK/vQubr7PkYq8g470J/A==}
@@ -12537,6 +12586,7 @@ packages:
 
   /immer@10.1.1:
     resolution: {integrity: sha512-s2MPrmjovJcoMaHtx6K11Ra7oD05NT97w1IC5zpMkT6Atjr7H8LjaDd81iIxUYpMKSRRNMJE703M1Fhr/TctHw==}
+    dev: false
 
   /immer@9.0.21:
     resolution: {integrity: sha512-bc4NBHqOqSfRW7POMkHd51LvClaeMXpm8dx0e8oE2GORbq5aRK7Bxl4FyzVLdGtLmvLKL7BTDBG5ACQm4HWjTA==}
@@ -16116,7 +16166,6 @@ packages:
     dependencies:
       prettier: 3.3.2
       typescript: 5.5.3
-    dev: false
 
   /prettier@2.8.8:
     resolution: {integrity: sha512-tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q==}
@@ -19374,7 +19423,7 @@ packages:
       type-fest: 2.19.0
     dev: false
 
-  /zustand@4.5.4(immer@10.1.1)(react@18.3.1):
+  /zustand@4.5.4(react@18.3.1):
     resolution: {integrity: sha512-/BPMyLKJPtFEvVL0E9E9BTUM63MNyhPGlvxk1XjrfWTUlV+BR8jufjsovHzrtR6YNcBEcL7cMHovL1n9xHawEg==}
     engines: {node: '>=12.7.0'}
     peerDependencies:
@@ -19389,7 +19438,6 @@ packages:
       react:
         optional: true
     dependencies:
-      immer: 10.1.1
       react: 18.3.1
       use-sync-external-store: 1.2.0(react@18.3.1)
     dev: true
