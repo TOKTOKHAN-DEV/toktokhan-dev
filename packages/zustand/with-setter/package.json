@@ -1,0 +1,35 @@
+{
+  "name": "@toktokhan-dev/zustand-with-setter",
+  "version": "0.0.0",
+  "description": "",
+  "type": "module",
+  "main": "dist/index.js",
+  "files": [
+    "dist",
+    "!dist/*.map"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "build:watch": "rollup -c --watch",
+    "play": "pnpm build:watch & node --watch play/playground.js",
+    "test": "jest",
+    "api-extractor": "api-extractor run --local --verbose"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@toktokhan-dev/ts-config": "workspace:*",
+    "zustand": "^4.5.4"
+  },
+  "dependencies": {
+    "@toktokhan-dev/universal": "workspace:*"
+  }
+}

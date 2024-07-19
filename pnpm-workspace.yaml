@@ -10,6 +10,7 @@ packages:
   - 'packages/*'
   - 'packages/react/*'
   - 'packages/cli-plugins/*'
+  - 'packages/zustand/*'
 
   # # Templates
   - 'templates/*'
