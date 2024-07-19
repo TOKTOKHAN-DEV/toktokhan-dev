@@ -34,7 +34,12 @@ export const packageHasDoc: () => string[] = flow(
   flow(pass(cwd()), getWorkspacePackages),
   map(
     flow(
-      flow(pathOn(cwd()), removeStr('/*'), readDirPaths),
+      flow(pathOn(cwd()), (path) => {
+        if (path.endsWith('/*')) {
+          return flow(removeStr('/*'), readDirPaths)(path)
+        }
+        return [path]
+      }),
       filter(isEvery([hasPackageJson, hasApiExtractorConfig])),
     ),
   ),
