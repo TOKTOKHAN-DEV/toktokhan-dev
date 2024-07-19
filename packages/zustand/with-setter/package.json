@@ -30,6 +30,7 @@
     "zustand": "^4.5.4"
   },
   "dependencies": {
-    "@toktokhan-dev/universal": "workspace:*"
+    "@toktokhan-dev/universal": "workspace:*",
+    "lodash": "^4.17.21"
   }
 }

@@ -958,6 +958,9 @@ importers:
       '@toktokhan-dev/universal':
         specifier: workspace:*
         version: link:../../universal
+      lodash:
+        specifier: ^4.17.21
+        version: 4.17.21
     devDependencies:
       '@toktokhan-dev/ts-config':
         specifier: workspace:*

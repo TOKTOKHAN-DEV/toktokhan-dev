@@ -11,9 +11,11 @@ import { handleApiDocFolderStructure } from './flows/handle-api-doc-folder-struc
 import { handleApiExtractorJson } from './flows/handle-api-extractor-json'
 import { handleDts } from './flows/handle-dts'
 import { handleIndexMarkdown } from './flows/handle-index-markdown'
+import { installPackages } from './flows/install-packages'
 
 flow(
-  flow(buildPackages, awaited(successLog('build packages'))),
+  flow(installPackages, awaited(successLog('install packages'))),
+  awaited(flow(buildPackages, awaited(successLog('build packages')))),
   awaited(flow(handleDts, successLog('handle dts'))),
   awaited(flow(buildApiExtractorJson, successLog('build api-extractor.json'))),
   awaited(

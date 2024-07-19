@@ -3,7 +3,9 @@ import { awaited } from '@toktokhan-dev/universal'
 
 import { flow } from 'lodash/fp'
 
-const buildApiDocumentorPlugin = () =>
+import { byProcessCode } from '../utils'
+
+const buildApiDocumenterPlugin = () =>
   new Promise((resolve, reject) =>
     $('pnpm', ['--filter', '@toktokhan-dev/doc-plugin', 'build'], {
       stdio: 'inherit',
@@ -12,7 +14,7 @@ const buildApiDocumentorPlugin = () =>
       .on('error', (error) => reject(error)),
   )
 
-const buildApiMakrdownDocs = () =>
+const buildApiMarkdownDocs = () =>
   new Promise((resolve, reject) =>
     $(
       'api-documenter',
@@ -26,12 +28,10 @@ const buildApiMakrdownDocs = () =>
       {
         stdio: 'inherit',
       },
-    )
-      .on('close', resolve)
-      .on('error', (error) => reject(error)),
+    ).on('close', byProcessCode(resolve, reject, 'Failed to build api docs.')),
   )
 
 export const buildApiDocs = flow(
-  buildApiDocumentorPlugin,
-  awaited(buildApiMakrdownDocs),
+  buildApiDocumenterPlugin,
+  awaited(buildApiMarkdownDocs),
 )
