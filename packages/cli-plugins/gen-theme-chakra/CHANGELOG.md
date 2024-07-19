@@ -1,5 +1,14 @@
 # @toktokhan-dev/cli-plugin-gen-theme-chakra
 
+## 0.0.7
+
+### Patch Changes
+
+- Updated dependencies [b01bd93]
+  - @toktokhan-dev/universal@0.0.5
+  - @toktokhan-dev/cli@0.0.7
+  - @toktokhan-dev/node@0.0.6
+
 ## 0.0.6
 
 ### Patch Changes
