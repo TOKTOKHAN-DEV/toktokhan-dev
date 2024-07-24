@@ -38,7 +38,6 @@
     "api-extractor": "api-extractor run --local --verbose"
   },
   "dependencies": {
-    "@tanstack/react-query": "^4.2.3",
     "@toktokhan-dev/react-universal": "workspace:*",
     "@toktokhan-dev/universal": "workspace:*",
     "dayjs": "^1.10.6",
