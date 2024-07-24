@@ -6,7 +6,7 @@ import {
 const config = [
   ...setUpRollupByPackageJson({
     packageJsonPath: 'package.json',
-    entry: 'src/index.ts',
+    entry: 'src/index.tsx',
     formats: ['cjs', 'es', 'dts'],
   }),
   setUpRollUp({

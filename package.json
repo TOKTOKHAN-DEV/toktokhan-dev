@@ -19,7 +19,8 @@
     "start:next:app": "pnpm --filter @toktokhan-dev/template-next-app-router dev",
     "start:tokript": "pnpm --filter @toktokhan-dev/cli dev",
     "start:toktoken": "pnpm --filter Toktoken build:watch",
-    "tokript": "tokript2"
+    "tokript": "tokript2",
+    "slack": "tsx ./scripts/slack.ts"
   },
   "devDependencies": {
     "@babel/core": "^7.24.4",

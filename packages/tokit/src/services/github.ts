@@ -9,7 +9,7 @@ import { filter, flow, map, memoize, pick, prop } from 'lodash/fp'
 import { cachedPackage } from '../utils/cached-package'
 
 export const github: Octokit = new Octokit({
-  auth: process.env.TOKIT_ADMIN_GITHUB_TOKEN,
+  auth: process.env.TOKIT_GITHUB_TOKEN,
 })
 
 const isStartWith = (str: string) => (target: string) => target.startsWith(str)

@@ -62,6 +62,7 @@ jobs:
         run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
 
       - name: Create PR and publish versions
+        id: changesets
         if: success()
         uses: changesets/action@v1
         with:
@@ -72,13 +73,23 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
+      - name: Get PR number
+        id: pr
+        run: echo "::set-output name=pull_request_number::$(echo '${{ github.event.head_commit.message }}' | awk -F"[\#)]" '{print $2}' | awk 'match($0, /[0-9]+/) {print substr($0, RSTART, RLENGTH)}')"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Dump steps context
+        env:
+          STEPS_CONTEXT: ${{ toJson(steps) }}
+        run: echo "$STEPS_CONTEXT"
+
+      - name: Slack notification
+        if: steps.changesets.outputs.published == 'true'
+        run: pnpm slack ${{ steps.pr.outputs.pull_request_number }} '${{steps.changesets.outputs.publishedPackages}}'
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
       - name: Generate documentation
         if: success()
         uses: ./.github/composite-actions/gen-docs
-
-      # - name: Slack notification
-      #   if: steps.changesets.outputs.published == 'true'
-      #   run: pnpm slack or
-      #   run: my-slack-bot send-notification --message "A new version of ${GITHUB_REPOSITORY} was published!"
-      #   env:
-      #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
