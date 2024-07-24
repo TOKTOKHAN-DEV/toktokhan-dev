@@ -1,5 +1,23 @@
 # @toktokhan-dev/tokit
 
+## 0.0.10
+
+### Patch Changes
+
+- 8703d69: consider package manager, remove un-using files
+
+  - 선택한 package manager 에 따라, npm scripts, husky 등이 수정된 상태로 clone 되도록 수정되었습니다.
+  - 프로젝트에선 쓰이지 않는 .changeset, .github 과 같은 파일을 제거하고, @changeset/cli 도 devDependencies 에서 제거된 상태로 clone 되도록 수정되었습니다.
+
+- 02833b3: # '@toktokhan-dev/tokit'
+
+  github api를 조회할 때 토큰이 주입되지 않아 개인화되지 않은 요청을 하고 있었습니다. 개인화 되지 않은 요청은 1시간 60번 제한이 있습니다.
+  [GitHub REST API의 요청 제한에 대한 자세한 정보는 여기에서 확인할 수 있습니다.](https://docs.github.com/en/rest/using-the-rest-api/rate-limits-for-the-rest-api?apiVersion=2022-11-28)
+
+  # '@toktokhan-dev/react-web':
+
+  react-query 패키지가 불필요하게 설치되는 이유로 삭제했습니다.
+
 ## 0.0.9
 
 ### Patch Changes
