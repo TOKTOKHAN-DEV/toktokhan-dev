@@ -15,7 +15,7 @@ const title = {
       type: 'section',
       text: {
         type: 'mrkdwn',
-        text: `:star2:*@toktokhan-dev 패키지가 배포되었습니다.* <${DOMAIN}/pull/${prNumber}|버전 업데이트 정보>:star2:`,
+        text: `:urgent:*@toktokhan-dev 패키지가 배포되었습니다.* <${DOMAIN}/pull/${prNumber}|버전 업데이트 정보>:urgent:`,
       },
     },
   ],
