@@ -1210,7 +1210,7 @@ importers:
         specifier: 0.0.7
         version: link:../../packages/react/universal
       '@toktokhan-dev/react-web':
-        specifier: workspace:*
+        specifier: 0.0.18
         version: link:../../packages/react/web
       '@toktokhan-dev/universal':
         specifier: 0.0.6
