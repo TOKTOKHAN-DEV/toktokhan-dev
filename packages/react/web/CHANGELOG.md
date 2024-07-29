@@ -1,5 +1,13 @@
 # @toktokhan-dev/react-web
 
+## 0.0.18
+
+### Patch Changes
+
+- 7acf070: 소셜 버튼 스타일 수정
+  KakaoButton variant 추가
+  radius 수정 기본 6px
+
 ## 0.0.17
 
 ### Patch Changes
