@@ -231,4 +231,23 @@ _(Optional)_ anchor 태그의 스타일을 설정합니다.
 
 
 </td></tr>
+<tr><td>
+
+[variant?](./react-web.fullbuttonprops.variant)
+
+
+</td><td>
+
+
+</td><td>
+
+'rounded' \| 'square'
+
+
+</td><td>
+
+_(Optional)_ 버튼의 모양을 결정합니다. 'rounded', 'square' 중 하나를 선택할 수 있습니다.  'square'
+
+
+</td></tr>
 </tbody></table>

@@ -1933,6 +1933,33 @@
                 "startIndex": 1,
                 "endIndex": 5
               }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/react-web!FullButtonProps#variant:member",
+              "docComment": "/**\n * 버튼의 모양을 결정합니다. 'rounded', 'square' 중 하나를 선택할 수 있습니다.  @default 'square'\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "variant?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "'rounded' | 'square'"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "variant",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
             }
           ],
           "extendsTokenRanges": [],
