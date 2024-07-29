@@ -73,7 +73,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Get PR number
+      - name: Get PR number from comment
         id: pr
         run: echo "::set-output name=pull_request_number::$(echo '${{ github.event.head_commit.message }}' | awk -F"[\#)]" '{print $2}' | awk 'match($0, /[0-9]+/) {print substr($0, RSTART, RLENGTH)}')"
         env:
@@ -89,7 +89,8 @@ jobs:
         run: pnpm slack ${{ steps.pr.outputs.pull_request_number }} '${{steps.changesets.outputs.publishedPackages}}'
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        continue-on-error: true
 
       - name: Generate documentation
-        if: success()
+        if: steps.changesets.outputs.published == 'true'
         uses: ./.github/composite-actions/gen-docs
