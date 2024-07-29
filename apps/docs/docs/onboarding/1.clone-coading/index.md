@@ -2,7 +2,7 @@
 id: intro
 sidebar_label: 개미생활 클론 코딩
 sidebar_position: 1
-description: 프로젝트를 클론코딩 하면서, 똑똑한 개발자에서 주로 사용하는 라이브러리를 경험해 보세요
+description: 프로젝트를 클론코딩 하면서, 똑똑한개발자에서 주로 사용하는 라이브러리를 경험해 보세요
 ---
 
 # 개미생활 클론 코딩

@@ -13,8 +13,8 @@ sidebar_position: 0
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 ></iframe> -->
 
-똑똑한 개발자 프론트엔드 공식문서에 오신 것을 환영합니다.
-똑똑한 개발자는 2024년 6월 19일 이후로 새로운 방식으로 변경되었습니다.
+똑똑한개발자 프론트엔드 공식문서에 오신 것을 환영합니다.
+똑똑한개발자는 2024년 6월 19일 이후로 새로운 방식으로 변경되었습니다.
 새로운 방식에 익숙하지 않으신 분들은 아래의 온보딩 세션을 먼저 경험해보세요. <br/>
 
 ### [온보딩 세션 바로가기](https://toktokhan-dev-docs.vercel.app/docs/onboarding/new-onboarding/1.%20OVERVIEW)

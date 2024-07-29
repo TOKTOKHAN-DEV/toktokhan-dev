@@ -287,7 +287,7 @@
 
 ### Patch Changes
 
-- eb93d14: 똑똑한 개발자 공식 CLI 플러그인 입니다.
+- eb93d14: 똑똑한개발자 공식 CLI 플러그인 입니다.
   자세한 설명은 [공식문서](https://toktokhan-dev-docs.vercel.app/docs/category/offical-plugins)를 참조해주세요.
 
   # Cli-plugin-gen-api-react-query

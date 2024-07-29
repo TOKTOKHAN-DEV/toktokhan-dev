@@ -24,7 +24,7 @@ const config = {
     experimental_router: 'browser',
   },
   title: 'Toktokhan Front-end Documentation',
-  tagline: '똑똑한 개발자 프론트엔드 문서입니다.',
+  tagline: '똑똑한개발자 프론트엔드 문서입니다.',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here

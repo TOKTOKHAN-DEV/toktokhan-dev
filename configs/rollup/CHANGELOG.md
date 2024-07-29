@@ -47,7 +47,7 @@
 
 ### Patch Changes
 
-- 8abb191: 똑똑한 개발자 프론트엔드 모노레포에서 공통적으로 사용하는 rollup-config 모듈입니다.
+- 8abb191: 똑똑한개발자 프론트엔드 모노레포에서 공통적으로 사용하는 rollup-config 모듈입니다.
 - Updated dependencies [6c928f0]
   - @toktokhan-dev/node@0.0.1
 
