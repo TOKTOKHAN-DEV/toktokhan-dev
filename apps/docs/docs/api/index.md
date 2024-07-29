@@ -79,7 +79,29 @@ charka-ui 와 함께 사용할 수 있는 component, hooks 가 포함된 패키�
 </td></tr>
 <tr><td>
 
+[@toktokhan-dev/cli-plugin-gen-icon-rn](./cli-plugin-gen-icon-rn)
+
+
+</td><td>
+
+지정된 경로의 `svg`파일 기반으로 **Chakra UI Icon Component** 를 생성합니다.
+
+
+</td></tr>
+<tr><td>
+
 [@toktokhan-dev/cli-plugin-gen-img](./cli-plugin-gen-img)
+
+
+</td><td>
+
+이미지 경로를 읽어 객체로 생성해줍니다.
+
+
+</td></tr>
+<tr><td>
+
+[@toktokhan-dev/cli-plugin-gen-img-rn](./cli-plugin-gen-img-rn)
 
 
 </td><td>
@@ -173,6 +195,24 @@ React Web 환경에서 전역적으로 사용할 수 있는 유틸리티 라이�
 </td><td>
 
 웹,앱 환경에서 사용가능한 유틸리티 라이브러리입니다.
+
+
+</td></tr>
+<tr><td>
+
+[@toktokhan-dev/zustand-create-store-context](./zustand-create-store-context)
+
+
+</td><td>
+
+
+</td></tr>
+<tr><td>
+
+[@toktokhan-dev/zustand-with-setter](./zustand-with-setter)
+
+
+</td><td>
 
 
 </td></tr>

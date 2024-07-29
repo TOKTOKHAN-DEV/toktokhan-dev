@@ -6650,17 +6650,17 @@
         },
         {
           "kind": "Function",
-          "canonicalReference": "@toktokhan-dev/react-web!Text_2:function(1)",
-          "docComment": "/**\n * 임시예제\n *\n * @param props - TextProps\n *\n * @returns JSX.Element\n *\n * @additional example/content.md\n */\n",
+          "canonicalReference": "@toktokhan-dev/react-web!UploadTrigger:function(1)",
+          "docComment": "/**\n * 웹에서 파일 업로드를 트리거 하는 컴포넌트 입니다.\n *\n * 자식 element 에 by 로 지정한 이벤트를 트리거 하면 display none 처리 되어있는 input[type=\"file\"] 클릭되어 파일 선택 창이 열립니다. UploadTrigger 의 props 는 숨겨져 있는 input 의 prop 으로 전달되기때문에, UploadTrigger 의 onChange prop 으로 선택된 파일에 접근이 가능합니다.\n *\n  *\n * @example\n * ```tsx\n * <UploadTrigger by=\"onClick\" onChange={(e) => console.log(e.target.files?.[0]) }>\n *   <button>Upload</button>\n * </UploadTrigger>\n * ```\n *\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "Text: (props: "
+              "text": "UploadTrigger: ({\n  children,\n  by,\n  ...props\n}: "
             },
             {
               "kind": "Reference",
-              "text": "TextProps",
-              "canonicalReference": "@toktokhan-dev/react-web!~TextProps:interface"
+              "text": "UploadTriggerProps",
+              "canonicalReference": "@toktokhan-dev/react-web!UploadTriggerProps:interface"
             },
             {
               "kind": "Content",
@@ -6681,7 +6681,7 @@
           "overloadIndex": 1,
           "parameters": [
             {
-              "parameterName": "props",
+              "parameterName": "{  children,  by,  ...props}",
               "parameterTypeTokenRange": {
                 "startIndex": 1,
                 "endIndex": 2
@@ -6689,7 +6689,108 @@
               "isOptional": false
             }
           ],
-          "name": "Text_2"
+          "name": "UploadTrigger"
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@toktokhan-dev/react-web!UploadTriggerProps:interface",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "interface UploadTriggerProps extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "InputHTMLAttributes",
+              "canonicalReference": "@types/react!React.InputHTMLAttributes:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "HTMLInputElement",
+              "canonicalReference": "!HTMLInputElement:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ">"
+            },
+            {
+              "kind": "Content",
+              "text": " "
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "UploadTriggerProps",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/react-web!UploadTriggerProps#by:member",
+              "docComment": "/**\n * @default 'onClick' 자식 Element 의 props name 중 트리거 할 이벤트를 지정합니다. 기본값은 'onClick' 입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "by?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "by",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/react-web!UploadTriggerProps#children:member",
+              "docComment": "/**\n * 자식 Element 입니다. number 나 string 이 아닌 jsx element 나 component 를 넣어주세요\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "children: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "React.ReactElement",
+                  "canonicalReference": "@types/react!React.ReactElement:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "children",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": [
+            {
+              "startIndex": 1,
+              "endIndex": 5
+            }
+          ],
+          "parameters": []
         },
         {
           "kind": "Function",

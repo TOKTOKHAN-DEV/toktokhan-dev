@@ -14,7 +14,7 @@ slug: /universal.deepvalueof
 ## Signature
 
 ```typescript
-type DeepValueOf<T, K extends DeepKeyOf<T> | (string & {})> = K extends `${infer Key}.${infer Rest}` ? Key extends keyof T ? DeepValueOf<T[Key], Rest> : never : K extends keyof T ? T[K] : never;
+type DeepValueOf<T, K extends DeepKeyOf<T> | (string & {}) | number> = K extends keyof T ? T[K] : K extends `${infer Key}.${infer Rest}` ? T extends Array<any> ? Key extends `${number}` ? DeepValueOf<T[`${number}`], Rest> : never : Key extends keyof T ? undefined extends T[Key] ? DeepValueOf<NonNullable<T[Key]>, Rest> | undefined : null extends T[Key] ? DeepValueOf<NonNullable<T[Key]>, Rest> | undefined : DeepValueOf<T[Key], Rest> : never : never;
 ```
 ## References
  [DeepKeyOf](./universal.deepkeyof), [DeepValueOf](./universal.deepvalueof)

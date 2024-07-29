@@ -14,6 +14,46 @@ React 환경에서 전역적으로 사용할 수 있는 유틸리티 라이브�
 
 
 
+## Components
+
+<table>
+<thead>
+<tr>
+<th>Components</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>
+
+[EmptyView(\{ children, data, fallback\})](./react-universal.emptyview)
+
+</td>
+
+
+<td>
+
+`EmptyView` 컴포넌트는 데이터가 비어있는 경우 `fallback`을, 데이터가 존재하는 경우 `children`을 렌더링합니다.
+
+</td></tr>
+
+<tr><td>
+
+[LoadingView(\{ children, isLoading, fallback\})](./react-universal.loadingview)
+
+</td>
+
+
+<td>
+
+`LoadingView` 컴포넌트는 로딩 상태를 처리하여 로딩 중일 때는 `fallback`을, 로딩이 완료되었을 때는 `children`을 렌더링합니다.
+
+</td></tr>
+</tbody>
+</table>
+
+
+
 ## Hooks
 
 <table>

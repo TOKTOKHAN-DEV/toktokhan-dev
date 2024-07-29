@@ -1,4 +1,5 @@
 ---
+sidebar_class_name : hidden
 id: universal.dataorfn
 title: DataOrFn
 sidebar_label: DataOrFn

@@ -411,6 +411,67 @@
         },
         {
           "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/universal!AssertItemOf:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type AssertItemOf = "
+            },
+            {
+              "kind": "Content",
+              "text": "<T>(arr: T[] | readonly T[], type: unknown, message?: string) => asserts "
+            },
+            {
+              "kind": "Reference",
+              "text": "type",
+              "canonicalReference": "@toktokhan-dev/universal!~type"
+            },
+            {
+              "kind": "Content",
+              "text": " is T"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "AssertItemOf",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 4
+          },
+          "parameters": []
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@toktokhan-dev/universal!assertItemOf:var",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "assertItemOf: "
+            },
+            {
+              "kind": "Reference",
+              "text": "AssertItemOf",
+              "canonicalReference": "@toktokhan-dev/universal!AssertItemOf:type"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "assertItemOf",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          },
+          "parameters": []
+        },
+        {
+          "kind": "TypeAlias",
           "canonicalReference": "@toktokhan-dev/universal!AsyncFn:type",
           "docComment": "/**\n * 비동기 함수의 타입을 정의합니다.\n *\n  *\n * @typeParam P - 함수에 전달될 매개변수의 타입 배열\n *\n * @typeParam R - 함수의 반환값의 타입\n *\n * @returns 비동기 함수의 반환값을 나타내는 Promise를 반환하는 함수 타입\n *\n * @example\n * ```typescript\n * // 비동기 함수의 타입 정의\n * type FetchData = AsyncFn<[url: string], string>;\n *\n * // 비동기 함수의 사용 예시\n * const fetchData: FetchData = async (url) => {\n *   const response = await fetch(url);\n *   return response.text();\n * };\n * ```\n *\n */\n",
           "excerptTokens": [
@@ -596,14 +657,19 @@
               "text": ") => "
             },
             {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
               "kind": "Content",
-              "text": "R"
+              "text": "<R>"
             }
           ],
           "fileUrlPath": "dist/index.doc.d.ts",
           "returnTypeTokenRange": {
             "startIndex": 7,
-            "endIndex": 8
+            "endIndex": 9
           },
           "releaseTag": "Public",
           "overloadIndex": 1,
@@ -1036,6 +1102,127 @@
           "name": "createObjBySelector"
         },
         {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/universal!createS3UploadFlow:function(1)",
+          "docComment": "/**\n  *\n * createUploadFlow 함수는 S3 파일 업로드를 위한 플로우를 생성합니다.\n *\n * @param  - config.prepareUpload - 파일을 업로드하기 전에 필요한 정보를 준비합니다. - 주로 presigned url 을 생성하고, 필요한 정보를 준비합니다. - 해당 함수의 parameter type 은 이후 return 되는 uploadFile 함수의 input type 이 됩니다. - 해당 함수의 return type 은 `config.uploadFileToS3` 함수의 input type 이 됩니다.\n *\n * @param  - config.uploadFileToS3 - S3에 파일을 업로드합니다. - 주로 s3 에 파일을 업로드합니다. - 해당 함수의 parameter type 은 `config.prepareUpload` 함수의 return type 이 됩니다. - 해당 함수의 return type 은 이후 return 되는 uploadFile 함수의 return type 이 됩니다.\n *\n * @return uploadFile - 단일 파일을 업로드합니다.  @return uploadFiles - 다수의 파일을 업로드합니다.\n *\n * @example\n * ```ts\n * const { uploadFile, uploadFiles } = createUploadFlow({\n *    prepareUpload: async ({name} : {name : string}) => {\n *    return {\n *       name: name,\n *       type: \"image\",\n *     }\n *  },\n *    uploadFileToS3: async ({ name, type }) => {\n *     return { name, type, imgUrl: \"https://example.com\" }\n *  },\n * })\n *\n * const result = await uploadFile({ name: \"example\" }) // { name: \"example\", type: \"image\", imgUrl: \"https://example.com\" }\n * const results = await uploadFiles([{ name: \"example\" }, { name: \"example2\" }]) // { fulfilled: [{ name: \"example\", type: \"image\", imgUrl: \"https://example.com\" } , ...], rejected: [] }\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "createS3UploadFlow: <Input, S3Config, Result>(config: "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n  prepareUpload: (input: Input) => "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<S3Config>;\n  uploadFileToS3: (s3Config: S3Config) => "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<Result>;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n  uploadFile: (input: Input) => "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<Result>;\n  uploadFiles: (input: Input[]) => "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<{\n    fulfilled: Result[];\n    rejected: "
+            },
+            {
+              "kind": "Reference",
+              "text": "PromiseRejectedResult",
+              "canonicalReference": "!PromiseRejectedResult:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "[];\n  }>;\n}"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 7,
+            "endIndex": 14
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "config",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 6
+              },
+              "isOptional": false
+            }
+          ],
+          "typeParameters": [
+            {
+              "typeParameterName": "Input",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            },
+            {
+              "typeParameterName": "S3Config",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            },
+            {
+              "typeParameterName": "Result",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "name": "createS3UploadFlow"
+        },
+        {
           "kind": "TypeAlias",
           "canonicalReference": "@toktokhan-dev/universal!DataOrFn:type",
           "docComment": "/**\n * 데이터 또는 함수를 나타내는 타입입니다.\n *\n  *\n * @param prev - 이전 값을 받아 새로운 값을 반환하는 함수\n *\n * @typeParam T - 데이터 또는 함수의 타입\n *\n * @returns 데이터 또는 함수\n *\n * @example\n * ```tsx\n * const data: DataOrFn<number> = 42; // 데이터\n * const fn: DataOrFn<number> = (prev) => prev + 1; // 함수\n * ```\n *\n */\n",
@@ -1077,16 +1264,98 @@
         },
         {
           "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/universal!DataOrSetterFn:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type DataOrSetterFn<T, D> = "
+            },
+            {
+              "kind": "Content",
+              "text": "T | ((prev: T, get: <K extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "DeepKeyOf",
+              "canonicalReference": "@toktokhan-dev/universal!DeepKeyOf:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<T>>(key: K) => "
+            },
+            {
+              "kind": "Reference",
+              "text": "DeepValueOf",
+              "canonicalReference": "@toktokhan-dev/universal!DeepValueOf:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<T, K>, origin: D) => T)"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "DataOrSetterFn",
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            },
+            {
+              "typeParameterName": "D",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 6
+          },
+          "parameters": []
+        },
+        {
+          "kind": "TypeAlias",
           "canonicalReference": "@toktokhan-dev/universal!DeepKeyOf:type",
           "docComment": "/**\n * 객체의 깊은 키를 나타내는 타입을 추출합니다.\n *\n  *\n * @typeParam T - 깊은 키를 추출할 객체의 타입\n *\n * @returns 객체의 깊은 키를 나타내는 타입\n *\n * @example\n * ```typescript\n * type DeepKeys = DeepKeyOf<{\n *   a: {\n *     b: number;\n *     c: {\n *       d: string[];\n *     };\n *   };\n * }>;\n * // type DeepKeys = 'a' | 'a.b' | 'a.c' | 'a.c.d' | `a.c.d.${number}`\n * ```\n *\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type DeepKeyOf<T> = "
+              "text": "type DeepKeyOf<T, ExactT = "
+            },
+            {
+              "kind": "Reference",
+              "text": "DeepNonNullAble",
+              "canonicalReference": "@toktokhan-dev/universal!DeepNonNullAble:type"
             },
             {
               "kind": "Content",
-              "text": "T extends "
+              "text": "<T>"
+            },
+            {
+              "kind": "Content",
+              "text": "> = "
+            },
+            {
+              "kind": "Content",
+              "text": "ExactT extends "
             },
             {
               "kind": "Reference",
@@ -1104,7 +1373,7 @@
             },
             {
               "kind": "Content",
-              "text": "<T>]: K extends number | string ? T[K] extends "
+              "text": "<ExactT>]: K extends number | string ? ExactT[K] extends "
             },
             {
               "kind": "Reference",
@@ -1131,7 +1400,7 @@
             },
             {
               "kind": "Content",
-              "text": "<T[K]>}` : K : K }["
+              "text": "<ExactT[K]>}` : K : K }["
             },
             {
               "kind": "Reference",
@@ -1140,7 +1409,7 @@
             },
             {
               "kind": "Content",
-              "text": "<T>] : T extends "
+              "text": "<ExactT>] : ExactT extends "
             },
             {
               "kind": "Reference",
@@ -1149,7 +1418,7 @@
             },
             {
               "kind": "Content",
-              "text": " ? { [K in keyof T]: `${K extends string | number ? K | (T[K] extends "
+              "text": " ? { [K in keyof ExactT]: K extends string | number ? K | `${ExactT[K] extends "
             },
             {
               "kind": "Reference",
@@ -1167,7 +1436,7 @@
             },
             {
               "kind": "Content",
-              "text": "<any> ? "
+              "text": "<any> ? `${K}.${"
             },
             {
               "kind": "Reference",
@@ -1176,16 +1445,7 @@
             },
             {
               "kind": "Content",
-              "text": "<T[K]> extends string | number ? `${K}.${"
-            },
-            {
-              "kind": "Reference",
-              "text": "DeepKeyOf",
-              "canonicalReference": "@toktokhan-dev/universal!DeepKeyOf:type"
-            },
-            {
-              "kind": "Content",
-              "text": "<T[K]>}` : never : K) : never}` }[keyof T] : never"
+              "text": "<ExactT[K]>}` : never}` : never }[keyof ExactT] : never"
             },
             {
               "kind": "Content",
@@ -1206,11 +1466,22 @@
                 "startIndex": 0,
                 "endIndex": 0
               }
+            },
+            {
+              "typeParameterName": "ExactT",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              }
             }
           ],
           "typeTokenRange": {
-            "startIndex": 1,
-            "endIndex": 24
+            "startIndex": 4,
+            "endIndex": 25
           },
           "parameters": []
         },
@@ -1286,6 +1557,82 @@
           ],
           "typeTokenRange": {
             "startIndex": 4,
+            "endIndex": 10
+          },
+          "parameters": []
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/universal!DeepNonNullAble:type",
+          "docComment": "/**\n * 객체의 모든 속성을 null 가능하게 만드는 타입을 정의합니다.\n *\n  *\n * @typeParam T - null 가능한 속성을 추출할 객체의 타입\n *\n * @returns 모든 속성이 null 가능한 객체의 타입\n *\n * @example\n * ```typescript\n * type NullablePerson = DeepNullable<{\n *   name: string;\n *   age: number;\n *   address: {\n *     city: string;\n *     postalCode: number;\n *   };\n * }>;\n * // type NullablePerson = {\n * //   name: string | null;\n * //   age: number | null;\n * //   address: {\n * //     city: string | null;\n * //     postalCode: number | null;\n * //   } | null;\n * // }\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type DeepNonNullAble<T> = "
+            },
+            {
+              "kind": "Content",
+              "text": "T extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Obj",
+              "canonicalReference": "@toktokhan-dev/universal!Obj:type"
+            },
+            {
+              "kind": "Content",
+              "text": " | "
+            },
+            {
+              "kind": "Reference",
+              "text": "Array",
+              "canonicalReference": "!Array:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<any> ? { [K in keyof T]-?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "DeepNonNullAble",
+              "canonicalReference": "@toktokhan-dev/universal!DeepNonNullAble:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<T[K]> } : "
+            },
+            {
+              "kind": "Reference",
+              "text": "Exclude",
+              "canonicalReference": "!Exclude:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<T, null | undefined>"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "DeepNonNullAble",
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "typeTokenRange": {
+            "startIndex": 1,
             "endIndex": 10
           },
           "parameters": []
@@ -1561,7 +1908,7 @@
             },
             {
               "kind": "Content",
-              "text": "<T> | (string & {})"
+              "text": "<T> | (string & {}) | number"
             },
             {
               "kind": "Content",
@@ -1569,7 +1916,16 @@
             },
             {
               "kind": "Content",
-              "text": "K extends `${infer Key}.${infer Rest}` ? Key extends keyof T ? "
+              "text": "K extends keyof T ? T[K] : K extends `${infer Key}.${infer Rest}` ? T extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Array",
+              "canonicalReference": "!Array:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<any> ? Key extends `${number}` ? "
             },
             {
               "kind": "Reference",
@@ -1578,7 +1934,52 @@
             },
             {
               "kind": "Content",
-              "text": "<T[Key], Rest> : never : K extends keyof T ? T[K] : never"
+              "text": "<T[`${number}`], Rest> : never : Key extends keyof T ? undefined extends T[Key] ? "
+            },
+            {
+              "kind": "Reference",
+              "text": "DeepValueOf",
+              "canonicalReference": "@toktokhan-dev/universal!DeepValueOf:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "NonNullable",
+              "canonicalReference": "!NonNullable:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<T[Key]>, Rest> | undefined : null extends T[Key] ? "
+            },
+            {
+              "kind": "Reference",
+              "text": "DeepValueOf",
+              "canonicalReference": "@toktokhan-dev/universal!DeepValueOf:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "NonNullable",
+              "canonicalReference": "!NonNullable:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<T[Key]>, Rest> | undefined : "
+            },
+            {
+              "kind": "Reference",
+              "text": "DeepValueOf",
+              "canonicalReference": "@toktokhan-dev/universal!DeepValueOf:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<T[Key], Rest> : never : never"
             },
             {
               "kind": "Content",
@@ -1614,7 +2015,7 @@
           ],
           "typeTokenRange": {
             "startIndex": 4,
-            "endIndex": 7
+            "endIndex": 19
           },
           "parameters": []
         },
@@ -2493,6 +2894,127 @@
             "endIndex": 8
           },
           "parameters": []
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/universal!get:function(1)",
+          "docComment": "/**\n * 객체의 property 를 key 로 받아서 값을 가져오는 함수입니다. 중접 객체의 경우 a.b.c 와 같이, 배열의 경우 a.0.b 와 같이 접근이 가능합니다.\n *\n  *\n * @param key - 객체의 key\n *\n * @param data - 객체 혹은 배열\n *\n * @typeParam T - 객체의 타입\n *\n * @typeParam K - 객체의 key\n *\n * @returns 객체의 key 에 해당하는 값\n *\n * @example\n * ```ts\n *\n * const data = {\n *  user: {\n *    name: 'John Doe',\n *    address: {\n *      city: 'New York',\n *  },\n *  posts: [\n *    { title: 'Post 1' },\n *    { title: 'Post 2' },\n *  ],\n * }\n *\n * // 객체의 key 에 해당하는 값 가져오기\n * get('user.name', data) // 'John Doe'\n * get('user.address.city', data) // 'New York'\n *\n * // 배열의 key 에 해당하는 값 가져오기\n * get('posts.0.title', data) // 'Post 1'\n *\n * // curried function 으로 사용하기\n * const getUserName = get('user.name')\n * getUserName(data) // 'John Doe'\n *\n * const logname = flow(get('user.name'), console.log)\n * logname(data) // 'John Doe'\n *\n * const name = useStore(get('user.name')) // 'John Doe'\n *\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "get: <T extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Obj",
+              "canonicalReference": "@toktokhan-dev/universal!Obj:type"
+            },
+            {
+              "kind": "Content",
+              "text": " | "
+            },
+            {
+              "kind": "Reference",
+              "text": "Array",
+              "canonicalReference": "!Array:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<any>"
+            },
+            {
+              "kind": "Content",
+              "text": ", K extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "DeepKeyOf",
+              "canonicalReference": "@toktokhan-dev/universal!DeepKeyOf:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<T>"
+            },
+            {
+              "kind": "Content",
+              "text": ">(key: "
+            },
+            {
+              "kind": "Content",
+              "text": "K"
+            },
+            {
+              "kind": "Content",
+              "text": ", data: "
+            },
+            {
+              "kind": "Content",
+              "text": "T"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Reference",
+              "text": "DeepValueOf",
+              "canonicalReference": "@toktokhan-dev/universal!DeepValueOf:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<T, K>"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 13,
+            "endIndex": 15
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "key",
+              "parameterTypeTokenRange": {
+                "startIndex": 9,
+                "endIndex": 10
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "data",
+              "parameterTypeTokenRange": {
+                "startIndex": 11,
+                "endIndex": 12
+              },
+              "isOptional": false
+            }
+          ],
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 5
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            },
+            {
+              "typeParameterName": "K",
+              "constraintTokenRange": {
+                "startIndex": 6,
+                "endIndex": 8
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "name": "get"
         },
         {
           "kind": "Function",
@@ -4661,6 +5183,91 @@
         },
         {
           "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/universal!ObjSchemaByKey:type",
+          "docComment": "/**\n * 넘겨진 key 를 기반으로, 객체의 type 을 만들어 줍니다.\n *\n  *\n * @typeParam T - key 값\n *\n * @typeParam Value - 해당 key 의 값의 타입 (default: any)\n *\n * @example\n *\n * ```ts type A = ObjSchemaByKey<'a.b.c'> // { a?: { b?: { c?: any } } } type B = ObjSchemaByKey<'a.b.0.title'> // { a?: { b?: {title?: any}[] } }\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type ObjSchemaByKey<T extends "
+            },
+            {
+              "kind": "Content",
+              "text": "string | number"
+            },
+            {
+              "kind": "Content",
+              "text": ", Value = "
+            },
+            {
+              "kind": "Content",
+              "text": "any"
+            },
+            {
+              "kind": "Content",
+              "text": "> = "
+            },
+            {
+              "kind": "Content",
+              "text": "T extends `${infer Key}.${infer Rest}` ? Key extends `${number}` ? "
+            },
+            {
+              "kind": "Reference",
+              "text": "ObjSchemaByKey",
+              "canonicalReference": "@toktokhan-dev/universal!ObjSchemaByKey:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<Rest, Value>[] : { [K in Key]?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "ObjSchemaByKey",
+              "canonicalReference": "@toktokhan-dev/universal!ObjSchemaByKey:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<Rest, Value> } : { [K in T]?: Value }"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "ObjSchemaByKey",
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            },
+            {
+              "typeParameterName": "Value",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              }
+            }
+          ],
+          "typeTokenRange": {
+            "startIndex": 5,
+            "endIndex": 10
+          },
+          "parameters": []
+        },
+        {
+          "kind": "TypeAlias",
           "canonicalReference": "@toktokhan-dev/universal!ObjSelector:type",
           "docComment": "",
           "excerptTokens": [
@@ -6018,8 +6625,167 @@
         },
         {
           "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/universal!update:function(1)",
+          "docComment": "/**\n * 객체의 지정된 깊은 위치에 값을 설정하거나 업데이트합니다.\n *\n  *\n * @param key - 설정 또는 업데이트할 속성의 깊은 경로를 나타내는 키\n *\n * @param value - 설정할 값 또는 값을 반환하는 함수\n *\n * @param obj - 값을 설정 또는 업데이트할 객체\n *\n * @typeParam T - 입력 객체의 타입\n *\n * @typeParam K - 설정 또는 업데이트할 속성의 깊은 경로를 나타내는 키\n *\n * @returns 값을 설정 또는 업데이트한 객체\n *\n * @example\n * ```typescript\n * const data = { nested: { prop: 42 } };\n *\n * // 객체의 깊은 경로에 값을 설정\n * const updated1 = set('nested.prop', 100, data); // { nested: { prop: 100 } }\n *\n * // 함수를 사용하여 값을 설정\n * const updated2 = set('nested.prop', (prev) => prev + 1, data); // { nested: { prop: 43 } }\n *\n * // 원본 객체의 다른 값을 참조하여 값을 설정\n * const updated3 = set('nested.prop', (prev, obj) => prev + obj.nested.prop, data); // { nested: { prop: 84 } }\n *\n * // 함수를 부분 적용하여 사용\n * const updater = set('nested.prop');\n * const updated4 = updater(200)(data); // { nested: { prop: 200 } }\n * ```\n *\n * @curried\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "update: <T extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Obj",
+              "canonicalReference": "@toktokhan-dev/universal!Obj:type"
+            },
+            {
+              "kind": "Content",
+              "text": " | "
+            },
+            {
+              "kind": "Reference",
+              "text": "Array",
+              "canonicalReference": "!Array:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<any>"
+            },
+            {
+              "kind": "Content",
+              "text": ", K extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "DeepKeyOf",
+              "canonicalReference": "@toktokhan-dev/universal!DeepKeyOf:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<T>"
+            },
+            {
+              "kind": "Content",
+              "text": " = "
+            },
+            {
+              "kind": "Reference",
+              "text": "DeepKeyOf",
+              "canonicalReference": "@toktokhan-dev/universal!DeepKeyOf:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<T>"
+            },
+            {
+              "kind": "Content",
+              "text": ">(key: "
+            },
+            {
+              "kind": "Content",
+              "text": "K"
+            },
+            {
+              "kind": "Content",
+              "text": ", value: "
+            },
+            {
+              "kind": "Reference",
+              "text": "DataOrSetterFn",
+              "canonicalReference": "@toktokhan-dev/universal!DataOrSetterFn:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "DeepValueOf",
+              "canonicalReference": "@toktokhan-dev/universal!DeepValueOf:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<T, K>, T>"
+            },
+            {
+              "kind": "Content",
+              "text": ", obj: "
+            },
+            {
+              "kind": "Content",
+              "text": "T"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "T"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 21,
+            "endIndex": 22
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "key",
+              "parameterTypeTokenRange": {
+                "startIndex": 12,
+                "endIndex": 13
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "value",
+              "parameterTypeTokenRange": {
+                "startIndex": 14,
+                "endIndex": 18
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "obj",
+              "parameterTypeTokenRange": {
+                "startIndex": 19,
+                "endIndex": 20
+              },
+              "isOptional": false
+            }
+          ],
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 5
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            },
+            {
+              "typeParameterName": "K",
+              "constraintTokenRange": {
+                "startIndex": 6,
+                "endIndex": 8
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 9,
+                "endIndex": 11
+              }
+            }
+          ],
+          "name": "update"
+        },
+        {
+          "kind": "Function",
           "canonicalReference": "@toktokhan-dev/universal!updateObj:function(1)",
-          "docComment": "",
+          "docComment": "/**\n * @deprecated\n *\n * use `update` instead\n *\n * 객체의 지정된 깊은 위치에 값을 설정하거나 업데이트합니다.\n *\n  *\n * @param key - 설정 또는 업데이트할 속성의 깊은 경로를 나타내는 키\n *\n * @param value - 설정할 값 또는 값을 반환하는 함수\n *\n * @param obj - 값을 설정 또는 업데이트할 객체\n *\n * @typeParam T - 입력 객체의 타입\n *\n * @typeParam K - 설정 또는 업데이트할 속성의 깊은 경로를 나타내는 키\n *\n * @returns 값을 설정 또는 업데이트한 객체\n *\n * @example\n * ```typescript\n * const data = { nested: { prop: 42 } };\n *\n * // 객체의 깊은 경로에 값을 설정\n * const updated1 = updateObj('nested.prop', 100, data); // { nested: { prop: 100 } }\n *\n * // 함수를 사용하여 값을 설정\n * const updated2 = updateObj('nested.prop', (prev) => prev + 1, data); // { nested: { prop: 43 } }\n *\n * // 원본 객체의 다른 값을 참조하여 값을 설정\n * const updated3 = updateObj('nested.prop', (prev, obj) => prev + obj.nested.prop, data); // { nested: { prop: 84 } }\n *\n * // 함수를 부분 적용하여 사용\n * const updater = updateObj('nested.prop');\n * const updated4 = updater(200)(data); // { nested: { prop: 200 } }\n * ```\n *\n * @curried\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",

@@ -625,6 +625,151 @@
           "parameters": []
         },
         {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/react-universal!EmptyView:function(1)",
+          "docComment": "/**\n * `EmptyView` 컴포넌트는 데이터가 비어있는 경우 `fallback`을, 데이터가 존재하는 경우 `children`을 렌더링합니다.\n *\n  *\n * @returns 조건에 따라 `children` 또는 `fallback`을 렌더링합니다.\n *\n * @example\n * ```tsx\n * import EmptyView from './components/StateViews/EmptyView';\n *\n * const MyComponent = ({ data }) => (\n *   <EmptyView data={data} fallback={<div>데이터가 없습니다.</div>}>\n *     <div>데이터가 존재합니다.</div>\n *   </EmptyView>\n * );\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "EmptyView: ({\n  children,\n  data,\n  fallback\n}: "
+            },
+            {
+              "kind": "Reference",
+              "text": "EmptyViewProps",
+              "canonicalReference": "@toktokhan-dev/react-universal!EmptyViewProps:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Reference",
+              "text": "react_jsx_runtime.JSX.Element",
+              "canonicalReference": "@types/react!JSX.Element:interface"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "{  children,  data,  fallback}",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "EmptyView"
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@toktokhan-dev/react-universal!EmptyViewProps:interface",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "interface EmptyViewProps "
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "EmptyViewProps",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/react-universal!EmptyViewProps#children:member",
+              "docComment": "/**\n * 데이터가 존재할 때 렌더링될 UI 요소\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "children: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ReactNode",
+                  "canonicalReference": "@types/react!React.ReactNode:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "children",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/react-universal!EmptyViewProps#data:member",
+              "docComment": "/**\n * 검사할 데이터 배열\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "data?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "unknown[] | null"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "data",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/react-universal!EmptyViewProps#fallback:member",
+              "docComment": "/**\n * 데이터가 비어 있을 때 렌더링될 UI 요소\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "fallback: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ReactNode",
+                  "canonicalReference": "@types/react!React.ReactNode:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "fallback",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": [],
+          "parameters": []
+        },
+        {
           "kind": "TypeAlias",
           "canonicalReference": "@toktokhan-dev/react-universal!ErrorMessage:type",
           "docComment": "",
@@ -900,6 +1045,151 @@
             "startIndex": 1,
             "endIndex": 4
           },
+          "parameters": []
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/react-universal!LoadingView:function(1)",
+          "docComment": "/**\n * `LoadingView` 컴포넌트는 로딩 상태를 처리하여 로딩 중일 때는 `fallback`을, 로딩이 완료되었을 때는 `children`을 렌더링합니다.\n *\n  *\n * @returns 조건에 따라 `children` 또는 `fallback`을 렌더링합니다.\n *\n * @example\n * ```tsx\n * import LoadingView from './components/StateViews/LoadingView';\n *\n * const MyComponent = ({ isLoading }) => (\n *   <LoadingView isLoading={isLoading} fallback={<div>로딩 중...</div>}>\n *     <div>로딩이 완료되었습니다.</div>\n *   </LoadingView>\n * );\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "LoadingView: ({\n  children,\n  isLoading,\n  fallback\n}: "
+            },
+            {
+              "kind": "Reference",
+              "text": "LoadingViewProps",
+              "canonicalReference": "@toktokhan-dev/react-universal!LoadingViewProps:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Reference",
+              "text": "react_jsx_runtime.JSX.Element",
+              "canonicalReference": "@types/react!JSX.Element:interface"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "{  children,  isLoading,  fallback}",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "LoadingView"
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@toktokhan-dev/react-universal!LoadingViewProps:interface",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "interface LoadingViewProps "
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "LoadingViewProps",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/react-universal!LoadingViewProps#children:member",
+              "docComment": "/**\n * 로딩이 완료되었을 때 렌더링될 UI 요소\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "children: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ReactNode",
+                  "canonicalReference": "@types/react!React.ReactNode:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "children",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/react-universal!LoadingViewProps#fallback:member",
+              "docComment": "/**\n * 로딩 중일 때 렌더링될 UI 요소\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "fallback: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ReactNode",
+                  "canonicalReference": "@types/react!React.ReactNode:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "fallback",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/react-universal!LoadingViewProps#isLoading:member",
+              "docComment": "/**\n * 로딩 상태를 나타내는 boolean 값\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "isLoading?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "boolean"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "isLoading",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": [],
           "parameters": []
         },
         {
