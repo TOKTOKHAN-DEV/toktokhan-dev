@@ -37,6 +37,12 @@ export interface FullButtonProps {
   socialType: SocialType
 
   /**
+   * 버튼의 모양을 결정합니다. 'rounded', 'square' 중 하나를 선택할 수 있습니다.
+   * @default 'square'
+   */
+  variant?: 'rounded' | 'square'
+
+  /**
    * 버튼 내 콘텐츠의 정렬을 지정합니다. 'left' 또는 'center' 중 하나를 선택할 수 있습니다.
    * @default 'center'
    */
@@ -79,6 +85,7 @@ export const FullButton = ({
   colorMode = 'dark',
   socialType,
   align = 'center',
+  variant = 'square',
   lang = 'ko',
   label,
   style,
@@ -95,6 +102,19 @@ export const FullButton = ({
     },
     [onClick],
   )
+
+  const variantStyle: CSSProperties = useMemo(() => {
+    switch (variant) {
+      case 'rounded':
+        return {
+          borderRadius: '6px',
+        }
+      case 'square':
+        return {}
+      default:
+        return {}
+    }
+  }, [variant])
 
   const alignStyle: Record<'container' | 'label', CSSProperties> =
     useMemo(() => {
@@ -145,13 +165,13 @@ export const FullButton = ({
         flex: 1,
         alignItems: 'center',
         border: 'none',
-        borderRadius: '6px',
         fontSize: '15px',
         lineHeight: '1.5',
         fontWeight: 700,
         padding: '11px 14px',
         backgroundColor: SOCIALS[socialType].style[colorMode].bg,
         color: SOCIALS[socialType].style[colorMode].label,
+        ...variantStyle,
         ...alignStyle.container,
         ...style,
       }}

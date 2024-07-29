@@ -110,7 +110,7 @@ export const IconButton = ({
       case 'rounded':
         return {
           icon: {
-            borderRadius: '4px',
+            borderRadius: '6px',
           },
           label: {},
         }
