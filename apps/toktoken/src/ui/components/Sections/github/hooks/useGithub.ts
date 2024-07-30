@@ -27,7 +27,6 @@ export const useGithub = ({ data, activeTab }: GithubContentProps) => {
   const synchronizeGithub = handleSubmit(async (formData) => {
     setIsLoading(true)
     const repoInfo = getRepositoryInfo(formData.repoUrl)
-
     const github = new GitHubManager({
       token: formData.token,
       repo: repoInfo.repo,

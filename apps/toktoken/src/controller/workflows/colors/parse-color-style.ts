@@ -1,14 +1,7 @@
-import {
-  Obj,
-  arrayToRecord,
-  isEvery,
-  pass,
-  removeStr,
-} from '@toktokhan-dev/universal'
+import { Obj, arrayToRecord, pass, removeStr } from '@toktokhan-dev/universal'
 
 import { isNull } from 'lodash'
 import {
-  filter,
   find,
   flatten,
   flow,
@@ -28,8 +21,7 @@ import {
 
 import { load } from '../load'
 import { ColorResult, ColorSchemaMap } from './types/type'
-import { isColorSchema } from './utils/is-color-schema'
-import { isSemanticToken } from './utils/is-semantic-token'
+import { findTargetCollection, getTargetVariables } from './utils'
 import { rgbToHex } from './utils/rgb-To-Hex'
 
 const slashTo = replace(/\//g)
@@ -55,7 +47,6 @@ const createObjBy = (mapper: Obj) => (prev: Variable) => {
 }
 
 const createColorSchemaMap: (args: Variable[]) => ColorSchemaMap = flow(
-  filter(isColorSchema),
   arrayToRecord(flow(prop('name'), parseColorName)),
   mapValues(
     createObjBy({
@@ -89,7 +80,7 @@ const createSemanticTokenMap = (
       prop('value'),
     )()
 
-  const hasColorSchema = flow(
+  const hasPrimitive = flow(
     prop('valuesByMode'),
     Object.values,
     head,
@@ -98,19 +89,30 @@ const createSemanticTokenMap = (
   )
 
   const create = flow(
-    filter(isEvery([isSemanticToken, hasColorSchema])),
     arrayToRecord(flow(prop('name'), parseColorName)),
     mapValues(
       flow(
         (val) => {
           const array = Object.entries(val['valuesByMode']).map(
             ([modeId, modeValues]: [string, any]) => {
-              return {
-                mode: mode[modeId],
-                id: val['id'],
-                refId: modeValues['id'],
-                ref: findColorSchemaKey(modeValues['id']),
-                value: findColorSchemaValue(modeValues['id']),
+              const isAlias =
+                'type' in modeValues && modeValues.type === 'VARIABLE_ALIAS'
+              if (isAlias) {
+                return {
+                  mode: mode[modeId],
+                  id: val['id'],
+                  refId: modeValues['id'],
+                  ref: findColorSchemaKey(modeValues['id']),
+                  value: findColorSchemaValue(modeValues['id']),
+                }
+              } else {
+                return {
+                  mode: mode[modeId],
+                  id: null,
+                  refId: null,
+                  ref: null,
+                  value: rgbToHex(modeValues),
+                }
               }
             },
           )
@@ -135,7 +137,6 @@ export const parseColorStyles = async (): Promise<ColorResult> => {
   const localCollections =
     await figma.variables.getLocalVariableCollectionsAsync()
   const tokenModes = localCollections.map((i) => i.modes)
-
   const modes = flow(
     flatten,
     maybe(
@@ -148,8 +149,18 @@ export const parseColorStyles = async (): Promise<ColorResult> => {
 
   const variables = await figma.variables.getLocalVariablesAsync('COLOR')
 
-  const colorSchema = createColorSchemaMap(variables)
-  const semanticTokens = createSemanticTokenMap(colorSchema, variables, modes)
+  const primitiveId = findTargetCollection(['primitives', 'primitive'])(
+    localCollections,
+  )['id']
+  const tokenId = findTargetCollection(['tokens', 'token'])(localCollections)[
+    'id'
+  ]
+
+  const primitives = getTargetVariables(primitiveId)(variables)
+  const tokens = getTargetVariables(tokenId)(variables)
+
+  const colorSchema = createColorSchemaMap(primitives)
+  const semanticTokens = createSemanticTokenMap(colorSchema, tokens, modes)
   return {
     colorSchema,
     semanticTokens,

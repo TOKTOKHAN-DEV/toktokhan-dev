@@ -96,7 +96,11 @@ const renderSemanticTokenItem = flow(
                   content={
                     <>
                       <p>{mode}</p>
-                      <p className="whitespace-nowrap">{String(values.ref)}</p>
+                      {values.ref && (
+                        <p className="whitespace-nowrap">
+                          {String(values.ref)}
+                        </p>
+                      )}
                       <p>{String(values.value)}</p>
                     </>
                   }
@@ -104,7 +108,7 @@ const renderSemanticTokenItem = flow(
                   <div
                     onClick={() => {
                       copyToClipboard(
-                        `[${mode}]\n${values.ref}\n${values.value}`,
+                        `[${mode}]\n${values.ref ? values.ref + '\n' : ''}${values.value}`,
                       )
                     }}
                     style={{
