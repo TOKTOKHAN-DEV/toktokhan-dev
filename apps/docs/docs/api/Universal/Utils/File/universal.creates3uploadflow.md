@@ -14,16 +14,7 @@ createUploadFlow 함수는 S3 파일 업로드를 위한 플로우를 생성합�
 ## Signature
 
 ```typescript
-createS3UploadFlow: <Input, S3Config, Result>(config: {
-  prepareUpload: (input: Input) => Promise<S3Config>;
-  uploadFileToS3: (s3Config: S3Config) => Promise<Result>;
-}) => {
-  uploadFile: (input: Input) => Promise<Result>;
-  uploadFiles: (input: Input[]) => Promise<{
-    fulfilled: Result[];
-    rejected: PromiseRejectedResult[];
-  }>;
-}
+createS3UploadFlow: <Input, S3Config, Result>(config: CreateS3UploadFlowConfig<Input, S3Config, Result>) => CreateS3UploadFlowReturn<Input, Result>
 ```
 
 ## Parameters
@@ -51,7 +42,7 @@ config
 
 </td><td>
 
-\{ prepareUpload: (input: Input) =&gt; Promise&lt;S3Config&gt;; uploadFileToS3: (s3Config: S3Config) =&gt; Promise&lt;Result&gt;; \}
+[CreateS3UploadFlowConfig](./universal.creates3uploadflowconfig)&lt;Input, S3Config, Result&gt;
 
 
 </td><td>
@@ -61,7 +52,7 @@ config
 </tbody></table>
 ## Returns
 
-\{ uploadFile: (input: Input) =&gt; Promise&lt;Result&gt;; uploadFiles: (input: Input[]) =&gt; Promise&lt;{ fulfilled: Result[]; rejected: PromiseRejectedResult[]; \}&gt;; }
+[CreateS3UploadFlowReturn](./universal.creates3uploadflowreturn)&lt;Input, Result&gt;
 
 ## Example
 

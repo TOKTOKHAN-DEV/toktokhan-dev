@@ -1104,74 +1104,39 @@
         {
           "kind": "Function",
           "canonicalReference": "@toktokhan-dev/universal!createS3UploadFlow:function(1)",
-          "docComment": "/**\n  *\n * createUploadFlow 함수는 S3 파일 업로드를 위한 플로우를 생성합니다.\n *\n * @param  - config.prepareUpload - 파일을 업로드하기 전에 필요한 정보를 준비합니다. - 주로 presigned url 을 생성하고, 필요한 정보를 준비합니다. - 해당 함수의 parameter type 은 이후 return 되는 uploadFile 함수의 input type 이 됩니다. - 해당 함수의 return type 은 `config.uploadFileToS3` 함수의 input type 이 됩니다.\n *\n * @param  - config.uploadFileToS3 - S3에 파일을 업로드합니다. - 주로 s3 에 파일을 업로드합니다. - 해당 함수의 parameter type 은 `config.prepareUpload` 함수의 return type 이 됩니다. - 해당 함수의 return type 은 이후 return 되는 uploadFile 함수의 return type 이 됩니다.\n *\n * @return uploadFile - 단일 파일을 업로드합니다.  @return uploadFiles - 다수의 파일을 업로드합니다.\n *\n * @example\n * ```ts\n * const { uploadFile, uploadFiles } = createUploadFlow({\n *    prepareUpload: async ({name} : {name : string}) => {\n *    return {\n *       name: name,\n *       type: \"image\",\n *     }\n *  },\n *    uploadFileToS3: async ({ name, type }) => {\n *     return { name, type, imgUrl: \"https://example.com\" }\n *  },\n * })\n *\n * const result = await uploadFile({ name: \"example\" }) // { name: \"example\", type: \"image\", imgUrl: \"https://example.com\" }\n * const results = await uploadFiles([{ name: \"example\" }, { name: \"example2\" }]) // { fulfilled: [{ name: \"example\", type: \"image\", imgUrl: \"https://example.com\" } , ...], rejected: [] }\n * ```\n *\n */\n",
+          "docComment": "/**\n  *\n * createUploadFlow 함수는 S3 파일 업로드를 위한 플로우를 생성합니다.\n *\n * @example\n * ```ts\n * const { uploadFile, uploadFiles } = createUploadFlow({\n *    prepareUpload: async ({name} : {name : string}) => {\n *    return {\n *       name: name,\n *       type: \"image\",\n *     }\n *  },\n *    uploadFileToS3: async ({ name, type }) => {\n *     return { name, type, imgUrl: \"https://example.com\" }\n *  },\n * })\n *\n * const result = await uploadFile({ name: \"example\" }) // { name: \"example\", type: \"image\", imgUrl: \"https://example.com\" }\n * const results = await uploadFiles([{ name: \"example\" }, { name: \"example2\" }]) // { fulfilled: [{ name: \"example\", type: \"image\", imgUrl: \"https://example.com\" } , ...], rejected: [] }\n * ```\n *\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
               "text": "createS3UploadFlow: <Input, S3Config, Result>(config: "
             },
             {
-              "kind": "Content",
-              "text": "{\n  prepareUpload: (input: Input) => "
-            },
-            {
               "kind": "Reference",
-              "text": "Promise",
-              "canonicalReference": "!Promise:interface"
+              "text": "CreateS3UploadFlowConfig",
+              "canonicalReference": "@toktokhan-dev/universal!CreateS3UploadFlowConfig:interface"
             },
             {
               "kind": "Content",
-              "text": "<S3Config>;\n  uploadFileToS3: (s3Config: S3Config) => "
-            },
-            {
-              "kind": "Reference",
-              "text": "Promise",
-              "canonicalReference": "!Promise:interface"
-            },
-            {
-              "kind": "Content",
-              "text": "<Result>;\n}"
+              "text": "<Input, S3Config, Result>"
             },
             {
               "kind": "Content",
               "text": ") => "
             },
             {
-              "kind": "Content",
-              "text": "{\n  uploadFile: (input: Input) => "
-            },
-            {
               "kind": "Reference",
-              "text": "Promise",
-              "canonicalReference": "!Promise:interface"
+              "text": "CreateS3UploadFlowReturn",
+              "canonicalReference": "@toktokhan-dev/universal!CreateS3UploadFlowReturn:interface"
             },
             {
               "kind": "Content",
-              "text": "<Result>;\n  uploadFiles: (input: Input[]) => "
-            },
-            {
-              "kind": "Reference",
-              "text": "Promise",
-              "canonicalReference": "!Promise:interface"
-            },
-            {
-              "kind": "Content",
-              "text": "<{\n    fulfilled: Result[];\n    rejected: "
-            },
-            {
-              "kind": "Reference",
-              "text": "PromiseRejectedResult",
-              "canonicalReference": "!PromiseRejectedResult:interface"
-            },
-            {
-              "kind": "Content",
-              "text": "[];\n  }>;\n}"
+              "text": "<Input, Result>"
             }
           ],
           "fileUrlPath": "dist/index.doc.d.ts",
           "returnTypeTokenRange": {
-            "startIndex": 7,
-            "endIndex": 14
+            "startIndex": 4,
+            "endIndex": 6
           },
           "releaseTag": "Public",
           "overloadIndex": 1,
@@ -1180,7 +1145,7 @@
               "parameterName": "config",
               "parameterTypeTokenRange": {
                 "startIndex": 1,
-                "endIndex": 6
+                "endIndex": 3
               },
               "isOptional": false
             }
@@ -1221,6 +1186,256 @@
             }
           ],
           "name": "createS3UploadFlow"
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@toktokhan-dev/universal!CreateS3UploadFlowConfig:interface",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "interface CreateS3UploadFlowConfig<Input, S3Config, Result> "
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "typeParameters": [
+            {
+              "typeParameterName": "Input",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            },
+            {
+              "typeParameterName": "S3Config",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            },
+            {
+              "typeParameterName": "Result",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "name": "CreateS3UploadFlowConfig",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/universal!CreateS3UploadFlowConfig#prepareUpload:member",
+              "docComment": "/**\n * 파일을 업로드하기 전에 필요한 정보를 준비합니다. - 주로 presigned url 을 생성하고, 필요한 정보를 준비합니다. - 해당 함수의 parameter type 은 이후 return 되는 uploadFile 함수의 input type 이 됩니다. - 해당 함수의 return type 은 `config.uploadFileToS3` 함수의 input type 이 됩니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "prepareUpload: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "(input: Input) => "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise",
+                  "canonicalReference": "!Promise:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<S3Config>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "prepareUpload",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 4
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/universal!CreateS3UploadFlowConfig#uploadFileToS3:member",
+              "docComment": "/**\n * S3에 파일을 업로드합니다. - 주로 s3 에 파일을 업로드합니다. - 해당 함수의 parameter type 은 `config.prepareUpload` 함수의 return type 이 됩니다. - 해당 함수의 return type 은 이후 return 되는 uploadFile 함수의 return type 이 됩니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "uploadFileToS3: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "(s3Config: S3Config) => "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise",
+                  "canonicalReference": "!Promise:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<Result>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "uploadFileToS3",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 4
+              }
+            }
+          ],
+          "extendsTokenRanges": [],
+          "parameters": []
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@toktokhan-dev/universal!CreateS3UploadFlowReturn:interface",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "interface CreateS3UploadFlowReturn<Input, Result> "
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "typeParameters": [
+            {
+              "typeParameterName": "Input",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            },
+            {
+              "typeParameterName": "Result",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "name": "CreateS3UploadFlowReturn",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/universal!CreateS3UploadFlowReturn#uploadFile:member",
+              "docComment": "/**\n * 단일 파일을 업로드합니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "uploadFile: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "(input: Input) => "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise",
+                  "canonicalReference": "!Promise:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<Result>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "uploadFile",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 4
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/universal!CreateS3UploadFlowReturn#uploadFiles:member",
+              "docComment": "/**\n * 다수의 파일을 업로드합니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "uploadFiles: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "(input: Input[]) => "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise",
+                  "canonicalReference": "!Promise:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<{\n    fulfilled: Result[];\n    rejected: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "PromiseRejectedResult",
+                  "canonicalReference": "!PromiseRejectedResult:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "[];\n  }>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "uploadFiles",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 6
+              }
+            }
+          ],
+          "extendsTokenRanges": [],
+          "parameters": []
         },
         {
           "kind": "TypeAlias",

@@ -1,32 +1,88 @@
 import fs from 'fs'
 import path from 'path'
 
-import { errorLog } from '@toktokhan-dev/node'
+import { cwd, errorLog, json, pathOf, pathOn } from '@toktokhan-dev/node'
+import { createObjBySelector, removeStr } from '@toktokhan-dev/universal'
+
+import {
+  capitalize,
+  concat,
+  dropRight,
+  flow,
+  fromPairs,
+  identity,
+  join,
+  map,
+  prop,
+  split,
+} from 'lodash/fp'
+
+import { packageHasDoc } from '../utils'
 
 type DefaultReturnType = {
   dir: string
   sections: string[]
 }
 
+const getApiDocMap = () =>
+  flow(
+    packageHasDoc,
+    map(
+      flow(
+        createObjBySelector({
+          parent: flow(
+            removeStr(cwd('packages') + '/'),
+            split('/'),
+            dropRight(1),
+            join('/'),
+          ),
+          name: flow(
+            pathOf('package.json'),
+            json,
+            prop('name'),
+            removeStr('@toktokhan-dev/'),
+          ),
+        }),
+        ({ parent, name }) => {
+          const removeParent =
+            parent ? removeStr(new RegExp(`${parent}?-`, 'g')) : identity
+          const rename = flow(
+            removeParent,
+            pathOn(parent),
+            split('/'),
+            map(capitalize),
+            join('/'),
+            pathOn('api'),
+          )
+
+          return [name, rename(name)]
+        },
+      ),
+    ),
+    concat([['index', 'api']]),
+    fromPairs,
+  )()
+
 class FileOrganizer {
-  private static readonly DIRECTORY_MAP = {
-    index: 'api',
-    universal: 'api/Universal',
-    'react-universal': 'api/React/Universal',
-    'react-app': 'api/React/App',
-    'react-web': 'api/React/Web',
-    cli: 'api/cli',
-    node: 'api/node',
-    chakra: 'api/Chakra',
-    'cli-plugin-gen-api-react-query': 'api/cli-plugins/gen-api-react-query',
-    'cli-plugin-gen-icon-chakra': 'api/cli-plugins/gen-icon-chakra',
-    'cli-plugin-gen-img': 'api/cli-plugins/gen-img',
-    'cli-plugin-gen-route-pages': 'api/cli-plugins/gen-route-pages',
-    'cli-plugin-gen-sitemap-next-page': 'api/cli-plugins/gen-sitemap-next-page',
-    'cli-plugin-gen-theme-chakra': 'api/cli-plugins/gen-theme-chakra',
-    'cli-plugin-commit': 'api/cli-plugins/commit',
-    github: 'api/Services/Github',
-  } as const
+  // private static readonly DIRECTORY_MAP = {
+  //   index: 'api',
+  //   universal: 'api/Universal',
+  //   'react-universal': 'api/React/Universal',
+  //   'react-app': 'api/React/App',
+  //   'react-web': 'api/React/Web',
+  //   cli: 'api/cli',
+  //   node: 'api/node',
+  //   chakra: 'api/Chakra',
+  //   'cli-plugin-gen-api-react-query': 'api/cli-plugins/gen-api-react-query',
+  //   'cli-plugin-gen-icon-chakra': 'api/cli-plugins/gen-icon-chakra',
+  //   'cli-plugin-gen-img': 'api/cli-plugins/gen-img',
+  //   'cli-plugin-gen-route-pages': 'api/cli-plugins/gen-route-pages',
+  //   'cli-plugin-gen-sitemap-next-page': 'api/cli-plugins/gen-sitemap-next-page',
+  //   'cli-plugin-gen-theme-chakra': 'api/cli-plugins/gen-theme-chakra',
+  //   'cli-plugin-commit': 'api/cli-plugins/commit',
+  //   github: 'api/Services/Github',
+  // } as const
+  private static readonly DIRECTORY_MAP = getApiDocMap()
 
   private sourceDir = 'apps/docs/docs'
   private targetDir = 'apps/docs/docs/api'
@@ -51,6 +107,7 @@ class FileOrganizer {
       const newDir = Object.keys(FileOrganizer.DIRECTORY_MAP).find(
         (key) => fileSubject === key,
       )
+      console.log(fileSubject, this.targetDir, newDir)
 
       if (newDir) {
         const newDirPath = path.join(
@@ -67,7 +124,7 @@ class FileOrganizer {
   public categorizeSubFolder = (): void => {
     const sectionsByh2 = (dir: string): DefaultReturnType | void => {
       const overviewPath = path.join(this.sourceDir, dir, 'index.md')
-
+      console.log(dir, overviewPath)
       if (!fs.existsSync(overviewPath)) {
         errorLog(
           'sectionsByh2: File existsSync error',
@@ -107,7 +164,7 @@ class FileOrganizer {
           const link = match[2] // ./react-universal.usesyncwebstorage
           const fileName = path.basename(link) //react-universal.usesyncwebstorage
           if (!fileName) return
-
+          console.log(dir, sectionTitle, fileName)
           const dirPath = path.join(dir, sectionTitle) //api/React/Universal/Hooks
           const oldPath = path.join(this.sourceDir, dir, `${fileName}.md`) //apps/docs/docs/api/React/Universal/react-universal.usesyncwebstorage.md
           const newPath = path.join(this.sourceDir, `${dirPath}/${fileName}.md`) // apps/docs/docs/api/React/Universal/Hooks/react-universal.usesyncwebstorage.md
@@ -179,7 +236,11 @@ class FileOrganizer {
 }
 
 export const handleApiDocFolderStructure = (): void => {
+  console.log('######')
   const organizer = new FileOrganizer()
+
   organizer.categorizeMainFolder()
   organizer.categorizeSubFolder()
 }
+
+// handleApiDocFolderStructure()

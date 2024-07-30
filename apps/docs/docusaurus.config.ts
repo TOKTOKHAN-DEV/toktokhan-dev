@@ -213,23 +213,25 @@ const config = {
 const API_ORDERS = [
   'Overview',
   'Universal',
-  'React',
-  'Cli',
+  'react',
   'Node',
+  'Cli',
   'cli-plugins',
-  'Services',
-  'Chakra',
 ]
 
 const reverseSidebarItems = (items) => {
   const sort = (orders) => {
-    return items.sort(
-      (a, b) => orders.indexOf(a.label) - orders.indexOf(b.label),
-    )
-  }
-  const isApi = items.some((item) => item.label === 'React')
+    return items.sort((a, b) => {
+      const idx_a = orders.indexOf(a.label)
+      const idx_b = orders.indexOf(b.label)
+      const notFoundToEnd = (idx) => (idx === -1 ? 9999 : idx)
 
-  if (isApi) return sort(API_ORDERS)
+      return notFoundToEnd(idx_a) - notFoundToEnd(idx_b)
+    })
+  }
+  // const isApi = items.some((item) => item.label === 'React')
+
+  return sort(API_ORDERS)
   return items
 }
 

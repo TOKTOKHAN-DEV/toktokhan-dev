@@ -174,6 +174,73 @@
       "members": [
         {
           "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/zustand-with-setter!IWithSetter:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type IWithSetter<T extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Obj",
+              "canonicalReference": "@toktokhan-dev/universal!Obj:type"
+            },
+            {
+              "kind": "Content",
+              "text": "> = "
+            },
+            {
+              "kind": "Content",
+              "text": "T & {\n  set: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Setter",
+              "canonicalReference": "@toktokhan-dev/zustand-with-setter!Setter:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<T>;\n  reset: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Resetter",
+              "canonicalReference": "@toktokhan-dev/zustand-with-setter!Resetter:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<T>;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "IWithSetter",
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "typeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 8
+          },
+          "parameters": []
+        },
+        {
+          "kind": "TypeAlias",
           "canonicalReference": "@toktokhan-dev/zustand-with-setter!ResetArg:type",
           "docComment": "",
           "excerptTokens": [
@@ -484,7 +551,7 @@
         {
           "kind": "Function",
           "canonicalReference": "@toktokhan-dev/zustand-with-setter!withSetter:function(1)",
-          "docComment": "",
+          "docComment": "/**\n  *\n * zustand 와 함께 사용할 수 있는 set 함수, reset 함수를 제공합니다. 기존의 간단한 set 함수도 직접 정의를 해야하는 불편함을 해소하기 위해 만들어졌습니다. zustand create, createStore 에서 middleware 로 사용할 수 있습니다.\n *\n * @example\n * ```ts\n * import { withSetter } from '@toktokhan-dev/zustand-with-setter'\n *\n * import { create } from 'zustand'\n *\n * type Store = {\n *   count: number\n *   nested: {\n *     count: number\n *   }\n * }\n *\n * const useStore = create(\n *   withSetter<Store>(() => ({\n *     count: 0,\n *     nested: {\n *       count: 0,\n *     },\n *   })),\n * )\n *\n * const set = useStore((store) => store.set)\n *\n * set({ count: 5, nested: { count: 5 } })\n * set((prev) => ({ count: prev.count + 1 }))\n *\n * set('count', 5)\n * set('count', (prev) => prev + 1)\n * set('nested.count', 5)\n * set('nested.count', (prev) => prev + 1)\n *\n * const reset = useStore((store) => store.reset)\n * reset()\n * reset('count')\n * reset({ count: 5 })\n * ```\n *\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -573,8 +640,8 @@
             },
             {
               "kind": "Reference",
-              "text": "WithSetter",
-              "canonicalReference": "@toktokhan-dev/zustand-with-setter!WithSetter:type"
+              "text": "IWithSetter",
+              "canonicalReference": "@toktokhan-dev/zustand-with-setter!IWithSetter:type"
             },
             {
               "kind": "Content",
@@ -634,73 +701,6 @@
             }
           ],
           "name": "withSetter"
-        },
-        {
-          "kind": "TypeAlias",
-          "canonicalReference": "@toktokhan-dev/zustand-with-setter!WithSetter:type",
-          "docComment": "",
-          "excerptTokens": [
-            {
-              "kind": "Content",
-              "text": "type WithSetter<T extends "
-            },
-            {
-              "kind": "Reference",
-              "text": "Obj",
-              "canonicalReference": "@toktokhan-dev/universal!Obj:type"
-            },
-            {
-              "kind": "Content",
-              "text": "> = "
-            },
-            {
-              "kind": "Content",
-              "text": "T & {\n  set: "
-            },
-            {
-              "kind": "Reference",
-              "text": "Setter",
-              "canonicalReference": "@toktokhan-dev/zustand-with-setter!Setter:type"
-            },
-            {
-              "kind": "Content",
-              "text": "<T>;\n  reset: "
-            },
-            {
-              "kind": "Reference",
-              "text": "Resetter",
-              "canonicalReference": "@toktokhan-dev/zustand-with-setter!Resetter:type"
-            },
-            {
-              "kind": "Content",
-              "text": "<T>;\n}"
-            },
-            {
-              "kind": "Content",
-              "text": ";"
-            }
-          ],
-          "fileUrlPath": "dist/index.doc.d.ts",
-          "releaseTag": "Public",
-          "name": "WithSetter",
-          "typeParameters": [
-            {
-              "typeParameterName": "T",
-              "constraintTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              },
-              "defaultTypeTokenRange": {
-                "startIndex": 0,
-                "endIndex": 0
-              }
-            }
-          ],
-          "typeTokenRange": {
-            "startIndex": 3,
-            "endIndex": 8
-          },
-          "parameters": []
         }
       ]
     }

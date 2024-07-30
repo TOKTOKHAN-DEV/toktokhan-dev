@@ -175,7 +175,7 @@
         {
           "kind": "Function",
           "canonicalReference": "@toktokhan-dev/zustand-create-store-context!createStoreContext:function(1)",
-          "docComment": "",
+          "docComment": "/**\n  *\n * zustand 와 함께 사용할 수 있는 `createStoreContext` 함수를 제공합니다. 지역적인 상태를 zustand 로 관리할 수 있습니다.\n *\n * @example\n * ```tsx\n * import { createStoreContext } from '@toktokhan-dev/zustand-create-store-context'\n *\n * const {\n *   Provider: CountProvider,\n *   useContext: useCountContext,\n *   withProvider: withCountProvider,\n * } = createStoreContext((set, get, store) => ({\n *   count: 0,\n *   setCount: (count: number) =>\n *     set(() => {\n *       count\n *     }),\n * }))\n *\n * const Component = () => {\n *  const count = useCountContext((store) => store.count)\n *  const setCount = useCountContext((store) => store.setCount)\n *\n *  return (\n *    <div>\n *      <button onClick={() => setCount(count + 1)}>+</button>\n *      <span>{count}</span>\n *    </div>\n *  )\n * }\n *\n *  const Component2 = withProvider(Component)\n *\n * const App = () => {\n *   return (\n *     <>\n *       <CountProvider>\n *         <Component />\n *       </CountProvider>\n *\n *      <Component2 />\n *\n *      <CountProvider initialState={{ count: 10 }}>\n *        <Component />\n *      </CountProvider>\n *\n *       {withCountProvider(Component, { count: 10 })}\n *     </>\n *   )\n * }\n * ```\n *\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -195,68 +195,19 @@
               "text": ") => "
             },
             {
-              "kind": "Content",
-              "text": "{\n  Provider: ({\n    children,\n    initial\n  }: {\n    children: "
-            },
-            {
               "kind": "Reference",
-              "text": "React.ReactNode",
-              "canonicalReference": "@types/react!React.ReactNode:type"
+              "text": "CreateStoreContextReturn",
+              "canonicalReference": "@toktokhan-dev/zustand-create-store-context!CreateStoreContextReturn:interface"
             },
             {
               "kind": "Content",
-              "text": ";\n    initial?: "
-            },
-            {
-              "kind": "Reference",
-              "text": "Partial",
-              "canonicalReference": "!Partial:type"
-            },
-            {
-              "kind": "Content",
-              "text": "<T>;\n  }) => "
-            },
-            {
-              "kind": "Reference",
-              "text": "react_jsx_runtime.JSX.Element",
-              "canonicalReference": "@types/react!JSX.Element:interface"
-            },
-            {
-              "kind": "Content",
-              "text": ";\n  useContext: <Selected>(selector: (store: T) => Selected) => Selected;\n  withProvider: <P extends object>(Component: "
-            },
-            {
-              "kind": "Reference",
-              "text": "React.ComponentType",
-              "canonicalReference": "@types/react!React.ComponentType:type"
-            },
-            {
-              "kind": "Content",
-              "text": "<P>, initial?: "
-            },
-            {
-              "kind": "Reference",
-              "text": "Partial",
-              "canonicalReference": "!Partial:type"
-            },
-            {
-              "kind": "Content",
-              "text": "<T>) => (props: P) => "
-            },
-            {
-              "kind": "Reference",
-              "text": "react_jsx_runtime.JSX.Element",
-              "canonicalReference": "@types/react!JSX.Element:interface"
-            },
-            {
-              "kind": "Content",
-              "text": ";\n}"
+              "text": "<T>"
             }
           ],
           "fileUrlPath": "dist/index.doc.d.ts",
           "returnTypeTokenRange": {
             "startIndex": 4,
-            "endIndex": 17
+            "endIndex": 6
           },
           "releaseTag": "Public",
           "overloadIndex": 1,
@@ -284,6 +235,169 @@
             }
           ],
           "name": "createStoreContext"
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@toktokhan-dev/zustand-create-store-context!CreateStoreContextReturn:interface",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "interface CreateStoreContextReturn<T> "
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "name": "CreateStoreContextReturn",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/zustand-create-store-context!CreateStoreContextReturn#Provider:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "Provider: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "FunctionComponent",
+                  "canonicalReference": "@types/react!React.FunctionComponent:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<{\n    children: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ReactNode",
+                  "canonicalReference": "@types/react!React.ReactNode:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";\n    initial?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Partial",
+                  "canonicalReference": "!Partial:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<T>;\n  }>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "Provider",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 7
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/zustand-create-store-context!CreateStoreContextReturn#useContext:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "useContext: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "<Selected>(selector: (store: T) => Selected) => Selected"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "useContext",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/zustand-create-store-context!CreateStoreContextReturn#withProvider:member",
+              "docComment": "",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "withProvider: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "<P extends object>(Component: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "ComponentType",
+                  "canonicalReference": "@types/react!React.ComponentType:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<P>, initial?: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Partial",
+                  "canonicalReference": "!Partial:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<T>) => "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "FunctionComponent",
+                  "canonicalReference": "@types/react!React.FunctionComponent:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<P>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "withProvider",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 8
+              }
+            }
+          ],
+          "extendsTokenRanges": [],
+          "parameters": []
         }
       ]
     }
