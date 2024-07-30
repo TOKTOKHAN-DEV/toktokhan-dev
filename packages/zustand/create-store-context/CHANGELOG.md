@@ -1,5 +1,16 @@
 # @toktokhan-dev/zustand-create-store-context
 
+## 0.0.2
+
+### Patch Changes
+
+- f414a7f: type, comment
+
+  type 과 주석이 개선되었습니다.
+
+- Updated dependencies [f414a7f]
+  - @toktokhan-dev/universal@0.0.7
+
 ## 0.0.1
 
 ### Patch Changes

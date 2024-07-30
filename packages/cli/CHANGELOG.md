@@ -1,5 +1,13 @@
 # @toktokhan-dev/cli
 
+## 0.0.9
+
+### Patch Changes
+
+- Updated dependencies [f414a7f]
+  - @toktokhan-dev/universal@0.0.7
+  - @toktokhan-dev/node@0.0.8
+
 ## 0.0.8
 
 ### Patch Changes

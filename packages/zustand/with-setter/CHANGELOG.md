@@ -1,5 +1,12 @@
 # @toktokhan-dev/zustand-with-setter
 
+## 0.0.3
+
+### Patch Changes
+
+- Updated dependencies [f414a7f]
+  - @toktokhan-dev/universal@0.0.7
+
 ## 0.0.2
 
 ### Patch Changes
