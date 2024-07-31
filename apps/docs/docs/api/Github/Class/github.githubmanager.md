@@ -95,6 +95,25 @@ Description
 </td></tr>
 <tr><td>
 
+[checkAppAuthWithJWT](./github.githubmanager.checkappauthwithjwt)
+
+
+</td><td>
+
+
+</td><td>
+
+() =&gt; Promise&lt;boolean&gt;
+
+
+</td><td>
+
+GitHub App의 인증 자격 증명이 유효한지 확인하는 데 사용됩니다. JWT를 사용하여 이 엔드포인트에 접근해야 하며, GitHub App user access tokens, GitHub App installation access tokens, or fine-grained personal access tokens으로는 작동하지 않습니다. [@see GitHub API - Get the authenticated app](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-the-authenticated-app)
+
+
+</td></tr>
+<tr><td>
+
 [checkOrganizationValidity](./github.githubmanager.checkorganizationvalidity)
 
 
@@ -109,25 +128,6 @@ Description
 </td><td>
 
 유효한 조직(Organization)인지 확인하는 메소드입니다. [@see GitHub API - Get an organization](https://docs.github.com/en/rest/orgs/orgs?apiVersion=2022-11-28)
-
-
-</td></tr>
-<tr><td>
-
-[checkTokenValidity](./github.githubmanager.checktokenvalidity)
-
-
-</td><td>
-
-
-</td><td>
-
-() =&gt; Promise&lt;boolean&gt;
-
-
-</td><td>
-
-유효한 토큰인지 확인하는 메소드입니다. [@see GitHub API - Get the authenticated app](https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-the-authenticated-app)
 
 
 </td></tr>

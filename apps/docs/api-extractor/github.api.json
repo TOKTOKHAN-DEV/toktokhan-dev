@@ -393,6 +393,45 @@
             },
             {
               "kind": "Property",
+              "canonicalReference": "@toktokhan-dev/github!GitHubManager#checkAppAuthWithJWT:member",
+              "docComment": "/**\n * GitHub App의 인증 자격 증명이 유효한지 확인하는 데 사용됩니다. JWT를 사용하여 이 엔드포인트에 접근해야 하며, GitHub App user access tokens, GitHub App installation access tokens, or fine-grained personal access tokens으로는 작동하지 않습니다. {@link https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-the-authenticated-app | @see GitHub API - Get the authenticated app}\n *\n * @returns 인증된 App이면 `true`를 반환합니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "checkAppAuthWithJWT: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "() => "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise",
+                  "canonicalReference": "!Promise:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<boolean>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "checkAppAuthWithJWT",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 4
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
               "canonicalReference": "@toktokhan-dev/github!GitHubManager#checkOrganizationValidity:member",
               "docComment": "/**\n * 유효한 조직(Organization)인지 확인하는 메소드입니다. {@link https://docs.github.com/en/rest/orgs/orgs?apiVersion=2022-11-28 | @see GitHub API - Get an organization}\n *\n * @returns 조직(Organization)이 유효하면 `true`를 반환합니다.\n */\n",
               "excerptTokens": [
@@ -422,45 +461,6 @@
               "isOptional": false,
               "releaseTag": "Public",
               "name": "checkOrganizationValidity",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 4
-              },
-              "isStatic": false,
-              "isProtected": false,
-              "isAbstract": false
-            },
-            {
-              "kind": "Property",
-              "canonicalReference": "@toktokhan-dev/github!GitHubManager#checkTokenValidity:member",
-              "docComment": "/**\n * 유효한 토큰인지 확인하는 메소드입니다. {@link https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-the-authenticated-app | @see GitHub API - Get the authenticated app}\n *\n * @returns 토큰이 유효하면 `true`를 반환합니다.\n */\n",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "checkTokenValidity: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "() => "
-                },
-                {
-                  "kind": "Reference",
-                  "text": "Promise",
-                  "canonicalReference": "!Promise:interface"
-                },
-                {
-                  "kind": "Content",
-                  "text": "<boolean>"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "isReadonly": false,
-              "isOptional": false,
-              "releaseTag": "Public",
-              "name": "checkTokenValidity",
               "propertyTypeTokenRange": {
                 "startIndex": 1,
                 "endIndex": 4
