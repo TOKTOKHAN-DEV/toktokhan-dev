@@ -1,5 +1,13 @@
 # @toktokhan-dev/universal
 
+## 0.0.7
+
+### Patch Changes
+
+- f414a7f: type, comment
+
+  type 과 주석이 개선되었습니다.
+
 ## 0.0.6
 
 ### Patch Changes
