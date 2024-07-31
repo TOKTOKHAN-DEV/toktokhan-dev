@@ -7,10 +7,6 @@ settings:
 importers:
 
   .:
-    dependencies:
-      '@toktokhan-dev/react-web':
-        specifier: ^0.0.3
-        version: 0.0.3(scheduler@0.23.2)
     devDependencies:
       '@babel/core':
         specifier: ^7.24.4
@@ -7526,24 +7522,6 @@ packages:
       yaml: 2.4.5
     dev: true
 
-  /@toktokhan-dev/react-universal@0.0.3(react-dom@18.3.1)(scheduler@0.23.2):
-    resolution: {integrity: sha512-4G2A6q0FKo5iczk5pGDjP8+FUSER6S1SrRcdPCBXJ/kjjsy90nAkm41/eaoj5X5XK9T8YnWxXCEdFAArLG/zlA==}
-    dependencies:
-      '@tanstack/react-query': 4.36.1(react-dom@18.3.1)(react@18.3.1)
-      '@toktokhan-dev/universal': 0.0.3
-      axios: 1.7.2
-      csstype: 3.1.3
-      dayjs: 1.11.11
-      immer: 10.1.1
-      react: 18.3.1
-      use-context-selector: 1.4.4(react-dom@18.3.1)(react@18.3.1)(scheduler@0.23.2)
-    transitivePeerDependencies:
-      - debug
-      - react-dom
-      - react-native
-      - scheduler
-    dev: false
-
   /@toktokhan-dev/react-universal@0.0.4(react-dom@18.3.1)(scheduler@0.23.2):
     resolution: {integrity: sha512-cGE6eUTbnCWlTLHeHOz5BR8CzR9jkWQ4DLErQyhFMkzwROgN49wNlN2+bsrX6WbECOQifttmC7qHFlQO16tKfw==}
     dependencies:
@@ -7579,26 +7557,11 @@ packages:
       - scheduler
     dev: false
 
-  /@toktokhan-dev/react-web@0.0.3(scheduler@0.23.2):
-    resolution: {integrity: sha512-O8TQSYpwpW0d1JbwjYSuFH0crYowPQ9SkEHEcfIbztpBVu4o55axT/TLz8TiL/68aTNjzDGB0yYiMwzdxrq7Ng==}
-    dependencies:
-      '@tanstack/react-query': 4.36.1(react-dom@18.3.1)(react@18.3.1)
-      '@toktokhan-dev/react-universal': 0.0.3(react-dom@18.3.1)(scheduler@0.23.2)
-      '@toktokhan-dev/universal': 0.0.3
-      dayjs: 1.11.11
-      lodash: 4.17.21
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
-    transitivePeerDependencies:
-      - debug
-      - react-native
-      - scheduler
-    dev: false
-
   /@toktokhan-dev/universal@0.0.3:
     resolution: {integrity: sha512-BWmTtNMacz5eIHGt2SErPBxp31Jg8SQOsHDADiA/VswYxi7OYWB15MOsBmOfxJgSEuKZfJM/U70GWWjOyWYnug==}
     dependencies:
       lodash: 4.17.21
+    dev: true
 
   /@toktokhan-dev/universal@0.0.4:
     resolution: {integrity: sha512-5tzXewtIlyXyD99cEgh1ebyyeyLgVU8s9DKFVf7NyXA85WDUAY95PmN/kWkfqw6UC9uLFj4SyDr4pRcQXbDqJw==}

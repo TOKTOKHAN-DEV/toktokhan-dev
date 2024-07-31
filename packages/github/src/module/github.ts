@@ -59,7 +59,7 @@ export class GitHubManager {
       sourcePath = 'public/token.json',
     } = params
 
-    await this.checkTokenValidity()
+    await this.checkOrganizationValidity(this.owner)
 
     const stringContent = JSON.stringify(content, null, 2)
 
@@ -99,8 +99,8 @@ export class GitHubManager {
       fileContents,
       relativePaths,
     } = params
-    await this.checkTokenValidity()
 
+    await this.getUser()
     await this.createRepo(this.owner, this.repo)
 
     const blobFile = await Promise.all(fileContents.map(this.createBlob))
@@ -209,11 +209,11 @@ export class GitHubManager {
   }
 
   /**
-   * 유효한 토큰인지 확인하는 메소드입니다.
+   *  GitHub App의 인증 자격 증명이 유효한지 확인하는 데 사용됩니다. JWT를 사용하여 이 엔드포인트에 접근해야 하며, GitHub App user access tokens, GitHub App installation access tokens, or fine-grained personal access tokens으로는 작동하지 않습니다.
    * {@link https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-the-authenticated-app | @see GitHub API - Get the authenticated app}
-   * @returns 토큰이 유효하면 `true`를 반환합니다.
+   * @returns 인증된 App이면 `true`를 반환합니다.
    */
-  checkTokenValidity = async (): Promise<boolean> => {
+  checkAppAuthWithJWT = async (): Promise<boolean> => {
     try {
       await this.octokit.rest.apps.getAuthenticated()
       return true
