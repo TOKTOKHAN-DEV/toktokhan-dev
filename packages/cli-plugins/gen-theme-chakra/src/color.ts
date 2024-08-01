@@ -1,6 +1,6 @@
-import { createObjBySelector, maybe, pass } from '@toktokhan-dev/universal'
+import { createObjBySelector, log, maybe, pass } from '@toktokhan-dev/universal'
 
-import { flow, mapKeys, mapValues, prop, replace } from 'lodash/fp'
+import { flow, identity, mapKeys, mapValues, prop, replace } from 'lodash/fp'
 
 import { ThemeToken, TokenModes } from './type'
 import { assertNullish } from './utils/assert-nullish'
@@ -35,6 +35,12 @@ const checkValidToken = (val: object, tokenModes: TokenModes) => {
   }
   return
 }
+const getTokenValue = (mode: string) => (token: any) => {
+  const ref = prop(`${mode}.ref`)(token)
+  const value = prop(`${mode}.value`)(token)
+  if (ref) return flow(getColorKey, refColorSchema)(ref)
+  return value
+}
 
 const getColorTokenObj = (
   json: ThemeToken['colors'],
@@ -51,17 +57,8 @@ const getColorTokenObj = (
           return identity
         },
         createObjBySelector({
-          default: flow(
-            prop(`${tokenModes['light']}.ref`),
-            getColorKey,
-            refColorSchema,
-          ),
-          _dark: flow(
-            prop(`${tokenModes['dark']}.ref`),
-            maybe,
-            maybe.map(flow(getColorKey, refColorSchema)),
-            maybe.value,
-          ),
+          default: getTokenValue(tokenModes['light']),
+          _dark: getTokenValue(tokenModes['dark']),
         }),
       ),
     ),
