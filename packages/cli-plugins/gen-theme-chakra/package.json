@@ -1,6 +1,6 @@
 {
   "name": "@toktokhan-dev/cli-plugin-gen-theme-chakra",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "",
   "type": "module",
   "main": "dist/index.js",
