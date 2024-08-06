@@ -1,24 +1,19 @@
 {
   "name": "@toktokhan-dev/chakra",
   "version": "0.0.17",
-  "author": "TOKTOKHAN.DEV <dev@toktokhan.dev>",
-  "description": "Tokotokhan-fe react-web library",
+  "description": "A component package built with ChakraUI",
+  "author": "TOKTOKHAN.DEV <fe-system@toktokhan.dev>",
+  "license": "ISC",
   "type": "module",
+  "homepage": "https://toktokhan-dev-docs.vercel.app/docs/chakra",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TOKTOKHAN-DEV/toktokhan-dev.git",
-    "directory": "packages/react/web"
+    "url": "https://github.com/TOKTOKHAN-DEV/toktokhan-dev/blob/main/packages/chakra",
+    "directory": "packages/chakra"
   },
-  "keywords": [
-    "react-web",
-    "utils",
-    "hooks",
-    "toktokhan-dev"
-  ],
   "bugs": {
     "url": "https://github.com/TOKTOKHAN-DEV/toktokhan-dev/issues"
   },
-  "homepage": "https://github.com/TOKTOKHAN-DEV/toktokhan-dev#readme",
   "main": "dist/index.js",
   "files": [
     "dist",
@@ -37,6 +32,12 @@
     "test:watch": "jest --watch",
     "api-extractor": "api-extractor run --local --verbose"
   },
+  "keywords": [
+    "chakra-ui",
+    "react",
+    "component",
+    "ui"
+  ],
   "dependencies": {
     "@chakra-ui/layout": "^2.3.1",
     "@chakra-ui/spinner": "^2.1.0",

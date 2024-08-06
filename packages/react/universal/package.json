@@ -1,14 +1,19 @@
 {
   "name": "@toktokhan-dev/react-universal",
   "version": "0.0.8",
-  "author": "TOKTOKHAN.DEV <dev@toktokhan.dev>",
-  "description": "Tokotokhan-fe React Universal Library",
+  "description": "A utility library for global use in React environments.",
+  "author": "TOKTOKHAN.DEV <fe-system@toktokhan.dev>",
+  "license": "ISC",
+  "type": "module",
+  "homepage": "https://toktokhan-dev-docs.vercel.app/docs/react-universal",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TOKTOKHAN-DEV/toktokhan-dev.git",
+    "url": "https://github.com/TOKTOKHAN-DEV/toktokhan-dev/blob/main/packages/react/universal",
     "directory": "packages/react/universal"
   },
-  "type": "module",
+  "bugs": {
+    "url": "https://github.com/TOKTOKHAN-DEV/toktokhan-dev/issues"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -16,15 +21,6 @@
       "require": "./dist/index.cjs"
     }
   },
-  "keywords": [
-    "react-hooks",
-    "react-utils",
-    "toktokhan-dev"
-  ],
-  "bugs": {
-    "url": "https://github.com/TOKTOKHAN-DEV/toktokhan-dev/issues"
-  },
-  "homepage": "https://github.com/TOKTOKHAN-DEV/toktokhan-dev#readme",
   "main": "./dist/index.js",
   "files": [
     "dist",
@@ -34,6 +30,14 @@
     "build": "rollup -c",
     "api-extractor": "api-extractor run --local --verbose"
   },
+  "keywords": [
+    "react-hooks",
+    "react-utils",
+    "react-library",
+    "react-components",
+    "react-hooks-library",
+    "react-utilities"
+  ],
   "dependencies": {
     "@tanstack/react-query": "^4.2.3",
     "@toktokhan-dev/universal": "workspace:*",

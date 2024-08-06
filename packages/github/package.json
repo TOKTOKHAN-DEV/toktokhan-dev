@@ -1,13 +1,24 @@
 {
   "name": "@toktokhan-dev/github",
   "version": "0.0.10",
-  "description": "",
+  "description": "A module to easily interact with the GitHub API using Octokit.",
+  "author": "TOKTOKHAN.DEV <fe-system@toktokhan.dev>",
+  "license": "ISC",
   "type": "module",
+  "homepage": "https://toktokhan-dev-docs.vercel.app/docs/github",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TOKTOKHAN-DEV/toktokhan-dev/blob/main/packages/github",
+    "directory": "packages/github"
+  },
+  "bugs": {
+    "url": "https://github.com/TOKTOKHAN-DEV/toktokhan-dev/issues"
+  },
+  "main": "dist/index.js",
   "files": [
     "dist",
     "!dist/*.map"
   ],
-  "main": "dist/index.js",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -23,9 +34,15 @@
     "test:watch": "jest --watch",
     "api-extractor": "api-extractor run --local --verbose"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "github",
+    "api",
+    "octokit",
+    "module",
+    "integration",
+    "repository",
+    "automation"
+  ],
   "devDependencies": {
     "@toktokhan-dev/ts-config": "workspace:*",
     "@types/lodash": "^4.17.4"

@@ -1,24 +1,19 @@
 {
   "name": "@toktokhan-dev/react-web",
   "version": "0.0.19",
-  "author": "TOKTOKHAN.DEV <dev@toktokhan.dev>",
-  "description": "Tokotokhan-fe react-web library",
+  "description": "A utility library for global use in React Web environments.",
+  "author": "TOKTOKHAN.DEV <fe-system@toktokhan.dev>",
+  "license": "ISC",
   "type": "module",
+  "homepage": "https://toktokhan-dev-docs.vercel.app/docs/react-web",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TOKTOKHAN-DEV/toktokhan-dev.git",
+    "url": "https://github.com/TOKTOKHAN-DEV/toktokhan-dev/blob/main/packages/react/web",
     "directory": "packages/react/web"
   },
-  "keywords": [
-    "react-web",
-    "utils",
-    "hooks",
-    "toktokhan-dev"
-  ],
   "bugs": {
     "url": "https://github.com/TOKTOKHAN-DEV/toktokhan-dev/issues"
   },
-  "homepage": "https://github.com/TOKTOKHAN-DEV/toktokhan-dev#readme",
   "main": "dist/index.js",
   "files": [
     "dist",
@@ -37,6 +32,14 @@
     "test:watch": "jest --watch",
     "api-extractor": "api-extractor run --local --verbose"
   },
+  "keywords": [
+    "react-web",
+    "next-js",
+    "react",
+    "react-utility",
+    "react-components",
+    "react-hooks"
+  ],
   "dependencies": {
     "@toktokhan-dev/react-universal": "workspace:*",
     "@toktokhan-dev/universal": "workspace:*",
