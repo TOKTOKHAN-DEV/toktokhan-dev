@@ -1,10 +1,18 @@
 import { Octokit, RestEndpointMethodTypes } from '@octokit/rest'
 
 import {
+  AddCollaboratorParams,
   BlobFileData,
-  OctokitParameterType,
-  Partible,
+  CommitToBranchParams,
+  CreateBlobParams,
+  CreateBranchParams,
+  CreateCommitParams,
+  CreateRepoParams,
+  CreateTreeParams,
+  GetCurrentCommitParams,
+  IsBranchExistParams,
   PublishFilesParams,
+  RemoveCollaboratorParams,
   Tree,
   UpdateRepoParams,
 } from '../types'
@@ -41,6 +49,7 @@ export class GitHubManager {
   private repo: string
 
   constructor(data: GithubManagerParams) {
+    console.log('data.token', data.token)
     this.octokit = new Octokit({ auth: data.token })
     this.owner = data.owner
     this.repo = data.repo
@@ -57,29 +66,52 @@ export class GitHubManager {
       content,
       baseBranchName = 'main',
       sourcePath = 'public/token.json',
+      owner = this.owner,
+      repo = this.repo,
     } = params
 
-    await this.checkOrganizationValidity(this.owner)
+    const defaultProps = { owner, repo }
+
+    await this.checkOrganizationValidity(owner)
 
     const stringContent = JSON.stringify(content, null, 2)
 
-    const isBranchExist = await this.isBranchExist(branchName)
-    if (!isBranchExist) await this.createBranch(branchName, baseBranchName)
+    const isBranchExist = await this.isBranchExist({
+      branchName,
+      ...defaultProps,
+    })
+    if (!isBranchExist) {
+      await this.createBranch({ branchName, baseBranchName, ...defaultProps })
+    }
 
-    const blobFile = await this.createBlob(stringContent)
-    const currentCommit = await this.getCurrentCommit(branchName)
-    const newTree = await this.createTree(
-      [blobFile],
-      [sourcePath],
-      currentCommit.treeSha,
-    )
-    const newCommit = await this.createCommit(
-      commitMsg,
-      newTree.sha,
-      currentCommit.commitSha,
-    )
+    const blobFile = await this.createBlob({
+      content: stringContent,
+      ...defaultProps,
+    })
+    const currentCommit = await this.getCurrentCommit({
+      branchName,
+      ...defaultProps,
+    })
 
-    await this.commitToBranch(branchName, newCommit.sha)
+    const newTree = await this.createTree({
+      filesBlobs: [blobFile],
+      pathsForBlobs: [sourcePath],
+      parentTreeSha: currentCommit.treeSha,
+      ...defaultProps,
+    })
+
+    const newCommit = await this.createCommit({
+      message: commitMsg,
+      currentTreeSha: newTree.sha,
+      currentCommitSha: currentCommit.commitSha,
+      ...defaultProps,
+    })
+
+    await this.commitToBranch({
+      branchName,
+      commitSha: newCommit.sha,
+      ...defaultProps,
+    })
   }
 
   /**
@@ -90,6 +122,7 @@ export class GitHubManager {
    * @param [params.baseBranchName='main'] - 기준이 되는 브랜치 이름입니다. 기본값은 'main'입니다.
    * @param params.fileContents - 파일 내용의 배열입니다.
    * @param params.relativePaths - 파일 경로의 배열입니다.
+   * @param params.isPrivate - 게시할 레포지토리의 공개여부입니다.
    */
   publishFilesToNewRepo = async (params: PublishFilesParams) => {
     const {
@@ -98,29 +131,51 @@ export class GitHubManager {
       baseBranchName = 'main',
       fileContents,
       relativePaths,
+      isPrivate,
+      owner = this.owner,
+      repo = this.repo,
     } = params
 
+    const defaultProps = { owner, repo }
     await this.getUser()
-    await this.createRepo(this.owner, this.repo)
+    await this.createRepo({ isPrivate, ...defaultProps })
 
-    const blobFile = await Promise.all(fileContents.map(this.createBlob))
-
-    const isBranchExist = await this.isBranchExist(branchName)
-    if (!isBranchExist) await this.createBranch(branchName, baseBranchName)
-
-    const currentCommit = await this.getCurrentCommit(branchName)
-    const newTree = await this.createTree(
-      blobFile,
-      relativePaths,
-      currentCommit.treeSha,
-    )
-    const newCommit = await this.createCommit(
-      commitMsg,
-      newTree.sha,
-      currentCommit.commitSha,
+    const blobFile = await Promise.all(
+      fileContents.map((content) =>
+        this.createBlob({ content, ...defaultProps }),
+      ),
     )
 
-    await this.commitToBranch(branchName, newCommit.sha)
+    const isBranchExist = await this.isBranchExist({
+      branchName,
+      ...defaultProps,
+    })
+    if (!isBranchExist) {
+      await this.createBranch({ branchName, baseBranchName, ...defaultProps })
+    }
+
+    const currentCommit = await this.getCurrentCommit({
+      branchName,
+      ...defaultProps,
+    })
+    const newTree = await this.createTree({
+      filesBlobs: blobFile,
+      pathsForBlobs: relativePaths,
+      parentTreeSha: currentCommit.treeSha,
+      ...defaultProps,
+    })
+    const newCommit = await this.createCommit({
+      message: commitMsg,
+      currentTreeSha: newTree.sha,
+      currentCommitSha: currentCommit.commitSha,
+      ...defaultProps,
+    })
+
+    await this.commitToBranch({
+      branchName,
+      commitSha: newCommit.sha,
+      ...defaultProps,
+    })
   }
   /**
    * 레포지토리가 존재하는지 확인하는 메소드입니다.
@@ -129,9 +184,11 @@ export class GitHubManager {
    * @param repo - 레포지토리 이름입니다.
    * @returns - 레포지토리가 존재하면 true를 반환합니다.
    */
-  isRepoExist = async (owner: string, repo: string) => {
+  isRepoExist = async (owner?: string, repo?: string) => {
+    const _owner = owner || this.owner
+    const _repo = repo || this.repo
     try {
-      await this.octokit.repos.get({ owner, repo })
+      await this.octokit.repos.get({ owner: _owner, repo: _repo })
       return true
     } catch (error: any) {
       if (error.status === 404) {
@@ -147,11 +204,11 @@ export class GitHubManager {
    * {@link https://docs.github.com/ko/rest/repos/repos?apiVersion=2022-11-28#create-an-organization-repository | @see GitHub API - Create an organization repository}
    * {@link https://docs.github.com/en/rest/repos/repos#create-a-repository-for-the-authenticated-user | @see GitHub API - Create a repository for the authenticated user}
    */
-  createRepo = async (
-    owner: string,
-    repo: string,
-    isPublic?: boolean,
-  ): Promise<
+  createRepo = async ({
+    isPrivate,
+    owner = this.owner,
+    repo = this.repo,
+  }: CreateRepoParams): Promise<
     RestEndpointMethodTypes['repos']['createInOrg']['response']['data'] & {
       isOrg: boolean
     }
@@ -167,14 +224,14 @@ export class GitHubManager {
       const { data } = await this.octokit.repos.createInOrg({
         org: owner,
         name: repo,
-        private: !isPublic,
+        private: isPrivate,
       })
 
       return { isOrg, ...data }
     } else {
       const { data } = await this.octokit.repos.createForAuthenticatedUser({
         name: repo,
-        private: !isPublic,
+        private: isPrivate,
       })
       return { isOrg, ...data }
     }
@@ -185,10 +242,12 @@ export class GitHubManager {
    * {@link https://docs.github.com/en/rest/orgs/orgs?apiVersion=2022-11-28 | @see GitHub API - Get an organization}
    * @returns 조직(Organization)이 유효하면 `true`를 반환합니다.
    */
-  checkOrganizationValidity = async (org: string): Promise<boolean> => {
+  checkOrganizationValidity = async (org?: string): Promise<boolean> => {
+    const _org = org || this.owner
+
     try {
       await this.octokit.rest.orgs.get({
-        org,
+        org: _org,
       })
       return true
     } catch (error: any) {
@@ -234,11 +293,15 @@ export class GitHubManager {
    * @param branchName - 확인할 브랜치의 이름입니다.
    * @returns 브랜치가 존재하면 true를 반환합니다.
    */
-  isBranchExist = async (branchName: string): Promise<boolean> => {
+  isBranchExist = async ({
+    branchName,
+    owner = this.owner,
+    repo = this.repo,
+  }: IsBranchExistParams): Promise<boolean> => {
     try {
       await this.octokit.rest.repos.getBranch({
-        owner: this.owner,
-        repo: this.repo,
+        owner: owner,
+        repo: repo,
         branch: branchName,
       })
       return true
@@ -256,44 +319,49 @@ export class GitHubManager {
    * @param branchName - 생성할 브랜치의 이름입니다.
    * @param baseBranchName 생성할 브랜치의 기준 브랜치 이름입니다. 기본값은 'main'입니다.
    */
-  private createBranch = async (
-    branchName: string,
-    baseBranchName: string = 'main',
-  ) => {
+  private createBranch = async ({
+    branchName,
+    baseBranchName = 'main',
+    owner = this.owner,
+    repo = this.repo,
+  }: CreateBranchParams) => {
     const { data: baseBranch } = await this.octokit.rest.repos.getBranch({
-      owner: this.owner,
-      repo: this.repo,
       branch: baseBranchName,
+      owner,
+      repo,
     })
+    console.log(owner, repo, this)
     await this.octokit.git.createRef({
-      owner: this.owner,
-      repo: this.repo,
       ref: `refs/heads/${branchName}`,
       sha: baseBranch.commit.sha,
+      owner,
+      repo,
     })
   }
 
   /**
    * 현재 커밋을 가져오는 메소드입니다.
    * {@link https://docs.github.com/en/rest/git/commits?apiVersion=2022-11-28#get-a-commit-object | @see GitHub API - Get a commit object}
-   * @param baseBranch - 기본 브랜치의 이름입니다.
+   * @param branchName - 기본 브랜치의 이름입니다.
    * @returns 커밋 SHA와 트리 SHA를 포함하는 객체를 반환합니다.
    */
-  private getCurrentCommit = async (
-    baseBranch: string,
-  ): Promise<{
+  private getCurrentCommit = async ({
+    branchName,
+    owner = this.owner,
+    repo = this.repo,
+  }: GetCurrentCommitParams): Promise<{
     commitSha: string
     treeSha: string
   }> => {
     const { data: refData } = await this.octokit.git.getRef({
-      owner: this.owner,
-      repo: this.repo,
-      ref: `heads/${baseBranch}`,
+      owner,
+      repo,
+      ref: `heads/${branchName}`,
     })
     const commitSha = refData.object.sha
     const { data: commitData } = await this.octokit.git.getCommit({
-      owner: this.owner,
-      repo: this.repo,
+      owner,
+      repo,
       commit_sha: commitSha,
     })
     return { commitSha, treeSha: commitData.tree.sha }
@@ -305,10 +373,14 @@ export class GitHubManager {
    * @param content - 파일의 내용입니다.
    * @returns blob 데이터를 반환합니다.
    */
-  private createBlob = async (content: string): Promise<BlobFileData> => {
+  private createBlob = async ({
+    content,
+    owner = this.owner,
+    repo = this.repo,
+  }: CreateBlobParams): Promise<BlobFileData> => {
     const blobData = await this.octokit.git.createBlob({
-      owner: this.owner,
-      repo: this.repo,
+      owner,
+      repo,
       content,
       encoding: 'utf-8',
     })
@@ -323,11 +395,13 @@ export class GitHubManager {
    * @param  parentTreeSha - 부모 트리의 SHA입니다.
    * @returns 생성된 트리의 데이터를 반환합니다.
    */
-  private createTree = async (
-    filesBlobs: BlobFileData[],
-    pathsForBlobs: string[],
-    parentTreeSha: string,
-  ) => {
+  private createTree = async ({
+    filesBlobs,
+    pathsForBlobs,
+    parentTreeSha,
+    owner = this.owner,
+    repo = this.repo,
+  }: CreateTreeParams) => {
     const tree: Tree[] = filesBlobs.map(({ sha }, index) => ({
       path: pathsForBlobs[index],
       mode: `100644`,
@@ -335,10 +409,10 @@ export class GitHubManager {
       sha,
     }))
     const { data } = await this.octokit.git.createTree({
-      owner: this.owner,
-      repo: this.repo,
       tree,
       base_tree: parentTreeSha,
+      owner,
+      repo,
     })
     return data
   }
@@ -347,21 +421,21 @@ export class GitHubManager {
    * 새 커밋을 생성하는 메소드입니다.
    * {@link https://docs.github.com/en/rest/git/commits?apiVersion=2022-11-28#create-a-commit | @see GitHub API - Create a commit}
    * @param message - 커밋 메시지입니다.
-   * @param currentTreeSha - 현재 트리의 SHA입니다.
-   * @param currentCommitSha - 현재 커밋의 SHA입니다.
    * @returns 생성된 커밋의 데이터를 반환합니다.
    */
-  private createCommit = async (
-    message: string,
-    currentTreeSha: string,
-    currentCommitSha: string,
-  ) => {
+  private createCommit = async ({
+    message,
+    currentTreeSha,
+    currentCommitSha,
+    owner = this.owner,
+    repo = this.repo,
+  }: CreateCommitParams) => {
     const { data } = await this.octokit.git.createCommit({
-      owner: this.owner,
-      repo: this.repo,
       message,
       tree: currentTreeSha,
       parents: [currentCommitSha],
+      owner,
+      repo,
     })
 
     return data
@@ -370,38 +444,38 @@ export class GitHubManager {
   /**
    * 지정한 브랜치에 커밋을 하는 메소드입니다.
    * {@link https://docs.github.com/en/rest/git/refs?apiVersion=2022-11-28#update-a-reference | @see GitHub API - Update a reference}
-   * @param branch - 설정할 브랜치의 이름입니다. 기본값은 'main'입니다.
-   * @param commitSha - 설정할 커밋의 SHA입니다.
+   *
    */
-  private commitToBranch = async (branch: string, commitSha: string) => {
+  private commitToBranch = async ({
+    branchName,
+    commitSha,
+    owner = this.owner,
+    repo = this.repo,
+  }: CommitToBranchParams) => {
     await this.octokit.git.updateRef({
-      owner: this.owner,
-      repo: this.repo,
-      ref: `heads/${branch}`,
+      ref: `heads/${branchName}`,
       sha: commitSha,
+      owner,
+      repo,
     })
   }
 
   /**
    * 레포지토리에 협력할 팀원(collaborator)을 추가하는 메소드입니다.
    * {@link https://docs.github.com/en/rest/collaborators/collaborators?apiVersion=2022-11-28#add-a-repository-collaborator | @see GitHub API - Add a repository collaborator}
-   * @param params - 추가할 팀원의 정보입니다.
-   * @param params.username - 추가할 팀원의 사용자 이름입니다.
-   * @param [params.permission='admin'] - 팀원에게 부여할 권한입니다. 기본값은 'admin'입니다.
-   * @returns 비동기 작업이 완료되면 반환됩니다.
-   * @throws 요청이 실패할 경우 에러가 발생할 수 있습니다.
    */
-  public addCollaborator = async (
-    params: Partible<
-      OctokitParameterType<Octokit['rest']['repos']['addCollaborator']>,
-      'repo' | 'owner' | 'username'
-    >,
-  ) => {
+  public addCollaborator = async ({
+    owner = this.owner,
+    repo = this.repo,
+    username,
+    permission = 'push',
+    ...params
+  }: AddCollaboratorParams) => {
     await this.octokit.rest.repos.addCollaborator({
-      owner: this.owner || '',
-      repo: this.repo || '',
-      username: params.username || '',
-      permission: 'admin',
+      username,
+      permission,
+      owner,
+      repo,
       ...params,
     })
   }
@@ -409,22 +483,16 @@ export class GitHubManager {
   /**
    * 레포지토리에 팀원를 제거하는 메소드입니다.
    * {@link https://docs.github.com/en/rest/collaborators/collaborators?apiVersion=2022-11-28#remove-a-repository-collaborator | @see GitHub API - Remove a repository collaborator}
-   * @param params - 제거할 팀원의 정보입니다.
-   * @param params.username - 제거할 팀원의 사용자 이름입니다.
-   * @returns - 비동기 작업이 완료되면 반환됩니다.
-   * @throws - 요청이 실패할 경우 에러가 발생할 수 있습니다.
    */
-  public removeCollaborator = async (
-    params: Partible<
-      OctokitParameterType<Octokit['rest']['repos']['removeCollaborator']>,
-      'repo' | 'owner' | 'username'
-    >,
-  ) => {
+  public removeCollaborator = async ({
+    username,
+    owner = this.owner,
+    repo = this.repo,
+  }: RemoveCollaboratorParams) => {
     await this.octokit.rest.repos.addCollaborator({
-      repo: this.repo,
-      owner: this.owner,
-      username: params.username || '',
-      ...params,
+      username,
+      owner,
+      repo,
     })
   }
 }

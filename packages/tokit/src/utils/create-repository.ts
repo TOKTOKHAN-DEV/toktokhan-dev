@@ -18,7 +18,9 @@ export const createRepository = async (config: InitialQuestionResponse) => {
     repo,
   })
 
-  const { clone_url, html_url, isOrg } = await github.createRepo(owner, repo)
+  const { clone_url, html_url, isOrg } = await github.createRepo({
+    isPrivate: true,
+  })
 
   infoLog('successfully published to ', url)
 
@@ -26,9 +28,8 @@ export const createRepository = async (config: InitialQuestionResponse) => {
     infoLog(`Skipped add collaborator`)
   } else {
     await github.addCollaborator({
-      owner: GIT_OWNER,
-      repo: config.projectname,
       username: GIT_USERNAME,
+      permission: 'admin',
     })
     infoLog(
       `Successfully added the user ${GIT_USERNAME} as a collaborator to the ${GIT_OWNER}/${config.projectname} repository.`,
