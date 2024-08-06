@@ -480,7 +480,7 @@
                 },
                 {
                   "kind": "Content",
-                  "text": "(owner: string, repo: string) => "
+                  "text": "(owner: string, repo: string, isPublic?: boolean) => "
                 },
                 {
                   "kind": "Reference",

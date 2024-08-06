@@ -141,7 +141,7 @@ GitHub App의 인증 자격 증명이 유효한지 확인하는 데 사용됩니
 
 </td><td>
 
-(owner: string, repo: string) =&gt; Promise&lt;RestEndpointMethodTypes["repos"]["createInOrg"]["response"]["data"] &amp; \{ isOrg: boolean; \}&gt;
+(owner: string, repo: string, isPublic?: boolean) =&gt; Promise&lt;RestEndpointMethodTypes["repos"]["createInOrg"]["response"]["data"] &amp; \{ isOrg: boolean; \}&gt;
 
 
 </td><td>

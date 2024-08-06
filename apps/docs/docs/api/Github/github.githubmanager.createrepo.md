@@ -15,7 +15,7 @@ slug: /github.githubmanager.createrepo
 ## Signature
 
 ```typescript
-createRepo: (owner: string, repo: string) => Promise<RestEndpointMethodTypes["repos"]["createInOrg"]["response"]["data"] & {
+createRepo: (owner: string, repo: string, isPublic?: boolean) => Promise<RestEndpointMethodTypes["repos"]["createInOrg"]["response"]["data"] & {
     isOrg: boolean;
   }>;
 ```
