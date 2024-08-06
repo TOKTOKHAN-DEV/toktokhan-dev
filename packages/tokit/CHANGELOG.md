@@ -1,5 +1,12 @@
 # @toktokhan-dev/tokit
 
+## 0.0.12
+
+### Patch Changes
+
+- Updated dependencies [6fbb7a7]
+  - @toktokhan-dev/github@0.0.10
+
 ## 0.0.11
 
 ### Patch Changes
