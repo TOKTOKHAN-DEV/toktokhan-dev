@@ -1,8 +1,18 @@
 {
   "name": "@toktokhan-dev/cli-plugin-commit",
   "version": "0.0.8",
-  "description": "",
+  "description": "A CLI plugin for managing commits built by TOKTOKHAN.DEV",
+  "author": "TOKTOKHAN.DEV <fe-system@toktokhan.dev>",
+  "license": "ISC",
   "type": "module",
+  "homepage": "https://toktokhan-dev-docs.vercel.app/docs/docs/tokript/Offical%20Plugins/commit",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TOKTOKHAN-DEV/toktokhan-dev/blob/main/packages/cli-plugins/commit"
+  },
+  "bugs": {
+    "url": "https://github.com/TOKTOKHAN-DEV/toktokhan-dev/issues"
+  },
   "main": "dist/index.js",
   "files": [
     "dist",
@@ -22,14 +32,15 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "api-extractor": "api-extractor run --local --verbose"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@toktokhan-dev/ts-config": "workspace:*",
-    "@types/clear": "^0.1.4",
-    "@types/lodash": "^4.17.0"
-  },
+  "keywords": [
+    "cli",
+    "plugin",
+    "commit",
+    "toktokhan_dev",
+    "tool",
+    "tokript",
+    "script"
+  ],
   "dependencies": {
     "@toktokhan-dev/cli": "workspace:*",
     "@toktokhan-dev/node": "workspace:*",
@@ -37,5 +48,10 @@
     "clear": "^0.1.0",
     "enquirer": "^2.4.1",
     "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@toktokhan-dev/ts-config": "workspace:*",
+    "@types/clear": "^0.1.4",
+    "@types/lodash": "^4.17.0"
   }
 }

@@ -1,9 +1,19 @@
 {
   "name": "@toktokhan-dev/node",
   "version": "0.0.8",
-  "description": "",
+  "description": "A Node.js utility library built by TOKTOKHAN.DEV",
+  "author": "TOKTOKHAN.DEV <fe-system@toktokhan.dev>",
+  "license": "ISC",
   "main": "dist/index.js",
   "type": "module",
+  "homepage": "https://toktokhan-dev-docs.vercel.app/docs/node",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TOKTOKHAN-DEV/toktokhan-dev/tree/main/packages/node"
+  },
+  "bugs": {
+    "url": "https://github.com/TOKTOKHAN-DEV/toktokhan-dev/issues"
+  },
   "files": [
     "dist",
     "!dist/*.map"
@@ -24,9 +34,11 @@
     "test:watch": "jest --watch --coverage",
     "api-extractor": "api-extractor run --local --verbose"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "node",
+    "utility",
+    "toktokhan_dev"
+  ],
   "devDependencies": {
     "@toktokhan-dev/ts-config": "workspace:*",
     "@types/execa": "^2.0.0",

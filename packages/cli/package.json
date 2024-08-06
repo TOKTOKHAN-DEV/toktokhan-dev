@@ -1,8 +1,18 @@
 {
   "name": "@toktokhan-dev/cli",
   "version": "0.0.9",
+  "description": "A CLI tool built by TOKTOKHAN.DEV",
+  "author": "TOKTOKHAN.DEV <fe-system@toktokhan.dev>",
+  "license": "ISC",
   "type": "module",
-  "description": "",
+  "homepage": "https://toktokhan-dev-docs.vercel.app/docs/docs/tokript/Overview",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TOKTOKHAN-DEV/toktokhan-dev/blob/main/packages/cli"
+  },
+  "bugs": {
+    "url": "https://github.com/TOKTOKHAN-DEV/toktokhan-dev/issues"
+  },
   "main": "dist/index.js",
   "files": [
     "dist",
@@ -28,14 +38,14 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "api-extractor": "api-extractor run --local --verbose"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@toktokhan-dev/ts-config": "workspace:*",
-    "@types/clear": "^0.1.4",
-    "@types/lodash": "^4.17.0"
-  },
+  "keywords": [
+    "cli",
+    "toktokhan_dev",
+    "nodejs",
+    "tool",
+    "tokript",
+    "script"
+  ],
   "dependencies": {
     "@toktokhan-dev/node": "workspace:*",
     "@toktokhan-dev/universal": "workspace:*",
@@ -48,5 +58,10 @@
     "figlet": "^1.7.0",
     "joycon": "^3.1.1",
     "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@toktokhan-dev/ts-config": "workspace:*",
+    "@types/clear": "^0.1.4",
+    "@types/lodash": "^4.17.0"
   }
 }

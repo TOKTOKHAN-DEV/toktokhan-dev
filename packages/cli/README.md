@@ -1,145 +1,150 @@
-# @toktohan-dev/cli-plugin-commit
+# @toktohan-dev/cli
 
-[@toktokhan-dev/cli](../cli/README.md) 의 plugin 입니다.
-대화형 cli 를 통해 commit message 를 일관된 형식으로 작성할 수 있도록 도와주는 플러그인 입니다. 자세한 내용은 [Tokdocs 공식 문서]()에서 확인 할 수 있습니다.
-
-## Preview
-
-```
-? Pick Commit Type …
-🚀 deploy:     프로젝트 배포
-🤖 chore:      자잘한 수정
-📝 docs:       문서 관련
-🎸 feat:       새로운 기능, 페이지 추가
-🐛 fix:        버그 수정
-👽 perf:       성능 개선
-💡 refactor:   코드 리팩토링
-💍 test:       테스트 관련
-🎨 style:      스타일링 관련
-
-✔ Pick Commit Type · feat
-✔ Pick Change Scope(skip by: Enter) · CartPage
-✔ What did you do? · add Component 'List'
-✔ has BREAKING CHANGE for major update?(skip by: Enter) ·
-? has detail?(skip by: Enter) › ...
-
-```
+tok-cli.config.ts 파일을 읽어, 등록된 tokript 스크립트를 실행시키는 cli 입니다. 스크립트를 생성하는 `definePlugin` 함수를 제공합니다. 자세한 내용은 [Tokdocs 공식 문서](https://toktokhan-dev-docs.vercel.app/docs/docs/tokript/Overview)에서 확인 할 수 있습니다.
 
 ## Installation
 
 ```
-npm i -D @toktokhan-dev/cli @toktokhan-dev/cli-plugin-commit
+npm i -D @oktokhan-dev/cli
 ```
 
-## Run Script
+## Preview
 
-`tokript2` 명령어로 각 플러그인으로 등록된 기능들을 사용할 수 있습니다.
+`tokript2` 명령어로 아무 인자 없이 실행할 경우, 대화형모드로 플러그인으로 등록된 기능들을 사용할 수 있습니다.
 
-```
+```bash
 npx tokript2
+
+ _             _             _           _
+ | |_    ___   | | __  _ __  (_)  _ __   | |_
+ | __|  / _ \  | |/ / | '__| | | | '_ \  | __|
+ | |_  | (_) | |   <  | |    | | | |_) | | |_
+  \__|  \___/  |_|\_\ |_|    |_| | .__/   \__|
+                                 |_|
+Usage: tokript [options] [command]
+
+CLI to help tok's working
+
+Options:
+  -V, --version        output the version number
+  -c, --config         config file path
+  -h, --help           display help for command
+
+Commands:
+  gen:img [options]    Generate image object from image files in the folder.
+  gen:route [options]  Generate route object from page files in the folder.
+  gen:api              swagger schema 를 기반으로 api 를 생성합니다.
+  gen:theme [options]  theme json 파일기반으로 Chakra theme token 생성합니다. theme json 은 피그마 플러그인으로 부터 생성된 json 파일입니다.
+  gen:icon [options]   Generate Chakra-UI Icon Component from svg files in the folder.
+  commit [options]     대화형 cli 를 통해 일관된 형식의 커밋 메시지 작성을 도와주는 플러그인 입니다.
+  help [command]       display help for command
+
+
+? Pick Resolver …
+gen:img
+gen:route
+gen:api
+gen:theme
+gen:icon
+commit
 ```
 
-command 를 입력하면 해당 스크립트가 바로 실행됩니다.
+`command` 와 `Option` 을 인자로 넣어 바로 실행 할 수 있습니다.
 
-<CodeBlock language="bash">{`npx tokript commit`}</CodeBlock>
+```
+tokript2 gen:img --input 'public/images'
+```
 
-<TipPackageScript cmd="commit" run="tokript commit" />
+#### Offical plugins
 
-## Configuration
-
-`tok-cli.config.ts` 에서 config 정의가 가능합니다.<br/>
-각 plugin 별로 option 을 정의하고, 해당 plugin 을 등록하여 사용할 수 있습니다.
+똑똑한 개발자가 제공하는 Official Plugin 은 [여기]()서 확인할 수 있습니다.
 
 ```ts
-// npm 에 등록된 플러그인을 사용할 경우
-import { genTheme } from '@toktokhan-dev/cli-plugin-gen-theme-chakra'
+// tok-cli.config.ts
 
-// 로컬에 정의한 플러그인을 사용할 경우
-import { print } from './plugin/print'
+import { genImg } from '@toktokhan-dev/cli-plugin-gen-img'
 
 const config: RootConfig<{
-  plugins: [typeof print, typeof genTheme] // option 타입 정의
+  plugins: [typeof genImg]
 }> = {
-  // 플러그인 등록
-  plugins: [print, genTheme],
-  // 각 pulgin option 설정
-  print: {
-    text: 'config text',
-  },
-  'gen:theme': {
-    input: 'public/token.json',
-    output: 'src/generated/theme',
-    tokenMode: {
-      light: 'mode_1', // tokenMode 키 값 변경이 필요할 경우 추가해주세요.
-    },
+  plugins: [genImg],
+  'gen:img': {
+    ...
   },
 }
 
 export default config
+
 ```
 
-## Run Plugin
+#### Plugin Development
 
-`config` 에 따로 설정값이 존재 하지 않고 아무런 `argument` 를 넘기지 않을 경우 플러그인 내부적으로 정의된 `default` 값으로 실행됩니다.
+플러그인 개발에 대한 자세한 내용은 [여기](https://toktokhan-dev-docs.vercel.app/docs/docs/tokript/Plugin%20Development)서 확인 할 수 있습니다.
 
-<CodeBlock language="bash">{`tokript print\n\n//output: default text`}</CodeBlock>
+```ts
+import fs from 'fs'
+import path from 'path'
 
-`config` 에 따로 설정값이 존재 하고 아무런 `argument` 를 넘기지 않을 경우 `config` 값으로 실행됩니다.
-
-<CodeBlock language="bash">{`tokript print\n\n//output: config text`}</CodeBlock>
-
-`argument` 를 넘길 경우 `argument` 값으로 실행됩니다.
-
-<CodeBlock language="bash">{`tokript print --text 'hello world'\n\n//output: hello world`}</CodeBlock>
-
-`alias` 가 등록 되어있는 경우, `alias` 로도 실행이 가능합니다.
-
-<CodeBlock language="bash">{`tokript print -t 'hello world'`}</CodeBlock>
-
-모든 command 는 `help` 커멘드를 통해 `description`, `options`, `default`, `alias` 에 대한 정보를 확인 할 수 있습니다.
-
-<CodeBlock language="bash">{`tokript help print`}</CodeBlock>
-
-## Create Plugin
-
-plugin 을 `defineCommand` api 를 사용하여 쉽게 정의할 수 있습니다.
-
-```ts title="plugin/print.ts"
 import { defineCommand } from '@toktokhan-dev/cli'
 
-export interface PrintConfig {
-  text: string
+/**
+ * 플러그인의 config 타입을 정의합니다.
+ *
+ * - tok-cli.config.ts 에서 해당 플러그인의 option 을 정의할 때 사용됩니다.
+ * - config 파일은 js, ts 이기 때문에, 옵션 객체의 각 property 는 함수, 배열 등 어떤 타입이든 정의 가능합니다.
+ * - run 함수의 인자 type 으로 사용됩니다.
+ */
+export type GenTxtConfig = {
+  output: string
 }
 
-export const print = defineCommand<'print', GenImageConfig>({
-  name: 'print',
-  description: 'print text',
+export const genTxt = defineCommand<'gen:txt', GenTxtConfig>({
+  /**
+   * 플러그인의 이름을 정의합니다.
+   *
+   * - tokript {command} 로 실행됩니다.
+   * - tok-cli.config 에서 옵션 정의시 해당 옵션의 key 값으로 사용됩니다.
+   */
+  name: 'gen:txt',
+  /**
+   * 플러그인의 설명을 정의합니다.
+   *
+   * - tokript help 실행시 표기됩니다.
+   */
+  description: '텍스트 파일을 생성합니다.',
+  /**
+   * 플러그인 실행시 사용할 config 의 기본값을 정의합니다.
+   *
+   * - 특정 옵션이 `--output` 과 같은 `cli option` 이나 `tok-cli.config.ts` 에 정의 되지 않았을 때 사용됩니다.
+   */
+  default: {
+    output: path.resolve('generated', 'my.txt'),
+  },
+  /**
+   * --output, -o 와 같은 cli option 을 정의합니다.
+   *
+   * - cli option 에 정의되지 않은 옵션은 오직 config 파일에서만 정의 가능합니다.
+   * - cli option 은 원시값, 원시값 배열과 같은 간단한 값만 사용 가능합니다. ex) string, string[]
+   * - tokript help {command} 시 정의한 alias, 설명, 기본값을 확인할 수 있습니다.
+   */
   cliOptions: [
     {
-      name: 'text',
-      alias: 't',
+      name: 'output',
+      alias: 'o',
+      description: '텍스트 파일 생성 경로',
       type: 'string',
-      description: 'text to print',
     },
   ],
-  default: {
-    text: 'default text',
-  },
+  /**
+   * 플러그인 실행 함수를 정의합니다.
+   *
+   * - config: GenTxtConfig 타입의 config 객체가 인자로 넘어옵니다.
+   * - config 객체는 default, cli option, tok-cli.config.ts 에 정의된 값들이 합쳐진 값입니다.
+   * - config 우선순위는 cli option > tok-cli.config.ts > default 입니다.
+   * - run 함수는 플러그인의 실제 동작을 정의합니다.
+   */
   run: (config) => {
-    console.log(config.text)
+    fs.writeFileSync(config.output, 'hello world')
   },
 })
 ```
-
-:::info
-`defineCommand` api 에 대한 정보는 [`defineCommand` Api 문서](/docs/cli.definecommand)를 참고해주세요.<br/>
-더 자세한 plugin 제작에 관련한 정보는 [Plugin Development](https://toktokhan-dev.github.io/cli/)를 참고해주세요.
-:::
-
-## Welcome To Tokript
-
-@toktokhan-dev 패키지에는 gen:img, gen:route, gen:api 와 같은 이미 정의되어 있는 다양한 플러그인이 있습니다.
-
-플러그인을 사용하여 프로젝트를 더욱 효율적으로 관리해보세요.
-
-프로젝트내에서 사용했던 유용한 스크립트를, 간단한 설정으로 config, cli option, help 커멘드와 함께 다른 사람들에게 제공해보세요

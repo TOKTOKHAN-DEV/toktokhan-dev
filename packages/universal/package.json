@@ -1,13 +1,23 @@
 {
   "name": "@toktokhan-dev/universal",
   "version": "0.0.7",
-  "description": "",
+  "description": "A universal library built by TOKTOKHAN.DEV",
+  "author": "TOKTOKHAN.DEV <fe-system@toktokhan.dev>",
+  "license": "ISC",
   "type": "module",
+  "homepage": "https://toktokhan-dev-docs.vercel.app/docs/universal",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TOKTOKHAN-DEV/toktokhan-dev/tree/main/packages/universal"
+  },
+  "bugs": {
+    "url": "https://github.com/TOKTOKHAN-DEV/toktokhan-dev/issues"
+  },
+  "main": "dist/index.js",
   "files": [
     "dist",
     "!dist/*.map"
   ],
-  "main": "dist/index.js",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -24,9 +34,11 @@
     "test:watch": "jest --watch",
     "api-extractor": "api-extractor run --local --verbose"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "universal",
+    "library",
+    "toktokhan_dev"
+  ],
   "devDependencies": {
     "@toktokhan-dev/ts-config": "workspace:*",
     "@types/lodash": "^4.17.0"
