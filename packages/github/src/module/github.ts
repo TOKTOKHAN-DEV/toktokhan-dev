@@ -150,6 +150,7 @@ export class GitHubManager {
   createRepo = async (
     owner: string,
     repo: string,
+    isPublic?: boolean,
   ): Promise<
     RestEndpointMethodTypes['repos']['createInOrg']['response']['data'] & {
       isOrg: boolean
@@ -166,12 +167,14 @@ export class GitHubManager {
       const { data } = await this.octokit.repos.createInOrg({
         org: owner,
         name: repo,
+        private: !isPublic,
       })
 
       return { isOrg, ...data }
     } else {
       const { data } = await this.octokit.repos.createForAuthenticatedUser({
         name: repo,
+        private: !isPublic,
       })
       return { isOrg, ...data }
     }
