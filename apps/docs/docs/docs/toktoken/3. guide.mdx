@@ -9,7 +9,7 @@ import ParsedImg from '/img/toktoken/toktoken-preview-parsed.png'
 import PasswordImg from '/img/toktoken/toktoken-pw.png'
 import SemnaticTokenImg from '/img/toktoken/toktoken-semantic-token.png'
 import TabImg from '/img/toktoken/toktoken-tab.png'
-import TokenPermissions from '/img/toktoken/toktoken-token-permission.png'
+import TokenPermissions from '/img/toktoken/token-permissions.png'
 import Tag from '@site/src/components/@mdx/_Tag.mdx'
 
 # Toktoken Plugin Guide
@@ -106,14 +106,17 @@ e.g) https://github.com/TOKTOKHAN-DEV/toktokhan-dev
 </summary>
 
 #### 1. 아래의 항목을 모두 설정해주세요.
-- `contents:read and write` <br></br>
-- `administration:read` <br></br>
-- `workflows:write`
+- Repository permissions
+  - `Administration:read and write` <br></br>
+  - `Contents:read and write` <br></br>
+  - `Workflows:write`
+- Organization permissions
+  - `Members:read` 
 
 #### 2. 토큰을 발급하기 전, Overview를 통해 하기 이미지와 동일하게 설정이 되어있는지 다시 한 번 확인해주세요.
 <img
   src={TokenPermissions}
-  alt="toktoken-token-permissions"
+  alt="token-permissions"
   style={{ width: 800 }}
 />
 
