@@ -21,34 +21,26 @@ export type OctokitParameterType<T> = Exclude<Parameter<T>, undefined> & Obj
 
 export type Partible<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>
 
-/**
- * `UpdateRepoParams`는 기존 레포지토리에 내용을 업데이트하기 위한 매개변수 타입입니다.
- */
-export interface UpdateRepoParams {
+export interface CreateNewCommitParams {
   /**
    * 커밋 메시지입니다.
    */
-  commitMsg: string
+  message: string
 
   /**
-   * 브랜치 이름입니다. 기본값은 'design-token'입니다.
+   * 업로드할 내용의 대상 브랜치 이름입니다.
    */
-  branchName?: string
+  branchName: string
 
   /**
    * 커밋할 내용입니다.
    */
-  content: Obj
+  contents: string[]
 
   /**
-   * 기본 브랜치 이름입니다. 기본값은 'main'입니다.
+   * 업로드 할 내용이 위치할 파일 경로입니다.
    */
-  baseBranchName?: string
-
-  /**
-   * 소스 경로입니다. 기본값은 'public/token.json'입니다.
-   */
-  sourcePath?: string
+  paths: string[]
   /**
    * 레포지토리의 소유자입니다.
    */
@@ -59,34 +51,23 @@ export interface UpdateRepoParams {
   repo?: string
 }
 
-/**
- * `PublishFilesParams`는 새로운 레포지토리에 파일을 게시하기 위한 매개변수 타입입니다.
- */
-export interface PublishFilesParams {
+export interface UpdateExistRepoParams extends CreateNewCommitParams {
   /**
-   * 커밋 메시지입니다.
-   */
-  commitMsg: string
-
-  /**
-   * 브랜치 이름입니다. 기본값은 'main'입니다.
-   */
-  branchName?: string
-
-  /**
-   * 기준이 되는 브랜치 이름입니다. 기본값은 'main'입니다.
+   * 기본 브랜치 이름입니다. branchName이 현재 레포지토리에 없을경우 새로 생성하기 위해 사용됩니다. 기본값은 'main'입니다.
    */
   baseBranchName?: string
 
   /**
-   * 파일 내용의 배열입니다.
+   * 레포지토리의 소유자입니다.
    */
-  fileContents: string[]
-
+  owner?: string
   /**
-   * 파일 경로의 배열입니다.
+   * 레포지토리의 이름입니다.
    */
-  relativePaths: string[]
+  repo?: string
+}
+
+export interface PublishFilesToNewRepoParams extends CreateNewCommitParams {
   /**
    *  게시할 레포지토리의 공개여부입니다.
    */
