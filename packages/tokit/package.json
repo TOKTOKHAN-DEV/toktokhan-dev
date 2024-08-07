@@ -4,8 +4,19 @@
     "tokit": "bin/run.js"
   },
   "version": "0.0.12",
-  "description": "",
+  "description": "A CLI tool by TOKTOKHAN.DEV for managing and installing frontend boilerplate templates.",
+  "author": "TOKTOKHAN.DEV <fe-system@toktokhan.dev>",
+  "license": "ISC",
   "type": "module",
+  "homepage": "https://toktokhan-dev-docs.vercel.app/docs/category/cli-tokit-guide",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TOKTOKHAN-DEV/toktokhan-dev.git",
+    "directory": "packages/tokit"
+  },
+  "bugs": {
+    "url": "https://github.com/TOKTOKHAN-DEV/toktokhan-dev/issues"
+  },
   "main": "dist/index.js",
   "files": [
     "bin",
@@ -26,9 +37,14 @@
     "play": "pnpm build:watch & node --watch play/playground.js",
     "test": "jest --watch"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "CLI",
+    "frontend",
+    "boilerplate",
+    "templates",
+    "github-remote",
+    "project-setup"
+  ],
   "devDependencies": {
     "@toktokhan-dev/ts-config": "workspace:*",
     "@types/clear": "^0.1.4",

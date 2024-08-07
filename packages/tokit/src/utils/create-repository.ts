@@ -8,8 +8,6 @@ const GIT_OWNER = process.env.TOKIT_GITHUB_OWNER || ''
 const GIT_USERNAME = process.env.TOKIT_GITHUB_USERNAME || ''
 
 export const createRepository = async (config: InitialQuestionResponse) => {
-  const url = `https://github.com/${GIT_OWNER}/${config.projectname}`
-
   const owner = GIT_OWNER
   const repo = config.projectname
   const github = new GitHubManager({
@@ -22,17 +20,19 @@ export const createRepository = async (config: InitialQuestionResponse) => {
     isPrivate: true,
   })
 
-  infoLog('successfully published to ', url)
-
   if (!isOrg) {
-    infoLog(`Skipped add collaborator`)
+    infoLog(
+      'Collaborator Addition Skipped',
+      `User ${GIT_USERNAME} is already the repository owner.`,
+    )
   } else {
     await github.addCollaborator({
       username: GIT_USERNAME,
       permission: 'admin',
     })
     infoLog(
-      `Successfully added the user ${GIT_USERNAME} as a collaborator to the ${GIT_OWNER}/${config.projectname} repository.`,
+      'Collaborator Added',
+      `User ${GIT_USERNAME} was successfully added as a collaborator`,
     )
   }
 

@@ -67,9 +67,7 @@ export async function cacheToLocal(config: InitialQuestionResponse) {
   }
 
   await modifyPackageJson((prev) => {
-    console.log(prev, modifyScripts(prev.scripts as Record<string, string>))
     return {
-      //
       ...prev,
       name: config.projectname,
       version: '0.0.0',
