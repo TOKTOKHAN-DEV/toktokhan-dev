@@ -34,13 +34,14 @@ export const useGithub = ({ data, activeTab }: GithubContentProps) => {
       owner: repoInfo.owner,
     })
 
+    const stringContent = JSON.stringify(data, null, 2)
     try {
       await github.updateExistRepo({
-        content: data,
-        baseBranchName: formData.base_branch_name || 'main',
-        sourcePath: formData.source_path || 'public/token.json',
-        commitMsg: formData.commit_msg || 'update design token',
+        contents: [stringContent],
+        paths: [formData.source_path || 'public/token.json'],
+        message: formData.commit_msg || 'update design token',
         branchName: formData.head_branch_name || 'design-token',
+        baseBranchName: formData.base_branch_name || 'main',
       })
       showAlert('Github에 업로드 되었습니다. 레포지토리를 확인해주세요.')
       setIsLoading(false)
