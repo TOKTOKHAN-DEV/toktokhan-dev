@@ -1,0 +1,16 @@
+export const ROUTES = {
+  APP: "/_app",
+  DOCUMENT: "/_document",
+  API_HELLO: "/api/hello",
+  API_SITEMAP: "/api/sitemap",
+  AUTH_MAIN: "/auth",
+  GOODS_BY_CATEGORY_BY_ID_MAIN: "/goods/[category]/[id]",
+  MAIN: "/",
+  LOGIN_MAIN: "/login",
+  POST_BY_ID_MAIN: "/post/[id]",
+  POST_CREATE: "/post/create",
+  POST_DELETE_BY_ID: "/post/delete/[id]",
+  POST_UPDATE_BY_ID_MAIN: "/post/update/[id]",
+  POST_UPDATE_MAIN: "/post/update",
+  SOCIAL_CALLBACK: "/social/callback",
+};

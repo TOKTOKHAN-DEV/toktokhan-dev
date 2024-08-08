@@ -131,7 +131,7 @@ function getRouteKey(key: string) {
   const [dynamicPattern] = Array.from(key.matchAll(/\[(.*?)\]/g))
 
   if (dynamicPattern?.[1])
-    return snakeCase(`by ${dynamicPattern[1]}`).toLowerCase()
+    return snakeCase(`by ${dynamicPattern[1]}`).toUpperCase()
   return snakeCase(key).toUpperCase()
 }
 
