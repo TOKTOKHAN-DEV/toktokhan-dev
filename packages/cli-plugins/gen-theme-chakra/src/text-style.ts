@@ -7,10 +7,29 @@ import { SwatTextStyleMode, TextStyleModes, ThemeToken } from './type'
 import { ifElse } from './utils/if-else'
 import { throwError } from './utils/throw-error'
 
-const getTextStylesKey: (str: string) => string = flow(
-  replace(/\s/g, ''),
-  replace(/-/g, '.'),
-)
+const BREAKPOINT_ORDER = ['base', 'sm', 'md', 'lg', 'xl', '2xl']
+
+const getTextStylesKey: (str: string) => string = replace(/\s/g, '')
+
+/**
+ * 주어진 객체의 키를 미리 정의된 순서에 따라 정렬합니다.
+ *
+ * @param obj - 정렬할 키-값 쌍을 포함하는 객체입니다.
+ * @returns 키가 미리 정의된 순서대로 정렬된 새 객체를 반환합니다.
+ *
+ */
+const sortKeys =
+  <T>(order: string[]) =>
+  (obj: Record<string, T>) => {
+    const sortedObj: Record<string, T> = {}
+    order.forEach((key) => {
+      if (key in obj) {
+        sortedObj[key] = obj[key]
+      }
+    })
+    return sortedObj
+  }
+
 /**
  * 주어진 객체의 키를 제공된 키 맵에 따라 매핑합니다. 키 맵에 존재하지 않는 키가 있을 경우,
  * 해당 키가 tokenMode에서 유효하지 않다는 메시지를 로그로 출력합니다.
@@ -44,7 +63,17 @@ const getTextStyleObj = (
   flow(
     pass(json),
     mapKeys(getTextStylesKey),
-    mapValues(mapValues(ifElse(isObject, matchKey(mode), identity))),
+    mapValues(
+      mapValues(
+        flow(
+          ifElse(
+            isObject,
+            flow(matchKey(mode), sortKeys(BREAKPOINT_ORDER)),
+            identity,
+          ),
+        ),
+      ),
+    ),
   )()
 
 /**
