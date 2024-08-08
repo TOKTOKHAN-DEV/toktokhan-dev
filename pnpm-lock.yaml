@@ -1249,8 +1249,8 @@ importers:
         specifier: ^16.0.0
         version: 16.0.0(@testing-library/dom@10.3.1)(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1)(react@18.3.1)
       '@toktokhan-dev/cli':
-        specifier: workspace:*
-        version: link:../../packages/cli
+        specifier: ^0.0.8
+        version: 0.0.8(esbuild@0.23.0)
       '@toktokhan-dev/cli-plugin-commit':
         specifier: 0.0.7
         version: 0.0.7(esbuild@0.23.0)
@@ -1264,11 +1264,11 @@ importers:
         specifier: 0.0.8
         version: 0.0.8(esbuild@0.23.0)
       '@toktokhan-dev/cli-plugin-gen-route-pages':
-        specifier: workspace:*
-        version: link:../../packages/cli-plugins/gen-route-pages
+        specifier: 0.0.8
+        version: 0.0.8(esbuild@0.23.0)
       '@toktokhan-dev/cli-plugin-gen-theme-chakra':
-        specifier: workspace:*
-        version: link:../../packages/cli-plugins/gen-theme-chakra
+        specifier: 0.0.8
+        version: 0.0.8(esbuild@0.23.0)
       '@toktokhan-dev/eslint-config':
         specifier: 0.0.2
         version: link:../../configs/eslint
@@ -7497,12 +7497,34 @@ packages:
       - esbuild
     dev: true
 
+  /@toktokhan-dev/cli-plugin-gen-route-pages@0.0.8(esbuild@0.23.0):
+    resolution: {integrity: sha512-/cp0jrgVeY07scSGIxRhd+PJdZRZHu00YLfHuU5RGU777Xn05luN4Lq20rGatMvygcq7W3WPUtXv6LsWmiF2eg==}
+    dependencies:
+      '@toktokhan-dev/cli': 0.0.8(esbuild@0.23.0)
+      '@toktokhan-dev/node': 0.0.7
+      '@toktokhan-dev/universal': 0.0.6
+      lodash: 4.17.21
+    transitivePeerDependencies:
+      - esbuild
+    dev: true
+
   /@toktokhan-dev/cli-plugin-gen-theme-chakra@0.0.4(esbuild@0.23.0):
     resolution: {integrity: sha512-stF/Q+RcfjEj4UILdsuYzrYZxcKJBk3dyZVCgmkeQ8gEzyE/zlQGTQa9wgUqHeweH2nhrLIn975x5XGIRUfNyA==}
     dependencies:
       '@toktokhan-dev/cli': 0.0.4(esbuild@0.23.0)
       '@toktokhan-dev/node': 0.0.3
       '@toktokhan-dev/universal': 0.0.3
+      lodash: 4.17.21
+    transitivePeerDependencies:
+      - esbuild
+    dev: true
+
+  /@toktokhan-dev/cli-plugin-gen-theme-chakra@0.0.8(esbuild@0.23.0):
+    resolution: {integrity: sha512-HjRsAS6q8RlkAB02gaeCbpgjs3y3P4T6NNNF3OM1Va3oDt/sO516v5blIUjRbvJMvc8H3/JL7HWQX9SMkeTR+A==}
+    dependencies:
+      '@toktokhan-dev/cli': 0.0.8(esbuild@0.23.0)
+      '@toktokhan-dev/node': 0.0.7
+      '@toktokhan-dev/universal': 0.0.6
       lodash: 4.17.21
     transitivePeerDependencies:
       - esbuild
