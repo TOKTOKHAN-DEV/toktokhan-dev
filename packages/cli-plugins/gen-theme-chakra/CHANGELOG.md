@@ -1,5 +1,12 @@
 # @toktokhan-dev/cli-plugin-gen-theme-chakra
 
+## 0.0.12
+
+### Patch Changes
+
+- e2a4db1: - BreakPoint 기준으로 오더링해줍니다.
+  - key 포맷 기준을 pre.display.01 -> pre-display-01 로 변경하였습니다.
+
 ## 0.0.11
 
 ### Patch Changes
