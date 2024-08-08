@@ -1,5 +1,13 @@
 # @toktokhan-dev/universal
 
+## 0.0.8
+
+### Patch Changes
+
+- 94e2b25: add LICENSE, README, improve package.json
+
+  각 패키지별 LICENSE 와 README 파일을 추가하고, Package.json 을 개선했습니다.
+
 ## 0.0.7
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@toktokhan-dev/github",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "A module to easily interact with the GitHub API using Octokit.",
   "author": "TOKTOKHAN.DEV <fe-system@toktokhan.dev>",
   "license": "ISC",

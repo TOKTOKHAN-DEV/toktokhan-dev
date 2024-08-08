@@ -1,5 +1,19 @@
 # @toktokhan-dev/cli-plugin-gen-route-pages
 
+## 0.0.10
+
+### Patch Changes
+
+- 94e2b25: add LICENSE, README, improve package.json
+
+  각 패키지별 LICENSE 와 README 파일을 추가하고, Package.json 을 개선했습니다.
+
+- Updated dependencies [98ee403]
+- Updated dependencies [94e2b25]
+  - @toktokhan-dev/cli@0.0.10
+  - @toktokhan-dev/universal@0.0.8
+  - @toktokhan-dev/node@0.0.9
+
 ## 0.0.9
 
 ### Patch Changes
