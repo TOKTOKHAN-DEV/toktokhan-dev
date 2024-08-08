@@ -4,55 +4,92 @@ const [first, second, ...args] = process.argv
 const [prNumber, publishPackages] = args
 type Pkgs = { name: string; version: string }[]
 const pkgs: Pkgs = JSON.parse(publishPackages)
-const WEBHOOK_URL = process.env.SLACK_WEBHOOK_URL
-if (!WEBHOOK_URL) throw new Error('WEBHOOK_URL is missing or not configured.')
+
 const DOMAIN = 'https://github.com/TOKTOKHAN-DEV/toktokhan-dev'
 
-const title = {
-  unfurl_links: false,
-  blocks: [
-    {
-      type: 'section',
-      text: {
-        type: 'mrkdwn',
-        text: `:urgent:*@toktokhan-dev 패키지가 배포되었습니다.* <${DOMAIN}/pull/${prNumber}|버전 업데이트 정보>:urgent:`,
-      },
-    },
-  ],
-}
+const WEBHOOK_URL =
+  // 'https://hooks.slack.com/services/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' ||
+  process.env.SLACK_WEBHOOK_URL
 
-const body = {
-  unfurl_links: true,
-  blocks: [
-    {
-      type: 'divider',
+if (!WEBHOOK_URL) throw new Error('WEBHOOK_URL is missing or not configured.')
+
+const pkgList = pkgs?.map((item) => `${item.name}@${item.version}`).join(' ')
+
+const title = [
+  {
+    type: 'header',
+    text: {
+      type: 'plain_text',
+      text: ':blob-sign-yes: @toktokhan-dev/* 패키지가 배포되었습니다.',
+      emoji: true,
     },
-    {
-      type: 'rich_text',
-      elements: [
-        {
-          type: 'rich_text_list',
-          style: 'bullet',
-          elements: pkgs?.map((item, idx) => {
-            return {
-              type: 'rich_text_section',
-              elements: [
-                {
-                  type: 'link',
-                  url: `${DOMAIN}/releases/tag/${item.name}@${item.version}`,
-                  text: `${item.name}@${item.version}`,
-                  style: {
-                    bold: true,
-                  },
+  },
+  {
+    type: 'section',
+    text: {
+      type: 'mrkdwn',
+      text: '개별 패키지의 변경사항은 아래의 각 패키지 링크를 통해 확인해 주세요.',
+    },
+    accessory: {
+      type: 'button',
+      text: {
+        type: 'plain_text',
+        text: ':meow_bread_appear: 변경사항 모아보기',
+        emoji: true,
+      },
+      value: 'update detail info',
+      url: `${DOMAIN}/pull/${prNumber}`,
+      action_id: 'button-action',
+    },
+  },
+]
+const body = [
+  {
+    type: 'divider',
+  },
+  {
+    type: 'rich_text',
+    elements: [
+      {
+        type: 'rich_text_list',
+        style: 'bullet',
+        elements: pkgs?.map((item) => {
+          return {
+            type: 'rich_text_section',
+            elements: [
+              {
+                type: 'link',
+                url: `${DOMAIN}/releases/tag/${item.name}@${item.version}`,
+                text: `${item.name}@${item.version}`,
+                style: {
+                  bold: true,
                 },
-              ],
-            }
-          }),
-        },
-      ],
+              },
+            ],
+          }
+        }),
+      },
+    ],
+  },
+]
+
+const notes = [
+  {
+    type: 'divider',
+  },
+  {
+    type: 'section',
+    text: {
+      type: 'mrkdwn',
+      text: `\`\`\`
+// 일괄 업데이트 
+pnpm update "@toktokhan-dev/*"@latest
+// 설치
+pnpm add(or add -D) ${pkgList}
+\`\`\``,
     },
-  ],
-}
+  },
+]
 
 async function sendToWebhook(url: string, data: any): Promise<void> {
   try {
@@ -63,7 +100,6 @@ async function sendToWebhook(url: string, data: any): Promise<void> {
       },
       body: JSON.stringify(data),
     })
-
     if (!response.ok) {
       throw new Error(`fetch error! status: ${response.status}`)
     }
@@ -72,13 +108,18 @@ async function sendToWebhook(url: string, data: any): Promise<void> {
     throw error
   }
 }
-async function notifySlack(title: any, body: any) {
+const content = {
+  unfurl_links: false,
+  blocks: [...title, ...body, ...notes],
+}
+async function notifySlack(content: any) {
   try {
-    await sendToWebhook(WEBHOOK_URL, title)
-    await sendToWebhook(WEBHOOK_URL, body)
+    await sendToWebhook(WEBHOOK_URL, content)
+    // await sendToWebhook(WEBHOOK_URL, body)
+    // await sendToWebhook(WEBHOOK_URL, notes)
   } catch (error) {
     console.error('Error in notifySlack:', error)
   }
 }
 
-notifySlack(title, body)
+notifySlack(content)

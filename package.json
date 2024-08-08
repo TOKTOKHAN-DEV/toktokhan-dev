@@ -20,7 +20,8 @@
     "start:tokript": "pnpm --filter @toktokhan-dev/cli dev",
     "start:toktoken": "pnpm --filter Toktoken build:watch",
     "tokript": "tokript2",
-    "slack": "tsx ./scripts/slack.ts"
+    "slack": "tsx ./scripts/slack.ts",
+    "slack:test": "pnpm slack 23 '[{\"name\": \"@toktokhan-dev/tokit\", \"version\": \"1.2.0\"}, {\"name\": \"@toktokhan-dev/github\", \"version\": \"0.8.9\"}]'"
   },
   "devDependencies": {
     "@babel/core": "^7.24.4",
