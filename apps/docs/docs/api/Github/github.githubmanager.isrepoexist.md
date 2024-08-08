@@ -15,5 +15,5 @@ slug: /github.githubmanager.isrepoexist
 ## Signature
 
 ```typescript
-isRepoExist: (owner: string, repo: string) => Promise<boolean>;
+isRepoExist: (owner?: string, repo?: string) => Promise<boolean>;
 ```

@@ -87,7 +87,7 @@ chakra theme token이 생성되는 폴더입니다.
 
 </td><td>
 
-\{ light: string; dark?: string; \}
+TokenModes
 
 
 </td><td>

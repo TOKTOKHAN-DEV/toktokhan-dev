@@ -15,5 +15,9 @@ slug: /github.githubmanager.isbranchexist
 ## Signature
 
 ```typescript
-isBranchExist: (branchName: string) => Promise<boolean>;
+isBranchExist: ({
+    branchName,
+    owner,
+    repo
+  }: IsBranchExistParams) => Promise<boolean>;
 ```

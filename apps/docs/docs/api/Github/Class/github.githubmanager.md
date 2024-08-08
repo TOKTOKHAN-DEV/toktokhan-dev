@@ -84,7 +84,7 @@ Description
 
 </td><td>
 
-(params: [Partible](./github.partible)&lt;[OctokitParameterType](./github.octokitparametertype)&lt;Octokit["rest"]["repos"]["addCollaborator"]&gt;, "repo" \| "owner" \| "username"&gt;) =&gt; Promise&lt;void&gt;
+(\{ username, permission, owner, repo, ...params \}: [AddCollaboratorParams](./github.addcollaboratorparams)) =&gt; Promise&lt;void&gt;
 
 
 </td><td>
@@ -114,6 +114,25 @@ GitHub App의 인증 자격 증명이 유효한지 확인하는 데 사용됩니
 </td></tr>
 <tr><td>
 
+[checkAuthUser](./github.githubmanager.checkauthuser)
+
+
+</td><td>
+
+
+</td><td>
+
+() =&gt; Promise&lt;boolean&gt;
+
+
+</td><td>
+
+주어진 auth 토큰으로 사용자의 인증 상태를 확인합니다. 주어진 token에 대해 인증된 사용자인지 확인합니다. [@see GitHub API - Get the authenticated app](https://docs.github.com/en/rest/users/users?apiVersion=2022-11-28#get-the-authenticated-user)
+
+
+</td></tr>
+<tr><td>
+
 [checkOrganizationValidity](./github.githubmanager.checkorganizationvalidity)
 
 
@@ -122,12 +141,107 @@ GitHub App의 인증 자격 증명이 유효한지 확인하는 데 사용됩니
 
 </td><td>
 
-(org: string) =&gt; Promise&lt;boolean&gt;
+(org?: string) =&gt; Promise&lt;boolean&gt;
 
 
 </td><td>
 
-유효한 조직(Organization)인지 확인하는 메소드입니다. [@see GitHub API - Get an organization](https://docs.github.com/en/rest/orgs/orgs?apiVersion=2022-11-28)
+유효한 조직(Organization)인지 확인하는 메소드입니다. [@see GitHub API - Get an organization](https://docs.github.com/en/rest/orgs/orgs?apiVersion=2022-11-28#get-an-organization)
+
+
+</td></tr>
+<tr><td>
+
+[checkOwnerAccess](./github.githubmanager.checkowneraccess)
+
+
+</td><td>
+
+
+</td><td>
+
+(owner: string) =&gt; Promise&lt;boolean&gt;
+
+
+</td><td>
+
+주입된 토큰이 주어진 owner에 대한 권한이 있는지 확인하는 메서드입니다.
+
+
+</td></tr>
+<tr><td>
+
+[commitToBranch](./github.githubmanager.committobranch)
+
+
+</td><td>
+
+
+</td><td>
+
+(\{ branchName, commitSha, owner, repo \}: [CommitToBranchParams](./github.committobranchparams)) =&gt; Promise&lt;void&gt;
+
+
+</td><td>
+
+지정한 브랜치에 커밋을 하는 메소드입니다. [@see GitHub API - Update a reference](https://docs.github.com/en/rest/git/refs?apiVersion=2022-11-28#update-a-reference)
+
+
+</td></tr>
+<tr><td>
+
+[createBlob](./github.githubmanager.createblob)
+
+
+</td><td>
+
+
+</td><td>
+
+(\{ content, owner, repo \}: [CreateBlobParams](./github.createblobparams)) =&gt; Promise&lt;[BlobFileData](./github.blobfiledata)&gt;
+
+
+</td><td>
+
+파일에 대한 blob를 생성하는 메소드입니다. [@see GitHub API - Create a blob](https://docs.github.com/en/rest/git/blobs?apiVersion=2022-11-28#create-a-blob)
+
+
+</td></tr>
+<tr><td>
+
+[createBranch](./github.githubmanager.createbranch)
+
+
+</td><td>
+
+
+</td><td>
+
+(\{ branchName, baseBranchName, owner, repo \}: [CreateBranchParams](./github.createbranchparams)) =&gt; Promise&lt;void&gt;
+
+
+</td><td>
+
+새 브랜치를 생성하는 메소드입니다. [@see GitHub API - Create a reference](https://docs.github.com/ko/rest/git/refs?apiVersion=2022-11-28#create-a-reference)
+
+
+</td></tr>
+<tr><td>
+
+[createNewCommit](./github.githubmanager.createnewcommit)
+
+
+</td><td>
+
+
+</td><td>
+
+(\{ branchName, contents, paths, message, owner, repo \}: [CreateNewCommitParams](./github.createnewcommitparams)) =&gt; Promise&lt;any&gt;
+
+
+</td><td>
+
+주어진 파일 경로와 내용을 기반으로 새로운 커밋을 생성합니다.
 
 
 </td></tr>
@@ -141,12 +255,31 @@ GitHub App의 인증 자격 증명이 유효한지 확인하는 데 사용됩니
 
 </td><td>
 
-(owner: string, repo: string, isPublic?: boolean) =&gt; Promise&lt;RestEndpointMethodTypes["repos"]["createInOrg"]["response"]["data"] &amp; \{ isOrg: boolean; \}&gt;
+(\{ isPrivate, owner, repo \}: [CreateRepoParams](./github.createrepoparams)) =&gt; Promise&lt;RestEndpointMethodTypes["repos"]["createInOrg"]["response"]["data"] &amp; \{ isOrg: boolean; \}&gt;
 
 
 </td><td>
 
-새로운 레포지토리를 생성하는 메소드입니다.
+새로운 레포지토리를 생성하는 메소드입니다. [@see GitHub API - Create an organization repository](https://docs.github.com/ko/rest/repos/repos?apiVersion=2022-11-28#create-an-organization-repository) [@see GitHub API - Create a repository for the authenticated user](https://docs.github.com/en/rest/repos/repos#create-a-repository-for-the-authenticated-user)
+
+
+</td></tr>
+<tr><td>
+
+[getCurrentCommit](./github.githubmanager.getcurrentcommit)
+
+
+</td><td>
+
+
+</td><td>
+
+(\{ branchName, owner, repo \}: [GetCurrentCommitParams](./github.getcurrentcommitparams)) =&gt; Promise&lt;\{ commitSha: string; treeSha: string; \}&gt;
+
+
+</td><td>
+
+현재 커밋을 가져오는 메소드입니다. [@see GitHub API - Get a commit object](https://docs.github.com/en/rest/git/commits?apiVersion=2022-11-28#get-a-commit-object)
 
 
 </td></tr>
@@ -179,7 +312,7 @@ GitHub App의 인증 자격 증명이 유효한지 확인하는 데 사용됩니
 
 </td><td>
 
-(branchName: string) =&gt; Promise&lt;boolean&gt;
+(\{ branchName, owner, repo \}: [IsBranchExistParams](./github.isbranchexistparams)) =&gt; Promise&lt;boolean&gt;
 
 
 </td><td>
@@ -198,7 +331,7 @@ GitHub App의 인증 자격 증명이 유효한지 확인하는 데 사용됩니
 
 </td><td>
 
-(owner: string, repo: string) =&gt; Promise&lt;boolean&gt;
+(owner?: string, repo?: string) =&gt; Promise&lt;boolean&gt;
 
 
 </td><td>
@@ -217,12 +350,12 @@ GitHub App의 인증 자격 증명이 유효한지 확인하는 데 사용됩니
 
 </td><td>
 
-(params: [PublishFilesParams](./github.publishfilesparams)) =&gt; Promise&lt;void&gt;
+(\{ contents, paths, isPrivate, message, branchName, owner, repo \}: [PublishFilesToNewRepoParams](./github.publishfilestonewrepoparams)) =&gt; Promise&lt;void&gt;
 
 
 </td><td>
 
-새로운 레포지토리에 파일을 게시하는 메소드입니다.
+새로운 레포지토리에 주어진 내용을 게시하는 메소드입니다.
 
 
 </td></tr>
@@ -236,7 +369,7 @@ GitHub App의 인증 자격 증명이 유효한지 확인하는 데 사용됩니
 
 </td><td>
 
-(params: [Partible](./github.partible)&lt;[OctokitParameterType](./github.octokitparametertype)&lt;Octokit["rest"]["repos"]["removeCollaborator"]&gt;, "repo" \| "owner" \| "username"&gt;) =&gt; Promise&lt;void&gt;
+(\{ username, owner, repo \}: [RemoveCollaboratorParams](./github.removecollaboratorparams)) =&gt; Promise&lt;void&gt;
 
 
 </td><td>
@@ -255,12 +388,12 @@ GitHub App의 인증 자격 증명이 유효한지 확인하는 데 사용됩니
 
 </td><td>
 
-(params: [UpdateRepoParams](./github.updaterepoparams)) =&gt; Promise&lt;void&gt;
+(\{ contents, paths, message, branchName, baseBranchName, owner, repo \}: [UpdateExistRepoParams](./github.updateexistrepoparams)) =&gt; Promise&lt;void&gt;
 
 
 </td><td>
 
-기존 레포지토리에 지정된 브랜치로 내용을 업로드(push)해주는 메소드입니다.
+기존 레포지토리에 지정된 브랜치로 주어진 내용을 업로드(push)해주는 메소드입니다.
 
 
 </td></tr>

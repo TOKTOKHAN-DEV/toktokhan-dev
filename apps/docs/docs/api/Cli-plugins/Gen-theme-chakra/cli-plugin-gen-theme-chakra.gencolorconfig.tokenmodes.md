@@ -15,8 +15,5 @@ chakra Semantic token color mode의 키 값을 지정할 수 있습니다.
 ## Signature
 
 ```typescript
-tokenModes: {
-    light: string;
-    dark?: string;
-  };
+tokenModes: TokenModes;
 ```

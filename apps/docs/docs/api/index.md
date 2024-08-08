@@ -29,7 +29,7 @@ Description
 
 </td><td>
 
-charka-ui 와 함께 사용할 수 있는 component, hooks 가 포함된 패키지 입니다.
+[ChakraUI](https://v2.chakra-ui.com/)로 구성되어있는 컴포넌트 패키지입니다.
 
 
 </td></tr>

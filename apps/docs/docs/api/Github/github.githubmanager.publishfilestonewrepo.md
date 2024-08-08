@@ -10,10 +10,18 @@ slug: /github.githubmanager.publishfilestonewrepo
 
 
 
-새로운 레포지토리에 파일을 게시하는 메소드입니다.
+새로운 레포지토리에 주어진 내용을 게시하는 메소드입니다.
 
 ## Signature
 
 ```typescript
-publishFilesToNewRepo: (params: PublishFilesParams) => Promise<void>;
+publishFilesToNewRepo: ({
+    contents,
+    paths,
+    isPrivate,
+    message,
+    branchName,
+    owner,
+    repo
+  }: PublishFilesToNewRepoParams) => Promise<void>;
 ```

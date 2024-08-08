@@ -173,6 +173,169 @@
       "preserveMemberOrder": false,
       "members": [
         {
+          "kind": "Interface",
+          "canonicalReference": "@toktokhan-dev/github!AddCollaboratorParams:interface",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "interface AddCollaboratorParams extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Omit",
+              "canonicalReference": "!Omit:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "OctokitParameterType",
+              "canonicalReference": "@toktokhan-dev/github!OctokitParameterType:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "Octokit",
+              "canonicalReference": "@octokit/rest!Octokit:type"
+            },
+            {
+              "kind": "Content",
+              "text": "['rest']['repos']['addCollaborator']>, 'owner' | 'repo' | 'permission'>"
+            },
+            {
+              "kind": "Content",
+              "text": " "
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "AddCollaboratorParams",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/github!AddCollaboratorParams#owner:member",
+              "docComment": "/**\n * 레포지토리의 소유자입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "owner?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "owner",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/github!AddCollaboratorParams#permission:member",
+              "docComment": "/**\n * 팀원에게 부여할 권한입니다. 기본값은 'push'입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "permission?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "'pull' | 'triage' | 'push' | 'maintain' | 'admin'"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "permission",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/github!AddCollaboratorParams#repo:member",
+              "docComment": "/**\n * 레포지토리의 이름입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "repo?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "repo",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/github!AddCollaboratorParams#username:member",
+              "docComment": "/**\n * 추가할 팀원의 사용자 이름입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "username: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "username",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": [
+            {
+              "startIndex": 1,
+              "endIndex": 7
+            }
+          ],
+          "parameters": []
+        },
+        {
           "kind": "TypeAlias",
           "canonicalReference": "@toktokhan-dev/github!BlobFileData:type",
           "docComment": "",
@@ -197,6 +360,954 @@
             "startIndex": 1,
             "endIndex": 2
           },
+          "parameters": []
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@toktokhan-dev/github!CommitToBranchParams:interface",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "interface CommitToBranchParams "
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "CommitToBranchParams",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/github!CommitToBranchParams#branchName:member",
+              "docComment": "/**\n * 설정할 브랜치의 이름입니다. 기본값은 'main'입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "branchName: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "branchName",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/github!CommitToBranchParams#commitSha:member",
+              "docComment": "/**\n * 설정할 커밋의 SHA입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "commitSha: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "commitSha",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/github!CommitToBranchParams#owner:member",
+              "docComment": "/**\n * 레포지토리의 소유자입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "owner?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "owner",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/github!CommitToBranchParams#repo:member",
+              "docComment": "/**\n * 레포지토리의 이름입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "repo?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "repo",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": [],
+          "parameters": []
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@toktokhan-dev/github!CreateBlobParams:interface",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "interface CreateBlobParams "
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "CreateBlobParams",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/github!CreateBlobParams#content:member",
+              "docComment": "/**\n * 파일의 내용입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "content: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "content",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/github!CreateBlobParams#owner:member",
+              "docComment": "/**\n * 레포지토리의 소유자입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "owner?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "owner",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/github!CreateBlobParams#repo:member",
+              "docComment": "/**\n * 레포지토리의 이름입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "repo?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "repo",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": [],
+          "parameters": []
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@toktokhan-dev/github!CreateBranchParams:interface",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "interface CreateBranchParams "
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "CreateBranchParams",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/github!CreateBranchParams#baseBranchName:member",
+              "docComment": "/**\n * 생성할 브랜치의 기준 브랜치 이름입니다. 기본값은 'main'입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "baseBranchName?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "baseBranchName",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/github!CreateBranchParams#branchName:member",
+              "docComment": "/**\n * 생성할 브랜치의 이름입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "branchName: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "branchName",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/github!CreateBranchParams#owner:member",
+              "docComment": "/**\n * 레포지토리의 소유자입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "owner?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "owner",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/github!CreateBranchParams#repo:member",
+              "docComment": "/**\n * 레포지토리의 이름입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "repo?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "repo",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": [],
+          "parameters": []
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@toktokhan-dev/github!CreateCommitParams:interface",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "interface CreateCommitParams "
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "CreateCommitParams",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/github!CreateCommitParams#currentCommitSha:member",
+              "docComment": "/**\n * 현재 커밋의 SHA입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "currentCommitSha: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "currentCommitSha",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/github!CreateCommitParams#currentTreeSha:member",
+              "docComment": "/**\n * 현재 트리의 SHA입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "currentTreeSha: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "currentTreeSha",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/github!CreateCommitParams#message:member",
+              "docComment": "/**\n * 커밋 메시지입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "message: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "message",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/github!CreateCommitParams#owner:member",
+              "docComment": "/**\n * 레포지토리의 소유자입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "owner?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "owner",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/github!CreateCommitParams#repo:member",
+              "docComment": "/**\n * 레포지토리의 이름입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "repo?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "repo",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": [],
+          "parameters": []
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@toktokhan-dev/github!CreateNewCommitParams:interface",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "interface CreateNewCommitParams "
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "CreateNewCommitParams",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/github!CreateNewCommitParams#branchName:member",
+              "docComment": "/**\n * 업로드할 내용의 대상 브랜치 이름입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "branchName: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "branchName",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/github!CreateNewCommitParams#contents:member",
+              "docComment": "/**\n * 커밋할 내용입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "contents: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string[]"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "contents",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/github!CreateNewCommitParams#message:member",
+              "docComment": "/**\n * 커밋 메시지입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "message: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "message",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/github!CreateNewCommitParams#owner:member",
+              "docComment": "/**\n * 레포지토리의 소유자입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "owner?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "owner",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/github!CreateNewCommitParams#paths:member",
+              "docComment": "/**\n * 업로드 할 내용이 위치할 파일 경로입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "paths: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string[]"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "paths",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/github!CreateNewCommitParams#repo:member",
+              "docComment": "/**\n * 레포지토리의 이름입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "repo?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "repo",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": [],
+          "parameters": []
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@toktokhan-dev/github!CreateRepoParams:interface",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "interface CreateRepoParams "
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "CreateRepoParams",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/github!CreateRepoParams#isPrivate:member",
+              "docComment": "/**\n * 업로드 할 레포지토리의 공개여부입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "isPrivate: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "boolean"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "isPrivate",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/github!CreateRepoParams#owner:member",
+              "docComment": "/**\n * 레포지토리의 소유자입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "owner?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "owner",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/github!CreateRepoParams#repo:member",
+              "docComment": "/**\n * 레포지토리의 이름입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "repo?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "repo",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": [],
+          "parameters": []
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@toktokhan-dev/github!CreateTreeParams:interface",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "interface CreateTreeParams "
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "CreateTreeParams",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/github!CreateTreeParams#filesBlobs:member",
+              "docComment": "/**\n * 파일 blob의 배열입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "filesBlobs: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "BlobFileData",
+                  "canonicalReference": "@toktokhan-dev/github!BlobFileData:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "[]"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "filesBlobs",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/github!CreateTreeParams#owner:member",
+              "docComment": "/**\n * 레포지토리의 소유자입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "owner?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "owner",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/github!CreateTreeParams#parentTreeSha:member",
+              "docComment": "/**\n * 부모 트리의 SHA입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "parentTreeSha: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "parentTreeSha",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/github!CreateTreeParams#pathsForBlobs:member",
+              "docComment": "/**\n * blob의 경로의 배열입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "pathsForBlobs: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string[]"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "pathsForBlobs",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/github!CreateTreeParams#repo:member",
+              "docComment": "/**\n * 레포지토리의 이름입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "repo?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "repo",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": [],
           "parameters": []
         },
         {
@@ -239,6 +1350,106 @@
             }
           ],
           "name": "extractRepoDetailsFromUrl"
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@toktokhan-dev/github!GetCurrentCommitParams:interface",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "interface GetCurrentCommitParams "
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "GetCurrentCommitParams",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/github!GetCurrentCommitParams#branchName:member",
+              "docComment": "/**\n * 커밋을 가져올 브랜치의 이름입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "branchName: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "branchName",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/github!GetCurrentCommitParams#owner:member",
+              "docComment": "/**\n * 레포지토리의 소유자입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "owner?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "owner",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/github!GetCurrentCommitParams#repo:member",
+              "docComment": "/**\n * 레포지토리의 이름입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "repo?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "repo",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": [],
+          "parameters": []
         },
         {
           "kind": "TypeAlias",
@@ -328,7 +1539,7 @@
             {
               "kind": "Property",
               "canonicalReference": "@toktokhan-dev/github!GitHubManager#addCollaborator:member",
-              "docComment": "/**\n * 레포지토리에 협력할 팀원(collaborator)을 추가하는 메소드입니다. {@link https://docs.github.com/en/rest/collaborators/collaborators?apiVersion=2022-11-28#add-a-repository-collaborator | @see GitHub API - Add a repository collaborator}\n *\n * @param params - 추가할 팀원의 정보입니다.\n *\n * @param  - params.username - 추가할 팀원의 사용자 이름입니다.\n *\n * @param  - [params.permission='admin'] - 팀원에게 부여할 권한입니다. 기본값은 'admin'입니다.\n *\n * @returns 비동기 작업이 완료되면 반환됩니다.\n *\n * @throws\n *\n * 요청이 실패할 경우 에러가 발생할 수 있습니다.\n */\n",
+              "docComment": "/**\n * 레포지토리에 협력할 팀원(collaborator)을 추가하는 메소드입니다. {@link https://docs.github.com/en/rest/collaborators/collaborators?apiVersion=2022-11-28#add-a-repository-collaborator | @see GitHub API - Add a repository collaborator}\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -336,34 +1547,16 @@
                 },
                 {
                   "kind": "Content",
-                  "text": "(params: "
+                  "text": "({\n    username,\n    permission,\n    owner,\n    repo,\n    ...params\n  }: "
                 },
                 {
                   "kind": "Reference",
-                  "text": "Partible",
-                  "canonicalReference": "@toktokhan-dev/github!Partible:type"
+                  "text": "AddCollaboratorParams",
+                  "canonicalReference": "@toktokhan-dev/github!AddCollaboratorParams:interface"
                 },
                 {
                   "kind": "Content",
-                  "text": "<"
-                },
-                {
-                  "kind": "Reference",
-                  "text": "OctokitParameterType",
-                  "canonicalReference": "@toktokhan-dev/github!OctokitParameterType:type"
-                },
-                {
-                  "kind": "Content",
-                  "text": "<"
-                },
-                {
-                  "kind": "Reference",
-                  "text": "Octokit",
-                  "canonicalReference": "@octokit/rest!Octokit:type"
-                },
-                {
-                  "kind": "Content",
-                  "text": "[\"rest\"][\"repos\"][\"addCollaborator\"]>, \"repo\" | \"owner\" | \"username\">) => "
+                  "text": ") => "
                 },
                 {
                   "kind": "Reference",
@@ -385,7 +1578,7 @@
               "name": "addCollaborator",
               "propertyTypeTokenRange": {
                 "startIndex": 1,
-                "endIndex": 10
+                "endIndex": 6
               },
               "isStatic": false,
               "isProtected": false,
@@ -432,8 +1625,47 @@
             },
             {
               "kind": "Property",
+              "canonicalReference": "@toktokhan-dev/github!GitHubManager#checkAuthUser:member",
+              "docComment": "/**\n * 주어진 auth 토큰으로 사용자의 인증 상태를 확인합니다. 주어진 token에 대해 인증된 사용자인지 확인합니다. {@link https://docs.github.com/en/rest/users/users?apiVersion=2022-11-28#get-the-authenticated-user | @see GitHub API - Get the authenticated app}\n *\n * @returns 성공적으로 인증된 경우 `true`를 반환합니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "checkAuthUser: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "() => "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise",
+                  "canonicalReference": "!Promise:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<boolean>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "checkAuthUser",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 4
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
               "canonicalReference": "@toktokhan-dev/github!GitHubManager#checkOrganizationValidity:member",
-              "docComment": "/**\n * 유효한 조직(Organization)인지 확인하는 메소드입니다. {@link https://docs.github.com/en/rest/orgs/orgs?apiVersion=2022-11-28 | @see GitHub API - Get an organization}\n *\n * @returns 조직(Organization)이 유효하면 `true`를 반환합니다.\n */\n",
+              "docComment": "/**\n * 유효한 조직(Organization)인지 확인하는 메소드입니다. {@link https://docs.github.com/en/rest/orgs/orgs?apiVersion=2022-11-28#get-an-organization | @see GitHub API - Get an organization}\n *\n * @returns 조직(Organization)이 유효하면 `true`를 반환합니다.\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -441,7 +1673,7 @@
                 },
                 {
                   "kind": "Content",
-                  "text": "(org: string) => "
+                  "text": "(org?: string) => "
                 },
                 {
                   "kind": "Reference",
@@ -471,8 +1703,248 @@
             },
             {
               "kind": "Property",
+              "canonicalReference": "@toktokhan-dev/github!GitHubManager#checkOwnerAccess:member",
+              "docComment": "/**\n * 주입된 토큰이 주어진 owner에 대한 권한이 있는지 확인하는 메서드입니다.\n *\n * @returns 권한이 있으면 `true`를 반환하고, 그렇지 않으면 `false`를 반환합니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "checkOwnerAccess: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "(owner: string) => "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise",
+                  "canonicalReference": "!Promise:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<boolean>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "checkOwnerAccess",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 4
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@toktokhan-dev/github!GitHubManager#commitToBranch:member",
+              "docComment": "/**\n * 지정한 브랜치에 커밋을 하는 메소드입니다. {@link https://docs.github.com/en/rest/git/refs?apiVersion=2022-11-28#update-a-reference | @see GitHub API - Update a reference}\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "commitToBranch: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "({\n    branchName,\n    commitSha,\n    owner,\n    repo\n  }: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "CommitToBranchParams",
+                  "canonicalReference": "@toktokhan-dev/github!CommitToBranchParams:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ") => "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise",
+                  "canonicalReference": "!Promise:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<void>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "commitToBranch",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 6
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@toktokhan-dev/github!GitHubManager#createBlob:member",
+              "docComment": "/**\n * 파일에 대한 blob를 생성하는 메소드입니다. {@link https://docs.github.com/en/rest/git/blobs?apiVersion=2022-11-28#create-a-blob | @see GitHub API - Create a blob}\n *\n * @param content - 파일의 내용입니다.\n *\n * @returns blob 데이터를 반환합니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "createBlob: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "({\n    content,\n    owner,\n    repo\n  }: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "CreateBlobParams",
+                  "canonicalReference": "@toktokhan-dev/github!CreateBlobParams:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ") => "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise",
+                  "canonicalReference": "!Promise:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "BlobFileData",
+                  "canonicalReference": "@toktokhan-dev/github!BlobFileData:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": ">"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "createBlob",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 8
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@toktokhan-dev/github!GitHubManager#createBranch:member",
+              "docComment": "/**\n * 새 브랜치를 생성하는 메소드입니다. {@link https://docs.github.com/ko/rest/git/refs?apiVersion=2022-11-28#create-a-reference | @see GitHub API - Create a reference}\n *\n * @param branchName - 생성할 브랜치의 이름입니다.\n *\n * @param baseBranchName - 생성할 브랜치의 기준 브랜치 이름입니다. 기본값은 'main'입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "createBranch: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "({\n    branchName,\n    baseBranchName,\n    owner,\n    repo\n  }: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "CreateBranchParams",
+                  "canonicalReference": "@toktokhan-dev/github!CreateBranchParams:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ") => "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise",
+                  "canonicalReference": "!Promise:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<void>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "createBranch",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 6
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@toktokhan-dev/github!GitHubManager#createNewCommit:member",
+              "docComment": "/**\n * 주어진 파일 경로와 내용을 기반으로 새로운 커밋을 생성합니다.\n *\n * @returns 생성된 커밋의 데이터를 반환합니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "createNewCommit: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "({\n    branchName,\n    contents,\n    paths,\n    message,\n    owner,\n    repo\n  }: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "CreateNewCommitParams",
+                  "canonicalReference": "@toktokhan-dev/github!CreateNewCommitParams:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ") => "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise",
+                  "canonicalReference": "!Promise:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<any>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "createNewCommit",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 6
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
               "canonicalReference": "@toktokhan-dev/github!GitHubManager#createRepo:member",
-              "docComment": "/**\n * 새로운 레포지토리를 생성하는 메소드입니다.\n *\n * @param isOrg - 저장소가 조직을 위한 것인지, 인증된 사용자를 위한 것인지를 나타내는 불리언 값입니다. {@link https://docs.github.com/ko/rest/repos/repos?apiVersion=2022-11-28#create-an-organization-repository | @see GitHub API - Create an organization repository} {@link https://docs.github.com/en/rest/repos/repos#create-a-repository-for-the-authenticated-user | @see GitHub API - Create a repository for the authenticated user}\n */\n",
+              "docComment": "/**\n * 새로운 레포지토리를 생성하는 메소드입니다. {@link https://docs.github.com/ko/rest/repos/repos?apiVersion=2022-11-28#create-an-organization-repository | @see GitHub API - Create an organization repository} {@link https://docs.github.com/en/rest/repos/repos#create-a-repository-for-the-authenticated-user | @see GitHub API - Create a repository for the authenticated user}\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -480,7 +1952,16 @@
                 },
                 {
                   "kind": "Content",
-                  "text": "(owner: string, repo: string, isPublic?: boolean) => "
+                  "text": "({\n    isPrivate,\n    owner,\n    repo\n  }: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "CreateRepoParams",
+                  "canonicalReference": "@toktokhan-dev/github!CreateRepoParams:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ") => "
                 },
                 {
                   "kind": "Reference",
@@ -509,6 +1990,54 @@
               "isOptional": false,
               "releaseTag": "Public",
               "name": "createRepo",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 8
+              },
+              "isStatic": false,
+              "isProtected": false,
+              "isAbstract": false
+            },
+            {
+              "kind": "Property",
+              "canonicalReference": "@toktokhan-dev/github!GitHubManager#getCurrentCommit:member",
+              "docComment": "/**\n * 현재 커밋을 가져오는 메소드입니다. {@link https://docs.github.com/en/rest/git/commits?apiVersion=2022-11-28#get-a-commit-object | @see GitHub API - Get a commit object}\n *\n * @param branchName - 기본 브랜치의 이름입니다.\n *\n * @returns 커밋 SHA와 트리 SHA를 포함하는 객체를 반환합니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "getCurrentCommit: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "({\n    branchName,\n    owner,\n    repo\n  }: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "GetCurrentCommitParams",
+                  "canonicalReference": "@toktokhan-dev/github!GetCurrentCommitParams:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ") => "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Promise",
+                  "canonicalReference": "!Promise:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<{\n    commitSha: string;\n    treeSha: string;\n  }>"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "getCurrentCommit",
               "propertyTypeTokenRange": {
                 "startIndex": 1,
                 "endIndex": 6
@@ -576,7 +2105,16 @@
                 },
                 {
                   "kind": "Content",
-                  "text": "(branchName: string) => "
+                  "text": "({\n    branchName,\n    owner,\n    repo\n  }: "
+                },
+                {
+                  "kind": "Reference",
+                  "text": "IsBranchExistParams",
+                  "canonicalReference": "@toktokhan-dev/github!IsBranchExistParams:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": ") => "
                 },
                 {
                   "kind": "Reference",
@@ -598,7 +2136,7 @@
               "name": "isBranchExist",
               "propertyTypeTokenRange": {
                 "startIndex": 1,
-                "endIndex": 4
+                "endIndex": 6
               },
               "isStatic": false,
               "isProtected": false,
@@ -607,7 +2145,7 @@
             {
               "kind": "Property",
               "canonicalReference": "@toktokhan-dev/github!GitHubManager#isRepoExist:member",
-              "docComment": "/**\n * 레포지토리가 존재하는지 확인하는 메소드입니다. {@link https://docs.github.com/ko/rest/repos/repos?apiVersion=2022-11-28#get-a-repository | @see @see GitHub API - Get a repository}\n *\n * @param owner - owner 이름입니다.\n *\n * @param repo - 레포지토리 이름입니다.\n *\n * @returns - 레포지토리가 존재하면 true를 반환합니다.\n */\n",
+              "docComment": "/**\n * 레포지토리가 존재하는지 확인하는 메소드입니다. {@link https://docs.github.com/ko/rest/repos/repos?apiVersion=2022-11-28#get-a-repository | @see @see GitHub API - Get a repository}\n *\n * @returns - 레포지토리가 존재하면 true를 반환합니다.\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -615,7 +2153,7 @@
                 },
                 {
                   "kind": "Content",
-                  "text": "(owner: string, repo: string) => "
+                  "text": "(owner?: string, repo?: string) => "
                 },
                 {
                   "kind": "Reference",
@@ -646,7 +2184,7 @@
             {
               "kind": "Property",
               "canonicalReference": "@toktokhan-dev/github!GitHubManager#publishFilesToNewRepo:member",
-              "docComment": "/**\n * 새로운 레포지토리에 파일을 게시하는 메소드입니다.\n *\n * @param params - 메소드의 매개변수입니다.\n *\n * @param  - params.commitMsg - 커밋 메시지입니다.\n *\n * @param  - [params.branchName='main'] - 브랜치 이름입니다. 기본값은 'main'입니다.\n *\n * @param  - [params.baseBranchName='main'] - 기준이 되는 브랜치 이름입니다. 기본값은 'main'입니다.\n *\n * @param  - params.fileContents - 파일 내용의 배열입니다.\n *\n * @param  - params.relativePaths - 파일 경로의 배열입니다.\n */\n",
+              "docComment": "/**\n * 새로운 레포지토리에 주어진 내용을 게시하는 메소드입니다.\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -654,12 +2192,12 @@
                 },
                 {
                   "kind": "Content",
-                  "text": "(params: "
+                  "text": "({\n    contents,\n    paths,\n    isPrivate,\n    message,\n    branchName,\n    owner,\n    repo\n  }: "
                 },
                 {
                   "kind": "Reference",
-                  "text": "PublishFilesParams",
-                  "canonicalReference": "@toktokhan-dev/github!PublishFilesParams:interface"
+                  "text": "PublishFilesToNewRepoParams",
+                  "canonicalReference": "@toktokhan-dev/github!PublishFilesToNewRepoParams:interface"
                 },
                 {
                   "kind": "Content",
@@ -694,7 +2232,7 @@
             {
               "kind": "Property",
               "canonicalReference": "@toktokhan-dev/github!GitHubManager#removeCollaborator:member",
-              "docComment": "/**\n * 레포지토리에 팀원를 제거하는 메소드입니다. {@link https://docs.github.com/en/rest/collaborators/collaborators?apiVersion=2022-11-28#remove-a-repository-collaborator | @see GitHub API - Remove a repository collaborator}\n *\n * @param params - 제거할 팀원의 정보입니다.\n *\n * @param  - params.username - 제거할 팀원의 사용자 이름입니다.\n *\n * @returns - 비동기 작업이 완료되면 반환됩니다.\n *\n * @throws\n *\n * - 요청이 실패할 경우 에러가 발생할 수 있습니다.\n */\n",
+              "docComment": "/**\n * 레포지토리에 팀원를 제거하는 메소드입니다. {@link https://docs.github.com/en/rest/collaborators/collaborators?apiVersion=2022-11-28#remove-a-repository-collaborator | @see GitHub API - Remove a repository collaborator}\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -702,34 +2240,16 @@
                 },
                 {
                   "kind": "Content",
-                  "text": "(params: "
+                  "text": "({\n    username,\n    owner,\n    repo\n  }: "
                 },
                 {
                   "kind": "Reference",
-                  "text": "Partible",
-                  "canonicalReference": "@toktokhan-dev/github!Partible:type"
+                  "text": "RemoveCollaboratorParams",
+                  "canonicalReference": "@toktokhan-dev/github!RemoveCollaboratorParams:interface"
                 },
                 {
                   "kind": "Content",
-                  "text": "<"
-                },
-                {
-                  "kind": "Reference",
-                  "text": "OctokitParameterType",
-                  "canonicalReference": "@toktokhan-dev/github!OctokitParameterType:type"
-                },
-                {
-                  "kind": "Content",
-                  "text": "<"
-                },
-                {
-                  "kind": "Reference",
-                  "text": "Octokit",
-                  "canonicalReference": "@octokit/rest!Octokit:type"
-                },
-                {
-                  "kind": "Content",
-                  "text": "[\"rest\"][\"repos\"][\"removeCollaborator\"]>, \"repo\" | \"owner\" | \"username\">) => "
+                  "text": ") => "
                 },
                 {
                   "kind": "Reference",
@@ -751,7 +2271,7 @@
               "name": "removeCollaborator",
               "propertyTypeTokenRange": {
                 "startIndex": 1,
-                "endIndex": 10
+                "endIndex": 6
               },
               "isStatic": false,
               "isProtected": false,
@@ -760,7 +2280,7 @@
             {
               "kind": "Property",
               "canonicalReference": "@toktokhan-dev/github!GitHubManager#updateExistRepo:member",
-              "docComment": "/**\n * 기존 레포지토리에 지정된 브랜치로 내용을 업로드(push)해주는 메소드입니다.\n *\n * @param params - 업데이트에 필요한 매개변수입니다.\n */\n",
+              "docComment": "/**\n * 기존 레포지토리에 지정된 브랜치로 주어진 내용을 업로드(push)해주는 메소드입니다.\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -768,12 +2288,12 @@
                 },
                 {
                   "kind": "Content",
-                  "text": "(params: "
+                  "text": "({\n    contents,\n    paths,\n    message,\n    branchName,\n    baseBranchName,\n    owner,\n    repo\n  }: "
                 },
                 {
                   "kind": "Reference",
-                  "text": "UpdateRepoParams",
-                  "canonicalReference": "@toktokhan-dev/github!UpdateRepoParams:interface"
+                  "text": "UpdateExistRepoParams",
+                  "canonicalReference": "@toktokhan-dev/github!UpdateExistRepoParams:interface"
                 },
                 {
                   "kind": "Content",
@@ -834,6 +2354,106 @@
             "startIndex": 1,
             "endIndex": 2
           },
+          "parameters": []
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@toktokhan-dev/github!IsBranchExistParams:interface",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "interface IsBranchExistParams "
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "IsBranchExistParams",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/github!IsBranchExistParams#branchName:member",
+              "docComment": "/**\n * 브랜치 이름입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "branchName: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "branchName",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/github!IsBranchExistParams#owner:member",
+              "docComment": "/**\n * 레포지토리의 소유자입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "owner?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "owner",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/github!IsBranchExistParams#repo:member",
+              "docComment": "/**\n * 레포지토리의 이름입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "repo?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "repo",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": [],
           "parameters": []
         },
         {
@@ -979,27 +2599,63 @@
         },
         {
           "kind": "Interface",
-          "canonicalReference": "@toktokhan-dev/github!PublishFilesParams:interface",
-          "docComment": "/**\n * `PublishFilesParams`는 새로운 레포지토리에 파일을 게시하기 위한 매개변수 타입입니다.\n */\n",
+          "canonicalReference": "@toktokhan-dev/github!PublishFilesToNewRepoParams:interface",
+          "docComment": "",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "interface PublishFilesParams "
+              "text": "interface PublishFilesToNewRepoParams extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "CreateNewCommitParams",
+              "canonicalReference": "@toktokhan-dev/github!CreateNewCommitParams:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " "
             }
           ],
           "fileUrlPath": "dist/index.doc.d.ts",
           "releaseTag": "Public",
-          "name": "PublishFilesParams",
+          "name": "PublishFilesToNewRepoParams",
           "preserveMemberOrder": false,
           "members": [
             {
               "kind": "PropertySignature",
-              "canonicalReference": "@toktokhan-dev/github!PublishFilesParams#baseBranchName:member",
-              "docComment": "/**\n * 기준이 되는 브랜치 이름입니다. 기본값은 'main'입니다.\n */\n",
+              "canonicalReference": "@toktokhan-dev/github!PublishFilesToNewRepoParams#isPrivate:member",
+              "docComment": "/**\n * 게시할 레포지토리의 공개여부입니다.\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
-                  "text": "baseBranchName?: "
+                  "text": "isPrivate: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "boolean"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "isPrivate",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/github!PublishFilesToNewRepoParams#owner:member",
+              "docComment": "/**\n * 레포지토리의 소유자입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "owner?: "
                 },
                 {
                   "kind": "Content",
@@ -1013,7 +2669,7 @@
               "isReadonly": false,
               "isOptional": true,
               "releaseTag": "Public",
-              "name": "baseBranchName",
+              "name": "owner",
               "propertyTypeTokenRange": {
                 "startIndex": 1,
                 "endIndex": 2
@@ -1021,12 +2677,12 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "@toktokhan-dev/github!PublishFilesParams#branchName:member",
-              "docComment": "/**\n * 브랜치 이름입니다. 기본값은 'main'입니다.\n */\n",
+              "canonicalReference": "@toktokhan-dev/github!PublishFilesToNewRepoParams#repo:member",
+              "docComment": "/**\n * 레포지토리의 이름입니다.\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
-                  "text": "branchName?: "
+                  "text": "repo?: "
                 },
                 {
                   "kind": "Content",
@@ -1040,95 +2696,155 @@
               "isReadonly": false,
               "isOptional": true,
               "releaseTag": "Public",
-              "name": "branchName",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            },
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "@toktokhan-dev/github!PublishFilesParams#commitMsg:member",
-              "docComment": "/**\n * 커밋 메시지입니다.\n */\n",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "commitMsg: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "string"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "isReadonly": false,
-              "isOptional": false,
-              "releaseTag": "Public",
-              "name": "commitMsg",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            },
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "@toktokhan-dev/github!PublishFilesParams#fileContents:member",
-              "docComment": "/**\n * 파일 내용의 배열입니다.\n */\n",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "fileContents: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "string[]"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "isReadonly": false,
-              "isOptional": false,
-              "releaseTag": "Public",
-              "name": "fileContents",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            },
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "@toktokhan-dev/github!PublishFilesParams#relativePaths:member",
-              "docComment": "/**\n * 파일 경로의 배열입니다.\n */\n",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "relativePaths: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "string[]"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "isReadonly": false,
-              "isOptional": false,
-              "releaseTag": "Public",
-              "name": "relativePaths",
+              "name": "repo",
               "propertyTypeTokenRange": {
                 "startIndex": 1,
                 "endIndex": 2
               }
             }
           ],
-          "extendsTokenRanges": [],
+          "extendsTokenRanges": [
+            {
+              "startIndex": 1,
+              "endIndex": 2
+            }
+          ],
+          "parameters": []
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@toktokhan-dev/github!RemoveCollaboratorParams:interface",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "interface RemoveCollaboratorParams extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "Omit",
+              "canonicalReference": "!Omit:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "OctokitParameterType",
+              "canonicalReference": "@toktokhan-dev/github!OctokitParameterType:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "Octokit",
+              "canonicalReference": "@octokit/rest!Octokit:type"
+            },
+            {
+              "kind": "Content",
+              "text": "['rest']['repos']['removeCollaborator']>, 'repo' | 'owner' | 'username'>"
+            },
+            {
+              "kind": "Content",
+              "text": " "
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "RemoveCollaboratorParams",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/github!RemoveCollaboratorParams#owner:member",
+              "docComment": "/**\n * 레포지토리의 소유자입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "owner?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "owner",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/github!RemoveCollaboratorParams#repo:member",
+              "docComment": "/**\n * 레포지토리의 이름입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "repo?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "repo",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/github!RemoveCollaboratorParams#username:member",
+              "docComment": "/**\n * 제거할 팀원의 사용자 이름입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "username: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "username",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": [
+            {
+              "startIndex": 1,
+              "endIndex": 7
+            }
+          ],
           "parameters": []
         },
         {
@@ -1160,23 +2876,32 @@
         },
         {
           "kind": "Interface",
-          "canonicalReference": "@toktokhan-dev/github!UpdateRepoParams:interface",
-          "docComment": "/**\n * `UpdateRepoParams`는 기존 레포지토리에 내용을 업데이트하기 위한 매개변수 타입입니다.\n */\n",
+          "canonicalReference": "@toktokhan-dev/github!UpdateExistRepoParams:interface",
+          "docComment": "",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "interface UpdateRepoParams "
+              "text": "interface UpdateExistRepoParams extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "CreateNewCommitParams",
+              "canonicalReference": "@toktokhan-dev/github!CreateNewCommitParams:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " "
             }
           ],
           "fileUrlPath": "dist/index.doc.d.ts",
           "releaseTag": "Public",
-          "name": "UpdateRepoParams",
+          "name": "UpdateExistRepoParams",
           "preserveMemberOrder": false,
           "members": [
             {
               "kind": "PropertySignature",
-              "canonicalReference": "@toktokhan-dev/github!UpdateRepoParams#baseBranchName:member",
-              "docComment": "/**\n * 기본 브랜치 이름입니다. 기본값은 'main'입니다.\n */\n",
+              "canonicalReference": "@toktokhan-dev/github!UpdateExistRepoParams#baseBranchName:member",
+              "docComment": "/**\n * 기본 브랜치 이름입니다. branchName이 현재 레포지토리에 없을경우 새로 생성하기 위해 사용됩니다. 기본값은 'main'입니다.\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -1202,12 +2927,12 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "@toktokhan-dev/github!UpdateRepoParams#branchName:member",
-              "docComment": "/**\n * 브랜치 이름입니다. 기본값은 'design-token'입니다.\n */\n",
+              "canonicalReference": "@toktokhan-dev/github!UpdateExistRepoParams#owner:member",
+              "docComment": "/**\n * 레포지토리의 소유자입니다.\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
-                  "text": "branchName?: "
+                  "text": "owner?: "
                 },
                 {
                   "kind": "Content",
@@ -1221,7 +2946,7 @@
               "isReadonly": false,
               "isOptional": true,
               "releaseTag": "Public",
-              "name": "branchName",
+              "name": "owner",
               "propertyTypeTokenRange": {
                 "startIndex": 1,
                 "endIndex": 2
@@ -1229,67 +2954,12 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "@toktokhan-dev/github!UpdateRepoParams#commitMsg:member",
-              "docComment": "/**\n * 커밋 메시지입니다.\n */\n",
+              "canonicalReference": "@toktokhan-dev/github!UpdateExistRepoParams#repo:member",
+              "docComment": "/**\n * 레포지토리의 이름입니다.\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
-                  "text": "commitMsg: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "string"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "isReadonly": false,
-              "isOptional": false,
-              "releaseTag": "Public",
-              "name": "commitMsg",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            },
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "@toktokhan-dev/github!UpdateRepoParams#content:member",
-              "docComment": "/**\n * 커밋할 내용입니다.\n */\n",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "content: "
-                },
-                {
-                  "kind": "Reference",
-                  "text": "Obj",
-                  "canonicalReference": "@toktokhan-dev/universal!Obj:type"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "isReadonly": false,
-              "isOptional": false,
-              "releaseTag": "Public",
-              "name": "content",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            },
-            {
-              "kind": "PropertySignature",
-              "canonicalReference": "@toktokhan-dev/github!UpdateRepoParams#sourcePath:member",
-              "docComment": "/**\n * 소스 경로입니다. 기본값은 'public/token.json'입니다.\n */\n",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "sourcePath?: "
+                  "text": "repo?: "
                 },
                 {
                   "kind": "Content",
@@ -1303,14 +2973,19 @@
               "isReadonly": false,
               "isOptional": true,
               "releaseTag": "Public",
-              "name": "sourcePath",
+              "name": "repo",
               "propertyTypeTokenRange": {
                 "startIndex": 1,
                 "endIndex": 2
               }
             }
           ],
-          "extendsTokenRanges": [],
+          "extendsTokenRanges": [
+            {
+              "startIndex": 1,
+              "endIndex": 2
+            }
+          ],
           "parameters": []
         }
       ]

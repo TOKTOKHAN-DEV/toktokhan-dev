@@ -15,5 +15,9 @@ slug: /github.githubmanager.removecollaborator
 ## Signature
 
 ```typescript
-removeCollaborator: (params: Partible<OctokitParameterType<Octokit["rest"]["repos"]["removeCollaborator"]>, "repo" | "owner" | "username">) => Promise<void>;
+removeCollaborator: ({
+    username,
+    owner,
+    repo
+  }: RemoveCollaboratorParams) => Promise<void>;
 ```

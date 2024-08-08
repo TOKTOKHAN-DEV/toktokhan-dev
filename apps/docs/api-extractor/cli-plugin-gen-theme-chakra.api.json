@@ -251,8 +251,9 @@
                   "text": "tokenModes: "
                 },
                 {
-                  "kind": "Content",
-                  "text": "{\n    light: string;\n    dark?: string;\n  }"
+                  "kind": "Reference",
+                  "text": "TokenModes",
+                  "canonicalReference": "@toktokhan-dev/cli-plugin-gen-theme-chakra!~TokenModes:type"
                 },
                 {
                   "kind": "Content",
