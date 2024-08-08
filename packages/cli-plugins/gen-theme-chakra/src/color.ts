@@ -1,14 +1,23 @@
-import { createObjBySelector, log, maybe, pass } from '@toktokhan-dev/universal'
+import { createObjBySelector, pass } from '@toktokhan-dev/universal'
 
-import { flow, identity, mapKeys, mapValues, prop, replace } from 'lodash/fp'
+import { flow, mapKeys, mapValues, prop, replace } from 'lodash/fp'
 
-import { ThemeToken, TokenModes } from './type'
+import { ColorModes, ThemeToken } from './type'
 import { assertNullish } from './utils/assert-nullish'
 import { throwError } from './utils/throw-error'
 
-const getColorKey: (str: string) => string = replace(/-/g, '.')
+const getColorKey: (str: string) => string = flow(
+  replace(/\s/g, ''),
+  replace(/-/g, '.'),
+)
 const refColorSchema = (key: string) => `colorSchema["${key}"]`
 
+/**
+ * 주어진 JSON 객체에서 색상 스키마를 추출하고 변환합니다.
+ *
+ * @param json - 색상 스키마가 포함된 ThemeToken 객체입니다.
+ * @returns 변환된 색상 스키마 객체를 반환합니다.
+ */
 const getColorSchemaObj: (
   json: ThemeToken['colors'],
 ) => Record<string, string> = flow(
@@ -22,19 +31,32 @@ const getColorSchemaObj: (
   ),
 )
 
-const checkValidToken = (val: object, tokenModes: TokenModes) => {
+/**
+ * 주어진 값 객체가 유효한 토큰 모드를 가지고 있는지 확인합니다.
+ *
+ * @param val - 확인할 값 객체입니다.
+ * @param tokenModes - 확인할 토큰 모드 객체입니다.
+ */
+const checkValidToken = (val: object, tokenModes: Required<ColorModes>) => {
   if (!(tokenModes['light'] in val)) {
     throwError(
-      `The light key for tokenModes is not found in the semanticTokens objects. You can customize tokenModes in the tok-cli.config.ts file.`,
+      'The light key for "tokenModes" is not found in the semanticTokens objects.',
     )
   }
   if (Object.values(val).length === 2 && !(tokenModes['dark'] in val)) {
     throwError(
-      `The dark key for tokenModes is not found in the semanticTokens objects. You can customize tokenModes in the tok-cli.config.ts file`,
+      `The dark key for "tokenModes" is not found in the semanticTokens objects.`,
     )
   }
   return
 }
+
+/**
+ * 주어진 모드에 따라 토큰 값을 반환합니다.
+ *
+ * @param mode - 토큰 값을 가져올 모드입니다.
+ * @returns 주어진 토큰에 대한 값을 반환하는 함수입니다.
+ */
 const getTokenValue = (mode: string) => (token: any) => {
   const ref = prop(`${mode}.ref`)(token)
   const value = prop(`${mode}.value`)(token)
@@ -42,9 +64,16 @@ const getTokenValue = (mode: string) => (token: any) => {
   return value
 }
 
+/**
+ * 주어진 JSON 객체에서 색상 토큰을 추출하고 변환합니다.
+ *
+ * @param json - 색상 토큰이 포함된 ThemeToken 객체입니다.
+ * @param mode - 색상 모드 객체입니다.
+ * @returns 변환된 색상 토큰 객체를 반환합니다.
+ */
 const getColorTokenObj = (
   json: ThemeToken['colors'],
-  tokenModes: TokenModes,
+  mode: Required<ColorModes>,
 ): Record<string, { default: string; _dark?: string }> =>
   flow(
     pass(json),
@@ -53,23 +82,27 @@ const getColorTokenObj = (
     mapValues(
       flow(
         (identity) => {
-          checkValidToken(identity, tokenModes)
+          checkValidToken(identity, mode)
           return identity
         },
         createObjBySelector({
-          default: getTokenValue(tokenModes['light']),
-          _dark: getTokenValue(tokenModes['dark']),
+          default: getTokenValue(mode['light']),
+          _dark: getTokenValue(mode['dark']),
         }),
       ),
     ),
   )()
 
+/**
+ * 주어진 JSON 객체를 기반으로 색상 스키마와 색상 토큰을 생성하고 렌더링합니다.
+ *
+ * @param json - 색상 스키마와 색상 토큰이 포함된 ThemeToken 객체입니다.
+ * @param tokenModes - 색상 모드 객체입니다.
+ * @returns 렌더링된 색상 스키마와 색상 토큰 문자열을 반환합니다.
+ */
 export const renderColor = (
   json: ThemeToken['colors'],
-  tokenModes: TokenModes = {
-    light: 'light',
-    dark: 'dark',
-  },
+  tokenModes: Required<ColorModes>,
 ): string => {
   const colorSchema = getColorSchemaObj(json)
   const colorToken = getColorTokenObj(json, tokenModes)
@@ -85,7 +118,6 @@ export const renderColor = (
      *
      * @see https://chakra-ui.com/docs/styled-system/semantic-tokens
     **/
-
 
     export const colorSchema = ${JSON.stringify(colorSchema, null, 2)}
 

@@ -6,7 +6,7 @@ import { generateCodeFile, json } from '@toktokhan-dev/node'
 
 import { renderColor } from './color'
 import { renderTextStyle } from './text-style'
-import { ThemeToken } from './type'
+import { ThemeToken, TokenModes } from './type'
 
 /**
  * theme json 파일기반으로 `Chakra theme token`을 생성합니다.
@@ -29,10 +29,7 @@ export interface GenColorConfig {
   /**
    * chakra Semantic token color mode의 키 값을 지정할 수 있습니다.
    */
-  tokenModes: {
-    light: string
-    dark?: string
-  }
+  tokenModes: TokenModes
 }
 
 /**
@@ -45,7 +42,9 @@ export const genTheme = defineCommand<'gen:theme', GenColorConfig>({
   default: {
     input: path.resolve('public', 'token.json'),
     output: path.resolve('src', 'generated', 'tokens'),
-    tokenModes: { light: 'light', dark: 'dark' },
+    tokenModes: {
+      colors: { light: 'light', dark: 'dark' },
+    },
   },
   cliOptions: [
     {
@@ -67,12 +66,15 @@ export const genTheme = defineCommand<'gen:theme', GenColorConfig>({
     }
 
     const token = json<ThemeToken>(config.input)
+    const colorMode = config.tokenModes?.colors
+    const textStyleMode = config.tokenModes?.textStyles
 
     const color = renderColor(token.colors, {
-      light: config.tokenModes?.light || 'light',
-      dark: config.tokenModes?.dark || 'dark',
+      light: colorMode?.light || 'light',
+      dark: colorMode?.dark || 'dark',
     })
-    const textStyle = renderTextStyle(token.textStyles)
+
+    const textStyle = renderTextStyle(token.textStyles, textStyleMode || {})
     generateCodeFile(
       {
         outputPath: path.resolve(config.output, 'colors.ts'),

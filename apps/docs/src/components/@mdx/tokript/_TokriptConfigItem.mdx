@@ -6,6 +6,7 @@ import CodeBlock from '@theme/CodeBlock'
 - Type: <>{props.typeLang ? <CodeBlock language={props.typeLang}>{props.type}</CodeBlock> :<code>{props.type}</code>}</>
 - Default: <>{props.typeLang ? <CodeBlock language={props.typeLang}>{props.default}</CodeBlock> :<code>{props.default}</code>}</>
 - Cli Option:{props.cliOpt ? <><code>--{props.optName}</code></> : <> <code>-</code> </>} {props.cliOptAlias && <><code>-{props.cliOptAlias}</code></>}
+{props.extra}
 {props.desc}
 
 #### config

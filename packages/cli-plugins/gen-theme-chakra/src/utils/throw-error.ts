@@ -1,3 +1,11 @@
-export const throwError = (message: string): never => {
-  throw new Error(`\x1b[31m⚠️ Tokript Error: ${message} ⚠️\x1b[0m`)
+import { boxLog } from '@toktokhan-dev/node'
+
+export const throwError = (message: string) => {
+  throw boxLog(
+    [
+      `${message} You can customize "tokenModes" in the "tok-cli.config.ts" file.`,
+      `@see https://toktokhan-dev-docs.vercel.app/docs/docs/tokript/Offical%20Plugins/gen-theme-chakra#tokenmode`,
+    ],
+    { title: 'Message from tokript' },
+  )
 }

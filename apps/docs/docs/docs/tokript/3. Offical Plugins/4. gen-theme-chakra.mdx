@@ -63,8 +63,24 @@ theme json 은 Toktoken 피그마 플러그인에서 제공하는 json 파일입
       "fontWeight": 800,
       "fontFamily": "Pretendard Variable",
       "fontSize": "120px",
-      "lineHeight": "139.9999976158142%",
+      "lineHeight": "140%",
       "letterSpacing": "-2%",
+      "textDecoration": "none"
+    },
+    "pre-display-02": {
+      "fontWeight": 800,
+      "fontFamily": "Pretendard Variable",
+      "fontSize": {
+        "mobile": "72px",
+        "tablet": "80px",
+        "pc": "90px"
+      },
+      "lineHeight": {
+        "mobile": "120%",
+        "tablet": "130%",
+        "pc": "140%"
+      },
+      "letterSpacing": "-1%",
       "textDecoration": "none"
     },
     ...
@@ -115,20 +131,29 @@ export const colors = {
  **/
 
 export const textStyles = {
-  'pre-display-01': {
+   'pre.display.01': {
+    fontWeight: 800,
+    fontFamily: 'Pretendard Variable',
+    fontSize: '120px',
+    lineHeight: '140%',
+    letterSpacing: '-2%',
+    textDecoration: 'none',
+  },
+  
+  'pre.display.02': {
     fontWeight: 800,
     fontFamily: 'Pretendard Variable',
     fontSize: {
-      base: '48px',
+      base: '72px',
       sm: '80px',
-      md: '80px',
+      md: '90px',
     },
     lineHeight: {
-      base: '150%',
-      sm: '139.9999976158142%',
-      md: '139.9999976158142%',
+      base: '120%',
+      sm: '130%',
+      md: '140%',
     },
-    letterSpacing: '-0.02em',
+    letterSpacing: '-1%',
     textDecoration: 'none',
   },
   ...
@@ -183,18 +208,36 @@ export const textStyles = {
   cliOptAlias="o"
 />
 
+
 ### tokenMode
 
 <TokriptConfigItem
   command="gen:theme"
   optName="tokenMode"
   desc="Semantic token color mode의 키 값을 지정할 수 있습니다."
-  type="{light: string, dark?: string}"
-  default="{light: 'light', dark: 'dark'}"
-  exampleValue="{light: 'mode_1', dark: 'mode_2'}"
+  type="{colors?: ColorModes; textStyles?: TextStyleModes;}"
+  default="{colors: { light: 'light', dark: 'dark' }}"
+  exampleValue="{ 
+  colors: { light: 'mode_1', dark: 'mode_2' }, 
+  textStyles: { base: 'mobile', sm: 'tablet', md: 'pc' }
+  }"
+  extra={
+    <CodeBlock title={"types"} language="ts">
+  {
+  `type ColorModes = {
+    light: string
+    dark?: string
+  }
+type TextStyleModes = Partial<Record<BreakPoints, string>>
+type BreakPoints = 'base' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'`
+  }
+</CodeBlock>
+}
 />
 
-추출된 theme.json 의 `colorMode`에 따른 키값을 지정할 수 있습니다.
+추출된 theme.json 에서 colors `colorMode`, text style의 `중단점(breakpoints)`에 따른 키값을 지정할 수 있습니다.
+
+
 
 <CodeBlock title={"theme.json"} language="ts">
   {`"colors" : {
@@ -212,7 +255,50 @@ export const textStyles = {
         "ref": "grey-600",
         "value": "#ececec"
       }
+    },
+    "textStyles": {
+      ...,
+      "pre-display-02": {
+        "fontWeight": 800,
+        "fontFamily": "Pretendard Variable",
+        // tokenMode를 통해 breakPoint에 맞게 지정할 수 있습니다. 객체가 아닌경우는 값을 그대로 리턴합니다.
+        "fontSize": { 
+          "mobile": "72px", 
+          "tablet": "80px",
+          "pc": "90px"
+        },
+        "lineHeight": {
+          "mobile": "120%",
+          "tablet": "130%",
+          "pc": "140%"
+        },
+        "letterSpacing": "-1%",
+        "textDecoration": "none"
+      },
     }
+
   } 
 }`}
 </CodeBlock>
+
+:::info semanticToken인데, 참조하는 값(variable)이 없는 이유가 뭔가요?
+일반적으로 Semantic Token은 기본 색상(예: grey.500)을 참조하여 해당 색상값(예: #8f8f8f)을 가져옵니다. 하지만 디자인과 개발이 병렬적으로 진행되는 상황에서는, 디자인 단계에서 임의로 컬러 값을 지정해야 할 때가 있습니다. 이러한 경우, 해당 토큰에는 참조 값이 존재하지 않으며, 직접 지정한 값만 들어가게 됩니다. 이는 디자인과 개발 간의 유연성을 제공하기 위한 조치입니다.
+<CodeBlock title="semantic token이 참조하는 값이 없을 경우">
+{`
+"background-test": {
+    "light": {
+      "id": null,
+      "refId": null,
+      "ref": null,
+      "value": "#ffffff"
+    },
+    "dark": {
+      "id": "VariableID:4966:1337",
+      "refId": "VariableID:43:1458",
+      "ref": "violet-200",
+      "value": "#b8acf6"
+    }
+},
+`}
+</CodeBlock>
+:::
