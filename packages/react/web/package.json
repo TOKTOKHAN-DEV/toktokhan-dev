@@ -1,6 +1,6 @@
 {
   "name": "@toktokhan-dev/react-web",
-  "version": "0.0.19",
+  "version": "0.0.20",
   "description": "A utility library for global use in React Web environments.",
   "author": "TOKTOKHAN.DEV <fe-system@toktokhan.dev>",
   "license": "ISC",

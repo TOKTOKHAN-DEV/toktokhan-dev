@@ -1,5 +1,12 @@
 # @toktokhan-dev/zustand-create-store-context
 
+## 0.0.3
+
+### Patch Changes
+
+- Updated dependencies [94e2b25]
+  - @toktokhan-dev/universal@0.0.8
+
 ## 0.0.2
 
 ### Patch Changes

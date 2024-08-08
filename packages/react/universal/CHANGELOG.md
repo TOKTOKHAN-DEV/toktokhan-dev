@@ -1,5 +1,16 @@
 # @toktokhan-dev/react-universal
 
+## 0.0.9
+
+### Patch Changes
+
+- 98ee403: add LICENSE, README, improve package.json
+
+  각 패키지별 LICENSE 와 README 파일을 추가하고, Package.json 을 개선했습니다.
+
+- Updated dependencies [94e2b25]
+  - @toktokhan-dev/universal@0.0.8
+
 ## 0.0.8
 
 ### Patch Changes

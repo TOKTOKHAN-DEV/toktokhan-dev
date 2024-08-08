@@ -1,5 +1,12 @@
 # @toktokhan-dev/rollup-config
 
+## 0.0.9
+
+### Patch Changes
+
+- Updated dependencies [94e2b25]
+  - @toktokhan-dev/node@0.0.9
+
 ## 0.0.8
 
 ### Patch Changes

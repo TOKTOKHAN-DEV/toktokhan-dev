@@ -1,6 +1,6 @@
 {
   "name": "@toktokhan-dev/cli",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "A CLI tool built by TOKTOKHAN.DEV",
   "author": "TOKTOKHAN.DEV <fe-system@toktokhan.dev>",
   "license": "ISC",

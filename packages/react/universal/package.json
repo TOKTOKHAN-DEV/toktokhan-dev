@@ -1,6 +1,6 @@
 {
   "name": "@toktokhan-dev/react-universal",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "A utility library for global use in React environments.",
   "author": "TOKTOKHAN.DEV <fe-system@toktokhan.dev>",
   "license": "ISC",
