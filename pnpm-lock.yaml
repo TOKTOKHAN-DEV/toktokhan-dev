@@ -258,10 +258,10 @@ importers:
         version: 0.32.11
     devDependencies:
       '@figma/eslint-plugin-figma-plugins':
-        specifier: '*'
+        specifier: ^0.15.0
         version: 0.15.0(eslint@8.57.0)
       '@figma/plugin-typings':
-        specifier: '*'
+        specifier: ^1.97.0
         version: 1.97.0
       '@toktokhan-dev/node':
         specifier: workspace:*

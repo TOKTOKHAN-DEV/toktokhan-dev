@@ -14,8 +14,8 @@
   "author": "",
   "license": "",
   "devDependencies": {
-    "@figma/eslint-plugin-figma-plugins": "*",
-    "@figma/plugin-typings": "*",
+    "@figma/eslint-plugin-figma-plugins": "^0.15.0",
+    "@figma/plugin-typings": "^1.97.0",
     "@toktokhan-dev/node": "workspace:*",
     "@toktokhan-dev/ts-config": "workspace:*",
     "@types/lodash": "^4.17.0",
