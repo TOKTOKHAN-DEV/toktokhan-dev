@@ -1,5 +1,11 @@
 # @toktokhan-dev/tokit
 
+## 0.0.14
+
+### Patch Changes
+
+- bde73ba: template 다운받을 때 ./scripts 경로 삭제해줍니다.
+
 ## 0.0.13
 
 ### Patch Changes
