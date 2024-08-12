@@ -91,35 +91,37 @@ pnpm add(or add -D) ${pkgList}
   },
 ]
 
-async function sendToWebhook(url: string, data: any): Promise<void> {
-  try {
-    const response = await fetch(url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    })
-    if (!response.ok) {
-      throw new Error(`fetch error! status: ${response.status}`)
-    }
-  } catch (error) {
-    console.error(`Error in sendToWebhook:`, error)
-    throw error
-  }
-}
 const content = {
   unfurl_links: false,
   blocks: [...title, ...body, ...notes],
 }
-async function notifySlack(content: any) {
-  try {
-    await sendToWebhook(WEBHOOK_URL, content)
-    // await sendToWebhook(WEBHOOK_URL, body)
-    // await sendToWebhook(WEBHOOK_URL, notes)
-  } catch (error) {
-    console.error('Error in notifySlack:', error)
+namespace ToktokhanDevRepo {
+  export async function sendToWebhook(url: string, data: any): Promise<void> {
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      })
+      if (!response.ok) {
+        throw new Error(`fetch error! status: ${response.status}`)
+      }
+    } catch (error) {
+      console.error(`Error in sendToWebhook:`, error)
+      throw error
+    }
+  }
+
+  export async function notifySlack(content: any) {
+    try {
+      await sendToWebhook(WEBHOOK_URL, content)
+      // await sendToWebhook(WEBHOOK_URL, body)
+      // await sendToWebhook(WEBHOOK_URL, notes)
+    } catch (error) {
+      console.error('Error in notifySlack:', error)
+    }
   }
 }
-
-notifySlack(content)
+ToktokhanDevRepo.notifySlack(content)
