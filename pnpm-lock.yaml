@@ -1182,14 +1182,14 @@ importers:
         specifier: ^5.45.1
         version: 5.51.16(@tanstack/react-query@5.51.16)(react@18.3.1)
       '@toktokhan-dev/react-universal':
-        specifier: 0.0.7
-        version: 0.0.7(react-dom@18.3.1)(scheduler@0.23.2)
+        specifier: 0.0.9
+        version: link:../../packages/react/universal
       '@toktokhan-dev/react-web':
-        specifier: 0.0.18
-        version: 0.0.18(scheduler@0.23.2)
+        specifier: 0.0.20
+        version: link:../../packages/react/web
       '@toktokhan-dev/universal':
-        specifier: 0.0.6
-        version: 0.0.6
+        specifier: 0.0.8
+        version: link:../../packages/universal
       axios:
         specifier: ^1.7.2
         version: 1.7.2
@@ -1249,26 +1249,26 @@ importers:
         specifier: ^16.0.0
         version: 16.0.0(@testing-library/dom@10.3.1)(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1)(react@18.3.1)
       '@toktokhan-dev/cli':
-        specifier: ^0.0.8
-        version: 0.0.8(esbuild@0.23.0)
+        specifier: ^0.0.10
+        version: link:../../packages/cli
       '@toktokhan-dev/cli-plugin-commit':
-        specifier: 0.0.7
-        version: 0.0.7(esbuild@0.23.0)
+        specifier: 0.0.9
+        version: link:../../packages/cli-plugins/commit
       '@toktokhan-dev/cli-plugin-gen-api-react-query':
-        specifier: 0.0.14
-        version: 0.0.14(esbuild@0.23.0)(prettier@3.3.2)(typescript@5.5.3)
+        specifier: 0.0.16
+        version: link:../../packages/cli-plugins/gen-api-react-query
       '@toktokhan-dev/cli-plugin-gen-icon-chakra':
-        specifier: 0.0.8
-        version: 0.0.8(esbuild@0.23.0)
+        specifier: 0.0.10
+        version: link:../../packages/cli-plugins/gen-icon-chakra
       '@toktokhan-dev/cli-plugin-gen-img':
-        specifier: 0.0.8
-        version: 0.0.8(esbuild@0.23.0)
+        specifier: 0.0.10
+        version: link:../../packages/cli-plugins/gen-img
       '@toktokhan-dev/cli-plugin-gen-route-pages':
-        specifier: 0.0.8
-        version: 0.0.8(esbuild@0.23.0)
+        specifier: 0.0.11
+        version: link:../../packages/cli-plugins/gen-route-pages
       '@toktokhan-dev/cli-plugin-gen-theme-chakra':
-        specifier: 0.0.8
-        version: 0.0.8(esbuild@0.23.0)
+        specifier: 0.0.12
+        version: link:../../packages/cli-plugins/gen-theme-chakra
       '@toktokhan-dev/eslint-config':
         specifier: 0.0.2
         version: link:../../configs/eslint
@@ -7411,19 +7411,6 @@ packages:
       - esbuild
     dev: true
 
-  /@toktokhan-dev/cli-plugin-commit@0.0.7(esbuild@0.23.0):
-    resolution: {integrity: sha512-BXhAsmvCv9SeVky2uKXHDmAvG5D6sWpWq2JP6aFQ1DiyvgB38wSe4xRKrMdchrBZXhxNV/qjBlYaMA0SVKj2qA==}
-    dependencies:
-      '@toktokhan-dev/cli': 0.0.8(esbuild@0.23.0)
-      '@toktokhan-dev/node': 0.0.7
-      '@toktokhan-dev/universal': 0.0.6
-      clear: 0.1.0
-      enquirer: 2.4.1
-      lodash: 4.17.21
-    transitivePeerDependencies:
-      - esbuild
-    dev: true
-
   /@toktokhan-dev/cli-plugin-gen-api-react-query@0.0.11(esbuild@0.23.0)(prettier@3.3.2)(typescript@5.5.3):
     resolution: {integrity: sha512-VYeVpNjmQ0FYvtZJifFUprmyY85ycEXyw/Sejd1CpPD9AMWznO0lEZkXJlAes55Qt5+x8yypZ+1iiDbpZXuvIQ==}
     dependencies:
@@ -7442,37 +7429,6 @@ packages:
       - typescript
     dev: true
 
-  /@toktokhan-dev/cli-plugin-gen-api-react-query@0.0.14(esbuild@0.23.0)(prettier@3.3.2)(typescript@5.5.3):
-    resolution: {integrity: sha512-QTygJBPT9ZSvIlNCi9y1whsCftu/8iT1cZW/gJxs9Gj2g4q04eXvpxqIelAZ2Q0SkEW3rC7TaSBJcDJKNMmZUA==}
-    dependencies:
-      '@toktokhan-dev/cli': 0.0.8(esbuild@0.23.0)
-      '@toktokhan-dev/node': 0.0.7
-      eta: 3.4.0
-      lodash: 4.17.21
-      prettier-plugin-organize-imports: 3.2.4(prettier@3.3.2)(typescript@5.5.3)
-      swagger-typescript-api: 13.0.12
-    transitivePeerDependencies:
-      - '@volar/vue-language-plugin-pug'
-      - '@volar/vue-typescript'
-      - encoding
-      - esbuild
-      - prettier
-      - typescript
-    dev: true
-
-  /@toktokhan-dev/cli-plugin-gen-icon-chakra@0.0.8(esbuild@0.23.0):
-    resolution: {integrity: sha512-ZAjGnSzaVTLO/zhCsSQgPxba3HKSHvCyarEW+wJSkIN8QLXgTostQPg+Coe02KlTl/hY8MKaG8pnTz97j8x5Ow==}
-    dependencies:
-      '@toktokhan-dev/cli': 0.0.8(esbuild@0.23.0)
-      '@toktokhan-dev/node': 0.0.7
-      '@toktokhan-dev/universal': 0.0.6
-      eta: 3.4.0
-      lodash: 4.17.21
-      svgson: 5.3.1
-    transitivePeerDependencies:
-      - esbuild
-    dev: true
-
   /@toktokhan-dev/cli-plugin-gen-img@0.0.4(esbuild@0.23.0):
     resolution: {integrity: sha512-RaWtU6uyUSVGTm/6qy56gtxp33zu7I4ifZYoyh+dRRi1ANzU24W7s1q+/n6S8Mi0Scrco6oIGJfdDme8eHS0HQ==}
     dependencies:
@@ -7485,46 +7441,12 @@ packages:
       - esbuild
     dev: true
 
-  /@toktokhan-dev/cli-plugin-gen-img@0.0.8(esbuild@0.23.0):
-    resolution: {integrity: sha512-CbSwdZtzo7c/+hmf3pneqiEgi8K377vuK4CFHNUtR+yOC6JSHmTb5OaEstnWG949+a4788d+Jifb4oS9ARUw9w==}
-    dependencies:
-      '@toktokhan-dev/cli': 0.0.8(esbuild@0.23.0)
-      '@toktokhan-dev/node': 0.0.7
-      '@toktokhan-dev/universal': 0.0.6
-      eta: 3.4.0
-      lodash: 4.17.21
-    transitivePeerDependencies:
-      - esbuild
-    dev: true
-
-  /@toktokhan-dev/cli-plugin-gen-route-pages@0.0.8(esbuild@0.23.0):
-    resolution: {integrity: sha512-/cp0jrgVeY07scSGIxRhd+PJdZRZHu00YLfHuU5RGU777Xn05luN4Lq20rGatMvygcq7W3WPUtXv6LsWmiF2eg==}
-    dependencies:
-      '@toktokhan-dev/cli': 0.0.8(esbuild@0.23.0)
-      '@toktokhan-dev/node': 0.0.7
-      '@toktokhan-dev/universal': 0.0.6
-      lodash: 4.17.21
-    transitivePeerDependencies:
-      - esbuild
-    dev: true
-
   /@toktokhan-dev/cli-plugin-gen-theme-chakra@0.0.4(esbuild@0.23.0):
     resolution: {integrity: sha512-stF/Q+RcfjEj4UILdsuYzrYZxcKJBk3dyZVCgmkeQ8gEzyE/zlQGTQa9wgUqHeweH2nhrLIn975x5XGIRUfNyA==}
     dependencies:
       '@toktokhan-dev/cli': 0.0.4(esbuild@0.23.0)
       '@toktokhan-dev/node': 0.0.3
       '@toktokhan-dev/universal': 0.0.3
-      lodash: 4.17.21
-    transitivePeerDependencies:
-      - esbuild
-    dev: true
-
-  /@toktokhan-dev/cli-plugin-gen-theme-chakra@0.0.8(esbuild@0.23.0):
-    resolution: {integrity: sha512-HjRsAS6q8RlkAB02gaeCbpgjs3y3P4T6NNNF3OM1Va3oDt/sO516v5blIUjRbvJMvc8H3/JL7HWQX9SMkeTR+A==}
-    dependencies:
-      '@toktokhan-dev/cli': 0.0.8(esbuild@0.23.0)
-      '@toktokhan-dev/node': 0.0.7
-      '@toktokhan-dev/universal': 0.0.6
       lodash: 4.17.21
     transitivePeerDependencies:
       - esbuild
@@ -7555,25 +7477,6 @@ packages:
     dependencies:
       '@toktokhan-dev/node': 0.0.5
       '@toktokhan-dev/universal': 0.0.4
-      '@types/figlet': 1.5.8
-      bundle-require: 4.2.1(esbuild@0.23.0)
-      chalk: 5.3.0
-      clear: 0.1.0
-      commander: 12.1.0
-      enquirer: 2.4.1
-      figlet: 1.7.0
-      joycon: 3.1.1
-      lodash: 4.17.21
-    transitivePeerDependencies:
-      - esbuild
-    dev: true
-
-  /@toktokhan-dev/cli@0.0.8(esbuild@0.23.0):
-    resolution: {integrity: sha512-8TnYKiCsbNWOS/5v36ln13RDolGzKhNBUXYafC3l3ywPecY1ZOa3l1zEAS0BN8mvM5m/nXRP2uSVQ042MoBZrg==}
-    hasBin: true
-    dependencies:
-      '@toktokhan-dev/node': 0.0.7
-      '@toktokhan-dev/universal': 0.0.6
       '@types/figlet': 1.5.8
       bundle-require: 4.2.1(esbuild@0.23.0)
       chalk: 5.3.0
@@ -7619,45 +7522,11 @@ packages:
       yaml: 2.4.5
     dev: true
 
-  /@toktokhan-dev/node@0.0.7:
-    resolution: {integrity: sha512-G6zGAp9MkkpYNi4SxetR7TwgCWvUJ2U7U1ase51Hr+j3t3TX1oPxzx+w7oRXlRbKpSMq9tT6X2NUkoZLCIv45Q==}
-    dependencies:
-      '@toktokhan-dev/universal': 0.0.6
-      boxen: 7.1.1
-      chalk: 5.3.0
-      eta: 3.4.0
-      execa: 8.0.1
-      globby: 13.2.2
-      lodash: 4.17.21
-      minimatch: 9.0.5
-      ora: 8.0.1
-      prettier: 3.3.2
-      yaml: 2.4.5
-    dev: true
-
   /@toktokhan-dev/react-universal@0.0.4(react-dom@18.3.1)(scheduler@0.23.2):
     resolution: {integrity: sha512-cGE6eUTbnCWlTLHeHOz5BR8CzR9jkWQ4DLErQyhFMkzwROgN49wNlN2+bsrX6WbECOQifttmC7qHFlQO16tKfw==}
     dependencies:
       '@tanstack/react-query': 4.36.1(react-dom@18.3.1)(react@18.3.1)
       '@toktokhan-dev/universal': 0.0.4
-      axios: 1.7.2
-      csstype: 3.1.3
-      dayjs: 1.11.11
-      immer: 10.1.1
-      react: 18.3.1
-      use-context-selector: 1.4.4(react-dom@18.3.1)(react@18.3.1)(scheduler@0.23.2)
-    transitivePeerDependencies:
-      - debug
-      - react-dom
-      - react-native
-      - scheduler
-    dev: false
-
-  /@toktokhan-dev/react-universal@0.0.7(react-dom@18.3.1)(scheduler@0.23.2):
-    resolution: {integrity: sha512-gy/+1BC9iUaAtYSbTBwpBeS1066F0T6sbwy8+0eQ0KWXJktEgrvTWrLIENCodvu+HXwSBQI+g9m33rjPUMRFRw==}
-    dependencies:
-      '@tanstack/react-query': 4.36.1(react-dom@18.3.1)(react@18.3.1)
-      '@toktokhan-dev/universal': 0.0.6
       axios: 1.7.2
       csstype: 3.1.3
       dayjs: 1.11.11
@@ -7688,22 +7557,6 @@ packages:
       - scheduler
     dev: false
 
-  /@toktokhan-dev/react-web@0.0.18(scheduler@0.23.2):
-    resolution: {integrity: sha512-qKl38OXBNLW1hB85kmiN8OmACfk3Yk3qGnLDZsu+/nVW4T40r4r+ZcVLoykMG9v6fciuMQKteg357g5wTue5Tw==}
-    dependencies:
-      '@toktokhan-dev/react-universal': 0.0.7(react-dom@18.3.1)(scheduler@0.23.2)
-      '@toktokhan-dev/universal': 0.0.6
-      dayjs: 1.11.11
-      lodash: 4.17.21
-      react: 18.3.1
-      react-cookie: 7.1.4(react@18.3.1)
-      react-dom: 18.3.1(react@18.3.1)
-    transitivePeerDependencies:
-      - debug
-      - react-native
-      - scheduler
-    dev: false
-
   /@toktokhan-dev/universal@0.0.3:
     resolution: {integrity: sha512-BWmTtNMacz5eIHGt2SErPBxp31Jg8SQOsHDADiA/VswYxi7OYWB15MOsBmOfxJgSEuKZfJM/U70GWWjOyWYnug==}
     dependencies:
@@ -7712,11 +7565,6 @@ packages:
 
   /@toktokhan-dev/universal@0.0.4:
     resolution: {integrity: sha512-5tzXewtIlyXyD99cEgh1ebyyeyLgVU8s9DKFVf7NyXA85WDUAY95PmN/kWkfqw6UC9uLFj4SyDr4pRcQXbDqJw==}
-    dependencies:
-      lodash: 4.17.21
-
-  /@toktokhan-dev/universal@0.0.6:
-    resolution: {integrity: sha512-qDMu0BMFbcgEOf820x8mrQfsnNL0WnKq8roqwtWcjXgjEio7PvXccY9YJgncONYr/2WCPWa8wSrJrPOtbNM9eQ==}
     dependencies:
       lodash: 4.17.21
 
@@ -10272,6 +10120,7 @@ packages:
     dependencies:
       kind-of: 3.2.2
       rename-keys: 1.2.0
+    dev: false
 
   /deepmerge@4.3.1:
     resolution: {integrity: sha512-3sUqbMEc77XqpdNO7FRyRog+eW3ph+GYCbj+rK+uYyRMuwsVy0rMiVtPn+QJlKFvWP/1PYpapqYn0Me2knFn+A==}
@@ -11126,6 +10975,7 @@ packages:
 
   /eventemitter3@2.0.3:
     resolution: {integrity: sha512-jLN68Dx5kyFHaePoXWPsCGW5qdyZQtLYHkxkg02/Mz6g0kYpDx4FyP6XfArhQdlOC4b8Mv+EMxPo/8La7Tzghg==}
+    dev: false
 
   /eventemitter3@4.0.7:
     resolution: {integrity: sha512-8guHBZCwKnFhYdHr2ysuRWErTwhoN2X8XELRlrRwpmfeY2jjuUN4taQMsULKUVo1K4DvZl+0pgfyoysHxvmvEw==}
@@ -12458,6 +12308,7 @@ packages:
 
   /is-buffer@1.1.6:
     resolution: {integrity: sha512-NcdALwpXkTm5Zvvbk7owOUSvVvBKDgKP5/ewfXEznmQFfs4ZRmanOeKBTjRVjka3QFoN6XJ+9F3USqfHqTaU5w==}
+    dev: false
 
   /is-builtin-module@3.2.1:
     resolution: {integrity: sha512-BSLE3HnV2syZ0FK0iMA/yUGplUeMmNz4AW5fnTunbCIqZi4vG3WjJT9FHMy5D69xmAYBHXQhJdALdpwVxV501A==}
@@ -13558,6 +13409,7 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       is-buffer: 1.1.6
+    dev: false
 
   /kind-of@6.0.3:
     resolution: {integrity: sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw==}
@@ -16518,6 +16370,7 @@ packages:
   /rename-keys@1.2.0:
     resolution: {integrity: sha512-U7XpAktpbSgHTRSNRrjKSrjYkZKuhUukfoBlXWXUExCAqhzh1TU3BDRAfJmarcl5voKS+pbKU9MvyLWKZ4UEEg==}
     engines: {node: '>= 0.8.0'}
+    dev: false
 
   /renderkid@3.0.0:
     resolution: {integrity: sha512-q/7VIQA8lmM1hF+jn+sFSPWGlMkSAeNYcPLmDQx2zzuiDfaLrOmumR8iaUKlenFgh0XRPIUeSPlH3A+AW3Z5pg==}
@@ -17505,6 +17358,7 @@ packages:
     dependencies:
       deep-rename-keys: 0.2.1
       xml-reader: 2.4.3
+    dev: false
 
   /swagger-schema-official@2.0.0-bab6bed:
     resolution: {integrity: sha512-rCC0NWGKr/IJhtRuPq/t37qvZHI/mH4I4sxflVM+qgVe5Z2uOCivzWaVbuioJaB61kvm5UvB7b49E+oBY0M8jA==}
@@ -18865,6 +18719,7 @@ packages:
     resolution: {integrity: sha512-G0i98epIwiUEiKmMcavmVdhtymW+pCAohMRgybyIME9ygfVu8QheIi+YoQh3ngiThsT0SQzJT4R0sKDEv8Ou0w==}
     dependencies:
       eventemitter3: 2.0.3
+    dev: false
 
   /xml-name-validator@4.0.0:
     resolution: {integrity: sha512-ICP2e+jsHvAj2E2lIHxa5tjXRlKDJo4IdvPvCXbXQGdzSfmSpNVyIKMvoZHjDY9DP0zV17iI85o90vRFXNccRw==}
@@ -18881,6 +18736,7 @@ packages:
     dependencies:
       eventemitter3: 2.0.3
       xml-lexer: 0.2.2
+    dev: false
 
   /xmlchars@2.2.0:
     resolution: {integrity: sha512-JZnDKK8B0RCDw84FNdDAIpZK+JuJw+s7Lz8nksI7SIuU3UXJJslUthsi+uWBUYOwPFwW7W7PRLRfUKpxjtjFCw==}
