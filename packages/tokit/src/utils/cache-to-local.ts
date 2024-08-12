@@ -44,6 +44,11 @@ export async function cacheToLocal(config: InitialQuestionResponse) {
     const changesetPath = path.resolve(config.pathname, '.changeset')
     fs.rmSync(changesetPath, { recursive: true })
   })()
+  // remove scripts
+  ;(() => {
+    const changesetPath = path.resolve(config.pathname, '.scripts')
+    fs.rmSync(changesetPath, { recursive: true })
+  })()
 
   // modify package.json scripts
   const modifyScripts = (scripts: Record<string, string>) => {
