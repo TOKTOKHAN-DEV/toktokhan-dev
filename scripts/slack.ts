@@ -7,9 +7,9 @@ const pkgs: Pkgs = JSON.parse(publishPackages)
 
 const DOMAIN = 'https://github.com/TOKTOKHAN-DEV/toktokhan-dev'
 
-const WEBHOOK_URL =
-  // 'https://hooks.slack.com/services/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' ||
-  process.env.SLACK_WEBHOOK_URL
+const WEBHOOK_URL = process.env.SLACK_WEBHOOK_URL || ''
+// const WEBHOOK_URL =
+//   process.env.TEST_SLACK_WEBHOOK_URL || process.env.SLACK_WEBHOOK_URL
 
 if (!WEBHOOK_URL) throw new Error('WEBHOOK_URL is missing or not configured.')
 

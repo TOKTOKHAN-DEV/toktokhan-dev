@@ -1181,9 +1181,6 @@ importers:
       '@tanstack/react-query-devtools':
         specifier: ^5.45.1
         version: 5.51.16(@tanstack/react-query@5.51.16)(react@18.3.1)
-      '@toktokhan-dev/github':
-        specifier: workspace:^
-        version: link:../../packages/github
       '@toktokhan-dev/react-universal':
         specifier: 0.0.9
         version: link:../../packages/react/universal
