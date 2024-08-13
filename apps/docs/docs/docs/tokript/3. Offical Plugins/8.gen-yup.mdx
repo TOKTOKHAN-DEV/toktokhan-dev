@@ -1,0 +1,59 @@
+import Installations from '@site/src/components/@mdx/_Installation.mdx'
+
+import TokriptConfigItem from '@site/src/components/@mdx/tokript/_TokriptConfigItem.mdx'
+import TokriptRunScript from '@site/src/components/@mdx/tokript/_TokriptRunScript.mdx'
+import TokriptConfigExample from '@site/src/components/@mdx/tokript/_TokriptConfigExample.mdx'
+
+import GithubIcon from '@site/src/components/@mdx/_GithubIcon.mdx'
+import NpmIcon from '@site/src/components/@mdx/_NpmIcon.mdx'
+import DocIcons from '@site/src/components/@mdx/_DocIcons.mdx'
+
+# gen:yup (RHF + Yup)
+
+
+<DocIcons 
+   github="https://github.com/TOKTOKHAN-DEV/toktokhan-dev/tree/main/packages/cli-plugins/gen-yup" 
+   npm="https://www.npmjs.com/package/@toktokhan-dev/cli-plugin-gen-yup" 
+   doc="/docs/cli-plugin-gen-yup"
+   />
+
+
+대화형 cli 를 통해 일관된 형식의 yup 스키마를 생성하는 스크립트입니다.<br/>
+변수 목적에 따라 정규식과 에러 텍스트를 연결하여 편의성과 안정성을 제공합니다.
+
+```
+✔ hook 이름 · use___
+✔ 필요한 Schema (Space 선택 / Enter 확정) · 아이디 / 비밀번호
+✔ 필수 Schema (Space 선택 / Enter 확정) · 아이디
+
+=> src/generated/hooks/use___.ts
+```
+
+
+## Installation
+
+<Installations
+  isDev
+  package={'@toktokhan-dev/cli @toktokhan-dev/cli-plugin-gen-yup'}
+/>
+
+## Run Script
+
+<TokriptRunScript cmd="gen:yup"/>
+
+## Configuration
+
+<TokriptConfigExample cmd="gen:yup" exportedName="genYup" packageName="@toktokhan-dev/cli-plugin-gen-yup"/>
+
+### output
+
+<TokriptConfigItem
+    command="gen:yup"
+    optName="output"
+    desc="생성될 파일이 위치할 경로"
+    type="string" 
+    default="src/generated/hooks/___.ts" 
+    exampleValue="path/to/hooks"
+    cliOpt 
+    cliOptAlias="o" 
+ />

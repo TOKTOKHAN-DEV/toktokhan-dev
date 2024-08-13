@@ -1,0 +1,35 @@
+<%
+    const { data, utils, config } = it;
+    const { convertLowerCase } = utils;
+    const { hookName } = data;
+    const { importConstantsPath } = config;
+%>
+
+import { yupResolver } from '@hookform/resolvers/yup';
+import { UseFormProps, useForm } from 'react-hook-form';
+import * as yup from 'yup';
+
+import { REGEX } from '<%~ importConstantsPath %>/regex'
+import { HELPER_TEXT } from '<%~ importConstantsPath %>/helper-text'
+
+export type <%~ hookName %>FormDataType = {
+<%~ include('./procedure-call-type.eta', { ...it }) %>
+};
+
+export type <%~ hookName %>FormKeys = keyof <%~ hookName %>FormDataType;
+
+export function <%~ convertLowerCase(hookName) %>FormSchema() {
+  return yup.object().shape({
+<%~ include('./procedure-call-schema.eta', { ...it }) %>
+})
+}
+
+export default function use<%~ (hookName) %>Form(
+  options?: UseFormProps<<%~ hookName %>FormDataType>,
+) {
+  return useForm<<%~ hookName %>FormDataType>({
+    resolver: yupResolver(<%~ convertLowerCase(hookName) %>FormSchema()),
+    mode: 'onChange',
+    ...options,
+  });
+}
