@@ -1,0 +1,60 @@
+{
+  "name": "@toktokhan-dev/cli-plugin-gen-yup",
+  "version": "0.0.0",
+  "description": "A CLI plugin for generating Yup schemas built by TOKTOKHAN.DEV",
+  "author": "TOKTOKHAN.DEV <fe-system@toktokhan.dev>",
+  "license": "ISC",
+  "type": "module",
+  "homepage": "https://toktokhan-dev-docs.vercel.app/docs/docs/tokript/Offical%20Plugins/gen-yup",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TOKTOKHAN-DEV/toktokhan-dev/tree/main/packages/cli-plugins/gen-yup"
+  },
+  "bugs": {
+    "url": "https://github.com/TOKTOKHAN-DEV/toktokhan-dev/issues"
+  },
+  "main": "dist/index.js",
+  "files": [
+    "dist",
+    "templates",
+    "!dist/*.map"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "start": "node ./dist/index.js",
+    "tokript": "tokript2",
+    "build": "rollup -c",
+    "build:watch": "rollup -c --watch",
+    "play": "pnpm build:watch & node --watch play/playground.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "api-extractor": "api-extractor run --local --verbose"
+  },
+  "keywords": [
+    "cli",
+    "plugin",
+    "yup",
+    "schema",
+    "generation",
+    "toktokhan_dev"
+  ],
+  "devDependencies": {
+    "@toktokhan-dev/ts-config": "workspace:*",
+    "@types/clear": "^0.1.4",
+    "@types/lodash": "^4.17.0"
+  },
+  "dependencies": {
+    "@toktokhan-dev/cli": "workspace:*",
+    "@toktokhan-dev/node": "workspace:*",
+    "@toktokhan-dev/universal": "workspace:*",
+    "clear": "^0.1.0",
+    "enquirer": "^2.4.1",
+    "eta": "^3.4.0",
+    "lodash": "^4.17.21"
+  }
+}

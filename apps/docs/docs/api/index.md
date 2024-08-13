@@ -145,6 +145,17 @@ theme json 파일기반으로 `Chakra theme token`을 생성합니다.
 </td></tr>
 <tr><td>
 
+[@toktokhan-dev/cli-plugin-gen-yup](./cli-plugin-gen-yup)
+
+
+</td><td>
+
+대화형 cli 를 통해 일관된 형식의 yup 스키마를 생성합니다.
+
+
+</td></tr>
+<tr><td>
+
 [@toktokhan-dev/github](./github)
 
 

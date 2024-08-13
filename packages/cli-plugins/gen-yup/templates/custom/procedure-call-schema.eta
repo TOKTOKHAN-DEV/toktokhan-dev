@@ -1,0 +1,14 @@
+<%
+    const { data, utils } = it;
+    const { hookName, selectedSchema } = data;
+    const { addUnderscoreToCamelCase, getDetailSchema } = utils;
+%>
+<% Object.entries(selectedSchema).forEach(([requiredOrNot, schemaList]) => { %>
+<% schemaList.forEach((schema) => { %>
+    <% const key = addUnderscoreToCamelCase(schema.value); %>
+
+    /** @name <%~ schema.name %> */
+    <%~ getDetailSchema({value: schema.value, type: requiredOrNot}) %>
+    
+  <% }) %>
+<% }) %>
