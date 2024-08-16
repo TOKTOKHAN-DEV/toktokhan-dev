@@ -1,0 +1,112 @@
+---
+sidebar_position: 1
+---
+import Installations from '@site/src/components/@mdx/_Installation.mdx'
+
+
+# Overview
+해당 문서는 zustand 를 이용한 전역 상태관리, 로컬 상태 관리, 스토리지 관리에 대한 간단한 사용법을 다루며,
+나아가 똑똑한개발자가 제공하는 middleware 를 포함한 모듈들을 소개합니다.
+
+
+
+
+#### Zustand
+zustand 는 상태관리 라이브러리입니다. 
+가볍고, 간단하며, react 뿐 아니라 다른 vanilla js 환경에서도 사용할 수 있는 호환성이 좋은 모듈입니다.
+zustand 의 기본적인 사용법은 [여기](/docs/docs/zustand/Basic%20Guide)를 확인해보세요.
+
+
+#### Zustand Middleware: With Setter
+zustand-with-setter 는 똑똑한개발자가 제공하는 `zustand middleware` 로, Zustand 스토어에 `set` 및 `reset` 함수를 추가하여 상태를 업데이트하고 초기화하는 기능을 제공합니다.
+자세한 내용은 [여기](/docs/docs/zustand/With-Setter)를 확인해보세요.
+
+```tsx
+import { withSetter } from '@toktokhan-dev/react'
+import { create } from 'zustand'
+
+type Store = {
+  count: number
+  nested: { count: number; list?: string[] }
+}
+
+const useStore = create(
+  withSetter<Store>(() => ({
+    count: 0,
+    nested: { count: 0 },
+  })),
+)
+
+const set = useStore((store) => store.set)
+
+set({ count: 5, nested: { count: 5, } })
+set('count', 5)
+set('count', (prev) => prev + 1))
+set('nested.count', 5)
+
+
+const reset = useStore((store) => store.reset)
+
+reset() 
+reset('count')
+reset({ count: 5 })
+```
+
+
+
+#### Zustand With Context
+zustand 는 기본적으로 전역적인 상태를 관리하는데 자주 사용됩니다.
+zustand-with-context 는 zustand 를 사용하여 컨텍스트를 생성하고, 컨텍스트를 통해 상태를 관리하는 기능을 제공합니다.
+자세한 내용은 [여기](http://localhost:3000/docs/docs/zustand/With-Context)를 확인해보세요.
+
+```tsx
+import { createStoreContext } from '@toktokhan-dev/zustand-react'
+
+const { Provider, useContext } = createStoreContext((set, get, store) => ({
+  count: 0,
+  setCount: (count: number) => set(() => { count }),
+}))
+
+
+const Component = () => {
+ const count = useCountContext((store) => store.count)
+ const setCount = useCountContext((store) => store.setCount)
+
+ return (
+   <div>
+     <button onClick={() => setCount(count + 1)}>+</button>
+     <span>{count}</span>
+   </div>
+ )
+}
+
+const ParentComponent = () => {
+  return (
+      <Provider>
+        <Component />
+      </Provider>
+  )
+}
+```
+
+middleware 와 함께 사용 할 수 있습니다.
+
+```tsx
+import { createStoreContext, withSetter } from '@toktokhan-dev/zustand-react'
+
+const { Provider, useContext, withProvider } = createStoreContext(
+  withSetter((set, get, store) => ({
+     count: 0,
+  }))
+)
+```
+
+
+#### Zustand With Storage
+zustand 는 다른 storage 와 연동하여 상태를 저장하고 불러오는 기능을 제공합니다.
+자세한 내용은 [여기](http://localhost:3000/docs/docs/zustand/With-Storage)를 확인해보세요.
+
+
+
+
+

@@ -1,0 +1,285 @@
+---
+sidebar_position: 2
+---
+
+import Installations from '@site/src/components/@mdx/_Installation.mdx'
+
+해당 문서에서는 zustand 의 기본적인 사용법을 다룹니다. 자세한 내용은 [zustand 공식문서](https://docs.pmnd.rs/zustand/getting-started/introduction)를 참고해주세요.
+
+## Installation
+
+<Installations
+  package={'zustand'}
+/>
+
+## Overview
+
+```tsx
+import create from 'zustand'
+
+type Store = {
+  count: number
+  setCount: (count: number) => void
+}
+
+const useStore = create<Store>((set, get, store) => ({
+  count: 0,
+  setCount: (count: number) => set({ count }), // by data
+  increment: (count: number) => set((prev) => ({ count: prev.count + count })) // by updater fn
+}))
+
+const Component = () => {
+  const count = useStore((store) => store.count)
+  const setCount = useStore((store) => store.setCount)
+  const increment = useStore((store) => store.increment)
+
+  return (
+      <div>
+          <h1>{count}</h1>
+          <button onClick={() => setCount(count + 1)}>Increment</button>
+          <button onClick={() => increment(2)}>Increment 2</button>
+      </div>
+  )
+}
+
+```
+
+
+
+## Create Store
+
+zustand 는 `create` 함수를 통해 상태와 업데이트 함수를 정의할 수 있습니다.
+`create` 함수는 react 에서 사용 가능한 hook 을 반환합니다.
+
+```tsx
+import { create } from 'zustand'
+
+type CountStore = {
+  count: number
+  setCount: (count: number) => void
+}
+
+const useCountStore = create<CountStore>((set, get, store) => ({
+  count: 0,
+  setCount: (count: number) => set({ count }),
+}))
+```
+
+vanilla js 에서 사용할 경우, `createStore` 함수를 사용할 수 있습니다. `create` 함수는 `createStore` 함수를 내부적으로 사용합니다.
+사용 방법은 `create` 함수와 동일합니다.
+
+```tsx
+import { createStore, useStore } from 'zustand'
+
+const countStore = createStore<Store>((set, get, store) => ({
+  count: 0,
+  setCount: (count: number) => set({ count }),
+}))
+
+countStore.subscribe((state) => {
+  console.log(state)
+})
+
+countStore.setState({ count: 1 })
+countStore.getState().count // 1
+
+countStore.getState().setCount(2) //
+countStore.getState().count // 2
+
+const useCountStore = (selector) => useStore(store, selector)
+```
+
+
+
+
+### Create
+`create` 함수는 `initializer` 함수를 인자로 받습니다.
+`initializer` 함수는 `set`, `get`, `store` 를 인자로 받아 상태와 업데이트 함수를 정의할 수 있습니다.
+
+```tsx
+function create(initializer: (set, get, store) => Store): UseStore
+```
+
+### Set
+`initializer` 함수에서 받는 `set` 함수는 상태를 업데이트 하는 함수입니다.
+`useState` 와 동일하게, 
+ - 새로운 상태를 받거나,
+ - 이전 상태를 받아 새로운 상태를 반환하는 `update 함수`로 상태 수정이 가능합니다.
+
+```tsx
+const useStore = create<Store>((set) => ({
+  count: 0,
+
+  // by data
+  setCount:(count: number) => set({ count }),
+
+  // by updater fn
+  increment: (count: number) => set((prev) => ({ count: prev.count + count }))
+}))
+```
+
+`useState` 와 `set` 함수의 차이점은 `useState` 에 경우, 데이터를 **교체** 해주고
+
+```tsx
+type State = {
+  name: string
+  count: number
+}
+
+const [state, setState] =  useState<State>({
+  name: 'zustand',
+  level: 1
+})
+
+setState({ level: 2 }) // Type Error
+
+// current state: { level: 2 }
+```
+
+zustand 의 `set` 함수는 **얕게 병합** 해주기 때문에 업데이트를 위해 필요한 데이터만 전달해줄 수 있습니다.
+
+```tsx
+function set(next) {
+  ...
+  return { ...prev, ...next }
+}
+
+
+set({ level: 3 })
+// current state: { name: 'zustand', level: 3 }
+
+set((prev) => ({ level: prev.level + 1 })) 
+// current state: { name: 'zustand', level: 4 }
+
+
+set({ name: 'zustand' }, true)
+// current state: { name: 'zustand' }
+// replace 옵션을 사용하면, 얕은 병합이 되지 않고 전체 객체가 교체됩니다.
+```
+
+단, 얕은 병합이기 때문에 중첩 객체의 경우, 전체 객체를 업데이트 해주어야 합니다.
+
+```tsx
+type State = {
+  name: string
+  nested: {
+    name: string
+    count: number
+  }
+}
+
+const useStore = create<Store>((set) => ({
+  name: 'zustand',
+  nested: {
+    name: 'nested',
+    count: 0
+  },
+  incrementNested: (count: number) => set((prev) => ({ nested: { ...prev.nested, count: prev.nested.count + count } }))
+}))
+```
+
+### SetState
+store 를 생성하는 시점에, update 함수를 정의하고 사용할 수도 있지만, 직접 전체 store 대상으로 수정하는 함수를 호출 하는것도 가능합니다. 
+
+```tsx
+useStore.setState({ count: 1 })
+useStore.setState((prev) => ({ count: prev.count + 1 }))
+```
+
+
+
+
+:::warning
+위 예제들은 이해를 돕기 위해 많은것이 생략된 코드입니다. 자세한 내용은 [공식문서](https://docs.pmnd.rs/zustand/getting-started/introduction)를 참고해주세요.
+:::
+
+
+### Middleware
+zustand middleware 의 경우, `store` 를 생성할때, `create` 함수에 넘겨지는 `initializer` 함수를 한번 더 감싸서 특정 로직들을 실행하게 하는 새로운 `initializer` 함수를 만들어주는 역할을 담당합니다.
+
+#### immer
+위 중첩 객체 예제에서, `immer` 미들웨어를 사용하면, 조금 더 간단하게 코드를 작성할 수 있습니다.
+
+```tsx
+import { create } from 'zustand'
+import { immer } from 'zustand/middleware/immer'
+
+type Store = {
+  count: number
+  nested: {
+    count: number
+  }
+}
+
+const useStore = create(
+  immer<Store>((set) => ({
+    count: 0,
+    nested: {
+      count: 0
+    },
+    incrementNested: (count: number) => set((state) => {
+      state.nested.count += count
+    })
+  }))
+)
+
+```
+
+#### with setter
+
+`@toktokhan-dev/zustand-with-setter` 패키지를 사용하면 store 에 `set` 및 `reset` 함수를 추가하여, 간단한 상태변경은 함수를 따로 정의 하지 않아도 됩니다.
+자세한 내용은 [zustand-with-setter](/docs/docs/zustand/Zustand%20With%20Setter) 문서를 참고해주세요.
+
+
+```tsx
+import { withSetter } from '@toktokhan-dev/zustand-with-setter'
+
+type Store = {
+  count: number
+  nested: {
+    count: number
+  }
+}
+
+const useStore = create(
+  withSetter<Store>((set, get, store) => ({
+    count: 0,
+    nested: {
+      count: 0
+    }
+  }))
+)
+
+const set = useStore((store) => store.set)
+set("count", 1)
+set("nested.count", (prev) => prev + 1)
+```
+
+
+## Use Store
+
+### selector
+`create` 가 반환하는 `useStore` hook 을 통해 store 정보를 가져올 수 있습니다.
+리액트 생명주기 안에서 동작하며, 변경사항을 감지하여 컴포넌트를 리렌더링합니다.
+
+```tsx
+const count = useStore((store) => store.count)
+const setCount = useStore((store) => store.setCount)
+```
+
+`selector` 함수가 `return` 하는 값의 비교를 통해서 리랜더링을 결정하기 때문에
+아래와 같은 코드는 실제 사용하는 값이 변경되지 않을때도 리랜더링이 발생할 수 있습니다.
+
+```tsx
+const { count } = useStore()
+```
+
+따라서, 사용되는 값에 대한 `selector` 함수를 전달하는것을 권장합니다.
+
+ 
+### getState
+react componet 바깥에서 사용할 경우 `getState` 함수를 통해 현재 상태를 가져올 수 있습니다.
+react component 안에서 사용할 경우, 상태가 변경됨에 따라 rerendering 이 되지 않기 때문에, react component 에선 `useStore` 를 호출해서 사용하는것을 권장합니다.
+```tsx
+const count = useStore.getState().count
+```

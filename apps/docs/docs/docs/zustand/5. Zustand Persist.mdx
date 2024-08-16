@@ -1,0 +1,175 @@
+---
+sidebar_position: 5
+---
+import Installations from '@site/src/components/@mdx/_Installation.mdx'
+
+
+# Zustand Persist
+
+zustand persist 는 middleware 로써 zustand store 를 local storage, session storage, 와 같은 외부 store 와 연동하는 기능을 제공합니다.
+
+
+
+## Usage
+
+
+```tsx
+import { create } from 'zustand'
+import { persist, createJSONStorage } from 'zustand/middleware'
+
+
+type Store = {
+  count: number
+  setCount: (count: number) => void
+}
+
+const useCountStore = create(
+  persist<Store>(
+    (set, get, store) => {
+      return {
+        count: 0,
+        setCount: (count: number) => set({ count }),
+      }
+    },
+    { 
+      name: 'count' 
+      storage: createJSONStorage(() => sessionStorage), // (optional) 기본값은 localStorage 입니다.
+    },
+  ),
+)
+```
+
+## Note
+
+### Hydration
+
+Web Storage 의 경우 nextjs 와 같은 서버 사이드 렌더링 환경에서는 사용할 수 없습니다.
+따라서, 데이터는 항상 초깃값으로써 불러와진 후, hydartion 이후에 데이터를 불러오게 됩니다.
+
+```tsx
+import { create } from 'zustand'
+import { persist, createJSONStorage } from 'zustand/middleware'
+
+type Store = {
+  count: number
+}
+
+const useCountStore = create(
+  persist(
+    withSetter<Store>((set, get, store) => ({
+      count: 0,
+    })),
+    { name: 'count-storage' },
+  ),
+)
+
+
+const set = useCountStore((store) => store.set)
+set("count", 10)
+
+// refresh page
+// load page
+count // 0
+
+// hydrate
+count // 10
+```
+
+따라서 해당값을 UI 로 바로 표기하게 될시, 데이터가 hydrate 되는 과정이 눈에 보일 수 있기 때문에, 
+이를 방지하기 위해, `useEffect` 를 사용하여, 데이터가 hydrate 된 후에 UI 를 업데이트 하는 방법을 사용할 수 있습니다.
+
+```tsx
+import { useEffect } from 'react'
+
+const useStore = create(
+  withSetter<Store>((set,) => ({
+    isClient: 0,
+  })),
+)
+
+
+// app.tsx
+const set = useStore((store) => store.set)
+useEffect(() => {
+  set("isClient", true)
+}, [])
+
+// ClinetOnly.tsx
+const isClient = useStore((store) => store.isClient)
+return isClient ? children : fallback
+
+
+// component.tsx
+const count = useCountStore((store) => store.count)
+return <ClinetOnly>{count}</ClinetOnly>
+```
+
+혹은 초기값을 null 로 설정하여 해당 값을 기준으로 분기 처리하는 방법이 있습니다. 
+
+```tsx
+const useCountStore = create(
+  withSetter<{ count: number | null }>((set,) => ({
+    count: null,
+  })),
+)
+
+// app.tsx
+
+const count = useCountStore((store) => store.count)
+if(count === null) return <></>
+return <Text>{count}</Text>
+```
+
+그밖에 다른 방법은 [zustand 문서](https://pmndrs.github.io/zustand/integrations/persisting-store-data#how-can-i-check-if-my-store-has-been-hydrated)를 참고해보세요.
+
+
+### Sync Other Tabs
+
+localstorage 의 경우, 브라우저 탭 간 데이터의 변경사항이 공유되어야 할 수 있습니다.
+이를 해결하기 위해, window 의 storage 이벤트를 사용하여, 다른탭에서의 변경사항을 감지하고, store 를 rehydrate 하는 방법을 사용할 수 있습니다.
+
+```tsx
+type StoreWithPersist = Mutate<StoreApi<any>, [['zustand/persist', any]]>
+
+export const withStorageDOMEvents = (store: StoreWithPersist) => {
+  if (typeof window === 'undefined') return
+
+  const handleStorage = (e: StorageEvent) => {
+    if (e.key === store.persist.getOptions().name && e.newValue) {
+      store.persist.rehydrate()
+    }
+  }
+  window.addEventListener('storage', handleStorage)
+
+  return () => {
+    window.removeEventListener('storage', handleStorage)
+  }
+}
+```
+
+```tsx
+import { create } from 'zustand'
+import { persist, createJSONStorage } from 'zustand/middleware'
+
+
+type Store = {
+  count: number
+  setCount: (count: number) => void
+}
+
+const useCountStore = create(
+  persist<Store>(
+    (set, get, store) => {
+      return {
+        count: 0,
+        setCount: (count: number) => set({ count }),
+      }
+    },
+    { name: 'count' },
+  ),
+)
+
+withStorageDOMEvents(useCountStore)
+```
+
+
