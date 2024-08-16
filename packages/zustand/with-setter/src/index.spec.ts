@@ -1,7 +1,7 @@
 import { cloneDeep } from 'lodash'
 import { StoreApi, createStore } from 'zustand'
 
-import { WithSetter, withSetter } from './'
+import { IWithSetter, withSetter } from './'
 
 // Define a sample state type for testing with nested object
 type SampleState = {
@@ -25,7 +25,7 @@ const initializer = (): SampleState => ({
 const useStore = createStore(withSetter<SampleState>(initializer))
 
 describe('withSetter', () => {
-  let store: StoreApi<WithSetter<SampleState>>
+  let store: StoreApi<IWithSetter<SampleState>>
 
   beforeEach(() => {
     // Initialize the store before each test
