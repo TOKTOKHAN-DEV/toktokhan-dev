@@ -4,7 +4,7 @@
 import { useRef } from 'react'
 
 import '@testing-library/jest-dom'
-import { logRoles, render, screen, waitFor } from '@testing-library/react'
+import { render, screen, waitFor } from '@testing-library/react'
 
 import { InfinityContent } from './InfinityContent'
 

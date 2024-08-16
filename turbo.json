@@ -5,6 +5,9 @@
     "signature": true
   },
   "tasks": {
+    "test": {
+      "cache": true
+    },
     "build": {
       "dependsOn": ["^build"],
       "outputs": ["**/dist/**", "**/bin/**"],

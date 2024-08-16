@@ -5,6 +5,7 @@
     "version": "changeset version",
     "release": "changeset publish",
     "ci:publish": "pnpm publish -r",
+    "test": "turbo run test --filter='./configs/*' --filter='./packages/*' --filter='./packages/cli-plugins/*' --filter='./packages/react/*' --filter='./packages/zustand/*' --continue",
     "build": "turbo run build --cache-dir=.turbo",
     "build:packages": "turbo run build --filter='./configs/*' --filter='./packages/*' --filter='./packages/cli-plugins/*' --filter='./packages/react/*' --filter='./packages/zustand/*' --cache-dir=.turbo",
     "dev": "turbo dev",
