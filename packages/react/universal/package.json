@@ -28,6 +28,7 @@
   ],
   "scripts": {
     "build": "rollup -c",
+    "test": "jest",
     "api-extractor": "api-extractor run --local --verbose"
   },
   "keywords": [

@@ -12,10 +12,15 @@ export const useCallbackRef = <T extends Fn>(callback: T): T => {
     callbackRef.current = callback
   }, [callback])
 
-  const memozied: T = useCallback(
-    ((...params) => callbackRef.current(...params)) as T,
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const memoized: T = useCallback(
+    ((...params) => {
+      if (callbackRef.current) {
+        return callbackRef.current(...params)
+      }
+    }) as T,
     [],
   )
 
-  return memozied
+  return memoized
 }
