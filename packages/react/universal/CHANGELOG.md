@@ -1,5 +1,14 @@
 # @toktokhan-dev/react-universal
 
+## 0.0.10
+
+### Patch Changes
+
+- a0f73d6: - Add Jest configuration file for TypeScript
+  - Set test environment to jsdom
+  - Uncomment transform configuration for TypeScript files
+  - Add test script to package.json
+
 ## 0.0.9
 
 ### Patch Changes

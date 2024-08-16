@@ -1,5 +1,16 @@
 # @toktokhan-dev/react-web
 
+## 0.0.21
+
+### Patch Changes
+
+- 0775ea1: - Social 관련 모듈 테스트 코드 추가
+  - useOauthPopupCallback closePopup 함수 타입 변경 (only return value)
+  - useOauthPopupListener error handling
+  - IconButton aria-label 추가
+- Updated dependencies [a0f73d6]
+  - @toktokhan-dev/react-universal@0.0.10
+
 ## 0.0.20
 
 ### Patch Changes
