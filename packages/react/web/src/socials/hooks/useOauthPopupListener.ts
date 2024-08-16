@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 import { useCallbackRef } from '@toktokhan-dev/react-universal'
 import { isNullish } from '@toktokhan-dev/universal'
@@ -51,47 +51,92 @@ export interface ExtraState<T> {
  * })
  * ```
  */
+
+export const ERROR_MESSAGES = {
+  NO_RESPONSE: 'No Response from popup',
+  ORIGIN_MISMATCH: 'Received message from different origin',
+  NO_AUTH_CODE: 'No authorization code or access token',
+}
+
 export const useOauthPopupListener = <State, Extra = unknown>(
   params?: useOauthCallbackParams<
     OauthResponse<State> & ExtraState<Extra>,
-    OauthResponse<State> & ExtraState<Extra>
+    Partial<OauthResponse<State> & ExtraState<Extra> & { msg?: string }>
   >,
 ) => {
-  const [oAuthResponse, setOauthResponse] = useState<
-    (OauthResponse<State> & ExtraState<Extra>) | null
-  >(null)
+  const [oAuthResponse, setOauthResponse] = useState<Partial<
+    OauthResponse<State> & ExtraState<Extra>
+  > | null>(null)
   const [isLoading, setIsLoading] = useState(true)
 
   const onSuccess = useCallbackRef(params?.onSuccess || (() => {}))
   const onFail = useCallbackRef(params?.onFail || (() => {}))
 
+  const handleFailure = useCallback(
+    <T extends OauthResponse<State> & ExtraState<Extra>>({
+      msg,
+      data,
+    }: {
+      msg: string
+      data: T | null
+    }) => {
+      setIsLoading(false)
+      onFail(
+        data ? { ...data, errorDescription: msg } : { errorDescription: msg },
+      )
+      setOauthResponse((prev) => {
+        if (!data) return { errorDescription: msg }
+        if (!prev) return { ...data, errorDescription: msg }
+        return {
+          ...prev,
+          ...data,
+          errorDescription: msg,
+        }
+      })
+    },
+    [onFail],
+  )
   useEffect(() => {
     if (window.opener) return
 
     const oAuthCodeListener = (event: MessageEvent) => {
-      if (event.origin !== window.location.origin) return
-      if (event.data.type !== 'oauth') return
-
       const response = event.data as OauthResponse<State> & ExtraState<Extra>
-      if (response.error || response.errorDescription) {
-        console.error(`social login error: ${response.errorDescription}`)
-        onFail(response)
-        setIsLoading(false)
-        setOauthResponse(response)
+      if (event.data.type !== 'oauth') return
+      if (event.origin !== window.location.origin) {
+        handleFailure({
+          data: null,
+          msg: ERROR_MESSAGES.ORIGIN_MISMATCH,
+        })
+        return
+      }
+
+      if (!response) {
+        handleFailure({
+          data: null,
+          msg: ERROR_MESSAGES.NO_RESPONSE,
+        })
+        return
+      }
+
+      if (!!response.error || !!response.errorDescription) {
+        handleFailure({
+          data: null,
+          msg: `${response?.error}: ${response?.errorDescription}`,
+        })
         return
       }
 
       if (isNullish(response.code)) {
-        console.error('No authorization code or access token')
-        onFail(response)
-        setIsLoading(false)
-        setOauthResponse(response)
+        handleFailure({
+          data: response,
+          msg: ERROR_MESSAGES.NO_AUTH_CODE,
+        })
         return
       }
 
       onSuccess(response)
-      setIsLoading(false)
       setOauthResponse(response)
+      setIsLoading(false)
     }
 
     window.addEventListener('message', oAuthCodeListener, false)
@@ -99,7 +144,7 @@ export const useOauthPopupListener = <State, Extra = unknown>(
     return () => {
       window.removeEventListener('message', oAuthCodeListener)
     }
-  }, [onFail, onSuccess])
+  }, [handleFailure, onFail, onSuccess])
 
   return {
     data: oAuthResponse,

@@ -156,6 +156,7 @@ export const IconButton = ({
       {...props}
     >
       <div
+        aria-label="icon-container"
         style={{
           display: 'flex',
           alignItems: 'center',

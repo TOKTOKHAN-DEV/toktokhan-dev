@@ -3,8 +3,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useCallbackRef } from '@toktokhan-dev/react-universal'
 import { isNotNullish, isNullish } from '@toktokhan-dev/universal'
 
-import SocialOauthInit from 'socials/modules/SocialOauthInit'
-
+import SocialOauthInit from '../modules/SocialOauthInit'
 import { OauthResponse, useOauthCallbackParams } from '../types/callback'
 import { extractOAuthParams } from './utils/extract-oauth-params'
 
@@ -97,6 +96,7 @@ export const useOauthLinkCallback = <State>(
       onFail(response)
       setIsLoading(false)
       setOauthResponse(response)
+
       return
     }
 
@@ -112,10 +112,6 @@ export const useOauthLinkCallback = <State>(
     setIsLoading(false)
     setOauthResponse(response)
   }, [onFail, onSuccess])
-
-  useEffect(() => {
-    if (oAuthResponse) setIsLoading(false)
-  }, [oAuthResponse])
 
   return {
     data: oAuthResponse,

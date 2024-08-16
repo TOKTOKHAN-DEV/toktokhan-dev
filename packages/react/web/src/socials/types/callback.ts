@@ -6,6 +6,6 @@ export interface OauthResponse<T> {
 }
 
 export interface useOauthCallbackParams<T = any, U = any> {
-  onSuccess?: (params: T) => void
-  onFail?: (params: U) => void
+  onSuccess?: (params: T | null) => void
+  onFail?: (params: U | null) => void
 }

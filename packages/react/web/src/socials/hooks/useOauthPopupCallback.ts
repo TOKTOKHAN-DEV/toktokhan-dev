@@ -1,10 +1,9 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
 import { useCallbackRef } from '@toktokhan-dev/react-universal'
 import { isNotNullish, isNullish } from '@toktokhan-dev/universal'
 
-import SocialOauthInit from 'socials/modules/SocialOauthInit'
-
+import SocialOauthInit from '../modules/SocialOauthInit'
 import { OauthResponse, useOauthCallbackParams } from '../types/callback'
 import { extractOAuthParams } from './utils/extract-oauth-params'
 
@@ -99,15 +98,15 @@ export const useOauthPopupCallback = <State>(
     (params: OauthResponse<State> | null) => (extra?: any) => {
       if (!window.opener) throw new Error('No popup')
       const openerURL = window.opener.location.href
-      window.opener.postMessage({ type: 'oauth', ...params, extra }, openerURL)
       window.close()
+      window.opener.postMessage({ type: 'oauth', ...params, extra }, openerURL)
     },
     [],
   )
 
-  const closePopup = useCallback(
+  const closePopup = useMemo(
     () => createClosePopup(oAuthResponse),
-    [oAuthResponse, createClosePopup],
+    [createClosePopup, oAuthResponse],
   )
 
   useEffect(() => {
