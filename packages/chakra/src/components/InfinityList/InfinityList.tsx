@@ -94,7 +94,7 @@ export interface InfinityListProps<T> {
  *    hasMore={hasNextPage}
  *    isFetching={isFetchingNextPage}
  *    onFetchMore={fetchNextPage}
- *    renderItem={({ item, index }) => <PostItem key={index} item={item} />}
+ *    renderItem={(item, index) => <PostItem key={index} item={item} />}
  *    />
  *  )
  * }
@@ -131,25 +131,31 @@ export const InfinityList = <T,>({
     },
     [canFetch],
   )
-
   if (isEmpty(data)) return empty
 
   return (
-    <Box {...styles?.container}>
+    <Box aria-label={'container'} {...styles?.container}>
       <VStack
         as={'ul'}
+        aria-label={'list-container'}
         w={'100%'}
         spacing={'0px'}
         listStyleType={'none'}
         {...styles?.listContainer}
       >
         {data?.map((item, index) => (
-          <Box as={'li'} w={'100%'} key={index} {...styles?.itemContainer}>
+          <Box
+            as={'li'}
+            key={index}
+            aria-label={'item-container'}
+            w={'100%'}
+            {...styles?.itemContainer}
+          >
             {renderItem(item, index)}
           </Box>
         ))}
       </VStack>
-      <Box ref={bottomRef} {...styles?.bottomFlag}>
+      <Box aria-label={'flag'} ref={bottomRef} {...styles?.bottomFlag}>
         {isFetching && spinner}
       </Box>
     </Box>

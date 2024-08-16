@@ -84,7 +84,6 @@ export const InfinityContent = ({
   ),
 }: InfinityContentProps) => {
   const canFetch = hasMore && !isFetching
-
   const { targetRef: bottomRef } = useIntersectionObserver(
     {
       onVisible: () => {
@@ -101,9 +100,9 @@ export const InfinityContent = ({
   )
 
   return (
-    <Box w={'100%'} {...styles?.container}>
+    <Box aria-label={'container'} w={'100%'} {...styles?.container}>
       {children}
-      <Box ref={bottomRef} {...styles?.bottomFlag}>
+      <Box ref={bottomRef} aria-label={'flag'} {...styles?.bottomFlag}>
         {isFetching && spinner}
       </Box>
     </Box>
