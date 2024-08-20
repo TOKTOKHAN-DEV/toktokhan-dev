@@ -80,7 +80,7 @@ return (
    hasMore={hasNextPage}
    isFetching={isFetchingNextPage}
    onFetchMore={fetchNextPage}
-   renderItem={({ item, index }) => <PostItem key={index} item={item} />}
+   renderItem={(item, index) => <PostItem key={index} item={item} />}
    />
  )
 }

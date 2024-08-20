@@ -13,5 +13,5 @@ slug: /react-web.useoauthcallbackparams.onsuccess
 ## Signature
 
 ```typescript
-onSuccess?: (params: T) => void;
+onSuccess?: (params: T | null) => void;
 ```

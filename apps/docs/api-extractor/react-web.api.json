@@ -1,7 +1,7 @@
 {
   "metadata": {
     "toolPackage": "@microsoft/api-extractor",
-    "toolVersion": "7.47.0",
+    "toolVersion": "7.47.6",
     "schemaVersion": 1011,
     "oldestForwardsCompatibleVersion": 1001,
     "tsdocConfig": {
@@ -960,6 +960,30 @@
           "typeTokenRange": {
             "startIndex": 1,
             "endIndex": 5
+          },
+          "parameters": []
+        },
+        {
+          "kind": "Variable",
+          "canonicalReference": "@toktokhan-dev/react-web!ERROR_MESSAGES:var",
+          "docComment": "/**\n  *\n * OAuth 팝업에서 전달된 메시지를 수신하는 React Hook입니다. 이 Hook은 OAuth 인증 후 팝업에서 전달된 메시지를 수신하여 처리합니다.\n *\n * @returns isLoading - OAuth 콜백 처리 상태를 나타냅니다. 처리 중이면 `true`, 아니면 `false`입니다.\n *\n * @example\n * ```tsx\n * // pages/login.tsx (parents window)\n *\n * const kakao = new Kakao(ENV.CLIENT_ID)\n * const Login = () => {\n *   const { data } = useOauthPopupListener()\n *   console.log(data, data.state.returnUrl, data.extra) // { code: '...', state: { returnUrl: '/my', type: 'kakao' }, extra: 'hello parents' }\n *\n *      <KakaoButton\n *        onClick={() =>\n *          kakao.loginToPopup({\n *            redirect_uri: `${window.origin}/social/callback`,\n *            state: {\n *              returnUrl: '/my',\n *              type: 'kakao',\n *            },\n *          })\n *        }\n *      />\n * }\n *\n * // pages/social/callback.tsx (popup window)\n *\n * const { data, isLoading } = useOauthPopupCallback<{type: string; returnUrl:string}>({\n *    onSuccess: (response) => {\n *      console.log(response.state.returnUrl)\n *      response.closePopup({ extra: 'hello parents' })\n *    },\n * })\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "ERROR_MESSAGES: "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n  NO_RESPONSE: string;\n  ORIGIN_MISMATCH: string;\n  NO_AUTH_CODE: string;\n}"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "ERROR_MESSAGES",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
           },
           "parameters": []
         },
@@ -6961,7 +6985,7 @@
                 },
                 {
                   "kind": "Content",
-                  "text": "(params: U) => void"
+                  "text": "(params: U | null) => void"
                 },
                 {
                   "kind": "Content",
@@ -6988,7 +7012,7 @@
                 },
                 {
                   "kind": "Content",
-                  "text": "(params: T) => void"
+                  "text": "(params: T | null) => void"
                 },
                 {
                   "kind": "Content",
@@ -7145,7 +7169,7 @@
             },
             {
               "kind": "Content",
-              "text": "<State> | null;\n  isLoading: boolean;\n  closePopup: () => (extra?: any) => void;\n}"
+              "text": "<State> | null;\n  isLoading: boolean;\n  closePopup: (extra?: any) => void;\n}"
             }
           ],
           "fileUrlPath": "dist/index.doc.d.ts",
@@ -7183,7 +7207,7 @@
         {
           "kind": "Function",
           "canonicalReference": "@toktokhan-dev/react-web!useOauthPopupListener:function(1)",
-          "docComment": "/**\n  *\n * OAuth 팝업에서 전달된 메시지를 수신하는 React Hook입니다. 이 Hook은 OAuth 인증 후 팝업에서 전달된 메시지를 수신하여 처리합니다.\n *\n * @returns isLoading - OAuth 콜백 처리 상태를 나타냅니다. 처리 중이면 `true`, 아니면 `false`입니다.\n *\n * @example\n * ```tsx\n * // pages/login.tsx (parents window)\n *\n * const kakao = new Kakao(ENV.CLIENT_ID)\n * const Login = () => {\n *   const { data } = useOauthPopupListener()\n *   console.log(data, data.state.returnUrl, data.extra) // { code: '...', state: { returnUrl: '/my', type: 'kakao' }, extra: 'hello parents' }\n *\n *      <KakaoButton\n *        onClick={() =>\n *          kakao.loginToPopup({\n *            redirect_uri: `${window.origin}/social/callback`,\n *            state: {\n *              returnUrl: '/my',\n *              type: 'kakao',\n *            },\n *          })\n *        }\n *      />\n * }\n *\n * // pages/social/callback.tsx (popup window)\n *\n * const { data, isLoading } = useOauthPopupCallback<{type: string; returnUrl:string}>({\n *    onSuccess: (response) => {\n *      console.log(response.state.returnUrl)\n *      response.closePopup({ extra: 'hello parents' })\n *    },\n * })\n * ```\n *\n */\n",
+          "docComment": "",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -7226,6 +7250,15 @@
             },
             {
               "kind": "Reference",
+              "text": "Partial",
+              "canonicalReference": "!Partial:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
               "text": "OauthResponse",
               "canonicalReference": "@toktokhan-dev/react-web!OauthResponse:interface"
             },
@@ -7240,7 +7273,7 @@
             },
             {
               "kind": "Content",
-              "text": "<Extra>>"
+              "text": "<Extra> & {\n  msg?: string;\n}>>"
             },
             {
               "kind": "Content",
@@ -7248,7 +7281,16 @@
             },
             {
               "kind": "Content",
-              "text": "{\n  data: ("
+              "text": "{\n  data: "
+            },
+            {
+              "kind": "Reference",
+              "text": "Partial",
+              "canonicalReference": "!Partial:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
             },
             {
               "kind": "Reference",
@@ -7266,13 +7308,13 @@
             },
             {
               "kind": "Content",
-              "text": "<Extra>) | null;\n  isLoading: boolean;\n}"
+              "text": "<Extra>> | null;\n  isLoading: boolean;\n}"
             }
           ],
           "fileUrlPath": "dist/index.doc.d.ts",
           "returnTypeTokenRange": {
-            "startIndex": 14,
-            "endIndex": 19
+            "startIndex": 16,
+            "endIndex": 23
           },
           "releaseTag": "Public",
           "overloadIndex": 1,
@@ -7281,7 +7323,7 @@
               "parameterName": "params",
               "parameterTypeTokenRange": {
                 "startIndex": 3,
-                "endIndex": 13
+                "endIndex": 15
               },
               "isOptional": true
             }

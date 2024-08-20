@@ -106,7 +106,7 @@ OAuth 팝업 콜백을 처리하는 React Hook입니다. 이 Hook은 OAuth 인�
 
 <tr><td>
 
-[useOauthPopupListener(params)](./react-web.useoauthpopuplistener)
+[ERROR_MESSAGES](./react-web.error_messages)
 
 </td>
 

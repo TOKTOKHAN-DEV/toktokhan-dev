@@ -49,7 +49,7 @@ Description
 
 </td><td>
 
-(params: U) =&gt; void
+(params: U \| null) =&gt; void
 
 
 </td><td>
@@ -68,7 +68,7 @@ _(Optional)_
 
 </td><td>
 
-(params: T) =&gt; void
+(params: T \| null) =&gt; void
 
 
 </td><td>

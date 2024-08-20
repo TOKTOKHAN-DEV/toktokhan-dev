@@ -17,7 +17,7 @@ OAuth 팝업 콜백을 처리하는 React Hook입니다. 이 Hook은 OAuth 인�
 useOauthPopupCallback: <State>(cb?: useOauthCallbackParams<PopupResponse<State>, PopupResponse<State>>) => {
   data: OauthResponse<State> | null;
   isLoading: boolean;
-  closePopup: () => (extra?: any) => void;
+  closePopup: (extra?: any) => void;
 }
 ```
 
@@ -58,7 +58,7 @@ _(Optional)_
 </tbody></table>
 ## Returns
 
-\{ data: [OauthResponse](./react-web.oauthresponse)&lt;State&gt; \| null; isLoading: boolean; closePopup: () =&gt; (extra?: any) =&gt; void; \}
+\{ data: [OauthResponse](./react-web.oauthresponse)&lt;State&gt; \| null; isLoading: boolean; closePopup: (extra?: any) =&gt; void; \}
 
 OAuth 응답 데이터, 로딩 상태, 팝업을 닫는 함수를 반환합니다.
 

@@ -1,7 +1,7 @@
 {
   "metadata": {
     "toolPackage": "@microsoft/api-extractor",
-    "toolVersion": "7.47.0",
+    "toolVersion": "7.47.6",
     "schemaVersion": 1011,
     "oldestForwardsCompatibleVersion": 1001,
     "tsdocConfig": {
@@ -447,7 +447,7 @@
         {
           "kind": "Function",
           "canonicalReference": "@toktokhan-dev/chakra!InfinityList:function(1)",
-          "docComment": "/**\n  *\n * 무한 스크롤을 구현할 수 있는 컴포넌트입니다. data 와 renderItem 을 직접 받아 랜더링합니다.\n *\n * 스크롤이 끝에 도달하여 observer 가 보고 있는 요소가 화면에 보이면 `onFetchMore` 함수를 호출합니다.\n *\n * @example\n * ```tsx\n *\n * const ExampleComponent = () => {\n * const { data, fetchNextPage, hasNextPage, isFetchingNextPage } = usePostsInfiniteQuery();\n *\n * return (\n *  <InfinityList\n *    data={data}\n *    hasMore={hasNextPage}\n *    isFetching={isFetchingNextPage}\n *    onFetchMore={fetchNextPage}\n *    renderItem={({ item, index }) => <PostItem key={index} item={item} />}\n *    />\n *  )\n * }\n * ```\n *\n */\n",
+          "docComment": "/**\n  *\n * 무한 스크롤을 구현할 수 있는 컴포넌트입니다. data 와 renderItem 을 직접 받아 랜더링합니다.\n *\n * 스크롤이 끝에 도달하여 observer 가 보고 있는 요소가 화면에 보이면 `onFetchMore` 함수를 호출합니다.\n *\n * @example\n * ```tsx\n *\n * const ExampleComponent = () => {\n * const { data, fetchNextPage, hasNextPage, isFetchingNextPage } = usePostsInfiniteQuery();\n *\n * return (\n *  <InfinityList\n *    data={data}\n *    hasMore={hasNextPage}\n *    isFetching={isFetchingNextPage}\n *    onFetchMore={fetchNextPage}\n *    renderItem={(item, index) => <PostItem key={index} item={item} />}\n *    />\n *  )\n * }\n * ```\n *\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
