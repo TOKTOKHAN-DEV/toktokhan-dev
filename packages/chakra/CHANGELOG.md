@@ -1,5 +1,15 @@
 # @toktokhan-dev/chakra
 
+## 0.0.19
+
+### Patch Changes
+
+- f999fad: - test code 추가
+  - aria-label 적용
+  - 주석 수정
+- Updated dependencies [0775ea1]
+  - @toktokhan-dev/react-web@0.0.21
+
 ## 0.0.18
 
 ### Patch Changes
