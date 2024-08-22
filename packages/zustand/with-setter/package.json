@@ -1,6 +1,6 @@
 {
   "name": "@toktokhan-dev/zustand-with-setter",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "A Zustand utility that extends your store with built-in set and reset functions, enabling effortless state updates and resets in React applications.",
   "author": "TOKTOKHAN.DEV <fe-system@toktokhan.dev>",
   "license": "ISC",

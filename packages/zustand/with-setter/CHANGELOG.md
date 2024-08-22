@@ -1,5 +1,11 @@
 # @toktokhan-dev/zustand-with-setter
 
+## 0.0.6
+
+### Patch Changes
+
+- 9d6d905: 각 패키지별 LICENSE 와 README 파일을 추가하고, Package.json 을 개선했습니다.
+
 ## 0.0.5
 
 ### Patch Changes
