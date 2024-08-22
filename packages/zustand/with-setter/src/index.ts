@@ -11,6 +11,13 @@ import {
 import { cloneDeep } from 'lodash'
 import { StateCreator, StoreMutatorIdentifier } from 'zustand'
 
+/**
+ *
+ * Zustand 스토어에 `set` 및 `reset` 함수를 추가하여 상태를 더욱 쉽게 업데이트하고 초기화할 수 있도록 도와주는 유틸리티 패키지입니다.
+ *
+ * @packageDocumentation
+ */
+
 export type SetFn<T extends Obj> = (prev: T) => Partial<T>
 export type SetArg<T extends Obj> = Partial<T> | SetFn<T>
 export type ResetArg<T extends Obj> = DeepKeyOf<T> | Partial<T> | SetFn<T>

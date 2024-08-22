@@ -1,7 +1,7 @@
 # @toktokhan-dev/zustand-create-store-context
 
 zustand와 함께 사용할 수 있는 `createStoreContext` 유틸리티 패키지입니다.
-Zustand 스토어에 대한 context, provider, hoc 를 생성함으로써, Zustand를 사용한 지역 상태 관리를 가능하게 합니다.
+zustand 스토어에 대한 context, provider, hoc 를 생성함으로써, Zustand를 사용한 지역 상태 관리를 가능하게 합니다.
 
 자세한 내용과 사용법은 [Tokdocs 공식 문서](https://toktokhan-dev-docs.vercel.app/docs/docs/zustand/Overview)에서 확인 할 수 있습니다.
 

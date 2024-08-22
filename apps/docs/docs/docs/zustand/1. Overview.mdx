@@ -15,12 +15,12 @@ import Installations from '@site/src/components/@mdx/_Installation.mdx'
 #### Zustand
 zustand 는 상태관리 라이브러리입니다. 
 가볍고, 간단하며, react 뿐 아니라 다른 vanilla js 환경에서도 사용할 수 있는 호환성이 좋은 모듈입니다.
-zustand 의 기본적인 사용법은 [여기](/docs/docs/zustand/Basic%20Guide)를 확인해보세요.
+zustand 의 기본적인 사용법은 [여기](/docs/zustand/basic-guide)를 확인해보세요.
 
 
 #### Zustand Middleware: With Setter
 zustand-with-setter 는 똑똑한개발자가 제공하는 `zustand middleware` 로, Zustand 스토어에 `set` 및 `reset` 함수를 추가하여 상태를 업데이트하고 초기화하는 기능을 제공합니다.
-자세한 내용은 [여기](/docs/docs/zustand/With-Setter)를 확인해보세요.
+자세한 내용은 [여기](/docs/zustand/with-setter)를 확인해보세요.
 
 ```tsx
 import { withSetter } from '@toktokhan-dev/react'
@@ -58,7 +58,7 @@ reset({ count: 5 })
 #### Zustand With Context
 zustand 는 기본적으로 전역적인 상태를 관리하는데 자주 사용됩니다.
 zustand-with-context 는 zustand 를 사용하여 컨텍스트를 생성하고, 컨텍스트를 통해 상태를 관리하는 기능을 제공합니다.
-자세한 내용은 [여기](http://localhost:3000/docs/docs/zustand/With-Context)를 확인해보세요.
+자세한 내용은 [여기](/docs/zustand/context)를 확인해보세요.
 
 ```tsx
 import { createStoreContext } from '@toktokhan-dev/zustand-react'
@@ -105,7 +105,7 @@ const { Provider, useContext, withProvider } = createStoreContext(
 
 #### Zustand With Storage
 zustand 는 다른 storage 와 연동하여 상태를 저장하고 불러오는 기능을 제공합니다.
-자세한 내용은 [여기](http://localhost:3000/docs/docs/zustand/With-Storage)를 확인해보세요.
+자세한 내용은 [여기](/docs/zustand/persist)를 확인해보세요.
 
 
 
