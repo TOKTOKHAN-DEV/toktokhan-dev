@@ -1,8 +1,18 @@
 {
   "name": "@toktokhan-dev/zustand-with-setter",
   "version": "0.0.5",
-  "description": "",
+  "description": "A Zustand utility that extends your store with built-in set and reset functions, enabling effortless state updates and resets in React applications.",
+  "author": "TOKTOKHAN.DEV <fe-system@toktokhan.dev>",
+  "license": "ISC",
   "type": "module",
+  "homepage": "https://toktokhan-dev-docs.vercel.app/docs/zustand/with-setter",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TOKTOKHAN-DEV/toktokhan-dev/tree/main/packages/zustand/with-setter"
+  },
+  "bugs": {
+    "url": "https://github.com/TOKTOKHAN-DEV/toktokhan-dev/issues"
+  },
   "main": "dist/index.js",
   "files": [
     "dist",
@@ -22,9 +32,11 @@
     "test": "jest",
     "api-extractor": "api-extractor run --local --verbose"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "zustand",
+    "zustand with setter",
+    "state management"
+  ],
   "devDependencies": {
     "@toktokhan-dev/ts-config": "workspace:*",
     "@types/lodash": "^4.17.7",

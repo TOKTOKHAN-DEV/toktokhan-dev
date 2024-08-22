@@ -1,28 +1,24 @@
----
-sidebar_position: 3
-slug: /zustand/with-setter
----
-import Installations from '@site/src/components/@mdx/_Installation.mdx'
+# @toktokhan-dev/zustand-with-setter
 
+`@toktokhan-dev/zustand-with-setter`는 Zustand 스토어에 `set` 및 `reset` 함수를 추가하여 상태를 더욱 쉽게 업데이트하고 초기화할 수 있도록 도와주는 유틸리티 패키지입니다. 이를 통해 간단한 상태 변경 작업을 위해 별도의 함수를 정의할 필요 없이 직관적이고 간편한 상태 관리를 구현할 수 있습니다.
 
-# Zustand Middleware: With Setter
-
-@toktokhan-dev/zustand-with-setter 패키지는 Zustand 스토어에 `set` 및 `reset` 함수를 추가하여 상태를 업데이트하고 초기화하는 기능을 제공합니다.
+자세한 내용과 사용법은 [Tokdocs 공식 문서](https://toktokhan-dev-docs.vercel.app/docs/docs/zustand/Overview)에서 확인 할 수 있습니다.
 
 ## Installation
 
-#### only zustand-with-setter
-<Installations
-  package={'@toktokhan-dev/zustand-with-setter'}
-/>
+#### Only zustand-with-setter
 
-#### or with zustand-create-store-context
-<Installations
-  package={'@toktokhan-dev/zustand-react'}
-/>
+```
+npm i @toktokhan-dev/zustand-with-setter
+```
+
+#### or With zustand-create-store-context
+
+```
+npm i @toktokhan-dev/zustand-react
+```
 
 ## Comparison
-
 
 ### Vanilla Zusstand
 
@@ -41,14 +37,14 @@ const useStore = create<Store>((set) => ({
   count: 0,
   nested: { count: 0 },
   setCount: (count: number) => set(() => ({ count })),
-  setNestedCount: (count: number) => set((state) => ({ nested: { ...state.nested, count } })),
+  setNestedCount: (count: number) =>
+    set((state) => ({ nested: { ...state.nested, count } })),
 }))
 
 const setCount = useStore((store) => store.setCount)
 
 setCount(5)
 ```
-
 
 ### Zustand With Setter
 
@@ -58,6 +54,7 @@ pnpm add zustand
 
 ```tsx
 import { withSetter } from '@toktokhan-dev/zustand-with-setter'
+
 import { create } from 'zustand'
 
 type Store = {
@@ -68,7 +65,7 @@ type Store = {
 const useStore = create(
   withSetter<Store>(() => ({
     count: 0,
-    nested: { count: 0  },
+    nested: { count: 0 },
   })),
 )
 
@@ -82,6 +79,7 @@ set('nested.count', (prev) => prev + 1)
 ## Usage
 
 ### withSetter
+
 zustand middleware 는 일반적으로 고차함수로써 store 생성 함수를 받아서 새로운 store 생성 함수를 반환합니다.
 `withSetter` 또한 같습니다. store 생성함수를 받아 `set` 및 `reset` 함수를 추가한 새로운 store 생성 함수를 반환합니다.
 
@@ -106,13 +104,14 @@ import { withSetter } from '@toktokhan-dev/zustand-with-setter'
 
 type Store = {
   count: number
-  complexUpdate: (count: number ) => void
+  complexUpdate: (count: number) => void
 }
 
 const useStore = create(
   withSetter<Store>((set, get, store) => ({
     count: 0,
-    complexUpdate: (count: number) => set((prev) => ({ count: prev.count + count * 2 })),
+    complexUpdate: (count: number) =>
+      set((prev) => ({ count: prev.count + count * 2 })),
   })),
 )
 
@@ -131,7 +130,6 @@ middleware 가 제공하는 업데이트 함수입니다. 기존 store 값과 �
 const set = useStore((store) => store.set)
 ```
 
-
 #### `set(store: Partial<Store>): void`
 
 전체 상태를 업데이트 할 수 있습니다. 얕은 병합을 통해 업데이트 하기 때문에 Partial 한 상태를 전달할 수 있습니다.
@@ -142,7 +140,7 @@ type Store = {
   nested: { count: number; list: string[] }
 }
 
-set({ count: 5, nested: { count: 5, list: [] }})
+set({ count: 5, nested: { count: 5, list: [] } })
 // or
 set({ count: 5 })
 ```
@@ -157,7 +155,7 @@ type Store = {
   nested: { count: number; list: string[] }
 }
 
-set((prev) => ({ ...prev,  count: prev.count + 1 }))
+set((prev) => ({ ...prev, count: prev.count + 1 }))
 // or
 set((prev) => ({ count: prev.count + 1 }))
 ```
@@ -171,10 +169,11 @@ set('count', 5)
 ```
 
 중첩된 객체의 key 는 . 구분자와 함께 전달할 수 있습니다.
+
 ```tsx
 set('nested.count', 5)
-set('nested.list', ["item-1"])
-set('nested.list.1', "item-2") // ["item-1", "item-2"]
+set('nested.list', ['item-1'])
+set('nested.list.1', 'item-2') // ["item-1", "item-2"]
 ```
 
 #### `set(key: Key, updater: (prev: Value) => Value ): void`
@@ -184,7 +183,6 @@ set('nested.list.1', "item-2") // ["item-1", "item-2"]
 ```tsx
 set('nested.list', (prev) => [...prev, 'item-3']) // ["item-1", "item-2", "item-3"]
 ```
-
 
 ### Reset
 
@@ -197,8 +195,9 @@ const reset = useStore((store) => store.reset)
 #### `reset(): void`
 
 처음 전달 받은 initialState로 상태를 초기화합니다.
+
 ```tsx
-reset() 
+reset()
 ```
 
 #### `reset(key: Key): void`
@@ -218,9 +217,10 @@ reset('nested.count')
 reset({ count: 5 })
 ```
 
-## Note 
+## Note
 
 ### Type Generic
+
 아래처럼 create 함수에 Store 타입을 전달할 경우 create withSetter 가 생성하는 Store 타입은 set, reset 함수를 포함하기 때문에 에러가 발생합니다.
 
 ```tsx
@@ -229,14 +229,14 @@ type Store = {
 }
 
 // ❌ Bad: Type Error
-const useStore = create<Store>( 
+const useStore = create<Store>(
   withSetter((set, get, store) => ({
     count: 0,
   })),
 )
 ```
-따라서, store 의 타입 정의를 위한 create 함수의 첫번째 Generic type 에 경우 create 함수가 아닌 withSetter 의 첫번째 Generic Type 으로 정의하여 사용합니다.
 
+따라서, store 의 타입 정의를 위한 create 함수의 첫번째 Generic type 에 경우 create 함수가 아닌 withSetter 의 첫번째 Generic Type 으로 정의하여 사용합니다.
 
 ```tsx
 type Store = {
@@ -244,12 +244,9 @@ type Store = {
 }
 
 // ✅ Good
-const useStore = create( 
+const useStore = create(
   withSetter<Store>((set, get, store) => ({
     count: 0,
   })),
 )
 ```
-
-
-
