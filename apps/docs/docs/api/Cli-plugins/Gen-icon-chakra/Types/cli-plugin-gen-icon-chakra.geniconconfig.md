@@ -40,25 +40,6 @@ Description
 </th></tr></thead>
 <tbody><tr><td>
 
-[basePath?](./cli-plugin-gen-icon-chakra.geniconconfig.basepath)
-
-
-</td><td>
-
-
-</td><td>
-
-string
-
-
-</td><td>
-
-_(Optional)_ 생성될 객체의 value 에 할당될 경로의 base-path 입니다
-
-
-</td></tr>
-<tr><td>
-
 [ignored?](./cli-plugin-gen-icon-chakra.geniconconfig.ignored)
 
 

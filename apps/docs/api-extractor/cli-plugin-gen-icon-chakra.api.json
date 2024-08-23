@@ -227,33 +227,6 @@
           "members": [
             {
               "kind": "PropertySignature",
-              "canonicalReference": "@toktokhan-dev/cli-plugin-gen-icon-chakra!GenIconConfig#basePath:member",
-              "docComment": "/**\n * 생성될 객체의 value 에 할당될 경로의 base-path 입니다\n */\n",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "basePath?: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "string"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "isReadonly": false,
-              "isOptional": true,
-              "releaseTag": "Public",
-              "name": "basePath",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            },
-            {
-              "kind": "PropertySignature",
               "canonicalReference": "@toktokhan-dev/cli-plugin-gen-icon-chakra!GenIconConfig#ignored:member",
               "docComment": "/**\n * 제외 될 아이콘 파일을 판별하는 패턴으로써, 파일이름이 패턴과 일치할 경우에 객체에서 제외 됩니다.\n */\n",
               "excerptTokens": [
