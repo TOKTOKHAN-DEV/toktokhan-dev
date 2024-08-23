@@ -1,5 +1,12 @@
 # @toktokhan-dev/zustand-react
 
+## 0.0.3
+
+### Patch Changes
+
+- Updated dependencies [5a8e30d]
+  - @toktokhan-dev/zustand-create-store-context@0.0.5
+
 ## 0.0.2
 
 ### Patch Changes

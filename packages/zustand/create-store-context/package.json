@@ -1,6 +1,6 @@
 {
   "name": "@toktokhan-dev/zustand-create-store-context",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A utility for creating and managing localized state contexts using Zustand, with easy-to-use provider and HOC support for React applications.",
   "author": "TOKTOKHAN.DEV <fe-system@toktokhan.dev>",
   "license": "ISC",
