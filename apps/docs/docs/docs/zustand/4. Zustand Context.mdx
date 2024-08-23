@@ -9,6 +9,12 @@ import Installations from '@site/src/components/@mdx/_Installation.mdx'
 
 @toktokhan-dev/zustand-create-store-context 패키지는 Zustand 스토어에 대한 context, provider, hoc 를 생성함으로써, Zustand를 사용한 로컬 상태 관리를 가능하게 합니다.
 
+:::info zustand with next.js
+
+Nextjs 와 같은 SSR 환경에선, 서버에서의 상태변경이 일어날 경우 각기 다른 클라이언트에서 서버상태를 공유하게 되는 이슈가 생길 수 있기 때문에, **Zustand 를 Component를ontext 와 함께 사용하는 것을 권장**합니다.
+Zustand의 공식 문서에서도 이러한 패턴을 설명하고 있으니, [Zustand 공식문서](https://zustand.docs.pmnd.rs/guides/nextjs)를 참고해주세요.
+:::
+
 ## Installation
 
 #### only zustand-with-setter
