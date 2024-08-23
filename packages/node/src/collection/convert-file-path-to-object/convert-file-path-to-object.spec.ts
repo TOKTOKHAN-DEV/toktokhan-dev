@@ -22,7 +22,7 @@ describe('convertFilePathToObject', () => {
 
   test('by include', () => {
     const result = convertFilePathToObject(
-      { includingPattern: ['**/*.txt'] },
+      { includingPattern: ['**/*.txt'], basePath: '' },
       'dir',
     )
 
@@ -95,6 +95,23 @@ describe('convertFilePathToObject', () => {
       subdir: {
         file_3: 'BASE-PATH/SUBDIR/FILE3.TXT',
         file_4: 'BASE-PATH/SUBDIR/FILE4.TXT',
+      },
+    })
+  })
+  test('with base path start with "/"', () => {
+    const result = convertFilePathToObject({
+      includingPattern: ['**/*.txt'],
+      formatKey: (str) => snakeCase(str).toLowerCase(),
+      formatValue: ({ path }) => path.toUpperCase(),
+      basePath: '/base-path',
+    })('dir')
+
+    expect(result).toEqual({
+      file_1: '/BASE-PATH/FILE1.TXT',
+      file_2: '/BASE-PATH/FILE2.TXT',
+      subdir: {
+        file_3: '/BASE-PATH/SUBDIR/FILE3.TXT',
+        file_4: '/BASE-PATH/SUBDIR/FILE4.TXT',
       },
     })
   })
