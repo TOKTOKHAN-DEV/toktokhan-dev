@@ -1,6 +1,6 @@
 {
   "name": "@toktokhan-dev/zustand-react",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A comprehensive Zustand utility that combines all modules from `@toktokhan-dev/zustand-create-store-context` and `@toktokhan-dev/zustand-with-setter` into a single package, designed for efficient React state management.",
   "author": "TOKTOKHAN.DEV <fe-system@toktokhan.dev>",
   "license": "ISC",
