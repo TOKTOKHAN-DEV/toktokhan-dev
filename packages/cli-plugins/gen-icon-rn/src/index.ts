@@ -68,7 +68,7 @@ export const genIcon = defineCommand<'gen:icon', GenIconConfig>({
     input: 'public',
     output: path.resolve('src', 'generated', 'icons', 'MyIcons.tsx'),
     ignored: ['*node_module*'],
-    basePath: 'icons',
+    basePath: '/',
   },
   run: async (config) => {
     const {

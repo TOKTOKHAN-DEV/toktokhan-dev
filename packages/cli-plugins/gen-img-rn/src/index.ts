@@ -99,7 +99,7 @@ export const genImg = defineCommand<'gen:img', GenImageConfig>({
     input: 'public',
     output: path.resolve('src', 'generated', 'path', 'images.ts'),
     displayName: 'MY_IMAGES',
-    basePath: '',
+    basePath: '/',
     includes: ['*.jpg', '*.png', '*.svg', '*.jpeg', '*.webp'],
     ignored: ['*node_module*'],
     oneDepth: true,

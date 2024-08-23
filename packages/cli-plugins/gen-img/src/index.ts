@@ -99,7 +99,7 @@ export const genImg = defineCommand<'gen:img', GenImageConfig>({
     input: 'public',
     output: path.resolve('src', 'generated', 'path', 'images.ts'),
     displayName: 'MY_IMAGES',
-    basePath: '',
+    basePath: '/',
     includes: ['*.jpg', '*.png', '*.svg', '*.jpeg', '*.webp'],
     ignored: ['*node_module*'],
     oneDepth: true,
@@ -121,8 +121,6 @@ export const genImg = defineCommand<'gen:img', GenImageConfig>({
     if (!input) throw new Error('input is required')
     if (!output) throw new Error('output is required')
     if (!displayName) throw new Error('displayName is required')
-
-    console.log(config)
 
     const pathObj = convertFilePathToObject<{ src: string; alt: string }>(
       {
