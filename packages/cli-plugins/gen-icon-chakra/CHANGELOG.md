@@ -1,5 +1,15 @@
 # @toktokhan-dev/cli-plugin-gen-icon-chakra
 
+## 0.0.11
+
+### Patch Changes
+
+- 09e81b8: - svg 태그 -> Icon 컴포넌트 변환시 fill 유무에 따른 프롭 적용
+- c2bfce5: - base path default value 지정
+- Updated dependencies [ce6c6eb]
+  - @toktokhan-dev/node@0.0.10
+  - @toktokhan-dev/cli@0.0.11
+
 ## 0.0.10
 
 ### Patch Changes

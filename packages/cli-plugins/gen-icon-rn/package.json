@@ -1,6 +1,6 @@
 {
   "name": "@toktokhan-dev/cli-plugin-gen-icon-rn",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "A CLI plugin for generating React Native icons built by TOKTOKHAN.DEV",
   "author": "TOKTOKHAN.DEV <fe-system@toktokhan.dev>",
   "license": "ISC",
