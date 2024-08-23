@@ -1,7 +1,7 @@
 {
   "metadata": {
     "toolPackage": "@microsoft/api-extractor",
-    "toolVersion": "7.47.6",
+    "toolVersion": "7.47.7",
     "schemaVersion": 1011,
     "oldestForwardsCompatibleVersion": 1001,
     "tsdocConfig": {
@@ -179,7 +179,32 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "createStoreContext: <T>(initializer: "
+              "text": "createStoreContext: <T, Mos extends "
+            },
+            {
+              "kind": "Content",
+              "text": "["
+            },
+            {
+              "kind": "Reference",
+              "text": "StoreMutatorIdentifier",
+              "canonicalReference": "zustand!StoreMutatorIdentifier:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", unknown][]"
+            },
+            {
+              "kind": "Content",
+              "text": " = "
+            },
+            {
+              "kind": "Content",
+              "text": "[]"
+            },
+            {
+              "kind": "Content",
+              "text": ">(initializer: "
             },
             {
               "kind": "Reference",
@@ -188,7 +213,7 @@
             },
             {
               "kind": "Content",
-              "text": "<T>"
+              "text": "<T, [], Mos>"
             },
             {
               "kind": "Content",
@@ -201,13 +226,13 @@
             },
             {
               "kind": "Content",
-              "text": "<T>"
+              "text": "<T, Mos>"
             }
           ],
           "fileUrlPath": "dist/index.doc.d.ts",
           "returnTypeTokenRange": {
-            "startIndex": 4,
-            "endIndex": 6
+            "startIndex": 10,
+            "endIndex": 12
           },
           "releaseTag": "Public",
           "overloadIndex": 1,
@@ -215,8 +240,8 @@
             {
               "parameterName": "initializer",
               "parameterTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 3
+                "startIndex": 7,
+                "endIndex": 9
               },
               "isOptional": false
             }
@@ -232,6 +257,17 @@
                 "startIndex": 0,
                 "endIndex": 0
               }
+            },
+            {
+              "typeParameterName": "Mos",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 4
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 5,
+                "endIndex": 6
+              }
             }
           ],
           "name": "createStoreContext"
@@ -243,7 +279,32 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "interface CreateStoreContextReturn<T> "
+              "text": "interface CreateStoreContextReturn<T, Mos extends "
+            },
+            {
+              "kind": "Content",
+              "text": "["
+            },
+            {
+              "kind": "Reference",
+              "text": "StoreMutatorIdentifier",
+              "canonicalReference": "zustand!StoreMutatorIdentifier:type"
+            },
+            {
+              "kind": "Content",
+              "text": ", unknown][]"
+            },
+            {
+              "kind": "Content",
+              "text": " = "
+            },
+            {
+              "kind": "Content",
+              "text": "[]"
+            },
+            {
+              "kind": "Content",
+              "text": "> "
             }
           ],
           "fileUrlPath": "dist/index.doc.d.ts",
@@ -258,6 +319,17 @@
               "defaultTypeTokenRange": {
                 "startIndex": 0,
                 "endIndex": 0
+              }
+            },
+            {
+              "typeParameterName": "Mos",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 4
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 5,
+                "endIndex": 6
               }
             }
           ],
@@ -324,8 +396,31 @@
                   "text": "useContext: "
                 },
                 {
+                  "kind": "Reference",
+                  "text": "UseBoundStore",
+                  "canonicalReference": "zustand!UseBoundStore:type"
+                },
+                {
                   "kind": "Content",
-                  "text": "<Selected>(selector: (store: T) => Selected) => Selected"
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "Mutate",
+                  "canonicalReference": "zustand!Mutate:type"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<"
+                },
+                {
+                  "kind": "Reference",
+                  "text": "StoreApi",
+                  "canonicalReference": "zustand!StoreApi:interface"
+                },
+                {
+                  "kind": "Content",
+                  "text": "<T>, Mos>>"
                 },
                 {
                   "kind": "Content",
@@ -338,7 +433,7 @@
               "name": "useContext",
               "propertyTypeTokenRange": {
                 "startIndex": 1,
-                "endIndex": 2
+                "endIndex": 7
               }
             },
             {

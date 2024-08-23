@@ -13,5 +13,5 @@ slug: /zustand-create-store-context.createstorecontextreturn.usecontext
 ## Signature
 
 ```typescript
-useContext: <Selected>(selector: (store: T) => Selected) => Selected;
+useContext: UseBoundStore<Mutate<StoreApi<T>, Mos>>;
 ```

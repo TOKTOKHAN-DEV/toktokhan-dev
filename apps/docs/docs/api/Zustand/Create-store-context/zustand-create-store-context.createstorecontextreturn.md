@@ -13,7 +13,7 @@ slug: /zustand-create-store-context.createstorecontextreturn
 ## Signature
 
 ```typescript
-interface CreateStoreContextReturn<T> 
+interface CreateStoreContextReturn<T, Mos extends [StoreMutatorIdentifier, unknown][] = []> 
 ```
 
 ## Properties
@@ -66,7 +66,7 @@ FunctionComponent&lt;\{ children: ReactNode; initial?: Partial&lt;T&gt;; \}&gt;
 
 </td><td>
 
-&lt;Selected&gt;(selector: (store: T) =&gt; Selected) =&gt; Selected
+UseBoundStore&lt;Mutate&lt;StoreApi&lt;T&gt;, Mos&gt;&gt;
 
 
 </td><td>

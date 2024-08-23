@@ -14,7 +14,7 @@ zustand 와 함께 사용할 수 있는 `createStoreContext` 함수를 제공합
 ## Signature
 
 ```typescript
-createStoreContext: <T>(initializer: StateCreator<T>) => CreateStoreContextReturn<T>
+createStoreContext: <T, Mos extends [StoreMutatorIdentifier, unknown][] = []>(initializer: StateCreator<T, [], Mos>) => CreateStoreContextReturn<T, Mos>
 ```
 
 ## Parameters
@@ -42,7 +42,7 @@ initializer
 
 </td><td>
 
-StateCreator&lt;T&gt;
+StateCreator&lt;T, [], Mos&gt;
 
 
 </td><td>
@@ -52,7 +52,7 @@ StateCreator&lt;T&gt;
 </tbody></table>
 ## Returns
 
-[CreateStoreContextReturn](./zustand-create-store-context.createstorecontextreturn)&lt;T&gt;
+[CreateStoreContextReturn](./zustand-create-store-context.createstorecontextreturn)&lt;T, Mos&gt;
 
 ## Example
 
