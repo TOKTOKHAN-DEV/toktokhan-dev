@@ -7,7 +7,15 @@ import {
   useRef,
 } from 'react'
 
-import { StateCreator, StoreApi, createStore, useStore } from 'zustand'
+import {
+  Mutate,
+  StateCreator,
+  StoreApi,
+  StoreMutatorIdentifier,
+  UseBoundStore,
+  createStore,
+  useStore,
+} from 'zustand'
 
 /**
  *
@@ -16,12 +24,15 @@ import { StateCreator, StoreApi, createStore, useStore } from 'zustand'
  *
  * @packageDocumentation
  */
-export interface CreateStoreContextReturn<T> {
+export interface CreateStoreContextReturn<
+  T,
+  Mos extends [StoreMutatorIdentifier, unknown][] = [],
+> {
   Provider: FunctionComponent<{
     children: ReactNode
     initial?: Partial<T>
   }>
-  useContext: <Selected>(selector: (store: T) => Selected) => Selected
+  useContext: UseBoundStore<Mutate<StoreApi<T>, Mos>>
   withProvider: <P extends object>(
     Component: ComponentType<P>,
     initial?: Partial<T>,
@@ -83,9 +94,13 @@ export interface CreateStoreContextReturn<T> {
  * ```
  *
  */
-export const createStoreContext = <T,>(
-  initializer: StateCreator<T>,
-): CreateStoreContextReturn<T> => {
+
+export const createStoreContext = <
+  T,
+  Mos extends [StoreMutatorIdentifier, unknown][] = [],
+>(
+  initializer: StateCreator<T, [], Mos>,
+): CreateStoreContextReturn<T, Mos> => {
   const storeContext = createContext<StoreApi<T> | null>(null)
 
   const useContext = <Selected,>(selector: (store: T) => Selected) => {
@@ -134,5 +149,9 @@ export const createStoreContext = <T,>(
     return Wrapped
   }
 
-  return { Provider, useContext, withProvider }
+  return {
+    Provider,
+    useContext: useContext as UseBoundStore<Mutate<StoreApi<T>, Mos>>,
+    withProvider,
+  }
 }
