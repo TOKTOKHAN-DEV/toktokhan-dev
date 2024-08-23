@@ -1,5 +1,13 @@
 # @toktokhan-dev/node
 
+## 0.0.10
+
+### Patch Changes
+
+- ce6c6eb: ## fix convertFilePathToObject
+
+  - base path issue
+
 ## 0.0.9
 
 ### Patch Changes

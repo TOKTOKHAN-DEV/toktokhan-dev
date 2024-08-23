@@ -1,6 +1,6 @@
 {
   "name": "@toktokhan-dev/cli-plugin-gen-icon-chakra",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "A CLI plugin for generating Chakra UI icons built by TOKTOKHAN.DEV",
   "author": "TOKTOKHAN.DEV <fe-system@toktokhan.dev>",
   "license": "ISC",

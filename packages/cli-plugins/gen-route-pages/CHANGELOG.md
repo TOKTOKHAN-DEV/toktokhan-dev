@@ -1,5 +1,13 @@
 # @toktokhan-dev/cli-plugin-gen-route-pages
 
+## 0.0.12
+
+### Patch Changes
+
+- Updated dependencies [ce6c6eb]
+  - @toktokhan-dev/node@0.0.10
+  - @toktokhan-dev/cli@0.0.11
+
 ## 0.0.11
 
 ### Patch Changes

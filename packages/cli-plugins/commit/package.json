@@ -1,6 +1,6 @@
 {
   "name": "@toktokhan-dev/cli-plugin-commit",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "A CLI plugin for managing commits built by TOKTOKHAN.DEV",
   "author": "TOKTOKHAN.DEV <fe-system@toktokhan.dev>",
   "license": "ISC",

@@ -1,5 +1,13 @@
 # @toktokhan-dev/tokit
 
+## 0.0.15
+
+### Patch Changes
+
+- Updated dependencies [ce6c6eb]
+  - @toktokhan-dev/node@0.0.10
+  - @toktokhan-dev/github@0.0.12
+
 ## 0.0.14
 
 ### Patch Changes

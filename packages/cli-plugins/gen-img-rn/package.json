@@ -1,6 +1,6 @@
 {
   "name": "@toktokhan-dev/cli-plugin-gen-img-rn",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "A CLI plugin for generating React Native images built by TOKTOKHAN.DEV",
   "author": "TOKTOKHAN.DEV <fe-system@toktokhan.dev>",
   "license": "ISC",

@@ -1,5 +1,14 @@
 # @toktokhan-dev/cli-plugin-gen-img
 
+## 0.0.11
+
+### Patch Changes
+
+- c2bfce5: - base path default value 지정
+- Updated dependencies [ce6c6eb]
+  - @toktokhan-dev/node@0.0.10
+  - @toktokhan-dev/cli@0.0.11
+
 ## 0.0.10
 
 ### Patch Changes
