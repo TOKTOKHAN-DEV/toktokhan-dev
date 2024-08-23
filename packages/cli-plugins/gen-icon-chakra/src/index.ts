@@ -9,7 +9,7 @@ import {
 } from '@toktokhan-dev/node'
 import { awaited, flatObject, prefix } from '@toktokhan-dev/universal'
 
-import { camelCase, startCase } from 'lodash'
+import { camelCase, isUndefined, omitBy, startCase } from 'lodash'
 import { entries, flow, join, map, mapKeys, replace, tail } from 'lodash/fp'
 import { INode, parse, stringify } from 'svgson'
 
@@ -35,10 +35,16 @@ const parseElement = (element: INode): INode => {
 
 const toJsxSyntax = (svg: INode): INode => {
   const { children, ...rest } = svg
+
+  const attributes = {
+    viewBox: svg.attributes.viewBox,
+    fill: svg.attributes.fill,
+    parentProps: 'true',
+  }
   const transformed: INode = {
     ...rest,
     name: 'Icon',
-    attributes: { viewBox: svg.attributes.viewBox, parentProps: 'true' },
+    attributes: omitBy(attributes, isUndefined),
     children: map(parseElement, children),
   }
 
@@ -53,8 +59,6 @@ export interface GenIconConfig {
   input: string
   /** 생성될 파일이 위치할 경로입니다.*/
   output: string
-  /** 생성될 객체의 value 에 할당될 경로의 base-path 입니다 */
-  basePath?: string
   /** 제외 될 아이콘 파일을 판별하는 패턴으로써, 파일이름이 패턴과 일치할 경우에 객체에서 제외 됩니다. */
   ignored?: string[]
 }
@@ -100,7 +104,6 @@ export const genIcon = defineCommand<'gen:icon', GenIconConfig>({
       input,
       output,
       ignored,
-      basePath,
     } = config
 
     if (!input) throw new Error('input is required')
@@ -112,7 +115,7 @@ export const genIcon = defineCommand<'gen:icon', GenIconConfig>({
       {
         includingPattern: svgRegex?.map((pattern) => path.join('**', pattern)),
         ignoredPattern: ignored,
-        basePath,
+        basePath: '',
         formatValue: (data) => {
           const svgContent = readFileSync('utf-8', path.join(input, data.path))
           return svgContent
