@@ -1,5 +1,12 @@
 # @toktokhan-dev/react-web
 
+## 0.0.22
+
+### Patch Changes
+
+- Updated dependencies [[`2dfc002`](https://github.com/TOKTOKHAN-DEV/toktokhan-dev/commit/2dfc00257f5bbf669a065d43d304e193307a3481), [`75af6e3`](https://github.com/TOKTOKHAN-DEV/toktokhan-dev/commit/75af6e3b3d33c93292f41e79fe76e8bcbcb2a38e), [`8990c64`](https://github.com/TOKTOKHAN-DEV/toktokhan-dev/commit/8990c6412854fd806260b14abe2563f4204a68db)]:
+  - @toktokhan-dev/react-universal@0.0.11
+
 ## 0.0.21
 
 ### Patch Changes
