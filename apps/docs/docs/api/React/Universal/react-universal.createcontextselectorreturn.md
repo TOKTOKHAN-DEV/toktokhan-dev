@@ -13,14 +13,16 @@ slug: /react-universal.createcontextselectorreturn
 ## Signature
 
 ```typescript
-type CreateContextSelectorReturn<T> = {
+type CreateContextSelectorReturn<T, P> = {
   useContext: <Selected>(selector: (value: T) => Selected) => Selected;
   Provider: ({
-    children
+    children,
+    params
   }: {
     children: ReactNode;
+    params?: P;
   }) => JSX.Element;
-  withProvider: <C extends ComponentType<any>>(Component: C) => (props: PropsOf<C>) => JSX.Element;
+  withProvider: <C extends ComponentType<any>>(Component: C, params?: P) => (props: PropsOf<C>) => JSX.Element;
 };
 ```
 ## References

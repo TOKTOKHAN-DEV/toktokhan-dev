@@ -345,15 +345,31 @@
         {
           "kind": "Function",
           "canonicalReference": "@toktokhan-dev/react-universal!createContextSelector:function(1)",
-          "docComment": "",
+          "docComment": "/**\n * @category Utils/React 커스텀 훅을 기반으로 컨텍스트와 관련된 유틸리티를 생성하는 함수입니다. 이 함수는 주어진 훅을 컨텍스트로 감싸는 `Provider`, `useContext` 훅, 그리고 컴포넌트를 컨텍스트로 감싸는 `withProvider` HOC를 반환합니다.\n *\n * @template T - 컨텍스트에서 사용할 데이터 타입  @template P - 훅의 파라미터 타입\n *\n * @param useHook - 컨텍스트에서 사용할 커스텀 훅\n *\n * @param initialProps - `useHook`에 전달될 초기 파라미터 (선택적)\n *\n * @returns `{ useContext, Provider, withProvider }` - 생성된 컨텍스트 유틸리티들\n *\n * @example\n * ```tsx\n * // 커스텀 훅 정의\n * const useTimer = ({ timeLimit = 1000 }: { timeLimit?: number }) => {\n *   const [time, setTime] = useState(timeLimit);\n *   // 타이머 로직...\n *   return { time, start: () => { //타이머 시작 }};\n * };\n *\n * // createContextSelector로 컨텍스트 유틸리티 생성\n * const { Provider: TimerProvider, useContext: useTimerContext } = createContextSelector(useTimer);\n *\n * // 타이머를 표시하는 컴포넌트\n * const TimerDisplay = () => {\n *   const time = useTimerContext(ctx => ctx.time);\n *   return <div>Time: {time}</div>;\n * };\n *\n * // 방법 1. TimerProvider로 감싸기\n * const App = () => (\n *   <TimerProvider params={{timeLimit: 1000}}>\n *     <TimerDisplay />\n *   </TimerProvider>\n * );\n *\n * // 방법 2. withProvider로 컴포넌트 감싸기\n * const App = () => (\n *     <TimerDisplay />\n * );\n * export default withTimerProvider(App, { timeLimit: 1000 });\n * ```\n *\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "createContextSelector: <T>(useHook: "
+              "text": "createContextSelector: <T, P = "
             },
             {
               "kind": "Content",
-              "text": "() => T"
+              "text": "undefined"
+            },
+            {
+              "kind": "Content",
+              "text": ">(useHook: "
+            },
+            {
+              "kind": "Content",
+              "text": "(param?: P) => T"
+            },
+            {
+              "kind": "Content",
+              "text": ", initialProps?: "
+            },
+            {
+              "kind": "Content",
+              "text": "P"
             },
             {
               "kind": "Content",
@@ -366,13 +382,13 @@
             },
             {
               "kind": "Content",
-              "text": "<T>"
+              "text": "<T, P>"
             }
           ],
           "fileUrlPath": "dist/index.doc.d.ts",
           "returnTypeTokenRange": {
-            "startIndex": 3,
-            "endIndex": 5
+            "startIndex": 7,
+            "endIndex": 9
           },
           "releaseTag": "Public",
           "overloadIndex": 1,
@@ -380,10 +396,18 @@
             {
               "parameterName": "useHook",
               "parameterTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
+                "startIndex": 3,
+                "endIndex": 4
               },
               "isOptional": false
+            },
+            {
+              "parameterName": "initialProps",
+              "parameterTypeTokenRange": {
+                "startIndex": 5,
+                "endIndex": 6
+              },
+              "isOptional": true
             }
           ],
           "typeParameters": [
@@ -397,6 +421,17 @@
                 "startIndex": 0,
                 "endIndex": 0
               }
+            },
+            {
+              "typeParameterName": "P",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
             }
           ],
           "name": "createContextSelector"
@@ -408,11 +443,11 @@
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "type CreateContextSelectorReturn<T> = "
+              "text": "type CreateContextSelectorReturn<T, P> = "
             },
             {
               "kind": "Content",
-              "text": "{\n  useContext: <Selected>(selector: (value: T) => Selected) => Selected;\n  Provider: ({\n    children\n  }: {\n    children: "
+              "text": "{\n  useContext: <Selected>(selector: (value: T) => Selected) => Selected;\n  Provider: ({\n    children,\n    params\n  }: {\n    children: "
             },
             {
               "kind": "Reference",
@@ -421,7 +456,7 @@
             },
             {
               "kind": "Content",
-              "text": ";\n  }) => "
+              "text": ";\n    params?: P;\n  }) => "
             },
             {
               "kind": "Reference",
@@ -439,7 +474,7 @@
             },
             {
               "kind": "Content",
-              "text": "<any>>(Component: C) => (props: "
+              "text": "<any>>(Component: C, params?: P) => (props: "
             },
             {
               "kind": "Reference",
@@ -470,6 +505,17 @@
           "typeParameters": [
             {
               "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            },
+            {
+              "typeParameterName": "P",
               "constraintTokenRange": {
                 "startIndex": 0,
                 "endIndex": 0
@@ -1333,6 +1379,274 @@
           "parameters": []
         },
         {
+          "kind": "Interface",
+          "canonicalReference": "@toktokhan-dev/react-universal!TimerProps:interface",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "interface TimerProps "
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "TimerProps",
+          "preserveMemberOrder": false,
+          "members": [
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/react-universal!TimerProps#autoStart:member",
+              "docComment": "/**\n * 타이머가 초기화 시 자동으로 시작될지 여부  @default true\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "autoStart?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "boolean"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "autoStart",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/react-universal!TimerProps#interval:member",
+              "docComment": "/**\n * 타이머가 업데이트되는 간격(밀리초 단위)  @default 1000ms\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "interval?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "interval",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/react-universal!TimerProps#onTimeOver:member",
+              "docComment": "/**\n * 시간이 종료되었을 때 호출되는 콜백 함수\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "onTimeOver?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "() => void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "onTimeOver",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/react-universal!TimerProps#onTimeUpdate:member",
+              "docComment": "/**\n * 매 시간 업데이트 시 호출되는 콜백 함수\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "onTimeUpdate?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "(time: number) => void"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "onTimeUpdate",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/react-universal!TimerProps#setTimeFormat:member",
+              "docComment": "/**\n * 시간을 표시하는 형식을 설정하는 함수  @default ()=>\"mm:ss\" 형식\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "setTimeFormat?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "(time: number) => string"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "setTimeFormat",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/react-universal!TimerProps#timeLimit:member",
+              "docComment": "/**\n * 타이머의 제한 시간(밀리초 단위)\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "timeLimit?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "number"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "timeLimit",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            }
+          ],
+          "extendsTokenRanges": [],
+          "parameters": []
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/react-universal!TimerProvider:function(1)",
+          "docComment": "/**\n * @category Hooks/useTimer()/Context(Optional) 이 프로바이더는 타이머 상태를 컨텍스트를 통해 지역/전역적으로 관리할 수 있도록 해줍니다.\n *\n * @remarks\n *\n * 컨텍스트를 사용하지 않아도 타이머 훅을 직접 사용할 수 있으며, 컨텍스트가 필요한 경우에만 사용하시기 바랍니다. 예를 들어, 다수의 컴포넌트에서 타이머 상태를 공유하거나, 전역적으로 타이머 상태를 관리해야 하는 경우에 유용합니다.\n *\n * @example\n * ```tsx\n * // TimerContainer.tsx\n * import React from 'react';\n * import { TimerProvider } from '@toktokhan-dev/react-universal';\n * import TimerDisplay from './TimerDisplay';\n *\n * const TimerContainer = () => {\n *   return (\n *     <TimerProvider\n *        params={{\n *          autoStart: false,\n *          timeLimit: 1000 * 5,\n *        }}\n *      >\n *       <TimerDisplay />\n *     </TimerProvider>\n *   );\n * };\n *\n * export default TimerContainer;\n *\n * // TimerDisplay.tsx\n * const TimerDisplay = () => {\n *   // 불필요한 리랜더링 방지를 위해 selector로 가져오시는 것을 권장합니다.\n *   const time = useTimerContext((ctx) => ctx?.time)\n *   const start = useTimerContext((ctx) => ctx?.start)\n *\n *   return (\n *     <div>\n *       <button onClick={start}>Start Timer</button>\n *       <p>Remaining Time: {time}</p>\n *     </div>\n *   );\n * };\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "TimerProvider: ({\n  children,\n  params\n}: "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n  children: "
+            },
+            {
+              "kind": "Reference",
+              "text": "react.ReactNode",
+              "canonicalReference": "@types/react!React.ReactNode:type"
+            },
+            {
+              "kind": "Content",
+              "text": ";\n  params?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "TimerProps",
+              "canonicalReference": "@toktokhan-dev/react-universal!TimerProps:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " | undefined;\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Reference",
+              "text": "JSX.Element",
+              "canonicalReference": "@types/react!__global.JSX.Element:interface"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 7,
+            "endIndex": 8
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "{  children,  params}",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 6
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "TimerProvider"
+        },
+        {
+          "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/react-universal!TimerStatus:type",
+          "docComment": "",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "type TimerStatus = "
+            },
+            {
+              "kind": "Content",
+              "text": "'RUNNING' | 'PAUSED' | 'STOPPED'"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "releaseTag": "Public",
+          "name": "TimerStatus",
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 2
+          },
+          "parameters": []
+        },
+        {
           "kind": "Function",
           "canonicalReference": "@toktokhan-dev/react-universal!useCallbackRef:function(1)",
           "docComment": "/**\n  */\n",
@@ -1394,6 +1708,204 @@
             }
           ],
           "name": "useCallbackRef"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/react-universal!useTimer:function(1)",
+          "docComment": "/**\n * @category Hooks/useTimer() 타이머를 관리하는 커스텀 훅입니다.\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "useTimer: ({\n  autoStart,\n  timeLimit,\n  interval,\n  setTimeFormat,\n  onTimeOver,\n  onTimeUpdate\n}?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "TimerProps",
+              "canonicalReference": "@toktokhan-dev/react-universal!TimerProps:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n  time: string;\n  isEnd: boolean;\n  start: () => void;\n  restart: () => void;\n  pause: () => void;\n  reset: () => void;\n}"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "{  autoStart,  timeLimit,  interval,  setTimeFormat,  onTimeOver,  onTimeUpdate}",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": true
+            }
+          ],
+          "name": "useTimer"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/react-universal!useTimerContext:function(1)",
+          "docComment": "/**\n * @category Hooks/useTimer()/Context(Optional) 타이머 컨텍스트를 사용하는 커스텀 훅입니다. selector를 통해 컨텍스트의 값을 가져올 수 있습니다.\n *\n * @remarks\n *\n * 컨텍스트를 사용하지 않아도 타이머 훅을 직접 사용할 수 있으며, 컨텍스트가 필요한 경우에만 사용하시기 바랍니다. 예를 들어, 다수의 컴포넌트에서 타이머 상태를 공유하거나, 전역적으로 타이머 상태를 관리해야 하는 경우에 유용합니다.\n *\n * @example\n * ```tsx\n * import React from 'react';\n * import { useTimerContext } from '@toktokhan-dev/react-universal';\n *\n * const TimerDisplay = () => {\n *   // 불필요한 리랜더링 방지를 위해 selector로 가져오시는 것을 권장합니다.\n *   const time = useTimerContext((ctx) => ctx?.time)\n *   const start = useTimerContext((ctx) => ctx?.start)\n *\n *   return (\n *     <div>\n *       <button onClick={start}>Start Timer</button>\n *       <p>Remaining Time: {time}</p>\n *     </div>\n *   );\n * };\n *\n * export default TimerDisplay;\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "useTimerContext: <Selected>(selector: "
+            },
+            {
+              "kind": "Content",
+              "text": "(value: {\n  time: string;\n  isEnd: boolean;\n  start: () => void;\n  restart: () => void;\n  pause: () => void;\n  reset: () => void;\n}) => Selected"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "Selected"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 3,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "selector",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            }
+          ],
+          "typeParameters": [
+            {
+              "typeParameterName": "Selected",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "name": "useTimerContext"
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/react-universal!withTimerProvider:function(1)",
+          "docComment": "/**\n * @category Hooks/useTimer()/Context(Optional) 타이머 컨텍스트를 제공하는 컴포넌트 HOC입니다. 이 HOC를 사용하여 컴포넌트를 래핑하면, 해당 컴포넌트와 하위 컴포넌트에서 타이머 상태를 공유할 수 있습니다.\n *\n * @remarks\n *\n * 컨텍스트를 사용하지 않아도 타이머 훅을 직접 사용할 수 있으며, 컨텍스트가 필요한 경우에만 사용하시기 바랍니다. 예를 들어, 다수의 컴포넌트에서 타이머 상태를 공유하거나, 전역적으로 타이머 상태를 관리해야 하는 경우에 유용합니다.\n *\n * @example\n * ```tsx\n * // TimerContainer.tsx\n * import React from 'react';\n * import { withTimerProvider, useTimerContext } from '@toktokhan-dev/react-universal';\n *\n * const TimerContainer = () => {\n *   return <TimerDisplay />;\n * };\n *\n * export default withTimerProvider(TimerContainer, {\n *  autoStart: false,\n *  timeLimit: 1000 * 5,\n * });\n *\n * // TimerDisplay.tsx\n * const TimerDisplay = () => {\n *   // 불필요한 리랜더링 방지를 위해 selector로 가져오시는 것을 권장합니다.\n *   const time = useTimerContext((ctx) => ctx?.time)\n *   const start = useTimerContext((ctx) => ctx?.start)\n *\n *   return (\n *     <div>\n *       <button onClick={start}>Start Timer</button>\n *       <p>Remaining Time: {time}</p>\n *     </div>\n *   );\n * };\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "withTimerProvider: <C extends "
+            },
+            {
+              "kind": "Reference",
+              "text": "react.ComponentType",
+              "canonicalReference": "@types/react!React.ComponentType:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<any>"
+            },
+            {
+              "kind": "Content",
+              "text": ">(Component: "
+            },
+            {
+              "kind": "Content",
+              "text": "C"
+            },
+            {
+              "kind": "Content",
+              "text": ", params?: "
+            },
+            {
+              "kind": "Reference",
+              "text": "TimerProps",
+              "canonicalReference": "@toktokhan-dev/react-universal!TimerProps:interface"
+            },
+            {
+              "kind": "Content",
+              "text": " | undefined"
+            },
+            {
+              "kind": "Content",
+              "text": ") => "
+            },
+            {
+              "kind": "Content",
+              "text": "(props: "
+            },
+            {
+              "kind": "Reference",
+              "text": "PropsOf",
+              "canonicalReference": "@toktokhan-dev/react-universal!PropsOf:type"
+            },
+            {
+              "kind": "Content",
+              "text": "<C>) => "
+            },
+            {
+              "kind": "Reference",
+              "text": "JSX.Element",
+              "canonicalReference": "@types/react!__global.JSX.Element:interface"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 9,
+            "endIndex": 13
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "Component",
+              "parameterTypeTokenRange": {
+                "startIndex": 4,
+                "endIndex": 5
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "params",
+              "parameterTypeTokenRange": {
+                "startIndex": 6,
+                "endIndex": 8
+              },
+              "isOptional": true
+            }
+          ],
+          "typeParameters": [
+            {
+              "typeParameterName": "C",
+              "constraintTokenRange": {
+                "startIndex": 1,
+                "endIndex": 3
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "name": "withTimerProvider"
         }
       ]
     }
