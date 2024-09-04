@@ -53,5 +53,6 @@
     "@toktokhan-dev/ts-config": "workspace:*",
     "@types/node": "^20",
     "@types/react": "^18"
-  }
+  },
+  "sideEffect": false
 }
