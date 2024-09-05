@@ -3,7 +3,7 @@
   "bin": {
     "tokit": "bin/run.js"
   },
-  "version": "0.0.16",
+  "version": "0.0.17",
   "description": "A CLI tool by TOKTOKHAN.DEV for managing and installing frontend boilerplate templates.",
   "author": "TOKTOKHAN.DEV <fe-system@toktokhan.dev>",
   "license": "ISC",

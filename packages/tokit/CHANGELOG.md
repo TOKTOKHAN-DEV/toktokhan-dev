@@ -1,5 +1,11 @@
 # @toktokhan-dev/tokit
 
+## 0.0.17
+
+### Patch Changes
+
+- [`aad5c57`](https://github.com/TOKTOKHAN-DEV/toktokhan-dev/commit/aad5c578d3098f371f2c570761e535a71263430b) Thanks [@AlgoRoots](https://github.com/AlgoRoots)! - fix: ignore 할 패키지를 명시적으로 지정했습니다.
+
 ## 0.0.16
 
 ### Patch Changes
