@@ -64,7 +64,7 @@ export async function cacheToLocal(config: InitialQuestionResponse) {
 
   // modify package.json dev dependencies
   const modifyDevDependencies = (dependencies: Record<string, string>) => {
-    const IGNORED = ['@changesets/']
+    const IGNORED = ['@changesets/cli', '@changesets/changelog-github']
     const updated = Object.entries(dependencies).filter(
       ([key]) => !IGNORED.includes(key),
     )
