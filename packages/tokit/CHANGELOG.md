@@ -1,5 +1,11 @@
 # @toktokhan-dev/tokit
 
+## 0.0.16
+
+### Patch Changes
+
+- [`5aadece`](https://github.com/TOKTOKHAN-DEV/toktokhan-dev/commit/5aadece8e8ad19e09285baf77b6a99fb847338af) Thanks [@AlgoRoots](https://github.com/AlgoRoots)! - template 다운로드 시 @changeset/ 패키지 삭제
+
 ## 0.0.15
 
 ### Patch Changes
