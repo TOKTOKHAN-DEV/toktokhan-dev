@@ -48,7 +48,11 @@ const GithubFormView = ({
           label="Personal access token"
           errorText={errors.token?.message}
         >
-          <Input {...register('token')} placeholder="Enter token" />
+          <Input
+            type={'password'}
+            {...register('token')}
+            placeholder="Enter token"
+          />
         </FormHelper>
       )}
     </div>

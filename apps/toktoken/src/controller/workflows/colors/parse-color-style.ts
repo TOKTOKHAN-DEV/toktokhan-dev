@@ -152,9 +152,9 @@ export const parseColorStyles = async (): Promise<ColorResult> => {
   const primitiveId = findTargetCollection(['primitives', 'primitive'])(
     localCollections,
   )['id']
-  const tokenId = findTargetCollection(['tokens', 'token'])(localCollections)[
-    'id'
-  ]
+  const tokenId = findTargetCollection(['tokens', 'token', 'colors'])(
+    localCollections,
+  )['id']
 
   const primitives = getTargetVariables(primitiveId)(variables)
   const tokens = getTargetVariables(tokenId)(variables)
