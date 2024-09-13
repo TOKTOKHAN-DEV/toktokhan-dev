@@ -55,3 +55,6 @@ export interface TextStyleOutputValue {
   letterSpacing: ResponsiveValue<string, BreakPoints>
   textDecoration: ResponsiveValue<string, BreakPoints>
 }
+
+export type ExtractResponsiveValue<T> =
+  T extends ResponsiveValue<infer V, any> ? V : T

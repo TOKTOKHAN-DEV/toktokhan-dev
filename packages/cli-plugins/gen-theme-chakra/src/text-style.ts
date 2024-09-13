@@ -1,15 +1,47 @@
-import { pass } from '@toktokhan-dev/universal'
+import { multiply, pass, removeStr } from '@toktokhan-dev/universal'
 
 import { isObject } from 'lodash'
-import { flow, identity, invert, mapKeys, mapValues, replace } from 'lodash/fp'
+import { flow, invert, mapKeys, mapValues, replace } from 'lodash/fp'
 
-import { SwatTextStyleMode, TextStyleModes, ThemeToken } from './type'
-import { ifElse } from './utils/if-else'
+import {
+  ExtractResponsiveValue,
+  SwatTextStyleMode,
+  TextStyleInputValue,
+  TextStyleModes,
+  ThemeToken,
+} from './type'
+import { mapObj } from './utils/map-obj'
 import { throwError } from './utils/throw-error'
 
 const BREAKPOINT_ORDER = ['base', 'sm', 'md', 'lg', 'xl', '2xl']
 
-const getTextStylesKey: (str: string) => string = replace(/\s/g, '')
+const removeSpace: (str: string) => string = replace(/\s/g, '')
+
+export const coverTextStyleByKey = <T extends keyof TextStyleInputValue>(
+  key: T,
+  value: ExtractResponsiveValue<TextStyleInputValue[T]>,
+) => {
+  const percentToNumber = flow(
+    removeStr('%'), //
+    Number,
+    multiply(0.01),
+    (number) => {
+      return Number(number.toFixed(2))
+    },
+  )
+  switch (key) {
+    case 'lineHeight': {
+      return percentToNumber(value as string)
+    }
+    case 'letterSpacing': {
+      return `${percentToNumber(value as string)}em`
+    }
+
+    default: {
+      return value
+    }
+  }
+}
 
 /**
  * 주어진 객체의 키를 미리 정의된 순서에 따라 정렬합니다.
@@ -62,17 +94,22 @@ const getTextStyleObj = (
 ) =>
   flow(
     pass(json),
-    mapKeys(getTextStylesKey),
+    mapKeys(removeSpace),
     mapValues(
-      mapValues(
-        flow(
-          ifElse(
-            isObject,
-            flow(matchKey(mode), sortKeys(BREAKPOINT_ORDER)),
-            identity,
-          ),
-        ),
-      ),
+      mapObj(([key, value]) => {
+        if (isObject(value)) {
+          return [
+            key,
+            flow(
+              pass(value),
+              matchKey(mode),
+              sortKeys(BREAKPOINT_ORDER),
+              mapValues((value) => coverTextStyleByKey(key, value as any)),
+            )(),
+          ]
+        }
+        return [key, coverTextStyleByKey(key, value as string)]
+      }),
     ),
   )()
 
