@@ -1,5 +1,40 @@
 # @toktokhan-dev/cli-plugin-gen-theme-chakra
 
+## 0.0.14
+
+### Patch Changes
+
+- [`92510cf`](https://github.com/TOKTOKHAN-DEV/toktokhan-dev/commit/92510cffb6a96efecb7f2c6ef14d3ff832702026) Thanks [@ldu1020](https://github.com/ldu1020)! - converting line-height, letter-spacing
+
+  ## line-height, letter-spacing 단위 변경
+
+  - line-height: % -> number
+  - letter-spacing: % -> em
+
+  ### 기존
+
+  ```ts
+  export const textStyles = {
+    'pre-display-01': {
+      lineHeight: '140.009976158142%',
+      letterSpacing: '-1%',
+      ...
+    },
+  }
+  ```
+
+  ### 변경
+
+  ```ts
+  export const textStyles = {
+    'pre-display-01': {
+      lineHeight: 1.4,
+      letterSpacing: '-0.01em',
+      ...
+    },
+  }
+  ```
+
 ## 0.0.13
 
 ### Patch Changes
