@@ -1,5 +1,18 @@
 # @toktokhan-dev/cli-plugin-gen-theme-chakra
 
+## 0.0.15
+
+### Patch Changes
+
+- [`99ea62b`](https://github.com/TOKTOKHAN-DEV/toktokhan-dev/commit/99ea62bce5e2389fe49b0181dc327d71a6ee9354) Thanks [@ldu1020](https://github.com/ldu1020)! - color key
+
+  기존 원시 컬러인 colorSchema 에서 "white.transparent" 값이 기본 chakra 의 white 값을 덮어 씌워 발생하는 버그를 수정했습니다.
+
+  **컬러 네이밍 방식 수정 예시**
+
+  - 원시 컬러 토큰: white.transparent.50 -> white-transparent.50
+  - 시멘틱 컬러 토큰: accent.yellow.100 (기존 유지)
+
 ## 0.0.14
 
 ### Patch Changes

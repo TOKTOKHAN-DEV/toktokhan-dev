@@ -1,6 +1,6 @@
 {
   "name": "@toktokhan-dev/cli-plugin-gen-theme-chakra",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "description": "A CLI plugin for generating Chakra UI themes built by TOKTOKHAN.DEV",
   "author": "TOKTOKHAN.DEV <fe-system@toktokhan.dev>",
   "license": "ISC",
