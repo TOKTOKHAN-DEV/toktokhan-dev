@@ -6,10 +6,25 @@ import { ColorModes, ThemeToken } from './type'
 import { assertNullish } from './utils/assert-nullish'
 import { throwError } from './utils/throw-error'
 
+const isNumeric = (v: any) => {
+  return !isNaN(parseFloat(v))
+}
+
 const getColorKey: (str: string) => string = flow(
   replace(/\s/g, ''),
   replace(/-/g, '.'),
 )
+
+const getColorTokenKey: (str: string) => string = flow(getColorKey, (str) => {
+  const splitted = str.split('.')
+  if (isNumeric(splitted.at(-1))) {
+    const temp = [...splitted]
+    const last = temp.pop()
+    return temp.join('-') + `.${last}`
+  }
+
+  return splitted.join('-')
+})
 const refColorSchema = (key: string) => `colorSchema["${key}"]`
 
 /**
@@ -22,7 +37,7 @@ const getColorSchemaObj: (
   json: ThemeToken['colors'],
 ) => Record<string, string> = flow(
   prop('colorSchema'), //
-  mapKeys(getColorKey),
+  mapKeys(getColorTokenKey),
   mapValues(
     flow(
       prop('value'),
@@ -60,7 +75,7 @@ const checkValidToken = (val: object, tokenModes: Required<ColorModes>) => {
 const getTokenValue = (mode: string) => (token: any) => {
   const ref = prop(`${mode}.ref`)(token)
   const value = prop(`${mode}.value`)(token)
-  if (ref) return flow(getColorKey, refColorSchema)(ref)
+  if (ref) return flow(getColorTokenKey, refColorSchema)(ref)
   return value
 }
 
