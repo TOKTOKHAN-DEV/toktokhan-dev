@@ -1,6 +1,6 @@
 {
   "name": "@toktokhan-dev/cli-plugin-gen-source",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A CLI plugin for generating source code built by TOKTOKHAN.DE",
   "author": "TOKTOKHAN.DEV <fe-system@toktokhan.dev>",
   "license": "ISC",
