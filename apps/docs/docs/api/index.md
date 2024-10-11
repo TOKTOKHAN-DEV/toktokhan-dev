@@ -134,6 +134,17 @@ pages 폴더를 조회하여 route 경로를 포함한 객체를 생성합니다
 </td></tr>
 <tr><td>
 
+[@toktokhan-dev/cli-plugin-gen-source](./cli-plugin-gen-source)
+
+
+</td><td>
+
+이미지 경로를 읽어 객체로 생성해줍니다.
+
+
+</td></tr>
+<tr><td>
+
 [@toktokhan-dev/cli-plugin-gen-theme-chakra](./cli-plugin-gen-theme-chakra)
 
 
