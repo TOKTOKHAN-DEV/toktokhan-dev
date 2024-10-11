@@ -1,3 +1,5 @@
+import os from 'os'
+
 import { Argument, Option, program } from 'commander'
 
 import { $, infoLog, json } from '@toktokhan-dev/node'
@@ -16,6 +18,7 @@ import { storeCache } from './utils/store-cache'
 
 const name = 'tokit'
 const version = json<{ version: string }>(PACKAGE_PATH).version
+const isWindows = os.platform() === 'win32'
 
 /**
  * 똑똑한개발자 보일러 플레이트를 생성하는 CLI Tool 입니다.
@@ -27,7 +30,6 @@ const version = json<{ version: string }>(PACKAGE_PATH).version
 async function main() {
   clear()
   await welcome()
-
   const app = program
     .name(name)
     .description("CLI to help install tok's template")
@@ -65,7 +67,7 @@ async function main() {
       data.url,
     )
   }
-  $(config.manager, ['install'], { cwd: config.pathname })
+  $(config.manager, ['install'], { cwd: config.pathname, shell: isWindows })
 }
 
 main()

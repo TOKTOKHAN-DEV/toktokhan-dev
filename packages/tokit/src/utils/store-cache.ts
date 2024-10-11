@@ -1,8 +1,6 @@
 import fs from 'fs'
 
-import { $ } from '@toktokhan-dev/node'
-
-import simpleGit from 'simple-git'
+import simpleGit, { CleanOptions } from 'simple-git'
 
 import { PACKAGE_MAP } from '../constants/package-map'
 import { InitialQuestionResponse } from '../prompts/initial'
@@ -18,10 +16,5 @@ export const storeCache = async (config: InitialQuestionResponse) => {
   await git.clone(`https://github.com/${pack.owner}/${pack.repo}.git`, '.', {
     '--branch': config.version,
   })
-
-  await new Promise((resolve, reject) => {
-    $('rm', ['-rf', '.git'], { cwd: cachePath }) //
-      .on('close', resolve)
-      .on('error', reject)
-  })
+  await git.clean(CleanOptions.FORCE)
 }
