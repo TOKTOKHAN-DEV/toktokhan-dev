@@ -10,8 +10,6 @@ slug: /cli-plugin-gen-source.gensourceconfig
 
 
 
- Types
-
 ## Signature
 
 ```typescript

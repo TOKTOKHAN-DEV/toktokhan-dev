@@ -175,7 +175,7 @@
         {
           "kind": "Variable",
           "canonicalReference": "@toktokhan-dev/cli-plugin-gen-source!genSource:var",
-          "docComment": "/**\n * @category Commands\n */\n",
+          "docComment": "/**\n  */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -207,12 +207,13 @@
           "variableTypeTokenRange": {
             "startIndex": 1,
             "endIndex": 5
-          }
+          },
+          "parameters": []
         },
         {
           "kind": "Interface",
           "canonicalReference": "@toktokhan-dev/cli-plugin-gen-source!GenSourceConfig:interface",
-          "docComment": "/**\n * @category Types\n */\n",
+          "docComment": "/**\n  */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -252,7 +253,8 @@
               }
             }
           ],
-          "extendsTokenRanges": []
+          "extendsTokenRanges": [],
+          "parameters": []
         }
       ]
     }

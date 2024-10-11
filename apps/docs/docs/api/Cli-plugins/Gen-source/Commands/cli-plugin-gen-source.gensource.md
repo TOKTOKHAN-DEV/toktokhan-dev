@@ -9,8 +9,6 @@ slug: /cli-plugin-gen-source.gensource
 
 
 
- Commands
-
 ## Signature
 
 ```typescript

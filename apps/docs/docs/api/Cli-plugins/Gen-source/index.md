@@ -33,7 +33,7 @@ slug: /cli-plugin-gen-source
 
 <td>
 
- Commands
+
 
 </td></tr>
 </tbody>
