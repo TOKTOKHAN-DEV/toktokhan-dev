@@ -1,0 +1,39 @@
+<%
+  const { name, props, additionalImports } = it;
+  const propsTypes = props?.map(({prop, type, optional}) => `${prop}${optional ? "?" :""} : ${type};`).join(" ");
+  const propsString = props?.map(({prop}) => `${prop}`).join(",");
+%>
+
+import { Box, ChakraProps, Button, Flex, Image, Text } from '@chakra-ui/react';
+<% additionalImports?.forEach(function(data){ %>
+  <%~ include("Import",{exportName:data.exportName, importPath:data.importPath})%>
+<% }) %>
+
+
+
+interface <%~ name%>Props {
+  <% if (props?.length) { %>
+    <%~ propsTypes%>
+<% } %>
+
+  styles?: {
+    container?: ChakraProps
+  }
+};
+
+
+
+function <%~ name%>({ 
+<% if (props?.length) { %>
+    <%~ `${propsString},`%>
+<% } %>
+styles
+}: <%~ name%>Props) {
+  return (
+    <Box {...styles?.container}>
+      <Text><%~ name%></Text>
+    </Box>
+  );
+};
+
+export default <%~ name%>;

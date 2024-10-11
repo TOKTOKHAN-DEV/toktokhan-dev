@@ -1,0 +1,26 @@
+<%
+  const { name, contentName, pageTitle, slug } = it;
+%>
+
+import { NextSeo } from 'next-seo'
+import { useRouter } from 'next/router';
+import HomeLayout from '@/components/@Layout/HomeLayout';
+import <%~ contentName%> from '@/containers/<%~ contentName%>';
+
+function  <%~ name%>() {
+  const router = useRouter();
+  const {<%~ slug%>} = router.query;
+
+  return (
+      <>
+      <% if (pageTitle) { %>
+       {/* output: 똑똑한개발자 |  */}
+       {/* titleTemplate는 /configs/seo/config.ts에서 변경 가능합니다. */}
+       <NextSeo title="<%~ pageTitle%>" />
+      <% } %>
+        <HomeLayout content={<<%~ contentName%> <%~ slug%>={<%~ slug%>} />}/>
+      </>
+    );
+}
+
+export default <%~ name%>;

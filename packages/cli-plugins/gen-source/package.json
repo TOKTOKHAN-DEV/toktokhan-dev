@@ -1,0 +1,56 @@
+{
+  "name": "@toktokhan-dev/cli-plugin-gen-source",
+  "version": "0.0.0",
+  "description": "A CLI plugin for generating source code built by TOKTOKHAN.DE",
+  "author": "TOKTOKHAN.DEV <fe-system@toktokhan.dev>",
+  "license": "ISC",
+  "type": "module",
+  "homepage": "https://toktokhan-dev-docs.vercel.app/docs/docs/tokript/Offical%20Plugins/gen-img",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TOKTOKHAN-DEV/toktokhan-dev/tree/main/packages/cli-plugins/gen-img"
+  },
+  "bugs": {
+    "url": "https://github.com/TOKTOKHAN-DEV/toktokhan-dev/issues"
+  },
+  "main": "dist/index.js",
+  "files": [
+    "templates",
+    "dist",
+    "!dist/*.map"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "build:watch": "rollup -c --watch",
+    "play": "pnpm build:watch & node --watch play/playground.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "api-extractor": "api-extractor run --local --verbose"
+  },
+  "keywords": [
+    "cli",
+    "plugin",
+    "page",
+    "code",
+    "generation",
+    "toktokhan_dev"
+  ],
+  "dependencies": {
+    "@toktokhan-dev/cli": "workspace:*",
+    "@toktokhan-dev/node": "workspace:*",
+    "@toktokhan-dev/universal": "workspace:*",
+    "enquirer": "^2.4.1",
+    "eta": "^3.4.0",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@toktokhan-dev/ts-config": "workspace:*",
+    "@types/lodash": "^4.17.0"
+  }
+}
