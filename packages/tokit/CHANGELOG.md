@@ -1,5 +1,13 @@
 # @toktokhan-dev/tokit
 
+## 0.0.19
+
+### Patch Changes
+
+- [`5c3cb88`](https://github.com/TOKTOKHAN-DEV/toktokhan-dev/commit/5c3cb88f2a4c15e1ae446a6bb28604550813de6d) Thanks [@AlgoRoots](https://github.com/AlgoRoots)! - - window 환경에서 tokit실행시 관리자 권한이 필요함에 있어 캐싱 경로를 user 디렉토리 경로 바운더리로 수정하였습니다.
+
+  -템플릿을 캐싱하는 작업에서 .git폴더가 올바르게 삭제되지 않는 이슈를 해결했습니다.
+
 ## 0.0.18
 
 ### Patch Changes
