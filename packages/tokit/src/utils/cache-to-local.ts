@@ -11,6 +11,7 @@ import { modifyPackageJson } from '../utils/modify-package-json'
 
 export async function cacheToLocal(config: InitialQuestionResponse) {
   const cachePath = cachedPackage(config.template, config.version)
+
   fs.cpSync(cachePath, path.resolve(config.pathname), { recursive: true })
 
   // modify .gitignore

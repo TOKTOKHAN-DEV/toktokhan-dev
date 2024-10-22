@@ -1,8 +1,9 @@
-import { $ } from '@toktokhan-dev/node'
 import { awaited } from '@toktokhan-dev/universal'
 
 import { flow } from 'lodash'
-import simpleGit, { CleanOptions } from 'simple-git'
+import simpleGit from 'simple-git'
+
+import { removeGit } from './remove-git'
 
 type RemoteGitParams = {
   baseDir: string
@@ -14,7 +15,7 @@ export const proceedGit = async ({ cloneUrl, baseDir }: RemoteGitParams) => {
 
   try {
     await flow(
-      async () => git.clean(CleanOptions.FORCE),
+      async () => removeGit(baseDir),
       // awaited(infoLog('Remove .git')),
       awaited(() => git.init()),
       // awaited(infoLog('Initialized git repository')),
