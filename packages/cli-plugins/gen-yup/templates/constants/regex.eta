@@ -15,7 +15,7 @@ export const REGEX = {
   CELL_PHONE: /^010-(\d){4}-(\d){4}$/,
   BUSINESS_PHONE: /^\d{4}-\d{4}$/,
 
-  PASSWORD: /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$/,
+  PASSWORD: /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,20}$/,
 
   EMAIL_VERIFICATION_CODE: /^\d+$/g,
 
