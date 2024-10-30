@@ -1,6 +1,6 @@
 {
   "name": "@toktokhan-dev/cli-plugin-gen-yup",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A CLI plugin for generating Yup schemas built by TOKTOKHAN.DEV",
   "author": "TOKTOKHAN.DEV <fe-system@toktokhan.dev>",
   "license": "ISC",

@@ -1,5 +1,11 @@
 # @toktokhan-dev/cli-plugin-gen-yup
 
+## 0.0.3
+
+### Patch Changes
+
+- [#53](https://github.com/TOKTOKHAN-DEV/toktokhan-dev/pull/53) [`1186e21`](https://github.com/TOKTOKHAN-DEV/toktokhan-dev/commit/1186e2106b927a5609e158cd229b10cd761a931d) Thanks [@Panxoat](https://github.com/Panxoat)! - 비밀번호 정규식 수정 & 오타 수정
+
 ## 0.0.2
 
 ### Patch Changes
