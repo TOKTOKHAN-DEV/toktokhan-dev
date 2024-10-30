@@ -29,7 +29,7 @@ export const createValidationConfig =
     const outputConstantsPath =
       outputConstants || path.resolve(cwd('src', 'generated', 'constants'))
 
-    const importConstantsPath = importConstants || '@/generated/constants'
+    const importConstantsPath = importConstants || '../constants'
 
     const config = {
       data: {

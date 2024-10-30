@@ -1,18 +1,21 @@
 export const REGEX = {
-  ID: /^[A-Za-z\d]{4,16}$/,
+  ID: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{4,16}$/,
 
   PHONE_VERIFICATION_CODE: /^\d+$/g,
 
-  BIRTHDATE_FORMAT: /^\d{4}-\d{2}-\d{2}$/,
+  BIRTHDATE_COMMON: /^\d{4}-\d{2}-\d{2}$/,
   BIRTHDATE_DETAIL_FORMAT: /^\d{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$/,
 
   NICKNAME: /^[0-9a-zA-Z가-힣]+$/,
 
   EMAIL: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
 
-  PHONE: /^010-(\d){4}-(\d){4}$/,
+  PHONE: /^((010|011|016|017|018|019)-\d{3,4}-\d{4})|((02|0[3-6][1-5]|0[7-9][0-9])-\d{3,4}-\d{4})$/,
 
-  PASSWORD: /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$/,
+  CELL_PHONE: /^010-(\d){4}-(\d){4}$/,
+  BUSINESS_PHONE: /^\d{4}-\d{4}$/,
+
+  PASSWORD: /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,20}$/,
 
   EMAIL_VERIFICATION_CODE: /^\d+$/g,
 

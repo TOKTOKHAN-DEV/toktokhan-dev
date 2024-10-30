@@ -6,7 +6,7 @@ type Name = 'username' | 'firstName' | 'lastName' // 내국인 | 외국인
 /**
  * @description 내국인 혹은 외국인의 이름은 공통된 규칙을 적용합니다.
  * @param name username | firstName | lastName
- * @param requiredText required(helperText['REQUIRED_INPUT']) | notRequired()
+ * @param requiredText required(HELPER_TEXT['REQUIRED_INPUT']) | notRequired()
  */
 export const getNameDetailSchema = (
   name: Name,
@@ -16,13 +16,13 @@ export const getNameDetailSchema = (
     name,
     requiredText,
     `
-      .min(2, helperText['USERNAME'].MIN)
-      .max(20, helperText['USERNAME'].MAX)
+      .min(2, HELPER_TEXT['USERNAME_MIN'])
+      .max(20, HELPER_TEXT['USERNAME_MAX'])
       .test(
-        helperText['USERNAME'].SPECIAL_CHARACTER,
-        helperText['USERNAME'].SPECIAL_CHARACTER,
+        HELPER_TEXT['USERNAME_SPECIAL_CHARACTER'],
+        HELPER_TEXT['USERNAME_SPECIAL_CHARACTER'],
         (value) => !REGEX['SPECIAL_CHARACTER'].test(value || ''),
       )
-      .matches(REGEX['USERNAME'], helperText['USERNAME'].COMMON)`,
+      .matches(REGEX['USERNAME'], HELPER_TEXT['USERNAME_COMMON'])`,
   )
 }

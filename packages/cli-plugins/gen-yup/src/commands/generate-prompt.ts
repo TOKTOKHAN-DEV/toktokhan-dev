@@ -26,7 +26,7 @@ export const generatePrompt = async () => {
     name: 'hook',
     message: 'hook 이름',
     required: true,
-    template: `use\${name}`,
+    template: `use\${name}Form`,
   })
 
   const { schema } = await enquirer.prompt<{ schema: Obj }>({
@@ -55,7 +55,7 @@ export const generatePrompt = async () => {
         throw new Error('최소 한 개 이상 선택해 주세요')
       }
 
-      return (this as any)?.map(value)
+      return (this as any)?.map(value || [])
     },
   })
 
