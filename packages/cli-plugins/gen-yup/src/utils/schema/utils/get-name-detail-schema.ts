@@ -6,7 +6,7 @@ type Name = 'username' | 'firstName' | 'lastName' // 내국인 | 외국인
 /**
  * @description 내국인 혹은 외국인의 이름은 공통된 규칙을 적용합니다.
  * @param name username | firstName | lastName
- * @param requiredText required(HELPER_TEXT['REQUIRED_INPUT']) | notRequired()
+ * @param requiredText required(HELPER_TEXT['REQUIRED_INPUT']) | optional()
  */
 export const getNameDetailSchema = (
   name: Name,
