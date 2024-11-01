@@ -8,7 +8,7 @@ export const REGEX = {
 
   NICKNAME: /^[0-9a-zA-Z가-힣]+$/,
 
-  EMAIL: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
+  EMAIL: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/,
 
   PHONE: /^((010|011|016|017|018|019)-\d{3,4}-\d{4})|((02|0[3-6][1-5]|0[7-9][0-9])-\d{3,4}-\d{4})$/,
 
@@ -23,7 +23,7 @@ export const REGEX = {
 
   NUMBER: /^\d+$/g,
 
-  SPECIAL_CHARACTER: /[!@#$%^&*()_+={}\[\]|\\:;"'<,>.?/~`]/,
+  SPECIAL_CHARACTER: /[!@#$%^&*()_+={}[\]|\\:;"'<,>.?/~`]/,
 
-  POSTCODE_EXCEPT_HYPHEN: /[^\w\s\-]/,
+  POSTCODE_EXCEPT_HYPHEN: /[^\w\s-]/,
 }
