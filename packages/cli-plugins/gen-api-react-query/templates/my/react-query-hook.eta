@@ -45,6 +45,8 @@
   const hookKeyName = `${lowerhookVariant}Key`;
 
   const isAxiosInstance = myConfig.httpClientType === 'axios'
+  const fetchErrorType = `{ error: ${errorType} }`
+
 
 
   const initialPageParam = () => {
@@ -81,7 +83,7 @@
     <% if (isAxiosInstance) { %>
     AxiosError<<%~ errorType %>>
     <% } else { %>
-    <%~ errorType %>
+    <%~ fetchErrorType %>
     <% } %>
   , TData>,
 ) => {
@@ -98,7 +100,7 @@
     <% if (isAxiosInstance) { %>
     AxiosError<<%~ errorType %>>
     <% } else { %>
-    <%~ errorType %>
+    <%~ fetchErrorType %>
     <% } %>
   >,
 ) => {
