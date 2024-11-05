@@ -1,5 +1,11 @@
 # @toktokhan-dev/cli-plugin-gen-api-react-query
 
+## 0.0.18
+
+### Patch Changes
+
+- [`1c7c78d`](https://github.com/TOKTOKHAN-DEV/toktokhan-dev/commit/1c7c78d9362ae82c31f0d8c7dfe079bc3f3ddc51) Thanks [@Eunkyung-Son](https://github.com/Eunkyung-Son)! - fetch instance 사용 시 react query 에러 타입을 수정했습니다.
+
 ## 0.0.17
 
 ### Patch Changes
