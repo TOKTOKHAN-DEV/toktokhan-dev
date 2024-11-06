@@ -3,13 +3,19 @@
     const { hookName, selectedSchema } = data;
     const { addUnderscoreToCamelCase } = utils;
 %>
-  // required
 <% Object.entries(selectedSchema).forEach(([requiredOrNot, schemaList]) => { %>
-<% if(requiredOrNot === "notRequired") {%>
+<% if(requiredOrNot === "required") {%>
 
-  // not required
-<% } %>
+  // required
   <% schemaList.forEach((schema) => { %>
 <%~ schema.value %>: string;
   <% }) %>
+<% } %>
+<% if(requiredOrNot === "notRequired") {%>
+
+  // not required
+  <% schemaList.forEach((schema) => { %>
+<%~ schema.value %>?: string;
+  <% }) %>
+<% } %>
 <% }) %>

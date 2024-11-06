@@ -56,7 +56,7 @@ export const genYup = defineCommand<'gen:yup', GenYupConfig>({
   default: {
     output: path.resolve('src', 'generated', 'hooks'),
     outputConstants: path.resolve('src', 'generated', 'constants'),
-    importConstants: '@/genearted/constants',
+    importConstants: '@/generated/constants',
   },
   run: async (config: GenYupConfig) => {
     generatePrompt().then(createValidationConfig(config))
