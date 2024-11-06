@@ -1,5 +1,5 @@
 export const REGEX = {
-  ID: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{4,16}$/,
+  ID: /^[A-Za-z][A-Za-z0-9]{3,19}$/,
 
   PHONE_VERIFICATION_CODE: /^\d+$/g,
 

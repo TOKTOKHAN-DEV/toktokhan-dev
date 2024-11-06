@@ -3,7 +3,7 @@ export const HELPER_TEXT = {
   REQUIRED_VALIDATE: '필수 인증 항목이에요.',
   REQUIRED_CHECKBOX: '필수 동의 항목이에요',
 
-  ID_COMMON: '4~16자로 영문, 숫자를 이용해 만들어 주세요',
+  ID_COMMON: '4~20자로 영문, 숫자를 이용해 만들어 주세요',
   ID_SPECIAL_CHARACTER: '특수문자를 사용할 수 없어요',
 
   PASSWORD_COMMON: '비밀번호 형식을 확인해 주세요',
