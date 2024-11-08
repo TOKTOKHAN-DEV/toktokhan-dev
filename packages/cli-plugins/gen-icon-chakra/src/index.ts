@@ -10,7 +10,16 @@ import {
 import { awaited, flatObject, prefix } from '@toktokhan-dev/universal'
 
 import { camelCase, isUndefined, omitBy, startCase } from 'lodash'
-import { entries, flow, join, map, mapKeys, replace, tail } from 'lodash/fp'
+import {
+  entries,
+  flow,
+  join,
+  map,
+  mapKeys,
+  replace,
+  tail,
+  trim,
+} from 'lodash/fp'
 import { INode, parse, stringify } from 'svgson'
 
 /**
@@ -20,6 +29,10 @@ import { INode, parse, stringify } from 'svgson'
  */
 
 const PARENT_PROPS_FLAG = `parentProps="true"`
+
+const STYLE_REGEX = /style="([^"]*)"/g
+
+const isMatchStyle = (svgString: string): boolean => STYLE_REGEX.test(svgString)
 
 const toPascalCase = (str: string) =>
   startCase(camelCase(str)).replace(/ /g, '')
@@ -49,6 +62,24 @@ const toJsxSyntax = (svg: INode): INode => {
   }
 
   return transformed
+}
+
+const convertStyleToJSX = (styleString: string): string => {
+  return styleString
+    .split(';')
+    .filter(trim)
+    .map((style) => {
+      const [key, value] = style.split(':').map(trim)
+      return `${camelCase(key)}: '${value}'`
+    })
+    .join(', ')
+}
+
+const styleToJsx = (svgString: string): string => {
+  if (!isMatchStyle(svgString)) return svgString
+  return svgString.replace(STYLE_REGEX, (_, styleString) => {
+    return `style={{ ${convertStyleToJSX(styleString)} }}`
+  })
 }
 
 /**
@@ -143,6 +174,7 @@ export const genIcon = defineCommand<'gen:icon', GenIconConfig>({
           flow(
             toJsxSyntax,
             stringify,
+            styleToJsx,
             replace(PARENT_PROPS_FLAG, `{...props}`),
             (
               identity,
