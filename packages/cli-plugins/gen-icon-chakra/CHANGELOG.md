@@ -1,5 +1,11 @@
 # @toktokhan-dev/cli-plugin-gen-icon-chakra
 
+## 0.0.12
+
+### Patch Changes
+
+- [`482a282`](https://github.com/TOKTOKHAN-DEV/toktokhan-dev/commit/482a2826640bfcd7096fb155d8c9d03fa29f7f20) Thanks [@AlgoRoots](https://github.com/AlgoRoots)! - style prop jsx 변환시 string으로 유지되는 이슈를 수정했습니다.
+
 ## 0.0.11
 
 ### Patch Changes
