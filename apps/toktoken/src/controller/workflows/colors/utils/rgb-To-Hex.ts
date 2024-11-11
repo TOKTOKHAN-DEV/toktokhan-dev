@@ -12,7 +12,7 @@ export const rgbToHex = (rgba: RGBA) => {
 
   const hex = `#${hexRed}${hexGreen}${hexBlue}`
 
-  const hasOpacity = rgba.a !== 1
+  const hasOpacity = rgba.a !== undefined && rgba.a !== 1
 
   return hasOpacity ? addAlpha(hex, rgba.a) : hex
 }

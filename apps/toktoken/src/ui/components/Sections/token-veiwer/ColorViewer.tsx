@@ -26,7 +26,13 @@ interface ColorViewerProps {
 }
 
 export const ColorViewer = ({ token, tokenKey }: ColorViewerProps) => {
-  return <div>{renderObj({ [tokenKey]: token[tokenKey] } || {}, tokenKey)}</div>
+  return (
+    <div>
+      {token[tokenKey] ?
+        renderObj({ [tokenKey]: token[tokenKey] }, tokenKey)
+      : null}
+    </div>
+  )
 }
 
 const spread = (fn: any) => (params: any[]) => fn(...params)
