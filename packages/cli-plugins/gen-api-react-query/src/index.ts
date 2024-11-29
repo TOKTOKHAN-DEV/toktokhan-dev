@@ -43,11 +43,10 @@ export interface GenerateSwaggerApiConfig {
   swaggerSchemaUrl: string
   /** 생성될 파일들이 위치할 경로입니다. */
   output: string
-  /** 생성되는 코드의 React Query 포함 여부 입니다.
-   *  해당 옵션이 false 일경우 infiniteQuery 를 포함한 모든 Query 가 생성되지 않습니다. */
+  /** 생성되는 코드의 useQuery, useInfiniteQuery 포함 여부 입니다. */
   includeReactQuery: boolean
-  /** 생성되는 코드의 InfiniteQuery 포함 여부 입니다. */
-  includeReactInfiniteQuery: boolean
+  /** 생성되는 코드의 useSuspenseQuery, useSuspenseInfiniteQuery 포함 여부 입니다. */
+  includeReactSuspenseQuery: boolean
   /** Api 의 axios 혹은 fetch 요청 instance 주소입니다. */
   instancePath: string
   /** http client 타입입니다. */
@@ -69,7 +68,7 @@ export const genApi = defineCommand<'gen:api', GenerateSwaggerApiConfig>({
     swaggerSchemaUrl: '',
     output: 'src/generated/apis',
     includeReactQuery: true,
-    includeReactInfiniteQuery: true,
+    includeReactSuspenseQuery: false,
     httpClientType: 'axios',
     instancePath: GENERATE_SWAGGER_DATA.AXIOS_DEFAULT_INSTANCE_PATH,
     paginationSets: [
@@ -119,7 +118,12 @@ export const genApi = defineCommand<'gen:api', GenerateSwaggerApiConfig>({
       'Write Swagger API', //
       covered.output,
       (spinner) => {
-        writeSwaggerApiFile({ input: parsed, output: covered.output, spinner })
+        writeSwaggerApiFile({
+          input: parsed,
+          output: covered.output,
+          spinner,
+          config,
+        })
       },
     )
   },

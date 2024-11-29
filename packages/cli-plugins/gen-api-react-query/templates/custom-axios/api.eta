@@ -6,36 +6,36 @@ const {  RESERVED_REQ_PARAMS_ARG_NAMES } = config.constants;
 const routes = route.routes;
 const dataContracts = _.map(modelTypes, "name");
 
-
 const projectRootPath = process.env.PWD;
-const myTemeplatePath = `../my`
-const reactQueryTemplatePath = `${myTemeplatePath}/react-query-hook.eta`
-const reactQuerKeyTemplatePath = `${myTemeplatePath}/react-query-key.eta`
+const myTemeplatePath = `../my`;
+const reactQueryTemplatePath = `${myTemeplatePath}/react-query-hook.eta`;
+const reactSuspenseQueryTemplatePath = `${myTemeplatePath}/react-query-suspense-hook.eta`;
+const reactQuerKeyTemplatePath = `${myTemeplatePath}/react-query-key.eta`;
 
 const apiClassName = classNameCase(route.moduleName) + 'Api';
-const paginationSets = myConfig?.paginationSets
-const instancePath = myConfig?.instancePath
+const paginationSets = myConfig?.paginationSets;
+const instancePath = myConfig?.instancePath;
 
-const apiInstanceName =route.moduleName + "Api";
+const includeReactQuery = myConfig?.includeReactQuery;
+const includeReactSuspenseQuery = myConfig?.includeReactSuspenseQuery;
+
+const apiInstanceName = route.moduleName + "Api";
 const queryKeyName = "QUERY_KEY_" + _.upperCase(apiClassName).replace(/ /g, '_');
 
-
-
 const hasPaginationKeyword = (queryString, keywords = paginationKeywords ) => {
-  if(!myConfig?.includeReactInfiniteQuery) return false;
+  if(!includeReactQuery && !includeReactSuspenseQuery ) return false;
   const keywordUnion = keywords.map(str => `.*${str}.*`).join("|");
   const rgxSting = keywords.map(str => `(${keywordUnion})`).join("");
   const rgx = new RegExp(rgxSting);
   return rgx.test(queryString);
-}
-
+};
 
 const upperSnakeCase = (str) => _.upperCase(str).replace(/ /g, '_');
 
-const removeModuleName = (str) =>  str.replace(route.moduleName,'');
+const removeModuleName = (str) => str.replace(route.moduleName,'');
 
 const getConfigByRoute = (route) => {
-  const { specificArgNameResolver } = route
+  const { specificArgNameResolver } = route;
   const { parameters, path, method, payload, query, formData, security, requestParams } = route.request;
   const pathParams = _.values(parameters);
   const pathParamsNames = _.map(pathParams, "name");
@@ -45,7 +45,7 @@ const getConfigByRoute = (route) => {
     name: specificArgNameResolver.resolve(RESERVED_REQ_PARAMS_ARG_NAMES),
     optional: true,
     type: "RequestParams",
-}
+  };
 
   const argToTmpl = ({ name, optional, type, defaultValue }) => `${name}${!defaultValue && optional ? '?' : ''}: ${type}`;
 
@@ -71,30 +71,29 @@ const getConfigByRoute = (route) => {
     // Sort by optionality
     .sortBy(rawWrapperArgs, [o => o.optional])
     .map(argToTmpl)
-    .join('; ')
-
+    .join('; ');
 
   const functionName = route.routeName.usage;
-  const hookVariant = _.upperCase(method) === "GET" ? "Query" : "Mutation"
+  const hookVariant = _.upperCase(method) === "GET" ? "Query" : "Mutation";
   const key = upperSnakeCase(functionName);
   const methodKey = upperSnakeCase(removeModuleName(functionName));
-  const pagination = paginationSets.find(d => !!query?.type &&  hasPaginationKeyword(query?.type.split("\n").join(""), d.keywords));
+  const pagination = paginationSets.find(d => !!query?.type && hasPaginationKeyword(query?.type.split("\n").join(""), d.keywords));
 
   const isQuery = hookVariant === "Query";
   const isMutation = hookVariant === "Mutation";
   const hasPagination = !!pagination;
 
-  const isOptionalVariables  = _
-  // Find optional value
+  const isOptionalVariables = _
   .filter(rawWrapperArgs, o => o.optional).length === rawWrapperArgs.length;
 
-  const conditionalVriablesText = isOptionalVariables? "variables?" : "variables";
+  const conditionalVriablesText = isOptionalVariables ? "variables?" : "variables";
   const repalceTarget = "${" + conditionalVriablesText + ".";
 
-
   return {
-    conditions:{
+    conditions: {
       hasPagination,
+      includeReactQuery,
+      includeReactSuspenseQuery,
       isQuery,
       isMutation,
       isOptionalVariables,
@@ -116,31 +115,32 @@ const getConfigByRoute = (route) => {
       removeModuleName,
       argToTmpl,
     }
-  }
-}
+  };
+};
 
 const dataForReactHookTemplate = {
-        getConfigByRoute,
-        queryKeyName,
-        apiClassName,
-        apiInstanceName,
-    };
-
+  getConfigByRoute,
+  queryKeyName,
+  apiClassName,
+  apiInstanceName,
+};
 %>
 
-<% if (config.httpClientType === config.constants.HTTP_CLIENT.AXIOS) { %> import { AxiosRequestConfig, AxiosResponse } from "axios"; <% } %>
+<% if (config.httpClientType === config.constants.HTTP_CLIENT.AXIOS) { %> 
+import { AxiosRequestConfig, AxiosResponse } from "axios"; 
+<% } %>
 
 import { AxiosError } from 'axios';
-import { useQuery, useMutation, useInfiniteQuery, InfiniteData } from '@tanstack/react-query';
-import { QueryHookParams, InfiniteQueryHookParams, MutationHookParams, Parameter, RequestFnReturn } from "../@types/react-query-type";
-import { paramsSerializerBy } "../@utils/param-serializer-by"
+import { useQuery, useMutation, useInfiniteQuery, useSuspenseQuery, useSuspenseInfiniteQuery, InfiniteData } from '@tanstack/react-query';
+import { QueryHookParams, InfiniteQueryHookParams, MutationHookParams, Parameter, RequestFnReturn, SuspenseInfiniteQueryHookParams, SuspenseQueryHookParams } from "../@types/react-query-type";
+import { paramsSerializerBy } from "../@utils/param-serializer-by";
 
-import instance from "<%~ instancePath %>";
-import { HttpClient, RequestParams, ContentType, HttpResponse } from "../@<%~ config.fileNames.httpClient %>";
+import instance from "<%= instancePath %>";
+import { HttpClient, RequestParams, ContentType, HttpResponse } from "../@<%= config.fileNames.httpClient %>";
 import { DeepOmitReadOnly } from '../@types/util-types';
 
 <% if (dataContracts.length) { %>
-  import { <%~ dataContracts.join(", ") %> } from "../@types/<%~ config.fileNames.dataContracts %>"
+import { <%= dataContracts.join(", ") %> } from "../@types/<%= config.fileNames.dataContracts %>";
 <% } %>
 
 /**
@@ -148,8 +148,6 @@ import { DeepOmitReadOnly } from '../@types/util-types';
  * 
  * 스크립트가 실행될때, 파일을 항상 새로 쓰기 때문에 파일 수정시 작성내용이 제거 될 수 있습니다.
  */
-
-
 
 export class <%= apiClassName %><SecurityDataType = unknown><% if (!config.singleHttpClient) { %> extends HttpClient<SecurityDataType> <% } %> {
 <% if(config.singleHttpClient) { %>
@@ -160,33 +158,52 @@ export class <%= apiClassName %><SecurityDataType = unknown><% if (!config.singl
   }
 <% } %>
 
-    <% routes.forEach((route) => { %>
-        <%~ includeFile('./procedure-call.eta', { ...it, route }) %>
-    <% }) %>
+  <% routes.forEach((route) => { %>
+    <%~ includeFile('./procedure-call.eta', { ...it, route }) %>
+  <% }) %>
 }
 
+<% if(myConfig.includeReactQuery || myConfig.includeReactSuspenseQuery) { %>
+  //<%= myConfig.QUERY_HOOK_INDICATOR %>
 
+  <% if(myConfig.includeReactQuery) { %>
+    /**
+    * !DO NOT EDIT THIS FILE
+    * 
+    * 스크립트가 실행될때, 파일을 항상 새로 쓰기 때문에 파일 수정시 작성내용이 제거 될 수 있습니다.
+    */
 
-<% if(myConfig.includeReactQuery) { %>
-  //<%~ myConfig.QUERY_HOOK_INDICATOR %>
+    /**
+    * tok-cli.config.ts 에서 설정된 instance 경로의 axios instace 가 적용된, api 의 instance 입니다.
+    */
+    export const <%= apiInstanceName %> = new <%= apiClassName %>({ instance:instance });
 
-/**
- * !DO NOT EDIT THIS FILE
- * 
- * 스크립트가 실행될때, 파일을 항상 새로 쓰기 때문에 파일 수정시 작성내용이 제거 될 수 있습니다.
- */
+    <%~ includeFile(reactQuerKeyTemplatePath, { ...it, route , dataFromApiTemplate:dataForReactHookTemplate}) %>
 
-
-/**
- * tok-cli.config.ts 에서 설정된 instance 경로의 axios instace 가 적용된, api 의 instance 입니다.
- */
-export const <%= apiInstanceName %> = new <%= apiClassName %>({ instance:instance })
-
-   <%~ includeFile(reactQuerKeyTemplatePath, { ...it, route , dataFromApiTemplate:dataForReactHookTemplate}) %>
-  
-   <% routes.forEach((route) => { %>
+    <% routes.forEach((route) => { %>
       <%~ includeFile(reactQueryTemplatePath, { ...it, route , dataFromApiTemplate:dataForReactHookTemplate}) %>
     <% }) %>
+  <% } %>
+
+  <% if(myConfig.includeReactSuspenseQuery) { %>
+    //<%= myConfig.USE_SUSPENSE_QUERY_HOOK_INDICATOR %>
+
+    /**
+    * !DO NOT EDIT THIS FILE
+    * 
+    * 스크립트가 실행될때, 파일을 항상 새로 쓰기 때문에 파일 수정시 작성내용이 제거 될 수 있습니다.
+    */
+
+    /**
+    * tok-cli.config.ts 에서 설정된 instance 경로의 axios instace 가 적용된, api 의 instance 입니다.
+    */
+    export const <%= apiInstanceName %> = new <%= apiClassName %>({ instance:instance });
+
+    <%~ includeFile(reactQuerKeyTemplatePath, { ...it, route , dataFromApiTemplate:dataForReactHookTemplate}) %>
+
+    <% routes.forEach((route) => { %>
+      <%~ includeFile(reactSuspenseQueryTemplatePath, { ...it, route , dataFromApiTemplate:dataForReactHookTemplate}) %>
+    <% }) %>
+  <% } %>
 <% } %>
- 
 

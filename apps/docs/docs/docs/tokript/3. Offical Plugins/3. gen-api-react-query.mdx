@@ -337,7 +337,7 @@ export const useBusinessCalendarListQuery = <
 <TokriptConfigItem
   command="gen:api"
   optName="includeReactQuery"
-  desc="생성되는 코드의 React Query 포함 여부 입니다. 해당 옵션이 false 일경우 infiniteQuery 를 포함한 모든 Query 가 생성되지 않습니다."
+  desc="생성되는 코드의 useQuery, useInfiniteQuery 포함 여부 입니다. "
   type="boolean"
   default="true"
   exampleValue="true"
@@ -349,8 +349,8 @@ export const useBusinessCalendarListQuery = <
 
 <TokriptConfigItem
   command="gen:api"
-  optName="includeReactInfiniteQuery"
-  desc="생성되는 코드의 InfiniteQuery 포함 여부 입니다."
+  optName="includeReactSuspenseQuery"
+  desc="생성되는 코드의 useSuspenseQuery, useSuspenseInfiniteQuery 포함 여부 입니다."
   type="boolean"
   default="true"
   exampleValue="true"

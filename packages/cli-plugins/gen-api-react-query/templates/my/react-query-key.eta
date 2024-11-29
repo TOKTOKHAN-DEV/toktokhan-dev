@@ -5,7 +5,7 @@ const { getConfigByRoute, queryKeyName } = dataFromApiTemplate;
 %>
 
 /**
- * query key 에 undfined 를 포함시키지 않기 위한 함수입니다.
+ * query key 에 undefined 를 포함시키지 않기 위한 함수입니다.
  */
 const isDefined = (v: unknown) => typeof v !== "undefined"
 

@@ -1177,7 +1177,7 @@ importers:
         version: 0.0.17(esbuild@0.24.0)(prettier@3.3.3)(typescript@5.6.3)
       '@toktokhan-dev/cli-plugin-gen-icon-chakra':
         specifier: 0.0.11
-        version: link:../../packages/cli-plugins/gen-icon-chakra
+        version: 0.0.11(esbuild@0.24.0)
       '@toktokhan-dev/cli-plugin-gen-img':
         specifier: ^0.0.11
         version: link:../../packages/cli-plugins/gen-img
@@ -1358,7 +1358,7 @@ importers:
         version: link:../../packages/cli-plugins/gen-api-react-query
       '@toktokhan-dev/cli-plugin-gen-icon-chakra':
         specifier: ^0.0.12
-        version: 0.0.12(esbuild@0.24.0)
+        version: link:../../packages/cli-plugins/gen-icon-chakra
       '@toktokhan-dev/cli-plugin-gen-img':
         specifier: ^0.0.11
         version: link:../../packages/cli-plugins/gen-img
@@ -7610,8 +7610,8 @@ packages:
       - typescript
     dev: true
 
-  /@toktokhan-dev/cli-plugin-gen-icon-chakra@0.0.12(esbuild@0.24.0):
-    resolution: {integrity: sha512-5yRuy3EeFPYwKPHmLWX143YKwukYFsxfTNBT3y5W/I8mWD5rA3Vl4HBiuE9FMTacmZ5JrsIx+X4aAovWiPqWpQ==}
+  /@toktokhan-dev/cli-plugin-gen-icon-chakra@0.0.11(esbuild@0.24.0):
+    resolution: {integrity: sha512-6TCHFGH0ksyaw38bGxOVNFhvwu9zQGZ20ZQB9/k1TdlhqARL1FPd9D7Z7ce19tkFE86t+2vLMP9ceoj+NwnduA==}
     dependencies:
       '@toktokhan-dev/cli': 0.0.11(esbuild@0.24.0)
       '@toktokhan-dev/node': 0.0.10

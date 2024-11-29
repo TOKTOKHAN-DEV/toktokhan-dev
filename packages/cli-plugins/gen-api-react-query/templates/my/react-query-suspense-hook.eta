@@ -1,3 +1,4 @@
+
 <%
   const { utils, route, config, myConfig, dataFromApiTemplate } = it;
   const { query } = route.request;
@@ -65,7 +66,7 @@
  %>
 
 <% if (isQuery) { %>
-  <% if(includeReactQuery) { %>
+  <% if (includeReactSuspenseQuery) { %>
     /**
       <%~ routeDocs.description %>
 
@@ -74,10 +75,10 @@
       <%~ routeDocs.lines %>
     */
 
-    export const use<%~ classNameCase(functionName) %>Query = <
+    export const use<%~ classNameCase(functionName) %>SuspenseQuery = <
       TData = RequestFnReturn<typeof <%= apiInstanceName %>.<%~ functionName %>>,
     >(
-      <%~ conditionalParamsText %>: QueryHookParams<typeof <%= apiInstanceName %>.<%~ functionName %>,
+      <%~ conditionalParamsText %>: SuspenseQueryHookParams<typeof <%= apiInstanceName %>.<%~ functionName %>,
       <% if (isAxiosInstance) { %>
         AxiosError<<%~ errorType %>>
       <% } else { %>
@@ -86,54 +87,53 @@
       , TData>,
     ) => {
       const <%~ hookKeyName %> = <%~ queryKeyName %>.<%~ methodKey %>(<%~ `${conditionalParamsText}.variables` %>);
-      return useQuery({
+      return useSuspenseQuery({
         <%~ hookKeyName %>,
         queryFn: () => <%= apiInstanceName %>.<%~ functionName %>(<%~ `${conditionalParamsText}.variables` %>),
         ...params?.options,
       });
-    }
-  <% } %>
-<% } else { %>
-    /**
-    <%~ routeDocs.description %>
+    };
 
-    * <% /* Here you can add some other JSDoc tags */ %>
 
-    <%~ routeDocs.lines %>
+  /**
+     * @name <%~ _.camelCase(functionName) %>QueryOptions
+     * @description 이 옵션은 Suspense 기반의 병렬 데이터 쿼리를 위한 설정입니다.
+     * `useSuspenseQueries`를 사용하여 여러 쿼리를 병렬로 처리할 때 활용하세요.
   */
-
-  export const use<%~ classNameCase(functionName) %>Mutation = (
-    <%~ conditionalParamsText %>: MutationHookParams<typeof <%= apiInstanceName %>.<%~ functionName %>,
+  
+  export const <%~ _.camelCase(functionName) %>SuspenseQueryOptions = <
+    TData = RequestFnReturn<typeof <%= apiInstanceName %>.<%~ functionName %>>,
+  >(
+    <%~ conditionalParamsText %>: SuspenseQueryHookParams<typeof <%= apiInstanceName %>.<%~ functionName %>,
     <% if (isAxiosInstance) { %>
-      AxiosError<<%~ errorType %>>
+       unknown
     <% } else { %>
       <%~ fetchErrorType %>
     <% } %>
-  >,
+    , TData>,
   ) => {
-    const <%~ hookKeyName %> = <%~ queryKeyName %>.<%~ methodKey %>();
-    return useMutation({
-      <%~ hookKeyName %>,
-      mutationFn: <%= apiInstanceName %>.<%~ functionName %>,
+    const queryKey = <%~ queryKeyName %>.<%~ methodKey %>(<%~ `${conditionalParamsText}.variables` %>);
+    return {
+      queryKey,
+      queryFn: () => <%= apiInstanceName %>.<%~ functionName %>(<%~ `${conditionalParamsText}.variables` %>),
       ...params?.options,
-    });
+    };
   };
-<% } %>
+  <% } %>
 
-<% if (isQuery && hasPagination) { %>
-  <% if (includeReactQuery) { %>
+  <% if (isQuery && hasPagination) { %>
     /**
     <%~ routeDocs.description %>
     * <% /* Here you can add some other JSDoc tags */ %>
     <%~ routeDocs.lines %>
     */
-    export const use<%~ classNameCase(functionName) %>InfiniteQuery = <
+    export const use<%~ classNameCase(functionName) %>InfiniteSuspenseQuery = <
       TData = InfiniteData<
         RequestFnReturn<typeof <%= apiInstanceName %>.<%~ functionName %>>,
         Parameter<typeof <%= apiInstanceName %>.<%~ functionName %>>
       >,
     >(
-      <%~ conditionalParamsText %>: InfiniteQueryHookParams<typeof <%= apiInstanceName %>.<%~ functionName %>,
+      <%~ conditionalParamsText %>: SuspenseInfiniteQueryHookParams<typeof <%= apiInstanceName %>.<%~ functionName %>,
       <% if (isAxiosInstance) { %>
         AxiosError<<%~ errorType %>>
       <% } else { %>
@@ -142,7 +142,7 @@
       , TData>,
     ) => {
       const <%~ hookKeyName %> =  <%~ queryKeyName %>.<%~ methodKey %>_INFINITE(<%~ conditionalQueryKeyParams %>);
-      return useInfiniteQuery({
+      return useSuspenseInfiniteQuery({
         <%~ hookKeyName %>,
         initialPageParam:  <% if (initialPageParam()) { %>
           <%~ initialPageParam() %> 

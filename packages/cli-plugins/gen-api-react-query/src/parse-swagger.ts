@@ -11,6 +11,7 @@ const {
   CUSTOM_AXIOS_TEMPLATE_FOLDER,
   CUSTOM_FETCH_TEMPLATE_FOLDER,
   QUERY_HOOK_INDICATOR,
+  USE_SUSPENSE_QUERY_HOOK_INDICATOR,
 } = GENERATE_SWAGGER_DATA
 
 export const parseSwagger = (config: GenerateSwaggerApiConfig) =>
@@ -49,7 +50,11 @@ export const parseSwagger = (config: GenerateSwaggerApiConfig) =>
       onPrepareConfig: (defaultConfig) => {
         return {
           ...defaultConfig,
-          myConfig: { QUERY_HOOK_INDICATOR, ...config },
+          myConfig: {
+            QUERY_HOOK_INDICATOR,
+            USE_SUSPENSE_QUERY_HOOK_INDICATOR,
+            ...config,
+          },
         }
       },
     },

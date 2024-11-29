@@ -8,6 +8,8 @@ import {
   UseInfiniteQueryOptions,
   UseMutationOptions,
   UseQueryOptions,
+  UseSuspenseQueryOptions,
+  UseSuspenseInfiniteQueryOptions,
 } from '@tanstack/react-query';
 
 
@@ -58,6 +60,34 @@ export type MutationHookParams<
     'mutationFn' | 'mutationKey'
   >;
 };
+
+export type SuspenseQueryHookParams<
+  T extends CustomRequestFn,
+  Error = <%~ errorType %>,
+  TData = RequestFnReturn<T>,
+  OriginData = RequestFnReturn<T>,
+  Variables = Parameter<T>,
+> = {
+  options?: Omit<
+    UseSuspenseQueryOptions<OriginData, Error, TData>,
+    'queryKey' | 'queryFn'
+  >;
+} & OptionalVariables<Variables>;
+
+export type SuspenseInfiniteQueryHookParams<
+  T extends CustomRequestFn,
+  Error = <%~ errorType %>,
+  TData = RequestFnReturn<T>,
+  OriginData = RequestFnReturn<T>,
+  Variables = Parameter<T>,
+> = {
+  options?: Partial<
+    Omit<
+      UseSuspenseInfiniteQueryOptions<OriginData, Error, TData, OriginData, any, any>,
+      'queryKey' | 'queryFn'
+    >
+  >;
+} & OptionalVariables<Variables>;
 
 export type OptionalVariables<T> = undefined extends T
   ? { variables?: T }

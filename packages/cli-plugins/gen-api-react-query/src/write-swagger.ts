@@ -8,14 +8,22 @@ import { GenerateApiOutput } from 'swagger-typescript-api'
 
 import { GENERATE_SWAGGER_DATA } from './constants'
 
-const { TYPE_FILE, UTIL_FILE, QUERY_HOOK_INDICATOR } = GENERATE_SWAGGER_DATA
+import { GenerateSwaggerApiConfig } from '.'
+
+const {
+  TYPE_FILE,
+  UTIL_FILE,
+  QUERY_HOOK_INDICATOR,
+  USE_SUSPENSE_QUERY_HOOK_INDICATOR,
+} = GENERATE_SWAGGER_DATA
 
 export const writeSwaggerApiFile = (params: {
   input: GenerateApiOutput
   output: string
+  config: GenerateSwaggerApiConfig
   spinner?: any
 }) => {
-  const { input, output, spinner } = params
+  const { input, output, spinner, config } = params
 
   input.files.forEach(
     async ({ fileName, fileContent: content, fileExtension }) => {
@@ -41,18 +49,29 @@ export const writeSwaggerApiFile = (params: {
           return
         }
         if (isApiFile) {
-          const { apiContents, hookContents } = spilitHookContents(
+          const { apiContents, hookParts } = splitHookContents(
             filename,
             content,
           )
-          genreatePretty(
+          generatePretty(
             path.resolve(targetFolder, `${filename}.api.ts`),
             apiContents,
           )
-          genreatePretty(
-            path.resolve(targetFolder, `${filename}.query.ts`),
-            hookContents,
-          )
+
+          if (config.includeReactQuery) {
+            generatePretty(
+              path.resolve(targetFolder, `${filename}.query.ts`),
+              hookParts[0],
+            )
+          }
+
+          if (config.includeReactSuspenseQuery) {
+            generatePretty(
+              path.resolve(targetFolder, `${filename}.suspenseQuery.ts`),
+              hookParts[1],
+            )
+          }
+
           return
         }
         generate(path.resolve(targetFolder, name), content)
@@ -63,7 +82,7 @@ export const writeSwaggerApiFile = (params: {
   )
 }
 
-async function genreatePretty(path: string, contents: string) {
+async function generatePretty(path: string, contents: string) {
   const organized = await prettierString(contents, {
     parser: 'babel-ts',
     plugins: ['prettier-plugin-organize-imports'],
@@ -81,8 +100,9 @@ function generate(path: string, contents: string) {
   fs.writeFileSync(path, contents)
 }
 
-export function spilitHookContents(filename: string, content: string) {
+export function splitHookContents(filename: string, content: string) {
   const [_apiContent, _hookContent] = content.split(QUERY_HOOK_INDICATOR)
+  const _hookParts = _hookContent.split(USE_SUSPENSE_QUERY_HOOK_INDICATOR)
 
   const lastImport = getLastImportLine(content)
   const lines = content.split('\n')
@@ -94,7 +114,7 @@ export function spilitHookContents(filename: string, content: string) {
 
   return {
     apiContents: _apiContent,
-    hookContents: importArea + _hookContent,
+    hookParts: _hookParts.map((d) => importArea + d),
   }
 }
 
