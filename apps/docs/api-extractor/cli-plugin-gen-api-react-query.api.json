@@ -281,35 +281,8 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "@toktokhan-dev/cli-plugin-gen-api-react-query!GenerateSwaggerApiConfig#includeReactInfiniteQuery:member",
-              "docComment": "/**\n * 생성되는 코드의 InfiniteQuery 포함 여부 입니다.\n */\n",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "includeReactInfiniteQuery: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "boolean"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "isReadonly": false,
-              "isOptional": false,
-              "releaseTag": "Public",
-              "name": "includeReactInfiniteQuery",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
-            },
-            {
-              "kind": "PropertySignature",
               "canonicalReference": "@toktokhan-dev/cli-plugin-gen-api-react-query!GenerateSwaggerApiConfig#includeReactQuery:member",
-              "docComment": "/**\n * 생성되는 코드의 React Query 포함 여부 입니다. 해당 옵션이 false 일경우 infiniteQuery 를 포함한 모든 Query 가 생성되지 않습니다.\n */\n",
+              "docComment": "/**\n * 생성되는 코드의 useQuery, useInfiniteQuery 포함 여부 입니다.\n */\n",
               "excerptTokens": [
                 {
                   "kind": "Content",
@@ -328,6 +301,33 @@
               "isOptional": false,
               "releaseTag": "Public",
               "name": "includeReactQuery",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/cli-plugin-gen-api-react-query!GenerateSwaggerApiConfig#includeReactSuspenseQuery:member",
+              "docComment": "/**\n * 생성되는 코드의 useSuspenseQuery, useSuspenseInfiniteQuery 포함 여부 입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "includeReactSuspenseQuery: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "boolean"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": false,
+              "releaseTag": "Public",
+              "name": "includeReactSuspenseQuery",
               "propertyTypeTokenRange": {
                 "startIndex": 1,
                 "endIndex": 2

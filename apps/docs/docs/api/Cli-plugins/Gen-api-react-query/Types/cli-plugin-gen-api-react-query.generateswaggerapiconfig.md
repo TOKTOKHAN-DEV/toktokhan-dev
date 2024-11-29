@@ -59,25 +59,6 @@ http client 타입입니다.
 </td></tr>
 <tr><td>
 
-[includeReactInfiniteQuery](./cli-plugin-gen-api-react-query.generateswaggerapiconfig.includereactinfinitequery)
-
-
-</td><td>
-
-
-</td><td>
-
-boolean
-
-
-</td><td>
-
-생성되는 코드의 InfiniteQuery 포함 여부 입니다.
-
-
-</td></tr>
-<tr><td>
-
 [includeReactQuery](./cli-plugin-gen-api-react-query.generateswaggerapiconfig.includereactquery)
 
 
@@ -91,7 +72,26 @@ boolean
 
 </td><td>
 
-생성되는 코드의 React Query 포함 여부 입니다. 해당 옵션이 false 일경우 infiniteQuery 를 포함한 모든 Query 가 생성되지 않습니다.
+생성되는 코드의 useQuery, useInfiniteQuery 포함 여부 입니다.
+
+
+</td></tr>
+<tr><td>
+
+[includeReactSuspenseQuery](./cli-plugin-gen-api-react-query.generateswaggerapiconfig.includereactsuspensequery)
+
+
+</td><td>
+
+
+</td><td>
+
+boolean
+
+
+</td><td>
+
+생성되는 코드의 useSuspenseQuery, useSuspenseInfiniteQuery 포함 여부 입니다.
 
 
 </td></tr>
