@@ -1,5 +1,27 @@
 # @toktokhan-dev/cli-plugin-gen-api-react-query
 
+## 0.1.1
+
+### Patch Changes
+
+- [`e287296`](https://github.com/TOKTOKHAN-DEV/toktokhan-dev/commit/e287296c20897ef00ac3a4aadfa8169b935acca7) Thanks [@ldu1020](https://github.com/ldu1020)! - fetch api paramsSerializer 옵션 임시 추가
+
+  'fetch' 옵션으로 gen:api 시 타입 오류 발생하는 이슈 해결을 위해 임시로 타입이 추가 되었습니다.
+  기능은 하지 않습니다.
+
+  ```ts
+  export interface FullRequestParams extends Omit<RequestInit, 'body'> {
+    /** 임시 추가 */
+    paramsSerializer?: (...params: any[]) => any
+
+    /** set parameter to`true` for call `securityWorker` for this request */
+    secure?: boolean
+    /** request path */
+    path: string
+    ...
+  }
+  ```
+
 ## 0.1.0
 
 ### Minor Changes
