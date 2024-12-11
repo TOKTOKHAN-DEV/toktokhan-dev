@@ -1,5 +1,11 @@
 # @toktokhan-dev/cli-plugin-gen-api-react-query
 
+## 0.1.2
+
+### Patch Changes
+
+- [`62473eb`](https://github.com/TOKTOKHAN-DEV/toktokhan-dev/commit/62473eba661170c2dce1921ecb7a79a81567b3c4) Thanks [@AlgoRoots](https://github.com/AlgoRoots)! - httpClientType fetch 시 인피니티 쿼리가 생성되지 않았던 이슈를 해결했습니다.
+
 ## 0.1.1
 
 ### Patch Changes
