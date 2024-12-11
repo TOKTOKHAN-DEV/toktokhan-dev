@@ -1,6 +1,6 @@
 {
   "name": "@toktokhan-dev/cli-plugin-gen-api-react-query",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A CLI plugin for generating API hooks with React Query built by TOKTOKHAN.DEV",
   "author": "TOKTOKHAN.DEV <fe-system@toktokhan.dev>",
   "license": "ISC",
