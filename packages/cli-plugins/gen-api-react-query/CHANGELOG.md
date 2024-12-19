@@ -1,5 +1,33 @@
 # @toktokhan-dev/cli-plugin-gen-api-react-query
 
+## 0.1.3
+
+### Patch Changes
+
+- [`a9fce6f`](https://github.com/TOKTOKHAN-DEV/toktokhan-dev/commit/a9fce6f0d645d4ed6f7c274a0f21f0a5588ce101) Thanks [@ldu1020](https://github.com/ldu1020)! - fix: enum nullable bug
+
+  요청 타입에서 enum 값이 nullable 일 경우, nullable 이 적용되지 않는 이슈가 수정되었습니다.
+
+  #### 이전
+
+  ```ts
+  export interface SomeApiRequestType {
+    /** nullable enum */
+    someEnum: SomeEnum
+  }
+  ```
+
+  #### 개선
+
+  ```ts
+  export interface SomeApiRequestType {
+    /** nullable enum */
+    someEnum: SomeEnum | null
+  }
+  ```
+
+- [`e5f7fb8`](https://github.com/TOKTOKHAN-DEV/toktokhan-dev/commit/e5f7fb8bcfdcbfa73483cb7f1f24fdedc8919d18) Thanks [@ldu1020](https://github.com/ldu1020)! - console.log 제거
+
 ## 0.1.2
 
 ### Patch Changes
