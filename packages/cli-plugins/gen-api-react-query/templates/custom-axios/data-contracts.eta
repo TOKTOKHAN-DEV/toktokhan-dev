@@ -47,7 +47,6 @@
       nullalbeEnums.forEach((c) => {
         const { field } = c
         content = content.replace(field, `${field} | null`)
-        console.log({field, content})
       })
 
       return `interface ${contract.name} {\r\n${content}}`;
