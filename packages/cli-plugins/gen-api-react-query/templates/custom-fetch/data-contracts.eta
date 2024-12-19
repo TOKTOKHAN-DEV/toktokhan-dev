@@ -40,7 +40,17 @@
 
     },
     interface: (contract) => {
-      return `interface ${contract.name} {\r\n${contract.content}}`;
+       let content = contract.content;
+
+      const nullalbeEnums = contract.rawContent.filter((c) => !!c.enum?.length && c.isNullable )
+
+      nullalbeEnums.forEach((c) => {
+        const { field } = c
+        content = content.replace(field, `${field} | null`)
+        console.log({field, content})
+      })
+
+      return `interface ${contract.name} {\r\n${content}}`;
     },
     type: (contract) => {
       return `type ${contract.name} = ${contract.content}`;

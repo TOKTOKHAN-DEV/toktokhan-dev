@@ -1,11 +1,11 @@
 import { genApi } from '.'
 
 genApi.run({
-  swaggerSchemaUrl: 'https://sales-api-dev.pluuug.com/openapi.json/',
+  swaggerSchemaUrl: `https://sales-api-dev.pluuug.com/openapi.json/`,
   output: 'test/generated/apis',
   includeReactQuery: true,
   includeReactSuspenseQuery: true,
-  httpClientType: 'fetch',
+  httpClientType: 'axios',
   instancePath: 'test/generated/apis/http-client',
   paginationSets: [
     {
