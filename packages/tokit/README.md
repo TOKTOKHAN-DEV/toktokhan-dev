@@ -83,3 +83,5 @@ export TOKIT_GITHUB_TOKEN=<your-github-token>
 export TOKIT_GITHUB_OWNER=<your-github-owner>
 export TOKIT_GITHUB_USERNAME=<your-github-username>
 ```
+
+- [노션 온보딩에서 똑똑한개발자 깃헙 토큰 확인하기](https://www.notion.so/toktokhan/Tokit-Next-Page-Router-push-dd86c3dc19e54cc0bb1be7c055e0d23b?pvs=4)

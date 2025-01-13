@@ -47,7 +47,10 @@ import { packageHasDoc } from '../utils'
 
 /**
  * @description
- * 생성된 api-extractor json 파일중 parameterName에 개행문자가 포함된 경우 제거합니다.
+ * build 로 생성된 dts 파일을 보정합니다.
+ * @category 주석을 분석하여, 데이터화 시켜서 ScriptStore 임시 저장합니다.
+ * 그밖에, 생성된 api-extractor json 파일중 parameterName에 개행문자가 포함된 경우 제거합니다.
+ *
  */
 
 const DTS_PATH = path.join('dist', 'index.d.ts')

@@ -1,6 +1,6 @@
-import { readdirSync, writeFileSync } from "fs";
+import { readdirSync, writeFileSync } from 'fs'
 
-import { cwd, infoLog, pathOn, readFileSync } from "@toktokhan-dev/node";
+import { cwd, infoLog, pathOn, readFileSync } from '@toktokhan-dev/node'
 import {
   createObjBySelector,
   isEvery,
@@ -8,7 +8,7 @@ import {
   or,
   pass,
   removeStr,
-} from "@toktokhan-dev/universal";
+} from '@toktokhan-dev/universal'
 
 import {
   filter,
@@ -25,55 +25,62 @@ import {
   split,
   tail,
   trim,
-} from "lodash/fp";
+} from 'lodash/fp'
 
-import { CategorizedItem, ScriptStore } from "../store";
-import { extractTag, extractTags, isHeading2Start } from "../utils";
+import { CategorizedItem, ScriptStore } from '../store'
+import { extractTag, extractTags, isHeading2Start } from '../utils'
 
-const DOC_PATH = "apps/docs/docs/api";
+/**
+ * @description
+ * 생성된 md 파일중 색인 역할을 하는 index.md 파일을 보정합니다.
+ * 일반적으로 생성한 index.md 파일은, category 화 되어있지 않기 때문에,
+ * 작성한 category 구조에 맞게 테이블을 분리하여 보정합니다.
+ */
+
+const DOC_PATH = 'apps/docs/docs/api'
 
 type ParsedTable = {
-  title: string;
-  head: string[];
-  body: string[][];
-};
+  title: string
+  head: string[]
+  body: string[][]
+}
 
 type ParsedMd = {
-  head: string;
-  tables: ParsedTable[];
-};
+  head: string
+  tables: ParsedTable[]
+}
 
-const cleanupTableStr: (str: string) => string = replace(/(\n|\r)/g, "");
+const cleanupTableStr: (str: string) => string = replace(/(\n|\r)/g, '')
 
-const mdHead: (md: string) => string = flow(split("## "), head);
+const mdHead: (md: string) => string = flow(split('## '), head)
 
 const mdTitles: (md: string) => string[] = flow(
-  split("\n"),
+  split('\n'),
   filter(isHeading2Start),
-  map(flow(removeStr("##"), removeStr("\r"), trim)),
-);
+  map(flow(removeStr('##'), removeStr('\r'), trim)),
+)
 
-const mdTables: (md: string) => Omit<ParsedTable, "title">[] = flow(
+const mdTables: (md: string) => Omit<ParsedTable, 'title'>[] = flow(
   cleanupTableStr,
-  extractTags("table"),
+  extractTags('table'),
   map(
     createObjBySelector({
-      head: flow(extractTag("thead"), extractTags("th")),
+      head: flow(extractTag('thead'), extractTags('th')),
       body: flow(
-        extractTag("tbody"),
-        flow(extractTags("tr"), map(extractTags("td"))),
+        extractTag('tbody'),
+        flow(extractTags('tr'), map(extractTags('td'))),
       ),
     }),
   ),
-);
+)
 
 const groupTableWithTitle = (data: string): ParsedTable[] =>
-  mdTitles(data).map((title, idx) => ({ title, ...mdTables(data)[idx] }));
+  mdTitles(data).map((title, idx) => ({ title, ...mdTables(data)[idx] }))
 
 const parseIndexMD: (md: string) => ParsedMd = createObjBySelector({
   head: mdHead,
   tables: groupTableWithTitle,
-});
+})
 
 const renterTable = (table: ParsedTable): string => {
   return `
@@ -82,113 +89,113 @@ const renterTable = (table: ParsedTable): string => {
 <table>
 <thead>
 <tr>
-${table.head.map((v) => `<th>${v}</th>`).join("\n")}
+${table.head.map((v) => `<th>${v}</th>`).join('\n')}
 </tr>
 </thead>
 <tbody>
-${table.body.map((row) => `<tr>${row.map((v) => `<td>\n\n${v}\n\n</td>`).join("\n\n\n")}</tr>`).join("\n\n")}
+${table.body.map((row) => `<tr>${row.map((v) => `<td>\n\n${v}\n\n</td>`).join('\n\n\n')}</tr>`).join('\n\n')}
 </tbody>
 </table>
-`;
-};
+`
+}
 
 const renderMd = (data: ParsedMd): string => {
   return `${data.head}
 
-${data.tables.map(renterTable).join("\n\n")}
-`;
-};
+${data.tables.map(renterTable).join('\n\n')}
+`
+}
 
 const indexingMdList = flow(
   pass(DOC_PATH),
   readdirSync,
   filter(
     flow(
-      split("."),
+      split('.'),
       isEvery([
-        flow(head, not(isEqual("index"))),
-        flow(tail, not(isEqual("md"))),
-        flow(prop("length"), isEqual(2)),
+        flow(head, not(isEqual('index'))),
+        flow(tail, not(isEqual('md'))),
+        flow(prop('length'), isEqual(2)),
       ]),
     ),
   ),
-);
+)
 
 const readOnDocPath = flow(
   pathOn(DOC_PATH),
   pathOn(cwd()),
-  readFileSync("utf-8"),
-);
+  readFileSync('utf-8'),
+)
 
-const removeMd = removeStr(".md");
+const removeMd = removeStr('.md')
 
 const isTargetTitle = (name: string) => (title: string) =>
-  !!title.match(new RegExp(`\\[${name}(\\(.*\\))?\\].*`));
+  !!title.match(new RegExp(`\\[${name}(\\(.*\\))?\\].*`))
 
 const getCategorizedByName = (name: string) =>
   flow(
     ScriptStore.getCategories,
     find(
-      flow(flow(prop("name")), isEqual(removeMd(name)), (res) => {
-        return res;
+      flow(flow(prop('name')), isEqual(removeMd(name)), (res) => {
+        return res
       }),
     ),
-    prop("categorized"),
+    prop('categorized'),
     or([]),
-  )();
+  )()
 
 const updateMD = ({
   name,
   parsed,
   categorized,
 }: {
-  name: string;
-  parsed: ParsedMd;
-  categorized: CategorizedItem[];
+  name: string
+  parsed: ParsedMd
+  categorized: CategorizedItem[]
 }) => {
   return flow(
     pass(parsed.tables),
     reduce((prev: Record<string, any[]>, cur: ParsedTable) => {
-      const updated = { ...prev };
+      const updated = { ...prev }
 
       cur.body.forEach((row) => {
         const found = categorized.find((item) => {
-          const isTarget = isTargetTitle(item.name);
-          const res = cur.title !== item.category && isTarget(row[0]);
+          const isTarget = isTargetTitle(item.name)
+          const res = cur.title !== item.category && isTarget(row[0])
 
-          return res;
-        });
+          return res
+        })
 
-        if (!found) return;
+        if (!found) return
 
-        const category = found.category;
+        const category = found.category
         infoLog(
-          "move-category",
+          'move-category',
           `${found.name} of ${name} ${cur.title} -> ${category}`,
-        );
-        updated[category] = [...(updated[category] || []), row];
-      });
+        )
+        updated[category] = [...(updated[category] || []), row]
+      })
 
-      return updated;
+      return updated
     }, {}),
     (addedMap) => {
       const addedTable = Object.entries(addedMap).map(
         ([category, rows]): ParsedTable => {
           return {
             title: category,
-            head: [category, "Description"],
+            head: [category, 'Description'],
             body: rows,
-          };
+          }
         },
-      );
+      )
 
       return {
         ...parsed,
         tables: [...addedTable].sort((a, b) => a.title.localeCompare(b.title)),
-      };
+      }
     },
-  )();
-};
+  )()
+}
 
 export const handleIndexMarkdown = flow(
   indexingMdList,
@@ -199,19 +206,19 @@ export const handleIndexMarkdown = flow(
         parsed: flow(readOnDocPath, parseIndexMD),
       }),
       createObjBySelector({
-        name: prop("name"),
-        parsed: prop("parsed"),
-        categorized: flow(prop("name"), getCategorizedByName),
+        name: prop('name'),
+        parsed: prop('parsed'),
+        categorized: flow(prop('name'), getCategorizedByName),
       }),
       createObjBySelector({
-        name: prop("name"),
+        name: prop('name'),
         md: flow(updateMD, renderMd),
       }),
       ({ name, md }) => {
-        writeFileSync(pathOn(DOC_PATH)(name), md);
-        infoLog("update-category", name);
+        writeFileSync(pathOn(DOC_PATH)(name), md)
+        infoLog('update-category', name)
       },
     ),
   ),
-  pass(""),
-);
+  pass(''),
+)
