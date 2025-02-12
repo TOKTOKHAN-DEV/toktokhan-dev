@@ -1355,7 +1355,7 @@ importers:
         version: link:../../packages/cli-plugins/commit
       '@toktokhan-dev/cli-plugin-gen-api-react-query':
         specifier: ^0.0.19
-        version: link:../../packages/cli-plugins/gen-api-react-query
+        version: 0.0.19(esbuild@0.24.0)(prettier@3.3.3)(typescript@5.6.3)
       '@toktokhan-dev/cli-plugin-gen-icon-chakra':
         specifier: ^0.0.12
         version: link:../../packages/cli-plugins/gen-icon-chakra
@@ -7594,6 +7594,24 @@ packages:
 
   /@toktokhan-dev/cli-plugin-gen-api-react-query@0.0.17(esbuild@0.24.0)(prettier@3.3.3)(typescript@5.6.3):
     resolution: {integrity: sha512-7sLBwSdzYYjEUqGwEliSeJnDRRN7I7gMEMsqF9pu0Ow6X9K1V1cCoZ+7ypnGUqT9OtlgGd6hxpnxvMIAeIVggw==}
+    dependencies:
+      '@toktokhan-dev/cli': 0.0.11(esbuild@0.24.0)
+      '@toktokhan-dev/node': 0.0.10
+      eta: 3.5.0
+      lodash: 4.17.21
+      prettier-plugin-organize-imports: 3.2.4(prettier@3.3.3)(typescript@5.6.3)
+      swagger-typescript-api: 13.0.22
+    transitivePeerDependencies:
+      - '@volar/vue-language-plugin-pug'
+      - '@volar/vue-typescript'
+      - encoding
+      - esbuild
+      - prettier
+      - typescript
+    dev: true
+
+  /@toktokhan-dev/cli-plugin-gen-api-react-query@0.0.19(esbuild@0.24.0)(prettier@3.3.3)(typescript@5.6.3):
+    resolution: {integrity: sha512-tS3X6Qqd/neniGbHXeh0+C8OTPXe66GwTU15dxzI4nFIa1xyVi5vcFRgqryoYQ6gNPB5MJvK5c99Yp3IUDzPSA==}
     dependencies:
       '@toktokhan-dev/cli': 0.0.11(esbuild@0.24.0)
       '@toktokhan-dev/node': 0.0.10

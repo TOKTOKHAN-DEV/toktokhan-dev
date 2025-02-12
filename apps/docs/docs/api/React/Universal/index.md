@@ -76,6 +76,19 @@ React 환경에서 전역적으로 사용할 수 있는 유틸리티 라이브�
 
 
 </td></tr>
+
+<tr><td>
+
+[useYieldLogic()](./react-universal.useyieldlogic)
+
+</td>
+
+
+<td>
+
+특정 로직을 동작시킬 때 비동기로 제어권을 양도하는 로직을 쉽게 사용하기 위해 구현한 hooks 입니다.endYield 함수의 인자로 값을 전달한다면 startYield의 반환값으로 사용할 수 있습니다.
+
+</td></tr>
 </tbody>
 </table>
 
