@@ -6846,7 +6846,7 @@
         {
           "kind": "Function",
           "canonicalReference": "@toktokhan-dev/react-web!useIntersectionObserver:function(1)",
-          "docComment": "/**\n  */\n",
+          "docComment": "/**\n * 반환한 targetRef를 사용하여 대상 컴포넌트에 intersectionObserver 이벤틀르 주기 위한 hooks입니다.\n *\n * hooks 선언시 props 설정이 가능하며, 화면에 표출되는 조건에 따라 onVisible, onHidden 함수가 실행됩니다.\n *\n  *\n * @param onVisible - targetRef 요소가 보여질 때 실행할 함수\n *\n * @param onHidden - targetRef 요소가 보이지 않을 때 실행할 함수\n *\n * @param options - targetRef에 설정할 intersection observer 옵션\n *\n * @typeParam T - 배열 요소의 타입\n *\n * @typeParam K - Map의 키 타입\n *\n * @returns intersection Observer 이벤트가 할당된 Element useRef\n *\n * @example\n * ```tsx\n *\n * const { targetRef } = useIntersectionObserver(\n *   {\n *     onVisible: () => onVisibleLast(),\n *     onHidden: () => onHiddenLast(),\n *     options: {\n *       threshold: 0.1,\n *     },\n *   },\n *   [],\n * );\n * ...\n *\n * return (\n *  <LastItem ref={targetRef} w=\"100%\" />\n * )\n *\n * ```\n *\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",
@@ -6884,8 +6884,8 @@
             },
             {
               "kind": "Reference",
-              "text": "HTMLDivElement",
-              "canonicalReference": "!HTMLDivElement:interface"
+              "text": "HTMLElement",
+              "canonicalReference": "!HTMLElement:interface"
             },
             {
               "kind": "Content",

@@ -60,7 +60,7 @@ React Web 환경에서 전역적으로 사용할 수 있는 유틸리티 라이�
 
 <td>
 
-
+반환한 targetRef를 사용하여 대상 컴포넌트에 intersectionObserver 이벤틀르 주기 위한 hooks입니다.hooks 선언시 props 설정이 가능하며, 화면에 표출되는 조건에 따라 onVisible, onHidden 함수가 실행됩니다.
 
 </td></tr>
 </tbody>

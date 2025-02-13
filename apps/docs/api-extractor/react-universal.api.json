@@ -1807,6 +1807,52 @@
         },
         {
           "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/react-universal!useYieldLogic:function(1)",
+          "docComment": "/**\n * 특정 로직을 동작시킬 때 비동기로 제어권을 양도하는 로직을 쉽게 사용하기 위해 구현한 hooks 입니다.\n *\n * endYield 함수의 인자로 값을 전달한다면 startYield의 반환값으로 사용할 수 있습니다.\n *\n  *\n * @returns startYield / endYield 함수\n *\n * @example\n * ```tsx\n *\n *  // hooks 선언\n *  const {endYield, startYield} = useYieldLogic();\n *\n *  // 변경함수\n *  const onClickSubmit = async() => {\n *  // 만약 유의사항을 띄워야 한다면 유의사항 모달을 띄운 후, startYield를 호출하여 함수의 제어권을 넘깁니다.\n *    if (isPrecaution) {\n *      openPrecautionModal();\n *      const count = await startYield();\n *    }\n *\n *    // 조회 API 호출로직...\n *  }\n *\n *  const onClickPrecautionConfirm = () => {\n *   // 유의사항 모달에서 확인을 눌렀을 때 endYield를 호출하여 다시 제어권을 startYield 함수로 옮깁니다.\n *    endYield(3); // 인자의 유무는 자유이며, 여기서 전달한 인자를 startYield 에서 return받습니다.\n *    closePrecautionModal();\n *  }\n *\n *\n * ```\n *\n */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "useYieldLogic: <T>() => "
+            },
+            {
+              "kind": "Content",
+              "text": "{\n  startYield: () => "
+            },
+            {
+              "kind": "Reference",
+              "text": "Promise",
+              "canonicalReference": "!Promise:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<unknown>;\n  endYield: (v: T) => void;\n}"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 4
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [],
+          "typeParameters": [
+            {
+              "typeParameterName": "T",
+              "constraintTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              },
+              "defaultTypeTokenRange": {
+                "startIndex": 0,
+                "endIndex": 0
+              }
+            }
+          ],
+          "name": "useYieldLogic"
+        },
+        {
+          "kind": "Function",
           "canonicalReference": "@toktokhan-dev/react-universal!withTimerProvider:function(1)",
           "docComment": "/**\n * @category Hooks/useTimer()/Context(Optional) 타이머 컨텍스트를 제공하는 컴포넌트 HOC입니다. 이 HOC를 사용하여 컴포넌트를 래핑하면, 해당 컴포넌트와 하위 컴포넌트에서 타이머 상태를 공유할 수 있습니다.\n *\n * @remarks\n *\n * 컨텍스트를 사용하지 않아도 타이머 훅을 직접 사용할 수 있으며, 컨텍스트가 필요한 경우에만 사용하시기 바랍니다. 예를 들어, 다수의 컴포넌트에서 타이머 상태를 공유하거나, 전역적으로 타이머 상태를 관리해야 하는 경우에 유용합니다.\n *\n * @example\n * ```tsx\n * // TimerContainer.tsx\n * import React from 'react';\n * import { withTimerProvider, useTimerContext } from '@toktokhan-dev/react-universal';\n *\n * const TimerContainer = () => {\n *   return <TimerDisplay />;\n * };\n *\n * export default withTimerProvider(TimerContainer, {\n *  autoStart: false,\n *  timeLimit: 1000 * 5,\n * });\n *\n * // TimerDisplay.tsx\n * const TimerDisplay = () => {\n *   // 불필요한 리랜더링 방지를 위해 selector로 가져오시는 것을 권장합니다.\n *   const time = useTimerContext((ctx) => ctx?.time)\n *   const start = useTimerContext((ctx) => ctx?.start)\n *\n *   return (\n *     <div>\n *       <button onClick={start}>Start Timer</button>\n *       <p>Remaining Time: {time}</p>\n *     </div>\n *   );\n * };\n * ```\n *\n */\n",
           "excerptTokens": [
