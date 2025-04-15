@@ -1,21 +1,8 @@
 import { ReactNode } from 'react'
-import React from 'react'
 
-import {
-  HtmlClassNameProvider,
-  PageMetadata,
-  ThemeClassNames,
-} from '@docusaurus/theme-common'
-import {
-  DocsSidebarProvider,
-  DocsVersionProvider,
-  docVersionSearchTag,
-} from '@docusaurus/theme-common/internal'
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 import Layout from '@theme/Layout'
-import SearchBar from '@theme/SearchBar'
 
-import clsx from 'clsx'
 import { twMerge } from 'tailwind-merge'
 
 type CommonLayoutProps = {

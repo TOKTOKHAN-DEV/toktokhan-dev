@@ -132,13 +132,13 @@ const config = {
             position: 'left',
             className: 'nav-item',
           },
-          {
-            type: 'docSidebar',
-            sidebarId: 'onboardingSidebar',
-            label: 'Onboarding',
-            position: 'left',
-            className: 'nav-item',
-          },
+          // {
+          //   type: 'docSidebar',
+          //   sidebarId: 'onboardingSidebar',
+          //   label: 'Onboarding',
+          //   position: 'left',
+          //   className: 'nav-item',
+          // },
           {
             href: 'https://github.com/TOKTOKHAN-DEV/toktokhan-dev',
             position: 'right',
@@ -232,7 +232,6 @@ const reverseSidebarItems = (items) => {
   // const isApi = items.some((item) => item.label === 'React')
 
   return sort(API_ORDERS)
-  return items
 }
 
 export default config
