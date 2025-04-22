@@ -25,6 +25,10 @@ nav.navbar {
   @apply !gap-[12px];
 }
 
+.theme-doc-sidebar-menu {
+  padding-bottom: 96px;
+}
+
 /* Github Icon */
 .navbar__items.navbar__items--right > :nth-child(1) {
   @apply p-0;
