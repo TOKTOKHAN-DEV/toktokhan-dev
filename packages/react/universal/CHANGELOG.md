@@ -1,5 +1,11 @@
 # @toktokhan-dev/react-universal
 
+## 0.0.12
+
+### Patch Changes
+
+- [#66](https://github.com/TOKTOKHAN-DEV/toktokhan-dev/pull/66) [`a271a94`](https://github.com/TOKTOKHAN-DEV/toktokhan-dev/commit/a271a94649fc3a94f952e2f7c0f3e0ba39cd2150) Thanks [@dingPie](https://github.com/dingPie)! - useYieldLogic hooks 추가 / useIntersectionObserver docs 수정
+
 ## 0.0.11
 
 ### Patch Changes

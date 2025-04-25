@@ -1,5 +1,11 @@
 # @toktokhan-dev/cli-plugin-gen-theme-chakra
 
+## 0.0.16
+
+### Patch Changes
+
+- [`2ec18e8`](https://github.com/TOKTOKHAN-DEV/toktokhan-dev/commit/2ec18e8c05bc0898902da855add4724075346506) Thanks [@Eunkyung-Son](https://github.com/Eunkyung-Son)! - chakra-ui v3 theming 변경점 대응(text-style, color)
+
 ## 0.0.15
 
 ### Patch Changes
