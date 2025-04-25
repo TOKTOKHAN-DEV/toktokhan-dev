@@ -17,7 +17,7 @@ import { ThemeToken, TokenModes } from './type'
 /**
  * @category Types
  */
-export interface GenColorConfig {
+export interface GenThemeConfig {
   /**
    * theme.json 경로입니다.
    */
@@ -30,12 +30,16 @@ export interface GenColorConfig {
    * chakra Semantic token color mode의 키 값을 지정할 수 있습니다.
    */
   tokenModes: TokenModes
+  /**
+   * Chakra UI 버전입니다.
+   */
+  version?: 'v2' | 'v3'
 }
 
 /**
  * @category Commands
  */
-export const genTheme = defineCommand<'gen:theme', GenColorConfig>({
+export const genTheme = defineCommand<'gen:theme', GenThemeConfig>({
   name: 'gen:theme',
   description:
     'theme json 파일기반으로 Chakra theme token 생성합니다. theme json 은 피그마 플러그인으로 부터 생성된 json 파일입니다.',
@@ -45,6 +49,7 @@ export const genTheme = defineCommand<'gen:theme', GenColorConfig>({
     tokenModes: {
       colors: { light: 'light', dark: 'dark' },
     },
+    version: 'v2',
   },
   cliOptions: [
     {
@@ -59,6 +64,12 @@ export const genTheme = defineCommand<'gen:theme', GenColorConfig>({
       description: 'chakra theme token 생성 폴더',
       type: 'string',
     },
+    {
+      name: 'version',
+      alias: 'v',
+      description: 'Chakra UI 버전',
+      type: 'string',
+    },
   ],
   run: async (config) => {
     if (!existsSync(config.input)) {
@@ -69,12 +80,20 @@ export const genTheme = defineCommand<'gen:theme', GenColorConfig>({
     const colorMode = config.tokenModes?.colors
     const textStyleMode = config.tokenModes?.textStyles
 
-    const color = renderColor(token.colors, {
-      light: colorMode?.light || 'light',
-      dark: colorMode?.dark || 'dark',
-    })
+    const color = renderColor(
+      token.colors,
+      {
+        light: colorMode?.light || 'light',
+        dark: colorMode?.dark || 'dark',
+      },
+      config.version,
+    )
 
-    const textStyle = renderTextStyle(token.textStyles, textStyleMode || {})
+    const textStyle = renderTextStyle(
+      token.textStyles,
+      textStyleMode || {},
+      config.version,
+    )
     generateCodeFile(
       {
         outputPath: path.resolve(config.output, 'colors.ts'),

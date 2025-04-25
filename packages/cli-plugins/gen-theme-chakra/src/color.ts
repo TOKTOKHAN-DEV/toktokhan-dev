@@ -2,9 +2,17 @@ import { createObjBySelector, pass } from '@toktokhan-dev/universal'
 
 import { flow, mapKeys, mapValues, prop, replace } from 'lodash/fp'
 
-import { ColorModes, ThemeToken } from './type'
+import {
+  ColorModes,
+  ColorTokenValue,
+  ThemeToken,
+  V2ColorToken,
+  V3ColorToken,
+} from './type'
 import { assertNullish } from './utils/assert-nullish'
 import { throwError } from './utils/throw-error'
+
+import { GenThemeConfig } from '.'
 
 const isNumeric = (v: any) => {
   return !isNaN(parseFloat(v))
@@ -80,19 +88,21 @@ const getTokenValue = (mode: string) => (token: any) => {
 }
 
 /**
- * 주어진 JSON 객체에서 색상 토큰을 추출하고 변환합니다.
+ * 색상 토큰 변환의 공통 로직을 처리하는 함수입니다.
  *
  * @param json - 색상 토큰이 포함된 ThemeToken 객체입니다.
  * @param mode - 색상 모드 객체입니다.
+ * @param postProcess - 변환 후 추가 처리를 위한 함수입니다.
  * @returns 변환된 색상 토큰 객체를 반환합니다.
  */
-const getColorTokenObj = (
+const processColorToken = <T>(
   json: ThemeToken['colors'],
   mode: Required<ColorModes>,
-): Record<string, { default: string; _dark?: string }> =>
+  postProcess: (obj: ColorTokenValue) => T,
+): Record<string, T> =>
   flow(
     pass(json),
-    prop('semanticTokens'), //
+    prop('semanticTokens'),
     mapKeys(getColorKey),
     mapValues(
       flow(
@@ -101,26 +111,71 @@ const getColorTokenObj = (
           return identity
         },
         createObjBySelector({
-          default: getTokenValue(mode['light']),
+          _light: getTokenValue(mode['light']),
           _dark: getTokenValue(mode['dark']),
         }),
+        postProcess,
       ),
     ),
-  )()
+  )() as Record<string, T>
+
+/**
+ * V2 형식의 색상 토큰 객체를 생성합니다.
+ */
+const getColorTokenObjV2 = (
+  json: ThemeToken['colors'],
+  mode: Required<ColorModes>,
+): Record<string, V2ColorToken> =>
+  processColorToken<V2ColorToken>(json, mode, (obj) => ({
+    default: obj._light,
+    _dark: obj._dark,
+  }))
+
+/**
+ * V3 형식의 색상 토큰 객체를 생성합니다.
+ */
+const getColorTokenObjV3 = (
+  json: ThemeToken['colors'],
+  mode: Required<ColorModes>,
+): Record<string, V3ColorToken> =>
+  processColorToken<V3ColorToken>(json, mode, (obj) => ({ value: obj }))
+
+/**
+ * 주어진 JSON 객체에서 색상 토큰을 추출하고 변환합니다.
+ * Chakra UI 버전에 따라 적절한 함수를 선택합니다.
+ *
+ * @param json - 색상 토큰이 포함된 ThemeToken 객체입니다.
+ * @param mode - 색상 모드 객체입니다.
+ * @param version - Chakra UI 버전입니다.
+ * @returns 변환된 색상 토큰 객체를 반환합니다.
+ */
+const getColorTokenObj = (
+  json: ThemeToken['colors'],
+  mode: Required<ColorModes>,
+  version?: GenThemeConfig['version'],
+) => {
+  if (version === 'v2') {
+    return getColorTokenObjV2(json, mode)
+  }
+  // v3 또는 기본값
+  return getColorTokenObjV3(json, mode)
+}
 
 /**
  * 주어진 JSON 객체를 기반으로 색상 스키마와 색상 토큰을 생성하고 렌더링합니다.
  *
  * @param json - 색상 스키마와 색상 토큰이 포함된 ThemeToken 객체입니다.
  * @param tokenModes - 색상 모드 객체입니다.
+ * @param chakraVersion - Chakra UI 버전 정보입니다.
  * @returns 렌더링된 색상 스키마와 색상 토큰 문자열을 반환합니다.
  */
 export const renderColor = (
   json: ThemeToken['colors'],
   tokenModes: Required<ColorModes>,
+  chakraVersion?: GenThemeConfig['version'],
 ): string => {
   const colorSchema = getColorSchemaObj(json)
-  const colorToken = getColorTokenObj(json, tokenModes)
+  const colorToken = getColorTokenObj(json, tokenModes, chakraVersion)
 
   return `
     /**

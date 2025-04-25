@@ -21,6 +21,21 @@ export type ColorModes = {
   light: string
   dark?: string
 }
+
+export type ColorTokenValue = {
+  _light: string
+  _dark?: string
+}
+
+export type V2ColorToken = {
+  default: string
+  _dark?: string
+}
+
+export type V3ColorToken = {
+  value: ColorTokenValue
+}
+
 export type TextStyleModes = Partial<Record<BreakPoints, string>>
 export type SwatTextStyleMode = Record<string, BreakPoints>
 
