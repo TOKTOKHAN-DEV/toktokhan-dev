@@ -32,8 +32,8 @@ runs:
     - name: Setup Git User
       shell: bash
       run: |
-        git config --global user.email "algoroot524@gmail.com"
-        git config --global user.name "AlgoRoots"
+        git config --global user.email "sek9510@gmail.com"
+        git config --global user.name "Eunkyung-Son"
 
     - name: install dependencies
       shell: bash
