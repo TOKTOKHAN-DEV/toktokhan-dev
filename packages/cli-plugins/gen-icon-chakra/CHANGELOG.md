@@ -1,5 +1,11 @@
 # @toktokhan-dev/cli-plugin-gen-icon-chakra
 
+## 0.0.13
+
+### Patch Changes
+
+- [`201b428`](https://github.com/TOKTOKHAN-DEV/toktokhan-dev/commit/201b4285fb607d653f60064d471bf18769e5cf76) Thanks [@Eunkyung-Son](https://github.com/Eunkyung-Son)! - chakra-ui v3 icon 변경점 대응
+
 ## 0.0.12
 
 ### Patch Changes
