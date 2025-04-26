@@ -173,23 +173,61 @@
       "preserveMemberOrder": false,
       "members": [
         {
-          "kind": "Interface",
-          "canonicalReference": "@toktokhan-dev/cli-plugin-gen-theme-chakra!GenColorConfig:interface",
+          "kind": "Variable",
+          "canonicalReference": "@toktokhan-dev/cli-plugin-gen-theme-chakra!genTheme:var",
           "docComment": "/**\n  */\n",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "interface GenColorConfig "
+              "text": "genTheme: "
+            },
+            {
+              "kind": "Reference",
+              "text": "_toktokhan_dev_cli.MyCommand",
+              "canonicalReference": "@toktokhan-dev/cli!MyCommand:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "<"
+            },
+            {
+              "kind": "Reference",
+              "text": "GenThemeConfig",
+              "canonicalReference": "@toktokhan-dev/cli-plugin-gen-theme-chakra!GenThemeConfig:interface"
+            },
+            {
+              "kind": "Content",
+              "text": ", \"gen:theme\">"
+            }
+          ],
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "isReadonly": true,
+          "releaseTag": "Public",
+          "name": "genTheme",
+          "variableTypeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 5
+          },
+          "parameters": []
+        },
+        {
+          "kind": "Interface",
+          "canonicalReference": "@toktokhan-dev/cli-plugin-gen-theme-chakra!GenThemeConfig:interface",
+          "docComment": "/**\n  */\n",
+          "excerptTokens": [
+            {
+              "kind": "Content",
+              "text": "interface GenThemeConfig "
             }
           ],
           "fileUrlPath": "dist/index.doc.d.ts",
           "releaseTag": "Public",
-          "name": "GenColorConfig",
+          "name": "GenThemeConfig",
           "preserveMemberOrder": false,
           "members": [
             {
               "kind": "PropertySignature",
-              "canonicalReference": "@toktokhan-dev/cli-plugin-gen-theme-chakra!GenColorConfig#input:member",
+              "canonicalReference": "@toktokhan-dev/cli-plugin-gen-theme-chakra!GenThemeConfig#input:member",
               "docComment": "/**\n * theme.json 경로입니다.\n */\n",
               "excerptTokens": [
                 {
@@ -216,7 +254,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "@toktokhan-dev/cli-plugin-gen-theme-chakra!GenColorConfig#output:member",
+              "canonicalReference": "@toktokhan-dev/cli-plugin-gen-theme-chakra!GenThemeConfig#output:member",
               "docComment": "/**\n * chakra theme token이 생성되는 폴더입니다.\n */\n",
               "excerptTokens": [
                 {
@@ -243,7 +281,7 @@
             },
             {
               "kind": "PropertySignature",
-              "canonicalReference": "@toktokhan-dev/cli-plugin-gen-theme-chakra!GenColorConfig#tokenModes:member",
+              "canonicalReference": "@toktokhan-dev/cli-plugin-gen-theme-chakra!GenThemeConfig#tokenModes:member",
               "docComment": "/**\n * chakra Semantic token color mode의 키 값을 지정할 수 있습니다.\n */\n",
               "excerptTokens": [
                 {
@@ -268,47 +306,36 @@
                 "startIndex": 1,
                 "endIndex": 2
               }
+            },
+            {
+              "kind": "PropertySignature",
+              "canonicalReference": "@toktokhan-dev/cli-plugin-gen-theme-chakra!GenThemeConfig#version:member",
+              "docComment": "/**\n * Chakra UI 버전입니다.\n */\n",
+              "excerptTokens": [
+                {
+                  "kind": "Content",
+                  "text": "version?: "
+                },
+                {
+                  "kind": "Content",
+                  "text": "'v2' | 'v3'"
+                },
+                {
+                  "kind": "Content",
+                  "text": ";"
+                }
+              ],
+              "isReadonly": false,
+              "isOptional": true,
+              "releaseTag": "Public",
+              "name": "version",
+              "propertyTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              }
             }
           ],
           "extendsTokenRanges": [],
-          "parameters": []
-        },
-        {
-          "kind": "Variable",
-          "canonicalReference": "@toktokhan-dev/cli-plugin-gen-theme-chakra!genTheme:var",
-          "docComment": "/**\n  */\n",
-          "excerptTokens": [
-            {
-              "kind": "Content",
-              "text": "genTheme: "
-            },
-            {
-              "kind": "Reference",
-              "text": "_toktokhan_dev_cli.MyCommand",
-              "canonicalReference": "@toktokhan-dev/cli!MyCommand:interface"
-            },
-            {
-              "kind": "Content",
-              "text": "<"
-            },
-            {
-              "kind": "Reference",
-              "text": "GenColorConfig",
-              "canonicalReference": "@toktokhan-dev/cli-plugin-gen-theme-chakra!GenColorConfig:interface"
-            },
-            {
-              "kind": "Content",
-              "text": ", \"gen:theme\">"
-            }
-          ],
-          "fileUrlPath": "dist/index.doc.d.ts",
-          "isReadonly": true,
-          "releaseTag": "Public",
-          "name": "genTheme",
-          "variableTypeTokenRange": {
-            "startIndex": 1,
-            "endIndex": 5
-          },
           "parameters": []
         }
       ]
