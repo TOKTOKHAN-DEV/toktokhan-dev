@@ -46,7 +46,7 @@ const parseElement = (element: INode): INode => {
   return newElement
 }
 
-const toJsxSyntax = (svg: INode): INode => {
+const toJsxSyntaxV2 = (svg: INode): INode => {
   const { children, ...rest } = svg
 
   const attributes = {
@@ -59,6 +59,33 @@ const toJsxSyntax = (svg: INode): INode => {
     name: 'Icon',
     attributes: omitBy(attributes, isUndefined),
     children: map(parseElement, children),
+  }
+
+  return transformed
+}
+
+const toJsxSyntaxV3 = (svg: INode): INode => {
+  const { children, ...rest } = svg
+
+  const attributes = {
+    parentProps: 'true',
+  }
+  const transformed: INode = {
+    ...rest,
+    name: 'Icon',
+    attributes: omitBy(attributes, isUndefined),
+    children: [
+      {
+        type: 'element',
+        name: 'svg',
+        value: '',
+        attributes: {
+          viewBox: svg.attributes.viewBox,
+          fill: svg.attributes.fill,
+        },
+        children: map(parseElement, children),
+      },
+    ],
   }
 
   return transformed
@@ -92,6 +119,10 @@ export interface GenIconConfig {
   output: string
   /** 제외 될 아이콘 파일을 판별하는 패턴으로써, 파일이름이 패턴과 일치할 경우에 객체에서 제외 됩니다. */
   ignored?: string[]
+  /**
+   * Chakra UI 버전입니다.
+   */
+  version?: 'v2' | 'v3'
 }
 
 /**
@@ -122,12 +153,19 @@ export const genIcon = defineCommand<'gen:icon', GenIconConfig>({
       description:
         '제외 될 아이콘 컴포넌트 파일을 판별하는 패턴으로써, 파일이름이 패턴과 일치할 경우에 객체에서 제외 됩니다.',
     },
+    {
+      name: 'version',
+      alias: 'v',
+      type: 'string',
+      description: 'Chakra UI 버전입니다. "v2" 또는 "v3"를 지정할 수 있습니다.',
+    },
   ],
 
   default: {
     input: 'public',
     output: path.resolve('src', 'generated', 'icons', 'MyIcons.tsx'),
     ignored: ['*node_module*'],
+    version: 'v2',
   },
   run: async (config) => {
     const {
@@ -135,6 +173,7 @@ export const genIcon = defineCommand<'gen:icon', GenIconConfig>({
       input,
       output,
       ignored,
+      version = 'v2',
     } = config
 
     if (!input) throw new Error('input is required')
@@ -166,6 +205,8 @@ export const genIcon = defineCommand<'gen:icon', GenIconConfig>({
       },
       pathObj,
     )
+
+    const toJsxSyntax = version === 'v2' ? toJsxSyntaxV2 : toJsxSyntaxV3
 
     const transformSvgContent = async ([key, val]: [string, string]) => {
       const transformed = await flow(
