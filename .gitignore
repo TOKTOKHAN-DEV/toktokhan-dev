@@ -43,3 +43,5 @@ yarn-error.log*
 # Package: Init
 packages/init/packages
 packages/init/mock
+
+.npmrc
