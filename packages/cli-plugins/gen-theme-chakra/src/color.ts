@@ -39,20 +39,30 @@ const refColorSchema = (key: string) => `colorSchema["${key}"]`
  * 주어진 JSON 객체에서 색상 스키마를 추출하고 변환합니다.
  *
  * @param json - 색상 스키마가 포함된 ThemeToken 객체입니다.
+ * @param version - Chakra UI 버전입니다.
  * @returns 변환된 색상 스키마 객체를 반환합니다.
  */
 const getColorSchemaObj: (
   json: ThemeToken['colors'],
-) => Record<string, string> = flow(
-  prop('colorSchema'), //
-  mapKeys(getColorTokenKey),
-  mapValues(
-    flow(
-      prop('value'),
-      assertNullish("not found value. Please check 'colorSchema' value."),
+  version?: GenThemeConfig['version'],
+) => Record<string, string | { value: string }> = (json, version) => {
+  return flow(
+    prop('colorSchema'), //
+    mapKeys(getColorTokenKey),
+    mapValues(
+      flow(
+        prop('value'),
+        assertNullish("not found value. Please check 'colorSchema' value."),
+        (value) => {
+          if (version === 'v2') {
+            return value
+          }
+          return { value }
+        },
+      ),
     ),
-  ),
-)
+  )(json)
+}
 
 /**
  * 주어진 값 객체가 유효한 토큰 모드를 가지고 있는지 확인합니다.
@@ -84,6 +94,19 @@ const getTokenValue = (mode: string) => (token: any) => {
   const ref = prop(`${mode}.ref`)(token)
   const value = prop(`${mode}.value`)(token)
   if (ref) return flow(getColorTokenKey, refColorSchema)(ref)
+  return value
+}
+
+/**
+ * v3 버전에서 주어진 모드에 따라 토큰 값을 반환합니다.
+ *
+ * @param mode - 토큰 값을 가져올 모드입니다.
+ * @returns 주어진 토큰에 대한 값을 반환하는 함수입니다.
+ */
+const getTokenValueV3 = (mode: string) => (token: any) => {
+  const ref = prop(`${mode}.ref`)(token)
+  const value = prop(`${mode}.value`)(token)
+  if (ref) return `{colors.${flow(getColorTokenKey)(ref)}}`
   return value
 }
 
@@ -120,6 +143,44 @@ const processColorToken = <T>(
   )() as Record<string, T>
 
 /**
+ * v3 버전의 색상 토큰 변환 로직을 처리하는 함수입니다.
+ *
+ * @param json - 색상 토큰이 포함된 ThemeToken 객체입니다.
+ * @param mode - 색상 모드 객체입니다.
+ * @param postProcess - 변환 후 추가 처리를 위한 함수입니다.
+ * @returns 변환된 색상 토큰 객체를 반환합니다.
+ */
+const processColorTokenV3 = <T>(
+  json: ThemeToken['colors'],
+  mode: Required<ColorModes>,
+  postProcess: (obj: ColorTokenValue) => T,
+): Record<string, T> =>
+  flow(
+    pass(json),
+    prop('semanticTokens'),
+    mapKeys(getColorKey),
+    mapValues(
+      flow(
+        (identity) => {
+          checkValidToken(identity, mode)
+          return identity
+        },
+        createObjBySelector({
+          _light: getTokenValueV3(mode['light']),
+          _dark: getTokenValueV3(mode['dark']),
+        }),
+        (obj) => {
+          if (!obj._dark) {
+            return { ...obj, _dark: obj._light }
+          }
+          return obj
+        },
+        postProcess,
+      ),
+    ),
+  )() as Record<string, T>
+
+/**
  * V2 형식의 색상 토큰 객체를 생성합니다.
  */
 const getColorTokenObjV2 = (
@@ -138,7 +199,7 @@ const getColorTokenObjV3 = (
   json: ThemeToken['colors'],
   mode: Required<ColorModes>,
 ): Record<string, V3ColorToken> =>
-  processColorToken<V3ColorToken>(json, mode, (obj) => ({ value: obj }))
+  processColorTokenV3<V3ColorToken>(json, mode, (obj) => ({ value: obj }))
 
 /**
  * 주어진 JSON 객체에서 색상 토큰을 추출하고 변환합니다.
@@ -174,7 +235,7 @@ export const renderColor = (
   tokenModes: Required<ColorModes>,
   chakraVersion?: GenThemeConfig['version'],
 ): string => {
-  const colorSchema = getColorSchemaObj(json)
+  const colorSchema = getColorSchemaObj(json, chakraVersion)
   const colorToken = getColorTokenObj(json, tokenModes, chakraVersion)
 
   return `
