@@ -3,19 +3,12 @@
 // (when paired with `@ts-check`).
 // There are various equivalent ways to declare your Docusaurus config.
 // See: https://docusaurus.io/docs/api/docusaurus-config
+import dotenv from 'dotenv'
 import { themes as prismThemes } from 'prism-react-renderer'
 
 import tailwindPlugin from './plugins/tailwind-plugin.cjs'
 
-const BASE_THEME = prismThemes.dracula
-
-const THEME = {
-  ...BASE_THEME,
-  plain: {
-    ...BASE_THEME.plain,
-    backgroundColor: '#000000',
-  },
-}
+dotenv.config()
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -93,8 +86,8 @@ const config = {
     {
       image: 'img/ui/logo.webp',
       algolia: {
-        appId: 'FX1MB92IM7',
-        apiKey: '9868a93249fc68bf66c1fa15e5b57672',
+        appId: process.env.ALGOLIA_APP_ID,
+        apiKey: process.env.ALGOLIA_API_KEY,
         indexName: 'toktokhan-dev-vercel',
         contextualSearch: true,
       },
