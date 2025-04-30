@@ -1,81 +1,141 @@
-import { writeFileSync } from "fs";
-import path from "path";
+import { mkdirSync, readFileSync, writeFileSync } from 'fs'
+import path from 'path'
 
+import { defineCommand } from '@toktokhan-dev/cli'
 import {
   createObjBySelector,
   prefix,
   removeStr,
   suffix,
-} from "@toktokhan-dev/universal";
+} from '@toktokhan-dev/universal'
 
-import { entries, flow, map, prop, replace } from "lodash/fp";
+import entries from 'lodash/fp/entries.js'
+import flow from 'lodash/fp/flow.js'
+import map from 'lodash/fp/map.js'
+import replace from 'lodash/fp/replace.js'
 
-import { themeColors } from "../../static/color-tokens";
+export type GenThemeColorsConfig = {
+  input: string
+  outputTs: string
+  outputCss: string
+}
 
-type Key = "light" | "dark" | "config";
+const getKey = (key: string) => `--${key.replace(/\./g, '-')}`
+const getConfigValue = (key: string) => `var(--${key.replace(/\./g, '-')})`
 
-const TAILWIND_OUTPUT_PATH = "src/generated";
-const CSS_OUTPUT_PATH = "src/generated";
+const arrayToObj = (array: string[]) =>
+  array.reduce<Record<string, string>>((obj, item) => {
+    const [key, value] = item.split(':')
+    obj[key] = value
+    return obj
+  }, {})
 
-const tailwindFilePath = path.join(
-  TAILWIND_OUTPUT_PATH,
-  "color-theme-tailwind.ts",
-);
-const cssFilePath = path.join(CSS_OUTPUT_PATH, "color-theme.css");
+const generateCss = (colors: string[], isDark = false) => {
+  const colorObj = arrayToObj(colors)
+  const cssContent = Object.entries(colorObj)
+    .map(([key, value]) => `${key}: ${value}`)
+    .join(';\n  ')
+  return isDark ? `.dark {\n  ${cssContent}\n}` : `:root {\n  ${cssContent}\n}`
+}
 
-const getKey = flow(prefix("--"), replace(/\./g, "-"));
-const getConfigValue = flow(replace(/\./g, "-"), prefix("var(--"), suffix(")"));
+const processTokens = (
+  tokens: Record<string, any>,
+  lightKey = 'light',
+  darkKey = 'dark',
+) => {
+  return flow(
+    entries,
+    map(([key, value]) => ({
+      lightCss: `${getKey(key)}:${value[lightKey].value}`,
+      darkCss: `${getKey(key)}:${value[darkKey].value}`,
+      configLight: `${key}:${getConfigValue(key)}`,
+      configDark: `${key}:${getConfigValue(key)}`,
+    })),
+    (mapped) => ({
+      lightCss: mapped.map((item) => item.lightCss),
+      darkCss: mapped.map((item) => item.darkCss),
+      configLight: mapped.map((item) => item.configLight),
+      configDark: mapped.map((item) => item.configDark),
+    }),
+  )(tokens)
+}
 
-const newColors = flow(
-  entries,
-  map(
-    flow(
-      createObjBySelector({
-        light: (identity) =>
-          removeStr(`'`)(`${getKey(identity[0])}:${identity[1]["light"]};`),
-        dark: (identity) =>
-          removeStr(`'`)(`${getKey(identity[0])}:${identity[1]["dark"]};`),
-        config: (identity) =>
-          removeStr(`'`)(`${identity[0]}:${getConfigValue(identity[0])}`),
-      }),
-    ),
-  ),
-  createObjBySelector({
-    light: map(prop("light")),
-    dark: map(prop("dark")),
-    config: map(prop("config")),
-  }),
-)(themeColors);
+const processColorSchema = (colors: Record<string, any>) => {
+  return flow(
+    entries,
+    map(([key, value]) => ({
+      css: `${getKey(key)}:${value.value}`,
+      config: `${key}:${getConfigValue(key)}`,
+    })),
+    (mapped) => ({
+      css: mapped.map((item) => item.css),
+      config: mapped.map((item) => item.config),
+    }),
+  )(colors)
+}
 
-const arrayToObj = (array: any[]) =>
-  array.reduce((obj, item) => {
-    const [key, value] = item.split(":");
-    obj[key] = value;
-    return obj;
-  }, {});
+export const genThemeColors = defineCommand<
+  'gen:theme-colors',
+  GenThemeColorsConfig
+>({
+  name: 'gen:theme-colors',
+  description: 'Generate Tailwind color themes from tokens.',
+  default: {
+    input: 'static/token.json',
+    outputTs: path.resolve('src/generated', 'color-theme-tailwind.ts'),
+    outputCss: path.resolve('src/generated', 'color-theme.css'),
+  },
+  cliOptions: [
+    {
+      name: 'outputTs',
+      alias: 'ots',
+      description: 'Output path for TypeScript file',
+      type: 'string',
+    },
+    {
+      name: 'outputCss',
+      alias: 'ocss',
+      description: 'Output path for CSS file',
+      type: 'string',
+    },
+  ],
+  run: (config) => {
+    const themeData = JSON.parse(readFileSync(config.input, 'utf-8'))
 
-const getCssColors = (newColors: Record<Key, string[]>) => {
-  const contents = Object.entries(newColors).map(([key, val]) => {
-    const cssObj = arrayToObj(val);
-    const cssStr = Object.entries(cssObj)
-      .map(([k, v]) => `${k}: ${v}`)
-      .join("; ");
+    mkdirSync(path.dirname(config.outputTs), { recursive: true })
+    mkdirSync(path.dirname(config.outputCss), { recursive: true })
 
-    switch (key) {
-      case "light":
-        return `:root { ${cssStr} }`;
-      case "dark":
-        return `[data-theme='dark'] { ${cssStr} }`;
-      default:
-        return null;
+    const colorSchema = processColorSchema(themeData.colors.colorSchema)
+    const semanticTokens = processTokens(themeData.colors.semanticTokens)
+
+    const combinedColors = {
+      rootCss: [...colorSchema.css, ...semanticTokens.lightCss],
+      darkCss: [...semanticTokens.darkCss],
+      config: [
+        ...colorSchema.config,
+        ...semanticTokens.configLight,
+        ...semanticTokens.configDark,
+      ],
     }
-  });
 
-  return contents.filter((c) => !!c).join("\n");
-};
-const tokColor = arrayToObj(newColors.config);
-const tailwindColors = `export const tokColor = ${JSON.stringify(tokColor, null, 2)}`;
-const cssColors = getCssColors(newColors);
+    writeFileSync(
+      config.outputCss,
+      `@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+  ${generateCss(combinedColors.rootCss)}
+  ${generateCss(combinedColors.darkCss, true)}
+}
+`,
+      'utf-8',
+    )
 
-writeFileSync(tailwindFilePath, tailwindColors, "utf-8");
-writeFileSync(cssFilePath, cssColors, "utf-8");
+    const combinedTokens = arrayToObj(combinedColors.config)
+    writeFileSync(
+      config.outputTs,
+      `export default ${JSON.stringify(combinedTokens, null, 2)};`,
+      'utf-8',
+    )
+  },
+})
