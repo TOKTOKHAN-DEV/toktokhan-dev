@@ -22,17 +22,18 @@ module.exports = {
         pretendard: ['"Pretendard"', ...fontFamily.sans],
         jaro: ['Jaro', ...fontFamily.sans],
         ibmFlexMono: ['IBM+Plex+Mono', ...fontFamily.sans],
+        uncut: ['UnCut', ...fontFamily.sans],
       },
       borderRadius: {
         sm: '4px',
       },
       screens: {
         base: '0px',
-        sm: '375px',
-        md: '768px',
-        lg: '1439px',
+        sm: '0px',
+        md: '1440px',
+        lg: '1440px',
         xl: '1440px',
-        '2xl': '1920px',
+        '2xl': '1440px',
       },
       maxWidth: {
         'screen-base': '100%',

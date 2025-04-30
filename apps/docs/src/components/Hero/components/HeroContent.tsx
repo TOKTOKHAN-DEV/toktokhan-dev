@@ -7,13 +7,9 @@ import { animateFrom, animateTo } from '@site/src/utils/animations'
 import { docUrl } from '@site/src/utils/doc-url'
 import Heading from '@theme/Heading'
 
-import { gsap } from 'gsap'
-import { EasePack, TextPlugin } from 'gsap/all'
 import { twJoin, twMerge } from 'tailwind-merge'
 
 import DocLink from '../../DocLink'
-
-gsap.registerPlugin(TextPlugin, EasePack)
 
 interface HeroContentProps {
   ref?: ReactRef
@@ -65,14 +61,14 @@ const HeroContent = forwardRef<HTMLDivElement, WithClass<HeroContentProps>>(
               'lg:text-[72px] tracking-[-0.72px]',
             )}
           >
-            <span className="enjoy"></span>
+            <span className="enjoy" />
             <span
               className={twMerge('with-our-tools text-tokColor-text.primary')}
-            ></span>
-            {'\n'} <span className="and-join"></span>{' '}
+            />
+            {'\n'} <span className="and-join" />{' '}
             <span
               className={twMerge('your-ideas text-tokColor-text.primary')}
-            ></span>
+            />
           </Heading>
           <h3
             className={twMerge(

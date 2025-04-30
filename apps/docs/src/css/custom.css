@@ -9,16 +9,22 @@
 /* Toktoken Docs Tokens */
 @import url('../generated/color-theme.css');
 
-@import url('./nav.css');
-@import url('./search.css');
+/* @import url('./nav.css');
+@import url('./search.css'); */
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @font-face {
-  font-family: 'Pretendard';
+  font-family: 'Pretendard Variable';
   src: url('../../static/fonts/pretendard/PretendardVariable.woff2')
+    format('woff2');
+}
+
+@font-face {
+  font-family: 'Uncut Sans Variable';
+  src: url('../../static/fonts/uncut-sans/UncutSansVariable.woff2')
     format('woff2');
 }
 

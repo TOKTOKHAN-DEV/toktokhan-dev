@@ -4,7 +4,7 @@ import {
   GitIcon,
 } from '@site/src/generated/icons'
 
-const Hero = () => {
+export const Section1 = () => {
   return (
     <div className="flex flex-col items-center justify-center sm:mt-[64px] md:mt-[80px]">
       <span className="typo-uncut-display-02 whitespace-pre-line text-content-1 text-center relative">
@@ -43,5 +43,3 @@ const Hero = () => {
     </div>
   )
 }
-
-export default Hero
