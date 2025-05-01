@@ -1,0 +1,113 @@
+import { useRef } from 'react'
+
+import gsap from 'gsap'
+
+interface Props {
+  title: string
+  value: string
+  unit: string
+  orientation: 'top' | 'bottom'
+  className?: string
+}
+
+const InfoBox = ({ title, value, unit, orientation, className }: Props) => {
+  const boxRef = useRef<HTMLDivElement>(null)
+
+  const handleMouseEnter = () => {
+    if (!boxRef.current) return
+
+    gsap.to(boxRef.current, {
+      scaleY: 0.95,
+      transformOrigin: orientation,
+      gap: 0,
+      duration: 0.2,
+      ease: 'power2.out',
+    })
+  }
+
+  const handleMouseLeave = () => {
+    if (!boxRef.current) return
+
+    gsap.to(boxRef.current, {
+      scaleY: 1,
+      transformOrigin: orientation,
+      gap: '16px',
+      duration: 0.2,
+      ease: 'power2.out',
+    })
+  }
+
+  return (
+    <div
+      ref={boxRef}
+      className={`inline-flex flex-col justify-center items-start gap-[16px] lg:p-[60px] xl:p-[80px] bg-background-inverse-1 origin-top ${className}`}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <span className="typo-uncut-haeding-05 text-transparent-inverse-4 text-left transition-colors duration-300">
+        {title}
+      </span>
+      <div className="flex flex-row items-baseline">
+        <span className="text-content-8 text-left typo-uncut-display-02 font-bold leading-[100%] tracking-[-4.8px] transition-colors duration-300">
+          {value}
+        </span>
+        <span className="text-content-8 text-center typo-uncut-display-05 ml-[4px] transition-colors duration-300">
+          {unit}
+        </span>
+      </div>
+    </div>
+  )
+}
+
+export const Section9 = () => {
+  return (
+    <div className="flex flex-col lg:py-[37.6px] lg:px-[56.25px] xl:py-[50px] xl:px-[75px] gap-[6px]">
+      <div className="flex flex-row gap-[5.25px] ">
+        <InfoBox
+          title="Line saved"
+          value="15,000"
+          unit="line"
+          orientation="bottom"
+          className="rounded-[40px_40px_0px_40px] hover:bg-accent-brewin-green group"
+        />
+        <InfoBox
+          title="Auto-generated Hooks API"
+          value="300"
+          unit="api"
+          orientation="bottom"
+          className="rounded-[40px_40px_0px_0px] hover:bg-accent-brewin-yellow group"
+        />
+        <InfoBox
+          title="Less Handoff"
+          value="64"
+          unit="%"
+          orientation="bottom"
+          className="rounded-[40px_40px_40px_00px] hover:bg-accent-brewin-blue group"
+        />
+      </div>
+      <div className="flex flex-row gap-[5.25px] justify-center">
+        <InfoBox
+          title="Projects Used"
+          value="50"
+          unit="project"
+          orientation="top"
+          className="rounded-[40px_0px_40px_40px] hover:bg-accent-brewin-red group"
+        />
+        <InfoBox
+          title="Faster Delivery"
+          value="1.7"
+          unit="times"
+          orientation="top"
+          className="rounded-[0px_0px_40px_40px] hover:bg-accent-brewin-purple group"
+        />
+        <InfoBox
+          title="Team Satisfaction"
+          value="91"
+          unit="%"
+          orientation="top"
+          className="rounded-[0px_40px_40px_40px] hover:bg-accent-brewin-orange group"
+        />
+      </div>
+    </div>
+  )
+}
