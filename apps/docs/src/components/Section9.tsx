@@ -17,8 +17,6 @@ const InfoBox = ({ title, value, unit, orientation, className }: Props) => {
     if (!boxRef.current) return
 
     gsap.to(boxRef.current, {
-      scaleY: 0.95,
-      transformOrigin: orientation,
       gap: 0,
       duration: 0.2,
       ease: 'power2.out',
@@ -29,8 +27,6 @@ const InfoBox = ({ title, value, unit, orientation, className }: Props) => {
     if (!boxRef.current) return
 
     gsap.to(boxRef.current, {
-      scaleY: 1,
-      transformOrigin: orientation,
       gap: '16px',
       duration: 0.2,
       ease: 'power2.out',
@@ -39,21 +35,28 @@ const InfoBox = ({ title, value, unit, orientation, className }: Props) => {
 
   return (
     <div
-      ref={boxRef}
-      className={`inline-flex flex-col justify-center items-start gap-[16px] lg:p-[60px] xl:p-[80px] bg-background-inverse-1 origin-top ${className}`}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      className={`flex flex-col justify-${orientation === 'bottom' ? 'end' : 'start'}`}
     >
-      <span className="typo-uncut-haeding-05 text-transparent-inverse-4 text-left transition-colors duration-300">
-        {title}
-      </span>
-      <div className="flex flex-row items-baseline">
-        <span className="text-content-8 text-left typo-uncut-display-02 font-bold leading-[100%] tracking-[-4.8px] transition-colors duration-300">
-          {value}
+      <div
+        ref={boxRef}
+        style={{
+          height: 'fit-content',
+        }}
+        className={`inline-flex flex-col justify-center items-start gap-[16px] lg:p-[60px] xl:p-[80px] bg-background-inverse-1 ${className}`}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        <span className="typo-uncut-haeding-05 text-transparent-inverse-4 text-left transition-colors duration-300">
+          {title}
         </span>
-        <span className="text-content-8 text-center typo-uncut-display-05 ml-[4px] transition-colors duration-300">
-          {unit}
-        </span>
+        <div className="flex flex-row items-baseline">
+          <span className="text-content-8 text-left typo-uncut-display-02 font-bold leading-[100%] tracking-[-4.8px] transition-colors duration-300">
+            {value}
+          </span>
+          <span className="text-content-8 text-center typo-uncut-display-05 ml-[4px] transition-colors duration-300">
+            {unit}
+          </span>
+        </div>
       </div>
     </div>
   )
