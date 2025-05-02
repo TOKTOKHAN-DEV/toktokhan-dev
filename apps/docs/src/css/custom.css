@@ -9,8 +9,8 @@
 /* Toktoken Docs Tokens */
 @import url('../generated/color-theme.css');
 
-/* @import url('./nav.css');
-@import url('./search.css'); */
+@import url('./nav.css');
+@import url('./search.css');
 
 @tailwind base;
 @tailwind components;

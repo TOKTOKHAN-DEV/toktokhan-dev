@@ -84,7 +84,7 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     {
-      image: 'img/ui/logo.webp',
+      image: 'img/ui/logo.webp', // og
       algolia: {
         appId: process.env.ALGOLIA_APP_ID,
         apiKey: process.env.ALGOLIA_API_KEY,
@@ -101,9 +101,9 @@ const config = {
         logo: {
           href: '/',
           alt: 'TokDocs Logo',
-          src: 'img/ui/logo.webp',
-          srcDark: 'img/ui/logo.webp',
-          width: 108,
+          src: 'img/ui/brewin.png',
+          srcDark: 'img/ui/brewin.png',
+          width: 100,
         },
         items: [
           {
