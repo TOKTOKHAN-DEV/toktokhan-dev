@@ -33,10 +33,10 @@ const InfoBox = ({ title, value, unit, orientation, className }: Props) => {
     })
   }
 
+  const justify = orientation === 'bottom' ? 'justify-end' : 'justify-start'
+
   return (
-    <div
-      className={`flex flex-col justify-${orientation === 'bottom' ? 'end' : 'start'}`}
-    >
+    <div className={`flex flex-col ${justify}`}>
       <div
         ref={boxRef}
         style={{
