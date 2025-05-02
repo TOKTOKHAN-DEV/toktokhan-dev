@@ -15,7 +15,20 @@ export const Section10 = () => {
   const lastUpdateTimeRef = useRef<number>(0)
 
   // Create slide colors with one clone for infinite loop
-  const slideColors = [...COLORS, COLORS[0]]
+  const slideColors = [
+    COLORS,
+    COLORS,
+    COLORS,
+    COLORS,
+    COLORS,
+    COLORS,
+    COLORS,
+    COLORS,
+    COLORS,
+    COLORS,
+    COLORS,
+    COLORS,
+  ].flat()
 
   // Handle slide transition
   const handleSlideTransition = useCallback(
@@ -82,11 +95,8 @@ export const Section10 = () => {
 
   const mainTextStyle = {
     ...baseTextStyle,
-    fontFamily: 'Uncut Sans Variable',
+
     fontSize: '220px',
-    fontWeight: 700,
-    lineHeight: '100%',
-    letterSpacing: '-8.4px',
   }
 
   return (
@@ -135,7 +145,9 @@ export const Section10 = () => {
         >
           함께 만들고 싶은 무언가가 있다면,
         </p>
-        <p style={mainTextStyle}>let&apos;s team up!</p>
+        <p className="typo-uncut-display-01 text-[220px]" style={mainTextStyle}>
+          let&apos;s team up!
+        </p>
       </div>
     </div>
   )

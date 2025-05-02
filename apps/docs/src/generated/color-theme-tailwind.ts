@@ -174,6 +174,7 @@ export default {
   'accent-brewin-green': 'var(--accent-brewin-green)',
   'accent-brewin-orange': 'var(--accent-brewin-orange)',
   'accent-brewin-blue': 'var(--accent-brewin-blue)',
+  'accent-brewin-purple': 'var(--accent-brewin-purple)',
   'accent-brewin-sky': 'var(--accent-brewin-sky)',
   'accent-brewin-yellow': 'var(--accent-brewin-yellow)',
   'accent-brewin-pink': 'var(--accent-brewin-pink)',

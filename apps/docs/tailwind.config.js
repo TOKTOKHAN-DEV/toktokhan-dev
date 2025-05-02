@@ -32,7 +32,7 @@ module.exports = {
         sm: '0px',
         md: '1440px',
         lg: '1440px',
-        xl: '1440px',
+        xl: '1920px',
         '2xl': '1440px',
       },
       maxWidth: {
