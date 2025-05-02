@@ -1,7 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
 
-import Link from '@docusaurus/Link'
-
 import gsap from 'gsap'
 import {
   ReactCompareSlider,
@@ -140,8 +138,8 @@ const HeaderSection = ({
 
     {/* Mobile Layout */}
     <div className="base:block md:hidden text-center w-full">
-      <p className="typo-uncut-display-03 text-content-1 px-[24px]">
-        Whatever you imagine.
+      <p className="typo-uncut-display-03 text-content-1 px-[24px] whitespace-pre-line text-center">
+        Whatever{'\n'}you imagine.
       </p>
     </div>
   </>
@@ -158,8 +156,8 @@ const MobileIconsRow = ({
 }) => (
   <div className="w-full relative base:flex md:hidden">
     {/* Gradient Overlays */}
-    <div className="absolute left-0 top-0 w-[120px] h-full bg-gradient-to-r from-background-basic-1 to-transparent z-10" />
-    <div className="absolute right-0 top-0 w-[120px] h-full bg-gradient-to-l from-background-basic-1 to-transparent z-10" />
+    <div className="absolute left-0 top-0 w-[60px] h-full bg-gradient-to-r from-background-basic-1 to-transparent z-10" />
+    <div className="absolute right-0 top-0 w-[60px] h-full bg-gradient-to-l from-background-basic-1 to-transparent z-10" />
 
     {/* Icons Container */}
     <div className="flex items-center justify-center mt-[64px] overflow-hidden px-[24px] w-full">
@@ -191,7 +189,7 @@ const BlackBoxSection = ({
 }) => (
   <div
     ref={animatedBoxRef}
-    className="bg-background-inverse-1 w-full base:h-[780px] md:h-[1200px] base:mt-[160px] md:mt-[240px] flex flex-col items-center justify-center"
+    className="bg-background-inverse-1 w-full base:max-w-[404px] md:max-w-full overflow-x-hidden base:h-[780px] md:h-[1200px] base:mt-[160px] md:mt-[240px] flex flex-col items-center justify-center"
   >
     {/* Badge Row */}
     <div className="flex items-center gap-[8px] base:mt-[80px] md:mt-[120px]">
@@ -217,23 +215,31 @@ const BlackBoxSection = ({
     </div>
 
     {/* Description */}
-    <span className="typo-pre-body-04 text-content-6 whitespace-pre-line text-center base:mt-[24px] md:mt-[40px] base:px-[12px] md:px-0">
+    <span className="base:hidden md:block typo-pre-body-04 text-content-6 whitespace-pre-line text-center base:mt-[24px] md:mt-[40px] md:px-0">
       클릭 한 번에 디자인 토큰이 Chakra UI Convention에 알맞는 코드로,{'\n'}
       자체 플러그인 toktoken을 통해 일관된 디자인과 코드, 혁신적인 핸드오프를
       경험해보세요
     </span>
+    <span className="base:block md:hidden typo-pre-body-04 text-content-6 whitespace-pre-line text-center base:mt-[24px] md:mt-[40px] md:px-0">
+      클릭 한 번에 디자인 토큰이{'\n'}Chakra UI Convention에 알맞는 코드로,
+      {'\n'}
+      자체 플러그인 toktoken을 통해 일관된 디자인과 코드,{'\n'}혁신적인
+      핸드오프를 경험해보세요
+    </span>
 
     {/* Figma Link */}
-    <Link
+    <a
       className="mt-[64px] flex items-center px-[24px] py-[16px] rounded-[16px] border-solid border-[1px] bg-background-inverse-1 border-border-inverse-2 no-underline hover:no-underline hover:bg-background-inverse-3 transition-all duration-200 group"
       href="https://www.figma.com/community/plugin/1369490322908230515/toktoken-figma-design-token-extractor"
+      target="_blank"
+      rel="noreferrer"
     >
       <FigmaIcon className="size-[24px] mr-[6px] text-content-8 group-hover:text-content-8" />
       <span className="typo-uncut-heading-03 mr-[16px] text-content-8 group-hover:text-content-8">
         Plug-in
       </span>
       <ArrowRightIcon className="size-[16px] text-content-8 group-hover:text-content-8" />
-    </Link>
+    </a>
 
     {/* Comparison Slider */}
     <CompareSlider />
@@ -245,7 +251,13 @@ const CompareSlider = () => (
     <ReactCompareSlider
       handle={
         <div className="h-[100%] w-[1px] bg-content-8 relative">
-          <div className="size-[64px] border-[1px] border-solid rounded-full backdrop-blur-[8px] border-border-inverse-2 flex items-center justify-center z-[1px] absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 cursor-grab">
+          <div
+            className="size-[64px] border-[1px] border-solid rounded-full border-border-inverse-2 flex items-center justify-center z-[1px] absolute base:top-[40px] md:top-[88px] cursor-grab"
+            style={{
+              backdropFilter: 'blur(8px)',
+              transform: 'translateX(-50%)',
+            }}
+          >
             <HandIcon className="size-[32px]" />
           </div>
         </div>
@@ -338,7 +350,7 @@ export const Section2 = () => {
                 scale: 1,
                 duration: gsap.utils.random(0.5, 0.8),
                 delay: newRandomDelays[index],
-                ease: 'back.out(1.7)',
+                ease: 'power2.out',
               },
             )
           })
@@ -382,14 +394,20 @@ export const Section2 = () => {
       </div>
 
       {/* Description */}
-      <p className="px-[16px] base:mt-[24px] md:mt-[40px] typo-pre-body-04 text-content-2 whitespace-pre-line text-center">
+      <p className="base:hidden md:block px-[16px] md:mt-[40px] typo-pre-body-04 text-content-2 whitespace-pre-line text-center">
         어떤 아이디어도 실현할 수 있도록, 똑똑한개발자가 깊게 우려낸 경험과
         노하우를 만나보세요{'\n'}Figma 플러그인부터, Command Line Interface,
         Component까지
       </p>
+      <p className="base:block md:hidden px-[16px] base:mt-[24px] typo-pre-body-04 text-content-2 whitespace-pre-line text-center">
+        어떤 아이디어도 실현할 수 있도록, 똑똑한개발자가 깊게{'\n'}우려낸 경험과
+        노하우를 만나보세요{'\n'}Figma 플러그인부터, Command Line Interface,
+        {'\n'}
+        Component까지
+      </p>
 
       {/* GitHub Link */}
-      <Link
+      <a
         className="base:mt-[40px] md:mt-[64px] flex items-center px-[24px] py-[16px] rounded-[16px] hover:bg-background-basic-4 border-solid border-[1px] border-border-basic-1 bg-transparent no-underline hover:no-underline transition-colors duration-200"
         href="https://github.com/TOKTOKHAN-DEV/toktokhan-dev"
       >
@@ -398,7 +416,7 @@ export const Section2 = () => {
           Github
         </span>
         <ArrowRightIcon className="size-[16px] text-content-1" />
-      </Link>
+      </a>
 
       {/* Mobile Icons Row */}
       <MobileIconsRow
