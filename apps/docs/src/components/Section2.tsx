@@ -30,106 +30,154 @@ import {
 
 const ICON_SET = [
   [
-    <BoundingBoxIcon
+    <div
       key="1"
-      className="size-[80px] p-[24px] bg-accent-brewin-red rounded-[32px]"
-    />,
-    <ChatCircleDotsIcon
+      className="size-[64px] md:size-[128px] rounded-[16px] md:rounded-[32px] bg-accent-brewin-red flex items-center justify-center"
+    >
+      <BoundingBoxIcon className="size-[40px] md:size-[80px]" />
+    </div>,
+    <div
       key="2"
-      className="size-[80px] p-[24px] bg-accent-brewin-yellow rounded-[32px]"
-    />,
-    <CodeBlockIcon
+      className="size-[64px] md:size-[128px] rounded-[16px] md:rounded-[32px] bg-accent-brewin-yellow flex items-center justify-center"
+    >
+      <ChatCircleDotsIcon className="size-[40px] md:size-[80px]" />
+    </div>,
+    <div
       key="3"
-      className="size-[80px] p-[24px] bg-accent-brewin-blue rounded-[32px]"
-    />,
-    <CursorIcon
+      className="size-[64px] md:size-[128px] rounded-[16px] md:rounded-[32px] bg-accent-brewin-blue flex items-center justify-center"
+    >
+      <CodeBlockIcon className="size-[40px] md:size-[80px]" />
+    </div>,
+    <div
       key="4"
-      className="size-[80px] p-[24px] bg-accent-brewin-green rounded-[32px]"
-    />,
-    <DiamondsFourIcon
+      className="size-[64px] md:size-[128px] rounded-[16px] md:rounded-[32px] bg-accent-brewin-green flex items-center justify-center"
+    >
+      <CursorIcon className="size-[40px] md:size-[80px]" />
+    </div>,
+    <div
       key="5"
-      className="size-[80px] p-[24px] bg-accent-brewin-red rounded-[32px]"
-    />,
-    <FigmaLogoIcon
+      className="size-[64px] md:size-[128px] rounded-[16px] md:rounded-[32px] bg-accent-brewin-red flex items-center justify-center"
+    >
+      <DiamondsFourIcon className="size-[40px] md:size-[80px]" />
+    </div>,
+    <div
       key="6"
-      className="size-[80px] p-[24px] bg-accent-brewin-yellow rounded-[32px]"
-    />,
-    <MapPinAreaIcon
+      className="size-[64px] md:size-[128px] rounded-[16px] md:rounded-[32px] bg-accent-brewin-yellow flex items-center justify-center"
+    >
+      <FigmaLogoIcon className="size-[40px] md:size-[80px]" />
+    </div>,
+    <div
       key="7"
-      className="size-[80px] p-[24px] bg-accent-brewin-green rounded-[32px]"
-    />,
-    <PawPrintIcon
+      className="size-[64px] md:size-[128px] rounded-[16px] md:rounded-[32px] bg-accent-brewin-green flex items-center justify-center"
+    >
+      <MapPinAreaIcon className="size-[40px] md:size-[80px]" />
+    </div>,
+    <div
       key="8"
-      className="size-[80px] p-[24px] bg-accent-brewin-red rounded-[32px]"
-    />,
+      className="size-[64px] md:size-[128px] rounded-[16px] md:rounded-[32px] bg-accent-brewin-red flex items-center justify-center"
+    >
+      <PawPrintIcon className="size-[40px] md:size-[80px]" />
+    </div>,
   ],
   [
-    <GitIcon
+    <div
       key="1"
-      className="size-[80px] p-[24px] bg-accent-brewin-blue rounded-[32px]"
-    />,
-    <MapPinAreaIcon
+      className="size-[64px] md:size-[128px] rounded-[16px] md:rounded-[32px] bg-accent-brewin-blue flex items-center justify-center"
+    >
+      <GitIcon className="size-[40px] md:size-[80px]" />
+    </div>,
+    <div
       key="2"
-      className="size-[80px] p-[24px] bg-accent-brewin-green rounded-[32px]"
-    />,
-    <PawPrintIcon
+      className="size-[64px] md:size-[128px] rounded-[16px] md:rounded-[32px] bg-accent-brewin-green flex items-center justify-center"
+    >
+      <MapPinAreaIcon className="size-[40px] md:size-[80px]" />
+    </div>,
+    <div
       key="3"
-      className="size-[80px] p-[24px] bg-accent-brewin-red rounded-[32px]"
-    />,
-    <ScanSmileyIcon
+      className="size-[64px] md:size-[128px] rounded-[16px] md:rounded-[32px] bg-accent-brewin-red flex items-center justify-center"
+    >
+      <PawPrintIcon className="size-[40px] md:size-[80px]" />
+    </div>,
+    <div
       key="4"
-      className="size-[80px] p-[24px] bg-accent-brewin-yellow rounded-[32px]"
-    />,
-    <StackOverflowLogoIcon
+      className="size-[64px] md:size-[128px] rounded-[16px] md:rounded-[32px] bg-accent-brewin-yellow flex items-center justify-center"
+    >
+      <ScanSmileyIcon className="size-[40px] md:size-[80px]" />
+    </div>,
+    <div
       key="5"
-      className="size-[80px] p-[24px] bg-accent-brewin-blue rounded-[32px]"
-    />,
-    <ArrowFatRightIcon
+      className="size-[64px] md:size-[128px] rounded-[16px] md:rounded-[32px] bg-accent-brewin-blue flex items-center justify-center"
+    >
+      <StackOverflowLogoIcon className="size-[40px] md:size-[80px]" />
+    </div>,
+    <div
       key="6"
-      className="size-[80px] p-[24px] bg-accent-brewin-green rounded-[32px]"
-    />,
-    <BoundingBoxIcon
+      className="size-[64px] md:size-[128px] rounded-[16px] md:rounded-[32px] bg-accent-brewin-green flex items-center justify-center"
+    >
+      <ArrowFatRightIcon className="size-[40px] md:size-[80px]" />
+    </div>,
+    <div
       key="7"
-      className="size-[80px] p-[24px] bg-accent-brewin-red rounded-[32px]"
-    />,
-    <BraceIcon
+      className="size-[64px] md:size-[128px] rounded-[16px] md:rounded-[32px] bg-accent-brewin-red flex items-center justify-center"
+    >
+      <BoundingBoxIcon className="size-[40px] md:size-[80px]" />
+    </div>,
+    <div
       key="8"
-      className="size-[80px] p-[24px] bg-accent-brewin-yellow rounded-[32px]"
-    />,
+      className="size-[64px] md:size-[128px] rounded-[16px] md:rounded-[32px] bg-accent-brewin-yellow flex items-center justify-center"
+    >
+      <BraceIcon className="size-[40px] md:size-[80px]" />
+    </div>,
   ],
   [
-    <BoundingBoxIcon
+    <div
       key="1"
-      className="size-[80px] p-[24px] bg-accent-brewin-red rounded-[32px]"
-    />,
-    <BraceIcon
+      className="size-[64px] md:size-[128px] rounded-[16px] md:rounded-[32px] bg-accent-brewin-red flex items-center justify-center"
+    >
+      <BoundingBoxIcon className="size-[40px] md:size-[80px]" />
+    </div>,
+    <div
       key="2"
-      className="size-[80px] p-[24px] bg-accent-brewin-yellow rounded-[32px]"
-    />,
-    <CodeBlockIcon
+      className="size-[64px] md:size-[128px] rounded-[16px] md:rounded-[32px] bg-accent-brewin-yellow flex items-center justify-center"
+    >
+      <BraceIcon className="size-[40px] md:size-[80px]" />
+    </div>,
+    <div
       key="3"
-      className="size-[80px] p-[24px] bg-accent-brewin-blue rounded-[32px]"
-    />,
-    <CursorIcon
+      className="size-[64px] md:size-[128px] rounded-[16px] md:rounded-[32px] bg-accent-brewin-blue flex items-center justify-center"
+    >
+      <CodeBlockIcon className="size-[40px] md:size-[80px]" />
+    </div>,
+    <div
       key="4"
-      className="size-[80px] p-[24px] bg-accent-brewin-green rounded-[32px]"
-    />,
-    <DiamondsFourIcon
+      className="size-[64px] md:size-[128px] rounded-[16px] md:rounded-[32px] bg-accent-brewin-green flex items-center justify-center"
+    >
+      <CursorIcon className="size-[40px] md:size-[80px]" />
+    </div>,
+    <div
       key="5"
-      className="size-[80px] p-[24px] bg-accent-brewin-red rounded-[32px]"
-    />,
-    <FigmaLogoIcon
+      className="size-[64px] md:size-[128px] rounded-[16px] md:rounded-[32px] bg-accent-brewin-red flex items-center justify-center"
+    >
+      <DiamondsFourIcon className="size-[40px] md:size-[80px]" />
+    </div>,
+    <div
       key="6"
-      className="size-[80px] p-[24px] bg-accent-brewin-yellow rounded-[32px]"
-    />,
-    <GitIcon
+      className="size-[64px] md:size-[128px] rounded-[16px] md:rounded-[32px] bg-accent-brewin-yellow flex items-center justify-center"
+    >
+      <FigmaLogoIcon className="size-[40px] md:size-[80px]" />
+    </div>,
+    <div
       key="7"
-      className="size-[80px] p-[24px] bg-accent-brewin-blue rounded-[32px]"
-    />,
-    <MapPinAreaIcon
+      className="size-[64px] md:size-[128px] rounded-[16px] md:rounded-[32px] bg-accent-brewin-blue flex items-center justify-center"
+    >
+      <GitIcon className="size-[40px] md:size-[80px]" />
+    </div>,
+    <div
       key="8"
-      className="size-[80px] p-[24px] bg-accent-brewin-green rounded-[32px]"
-    />,
+      className="size-[64px] md:size-[128px] rounded-[16px] md:rounded-[32px] bg-accent-brewin-green flex items-center justify-center"
+    >
+      <MapPinAreaIcon className="size-[40px] md:size-[80px]" />
+    </div>,
   ],
 ]
 
@@ -147,6 +195,7 @@ export const Section2 = () => {
             // 뷰포트에 진입할 때
             gsap.to(entry.target, {
               borderRadius: '0',
+              width: '100%',
               duration: 0.5,
               ease: 'power5.inOut',
             })
@@ -154,6 +203,7 @@ export const Section2 = () => {
             // 뷰포트에서 벗어날 때
             gsap.to(entry.target, {
               borderRadius: '200px',
+              width: 'calc(100% - 40px)',
               duration: 0.5,
               ease: 'power5.inOut',
             })
@@ -231,47 +281,60 @@ export const Section2 = () => {
   const rightIcons = currentSet.slice(4, 8)
 
   return (
-    <div className="flex flex-col items-center justify-center sm:mt-[160px] md:mt-[427px] relative">
-      <div className="flex flex-row items-center justify-center">
-        {/* 왼쪽 아이콘들 */}
-        <div className="flex flex-row items-center gap-[24px] absolute left-[-48px]">
-          {leftIcons.map((icon, index) => (
-            <div
-              key={`left-${index}`}
-              ref={(el) => (leftIconsRef.current[index] = el)}
-              className="flex items-center justify-center"
-            >
-              {icon}
+    <div className="flex flex-col items-center justify-center base:mt-[160px] md:mt-[427px] relative">
+      <div className="overflow-x-hidden w-[100%]">
+        <div className="relative w-full">
+          {/* md 사이즈 레이아웃 */}
+          <div className="base:hidden md:flex flex-row items-center justify-center w-full overflow-hidden">
+            {/* 왼쪽 아이콘들 */}
+            <div className="flex flex-row flex-1 items-center gap-[24px] left-[-48px]">
+              {leftIcons.map((icon, index) => (
+                <div
+                  key={`left-${index}`}
+                  ref={(el) => (leftIconsRef.current[index] = el)}
+                  className="flex items-center justify-center"
+                >
+                  {icon}
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
 
-        {/* 중앙 텍스트 */}
-        <p className="typo-uncut-display-03 text-content-1 px-[60px]">
-          Whatever you imagine.
-        </p>
+            {/* 중앙 텍스트 */}
+            <p className="typo-uncut-display-03 text-content-1 text-center px-[60px] md:min-w-[932px]">
+              Whatever you imagine.
+            </p>
 
-        {/* 오른쪽 아이콘들 */}
-        <div className="flex flex-row items-center gap-[24px] absolute right-[-48px]">
-          {rightIcons.map((icon, index) => (
-            <div
-              key={`right-${index}`}
-              ref={(el) => (rightIconsRef.current[index] = el)}
-              className="flex items-center justify-center"
-            >
-              {icon}
+            {/* 오른쪽 아이콘들 */}
+            <div className="flex flex-row flex-1 items-center gap-[24px] right-[-48px]">
+              {rightIcons.map((icon, index) => (
+                <div
+                  key={`right-${index}`}
+                  ref={(el) => (rightIconsRef.current[index] = el)}
+                  className="flex items-center justify-center"
+                >
+                  {icon}
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
+
+          {/* base 사이즈 레이아웃 */}
+          <div className="flex base:block md:hidden flex-col items-center justify-center w-full overflow-hidden relative">
+            {/* 중앙 텍스트 */}
+            <p className="typo-uncut-display-03 text-content-1 text-center px-[24px] base:px-[60px]">
+              Whatever you imagine.
+            </p>
+          </div>
         </div>
       </div>
 
-      <span className="mt-[40px] typo-pre-body-04 text-content-2 whitespace-pre-line text-center">
+      <span className="px-[16px] base:mt-[24px] md:mt-[40px] typo-pre-body-04 text-content-2 whitespace-pre-line text-center">
         어떤 아이디어도 실현할 수 있도록, 똑똑한개발자가 깊게 우려낸 경험과
         노하우를 만나보세요{'\n'}Figma 플러그인부터, Command Line Interface,
         Component까지
       </span>
       <Link
-        className="mt-[64px] flex flex-row items-center px-[24px] py-[16px] rounded-[16px] hover:bg-background-basic-4 border-solid border-[1px] border-border-basic-1 bg-transparent no-underline hover:no-underline transition-colors duration-200"
+        className="base:mt-[40px] md:mt-[64px] flex flex-row items-center px-[24px] py-[16px] rounded-[16px] hover:bg-background-basic-4 border-solid border-[1px] border-border-basic-1 bg-transparent no-underline hover:no-underline transition-colors duration-200"
         href="https://github.com/TOKTOKHAN-DEV/toktokhan-dev"
       >
         <GithubIcon className="size-[24px] mr-[6px] text-content-1" />
@@ -281,23 +344,61 @@ export const Section2 = () => {
         <ArrowRightIcon className="size-[16px] text-content-1" />
       </Link>
 
+      {/* 아이콘들 컨테이너 */}
+      <div className="w-full relative">
+        {/* 왼쪽 그라데이션 */}
+        <div className="absolute left-0 top-0 w-[120px] h-full bg-gradient-to-r from-background-basic-1 to-transparent z-10" />
+
+        {/* 오른쪽 그라데이션 */}
+        <div className="absolute right-0 top-0 w-[120px] h-full bg-gradient-to-l from-background-basic-1 to-transparent z-10" />
+
+        {/* 아이콘들 */}
+        <div className="flex flex-row items-center justify-center mt-[64px] overflow-hidden px-[24px] w-full base:flex md:hidden">
+          <div className="flex flex-row items-center base:gap-[8px]">
+            {[...leftIcons, ...rightIcons].map((icon, index) => (
+              <div
+                key={`mobile-${index}`}
+                ref={(el) => {
+                  if (index < 4) {
+                    leftIconsRef.current[index] = el
+                  } else {
+                    rightIconsRef.current[index - 4] = el
+                  }
+                }}
+                className="flex-shrink-0"
+              >
+                {icon}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
       <div
         ref={blackBoxRef}
-        className="bg-background-inverse-1 w-[calc(100%-40px)] h-[1200px] mt-[240px] flex flex-col items-center justify-center"
+        className="bg-background-inverse-1 w-full base:h-[780px] md:h-[1200px] base:mt-[160px] md:mt-[240px] flex flex-col items-center justify-center"
       >
-        <div className="flex flex-row items-center justify-center gap-[8px] mt-[120px]">
+        <div className="flex flex-row items-center justify-center gap-[8px] base:mt-[80px] md:mt-[120px]">
           <div className="flex flex-row items-center justify-center rounded-[12px] border-solid border-[1px] border-border-inverse-2 px-[12px] py-[8px]">
-            <span className="text-content-8">plug-in</span>
+            <span className="text-content-8 typo-uncut-body-05">plug-in</span>
           </div>
           <div className="flex flex-row items-center justify-center rounded-[12px] bg-accent-brewin-yellow px-[12px] py-[8px]">
-            <span>gen:theme</span>
+            <span className="text-content-1 typo-uncut-body-05">gen:theme</span>
           </div>
         </div>
 
-        <span className="typo-uncut-display-03 text-content-8 whitespace-pre-line">
-          Just copy,{'\n'} and paste.
-        </span>
-        <span className="typo-pre-body-04 text-content-6 whitespace-pre-line text-center mt-[40px]">
+        <div className="relative">
+          <span className="typo-uncut-display-03 text-content-8 whitespace-pre-line">
+            Just copy,{'\n'} and paste.
+          </span>
+          <div className="size-[32px] bg-accent-brewin-green rounded-[8px] p-[6px] flex items-center justify-center rotate-[9deg] absolute base:top-[-10px] md:top-0 base:right-[-25px] md:right-[-20px]">
+            <BoundingBoxIcon className="size-[20px]" />
+          </div>
+          <div className="size-[32px] bg-accent-brewin-blue rounded-[8px] p-[6px] flex items-center justify-center rotate-[-9deg] absolute base:bottom-[-10px] md:bottom-[-0px] base:left-[-25px] md:left-[-20px]">
+            <CodeBlockIcon />
+          </div>
+        </div>
+        <span className="typo-pre-body-04 text-content-6 whitespace-pre-line text-center base:mt-[24px] md:mt-[40px] base:px-[12px] md:px-0">
           클릭 한 번에 디자인 토큰이 Chakra UI Convention에 알맞는 코드로,{'\n'}
           자체 플러그인 toktoken을 통해 일관된 디자인과 코드, 혁신적인
           핸드오프를 경험해보세요
@@ -312,7 +413,7 @@ export const Section2 = () => {
           </span>
           <ArrowRightIcon className="size-[16px] text-white group-hover:text-white transition-colors duration-200" />
         </Link>
-        <div className="flex flex-col flex-grow-1 sm:w-[100%] md:w-[1054px] border-solid border-[1px] border-border-inverse-2 rounded-[16px] mt-[64px] overflow-hidden">
+        <div className="flex flex-col flex-grow-1 base:w-[100%] md:w-[1054px] border-solid border-[1px] border-border-inverse-2 rounded-[16px] mt-[64px] overflow-hidden">
           <ReactCompareSlider
             handle={
               <div className="h-[100%] w-[1px] bg-content-8 relative">
