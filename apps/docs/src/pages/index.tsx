@@ -5,6 +5,7 @@ import { Section2 } from '../components/Section2'
 import { Section3 } from '../components/Section3'
 import { Section4 } from '../components/Section4'
 import { Section5 } from '../components/Section5'
+import { Section8 } from '../components/Section8'
 import { Section9 } from '../components/Section9'
 import { Section10 } from '../components/Section10'
 
@@ -16,6 +17,7 @@ export default function Home() {
       <Section3 />
       <Section4 />
       <Section5 />
+      <Section8 />
       <Section9 />
       <Section10 />
     </CommonLayout>
