@@ -28,7 +28,7 @@ export const HomeFooter = () => {
       />
       <div
         className={twJoin(
-          'flex base:flex-col md:flex-row justify-center items-center gap-[20px] md:mt-[32px]',
+          'flex base:flex-col md:flex-row justify-center items-center gap-[20px] mt-[32px]',
         )}
       >
         <p className={twJoin('typo-uncut-body-06', 'm-0', 'text-content-2')}>
