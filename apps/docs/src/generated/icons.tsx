@@ -1,5 +1,4 @@
-import { SVGProps, forwardRef } from 'react';
-
+import { SVGProps, forwardRef } from 'react'
 
 interface IconProps extends SVGProps<SVGSVGElement> {}
 
@@ -1919,7 +1918,6 @@ export const PawPrintIcon = forwardRef<SVGSVGElement, IconProps>(
     )
   },
 )
-
 export const QuotesIcon = forwardRef<SVGSVGElement, IconProps>(
   function QuotesIcon(props, ref) {
     return (
@@ -1999,7 +1997,6 @@ export const RabbitIcon = forwardRef<SVGSVGElement, IconProps>(
     )
   },
 )
-
 
 export const ScanSmileyIcon = forwardRef<SVGSVGElement, IconProps>(
   function ScanSmileyIcon(props, ref) {
