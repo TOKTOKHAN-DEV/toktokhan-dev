@@ -46,7 +46,7 @@ const InfoBox = ({ title, value, unit, orientation, className }: Props) => {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        <span className="typo-uncut-haeding-05 text-transparent-inverse-4 text-left transition-colors duration-300">
+        <span className="typo-uncut-heading-05 text-transparent-inverse-4 text-left transition-colors duration-300">
           {title}
         </span>
         <div className="flex flex-row items-baseline">

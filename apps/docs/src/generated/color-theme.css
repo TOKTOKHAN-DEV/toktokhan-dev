@@ -183,7 +183,7 @@
     --accent-brewin-yellow: #f7bc3c;
     --accent-brewin-pink: #f9bdc3;
   }
-  .dark {
+  [data-theme='dark'] {
     --accent-yellow-1: #f9d414;
     --accent-yellow-2: #fef7d7;
     --accent-green-2: #e0ffeb;
