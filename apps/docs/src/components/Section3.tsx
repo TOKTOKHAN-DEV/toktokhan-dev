@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import gsap from 'gsap'
 
@@ -76,25 +76,23 @@ const IconBox = ({
   const iconRef = useRef<SVGSVGElement>(null)
 
   const [yOffset, setYOffset] = useState(getResponsiveY())
+  const [isHovered, setIsHovered] = useState(false)
 
   const handleMouseEnter = () => {
+    setIsHovered(true)
     gsap.to(boxRef.current, {
       backgroundColor: color,
       duration: 0.1,
       y: yOffset,
     })
-    gsap.to(iconRef.current, {
-      duration: 0.1,
-      color: '#fff',
-    })
   }
   const handleMouseLeave = () => {
+    setIsHovered(false)
     gsap.to(boxRef.current, {
       backgroundColor: 'transparent',
       duration: 0.1,
       y: 0,
     })
-    gsap.to(iconRef.current, { duration: 0.1, color: '#000' })
   }
 
   useEffect(() => {
@@ -114,7 +112,7 @@ const IconBox = ({
     >
       <Icon
         ref={iconRef}
-        className="w-max h-max text-black group-hover:text-white"
+        className={isHovered ? 'text-content-8' : 'text-content-1'}
       />
     </div>
   )

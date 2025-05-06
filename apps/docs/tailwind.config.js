@@ -33,7 +33,7 @@ module.exports = {
         md: '1440px',
         lg: '1440px',
         xl: '1920px',
-        '2xl': '1440px',
+        '2xl': '1920px',
       },
       maxWidth: {
         'screen-base': '100%',
