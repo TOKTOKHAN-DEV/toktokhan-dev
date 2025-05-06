@@ -114,82 +114,80 @@ export const Section10 = () => {
   }
 
   return (
-    <div>
+    <div
+      ref={containerRef}
+      className={cn([
+        'relative overflow-hidden gap-0 flex flex-col items-center justify-center',
+        'w-full md:min-h-[400px] base:pt-[160px] base:pb-[80px] md:py-[80px] px-[40px] base:mt-[160px] md:mt-[240px]',
+        'base:bg-background-basic-1',
+        isHovered ? 'md:bg-accent-brewin-blue' : 'md:bg-background-basic-1',
+      ])}
+      style={{
+        transition: TRANSITION,
+        willChange: 'background',
+      }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      onMouseMove={handleMouseMove}
+    >
+      {/* Slide background */}
+      {isHovered && (
+        <div
+          className={`absolute inset-0 flex will-change-transform base:hidden md:flex ${isTransitioning ? 'transition-transform duration-700' : ''}`}
+          style={{
+            width: `${slideColors.length * 100}%`,
+            transform: `translateX(-${slideIndex * (100 / slideColors.length)}%)`,
+          }}
+          aria-hidden
+        >
+          {slideColors.map((color, idx) => (
+            <div
+              key={idx}
+              style={{
+                width: `${100 / slideColors.length}%`,
+                height: '100%',
+                background: color,
+              }}
+            />
+          ))}
+        </div>
+      )}
+
+      {/* Content */}
       <div
-        ref={containerRef}
         className={cn([
-          'relative overflow-hidden gap-0 flex flex-col items-center justify-center',
-          'w-full md:min-h-[400px] md:py-[80px] px-[40px] base:mt-[160px] md:mt-[240px]',
-          'base:bg-background-basic-1',
-          isHovered ? 'md:bg-accent-brewin-blue' : 'md:bg-background-basic-1',
+          'relative z-10 w-full flex flex-col items-center justify-center',
+          'base:text-content-1',
+          isHovered ? 'md:text-content-8' : 'md:text-content-1',
         ])}
-        style={{
-          transition: TRANSITION,
-          willChange: 'background',
-        }}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-        onMouseMove={handleMouseMove}
       >
-        {/* Slide background */}
+        <p className="text-center p-0 m-0" style={baseTextStyle}>
+          아이디어를 현실로.
+        </p>
+        <p
+          className="text-center whitespace-pre-line p-0 m-0"
+          style={baseTextStyle}
+        >
+          함께 만들고 싶은 무언가가 있다면,
+        </p>
+        <p
+          className="typo-uncut-display-01 base:mt-[16px] md:mt-0 text-center"
+          style={mainTextStyle}
+        >
+          let&apos;s team up!
+        </p>
         {isHovered && (
-          <div
-            className={`absolute inset-0 flex will-change-transform base:hidden md:flex ${isTransitioning ? 'transition-transform duration-700' : ''}`}
-            style={{
-              width: `${slideColors.length * 100}%`,
-              transform: `translateX(-${slideIndex * (100 / slideColors.length)}%)`,
-            }}
-            aria-hidden
-          >
-            {slideColors.map((color, idx) => (
-              <div
-                key={idx}
-                style={{
-                  width: `${100 / slideColors.length}%`,
-                  height: '100%',
-                  background: color,
-                }}
-              />
-            ))}
+          <div className="fixed top-0 left-0 z-[9999] base:hidden md:block">
+            <FloatingLinkButton
+              className={`absolute -translate-x-[50%] -translate-y-[50%] will-change-[left,top] text-[${slideColors[current]}]`}
+              style={{
+                left: `${mousePosition.x}px`,
+                top: `${mousePosition.y}px`,
+                color: slideColors[current],
+              }}
+            />
           </div>
         )}
-
-        {/* Content */}
-        <div
-          className={cn([
-            'relative z-10 w-full flex flex-col items-center justify-center',
-            'base:text-content-1',
-            isHovered ? 'md:text-content-8' : 'md:text-content-1',
-          ])}
-        >
-          <p className="text-center p-0 m-0" style={baseTextStyle}>
-            아이디어를 현실로.
-          </p>
-          <p
-            className="text-center whitespace-pre-line p-0 m-0"
-            style={baseTextStyle}
-          >
-            함께 만들고 싶은 무언가가 있다면,
-          </p>
-          <p
-            className="typo-uncut-display-01 base:mt-[16px] md:mt-0 text-center"
-            style={mainTextStyle}
-          >
-            let&apos;s team up!
-          </p>
-          {isHovered && (
-            <div className="fixed top-0 left-0 z-[9999] base:hidden md:block">
-              <FloatingLinkButton
-                className={`absolute -translate-x-[50%] -translate-y-[50%] will-change-[left,top] text-[${slideColors[current]}]`}
-                style={{
-                  left: `${mousePosition.x}px`,
-                  top: `${mousePosition.y}px`,
-                  color: slideColors[current],
-                }}
-              />
-            </div>
-          )}
-        </div>
       </div>
       <div className="base:flex md:hidden flex justify-center items-center w-[100%] pt-[64px]">
         <FloatingLinkButton
