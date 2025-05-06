@@ -103,7 +103,7 @@ const InterviewCard = ({
     <div
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
-      className="p-[64px] flex flex-col rounded-[40px] bg-background-basic-5 hover:bg-[#191919] hover:text-white w-[606px] relative text-content-1 hover:cursor-pointer group transition-all duration-300"
+      className="p-[64px] flex flex-col rounded-[40px] bg-background-basic-5 hover:bg-[#191919] hover:text-white w-[606px] relative text-content-1 hover:cursor-pointer group transition-all duration-300 "
     >
       <QuoteIcon
         fill={isHover ? 'white' : '#191919'}
