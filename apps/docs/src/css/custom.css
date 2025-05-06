@@ -28,6 +28,26 @@
     format('woff2');
 }
 
+/* monaspace-neon-latin-400-normal */
+@font-face {
+  font-family: 'Monaspace Neon';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/monaspace-neon@latest/latin-400-normal.woff2)
+    format('woff2');
+}
+
+/* monaspace-neon-latin-600-normal */
+@font-face {
+  font-family: 'Monaspace Neon';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/monaspace-neon@latest/latin-600-normal.woff2)
+    format('woff2');
+}
+
 img {
   -webkit-user-drag: none;
   pointer-events: none;
