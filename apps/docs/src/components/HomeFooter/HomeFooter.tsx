@@ -1,73 +1,102 @@
 import Link from '@docusaurus/Link'
 import {
-  DocusaurusIcon,
+  BrewinLogoIcon,
   GithubIcon,
-  LinkedinIcon,
-  LogoIcon,
-  WebsiteIcon,
+  InstagramLogoIcon,
+  YoutubeLogoIcon,
 } from '@site/src/generated/icons'
 
-import { twJoin, twMerge } from 'tailwind-merge'
+import { ClassNameValue, twJoin, twMerge } from 'tailwind-merge'
 
-import Button from '../Button'
-
-const HomeFooter = () => {
+export const HomeFooter = () => {
   return (
     <div
       className={twMerge(
-        'bg-tokColor-background.inverse',
-        'text-tokColor-text.primary.inverse',
-        'py-[56px]',
-        'flex flex-col items-center gap-y-[24px]',
+        'bg-background-basic-1',
+        'py-[80px] px-[65px]',
+        'flex flex-col items-center',
+        'border-t-[1px] border-x-0 border-b-0 border-solid border-t-border-basic-1',
       )}
     >
-      <LogoIcon className={twJoin('h-[22px]')} />
-      <div className={twJoin('flex flex-col items-center gap-y-[8px]')}>
-        <div className={twJoin('flex gap-x-[8px]')}>
-          <GithubIcon className="fill-tokColor-icon.primary.inverse" />
-          <LinkedinIcon className="fill-tokColor-icon.primary.inverse" />
-          <WebsiteIcon className="stroke-tokColor-icon.primary.inverse" />
-          {/* <Button
-            variant={'unstyled'}
-            icon={<GithubIcon className="fill-tokColor-icon.primary.inverse" />}
-          />
-          <Button
-            variant={'unstyled'}
-            icon={
-              <LinkedinIcon className="fill-tokColor-icon.primary.inverse" />
-            }
-          />
-          <Button
-            variant={'unstyled'}
-            icon={
-              <WebsiteIcon className="stroke-tokColor-icon.primary.inverse" />
-            }
-          /> */}
-        </div>
-        <p className={twJoin('tokFont-pre-body-06', 'm-0')}>
-          Copyright © 2024 TokDocs, Inc.
-        </p>
-      </div>
-      {/* <div
+      <BrewinLogoIcon
         className={twJoin(
-          'w-fit',
-          'bg-tokColor-background.inverse.secondary',
-          'tokFont-pre-body-05',
-          'px-[12px] py-[4px]',
-          'rounded-[4px]',
-          'mb-0 ',
-          'flex items-center gap-[4px]',
-          'whitespace-nowrap',
+          'h-[22px]',
+          'text-content-2',
+          'w-[100px]',
+          'h-[24px]',
+        )}
+      />
+      <div
+        className={twJoin(
+          'flex base:flex-col md:flex-row justify-center items-center gap-[20px] md:mt-[32px]',
         )}
       >
-        Built with
-        <span className="flex items-center gap-[2px] tokFont-pre-body-05">
-          <DocusaurusIcon />
-          Docusaurus
-        </span>
-      </div> */}
+        <p className={twJoin('typo-uncut-body-06', 'm-0', 'text-content-2')}>
+          © 2021 toktokhan.dev All Rights Reserved.
+        </p>
+        <Divider className="hidden md:block" />
+        <div className={twJoin('flex gap-x-[8px] items-center justify-center')}>
+          <Link href="https://github.com/toktokhan" className="h-[24px]">
+            <GithubIcon className="text-content-2 size-[24px]" />
+          </Link>
+          <Link href="https://www.youtube.com/@toktokhan" className="h-[24px]">
+            <YoutubeLogoIcon className="text-content-2 size-[24px]" />
+          </Link>
+          <Link href="https://www.instagram.com/toktokhan" className="h-[24px]">
+            <InstagramLogoIcon className="text-content-2 size-[24px]" />
+          </Link>
+        </div>
+      </div>
+      <div className="flex base:flex-col md:flex-row items-center gap-[6px] base:mt-[20px] md:mt-[14px]">
+        <div className="flex flex-row gap-[12px] items-center">
+          <p className={twJoin('typo-uncut-body-06', 'm-0', 'text-content-2')}>
+            서울 마포구 동교로12안길 39
+          </p>
+          <Divider />
+          <p className={twJoin('typo-uncut-body-06', 'm-0', 'text-content-2')}>
+            대표 서장원
+          </p>
+        </div>
+        <div className="flex flex-row gap-[12px] items-center">
+          <Link
+            className={twJoin(
+              'typo-uncut-body-06',
+              'm-0',
+              'text-content-2',
+              'hover:text-content-2',
+              'no-underline',
+              'hover:no-underline',
+            )}
+            href="tel:02-336-6777"
+          >
+            대표번호 02-336-6777
+          </Link>
+          <Divider />
+          <Link
+            className={twJoin(
+              'typo-uncut-body-06',
+              'm-0',
+              'text-content-2',
+              'hover:text-content-2',
+              'no-underline',
+              'hover:no-underline',
+            )}
+            href="tel:02-336-6777"
+          >
+            팩스 02-336-6779
+          </Link>
+        </div>
+        <div className="flex flex-row ml-[6px] gap-[12px] items-center">
+          <Divider className="base:hidden md:block" />
+          <p className={twJoin('typo-uncut-body-06', 'm-0', 'text-content-2')}>
+            사업자등록번호 476-81-01694
+          </p>
+        </div>
+      </div>
     </div>
   )
 }
 
-export default HomeFooter
+const Divider = ({ className }: { className?: ClassNameValue }) => {
+  return <div className={twJoin('w-[1px] h-[8px] bg-content-5', className)} />
+}

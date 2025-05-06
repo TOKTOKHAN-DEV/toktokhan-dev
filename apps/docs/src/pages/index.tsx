@@ -1,5 +1,5 @@
-import CommonLayout from '../components/@Layout/CommonLayout'
-import HomeFooter from '../components/HomeFooter/HomeFooter'
+import { CommonLayout } from '../components/@Layout/CommonLayout'
+import { HomeFooter } from '../components/HomeFooter/HomeFooter'
 import { Section1 } from '../components/Section1'
 import { Section2 } from '../components/Section2'
 import { Section3 } from '../components/Section3'
