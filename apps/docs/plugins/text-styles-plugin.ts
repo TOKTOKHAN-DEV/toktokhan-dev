@@ -3,6 +3,7 @@ import plugin from 'tailwindcss/plugin'
 export default plugin(({ addUtilities, theme }) => {
   const base = theme('screens.base')
   const sm = theme('screens.sm')
+  const md = theme('screens.md')
 
   const textStyles = {
     // Pretendard Variable Font Styles
