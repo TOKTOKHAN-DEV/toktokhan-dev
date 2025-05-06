@@ -159,7 +159,7 @@ export const Section10 = () => {
           className={cn([
             'relative z-10 w-full flex flex-col items-center justify-center',
             'base:text-content-1',
-            isHovered ? 'md:text-white' : 'md:text-black',
+            isHovered ? 'md:text-content-8' : 'md:text-content-1',
           ])}
         >
           <p className="text-center p-0 m-0" style={baseTextStyle}>
