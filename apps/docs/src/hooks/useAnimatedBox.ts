@@ -22,7 +22,7 @@ export const useAnimatedBox = (options?: AnimatedBoxOptions) => {
   const ref = useRef<HTMLDivElement>(null)
 
   const {
-    enterRadius = '0',
+    enterRadius = '40px',
     exitRadius = '200px',
     enterWidth = '100%',
     exitWidth = 'calc(100% - 40px)',
