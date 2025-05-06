@@ -1,8 +1,9 @@
 import plugin from 'tailwindcss/plugin'
 
 export default plugin(({ addUtilities, theme }) => {
-  const md = theme('screens.md')
+  const base = theme('screens.base')
   const sm = theme('screens.sm')
+  const md = theme('screens.md')
 
   const textStyles = {
     // Pretendard Variable Font Styles
@@ -12,7 +13,7 @@ export default plugin(({ addUtilities, theme }) => {
       fontWeight: 800,
       lineHeight: '140%',
       letterSpacing: '-0.01em',
-      [`@media (min-width: ${sm})`]: {
+      [`@media (min-width: ${base})`]: {
         fontSize: '48px',
       },
       [`@media (min-width: ${md})`]: {
@@ -25,7 +26,7 @@ export default plugin(({ addUtilities, theme }) => {
       fontWeight: 700,
       lineHeight: '140%',
       letterSpacing: '-0.01em',
-      [`@media (min-width: ${sm})`]: {
+      [`@media (min-width: ${base})`]: {
         fontSize: '40px',
       },
 
@@ -39,7 +40,7 @@ export default plugin(({ addUtilities, theme }) => {
       fontWeight: 700,
       lineHeight: '150%',
       letterSpacing: '-0.01em',
-      [`@media (min-width: ${sm})`]: {
+      [`@media (min-width: ${base})`]: {
         fontSize: '32px',
       },
 
@@ -53,7 +54,7 @@ export default plugin(({ addUtilities, theme }) => {
       fontWeight: 700,
       lineHeight: '150%',
       letterSpacing: '-0.01em',
-      [`@media (min-width: ${sm})`]: {
+      [`@media (min-width: ${base})`]: {
         fontSize: '24px',
       },
 
@@ -67,7 +68,7 @@ export default plugin(({ addUtilities, theme }) => {
       fontWeight: 700,
       lineHeight: '150%',
       letterSpacing: '-0.01em',
-      [`@media (min-width: ${sm})`]: {
+      [`@media (min-width: ${base})`]: {
         fontSize: '20px',
       },
 
@@ -81,7 +82,7 @@ export default plugin(({ addUtilities, theme }) => {
       fontWeight: 600,
       lineHeight: '150%',
       letterSpacing: '-0.01em',
-      [`@media (min-width: ${sm})`]: {
+      [`@media (min-width: ${base})`]: {
         fontSize: '18px',
       },
 
@@ -95,7 +96,7 @@ export default plugin(({ addUtilities, theme }) => {
       fontWeight: 600,
       lineHeight: '150%',
       letterSpacing: '-0.01em',
-      [`@media (min-width: ${sm})`]: {
+      [`@media (min-width: ${base})`]: {
         fontSize: '16px',
       },
 
@@ -109,7 +110,7 @@ export default plugin(({ addUtilities, theme }) => {
       fontWeight: 600,
       lineHeight: '160%',
       letterSpacing: '-0.01em',
-      [`@media (min-width: ${sm})`]: {
+      [`@media (min-width: ${base})`]: {
         fontSize: '16px',
       },
 
@@ -123,7 +124,7 @@ export default plugin(({ addUtilities, theme }) => {
       fontWeight: 600,
       lineHeight: '160%',
       letterSpacing: '-0.02em',
-      [`@media (min-width: ${sm})`]: {
+      [`@media (min-width: ${base})`]: {
         fontSize: '16px',
       },
 
@@ -137,7 +138,7 @@ export default plugin(({ addUtilities, theme }) => {
       fontWeight: 500,
       lineHeight: '160%',
       letterSpacing: '-0.02em',
-      [`@media (min-width: ${sm})`]: {
+      [`@media (min-width: ${base})`]: {
         fontSize: '16px',
       },
 
@@ -151,7 +152,7 @@ export default plugin(({ addUtilities, theme }) => {
       fontWeight: 600,
       lineHeight: '160%',
       letterSpacing: '-0.02em',
-      [`@media (min-width: ${sm})`]: {
+      [`@media (min-width: ${base})`]: {
         fontSize: '16px',
       },
 
@@ -165,7 +166,7 @@ export default plugin(({ addUtilities, theme }) => {
       fontWeight: 500,
       lineHeight: '160%',
       letterSpacing: '-0.02em',
-      [`@media (min-width: ${sm})`]: {
+      [`@media (min-width: ${base})`]: {
         fontSize: '16px',
       },
 
@@ -179,7 +180,7 @@ export default plugin(({ addUtilities, theme }) => {
       fontWeight: 600,
       lineHeight: '160%',
       letterSpacing: '-0.02em',
-      [`@media (min-width: ${sm})`]: {
+      [`@media (min-width: ${base})`]: {
         fontSize: '14px',
       },
 
@@ -193,7 +194,7 @@ export default plugin(({ addUtilities, theme }) => {
       fontWeight: 500,
       lineHeight: '160%',
       letterSpacing: '-0.02em',
-      [`@media (min-width: ${sm})`]: {
+      [`@media (min-width: ${base})`]: {
         fontSize: '14px',
       },
 
@@ -207,7 +208,7 @@ export default plugin(({ addUtilities, theme }) => {
       fontWeight: 600,
       lineHeight: '160%',
       letterSpacing: '-0.02em',
-      [`@media (min-width: ${sm})`]: {
+      [`@media (min-width: ${base})`]: {
         fontSize: '12px',
       },
 
@@ -221,7 +222,7 @@ export default plugin(({ addUtilities, theme }) => {
       fontWeight: 400,
       lineHeight: '160%',
       letterSpacing: '-0.02em',
-      [`@media (min-width: ${sm})`]: {
+      [`@media (min-width: ${base})`]: {
         fontSize: '12px',
       },
 
@@ -235,7 +236,7 @@ export default plugin(({ addUtilities, theme }) => {
       fontWeight: 600,
       lineHeight: '160%',
       letterSpacing: '-0.02em',
-      [`@media (min-width: ${sm})`]: {
+      [`@media (min-width: ${base})`]: {
         fontSize: '10px',
       },
 
@@ -249,7 +250,7 @@ export default plugin(({ addUtilities, theme }) => {
       fontWeight: 400,
       lineHeight: '160%',
       letterSpacing: '-0.02em',
-      [`@media (min-width: ${sm})`]: {
+      [`@media (min-width: ${base})`]: {
         fontSize: '10px',
       },
 
@@ -265,7 +266,7 @@ export default plugin(({ addUtilities, theme }) => {
       fontWeight: 700,
       lineHeight: '100%',
       letterSpacing: '-0.03em',
-      [`@media (min-width: ${sm})`]: {
+      [`@media (min-width: ${base})`]: {
         fontSize: '80px',
       },
 
@@ -279,10 +280,12 @@ export default plugin(({ addUtilities, theme }) => {
       fontWeight: 700,
       lineHeight: '100%',
       letterSpacing: '-0.03em',
-      [`@media (min-width: ${sm})`]: {
+      [`@media (min-width: ${base})`]: {
         fontSize: '64px',
       },
-
+      [`@media (min-width: ${sm})`]: {
+        fontSize: '120px',
+      },
       [`@media (min-width: ${md})`]: {
         fontSize: '160px',
       },
@@ -293,7 +296,7 @@ export default plugin(({ addUtilities, theme }) => {
       fontWeight: 700,
       lineHeight: '120%',
       letterSpacing: '-0.03em',
-      [`@media (min-width: ${sm})`]: {
+      [`@media (min-width: ${base})`]: {
         fontSize: '48px',
       },
 
@@ -307,7 +310,7 @@ export default plugin(({ addUtilities, theme }) => {
       fontWeight: 700,
       lineHeight: '120%',
       letterSpacing: '-0.03em',
-      [`@media (min-width: ${sm})`]: {
+      [`@media (min-width: ${base})`]: {
         fontSize: '40px',
       },
 
@@ -321,7 +324,7 @@ export default plugin(({ addUtilities, theme }) => {
       fontWeight: 700,
       lineHeight: '120%',
       letterSpacing: '-0.03em',
-      [`@media (min-width: ${sm})`]: {
+      [`@media (min-width: ${base})`]: {
         fontSize: '32px',
       },
 
@@ -335,7 +338,7 @@ export default plugin(({ addUtilities, theme }) => {
       fontWeight: 700,
       lineHeight: '150%',
       letterSpacing: '-0.03em',
-      [`@media (min-width: ${sm})`]: {
+      [`@media (min-width: ${base})`]: {
         fontSize: '24px',
       },
 
@@ -349,7 +352,7 @@ export default plugin(({ addUtilities, theme }) => {
       fontWeight: 700,
       lineHeight: '150%',
       letterSpacing: '-0.02em',
-      [`@media (min-width: ${sm})`]: {
+      [`@media (min-width: ${base})`]: {
         fontSize: '20px',
       },
 
@@ -363,7 +366,7 @@ export default plugin(({ addUtilities, theme }) => {
       fontWeight: 600,
       lineHeight: '150%',
       letterSpacing: '-0.03em',
-      [`@media (min-width: ${sm})`]: {
+      [`@media (min-width: ${base})`]: {
         fontSize: '18px',
       },
 
@@ -377,7 +380,7 @@ export default plugin(({ addUtilities, theme }) => {
       fontWeight: 500,
       lineHeight: '150%',
       letterSpacing: '-0.03em',
-      [`@media (min-width: ${sm})`]: {
+      [`@media (min-width: ${base})`]: {
         fontSize: '16px',
       },
 
@@ -391,7 +394,7 @@ export default plugin(({ addUtilities, theme }) => {
       fontWeight: 600,
       lineHeight: '150%',
       letterSpacing: '-0.03em',
-      [`@media (min-width: ${sm})`]: {
+      [`@media (min-width: ${base})`]: {
         fontSize: '16px',
       },
 
@@ -405,7 +408,7 @@ export default plugin(({ addUtilities, theme }) => {
       fontWeight: 500,
       lineHeight: '140%',
       letterSpacing: '-0.03em',
-      [`@media (min-width: ${sm})`]: {
+      [`@media (min-width: ${base})`]: {
         fontSize: '16px',
       },
 
@@ -419,7 +422,7 @@ export default plugin(({ addUtilities, theme }) => {
       fontWeight: 500,
       lineHeight: '140%',
       letterSpacing: '-0.03em',
-      [`@media (min-width: ${sm})`]: {
+      [`@media (min-width: ${base})`]: {
         fontSize: '16px',
       },
 
@@ -433,7 +436,7 @@ export default plugin(({ addUtilities, theme }) => {
       fontWeight: 500,
       lineHeight: '140%',
       letterSpacing: '-0.03em',
-      [`@media (min-width: ${sm})`]: {
+      [`@media (min-width: ${base})`]: {
         fontSize: '16px',
       },
 
@@ -447,7 +450,7 @@ export default plugin(({ addUtilities, theme }) => {
       fontWeight: 500,
       lineHeight: '140%',
       letterSpacing: '-0.03em',
-      [`@media (min-width: ${sm})`]: {
+      [`@media (min-width: ${base})`]: {
         fontSize: '16px',
       },
 
@@ -461,7 +464,7 @@ export default plugin(({ addUtilities, theme }) => {
       fontWeight: 600,
       lineHeight: '140%',
       letterSpacing: '-0.03em',
-      [`@media (min-width: ${sm})`]: {
+      [`@media (min-width: ${base})`]: {
         fontSize: '14px',
       },
 
@@ -475,7 +478,7 @@ export default plugin(({ addUtilities, theme }) => {
       fontWeight: 500,
       lineHeight: '140%',
       letterSpacing: '-0.03em',
-      [`@media (min-width: ${sm})`]: {
+      [`@media (min-width: ${base})`]: {
         fontSize: '14px',
       },
 
@@ -489,7 +492,7 @@ export default plugin(({ addUtilities, theme }) => {
       fontWeight: 500,
       lineHeight: '140%',
       letterSpacing: '-0.03em',
-      [`@media (min-width: ${sm})`]: {
+      [`@media (min-width: ${base})`]: {
         fontSize: '12px',
       },
 
@@ -503,7 +506,7 @@ export default plugin(({ addUtilities, theme }) => {
       fontWeight: 400,
       lineHeight: '140%',
       letterSpacing: '-0.03em',
-      [`@media (min-width: ${sm})`]: {
+      [`@media (min-width: ${base})`]: {
         fontSize: '12px',
       },
 
@@ -517,7 +520,7 @@ export default plugin(({ addUtilities, theme }) => {
       fontWeight: 500,
       lineHeight: '140%',
       letterSpacing: '-0.03em',
-      [`@media (min-width: ${sm})`]: {
+      [`@media (min-width: ${base})`]: {
         fontSize: '10px',
       },
       [`@media (min-width: ${md})`]: {
@@ -530,7 +533,7 @@ export default plugin(({ addUtilities, theme }) => {
       fontWeight: 400,
       lineHeight: '140%',
       letterSpacing: '-0.03em',
-      [`@media (min-width: ${sm})`]: {
+      [`@media (min-width: ${base})`]: {
         fontSize: '10px',
       },
       [`@media (min-width: ${md})`]: {

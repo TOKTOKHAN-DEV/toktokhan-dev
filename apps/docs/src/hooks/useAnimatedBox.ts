@@ -24,8 +24,8 @@ export const useAnimatedBox = (options?: AnimatedBoxOptions) => {
   const {
     enterRadius = '40px',
     exitRadius = '200px',
-    enterWidth = '100%',
-    exitWidth = 'calc(100% - 40px)',
+    enterWidth = '100vw',
+    exitWidth = 'calc(100vw - 40px)',
     threshold = 0.2,
     rootMargin = '100px',
     duration = 0.5,
