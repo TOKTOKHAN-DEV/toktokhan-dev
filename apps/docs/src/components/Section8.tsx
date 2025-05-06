@@ -1,19 +1,12 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
+import gsap from 'gsap'
 import Marquee from 'react-fast-marquee'
+import Slider, { Settings } from 'react-slick'
+import 'slick-carousel/slick/slick-theme.css'
+import 'slick-carousel/slick/slick.css'
 
-import {
-  Interviewer1Icon,
-  Interviewer2Icon,
-  Interviewer3Icon,
-  Interviewer4Icon,
-  Interviewer5Icon,
-  Interviewer6Icon,
-  Interviewer7Icon,
-  Interviewer8Icon,
-  Interviewer9Icon,
-  QuoteIcon,
-} from '../generated/icons'
+import { QuoteIcon } from '../generated/icons'
 
 const interviewers = [
   {
@@ -21,21 +14,21 @@ const interviewers = [
     description: `반복작업 줄여주고, 코드 퀄리티도 잘 지켜줘서 리팩토링보다\n기능에 집중할 수 있게 됐어요. 프로젝트 퀄리티가 나오니 뿌듯해요.`,
     position: '프로젝트 매니저',
     name: '양지은',
-    emoji: <Interviewer1Icon />,
+    emoji: 'img/ui/section-8-interviewer-1.png',
   },
   {
     title: '이젠 API 설명만 잘 해두면 되네요',
     description: `예전엔 응답 구조 바뀌면 다 같이 맞춰줘야 했는데,\n지금은 Swagger만 잘 정리해두면 프론트가 알아서 훅 만들어서 써요.`,
     position: '백엔드 개발자',
     name: '황재승',
-    emoji: <Interviewer2Icon />,
+    emoji: 'img/ui/section-8-interviewer-2.png',
   },
   {
     title: '핸드오프 속도가 완전히 달라졌어요',
     description: `gen:api 명령어를 실행하면 타입 정의된 custom hook까지 자동 생성됐어요.\n기존에 수동으로 설정하던 시간이 아예 줄어서, API 연동이 정말 빠르게 끝났어요.`,
     position: '프로덕트 디자이너',
     name: '정찬호',
-    emoji: <Interviewer3Icon />,
+    emoji: 'img/ui/section-8-interviewer-3.png',
   },
   {
     title: '이제 훅은 직접 안 짜요',
@@ -43,51 +36,44 @@ const interviewers = [
     gen:api 한 줄이면 거의 다 해결돼서 기능 개발에만 집중하게 됐어요.`,
     position: '프론트엔드 개발자',
     name: '김태진',
-    emoji: <Interviewer4Icon />,
-  },
-  {
-    title: '이젠 API 설명만 잘 해두면 되네요',
-    description: `예전엔 응답 구조 바뀌면 다 같이 맞춰줘야 했는데,\n지금은 Swagger만 잘 정리해두면 프론트가 알아서 훅 만들어서 써요.`,
-    position: '백엔드 개발자',
-    name: '황재승',
-    emoji: <Interviewer5Icon />,
+    emoji: 'img/ui/section-8-interviewer-4.png',
   },
   {
     title: '복잡한 세팅 없이 바로 쓸 수 있어서 좋아요',
     description: `매번 초기 설정하는 데 반나절씩 썼었는데,\nAPI나 컴포넌트도 그냥 한 줄로 붙이면 끝이에요. 시간도 줄고 실수도 없어요.`,
     position: '프론트엔드 개발자',
     name: '손은경',
-    emoji: <Interviewer6Icon />,
+    emoji: 'img/ui/section-8-interviewer-5.png',
   },
   {
     title: '구현 가능성보다 기능 자체에 집중하게 돼요',
-    description: `이거는 된다, 안 된다 고민할 필요 없이\n ‘어떻게 만들지’보다 ‘무엇을 만들지’로 얘기가 시작돼요.`,
+    description: `이거는 된다, 안 된다 고민할 필요 없이\n '어떻게 만들지'보다 '무엇을 만들지'로 얘기가 시작돼요.`,
     position: '프로젝트 매니저',
     name: '김재완',
-    emoji: <Interviewer7Icon />,
+    emoji: 'img/ui/section-8-interviewer-6.png',
   },
   {
     title: '기본기에 신경 쓸 여유가 생겼어요',
     description: `예전엔 구현에 쫓겨서 코드 성능을 기대하기 어려웠는데,\n이제는 구조랑 네이밍까지 챙길 시간이 나요.`,
     position: '프론트엔드 개발자',
     name: '김영주',
-    emoji: <Interviewer8Icon />,
+    emoji: 'img/ui/section-8-interviewer-7.png',
   },
   {
     title: '작은 수정은 커뮤니케이션 없이 끝나요',
     description: `필드 하나만 바꿔도 예전엔 회의부터 했었는데,\n 이제는 문서만 고치면 프론트가 바로 반영해요.`,
     position: '백엔드 개발자',
     name: '윤준구',
-    emoji: <Interviewer9Icon />,
+    emoji: 'img/ui/section-8-interviewer-8.png',
   },
 ]
 
-interface Props {
-  name: string
-  position: string
-  description: string
+export interface Props {
   title: string
-  emoji: React.ReactNode
+  description: string
+  position: string
+  name: string
+  emoji: string
 }
 
 const InterviewCard = ({
@@ -99,52 +85,130 @@ const InterviewCard = ({
 }: Props) => {
   const [isHover, setIsHover] = useState(false)
 
+  const quoteIconColor = !isHover ? 'fill-content-1' : 'fill-common-white'
+
   return (
     <div
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
-      className="p-[64px] flex flex-col rounded-[40px] bg-background-basic-5 hover:bg-[#191919] hover:text-white w-[606px] relative text-content-1 hover:cursor-pointer group transition-all duration-300 "
+      className="relative base:p-[32px] md:p-[64px] base:h-[332px] md:h-[353px] flex flex-col rounded-[40px] bg-background-basic-5 hover:bg-background-inverse-1 w-full hover:text-white base:w-full base:min-w-[400px] base:max-w-[606px] md:w-[606px] text-content-1 hover:cursor-pointer group transition-all duration-300 justify-between overflow-hidden"
     >
-      <QuoteIcon
-        fill={isHover ? 'white' : '#191919'}
-        className="w-[40px] h-[40px] transition-colors duration-300"
-      />
-      <span className="typo-pre-heading-02 mt-[16px]">{title}</span>
-      <span className="mt-[12px]  typo-pre-body-06">{description}</span>
-      <span className="mt-[40px] text-content-3 typo-pre-body-05">
-        {position}
-      </span>
-      <span className="mt-[4px]  typo-pre-heading-04">{name}</span>
-      <div className="absolute bottom-[0px] right-[10px] flex items-center justify-center">
-        {emoji}
+      <div className="flex flex-col">
+        <QuoteIcon
+          className={`base:w-[24px] base:h-[24px] transition-colors duration-300 ${quoteIconColor}`}
+        />
+        <span className="typo-pre-heading-02 mt-[16px]">{title}</span>
+        <span className="mt-[12px] typo-pre-body-06 base:whitespace-normal md:whitespace-pre-line">
+          {description}
+        </span>
+      </div>
+      <div className="flex flex-col">
+        <span className="text-content-3 typo-pre-body-05">{position}</span>
+        <span className="mt-[4px] typo-pre-heading-04 whitespace-pre-line">
+          {name}
+        </span>
+      </div>
+      <div className="absolute base:bottom-[-20px] base:right-[-0px] md:bottom-[-40px] md:right-[-0px]">
+        <img
+          src={emoji}
+          alt="interviewer"
+          className="base:p-[20px] md:p-[32px] base:w-[160px] base:h-[160px] md:w-[200px] md:h-[200px] z-1 object-cover"
+        />
       </div>
     </div>
   )
 }
 
-export const Section8 = () => {
+const ProgressBar = ({ onComplete }: { onComplete: () => void }) => {
+  const progressBarRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const animate = () => {
+      if (progressBarRef.current) {
+        gsap.fromTo(
+          progressBarRef.current,
+          { width: '0%' },
+          {
+            width: '100%',
+            duration: 5,
+            ease: 'none',
+            onComplete: () => {
+              onComplete()
+              animate()
+            },
+          },
+        )
+      }
+    }
+
+    animate()
+  }, [onComplete])
+
   return (
-    <div className="flex flex-col w-full mt-[320px]">
+    <div className="w-[80%] bg-background-basic-5 h-[4px] mt-[16px] rounded-[999px]">
+      <div
+        ref={progressBarRef}
+        className="h-full bg-accent-brewin-blue rounded-[999px]"
+      />
+    </div>
+  )
+}
+
+export const Section8 = () => {
+  const sliderRef = useRef<Slider>(null)
+
+  const sliderSettings: Settings = {
+    dots: false,
+    infinite: true,
+    arrows: false,
+    cssEase: 'linear',
+    slidesToScroll: 1,
+    variableWidth: true,
+  }
+
+  return (
+    <div className="flex flex-col w-full base:mt-[360px] md:mt-[320px] base:px-[16px]">
       <div className="flex flex-col items-center justify-center">
         <span className="px-[12px] py-[8px] rounded-[12px] bg-accent-brewin-blue">
           <span className="text-content-8 typo-uncut-body-05">
             our team says
           </span>
         </span>
-        <div className="mt-[16px] typo-uncut-display-04">
-          Slow-brewed, fast to use.
+
+        <div className="flex base:flex-col base:items-center md:flex-row base:mt-[8px] md:mt-[16px] typo-uncut-display-04">
+          <span>Slow-brewed,</span>
+          <span>fast to use.</span>
         </div>
-        <div className="mt-[40px] typo-uncut-body-04 text-content-2">
+
+        <div className="base:mt-[24px] md:mt-[40px] typo-pre-body-04 text-content-2">
           천천히 우려내왔던 기술, 팀원들은 이렇게 체감하고 있어요.
         </div>
-        <div className="mt-[64px] flex max-w-[100vw]">
+
+        <div className="mt-[64px] flex max-w-[100vw] base:hidden md:block">
           <Marquee gradient={false} speed={200} pauseOnHover>
-            {interviewers.map((interviewer) => (
-              <div key={interviewer.name} className="mx-[12px]">
+            {interviewers.map((interviewer, index) => (
+              <div key={`interviewer-${index}`} className="mx-[4px] h-full">
                 <InterviewCard {...interviewer} />
               </div>
             ))}
           </Marquee>
+        </div>
+        <div className="mt-[64px] base:flex flex-col md:hidden w-full">
+          <div className="flex max-w-full flex-col items-center">
+            <Slider
+              ref={sliderRef}
+              {...sliderSettings}
+              className="w-full flex [&_.slick-track]:flex [&_.slick-track]:gap-[8px] [&_.slick-list]:w-full [&_.slick-list]:max-w-full [&_.slick-list]:h-fit [&_.slick-slide>div]:h-full"
+            >
+              {interviewers.map((interviewer, index) => (
+                <InterviewCard
+                  key={`interviewer-slider-${index}`}
+                  {...interviewer}
+                />
+              ))}
+            </Slider>
+            <ProgressBar onComplete={() => sliderRef.current?.slickNext()} />
+          </div>
         </div>
       </div>
     </div>
