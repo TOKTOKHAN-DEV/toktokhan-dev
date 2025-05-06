@@ -1,8 +1,6 @@
 import { useState } from 'react'
 
-import Slider from 'react-slick'
-import 'slick-carousel/slick/slick-theme.css'
-import 'slick-carousel/slick/slick.css'
+import Marquee from 'react-fast-marquee'
 
 import {
   Interviewer1Icon,
@@ -16,14 +14,6 @@ import {
   Interviewer9Icon,
   QuoteIcon,
 } from '../generated/icons'
-
-interface Props {
-  name: string
-  position: string
-  description: string
-  title: string
-  emoji: React.ReactNode
-}
 
 const interviewers = [
   {
@@ -92,6 +82,14 @@ const interviewers = [
   },
 ]
 
+interface Props {
+  name: string
+  position: string
+  description: string
+  title: string
+  emoji: React.ReactNode
+}
+
 const InterviewCard = ({
   name,
   position,
@@ -125,18 +123,6 @@ const InterviewCard = ({
 }
 
 export const Section8 = () => {
-  const settings = {
-    dots: false,
-    infinite: true,
-    arrows: false,
-    variableWidth: true,
-    autoplay: true,
-    speed: 3000,
-    autoplaySpeed: 3000,
-    pauseOnHover: true,
-    cssEase: 'linear',
-  }
-
   return (
     <div className="flex flex-col w-full mt-[320px]">
       <div className="flex flex-col items-center justify-center">
@@ -151,15 +137,14 @@ export const Section8 = () => {
         <div className="mt-[40px] typo-uncut-body-04 text-content-2">
           천천히 우려내왔던 기술, 팀원들은 이렇게 체감하고 있어요.
         </div>
-        <div className="mt-[64px] flex max-w-[100vw] gap-[24px]">
-          <Slider
-            {...settings}
-            className="w-full gap-[24px] flex [&_.slick-track]:flex [&_.slick-track]:gap-[8px]"
-          >
+        <div className="mt-[64px] flex max-w-[100vw]">
+          <Marquee gradient={false} speed={200} pauseOnHover>
             {interviewers.map((interviewer) => (
-              <InterviewCard key={interviewer.name} {...interviewer} />
+              <div key={interviewer.name} className="mx-[12px]">
+                <InterviewCard {...interviewer} />
+              </div>
             ))}
-          </Slider>
+          </Marquee>
         </div>
       </div>
     </div>
