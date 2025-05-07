@@ -2,6 +2,8 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 
 import Link from '@docusaurus/Link'
 
+import gsap from 'gsap'
+
 import { ArrowRightIcon, HandPeaceIcon } from '../generated/icons'
 import { cn } from '../utils/cn'
 
@@ -35,6 +37,7 @@ export const Section10 = () => {
   const containerRef = useRef<HTMLDivElement>(null)
   const animationFrameRef = useRef<number | null>(null)
   const lastUpdateTimeRef = useRef<number>(0)
+  const mainTextRef = useRef<HTMLParagraphElement>(null)
 
   // Handle slide transition
   const handleSlideTransition = useCallback(
@@ -88,6 +91,16 @@ export const Section10 = () => {
       }
     }
   }, [isHovered, handleSlideTransition])
+
+  useEffect(() => {
+    if (mainTextRef.current) {
+      gsap.to(mainTextRef.current, {
+        scale: isHovered ? 0.8 : 1,
+        duration: 0.3,
+        ease: 'power2.out',
+      })
+    }
+  }, [isHovered])
 
   // Calculate slide index
   const slideIndex = current === slideColors.length ? 0 : current
@@ -172,6 +185,7 @@ export const Section10 = () => {
             함께 만들고 싶은 무언가가 있다면,
           </p>
           <p
+            ref={mainTextRef}
             className="typo-uncut-display-01 base:mt-[16px] md:mt-0 text-center"
             style={mainTextStyle}
           >
