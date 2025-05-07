@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 
 import gsap from 'gsap'
 import Marquee from 'react-fast-marquee'
@@ -7,6 +7,7 @@ import 'slick-carousel/slick/slick-theme.css'
 import 'slick-carousel/slick/slick.css'
 
 import { QuoteIcon } from '../generated/icons'
+import { useScreenWidth } from '../hooks/useScreenWidth'
 
 const interviewers = [
   {
@@ -91,7 +92,7 @@ const InterviewCard = ({
     <div
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
-      className="relative base:p-[32px] md:p-[64px] base:h-[332px] md:h-[353px] flex flex-col rounded-[40px] bg-background-basic-5 hover:bg-background-inverse-1 w-full hover:text-white base:w-full base:min-w-[400px] base:max-w-[606px] md:w-[606px] text-content-1 hover:cursor-pointer group transition-all duration-300 justify-between overflow-hidden"
+      className="relative base:p-[32px] md:p-[64px] base:h-[332px] md:h-[353px] flex flex-col rounded-[40px] bg-background-basic-5 hover:bg-background-inverse-1 w-full hover:text-content-8 base:w-full  base:max-w-[606px] md:w-[606px] text-content-1 hover:cursor-pointer group transition-all duration-300 justify-between overflow-hidden"
     >
       <div className="flex flex-col">
         <QuoteIcon
@@ -119,30 +120,47 @@ const InterviewCard = ({
   )
 }
 
-const ProgressBar = ({ onComplete }: { onComplete: () => void }) => {
+const ProgressBar = ({
+  onComplete,
+  key,
+}: {
+  onComplete: () => void
+  key: number
+}) => {
   const progressBarRef = useRef<HTMLDivElement>(null)
+  const animationRef = useRef<gsap.core.Tween | null>(null)
 
   useEffect(() => {
-    const animate = () => {
-      if (progressBarRef.current) {
-        gsap.fromTo(
-          progressBarRef.current,
-          { width: '0%' },
-          {
-            width: '100%',
-            duration: 5,
-            ease: 'none',
-            onComplete: () => {
-              onComplete()
-              animate()
-            },
-          },
-        )
+    if (progressBarRef.current) {
+      if (animationRef.current) {
+        animationRef.current.kill()
       }
+
+      animationRef.current = gsap.fromTo(
+        progressBarRef.current,
+        { width: '0%' },
+        {
+          width: '100%',
+          duration: 5,
+          ease: 'none',
+          onComplete: () => {
+            onComplete()
+            if (animationRef.current) {
+              animationRef.current.kill()
+            }
+            animationRef.current = null
+          },
+        },
+      )
     }
 
-    animate()
-  }, [onComplete])
+    return () => {
+      if (animationRef.current) {
+        animationRef.current.kill()
+        animationRef.current = null
+      }
+    }
+  }, [onComplete, key])
 
   return (
     <div className="w-[80%] bg-background-basic-5 h-[4px] mt-[16px] rounded-[999px]">
@@ -157,13 +175,25 @@ const ProgressBar = ({ onComplete }: { onComplete: () => void }) => {
 export const Section8 = () => {
   const sliderRef = useRef<Slider>(null)
 
-  const sliderSettings: Settings = {
-    dots: false,
-    infinite: true,
-    arrows: false,
-    cssEase: 'linear',
-    slidesToScroll: 1,
-    variableWidth: true,
+  const [progressKey, setProgressKey] = useState(0)
+
+  const screenWidth = useScreenWidth()
+
+  const sliderSettings: Settings = useMemo(() => {
+    const sliderItemWidth = 400
+
+    return {
+      dots: false,
+      infinite: true,
+      arrows: false,
+      cssEase: 'linear',
+      slidesToScroll: 1,
+      slidesToShow: Math.floor(screenWidth / sliderItemWidth),
+    }
+  }, [screenWidth])
+
+  const nextSlide = () => {
+    sliderRef.current?.slickNext()
   }
 
   return (
@@ -198,6 +228,9 @@ export const Section8 = () => {
             <Slider
               ref={sliderRef}
               {...sliderSettings}
+              beforeChange={() => {
+                setProgressKey((prev) => prev + 1)
+              }}
               className="w-full flex [&_.slick-track]:flex [&_.slick-track]:gap-[8px] [&_.slick-list]:w-full [&_.slick-list]:max-w-full [&_.slick-list]:h-fit [&_.slick-slide>div]:h-full"
             >
               {interviewers.map((interviewer, index) => (
@@ -207,7 +240,7 @@ export const Section8 = () => {
                 />
               ))}
             </Slider>
-            <ProgressBar onComplete={() => sliderRef.current?.slickNext()} />
+            <ProgressBar key={progressKey} onComplete={nextSlide} />
           </div>
         </div>
       </div>
