@@ -18,14 +18,16 @@ export const HomeFooter = () => {
         'border-t-[1px] border-x-0 border-b-0 border-solid border-t-border-basic-1',
       )}
     >
-      <BrewinLogoIcon
-        className={twJoin(
-          'h-[22px]',
-          'text-content-2',
-          'w-[100px]',
-          'h-[24px]',
-        )}
-      />
+      <Link href="/">
+        <BrewinLogoIcon
+          className={twJoin(
+            'h-[22px]',
+            'text-content-2',
+            'w-[100px]',
+            'h-[24px]',
+          )}
+        />
+      </Link>
       <div
         className={twJoin(
           'flex base:flex-col md:flex-row justify-center items-center gap-[20px] mt-[32px]',
