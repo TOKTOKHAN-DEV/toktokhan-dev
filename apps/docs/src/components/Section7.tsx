@@ -12,6 +12,11 @@ import {
   Client9Icon,
   Client10Icon,
   Client11Icon,
+  Client12Icon,
+  Client13Icon,
+  Client14Icon,
+  Client15Icon,
+  Client16Icon,
 } from '../generated/icons'
 
 export const Section7 = () => {
@@ -26,13 +31,18 @@ export const Section7 = () => {
             <Client4Icon className="ml-[80px]" />
             <Client5Icon className="ml-[80px]" />
             <Client6Icon className="ml-[80px]" />
-          </Marquee>
-          <Marquee speed={100} loop={0} autoFill direction="right">
             <Client7Icon className="ml-[80px]" />
             <Client8Icon className="ml-[80px]" />
+          </Marquee>
+          <Marquee speed={100} loop={0} autoFill direction="right">
             <Client9Icon className="ml-[80px]" />
             <Client10Icon className="ml-[80px]" />
             <Client11Icon className="ml-[80px]" />
+            <Client12Icon className="ml-[80px]" />
+            <Client13Icon className="ml-[80px]" />
+            <Client14Icon className="ml-[80px]" />
+            <Client15Icon className="ml-[80px]" />
+            <Client16Icon className="ml-[80px]" />
           </Marquee>
         </div>
         <div className="base:hidden md:block full max-w-[100vw]">
@@ -48,6 +58,11 @@ export const Section7 = () => {
             <Client9Icon className="ml-[80px]" />
             <Client10Icon className="ml-[80px]" />
             <Client11Icon className="ml-[80px]" />
+            <Client12Icon className="ml-[80px]" />
+            <Client13Icon className="ml-[80px]" />
+            <Client14Icon className="ml-[80px]" />
+            <Client15Icon className="ml-[80px]" />
+            <Client16Icon className="ml-[80px]" />
           </Marquee>
         </div>
       </div>
