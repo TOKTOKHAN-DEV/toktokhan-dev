@@ -35,9 +35,13 @@ export const useScreenVarient = () => {
   }, [screenWidth])
 
   return {
-    isMd: currentScreen === 'md',
+    isLargerOrEqualMd:
+      currentScreen === 'lg' ||
+      currentScreen === 'xl' ||
+      currentScreen === 'md',
+
     isLg: currentScreen === 'lg',
-    isXl: currentScreen === 'xl',
+    isMd: currentScreen === 'md',
     isBase: currentScreen === 'base',
   }
 }

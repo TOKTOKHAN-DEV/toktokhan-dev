@@ -4,13 +4,19 @@ import Link from '@docusaurus/Link'
 import tailwindConfig from '@site/tailwind.config'
 
 import gsap from 'gsap'
+import { createPortal } from 'react-dom'
 
 import { ArrowRightIcon, HandPeaceIcon } from '../generated/icons'
 import { useScreenVarient } from '../hooks/useScreenVarient'
 import { cn } from '../utils/cn'
 
 // Constants
-const COLORS = ['#2563eb', '#eab308', '#ef4444', '#22c55e'] as const // blue, yellow, red, green
+const COLORS = [
+  'accent-brewin-blue',
+  'accent-brewin-yellow',
+  'accent-brewin-red',
+  'accent-brewin-green',
+] as const // blue, yellow, red, green
 // Create slide colors with one clone for infinite loop
 const slideColors = [
   COLORS,
@@ -31,53 +37,8 @@ const INTERVAL_DURATION = 2000 // ms
 const TRANSITION =
   'background 0.7s cubic-bezier(0.4,0,0.2,1), color 0.7s cubic-bezier(0.4,0,0.2,1)'
 
-// // FloatingLinkButton 컴포넌트 분리
-// const FloatingLinkButton = ({
-//   left,
-//   top,
-//   color,
-//   href,
-//   handIconColor,
-//   arrowIconColor,
-//   style,
-//   className,
-// }: {
-//   left: number
-//   top: number
-//   color: string
-//   href: string
-//   handIconColor?: string
-//   arrowIconColor?: string
-//   className?: string
-//   style?: React.CSSProperties
-// }) => (
-//   <Link
-//     href={href}
-//     target="_blank"
-//     className={`absolute border-none bg-white px-6 py-3 rounded-full font-medium whitespace-nowrap typo-uncut-heading-01 flex flex-row items-center justify-center gap-[8px] cursor-pointer no-underline hover:no-underline pointer-events-auto ${className}`}
-//     style={{
-//       left: `${left}px`,
-//       top: `${top}px`,
-//       transform: 'translate(-50%, -50%)',
-//       willChange: 'left, top',
-//       color,
-//       ...style,
-//     }}
-//   >
-//     <HandPeaceIcon
-//       className="size-[24px]"
-//       style={{ color: handIconColor || color }}
-//     />
-//     <span>Collaborate!</span>
-//     <ArrowRightIcon
-//       className="size-[16px]"
-//       style={{ color: arrowIconColor || color }}
-//     />
-//   </Link>
-// )
-
 export const Section10 = () => {
-  const { isBase } = useScreenVarient()
+  const { isBase, isLargerOrEqualMd } = useScreenVarient()
 
   const [isHovered, setIsHovered] = useState(false)
   const [current, setCurrent] = useState(0)
@@ -85,6 +46,7 @@ export const Section10 = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const containerRef = useRef<HTMLDivElement>(null)
   const animationFrameRef = useRef<number | null>(null)
+  const textScaleRef = useRef<gsap.core.Tween | null>(null)
   const lastUpdateTimeRef = useRef<number>(0)
   const mainTextRef = useRef<HTMLParagraphElement>(null)
 
@@ -141,6 +103,67 @@ export const Section10 = () => {
     }
   }, [isHovered, handleSlideTransition])
 
+  // Handle mouse events
+  const handleMouseEnter = useCallback(() => {
+    setIsHovered(true)
+  }, [isLargerOrEqualMd])
+
+  const handleMouseLeave = useCallback(() => {
+    setIsHovered(false)
+    if (animationFrameRef.current) {
+      cancelAnimationFrame(animationFrameRef.current)
+    }
+  }, [isLargerOrEqualMd])
+
+  const handleMouseMove = useCallback(
+    (e: React.MouseEvent) => {
+      if (!containerRef.current || !isHovered) return
+
+      const rect = containerRef.current.getBoundingClientRect()
+      const isOutside =
+        e.clientX < rect.left ||
+        e.clientX > rect.right ||
+        e.clientY < rect.top ||
+        e.clientY > rect.bottom
+
+      if (isOutside) {
+        handleMouseLeave()
+        return
+      }
+
+      requestAnimationFrame(() => {
+        setMousePosition({
+          x: e.clientX,
+          y: e.clientY,
+        })
+      })
+    },
+    [isHovered, handleMouseLeave],
+  )
+
+  useEffect(() => {
+    if (!isLargerOrEqualMd || !mainTextRef.current) return
+
+    // Kill any existing animation
+    if (textScaleRef.current) {
+      textScaleRef.current.kill()
+    }
+
+    // Create new animation
+    textScaleRef.current = gsap.to(mainTextRef.current, {
+      scale: isHovered ? 0.8 : 1,
+      duration: 0.3,
+      ease: 'power2.out',
+    })
+
+    return () => {
+      if (textScaleRef.current) {
+        textScaleRef.current.kill()
+        textScaleRef.current = null
+      }
+    }
+  }, [isLargerOrEqualMd, isHovered])
+
   // Calculate slide index
   const slideIndex = current === slideColors.length ? 0 : current
 
@@ -154,39 +177,33 @@ export const Section10 = () => {
     ...baseTextStyle,
   }
 
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (containerRef.current) {
-      requestAnimationFrame(() => {
-        setMousePosition({
-          x: e.clientX,
-          y: e.clientY,
-        })
-      })
-    }
-  }
-
-  const handleMouseEnter = () => {
-    if (isBase) return
-
-    setIsHovered(true)
-    gsap.to(mainTextRef.current, {
-      scale: isHovered ? 0.8 : 1,
-      duration: 0.3,
-      ease: 'power2.out',
-    })
-  }
-
-  const handleMouseLeave = () => {
-    if (isBase) return
-
-    setIsHovered(false)
-  }
-
   useEffect(() => {
     if (isBase) {
       setIsHovered(false)
     }
   }, [isBase])
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!containerRef.current || !isHovered) return
+
+      const rect = containerRef.current.getBoundingClientRect()
+      const isOutside =
+        mousePosition.x < rect.left ||
+        mousePosition.x > rect.right ||
+        mousePosition.y < rect.top ||
+        mousePosition.y > rect.bottom
+
+      if (isOutside) {
+        handleMouseLeave()
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [isHovered, mousePosition, handleMouseLeave])
 
   return (
     <div>
@@ -217,14 +234,7 @@ export const Section10 = () => {
             aria-hidden
           >
             {slideColors.map((color, idx) => (
-              <div
-                key={idx}
-                style={{
-                  width: `${100 / slideColors.length}%`,
-                  height: '100%',
-                  background: color,
-                }}
-              />
+              <div key={idx} className={cn(['w-full h-full', `bg-${color}`])} />
             ))}
           </div>
         )}
@@ -250,26 +260,14 @@ export const Section10 = () => {
             ref={mainTextRef}
             className="typo-uncut-display-01 base:mt-[16px] md:mt-0 text-center"
             style={mainTextStyle}
-            onMouseEnter={() => {
-              if (isBase) {
-                return
-              }
-            }}
           >
             let&apos;s team up!
           </p>
-          {isHovered && (
-            <div className="fixed top-0 left-0 z-[9999] base:hidden md:block">
-              <FloatingLinkButton
-                className={`absolute -translate-x-[50%] -translate-y-[50%] will-change-[left,top] text-[${slideColors[current]}]`}
-                style={{
-                  left: `${mousePosition.x}px`,
-                  top: `${mousePosition.y}px`,
-                  color: slideColors[current],
-                }}
-              />
-            </div>
-          )}
+          <FloatingButtonPortal
+            isHovered={isHovered}
+            mousePosition={mousePosition}
+            currentColor={slideColors[current]}
+          />
         </div>
       </div>
       <div className="base:flex md:hidden flex justify-center items-center w-[100%] pt-[64px]">
@@ -306,5 +304,35 @@ const FloatingLinkButton = ({
       <span className="typo-uncut-heading-03">Collaborate!</span>
       <ArrowRightIcon className="size-[16px]" />
     </Link>
+  )
+}
+
+const FloatingButtonPortal = ({
+  isHovered,
+  mousePosition,
+  currentColor,
+}: {
+  isHovered: boolean
+  mousePosition: { x: number; y: number }
+  currentColor: string
+}) => {
+  if (!isHovered) return null
+
+  console.log(currentColor)
+
+  return createPortal(
+    <div className="fixed top-0 left-0 z-[9999] base:hidden md:block">
+      <FloatingLinkButton
+        className={cn([
+          'absolute -translate-x-[50%] -translate-y-[50%] will-change-[left,top]',
+          'text-red-500',
+        ])}
+        style={{
+          left: `${mousePosition.x}px`,
+          top: `${mousePosition.y}px`,
+        }}
+      />
+    </div>,
+    document.body,
   )
 }
