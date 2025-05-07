@@ -112,7 +112,7 @@ const InterviewCard = ({
       <div className="absolute base:bottom-[-20px] base:right-[-0px] md:bottom-[-40px] md:right-[-0px]">
         <img
           src={emoji}
-          alt="interviewer"
+          alt={`${name}-emoji`}
           className="base:p-[20px] md:p-[32px] base:w-[160px] base:h-[160px] md:w-[200px] md:h-[200px] z-1 object-cover"
         />
       </div>
