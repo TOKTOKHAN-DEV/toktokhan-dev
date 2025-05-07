@@ -1,46 +1,48 @@
 /* Search */
-
 .navbar__items.navbar__items--right > :nth-child(3) {
-  @apply base:!p-0;
+  background-color: rgba(23, 23, 23, 0.05);
+  @apply !p-0 !rounded-[12px];
 }
 
 .DocSearch-Button {
-  /* @apply lg:rounded-md !h-fit !gap-[29px] !m-0;
-  @apply !bg-tokColor-background.secondary !border-solid !border-[1px] !border-tokColor-border.primary !rounded-full;
+  @apply !bg-transparent-basic-1 !rounded-[12px];
+  @apply !shadow-none;
   @apply !px-[12px] !py-[8px];
-  @apply hover:!shadow-none;
-  @apply hover:!border-solid hover:!border-[1px] hover:!border-tokColor-border.brand; */
-}
-
-[data-theme='dark'] {
-  .DocSearch-Button {
-    /* @apply !border-tokColor-border.secondary;
-    @apply hover:!shadow-none hover:!border-solid hover:!border-[1px] hover:!border-tokColor-border.brand; */
-  }
+  @apply md:!w-[200px] md:!h-[42px];
 }
 
 .DocSearch-Button-Container {
-  /* @apply gap-[4px]; */
+  @apply gap-[4px];
+  @apply gap-[4px];
 }
 
 .DocSearch-Button-Placeholder {
-  /* @apply !tokFont-pre-body-04; */
+  @apply !p-0;
+  @apply !typo-pre-body-06;
 }
 
 .DocSearch-Button-Keys {
-  /* @apply !gap-[4px]; */
+  @apply !gap-[4px] !h-[24px] !m-0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
 .DocSearch-Button-Key {
   background: transparent !important;
-  /* @apply !tokFont-pre-body-04 !shadow-none !w-[24px] !h-[24px] !p-[4px]; */
-  /* @apply !bg-tokColor-background.inverse !text-tokColor-icon.primary.inverse; */
-  /* @apply !rounded-[8px] !font-pretendard !pt-[6px] !mr-[0px]; */
+  @apply !w-[24px] !h-[24px] !bg-background-inverse-4 !rounded-[8px] !p-[0] !m-0 !mr-[0px] !shadow-none;
+  @apply !translate-y-[1px];
+  @apply !typo-pre-body-05 !text-content-8;
 }
 
-.DocSearch-Button-Keys .DocSearch-Button-Key:nth-child(1) {
-  /* @apply !text-[16px] !leading-[16px] !font-[600]; */
-}
-
-.DocSearch-Button-Keys .DocSearch-Button-Key:nth-child(2) {
-  /* @apply !text-[16px] !leading-[16px] !font-[700]; */
+[data-theme='dark'] {
+  .DocSearch-Button-Placeholder {
+    @apply !text-content-1;
+  }
+  .DocSearch-Button-Key {
+    background: transparent !important;
+    @apply !w-[24px] !h-[24px] !bg-background-basic-2 !rounded-[8px] !p-[0] !m-0 !mr-[0px] !shadow-none;
+    @apply !translate-y-[1px];
+    @apply !typo-pre-body-05 !text-content-1;
+  }
 }
