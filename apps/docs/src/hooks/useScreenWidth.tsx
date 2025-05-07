@@ -1,15 +1,18 @@
 import { useEffect, useState } from 'react'
 
 export const useScreenWidth = () => {
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth)
+  const [screenWidth, setScreenWidth] = useState(0)
 
   useEffect(() => {
+    const updateWidth = () => setScreenWidth(window.innerWidth)
+    updateWidth()
+
     let timeoutId: NodeJS.Timeout
 
     const handleResize = () => {
       clearTimeout(timeoutId)
       timeoutId = setTimeout(() => {
-        setScreenWidth(window.innerWidth)
+        updateWidth()
       }, 200)
     }
 
