@@ -8,7 +8,7 @@ export const Section6 = () => {
   return (
     <div
       ref={animatedBoxRef}
-      className="bg-background-basic-5 flex flex-col items-center base:py-[80px] md:py-[120px] w-full"
+      className="bg-background-basic-5 flex flex-col items-center base:py-[80px] md:py-[120px] base:max-w-[404px] md:max-w-full mx-auto "
     >
       {/* Badge & Title */}
       <div className="inline-block rounded-[12px] bg-background-inverse-1 px-[12px] py-[8px] typo-uncut-body-05 text-content-8 mb-[16px]">
@@ -30,50 +30,60 @@ export const Section6 = () => {
       </div>
 
       {/* Description */}
-      <p className="typo-pre-body-04 text-content-2 m-0 text-center">
-        자주 쓰이는 기능들, 실제 프로젝트에서 검증된 형태로 제공해요.
+      <p className="base:hidden md:block typo-pre-body-04 text-content-2 m-0 text-center pb-[64px] whitespace-pre-line">
+        자주 쓰이는 기능들, 실제 프로젝트에서 검증된 형태로 제공해요.{'\n'}
+        빠르게 시작하고, 본질에 집중하세요.
       </p>
-      <p className="typo-pre-body-04 text-content-2 m-0 pb-[64px] text-center">
+      <p className="base:block md:hidden typo-pre-body-04 text-content-2 m-0 text-center pb-[64px] whitespace-pre-line">
+        자주 쓰이는 기능들,{'\n'}실제 프로젝트에서 검증된 형태로 제공해요.{'\n'}
         빠르게 시작하고, 본질에 집중하세요.
       </p>
 
       {/* Cards Container */}
-      <div className="flex base:flex-col md:flex-row gap-[8px] base:px-[12px] md:px-0">
+      <div className="flex base:flex-col md:flex-row gap-[8px] base:px-[12px] md:px-0 base:w-[454px] md:w-full mx-auto justify-center">
         <SocialLoginCard />
         <div className="flex flex-col gap-[8px]">
-          <Card
-            title="Map"
-            description={
-              '다양한 지도 API를 React 컴포넌트로 제공해요.\n마커부터 클러스터링까지, 타입스크립트로 쉽게 구현하세요.'
-            }
-            className="base:w-full md:w-[454px] h-[316px] base:rounded-[40px] md:rounded-t-[40px]"
-          >
+          <CardContainer className="base:w-[380px] md:w-[454px] h-[316px] base:rounded-[40px] md:rounded-t-[40px] base:overflow-hidden md:overflow-visible">
             <MapPinIcon className="size-[240px] absolute top-[-40px] right-0" />
-          </Card>
+            <div className="z-10">
+              <h3 className="typo-uncut-heading-02 text-content-1 text-left m-0">
+                Map
+              </h3>
+              <p className="typo-pre-body-04 text-content-2 whitespace-pre-line m-0">
+                다양한 지도 API를 React 컴포넌트로 제공해요.\n마커부터
+                클러스터링까지, 타입스크립트로 쉽게 구현하세요.
+              </p>
+            </div>
+          </CardContainer>
 
-          <Card
-            title="Payment"
-            description={
-              'PG사 연동부터 결제 검증까지, 복잡한 흐름을 쉽게 구현해요.\n단 몇 줄의 코드로 결제 시스템을 빠르게 연동해보세요.'
-            }
-            className="base:w-full md:w-[454px] h-[316px] base:rounded-[40px] md:rounded-b-[40px]"
-          >
-            <MapPinIcon className="size-[240px] absolute top-[-40px] right-0" />
-          </Card>
+          <CardContainer className="base:w-[380px] md:w-[454px] h-[316px] base:rounded-[40px] md:rounded-b-[40px]">
+            <img
+              src="/img/ui/toss.webp"
+              alt="toss"
+              className="w-full h-full absolute top-0 left-0 aspect-[840/360] rounded-b-[40px]"
+            />
+            <div className="z-10">
+              <h3 className="typo-uncut-heading-02 text-content-8 text-left m-0">
+                Payment
+              </h3>
+              <p className="typo-pre-body-04 text-content-8 whitespace-pre-line m-0">
+                PG사 연동부터 결제 검증까지, 복잡한 흐름을 쉽게 구현해요.{'\n'}
+                단 몇 줄의 코드로 결제 시스템을 빠르게 연동해보세요.
+              </p>
+            </div>
+          </CardContainer>
         </div>
       </div>
     </div>
   )
 }
 
-interface CardProps {
-  title: string
-  description: string
+interface CardContainerProps {
   children?: React.ReactNode
   className?: string
 }
 
-const Card = ({ title, description, children, className }: CardProps) => {
+const CardContainer = ({ children, className }: CardContainerProps) => {
   return (
     <div
       className={cn([
@@ -82,39 +92,24 @@ const Card = ({ title, description, children, className }: CardProps) => {
       ])}
     >
       {children}
-      <h3 className="typo-uncut-heading-02 text-content-1 text-left m-0">
-        {title}
-      </h3>
-      <p className="typo-pre-body-04 text-content-2 whitespace-pre-line m-0">
-        {description}
-      </p>
     </div>
   )
 }
 
 const SocialLoginCard = () => {
   return (
-    <div className="relative w-[608px] h-[640px] rounded-[40px] bg-background-basic-1">
+    <div className="relative base:w-[380px] md:w-[608px] base:h-[496px] md:h-[640px] rounded-[40px] bg-background-basic-1">
       <img
-        src="/img/ui/iphone-frame.webp"
-        alt="iphone-frame"
-        className="w-full h-full absolute top-0 left-0 z-[1]"
+        src="/img/ui/social.webp"
+        alt="social"
+        className="w-full h-full absolute top-0 left-0 aspect-[840/360] rounded-b-[40px]"
       />
-      <img
-        src="/img/ui/blur.webp"
-        alt="blur"
-        className="w-full h-[400px] absolute bottom-0 left-0 z-[2]"
-      />
-      <img
-        src="/img/ui/social-icons.webp"
-        alt="social-icons"
-        className="w-[480px] h-[160px] aspect-[840/360] absolute top-[161px] left-1/2 -translate-x-1/2 z-[3]"
-      />
-      <div className="absolute left-[40px] bottom-[40px] z-[4]">
-        <h3 className="typo-uncut-heading-02 text-content-1 m-0">
+
+      <div className="absolute left-[40px] bottom-[40px]">
+        <h3 className="typo-uncut-heading-02 text-[#171717] m-0">
           Social Login
         </h3>
-        <p className="typo-pre-body-04 text-content-2 whitespace-pre-line m-0">
+        <p className="typo-pre-body-04 text-[#555555] whitespace-pre-line m-0">
           다양한 소셜 로그인을 몇 줄의 코드로 손쉽게 연동할 수 있어요.
           {'\n'}
           아이콘 버튼부터 팝업·링크 방식까지 모두 지원해요.

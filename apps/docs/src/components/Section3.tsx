@@ -75,7 +75,7 @@ const IconBox = ({
   const boxRef = useRef<HTMLDivElement>(null)
   const iconRef = useRef<SVGSVGElement>(null)
 
-  const [yOffset, setYOffset] = useState(getResponsiveY())
+  const [yOffset, setYOffset] = useState(0)
   const [isHovered, setIsHovered] = useState(false)
 
   const handleMouseEnter = () => {

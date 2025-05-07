@@ -140,8 +140,8 @@ const HeaderSection = ({
 
     {/* Mobile Layout */}
     <div className="base:block md:hidden text-center w-full">
-      <p className="typo-uncut-display-03 text-content-1 px-[24px]">
-        Whatever you imagine.
+      <p className="typo-uncut-display-03 text-content-1 px-[24px] whitespace-pre-line text-center">
+        Whatever{'\n'}you imagine.
       </p>
     </div>
   </>
@@ -191,7 +191,7 @@ const BlackBoxSection = ({
 }) => (
   <div
     ref={animatedBoxRef}
-    className="bg-background-inverse-1 w-full base:h-[780px] md:h-[1200px] base:mt-[160px] md:mt-[240px] flex flex-col items-center justify-center"
+    className="bg-background-inverse-1 w-full base:max-w-[404px] md:max-w-full base:h-[780px] md:h-[1200px] base:mt-[160px] md:mt-[240px] flex flex-col items-center justify-center"
   >
     {/* Badge Row */}
     <div className="flex items-center gap-[8px] base:mt-[80px] md:mt-[120px]">
@@ -217,10 +217,16 @@ const BlackBoxSection = ({
     </div>
 
     {/* Description */}
-    <span className="typo-pre-body-04 text-content-6 whitespace-pre-line text-center base:mt-[24px] md:mt-[40px] base:px-[12px] md:px-0">
+    <span className="base:hidden md:block typo-pre-body-04 text-content-6 whitespace-pre-line text-center base:mt-[24px] md:mt-[40px] base:px-[12px] md:px-0">
       클릭 한 번에 디자인 토큰이 Chakra UI Convention에 알맞는 코드로,{'\n'}
       자체 플러그인 toktoken을 통해 일관된 디자인과 코드, 혁신적인 핸드오프를
       경험해보세요
+    </span>
+    <span className="base:block md:hidden typo-pre-body-04 text-content-6 whitespace-pre-line text-center base:mt-[24px] md:mt-[40px] base:px-[12px] md:px-0">
+      클릭 한 번에 디자인 토큰이{'\n'}Chakra UI Convention에 알맞는 코드로,
+      {'\n'}
+      자체 플러그인 toktoken을 통해 일관된 디자인과 코드,{'\n'}혁신적인
+      핸드오프를 경험해보세요
     </span>
 
     {/* Figma Link */}
@@ -382,9 +388,15 @@ export const Section2 = () => {
       </div>
 
       {/* Description */}
-      <p className="px-[16px] base:mt-[24px] md:mt-[40px] typo-pre-body-04 text-content-2 whitespace-pre-line text-center">
+      <p className="base:hidden md:block px-[16px] md:mt-[40px] typo-pre-body-04 text-content-2 whitespace-pre-line text-center">
         어떤 아이디어도 실현할 수 있도록, 똑똑한개발자가 깊게 우려낸 경험과
         노하우를 만나보세요{'\n'}Figma 플러그인부터, Command Line Interface,
+        Component까지
+      </p>
+      <p className="base:block md:hiddenpx-[16px] base:mt-[24px] typo-pre-body-04 text-content-2 whitespace-pre-line text-center">
+        어떤 아이디어도 실현할 수 있도록, 똑똑한개발자가 깊게{'\n'}우려낸 경험과
+        노하우를 만나보세요{'\n'}Figma 플러그인부터, Command Line Interface,
+        {'\n'}
         Component까지
       </p>
 
