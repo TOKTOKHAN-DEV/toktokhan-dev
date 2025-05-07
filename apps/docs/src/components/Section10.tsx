@@ -1,10 +1,12 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 
 import Link from '@docusaurus/Link'
+import tailwindConfig from '@site/tailwind.config'
 
 import gsap from 'gsap'
 
 import { ArrowRightIcon, HandPeaceIcon } from '../generated/icons'
+import { useScreenVarient } from '../hooks/useScreenVarient'
 import { cn } from '../utils/cn'
 
 // Constants
@@ -30,6 +32,8 @@ const TRANSITION =
   'background 0.7s cubic-bezier(0.4,0,0.2,1), color 0.7s cubic-bezier(0.4,0,0.2,1)'
 
 export const Section10 = () => {
+  const { isBase } = useScreenVarient()
+
   const [isHovered, setIsHovered] = useState(false)
   const [current, setCurrent] = useState(0)
   const [isTransitioning, setIsTransitioning] = useState(true)
@@ -92,16 +96,6 @@ export const Section10 = () => {
     }
   }, [isHovered, handleSlideTransition])
 
-  useEffect(() => {
-    if (mainTextRef.current) {
-      gsap.to(mainTextRef.current, {
-        scale: isHovered ? 0.8 : 1,
-        duration: 0.3,
-        ease: 'power2.out',
-      })
-    }
-  }, [isHovered])
-
   // Calculate slide index
   const slideIndex = current === slideColors.length ? 0 : current
 
@@ -126,6 +120,29 @@ export const Section10 = () => {
     }
   }
 
+  const handleMouseEnter = () => {
+    if (isBase) return
+
+    setIsHovered(true)
+    gsap.to(mainTextRef.current, {
+      scale: isHovered ? 0.8 : 1,
+      duration: 0.3,
+      ease: 'power2.out',
+    })
+  }
+
+  const handleMouseLeave = () => {
+    if (isBase) return
+
+    setIsHovered(false)
+  }
+
+  useEffect(() => {
+    if (isBase) {
+      setIsHovered(false)
+    }
+  }, [isBase])
+
   return (
     <div>
       <div
@@ -140,8 +157,8 @@ export const Section10 = () => {
           transition: TRANSITION,
           willChange: 'background',
         }}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
         onMouseMove={handleMouseMove}
       >
         {/* Slide background */}
@@ -188,6 +205,11 @@ export const Section10 = () => {
             ref={mainTextRef}
             className="typo-uncut-display-01 base:mt-[16px] md:mt-0 text-center"
             style={mainTextStyle}
+            onMouseEnter={() => {
+              if (isBase) {
+                return
+              }
+            }}
           >
             let&apos;s team up!
           </p>
