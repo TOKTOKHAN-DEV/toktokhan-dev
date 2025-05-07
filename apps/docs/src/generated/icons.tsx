@@ -22,7 +22,7 @@ export const ArrowFatRightIcon = forwardRef<SVGSVGElement, IconProps>(
         </g>
         <defs>
           <clipPath id="clip0_10658_9282">
-            <rect width="160" height="160" fill="white" />
+            <rect width="160" height="160" fill="currentColor" />
           </clipPath>
         </defs>
       </svg>
@@ -91,7 +91,7 @@ export const BoundingBoxIcon = forwardRef<SVGSVGElement, IconProps>(
         </g>
         <defs>
           <clipPath id="clip0_10647_393">
-            <rect width="80" height="80" fill="white" />
+            <rect width="80" height="80" fill="currentColor" />
           </clipPath>
         </defs>
       </svg>
@@ -128,6 +128,71 @@ export const BraceIcon = forwardRef<SVGSVGElement, IconProps>(
     )
   },
 )
+export const BrewinLogoIcon = forwardRef<SVGSVGElement, IconProps>(
+  function BrewinLogoIcon(props, ref) {
+    return (
+      <svg
+        ref={ref}
+        width="100"
+        height="24"
+        viewBox="0 0 100 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        {...props}
+      >
+        <g id="Frame 2085664474">
+          <g id="brewin&#226;&#128;&#153;">
+            <path
+              id="Vector"
+              d="M86.7383 7.38794C88.7263 7.38794 89.8183 6.65994 89.8183 5.31594H87.2983V0.835938H92.0583V5.31594C92.0583 8.03194 90.0143 9.71194 86.7383 9.71194V7.38794Z"
+              fill="currentColor"
+            />
+            <path
+              id="Vector_2"
+              d="M92.8516 7.38794C94.8396 7.38794 95.9316 6.65994 95.9316 5.31594H93.4116V0.835938H98.1716V5.31594C98.1716 8.03194 96.1276 9.71194 92.8516 9.71194V7.38794Z"
+              fill="currentColor"
+            />
+            <path
+              id="Vector_3"
+              d="M80.269 12.5116C80.269 10.5516 79.429 9.43158 77.973 9.43158C76.097 9.43158 74.865 11.2236 74.865 13.9116V20.7156H71.085V6.71558H74.865V9.09558C75.733 7.33158 77.357 6.26758 79.401 6.26758C82.369 6.26758 84.049 8.47958 84.049 12.3436V20.7156H80.269V12.5116Z"
+              fill="currentColor"
+            />
+            <path
+              id="Vector_4"
+              d="M64.7608 20.7152V6.71524H68.5408V20.7152H64.7608ZM64.4248 4.75523V1.11523H68.9048V4.75523H64.4248Z"
+              fill="currentColor"
+            />
+            <path
+              id="Vector_5"
+              d="M45.8896 20.7148L42.4736 6.71484H46.2536L48.4376 16.1788L51.4896 6.71484H54.2616L57.3136 16.1788L59.4976 6.71484H63.2776L59.8616 20.7148H55.5776L52.8896 12.0348L50.1736 20.7148H45.8896Z"
+              fill="currentColor"
+            />
+            <path
+              id="Vector_6"
+              d="M35.2114 21.1636C30.7034 21.1636 27.6514 18.1676 27.6514 13.6876C27.6514 9.34758 30.5914 6.26758 34.6794 6.26758C38.7954 6.26758 41.6794 9.34758 41.6794 13.7716V14.8356H31.5434C31.5434 16.7116 32.9434 17.9996 34.9874 17.9996C36.3874 17.9996 37.4514 17.3836 37.8714 16.3196L41.6794 16.5996C41.2594 19.3436 38.7114 21.1636 35.2114 21.1636ZM37.7874 12.0916C37.7874 10.4956 36.5274 9.43158 34.6794 9.43158C32.8314 9.43158 31.5434 10.5236 31.5434 12.0916H37.7874Z"
+              fill="currentColor"
+            />
+            <path
+              id="Vector_7"
+              d="M18.417 20.7148V6.71484H22.197V9.65484C22.785 7.75084 23.821 6.71484 25.305 6.71484H27.881V9.87884H25.585C23.093 9.87884 22.197 11.1948 22.197 14.8908V20.7148H18.417Z"
+              fill="currentColor"
+            />
+            <path
+              id="Vector_8"
+              d="M10.4644 21.1636C8.28042 21.1636 6.60042 20.0436 5.73242 18.1396H5.73703L5.73242 9.29172C6.60042 7.38772 8.28042 6.26758 10.4644 6.26758C14.0484 6.26758 16.5684 9.34758 16.5684 13.7156C16.5684 18.0836 14.0484 21.1636 10.4644 21.1636ZM9.23242 17.9996C11.3044 17.9996 12.7044 16.2916 12.7044 13.7156C12.7044 11.1396 11.3044 9.43158 9.23242 9.43158C7.16042 9.43158 5.76042 11.1396 5.76042 13.7156C5.76042 16.2916 7.16042 17.9996 9.23242 17.9996Z"
+              fill="currentColor"
+            />
+            <path
+              id="Rectangle 2"
+              d="M2.82715 1.11523H6.60962L5.60962 20.7152H1.82715L2.82715 1.11523Z"
+              fill="currentColor"
+            />
+          </g>
+        </g>
+      </svg>
+    )
+  },
+)
 export const CalendarDotsIcon = forwardRef<SVGSVGElement, IconProps>(
   function CalendarDotsIcon(props, ref) {
     return (
@@ -151,7 +216,7 @@ export const CalendarDotsIcon = forwardRef<SVGSVGElement, IconProps>(
             <rect
               width="48"
               height="48"
-              fill="white"
+              fill="currentColor"
               transform="translate(0 0.669922)"
             />
           </clipPath>
@@ -180,7 +245,7 @@ export const ChatCircleDotsIcon = forwardRef<SVGSVGElement, IconProps>(
         </g>
         <defs>
           <clipPath id="clip0_10647_2388">
-            <rect width="80" height="80" fill="white" />
+            <rect width="80" height="80" fill="currentColor" />
           </clipPath>
         </defs>
       </svg>
@@ -987,21 +1052,21 @@ export const CodeIcon = forwardRef<SVGSVGElement, IconProps>(
         <g clipPath="url(#clip0_10658_9298)">
           <path
             d="M40 55L10 80L40 105"
-            stroke="white"
+            stroke="currentColor"
             strokeWidth="15"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
           <path
             d="M120 55L150 80L120 105"
-            stroke="white"
+            stroke="currentColor"
             strokeWidth="15"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
           <path
             d="M100 25L60 135"
-            stroke="white"
+            stroke="currentColor"
             strokeWidth="15"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -1009,7 +1074,7 @@ export const CodeIcon = forwardRef<SVGSVGElement, IconProps>(
         </g>
         <defs>
           <clipPath id="clip0_10658_9298">
-            <rect width="160" height="160" fill="white" />
+            <rect width="160" height="160" fill="currentColor" />
           </clipPath>
         </defs>
       </svg>
@@ -1134,7 +1199,7 @@ export const CursorIcon = forwardRef<SVGSVGElement, IconProps>(
         </g>
         <defs>
           <clipPath id="clip0_10647_497">
-            <rect width="80" height="80" fill="white" />
+            <rect width="80" height="80" fill="currentColor" />
           </clipPath>
         </defs>
       </svg>

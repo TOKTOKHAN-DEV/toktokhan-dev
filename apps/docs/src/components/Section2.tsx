@@ -105,7 +105,10 @@ const HeaderSection = ({
         {leftIcons.map((icon, index) => (
           <div
             key={`left-${index}`}
-            ref={(el) => (leftIconsRef.current[index] = el)}
+            ref={(el) => {
+              // Ensure proper reference for left icons
+              if (el) leftIconsRef.current[index] = el
+            }}
             className="flex items-center justify-center"
           >
             {icon}
@@ -123,7 +126,10 @@ const HeaderSection = ({
         {rightIcons.map((icon, index) => (
           <div
             key={`right-${index}`}
-            ref={(el) => (rightIconsRef.current[index] = el)}
+            ref={(el) => {
+              // Ensure proper reference for right icons
+              if (el) rightIconsRef.current[index] = el
+            }}
             className="flex items-center justify-center"
           >
             {icon}
@@ -163,9 +169,9 @@ const MobileIconsRow = ({
             key={`mobile-${index}`}
             ref={(el) => {
               if (index < 4) {
-                leftIconsRef.current[index] = el
+                leftIconsRef.current[index + 8] = el
               } else {
-                rightIconsRef.current[index - 4] = el
+                rightIconsRef.current[index + 4] = el
               }
             }}
             className="flex-shrink-0"
@@ -274,59 +280,88 @@ const CompareSlider = () => (
 )
 
 export const Section2 = () => {
-  const leftIconsRef = useRef<(HTMLDivElement | null)[]>([])
-  const rightIconsRef = useRef<(HTMLDivElement | null)[]>([])
+  const leftIconsRef = useRef<(HTMLDivElement | null)[]>(Array(12).fill(null))
+  const rightIconsRef = useRef<(HTMLDivElement | null)[]>(Array(12).fill(null))
   const [currentSetIndex, setCurrentSetIndex] = useState(0)
   const animatedBoxRef = useAnimatedBox()
 
   useEffect(() => {
     const animateIcons = () => {
-      const leftIcons = leftIconsRef.current
-      const rightIcons = rightIconsRef.current
-      const tl = gsap.timeline()
+      // Get left and right icons separately to animate them differently
+      const leftIcons = leftIconsRef.current.filter(Boolean)
+      const rightIcons = rightIconsRef.current.filter(Boolean)
 
+      // Combine all icons to create completely random timings
       const allIcons = [...leftIcons, ...rightIcons]
-      const shuffledIcons = allIcons
-        .map((icon, index) => ({ icon, index }))
-        .sort(() => Math.random() - 0.5)
 
-      shuffledIcons.forEach(({ icon }, i) => {
-        tl.to(
-          icon,
-          {
-            scale: 0,
-            duration: 0.3,
-            ease: 'power2.inOut',
-          },
-          i * 0.1,
-        )
+      // Create completely random delays for each icon
+      const randomDelays = allIcons.map(() => gsap.utils.random(0, 0.7))
+
+      // Animate each icon with completely different random timing
+      allIcons.forEach((icon, index) => {
+        gsap.to(icon, {
+          opacity: 0,
+          scale: gsap.utils.random(0.3, 0.7),
+          duration: gsap.utils.random(0.3, 0.7),
+          delay: randomDelays[index],
+          ease: 'power2.inOut',
+        })
       })
 
-      tl.add(() => {
+      // Change icon set after all animations complete
+      gsap.delayedCall(1.2, () => {
+        // Update state to change icons
         setCurrentSetIndex((prev) => (prev + 1) % ICON_SET.length)
-      })
 
-      const newShuffledIcons = [...leftIcons, ...rightIcons]
-        .map((icon, index) => ({ icon, index }))
-        .sort(() => Math.random() - 0.5)
+        // Animate new icons with completely random timings
+        setTimeout(() => {
+          // Get fresh references after state update
+          const newLeftIcons = leftIconsRef.current.filter(Boolean)
+          const newRightIcons = rightIconsRef.current.filter(Boolean)
+          const newAllIcons = [...newLeftIcons, ...newRightIcons]
 
-      newShuffledIcons.forEach(({ icon }, i) => {
-        tl.to(
-          icon,
-          {
-            scale: 1,
-            duration: 0.3,
-            ease: 'power2.out',
-          },
-          `>-0.2`,
-        )
+          // Generate new random delays for each icon's entrance
+          const newRandomDelays = newAllIcons.map(() =>
+            gsap.utils.random(0, 0.9),
+          )
+
+          // Animate each icon with its own random timing
+          newAllIcons.forEach((icon, index) => {
+            gsap.fromTo(
+              icon,
+              {
+                opacity: 0,
+                scale: gsap.utils.random(0.4, 0.8),
+              },
+              {
+                opacity: 1,
+                scale: 1,
+                duration: gsap.utils.random(0.5, 0.8),
+                delay: newRandomDelays[index],
+                ease: 'back.out(1.7)',
+              },
+            )
+          })
+        }, 100) // Short delay to allow state update
       })
     }
 
-    gsap.set([...leftIconsRef.current, ...rightIconsRef.current], { scale: 1 })
+    // Initialize all icons to be visible
+    const allIcons = [...leftIconsRef.current, ...rightIconsRef.current].filter(
+      Boolean,
+    )
+    gsap.set(allIcons, {
+      opacity: 1,
+      scale: 1,
+      rotation: 0,
+      y: 0,
+      x: 0,
+    })
 
+    // Set up animation interval
     const interval = setInterval(animateIcons, 4000)
 
+    // Clean up on component unmount
     return () => clearInterval(interval)
   }, [])
 

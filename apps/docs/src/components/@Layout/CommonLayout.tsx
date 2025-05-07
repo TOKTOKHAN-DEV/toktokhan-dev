@@ -14,7 +14,7 @@ type CommonLayoutProps = {
   footer: ReactNode
   children: ReactNode
 }
-const CommonLayout = ({
+export const CommonLayout = ({
   metaData,
   header,
   footer,
@@ -53,5 +53,3 @@ const CommonLayout = ({
     </Layout>
   )
 }
-
-export default CommonLayout
