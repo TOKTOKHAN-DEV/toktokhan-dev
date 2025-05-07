@@ -36,13 +36,25 @@ export const HomeFooter = () => {
         </p>
         <Divider className="hidden md:block" />
         <div className={twJoin('flex gap-x-[8px] items-center justify-center')}>
-          <Link href="https://github.com/toktokhan" className="h-[24px]">
+          <Link
+            href="https://github.com/TOKTOKHAN-DEV/toktokhan-dev"
+            className="h-[24px]"
+            target="_blank"
+          >
             <GithubIcon className="text-content-2 size-[24px]" />
           </Link>
-          <Link href="https://www.youtube.com/@toktokhan" className="h-[24px]">
+          <Link
+            href="https://www.youtube.com/@toktokhandev"
+            className="h-[24px]"
+            target="_blank"
+          >
             <YoutubeLogoIcon className="text-content-2 size-[24px]" />
           </Link>
-          <Link href="https://www.instagram.com/toktokhan" className="h-[24px]">
+          <Link
+            href="https://www.instagram.com/toktokhan.dev/"
+            className="h-[24px]"
+            target="_blank"
+          >
             <InstagramLogoIcon className="text-content-2 size-[24px]" />
           </Link>
         </div>

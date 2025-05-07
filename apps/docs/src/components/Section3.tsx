@@ -96,11 +96,12 @@ const IconBox = ({
   }
 
   useEffect(() => {
+    setYOffset(getResponsiveY())
+
     const handleResize = () => setYOffset(getResponsiveY())
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
   }, [])
-
   return (
     <div
       ref={boxRef}
