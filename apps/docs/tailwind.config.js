@@ -6,7 +6,7 @@ const tokColor = require('./src/generated/color-theme-tailwind.ts')
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   corePlugins: {
-    preflight: false,
+    preflight: true,
     container: false,
   },
   safelist: [
@@ -18,7 +18,6 @@ module.exports = {
     'hover:text-accent-brewin-yellow',
     'hover:text-accent-brewin-red',
     'hover:text-accent-brewin-green',
-    'md:-translate-x-[-50%]',
   ],
   darkMode: ['class', '[data-theme="dark"]'],
   content: ['./src/**/*.{jsx,ts,tsx,html,css,js}', './docs/**/*.{md,mdx,tsx}'],
