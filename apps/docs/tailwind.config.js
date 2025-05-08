@@ -61,7 +61,10 @@ module.exports = {
         'screen-xl': '576px',
         'screen-2xl': '576px',
       },
-
+      transform: {
+        '-translate-x-1/2': 'translateX(-50%)',
+        '-translate-y-1/2': 'translateY(-50%)',
+      },
       colors: {
         ...tokColor,
       },

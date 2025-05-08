@@ -33,7 +33,7 @@ slug: /cli-plugin-gen-sitemap-next-page
 
 <td>
 
-
+ Commands
 
 </td></tr>
 </tbody>
@@ -60,7 +60,7 @@ slug: /cli-plugin-gen-sitemap-next-page
 
 <td>
 
-
+ Types
 
 </td></tr>
 
@@ -73,7 +73,7 @@ slug: /cli-plugin-gen-sitemap-next-page
 
 <td>
 
-
+ Types
 
 </td></tr>
 
@@ -86,7 +86,7 @@ slug: /cli-plugin-gen-sitemap-next-page
 
 <td>
 
-
+ Types
 
 </td></tr>
 </tbody>

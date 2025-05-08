@@ -9,6 +9,8 @@ slug: /cli-plugin-gen-sitemap-next-page.gensitemap
 
 
 
+ Commands
+
 ## Signature
 
 ```typescript

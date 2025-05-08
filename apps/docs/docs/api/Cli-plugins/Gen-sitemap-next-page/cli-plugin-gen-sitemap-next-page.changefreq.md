@@ -10,6 +10,8 @@ slug: /cli-plugin-gen-sitemap-next-page.changefreq
 
 
 
+ Types
+
 ## Signature
 
 ```typescript
