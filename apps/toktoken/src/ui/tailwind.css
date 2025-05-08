@@ -20,5 +20,6 @@
     --brand-700: #0007b0;
     --brand-800: #0c1f6f;
     --common-white: #ffffff;
+    --tw-translate-x: 0; /* Tailwind translate-x 기본값 등록 */
   }
 }
