@@ -1,7 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @layer base {
   @font-face {
     font-family: 'Pretendard';
@@ -30,3 +26,7 @@
     --tw-scale-y: 1;
   }
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
