@@ -132,12 +132,12 @@ const config = {
           //   position: 'left',
           //   className: 'nav-item',
           // },
-          // {
-          //   href: 'https://github.com/TOKTOKHAN-DEV/toktokhan-dev',
-          //   position: 'right',
-          //   className: 'header-github-link',
-          //   'aria-label': 'GitHub repository',
-          // },
+          {
+            href: 'https://github.com/TOKTOKHAN-DEV/toktokhan-dev',
+            position: 'right',
+            className: 'header-github-link',
+            'aria-label': 'GitHub repository',
+          },
           // {
           //   type: 'docsVersionDropdown',
           //   position: 'right',
