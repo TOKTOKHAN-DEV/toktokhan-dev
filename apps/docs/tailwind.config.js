@@ -17,8 +17,6 @@ module.exports = {
     'hover:text-accent-brewin-yellow',
     'hover:text-accent-brewin-red',
     'hover:text-accent-brewin-green',
-    'md:-translate-x-1/2',
-    'md:-translate-x-[-50%]',
   ],
   darkMode: ['class', '[data-theme="dark"]'],
   content: ['./src/**/*.{jsx,ts,tsx,html}', './docs/**/*.{md,mdx,tsx}'],
