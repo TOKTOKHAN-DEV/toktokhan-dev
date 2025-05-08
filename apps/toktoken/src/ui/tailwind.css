@@ -20,5 +20,13 @@
     --brand-700: #0007b0;
     --brand-800: #0c1f6f;
     --common-white: #ffffff;
+
+    --tw-translate-x: 0;
+    --tw-translate-y: 0;
+    --tw-rotate: 0;
+    --tw-skew-x: 0;
+    --tw-skew-y: 0;
+    --tw-scale-x: 1;
+    --tw-scale-y: 1;
   }
 }
