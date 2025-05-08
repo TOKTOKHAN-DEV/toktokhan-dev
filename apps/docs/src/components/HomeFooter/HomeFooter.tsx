@@ -22,7 +22,7 @@ export const HomeFooter = () => {
         <BrewinLogoIcon
           className={twJoin(
             'h-[22px]',
-            'text-content-2',
+            'text-content-1',
             'w-[100px]',
             'h-[24px]',
           )}

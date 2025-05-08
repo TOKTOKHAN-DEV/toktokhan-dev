@@ -203,7 +203,7 @@ export const Section8 = () => {
         </div>
 
         <div className="mt-[64px] flex max-w-[100vw] base:hidden md:block">
-          <Marquee gradient={false} speed={200} pauseOnHover>
+          <Marquee gradient={false} speed={100} pauseOnHover>
             {interviewers.map((interviewer, index) => (
               <div key={`interviewer-${index}`} className="mx-[4px] h-full">
                 <InterviewCard {...interviewer} />
