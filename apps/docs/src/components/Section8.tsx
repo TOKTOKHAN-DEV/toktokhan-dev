@@ -25,7 +25,7 @@ const interviewers = [
   },
   {
     title: '핸드오프 속도가 완전히 달라졌어요',
-    description: `gen:api 명령어를 실행하면 타입 정의된 custom hook까지 자동 생성됐어요.\n기존에 수동으로 설정하던 시간이 아예 줄어서, API 연동이 정말 빠르게 끝났어요.`,
+    description: `Figma Variable의 변경사항을 실시간으로 코드에 반영할 수 있게 되니, 퍼블리싱도, 디자인 수정도, QA도 엄청 빠르게 확인할 수 있어요.`,
     position: '프로덕트 디자이너',
     name: '정찬호',
     emoji: '/img/ui/section-8-Interviewer-3.png',
