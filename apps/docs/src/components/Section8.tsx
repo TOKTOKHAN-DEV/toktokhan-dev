@@ -85,7 +85,7 @@ const InterviewCard = ({
 }: Props) => {
   const [isHover, setIsHover] = useState(false)
 
-  const quoteIconColor = !isHover ? 'fill-content-1' : 'fill-common-white'
+  const quoteIconColor = !isHover ? 'text-content-1' : 'text-content-8'
 
   return (
     <div
