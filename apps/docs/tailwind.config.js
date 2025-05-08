@@ -19,7 +19,12 @@ module.exports = {
     'hover:text-accent-brewin-green',
   ],
   darkMode: ['class', '[data-theme="dark"]'],
-  content: ['./src/**/*.{jsx,ts,tsx,html}', './docs/**/*.{md,mdx,tsx}'],
+  content: [
+    './src/**/*.{js,jsx,ts,tsx,html}',
+    './docs/**/*.{md,mdx,tsx}',
+    './src/pages/**/*.{js,jsx,ts,tsx}',
+    './src/components/**/*.{js,jsx,ts,tsx}',
+  ],
   theme: {
     extend: {
       backgroundImage: () => ({
