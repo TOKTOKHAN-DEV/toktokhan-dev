@@ -5,10 +5,19 @@
 }
 
 .DocSearch-Button {
-  @apply !bg-transparent-basic-1 !rounded-[12px];
   @apply !shadow-none;
   @apply !px-[12px] !py-[8px];
-  @apply md:!w-[200px] md:!h-[42px];
+  @apply md:!h-[42px];
+  background-color: transparent !important;
+  width: auto;
+}
+
+@media (min-width: 768px) {
+  .DocSearch-Button {
+    width: 200px !important;
+    @apply rounded-[12px];
+    @apply !bg-transparent-basic-1;
+  }
 }
 
 .DocSearch-Button-Container {

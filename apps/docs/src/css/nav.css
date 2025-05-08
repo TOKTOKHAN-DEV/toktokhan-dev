@@ -78,11 +78,11 @@ nav.navbar {
 } */
 
 /* Color Mode Toggle Icon */
-.navbar__items.navbar__items--right > :nth-child(2) {
-  width: 40px;
-  height: 40px;
-  margin-right: 12px;
-}
+/* .navbar__items.navbar__items--right > :nth-child(2) { */
+/* width: 40px; */
+/* height: 40px; */
+/* margin-right: 12px; */
+/* } */
 
 /* [data-theme='dark'] { */
 /* .navbar__items.navbar__items--right > :nth-child(2) { */

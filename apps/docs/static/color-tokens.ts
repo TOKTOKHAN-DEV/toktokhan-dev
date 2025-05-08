@@ -91,7 +91,7 @@ const colorSchema = {
   'white-transparent.700': '#ffffffB2',
   'white-transparent.800': '#ffffffCC',
   'white-transparent.900': '#ffffffE5',
-  'grey-transparent.50': '#171717D',
+  'grey-transparent.50': '#1717170D',
   'grey-transparent.100': '#1717171A',
   'grey-transparent.200': '#17171733',
   'grey-transparent.300': '#1717174D',
@@ -513,6 +513,10 @@ export const themeColors = {
     light: colorSchema['violet.600'],
     dark: colorSchema['violet.50'],
   },
+  'transparent.basic.1': {
+    light: colorSchema['grey-transparent.50'],
+    dark: colorSchema['white-transparent.100'],
+  },
   'transparent.basic.2': {
     light: colorSchema['grey-transparent.200'],
     dark: colorSchema['white-transparent.200'],
@@ -549,10 +553,7 @@ export const themeColors = {
     light: colorSchema['grey.200'],
     dark: colorSchema['grey.700'],
   },
-  'transparent.basic.1': {
-    light: colorSchema['grey-transparent.50'],
-    dark: colorSchema['white-transparent.100'],
-  },
+
   'transparent.inverse.1': {
     light: colorSchema['white-transparent.50'],
     dark: colorSchema['grey-transparent.50'],
