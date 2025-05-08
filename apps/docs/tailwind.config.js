@@ -18,6 +18,7 @@ module.exports = {
     'hover:text-accent-brewin-yellow',
     'hover:text-accent-brewin-red',
     'hover:text-accent-brewin-green',
+    'md:-translate-x-[-50%]',
   ],
   darkMode: ['class', '[data-theme="dark"]'],
   content: ['./src/**/*.{jsx,ts,tsx,html,css,js}', './docs/**/*.{md,mdx,tsx}'],
@@ -57,10 +58,7 @@ module.exports = {
         'screen-xl': '576px',
         'screen-2xl': '576px',
       },
-      transform: {
-        '-translate-x-1/2': 'translateX(-50%)',
-        '-translate-y-1/2': 'translateY(-50%)',
-      },
+
       colors: {
         ...tokColor,
       },
