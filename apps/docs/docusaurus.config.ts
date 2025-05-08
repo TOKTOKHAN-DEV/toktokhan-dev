@@ -102,7 +102,7 @@ const config = {
           href: '/',
           alt: 'TokDocs Logo',
           src: 'img/ui/brewin.png',
-          srcDark: 'img/ui/brewin.png',
+          srcDark: 'img/ui/brewin-white.png',
           width: 100,
         },
         items: [
@@ -132,12 +132,12 @@ const config = {
           //   position: 'left',
           //   className: 'nav-item',
           // },
-          {
-            href: 'https://github.com/TOKTOKHAN-DEV/toktokhan-dev',
-            position: 'right',
-            className: 'header-github-link',
-            'aria-label': 'GitHub repository',
-          },
+          // {
+          //   href: 'https://github.com/TOKTOKHAN-DEV/toktokhan-dev',
+          //   position: 'right',
+          //   className: 'header-github-link',
+          //   'aria-label': 'GitHub repository',
+          // },
           // {
           //   type: 'docsVersionDropdown',
           //   position: 'right',
