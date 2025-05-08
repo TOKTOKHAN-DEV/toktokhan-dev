@@ -64,7 +64,7 @@ const InfoBox = ({ title, value, unit, orientation, className }: Props) => {
 
 export const Section9 = () => {
   return (
-    <div className="flex flex-col lg:py-[37.6px] lg:px-[56.25px] xl:py-[50px] xl:px-[75px] gap-[6px] base:mt-[160px] md:mt-[240px] base:px-[4px]">
+    <div className="flex flex-col base:max-w-[404px]  mx-auto lg:py-[37.6px] lg:px-[56.25px] xl:py-[50px] xl:px-[75px] gap-[6px] base:mt-[160px] md:mt-[240px] base:px-[4px]">
       <div className="flex base:flex-col md:flex-row gap-[5.25px] base:gap-[4px] justify-center">
         <InfoBox
           title="Line saved"

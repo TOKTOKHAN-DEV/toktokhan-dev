@@ -8,6 +8,16 @@ module.exports = {
     preflight: false,
     container: false,
   },
+  safelist: [
+    'text-accent-brewin-blue',
+    'text-accent-brewin-yellow',
+    'text-accent-brewin-red',
+    'text-accent-brewin-green',
+    'hover:text-accent-brewin-blue',
+    'hover:text-accent-brewin-yellow',
+    'hover:text-accent-brewin-red',
+    'hover:text-accent-brewin-green',
+  ],
   darkMode: ['class', '[data-theme="dark"]'],
   content: ['./src/**/*.{jsx,ts,tsx,html}', './docs/**/*.{md,mdx,tsx}'],
   theme: {

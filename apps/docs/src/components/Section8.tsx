@@ -7,7 +7,6 @@ import 'slick-carousel/slick/slick-theme.css'
 import 'slick-carousel/slick/slick.css'
 
 import { QuoteIcon } from '../generated/icons'
-import { useScreenWidth } from '../hooks/useScreenWidth'
 
 const interviewers = [
   {
@@ -120,13 +119,7 @@ const InterviewCard = ({
   )
 }
 
-const ProgressBar = ({
-  onComplete,
-  key,
-}: {
-  onComplete: () => void
-  key: number
-}) => {
+const ProgressBar = ({ onComplete }: { onComplete: () => void }) => {
   const progressBarRef = useRef<HTMLDivElement>(null)
   const animationRef = useRef<gsap.core.Tween | null>(null)
 
@@ -160,7 +153,7 @@ const ProgressBar = ({
         animationRef.current = null
       }
     }
-  }, [onComplete, key])
+  }, [onComplete])
 
   return (
     <div className="w-[80%] bg-background-basic-5 h-[4px] mt-[16px] rounded-[999px]">
@@ -177,36 +170,31 @@ export const Section8 = () => {
 
   const [progressKey, setProgressKey] = useState(0)
 
-  const screenWidth = useScreenWidth()
-
   const sliderSettings: Settings = useMemo(() => {
-    const sliderItemWidth = 400
-
     return {
       dots: false,
       infinite: true,
       arrows: false,
       cssEase: 'linear',
       slidesToScroll: 1,
-      slidesToShow: Math.floor(screenWidth / sliderItemWidth),
+      slidesToShow: 1,
     }
-  }, [screenWidth])
+  }, [])
 
   const nextSlide = () => {
     sliderRef.current?.slickNext()
   }
 
   return (
-    <div className="flex flex-col w-full base:mt-[360px] md:mt-[320px] base:px-[16px]">
+    <div className="flex flex-col w-full base:mt-[360px] md:mt-[320px] base:px-[16px] base:max-w-[404px] md:max-w-full mx-auto">
       <div className="flex flex-col items-center justify-center">
         <span className="px-[12px] py-[8px] rounded-[12px] bg-accent-brewin-blue">
           <span className="text-content-8 typo-uncut-body-05">
             our team says
           </span>
         </span>
-
-        <div className="flex base:flex-col base:items-center md:flex-row base:mt-[8px] md:mt-[16px] typo-uncut-display-04">
-          <span>Slow-brewed,</span>
+        <div className="typo-uncut-display-04 flex base:flex-col md:flex-row base:items-center base:mt-[8px] md:mt-[16px]">
+          <span className="whitespace-pre-wrap">Slow-brewed, </span>
           <span>fast to use.</span>
         </div>
 
@@ -240,7 +228,7 @@ export const Section8 = () => {
                 />
               ))}
             </Slider>
-            <ProgressBar key={progressKey} onComplete={nextSlide} />
+            <ProgressBar onComplete={nextSlide} />
           </div>
         </div>
       </div>

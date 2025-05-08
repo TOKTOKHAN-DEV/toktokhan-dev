@@ -21,10 +21,10 @@ import {
 
 export const Section7 = () => {
   return (
-    <div className="flex flex-col w-full mt-[240px]">
-      <div className="mt-[64px] flex max-w-[100vw]">
+    <div className="flex flex-col w-full mt-[240px] base:max-w-[404px] md:max-w-[100vw] mx-auto">
+      <div className="mt-[64px] flex ">
         <div className="md:hidden w-full max-w-[100vw]">
-          <Marquee speed={100} loop={0} autoFill>
+          <Marquee speed={100} loop={0} autoFill gradient gradientWidth={20}>
             <Client1Icon className="ml-[80px]" />
             <Client2Icon className="ml-[80px]" />
             <Client3Icon className="ml-[80px]" />
@@ -34,7 +34,14 @@ export const Section7 = () => {
             <Client7Icon className="ml-[80px]" />
             <Client8Icon className="ml-[80px]" />
           </Marquee>
-          <Marquee speed={100} loop={0} autoFill direction="right">
+          <Marquee
+            speed={100}
+            loop={0}
+            autoFill
+            direction="right"
+            gradient
+            gradientWidth={20}
+          >
             <Client9Icon className="ml-[80px]" />
             <Client10Icon className="ml-[80px]" />
             <Client11Icon className="ml-[80px]" />
