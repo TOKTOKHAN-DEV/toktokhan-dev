@@ -26,7 +26,7 @@ export const Section7 = () => {
         <div className="md:hidden w-full max-w-[100vw] relative">
           <div className="absolute left-0 top-0 w-[60px] h-full bg-transparent bg-gradient-to-r from-background-basic-1 to-transparent z-10" />
           <div className="absolute right-0 top-0 w-[60px] h-full bg-transparent bg-gradient-to-l from-background-basic-1 to-transparent z-10" />
-          <Marquee speed={70} loop={0} autoFill>
+          <Marquee speed={70} loop={0} autoFill pauseOnHover={false}>
             <Client1Icon className="ml-[80px]" />
             <Client2Icon className="ml-[80px]" />
             <Client3Icon className="ml-[80px]" />
@@ -36,7 +36,13 @@ export const Section7 = () => {
             <Client7Icon className="ml-[80px]" />
             <Client8Icon className="ml-[80px]" />
           </Marquee>
-          <Marquee speed={70} loop={0} autoFill direction="right">
+          <Marquee
+            speed={70}
+            loop={0}
+            autoFill
+            direction="right"
+            pauseOnHover={false}
+          >
             <Client9Icon className="ml-[80px]" />
             <Client10Icon className="ml-[80px]" />
             <Client11Icon className="ml-[80px]" />
@@ -48,7 +54,7 @@ export const Section7 = () => {
           </Marquee>
         </div>
         <div className="base:hidden md:block full max-w-[100vw]">
-          <Marquee speed={100} autoFill pauseOnHover loop={0}>
+          <Marquee speed={100} loop={0} autoFill pauseOnHover={false}>
             <Client1Icon className="ml-[80px]" />
             <Client2Icon className="ml-[80px]" />
             <Client3Icon className="ml-[80px]" />
