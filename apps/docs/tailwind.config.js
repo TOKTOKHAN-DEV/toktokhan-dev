@@ -1,4 +1,5 @@
 const { fontFamily } = require('tailwindcss/defaultTheme')
+
 const uiVariantPlugin = require('./plugins/ui-plugin.ts')
 const textStylesPlugin = require('./plugins/text-styles-plugin.ts')
 const tokColor = require('./src/generated/color-theme-tailwind.ts')
@@ -8,7 +9,6 @@ module.exports = {
   corePlugins: {
     preflight: true,
     container: false,
-    transform: true,
   },
   safelist: [
     'text-accent-brewin-blue',
@@ -34,7 +34,7 @@ module.exports = {
     'scale-y-1',
   ],
   darkMode: ['class', '[data-theme="dark"]'],
-  content: ['./src/**/*.{jsx,ts,tsx,html,css,js}', './docs/**/*.{md,mdx,tsx}'],
+  content: ['./src/**/*.{jsx,ts,tsx,html,js}', './docs/**/*.{md,mdx,tsx}'],
   theme: {
     extend: {
       backgroundImage: () => ({

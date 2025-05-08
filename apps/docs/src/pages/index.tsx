@@ -1,3 +1,4 @@
+import '../../index.css'
 import { CommonLayout } from '../components/@Layout/CommonLayout'
 import { HomeFooter } from '../components/HomeFooter/HomeFooter'
 import { Section1 } from '../components/Section1'
@@ -10,7 +11,6 @@ import { Section7 } from '../components/Section7'
 import { Section8 } from '../components/Section8'
 import { Section9 } from '../components/Section9'
 import { Section10 } from '../components/Section10'
-import './tailwind.css'
 
 export default function Home() {
   return (
