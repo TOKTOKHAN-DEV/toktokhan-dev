@@ -45,6 +45,9 @@ module.exports = {
         xl: '1920px',
         '2xl': '1920px',
       },
+      translate: {
+        '1/2': '50%',
+      },
       maxWidth: {
         'screen-base': '100%',
         'screen-sm': '100%',
