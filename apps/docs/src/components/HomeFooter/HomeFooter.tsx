@@ -1,4 +1,3 @@
-import Link from '@docusaurus/Link'
 import {
   BrewinLogoIcon,
   GithubIcon,
@@ -18,7 +17,7 @@ export const HomeFooter = () => {
         'border-t-[1px] border-x-0 border-b-0 border-solid border-t-border-basic-1',
       )}
     >
-      <Link href="/">
+      <a href="/">
         <BrewinLogoIcon
           className={twJoin(
             'h-[22px]',
@@ -27,7 +26,7 @@ export const HomeFooter = () => {
             'h-[24px]',
           )}
         />
-      </Link>
+      </a>
       <div
         className={twJoin(
           'flex base:flex-col md:flex-row justify-center items-center gap-[20px] mt-[32px]',
@@ -38,27 +37,30 @@ export const HomeFooter = () => {
         </p>
         <Divider className="hidden md:block" />
         <div className={twJoin('flex gap-x-[8px] items-center justify-center')}>
-          <Link
+          <a
             href="https://github.com/TOKTOKHAN-DEV/toktokhan-dev"
             className="h-[24px]"
             target="_blank"
+            rel="noreferrer"
           >
             <GithubIcon className="text-content-2 size-[24px]" />
-          </Link>
-          <Link
+          </a>
+          <a
             href="https://www.youtube.com/@toktokhandev"
             className="h-[24px]"
             target="_blank"
+            rel="noreferrer"
           >
             <YoutubeLogoIcon className="text-content-2 size-[24px]" />
-          </Link>
-          <Link
+          </a>
+          <a
             href="https://www.instagram.com/toktokhan.dev/"
             className="h-[24px]"
             target="_blank"
+            rel="noreferrer"
           >
             <InstagramLogoIcon className="text-content-2 size-[24px]" />
-          </Link>
+          </a>
         </div>
       </div>
       <div className="flex base:flex-col md:flex-row items-center gap-[6px] base:mt-[20px] md:mt-[14px]">
@@ -72,7 +74,7 @@ export const HomeFooter = () => {
           </p>
         </div>
         <div className="flex flex-row gap-[12px] items-center">
-          <Link
+          <a
             className={twJoin(
               'typo-uncut-body-06',
               'm-0',
@@ -84,9 +86,9 @@ export const HomeFooter = () => {
             href="tel:02-336-6777"
           >
             대표번호 02-336-6777
-          </Link>
+          </a>
           <Divider />
-          <Link
+          <a
             className={twJoin(
               'typo-uncut-body-06',
               'm-0',
@@ -98,7 +100,7 @@ export const HomeFooter = () => {
             href="tel:02-336-6777"
           >
             팩스 02-336-6779
-          </Link>
+          </a>
         </div>
         <div className="flex flex-row ml-[6px] gap-[12px] items-center">
           <Divider className="base:hidden md:block" />
