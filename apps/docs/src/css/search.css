@@ -1,6 +1,6 @@
 /* Search */
 .navbar__items.navbar__items--right > :nth-child(3) {
-  background-color: rgba(23, 23, 23, 0.05);
+  background-color: transparent;
   @apply !p-0 !rounded-[12px];
 }
 
