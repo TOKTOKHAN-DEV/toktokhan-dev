@@ -186,7 +186,7 @@ export const Section8 = () => {
   }
 
   return (
-    <div className="flex flex-col w-full base:mt-[360px] md:mt-[320px] base:px-[16px] base:max-w-[404px] md:max-w-full mx-auto">
+    <div className="flex flex-col w-full base:mt-[360px] md:mt-[320px] base:px-[16px] base:max-w-[404px] md:max-w-full mx-auto overflow-x-hidden">
       <div className="flex flex-col items-center justify-center">
         <span className="px-[12px] py-[8px] rounded-[12px] bg-accent-brewin-blue">
           <span className="text-content-8 typo-uncut-body-05">

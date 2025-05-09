@@ -21,7 +21,7 @@ import {
 
 export const Section7 = () => {
   return (
-    <div className="flex flex-col w-full mt-[240px] base:max-w-[404px] md:max-w-[100vw] mx-auto">
+    <div className="flex flex-col w-full mt-[240px] base:max-w-[404px] md:max-w-[100vw] mx-auto overflow-x-hidden">
       <div className="mt-[64px] flex ">
         <div className="md:hidden w-full max-w-[100vw] relative">
           <div className="absolute left-0 top-0 w-[60px] h-full bg-transparent bg-gradient-to-r from-background-basic-1 to-transparent z-10" />
