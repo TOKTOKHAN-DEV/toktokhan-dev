@@ -69,29 +69,15 @@ nav.navbar {
 }
 .header-github-link::before {
   content: '';
-  width: 40px;
-  height: 40px;
+  width: 24px;
+  height: 24px;
   display: flex;
-  background-image: url('../../static/icons/github.svg') !important;
-  background-size: 24px 24px;
-  background-repeat: no-repeat;
-  background-position: center center;
+  transition: opacity 0.2s ease-in-out;
+  background: url(../../static/icons/github.svg) no-repeat center;
 }
-[data-theme='dark'] {
-  .header-github-link::before {
-    content: '';
-    width: 40px;
-    height: 40px;
-    display: flex;
-    background-image: url('../../static/icons/github-dark.svg') !important;
-    background-size: 24px 24px;
-    background-repeat: no-repeat;
-    background-position: center center;
-  }
-  /* .header-github-link::before {
-    @apply hover:bg-tokColor-background.primary.hover;
-    background-image: url('../../static/icons/github-white.svg') !important;
-  } */
+
+[data-theme='dark'] .header-github-link::before {
+  background: url(../../static/icons/github-dark.svg) no-repeat center;
 }
 
 /* dark mode toggle */
