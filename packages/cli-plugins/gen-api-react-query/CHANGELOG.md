@@ -1,5 +1,11 @@
 # @toktokhan-dev/cli-plugin-gen-api-react-query
 
+## 0.1.4
+
+### Patch Changes
+
+- [`b70ec9a`](https://github.com/TOKTOKHAN-DEV/toktokhan-dev/commit/b70ec9a711a9e868e97bfd39b279db4764487d98) Thanks [@Eunkyung-Son](https://github.com/Eunkyung-Son)! - fetch paramsSerialize 대응 및 fetchExtend 임포트 방식 변경
+
 ## 0.1.3
 
 ### Patch Changes
