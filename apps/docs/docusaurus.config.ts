@@ -38,8 +38,8 @@ const config = {
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: 'ko',
+    locales: ['ko'],
   },
 
   presets: [
@@ -84,7 +84,7 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     {
-      image: 'img/ui/logo.webp',
+      image: 'img/ui/og.png', // og
       algolia: {
         appId: process.env.ALGOLIA_APP_ID,
         apiKey: process.env.ALGOLIA_API_KEY,
@@ -94,16 +94,16 @@ const config = {
       colorMode: {
         defaultMode: 'light',
         disableSwitch: false,
-        respectPrefersColorScheme: true,
+        respectPrefersColorScheme: false,
       },
       navbar: {
         // title: 'TokDocs',
         logo: {
           href: '/',
           alt: 'TokDocs Logo',
-          src: 'img/ui/logo.webp',
-          srcDark: 'img/ui/logo.webp',
-          width: 108,
+          src: 'img/ui/brewin.png',
+          srcDark: 'img/ui/brewin-white.png',
+          width: 100,
         },
         items: [
           {

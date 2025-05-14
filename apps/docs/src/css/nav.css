@@ -2,76 +2,116 @@
 
 nav.navbar {
   box-shadow: none;
-  @apply border-solid border-y-0 border-x-0 !border-b-[1px] !border-tokColor-border.primary;
+  @apply border-solid border-y-0 border-x-0;
   @apply flex justify-center items-center;
-  @apply h-[72px];
-  @apply base:py-[24px] base:px-[16px];
-  @apply md:py-[16px] md:px-[96px];
+  @apply h-[64px];
+  @apply base:py-[0px] base:px-[16px];
+  @apply md:py-[0px] md:px-[40px];
 }
 
-.navbar__item,
-.menu__link {
-  @apply tokFont-pre-body-05;
-  @apply text-tokColor-text.tertiary;
-  @apply hover:!text-tokColor-text.brand;
+.navbar__brand,
+.navbar__logo {
+  display: flex;
+  width: 100px;
+  height: 24px;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0px;
 }
 
-.menu__link--active,
-.navbar__link--active {
-  @apply !text-tokColor-text.brand;
+.navbar__brand {
+  margin-right: 56px;
 }
 
-.navbar__items.navbar__items--right {
-  @apply !gap-[12px];
+.navbar__logo img {
+  height: 24px !important;
 }
 
-.theme-doc-sidebar-menu {
-  padding-bottom: 96px;
+/* left nav */
+.navbar__item.navbar__link.nav-item {
+  color: var(--color-content-3, #767676);
+  font-family: 'Uncut Sans';
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 160%; /* 22.4px */
+  letter-spacing: -0.28px;
+  padding: 0px;
+  height: 22px;
+  margin-right: 40px;
 }
 
-/* Github Icon */
+/* left nav item(API) */
+.navbar__item.navbar__link.nav-item:last-child {
+  margin-right: 0;
+}
+
+/* right items */
+/* github logo */
 .navbar__items.navbar__items--right > :nth-child(1) {
-  @apply p-0;
-}
+  padding: 0;
+  margin-right: 8px;
 
+  &:hover {
+    background-color: var(--ifm-color-emphasis-200);
+    border-radius: 100%;
+  }
+}
+.navbar__items.navbar__items--right > :nth-child(2) {
+  padding: 0;
+  margin-right: 8px;
+  width: 40px;
+  height: 40px;
+  &:hover {
+    background-color: var(--ifm-color-emphasis-200);
+    border-radius: 100%;
+  }
+}
 .header-github-link::before {
-  @apply bg-tokColor-background.primary rounded-full;
-  @apply hover:bg-tokColor-background.primary.hover;
-  @apply border-solid border-[1px] border-tokColor-border.primary;
   content: '';
   width: 40px;
   height: 40px;
   display: flex;
-  background-image: url('../../static/icons/github-black.svg') !important;
+  background-image: url('../../static/icons/github.svg') !important;
   background-size: 24px 24px;
   background-repeat: no-repeat;
   background-position: center center;
 }
-
 [data-theme='dark'] {
   .header-github-link::before {
+    content: '';
+    width: 40px;
+    height: 40px;
+    display: flex;
+    background-image: url('../../static/icons/github-dark.svg') !important;
+    background-size: 24px 24px;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+  /* .header-github-link::before {
     @apply hover:bg-tokColor-background.primary.hover;
     background-image: url('../../static/icons/github-white.svg') !important;
-  }
+  } */
 }
 
-.toggle_------node_modules--pnpm-\@docusaurus\+theme-classic\@3-1-1_\@types\+react\@18-3-3_eslint\@8-57-0_react-dom\@18-3-1_react\@18-2-0_typescript\@5-4-5-node_modules-\@docusaurus-theme-classic-lib-theme-ColorModeToggle-styles-module {
+/* dark mode toggle */
+/* .toggle_------node_modules--pnpm-\@docusaurus\+theme-classic\@3-1-1_\@types\+react\@18-3-3_eslint\@8-57-0_react-dom\@18-3-1_react\@18-2-0_typescript\@5-4-5-node_modules-\@docusaurus-theme-classic-lib-theme-ColorModeToggle-styles-module {
   width: 40px;
-
-  @apply bg-tokColor-background.primary rounded-full;
-}
+} */
 
 /* Color Mode Toggle Icon */
-.navbar__items.navbar__items--right > :nth-child(2) {
-  @apply bg-tokColor-background.primary rounded-full;
-  @apply border-solid border-[1px] border-tokColor-border.primary;
-  @apply !text-[#F9D414];
-  width: 40px;
-  height: 40px;
-}
+/* .navbar__items.navbar__items--right > :nth-child(2) { */
+/* width: 40px; */
+/* height: 40px; */
+/* margin-right: 12px; */
+/* } */
 
-[data-theme='dark'] {
-  .navbar__items.navbar__items--right > :nth-child(2) {
-    @apply !text-[#6271FF] !fill-[#6271FF];
-  }
-}
+/* [data-theme='dark'] { */
+/* .navbar__items.navbar__items--right > :nth-child(2) { */
+/* @apply !text-[#6271FF] !fill-[#6271FF]; */
+/* } */
+/* } */
+
+/* .theme-doc-sidebar-menu {
+  padding-bottom: 96px;
+} */

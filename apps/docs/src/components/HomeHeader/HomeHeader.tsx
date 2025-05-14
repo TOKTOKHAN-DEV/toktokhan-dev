@@ -5,7 +5,6 @@ import Heading from '@theme/Heading'
 import clsx from 'clsx'
 import { twMerge } from 'tailwind-merge'
 
-import Button from '../Button'
 import DocLink from '../DocLink'
 
 const HomeHeader = () => {

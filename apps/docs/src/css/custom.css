@@ -17,8 +17,34 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'Pretendard';
+  font-family: 'Pretendard Variable';
   src: url('../../static/fonts/pretendard/PretendardVariable.woff2')
+    format('woff2');
+}
+
+@font-face {
+  font-family: 'Uncut Sans Variable';
+  src: url('../../static/fonts/uncut-sans/UncutSansVariable.woff2')
+    format('woff2');
+}
+
+/* monaspace-neon-latin-400-normal */
+@font-face {
+  font-family: 'Monaspace Neon';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/monaspace-neon@latest/latin-400-normal.woff2)
+    format('woff2');
+}
+
+/* monaspace-neon-latin-600-normal */
+@font-face {
+  font-family: 'Monaspace Neon';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/monaspace-neon@latest/latin-600-normal.woff2)
     format('woff2');
 }
 
