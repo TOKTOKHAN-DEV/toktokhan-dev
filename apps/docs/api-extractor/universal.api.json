@@ -1,7 +1,7 @@
 {
   "metadata": {
     "toolPackage": "@microsoft/api-extractor",
-    "toolVersion": "7.47.9",
+    "toolVersion": "7.52.8",
     "schemaVersion": 1011,
     "oldestForwardsCompatibleVersion": 1001,
     "tsdocConfig": {
@@ -2488,34 +2488,25 @@
             },
             {
               "kind": "Content",
-              "text": "(input: string | "
+              "text": "(...args: "
             },
             {
               "kind": "Reference",
-              "text": "URL",
-              "canonicalReference": "!URL:interface"
+              "text": "Parameters",
+              "canonicalReference": "!Parameters:type"
             },
             {
               "kind": "Content",
-              "text": " | "
+              "text": "<typeof "
             },
             {
               "kind": "Reference",
-              "text": "Request",
-              "canonicalReference": "!Request:interface"
+              "text": "fetch",
+              "canonicalReference": "!fetch:function"
             },
             {
               "kind": "Content",
-              "text": ", init?: "
-            },
-            {
-              "kind": "Reference",
-              "text": "RequestInit",
-              "canonicalReference": "!RequestInit:interface"
-            },
-            {
-              "kind": "Content",
-              "text": " | undefined) => "
+              "text": ">) => "
             },
             {
               "kind": "Reference",
@@ -2539,7 +2530,7 @@
           "fileUrlPath": "dist/index.doc.d.ts",
           "returnTypeTokenRange": {
             "startIndex": 3,
-            "endIndex": 14
+            "endIndex": 12
           },
           "releaseTag": "Public",
           "overloadIndex": 1,
@@ -2857,7 +2848,7 @@
             },
             {
               "kind": "Content",
-              "text": "T extends "
+              "text": "(T extends "
             },
             {
               "kind": "Reference",
@@ -2866,7 +2857,7 @@
             },
             {
               "kind": "Content",
-              "text": "<infer U> ? U : never"
+              "text": "<infer U> ? U : never)"
             },
             {
               "kind": "Content",
@@ -2978,7 +2969,7 @@
             },
             {
               "kind": "Content",
-              "text": "T extends "
+              "text": "(T extends "
             },
             {
               "kind": "Reference",
@@ -2987,7 +2978,7 @@
             },
             {
               "kind": "Content",
-              "text": "<infer U> ? U : never"
+              "text": "<infer U> ? U : never)"
             },
             {
               "kind": "Content",
@@ -3299,7 +3290,7 @@
             },
             {
               "kind": "Content",
-              "text": "(<T>() => T extends X ? 1 : 2) extends <T>() => T extends Y ? 1 : 2 ? A : B"
+              "text": "(<T>() => T extends X ? 1 : 2) extends (<T>() => T extends Y ? 1 : 2) ? A : B"
             },
             {
               "kind": "Content",
@@ -5881,7 +5872,7 @@
             },
             {
               "kind": "Content",
-              "text": "T extends (param: infer U) => any ? U : never"
+              "text": "T extends ((param: infer U) => any) ? U : never"
             },
             {
               "kind": "Content",

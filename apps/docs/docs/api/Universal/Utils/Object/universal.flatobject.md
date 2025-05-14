@@ -14,7 +14,7 @@ slug: /universal.flatobject
 ## Signature
 
 ```typescript
-flatObject: <T extends RecursiveObj<any>, V = T extends RecursiveObj<infer U> ? U : never>(params: FlatObjectParams<T, V>, obj: T) => Record<string, V>
+flatObject: <T extends RecursiveObj<any>, V = (T extends RecursiveObj<infer U> ? U : never)>(params: FlatObjectParams<T, V>, obj: T) => Record<string, V>
 ```
 
 ## Parameters

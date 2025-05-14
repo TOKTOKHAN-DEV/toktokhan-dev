@@ -14,7 +14,7 @@ slug: /universal.parameter
 ## Signature
 
 ```typescript
-type Parameter<T> = T extends (param: infer U) => any ? U : never;
+type Parameter<T> = T extends ((param: infer U) => any) ? U : never;
 ```
 
 ## Example

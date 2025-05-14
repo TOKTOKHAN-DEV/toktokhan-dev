@@ -14,7 +14,7 @@ slug: /universal.fetchhelper
 ## Signature
 
 ```typescript
-fetchHelper: (defaultOptions?: FetchHelperDefaultOptions) => (input: string | URL | Request, init?: RequestInit | undefined) => Promise<Response>
+fetchHelper: (defaultOptions?: FetchHelperDefaultOptions) => (...args: Parameters<typeof fetch>) => Promise<Response>
 ```
 
 ## Parameters
@@ -54,7 +54,7 @@ _(Optional)_ fetchHelper 함수의 옵션입니다.
 </tbody></table>
 ## Returns
 
-(input: string \| URL \| Request, init?: RequestInit \| undefined) =&gt; Promise&lt;Response&gt;
+(...args: Parameters&lt;typeof fetch&gt;) =&gt; Promise&lt;Response&gt;
 
 ## Example
 

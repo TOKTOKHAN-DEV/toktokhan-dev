@@ -15,7 +15,7 @@ slug: /universal.flatobjectparams
 ## Signature
 
 ```typescript
-type FlatObjectParams<T extends RecursiveObj<any>, V = T extends RecursiveObj<infer U> ? U : never> = {
+type FlatObjectParams<T extends RecursiveObj<any>, V = (T extends RecursiveObj<infer U> ? U : never)> = {
   isValueType?: (value: T | V) => boolean;
   formatKey?: (parentKey: string | null, currentKey: string) => string;
   formatValue?: (data: {
