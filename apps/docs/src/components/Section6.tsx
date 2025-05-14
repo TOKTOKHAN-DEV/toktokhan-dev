@@ -8,7 +8,7 @@ export const Section6 = () => {
   return (
     <div
       ref={animatedBoxRef}
-      className="bg-background-basic-5 flex flex-col items-center base:py-[80px] md:py-[120px] base:max-w-[404px] md:max-w-full overflow-x-hidden mx-auto "
+      className="bg-background-basic-5 flex flex-col items-center base:py-[80px] md:py-[120px] base:max-w-[404px] md:max-w-full overflow-x-hidden mx-auto"
     >
       {/* Badge & Title */}
       <div className="inline-block rounded-[12px] bg-background-inverse-1 px-[12px] py-[8px] typo-uncut-body-05 text-content-8 mb-[16px]">
@@ -40,9 +40,9 @@ export const Section6 = () => {
       </p>
 
       {/* Cards Container */}
-      <div className="flex base:flex-col md:flex-row gap-[8px] md:px-0 base:w-[454px] md:w-full mx-auto justify-center">
+      <div className="flex base:flex-col md:flex-row gap-[8px] md:px-0 base:w-[404px] md:w-full mx-auto justify-center">
         <SocialLoginCard />
-        <div className="flex flex-col gap-[8px]">
+        <div className="flex flex-col gap-[8px] base:mx-auto md:mx-0">
           <CardContainer className="base:w-[380px] md:w-[454px] h-[316px] base:rounded-[40px] md:rounded-t-[40px] base:overflow-hidden md:overflow-visible">
             <MapPinIcon className="size-[240px] absolute top-[-40px] right-0" />
             <div className="z-10">
@@ -98,7 +98,7 @@ const CardContainer = ({ children, className }: CardContainerProps) => {
 
 const SocialLoginCard = () => {
   return (
-    <div className="relative base:w-[380px] md:w-[608px] base:h-[496px] md:h-[640px] rounded-[40px] bg-background-basic-1 px-[28px]">
+    <div className="relative base:w-[380px] md:w-[608px] base:h-[496px] md:h-[640px] rounded-[40px] bg-background-basic-1 px-[28px] base:mx-auto md:mx-0">
       <img
         src="/img/ui/social.webp"
         alt="social"
