@@ -108,21 +108,6 @@ const describeReturnType = () => {
     }
 }
 
-const generatePathSegments = (path) => {
-  const segments = [];
-  const parts = path.split('/').filter(part => part.length > 0);
-
-  let currentPath = '';
-  for (const part of parts) {
-    currentPath += `/${part}`;
-    segments.push(`${currentPath}`);
-  }
-
-  return segments;
-}
-
-const pathSegments = generatePathSegments(pathWithVariables).map(segment => `\`${segment}\``).join(', ');
-
 %>
 /**
 <%~ routeDocs.description %>
@@ -144,8 +129,4 @@ const pathSegments = generatePathSegments(pathWithVariables).map(segment => `\`$
         <%~ responseFormatTmpl ? `format: ${responseFormatTmpl},` : '' %>
         <%~ paramsSerializerTmpl ? `paramsSerializer: ${paramsSerializerTmpl},` : '' %>
         ...<%~ `${conditionalVriablesText}`%>.<%~ _.get(requestConfigParam, "name") %>,
-        next: {
-            ...<%~ `${conditionalVriablesText}`%>.<%~ _.get(requestConfigParam, "name") %>?.next,
-            tags: [<%= pathSegments %>],
-        },
     })

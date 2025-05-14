@@ -184,7 +184,11 @@ export class HttpClient<SecurityDataType = unknown> {
 <% } %>
         const secureParams = ((typeof secure === 'boolean' ? secure : this.baseApiParams.secure) && this.securityWorker && await this.securityWorker(this.securityData)) || {};
         const requestParams = this.mergeRequestParams(params, secureParams);
-        const queryString = query && this.toQueryString(query);
+        const queryString =
+            query &&
+            (params.paramsSerializer ?
+                params.paramsSerializer(query)
+            : this.toQueryString(query))
         const payloadFormatter = this.contentFormatters[type || ContentType.Json];
         const responseFormat = format || requestParams.format;
 

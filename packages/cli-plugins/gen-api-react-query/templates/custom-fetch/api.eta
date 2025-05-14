@@ -131,7 +131,7 @@ const dataForReactHookTemplate = {
 import { useQuery, useMutation, useInfiniteQuery, useSuspenseQuery, useSuspenseInfiniteQuery, InfiniteData } from '@tanstack/react-query';
 import { QueryHookParams, InfiniteQueryHookParams, MutationHookParams, Parameter, RequestFnReturn, SuspenseInfiniteQueryHookParams, SuspenseQueryHookParams } from "../@types/react-query-type";
 import { paramsSerializerBy } from "../@utils/param-serializer-by";
-import fetchExtended from "<%= instancePath %>";
+import { fetchExtended } from "<%= instancePath %>";
 
 import { HttpClient, RequestParams, ContentType, HttpResponse } from "../@<%~ config.fileNames.httpClient %>";
 import { DeepOmitReadOnly } from '../@types/util-types';
