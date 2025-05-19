@@ -1,10 +1,19 @@
 import { ReactNode } from 'react'
 
-import { Box, BoxProps, Center, StackProps, VStack } from '@chakra-ui/layout'
+import {
+  Box,
+  BoxProps,
+  Center,
+  Grid,
+  StackProps,
+  VStack,
+} from '@chakra-ui/layout'
 import { Spinner } from '@chakra-ui/spinner'
 import { useIntersectionObserver } from '@toktokhan-dev/react-web'
 
 import { isEmpty } from 'lodash'
+
+type Direction = 'vertical' | 'horizontal'
 
 export interface InfinityListProps<T> {
   /**
@@ -46,6 +55,12 @@ export interface InfinityListProps<T> {
    * 데이터가 없을 때 보여줄 컴포넌트
    */
   empty?: ReactNode
+
+  /**
+   * 렌더링할 아이템의 방향
+   * @default "vertical"
+   */
+  direction?: Direction
 
   /**
    * 스타일
@@ -103,6 +118,7 @@ export interface InfinityListProps<T> {
 export const InfinityList = <T,>({
   data,
   renderItem,
+  direction,
   hasMore,
   isFetching,
   onFetchMore,
@@ -135,26 +151,47 @@ export const InfinityList = <T,>({
 
   return (
     <Box aria-label={'container'} {...styles?.container}>
-      <VStack
-        as={'ul'}
-        aria-label={'list-container'}
-        w={'100%'}
-        spacing={'0px'}
-        listStyleType={'none'}
-        {...styles?.listContainer}
-      >
-        {data?.map((item, index) => (
-          <Box
-            as={'li'}
-            key={index}
-            aria-label={'item-container'}
-            w={'100%'}
-            {...styles?.itemContainer}
-          >
-            {renderItem(item, index)}
-          </Box>
-        ))}
-      </VStack>
+      {(!direction || direction === 'vertical') && (
+        <VStack
+          as={'ul'}
+          aria-label={'list-container'}
+          w={'100%'}
+          spacing={'0px'}
+          listStyleType={'none'}
+          {...styles?.listContainer}
+        >
+          {data?.map((item, index) => (
+            <Box
+              as={'li'}
+              key={index}
+              aria-label={'item-container'}
+              w={'100%'}
+              {...styles?.itemContainer}
+            >
+              {renderItem(item, index)}
+            </Box>
+          ))}
+        </VStack>
+      )}
+
+      {direction === 'horizontal' && (
+        <Grid
+          aria-label={'list-container'}
+          w={'100%'}
+          {...styles?.listContainer}
+        >
+          {data?.map((item, index) => (
+            <Box
+              key={index}
+              aria-label={'item-container'}
+              w={'100%'}
+              {...styles?.itemContainer}
+            >
+              {renderItem(item, index)}
+            </Box>
+          ))}
+        </Grid>
+      )}
       <Box aria-label={'flag'} ref={bottomRef} {...styles?.bottomFlag}>
         {isFetching && spinner}
       </Box>
