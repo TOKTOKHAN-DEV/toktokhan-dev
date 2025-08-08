@@ -158,6 +158,39 @@ export const genApi = defineCommand<'gen:api', GenerateSwaggerApiConfig>({
           })
         },
       )
+
+      // 최종 단계 포매팅: 디렉터리 전체를 한 번에 포맷
+      await withLoading('Prettier format', covered.output, async () => {
+        const fs = await import('fs')
+        const pathMod = await import('path')
+        const { prettierString } = await import('@toktokhan-dev/node')
+        const listTsFiles = (dir: string): string[] => {
+          const entries = fs.readdirSync(dir, { withFileTypes: true })
+          const files: string[] = []
+          for (const entry of entries) {
+            const full = pathMod.resolve(dir, entry.name)
+            if (entry.isDirectory()) {
+              files.push(...listTsFiles(full))
+            } else if (entry.isFile() && full.endsWith('.ts')) {
+              files.push(full)
+            }
+          }
+          return files
+        }
+        const files = listTsFiles(covered.output)
+        for (const file of files) {
+          try {
+            const raw = fs.readFileSync(file, 'utf8')
+            const formatted = await prettierString(raw, {
+              parser: 'typescript',
+              configPath: 'auto',
+            })
+            fs.writeFileSync(file, formatted)
+          } catch {
+            console.warn('Prettier final pass failed for', file)
+          }
+        }
+      })
     }
   },
 })
