@@ -1,5 +1,11 @@
 # @toktokhan-dev/cli-plugin-gen-api-react-query
 
+## 0.1.5
+
+### Patch Changes
+
+- [`3c462ea`](https://github.com/TOKTOKHAN-DEV/toktokhan-dev/commit/3c462eaaa3bbe68d649d2bbb40f0abf997ce26e8) Thanks [@pqr4579](https://github.com/pqr4579)! - add swagger urls fields
+
 ## 0.1.4
 
 ### Patch Changes
@@ -72,22 +78,17 @@
   > [tanstack React-query suspense](https://tanstack.com/query/latest/docs/framework/react/guides/suspense) > [React suspense](https://ko.react.dev/reference/react/Suspense)
 
   ## 주요 변경 사항
-
   1. `GenerateSwaggerApiConfig` 인터페이스에 새로운 옵션 추가:
-
      - `includeReactSuspenseQuery`: React Suspense Query 생성 여부를 결정하는 불리언 값으로 true로 설정시 React Query useSuspense를 반환하는 hook을 생성 해줍니다. 기본 값은 `false`입니다.
 
   2. GET 요청에 대한 Suspense Query 지원:
-
      - 기존에 `useQuery`로 사용되던 GET 엔드포인트에 대해서 Suspense Query 훅과 옵션이 생성됩니다.
 
   3. `includeReactInfiniteQuery` 제거:
      `useQuery` hook 생성에 한해서는 기존의 `includeReactInfiniteQuery` 옵션이 제거되고, `includeReactQuery`로 통합되었습니다. 기본값은 `true`입니다.
 
   ## 새로운 기능 상세 설명
-
   1. Suspense 기반 쿼리 훅:
-
      - 각 API 엔드포인트에 대해 `use[ApiName]SuspenseQuery` 훅이 생성됩니다.
      - 이 훅은 `useSuspenseQuery`를 사용하여 Suspense 기반의 데이터 fetching을 지원합니다.
 
@@ -400,7 +401,6 @@
 ### Patch Changes
 
 - 2ec5863: cli 관련 네이밍 오타를 수정하였습니다.
-
   - paginations -> paginationSets
   - isOptialnalVariabels -> isOptionalVariables
 
