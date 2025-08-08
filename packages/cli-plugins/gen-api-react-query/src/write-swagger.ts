@@ -8,7 +8,7 @@ import { GenerateApiOutput } from 'swagger-typescript-api'
 
 import { GENERATE_SWAGGER_DATA } from './constants'
 
-import { GenerateSwaggerApiConfig } from '.'
+import { GenerateSwaggerApiConfig, mergeTypeScriptContent } from '.'
 
 const {
   TYPE_FILE,
@@ -97,7 +97,27 @@ async function generatePretty(path: string, contents: string) {
 }
 
 function generate(path: string, contents: string) {
-  fs.writeFileSync(path, contents)
+  // 기존 파일이 있으면 읽어서 병합
+  let existingContent = ''
+  try {
+    if (fs.existsSync(path)) {
+      existingContent = fs.readFileSync(path, 'utf8')
+      console.log('🔧 [SMART-MERGE] Found existing file, merging:', path)
+    }
+  } catch (err) {
+    console.log('🔧 [SMART-MERGE] No existing file found:', path)
+  }
+
+  // 기존 내용이 있으면 병합
+  if (existingContent) {
+    // 스마트 병합: 중복 타입 제거
+    const mergedContent = mergeTypeScriptContent(existingContent, contents)
+    fs.writeFileSync(path, mergedContent)
+    console.log('🔧 [SMART-MERGE] Smart merged content for:', path)
+  } else {
+    fs.writeFileSync(path, contents)
+    console.log('🔧 [SMART-MERGE] Created new file:', path)
+  }
 }
 
 export function splitHookContents(filename: string, content: string) {

@@ -46,7 +46,7 @@
     "eta": "^3.4.0",
     "lodash": "^4.17.21",
     "prettier-plugin-organize-imports": "^3.2.4",
-    "swagger-typescript-api": "^13.0.3"
+    "swagger-typescript-api": "13.0.22"
   },
   "devDependencies": {
     "@toktokhan-dev/ts-config": "workspace:*",

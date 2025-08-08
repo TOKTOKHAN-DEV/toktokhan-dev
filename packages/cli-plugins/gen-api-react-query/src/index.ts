@@ -1,6 +1,9 @@
 import { defineCommand } from '@toktokhan-dev/cli'
 import { cwd, withLoading } from '@toktokhan-dev/node'
 
+import { omit } from 'lodash'
+import { GenerateApiOutput } from 'swagger-typescript-api'
+
 import { GENERATE_SWAGGER_DATA } from './constants'
 import { parseSwagger } from './parse-swagger'
 import { writeSwaggerApiFile } from './write-swagger'
@@ -36,11 +39,16 @@ export interface PaginationConfig {
 /**
  * @category Types
  */
-export interface GenerateSwaggerApiConfig {
+type SwaggerSchemaOption =
+  | { swaggerSchemaUrl: string; swaggerSchemaUrls?: never }
+  | { swaggerSchemaUrl?: never; swaggerSchemaUrls: string[] }
+
+export type GenerateSwaggerApiConfig = SwaggerSchemaOption & {
   /** 조회할 스웨거의 url 혹은 file(yaml, json) 경로 입니다. 통상적으로
    * 백앤드 개발자에게 공유받은  api-swagger-url 의 '/openapi.json' 경로에 해당합니다.
    */
-  swaggerSchemaUrl: string
+  /** 단일 스웨거 URL 또는 다중 스웨거 URL 중 하나만 입력할 수 있습니다 */
+  /** 다중 URL 지원: 여러 스웨거 URL을 배열로 받아서 처리합니다. */
   /** 생성될 파일들이 위치할 경로입니다. */
   output: string
   /** 생성되는 코드의 useQuery, useInfiniteQuery 포함 여부 입니다. */
@@ -82,8 +90,22 @@ export const genApi = defineCommand<'gen:api', GenerateSwaggerApiConfig>({
     const isWebUrl = (string: string) =>
       string.startsWith('http://') || string.startsWith('https://')
 
-    const coverPath = (config: GenerateSwaggerApiConfig) => {
-      const { httpClientType, swaggerSchemaUrl, output } = config
+    // 다중 URL 처리 로직 추가
+    const urls = (() => {
+      if ('swaggerSchemaUrls' in config) {
+        return config.swaggerSchemaUrls as string[]
+      }
+
+      if ('swaggerSchemaUrl' in config) {
+        return [config.swaggerSchemaUrl as string]
+      }
+      return []
+    })()
+
+    console.log('🔧 [MULTI-URL] Processing URLs:', urls)
+
+    const coverPath = (config: GenerateSwaggerApiConfig, url: string) => {
+      const { httpClientType, output } = config
       const { AXIOS_DEFAULT_INSTANCE_PATH, FETCH_DEFAULT_INSTANCE_PATH } =
         GENERATE_SWAGGER_DATA
 
@@ -96,35 +118,175 @@ export const genApi = defineCommand<'gen:api', GenerateSwaggerApiConfig>({
       return {
         ...config,
         instancePath,
-        swaggerSchemaUrl:
-          isWebUrl(swaggerSchemaUrl) ? swaggerSchemaUrl : cwd(swaggerSchemaUrl),
+        swaggerSchemaUrl: isWebUrl(url) ? url : cwd(url),
         output: cwd(output),
       }
     }
 
-    const covered = coverPath(config)
-    const parsed = await withLoading(
-      `Parse Swagger`,
-      covered.swaggerSchemaUrl,
-      () => {
-        return parseSwagger(covered)
-      },
-    )
-    if (!parsed) {
-      console.error('Failed to generate api: swagger parse error.')
-      return
+    // 각 URL별로 순차 처리
+    for (let i = 0; i < urls.length; i++) {
+      const url = urls[i]
+      console.log(
+        `🔧 [MULTI-URL] Processing URL ${i + 1}/${urls.length}: ${url}`,
+      )
+
+      const covered = coverPath(config, url)
+      const parsed = await withLoading(
+        `Parse Swagger ${i + 1}/${urls.length}`,
+        'swaggerSchemaUrl' in covered ? covered.swaggerSchemaUrl : '',
+        () => {
+          return parseSwagger(omit(covered, 'swaggerSchemaUrls'))
+        },
+      )
+
+      if (!parsed) {
+        console.error(
+          `Failed to generate api for URL ${i + 1}: swagger parse error.`,
+        )
+        continue
+      }
+
+      withLoading(
+        'Write Swagger API', //
+        covered.output,
+        (spinner) => {
+          writeSwaggerApiFile({
+            input: parsed as GenerateApiOutput,
+            output: covered.output,
+            spinner,
+            config,
+          })
+        },
+      )
     }
-    withLoading(
-      'Write Swagger API', //
-      covered.output,
-      (spinner) => {
-        writeSwaggerApiFile({
-          input: parsed,
-          output: covered.output,
-          spinner,
-          config,
-        })
-      },
-    )
   },
 })
+
+/**
+ * 스마트 타입 병합 함수들
+ */
+
+// 타입 정의 파싱 함수
+function parseTypeDefinitions(content: string): Record<string, string> {
+  const types: Record<string, string> = {}
+  // export type, interface, enum, const 패턴 매칭
+  const typeRegex =
+    /(export\s+(?:type|interface|enum|const)\s+(\w+)[\s\S]*?)(?=export\s+(?:type|interface|enum|const)\s+\w+|$)/g
+
+  let match
+  while ((match = typeRegex.exec(content)) !== null) {
+    const typeName = match[2]
+    const typeContent = match[1].trim()
+    types[typeName] = typeContent
+  }
+
+  return types
+}
+
+// (deprecated) 타입 문자열 변환 로직은 병합 로직 내에서 직접 조립합니다.
+
+// 스마트 타입 병합 함수
+export function mergeTypeScriptContent(
+  existing: string,
+  newContent: string,
+): string {
+  // 1) import 구문 보존 및 병합 (양쪽 모두에서 수집)
+  const importRegex = /^\s*import\s+[^;]*;\s*$/gm
+  const sideEffectImportRegex = /^\s*import\s+['"][^'"]+['"];\s*$/gm
+
+  const collectImports = (content: string) => {
+    const imports = new Set<string>()
+    const matchedA = content.match(importRegex) ?? []
+    const matchedB = content.match(sideEffectImportRegex) ?? []
+    ;[...matchedA, ...matchedB].forEach((line) => imports.add(line.trim()))
+    const contentWithoutImports = content
+      .replace(importRegex, '')
+      .replace(sideEffectImportRegex, '')
+    return { imports: Array.from(imports), body: contentWithoutImports }
+  }
+
+  const { imports: existingImports, body: existingBody } =
+    collectImports(existing)
+  const { imports: newImports, body: newBody } = collectImports(newContent)
+
+  // import 병합: 새 파일 기준 우선 순서 + 기존에만 있는 import 추가
+  const mergedImportSet = new Set<string>(newImports)
+  existingImports.forEach((imp) => mergedImportSet.add(imp))
+  const mergedImports = Array.from(mergedImportSet)
+
+  // 2) 타입 선언 병합 (중복 제거)
+  const typeBlockRegex =
+    /(export\s+(?:type|interface|enum|const)\s+\w+[\s\S]*?)(?=export\s+(?:type|interface|enum|const)\s+\w+|$)/g
+
+  const existingTypes = parseTypeDefinitions(existingBody)
+  const newTypes = parseTypeDefinitions(newBody)
+
+  console.log(
+    '🔧 [SMART-MERGE] Existing types count:',
+    Object.keys(existingTypes).length,
+  )
+  console.log('🔧 [SMART-MERGE] New types count:', Object.keys(newTypes).length)
+
+  const mergedTypes = { ...existingTypes }
+  let addedCount = 0
+  let skippedCount = 0
+
+  for (const [typeName, typeContent] of Object.entries(newTypes)) {
+    if (mergedTypes[typeName]) {
+      console.log('🔧 [SMART-MERGE] Skipping duplicate type:', typeName)
+      skippedCount++
+    } else {
+      mergedTypes[typeName] = typeContent
+      addedCount++
+    }
+  }
+
+  console.log(
+    '🔧 [SMART-MERGE] Added types:',
+    addedCount,
+    'Skipped duplicates:',
+    skippedCount,
+  )
+
+  const mergedTypesString = Object.values(mergedTypes).join('\n\n')
+
+  // 3) 기타 코드(타입/임포트 외)는 "새로운 내용"을 기준으로 유지
+  const removeHeaderComment = (content: string) => {
+    // 파일 상단의 블록 코멘트 혹은 연속된 라인 코멘트 제거
+    const blockCommentAtTop = content.match(/^\s*\/\*[\s\S]*?\*\/\s*/)
+    if (blockCommentAtTop) {
+      return content.slice(blockCommentAtTop[0].length)
+    }
+    const lineCommentsAtTop = content.match(/^(?:\s*\/\/.*\n)+/)
+    if (lineCommentsAtTop) {
+      return content.slice(lineCommentsAtTop[0].length)
+    }
+    return content
+  }
+
+  // 새 본문에서 타입 블록 제거 후 남은 코드
+  const newBodyWithoutTypes = (newBody || '').replace(typeBlockRegex, '')
+  const otherCodeFromNew = removeHeaderComment(newBodyWithoutTypes).trim()
+
+  // 4) 헤더 주석은 새 컨텐츠 상단의 헤더가 있으면 우선 사용, 없으면 기존의 것을 사용
+  const pickHeader = (content: string) => {
+    const block = content.match(/^\s*(\/\*[\s\S]*?\*\/)\s*/)
+    if (block) return block[1]
+    const lines = content.match(/^(?:\s*\/\/.*\n)+/)
+    if (lines) return lines[0].trimEnd()
+    return ''
+  }
+
+  const headerFromNew = pickHeader(newContent)
+  const headerFromExisting = pickHeader(existing)
+  const header = headerFromNew || headerFromExisting
+
+  // 5) 최종 조립
+  const parts: string[] = []
+  if (header) parts.push(header)
+  if (mergedImports.length > 0) parts.push(mergedImports.join('\n'))
+  if (mergedTypesString.trim().length > 0) parts.push(mergedTypesString)
+  if (otherCodeFromNew.length > 0) parts.push(otherCodeFromNew)
+
+  return parts.join('\n\n') + '\n'
+}

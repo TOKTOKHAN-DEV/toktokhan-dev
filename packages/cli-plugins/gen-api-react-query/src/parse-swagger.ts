@@ -14,7 +14,9 @@ const {
   USE_SUSPENSE_QUERY_HOOK_INDICATOR,
 } = GENERATE_SWAGGER_DATA
 
-export const parseSwagger = (config: GenerateSwaggerApiConfig) =>
+export const parseSwagger = (
+  config: GenerateSwaggerApiConfig & { swaggerSchemaUrl: string },
+) =>
   generateApi({
     templates:
       config.httpClientType === 'axios' ?
