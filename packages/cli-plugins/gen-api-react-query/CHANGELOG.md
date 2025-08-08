@@ -1,5 +1,11 @@
 # @toktokhan-dev/cli-plugin-gen-api-react-query
 
+## 0.1.6
+
+### Patch Changes
+
+- [`dc9b592`](https://github.com/TOKTOKHAN-DEV/toktokhan-dev/commit/dc9b592e4fd3918c405f8ac31dc23c0bdc4b290e) Thanks [@pqr4579](https://github.com/pqr4579)! - fix import statement place bottom line
+
 ## 0.1.5
 
 ### Patch Changes
