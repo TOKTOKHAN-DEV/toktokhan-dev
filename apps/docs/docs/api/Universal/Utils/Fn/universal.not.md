@@ -52,6 +52,7 @@ T
 
 </td></tr>
 </tbody></table>
+
 ## Returns
 
 (...args: Parameters&lt;T&gt;) =&gt; boolean

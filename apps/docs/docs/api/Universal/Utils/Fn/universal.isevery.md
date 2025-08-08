@@ -52,6 +52,7 @@ fns
 
 </td></tr>
 </tbody></table>
+
 ## Returns
 
 (...param: T) =&gt; boolean

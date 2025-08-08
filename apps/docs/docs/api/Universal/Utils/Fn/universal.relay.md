@@ -52,6 +52,7 @@ params
 
 </td></tr>
 </tbody></table>
+
 ## Returns
 
 Promise&lt;Selected&gt;

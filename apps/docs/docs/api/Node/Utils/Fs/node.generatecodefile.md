@@ -55,6 +55,7 @@ config
 
 </td></tr>
 </tbody></table>
+
 ## Returns
 
 (code: string) =&gt; Promise&lt;void&gt;

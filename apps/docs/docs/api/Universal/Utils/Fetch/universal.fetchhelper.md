@@ -52,6 +52,7 @@ _(Optional)_ fetchHelper 함수의 옵션입니다.
 
 </td></tr>
 </tbody></table>
+
 ## Returns
 
 (...args: Parameters&lt;typeof fetch&gt;) =&gt; Promise&lt;Response&gt;

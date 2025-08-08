@@ -52,6 +52,7 @@ string
 
 </td></tr>
 </tbody></table>
+
 ## Returns
 
 (base: string) =&gt; string

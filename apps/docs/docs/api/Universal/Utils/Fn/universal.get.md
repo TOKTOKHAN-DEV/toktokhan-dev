@@ -68,6 +68,7 @@ T
 
 </td></tr>
 </tbody></table>
+
 ## Returns
 
 [DeepValueOf](./universal.deepvalueof)&lt;T, K&gt;

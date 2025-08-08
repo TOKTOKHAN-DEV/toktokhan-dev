@@ -54,6 +54,7 @@ Description
 
 </td></tr>
 </tbody></table>
+
 ## Returns
 
 boolean

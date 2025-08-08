@@ -49,6 +49,7 @@ T
 
 </td></tr>
 </tbody></table>
+
 ## Returns
 
 value is NonNullable&lt;T&gt;

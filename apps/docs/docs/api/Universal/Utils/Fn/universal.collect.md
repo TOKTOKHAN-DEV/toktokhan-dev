@@ -52,6 +52,7 @@ arguments
 
 </td></tr>
 </tbody></table>
+
 ## Returns
 
 T[]

@@ -64,6 +64,7 @@ P \| PromiseLike&lt;P&gt;
 
 </td></tr>
 </tbody></table>
+
 ## Returns
 
 Promise&lt;R&gt;

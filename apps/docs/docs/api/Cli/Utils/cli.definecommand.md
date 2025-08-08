@@ -52,6 +52,7 @@ config
 
 </td></tr>
 </tbody></table>
+
 ## Returns
 
 [MyCommand](./cli.mycommand)&lt;Config, Name&gt;

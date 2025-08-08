@@ -52,6 +52,7 @@ Prettier 로그에 추가할 값
 
 </td></tr>
 </tbody></table>
+
 ## Returns
 
 void

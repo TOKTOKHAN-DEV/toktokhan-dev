@@ -68,6 +68,7 @@ _(Optional)_ prettier의 옵션입니다.
 
 </td></tr>
 </tbody></table>
+
 ## Returns
 
 Promise&lt;string&gt;

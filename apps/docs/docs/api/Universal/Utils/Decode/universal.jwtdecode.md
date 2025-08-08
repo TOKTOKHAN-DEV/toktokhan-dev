@@ -69,6 +69,7 @@ jwt decode option
 
 </td></tr>
 </tbody></table>
+
 ## Returns
 
 T

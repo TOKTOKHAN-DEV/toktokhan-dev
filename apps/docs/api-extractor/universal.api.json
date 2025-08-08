@@ -1,7 +1,7 @@
 {
   "metadata": {
     "toolPackage": "@microsoft/api-extractor",
-    "toolVersion": "7.52.8",
+    "toolVersion": "7.52.10",
     "schemaVersion": 1011,
     "oldestForwardsCompatibleVersion": 1001,
     "tsdocConfig": {
@@ -2426,11 +2426,7 @@
         {
           "kind": "TypeAlias",
           "canonicalReference": "@toktokhan-dev/universal!FetchArgs:type",
-<<<<<<< Updated upstream
           "docComment": "/**\n  *\n * fetch 함수의 args\n *\n * @throws\n *\n * {Error} 만약 fetch의 첫 번째 인자가 'Request' 객체인 경우에는 문자열과 URL만 지원됩니다.\n *\n * @see\n *\n * {@link https://developer.mozilla.org/ko/docs/Web/API/Fetch_API Fetch API}\n *\n * @see\n *\n * {@link https://developer.mozilla.org/ko/docs/Web/API/Request Request}\n *\n * @see\n *\n * {@link https://developer.mozilla.org/ko/docs/Web/API/Request/Request RequestInfo}\n *\n * @public\n */\n",
-=======
-          "docComment": "/**\n  *\n * fetch 함수의 args\n *\n * @throws\n *\n * {Error} 만약 fetch의 첫 번째 인자가 'Request' 객체인 경우에는 문자열과 URL만 지원됩니다.\n *\n * @see\n *\n * {fetch, RequestInfo, Request}\n *\n * @public\n */\n",
->>>>>>> Stashed changes
           "excerptTokens": [
             {
               "kind": "Content",

@@ -63,6 +63,7 @@ string
 
 </td></tr>
 </tbody></table>
+
 ## Returns
 
 PathObj&lt;T&gt;

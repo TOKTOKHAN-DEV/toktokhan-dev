@@ -55,6 +55,7 @@ string
 
 </td></tr>
 </tbody></table>
+
 ## Returns
 
 \{ owner: string; repo: string; \}

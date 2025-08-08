@@ -68,6 +68,7 @@ number \| [value: number, unit: [ByteUnit](./universal.byteunit)]
 
 </td></tr>
 </tbody></table>
+
 ## Returns
 
 boolean

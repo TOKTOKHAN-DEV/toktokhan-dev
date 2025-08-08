@@ -1,7 +1,7 @@
 {
   "metadata": {
     "toolPackage": "@microsoft/api-extractor",
-    "toolVersion": "7.52.8",
+    "toolVersion": "7.52.10",
     "schemaVersion": 1011,
     "oldestForwardsCompatibleVersion": 1001,
     "tsdocConfig": {
@@ -193,7 +193,7 @@
             {
               "kind": "Reference",
               "text": "GenerateSwaggerApiConfig",
-              "canonicalReference": "@toktokhan-dev/cli-plugin-gen-api-react-query!GenerateSwaggerApiConfig:interface"
+              "canonicalReference": "@toktokhan-dev/cli-plugin-gen-api-react-query!GenerateSwaggerApiConfig:type"
             },
             {
               "kind": "Content",
@@ -238,217 +238,106 @@
           "parameters": []
         },
         {
-          "kind": "Interface",
-          "canonicalReference": "@toktokhan-dev/cli-plugin-gen-api-react-query!GenerateSwaggerApiConfig:interface",
-          "docComment": "/**\n  */\n",
+          "kind": "TypeAlias",
+          "canonicalReference": "@toktokhan-dev/cli-plugin-gen-api-react-query!GenerateSwaggerApiConfig:type",
+          "docComment": "",
           "excerptTokens": [
             {
               "kind": "Content",
-              "text": "interface GenerateSwaggerApiConfig "
+              "text": "type GenerateSwaggerApiConfig = "
+            },
+            {
+              "kind": "Reference",
+              "text": "SwaggerSchemaOption",
+              "canonicalReference": "@toktokhan-dev/cli-plugin-gen-api-react-query!~SwaggerSchemaOption:type"
+            },
+            {
+              "kind": "Content",
+              "text": " & {\n  output: string;\n  includeReactQuery: boolean;\n  includeReactSuspenseQuery: boolean;\n  instancePath: string;\n  httpClientType: 'axios' | 'fetch';\n  paginationSets: "
+            },
+            {
+              "kind": "Reference",
+              "text": "PaginationConfig",
+              "canonicalReference": "@toktokhan-dev/cli-plugin-gen-api-react-query!PaginationConfig:interface"
+            },
+            {
+              "kind": "Content",
+              "text": "[];\n}"
+            },
+            {
+              "kind": "Content",
+              "text": ";"
             }
           ],
           "fileUrlPath": "dist/index.doc.d.ts",
           "releaseTag": "Public",
           "name": "GenerateSwaggerApiConfig",
-          "preserveMemberOrder": false,
-          "members": [
+          "typeTokenRange": {
+            "startIndex": 1,
+            "endIndex": 5
+          },
+          "parameters": []
+        },
+        {
+          "kind": "Function",
+          "canonicalReference": "@toktokhan-dev/cli-plugin-gen-api-react-query!mergeTypeScriptContent:function(1)",
+          "docComment": "",
+          "excerptTokens": [
             {
-              "kind": "PropertySignature",
-              "canonicalReference": "@toktokhan-dev/cli-plugin-gen-api-react-query!GenerateSwaggerApiConfig#httpClientType:member",
-              "docComment": "/**\n * http client 타입입니다.\n */\n",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "httpClientType: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "'axios' | 'fetch'"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "isReadonly": false,
-              "isOptional": false,
-              "releaseTag": "Public",
-              "name": "httpClientType",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
+              "kind": "Content",
+              "text": "declare function mergeTypeScriptContent(existing: "
             },
             {
-              "kind": "PropertySignature",
-              "canonicalReference": "@toktokhan-dev/cli-plugin-gen-api-react-query!GenerateSwaggerApiConfig#includeReactQuery:member",
-              "docComment": "/**\n * 생성되는 코드의 useQuery, useInfiniteQuery 포함 여부 입니다.\n */\n",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "includeReactQuery: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "boolean"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "isReadonly": false,
-              "isOptional": false,
-              "releaseTag": "Public",
-              "name": "includeReactQuery",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
+              "kind": "Content",
+              "text": "string"
             },
             {
-              "kind": "PropertySignature",
-              "canonicalReference": "@toktokhan-dev/cli-plugin-gen-api-react-query!GenerateSwaggerApiConfig#includeReactSuspenseQuery:member",
-              "docComment": "/**\n * 생성되는 코드의 useSuspenseQuery, useSuspenseInfiniteQuery 포함 여부 입니다.\n */\n",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "includeReactSuspenseQuery: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "boolean"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "isReadonly": false,
-              "isOptional": false,
-              "releaseTag": "Public",
-              "name": "includeReactSuspenseQuery",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
+              "kind": "Content",
+              "text": ", newContent: "
             },
             {
-              "kind": "PropertySignature",
-              "canonicalReference": "@toktokhan-dev/cli-plugin-gen-api-react-query!GenerateSwaggerApiConfig#instancePath:member",
-              "docComment": "/**\n * Api 의 axios 혹은 fetch 요청 instance 주소입니다.\n */\n",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "instancePath: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "string"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "isReadonly": false,
-              "isOptional": false,
-              "releaseTag": "Public",
-              "name": "instancePath",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
+              "kind": "Content",
+              "text": "string"
             },
             {
-              "kind": "PropertySignature",
-              "canonicalReference": "@toktokhan-dev/cli-plugin-gen-api-react-query!GenerateSwaggerApiConfig#output:member",
-              "docComment": "/**\n * 생성될 파일들이 위치할 경로입니다.\n */\n",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "output: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "string"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "isReadonly": false,
-              "isOptional": false,
-              "releaseTag": "Public",
-              "name": "output",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
+              "kind": "Content",
+              "text": "): "
             },
             {
-              "kind": "PropertySignature",
-              "canonicalReference": "@toktokhan-dev/cli-plugin-gen-api-react-query!GenerateSwaggerApiConfig#paginationSets:member",
-              "docComment": "/**\n * infiniteQuery 를 생성할 함수 필터 목록 입니다.\n */\n",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "paginationSets: "
-                },
-                {
-                  "kind": "Reference",
-                  "text": "PaginationConfig",
-                  "canonicalReference": "@toktokhan-dev/cli-plugin-gen-api-react-query!PaginationConfig:interface"
-                },
-                {
-                  "kind": "Content",
-                  "text": "[]"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "isReadonly": false,
-              "isOptional": false,
-              "releaseTag": "Public",
-              "name": "paginationSets",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 3
-              }
+              "kind": "Content",
+              "text": "string"
             },
             {
-              "kind": "PropertySignature",
-              "canonicalReference": "@toktokhan-dev/cli-plugin-gen-api-react-query!GenerateSwaggerApiConfig#swaggerSchemaUrl:member",
-              "docComment": "/**\n * 조회할 스웨거의 url 혹은 file(yaml, json) 경로 입니다. 통상적으로 백앤드 개발자에게 공유받은 api-swagger-url 의 '/openapi.json' 경로에 해당합니다.\n */\n",
-              "excerptTokens": [
-                {
-                  "kind": "Content",
-                  "text": "swaggerSchemaUrl: "
-                },
-                {
-                  "kind": "Content",
-                  "text": "string"
-                },
-                {
-                  "kind": "Content",
-                  "text": ";"
-                }
-              ],
-              "isReadonly": false,
-              "isOptional": false,
-              "releaseTag": "Public",
-              "name": "swaggerSchemaUrl",
-              "propertyTypeTokenRange": {
-                "startIndex": 1,
-                "endIndex": 2
-              }
+              "kind": "Content",
+              "text": ";"
             }
           ],
-          "extendsTokenRanges": [],
-          "parameters": []
+          "fileUrlPath": "dist/index.doc.d.ts",
+          "returnTypeTokenRange": {
+            "startIndex": 5,
+            "endIndex": 6
+          },
+          "releaseTag": "Public",
+          "overloadIndex": 1,
+          "parameters": [
+            {
+              "parameterName": "existing",
+              "parameterTypeTokenRange": {
+                "startIndex": 1,
+                "endIndex": 2
+              },
+              "isOptional": false
+            },
+            {
+              "parameterName": "newContent",
+              "parameterTypeTokenRange": {
+                "startIndex": 3,
+                "endIndex": 4
+              },
+              "isOptional": false
+            }
+          ],
+          "name": "mergeTypeScriptContent"
         },
         {
           "kind": "Interface",

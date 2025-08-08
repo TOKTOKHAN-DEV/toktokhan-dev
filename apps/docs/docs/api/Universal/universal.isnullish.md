@@ -49,6 +49,7 @@ T
 
 </td></tr>
 </tbody></table>
+
 ## Returns
 
 value is Extract&lt;null \| undefined, T&gt;

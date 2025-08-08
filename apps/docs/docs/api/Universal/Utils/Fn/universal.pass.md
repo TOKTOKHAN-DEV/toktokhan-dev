@@ -52,6 +52,7 @@ T
 
 </td></tr>
 </tbody></table>
+
 ## Returns
 
 () =&gt; T

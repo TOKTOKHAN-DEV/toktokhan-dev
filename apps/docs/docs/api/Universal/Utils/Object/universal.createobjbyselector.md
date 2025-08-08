@@ -68,6 +68,7 @@ T
 
 </td></tr>
 </tbody></table>
+
 ## Returns
 
 [ObjSelectorMapResult](./universal.objselectormapresult)&lt;T, M&gt;
