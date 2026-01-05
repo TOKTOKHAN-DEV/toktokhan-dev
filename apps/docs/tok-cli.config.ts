@@ -8,10 +8,7 @@ const tokriptRootConfig: RootConfig<{
   plugins: [typeof commit, typeof genThemeColors, typeof genApi]
 }> = {
   'gen:api': {
-    swaggerSchemaUrls: [
-      'https://service-api.dev.tagme.my/v3/api-docs/6.%20ADMIN%20API',
-      'https://service-api.dev.tagme.my/v3/api-docs/1.%20%EC%9D%BC%EB%B0%98%20API',
-    ],
+    swaggerSchemaUrls: [],
   },
   plugins: [commit, genThemeColors, genApi],
 }

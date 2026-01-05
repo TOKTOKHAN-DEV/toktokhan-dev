@@ -147,7 +147,7 @@
         initialPageParam:  <% if (initialPageParam()) { %>
           <%~ initialPageParam() %> 
         <% } else { %>
-          null
+          ''
         <% } %>,
         queryFn: <% if (getNextPage()) { %>
           <%~ getNextPage() %> 
@@ -164,7 +164,7 @@
           <%~ getNextPageParam() %> 
         <% } else { %>
           (lastPage) => {
-            const <%~ pagination.nextKey %> = lastPage.cursor ?? null;
+            const <%~ pagination.nextKey %> = lastPage.cursor ?? '';
             return <%~ pagination.nextKey %>;
           }
         <% } %>,
