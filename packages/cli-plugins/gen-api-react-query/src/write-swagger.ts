@@ -83,10 +83,19 @@ export const writeSwaggerApiFile = (params: {
 }
 
 async function generatePretty(path: string, contents: string) {
-  const organized = await prettierString(contents, {
-    parser: 'babel-ts',
-    plugins: ['prettier-plugin-organize-imports'],
-  })
+  // prettier-plugin-organize-imports가 설치되어 있으면 사용, 없으면 스킵
+  let organized = contents
+  try {
+    organized = await prettierString(contents, {
+      parser: 'babel-ts',
+      plugins: ['prettier-plugin-organize-imports'],
+    })
+  } catch (err) {
+    // 플러그인이 없거나 에러 발생 시 원본 사용
+    console.warn(
+      '⚠️  prettier-plugin-organize-imports not found, skipping import organization',
+    )
+  }
 
   const formatted = await prettierString(organized, {
     parser: 'typescript',

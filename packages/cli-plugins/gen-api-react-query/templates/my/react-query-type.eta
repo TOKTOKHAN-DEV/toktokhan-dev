@@ -40,10 +40,11 @@ export type InfiniteQueryHookParams<
   TData = RequestFnReturn<T>,
   OriginData = RequestFnReturn<T>,
   Variables = Parameter<T>,
+  TPageParam = string
 > = {
   options?: Partial<
     Omit<
-      UseInfiniteQueryOptions<OriginData, Error, TData, any, any>,
+      UseInfiniteQueryOptions<OriginData, Error, TData, OriginData, any, TPageParam>,
       'queryKey' | 'queryFn'
     >
   >;
@@ -80,10 +81,11 @@ export type SuspenseInfiniteQueryHookParams<
   TData = RequestFnReturn<T>,
   OriginData = RequestFnReturn<T>,
   Variables = Parameter<T>,
+  TPageParam = string
 > = {
   options?: Partial<
     Omit<
-      UseSuspenseInfiniteQueryOptions<OriginData, Error, TData, any, any>,
+      UseSuspenseInfiniteQueryOptions<OriginData, Error, TData, OriginData, any, TPageParam>,
       'queryKey' | 'queryFn'
     >
   >;
