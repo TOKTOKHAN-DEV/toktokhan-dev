@@ -87,6 +87,10 @@ export const genApi = defineCommand<'gen:api', GenerateSwaggerApiConfig>({
     ],
   },
   run: async (config) => {
+    if (config.swaggerSchemaUrls && config.swaggerSchemaUrls.length === 0) {
+      throw new Error('No URLs provided')
+    }
+
     const isWebUrl = (string: string) =>
       string.startsWith('http://') || string.startsWith('https://')
 
