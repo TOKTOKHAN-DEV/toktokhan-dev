@@ -1,5 +1,11 @@
 # @toktokhan-dev/cli-plugin-gen-api-react-query
 
+## 0.1.8
+
+### Patch Changes
+
+- [#89](https://github.com/TOKTOKHAN-DEV/toktokhan-dev/pull/89) [`0765a3f`](https://github.com/TOKTOKHAN-DEV/toktokhan-dev/commit/0765a3fa1805ab9fccf2de2fdb3b1c2031b9351e) Thanks [@Panxoat](https://github.com/Panxoat)! - useInfiniteQuery initialPageParam null -> ''
+
 ## 0.1.7
 
 ### Patch Changes
