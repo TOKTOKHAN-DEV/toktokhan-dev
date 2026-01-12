@@ -63,6 +63,11 @@ export type GenerateSwaggerApiConfig = SwaggerSchemaOption & {
    * infiniteQuery 를 생성할 함수 필터 목록 입니다.
    * */
   paginationSets: PaginationConfig[]
+  /**
+   * SSL 인증서 검증 무시 여부입니다. (self-signed certificate 등 사용 시 true 로 설정)
+   * @default false
+   */
+  ignoreTlsError?: boolean
 }
 
 /**
@@ -85,8 +90,13 @@ export const genApi = defineCommand<'gen:api', GenerateSwaggerApiConfig>({
         nextKey: 'cursor',
       },
     ],
+    ignoreTlsError: false,
   },
   run: async (config) => {
+    if (config.ignoreTlsError) {
+      process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
+    }
+
     if (config.swaggerSchemaUrls && config.swaggerSchemaUrls.length === 0) {
       throw new Error('No URLs provided')
     }
