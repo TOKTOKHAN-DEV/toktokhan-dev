@@ -1,5 +1,12 @@
 # @toktokhan-dev/cli-plugin-gen-api-react-query
 
+## 0.1.10
+
+### Patch Changes
+
+- [#93](https://github.com/TOKTOKHAN-DEV/toktokhan-dev/pull/93) [`6d1937e`](https://github.com/TOKTOKHAN-DEV/toktokhan-dev/commit/6d1937ea065c0ef9eb17cae92bd051c66ec21929) Thanks [@Panxoat](https://github.com/Panxoat)! - ignoreTlsError 옵션을 추가했습니다.
+  SSL 인증서 검증 무시 여부입니다. (self-signed certificate 등 사용 시 true 로 설정)
+
 ## 0.1.9
 
 ### Patch Changes
