@@ -20,6 +20,7 @@ type GenerateSwaggerApiConfig = SwaggerSchemaOption & {
   instancePath: string;
   httpClientType: 'axios' | 'fetch';
   paginationSets: PaginationConfig[];
+  ignoreTlsError?: boolean;
 };
 ```
 ## References

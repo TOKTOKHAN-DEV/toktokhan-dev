@@ -262,7 +262,7 @@
             },
             {
               "kind": "Content",
-              "text": "[];\n}"
+              "text": "[];\n  ignoreTlsError?: boolean;\n}"
             },
             {
               "kind": "Content",
