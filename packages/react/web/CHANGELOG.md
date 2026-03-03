@@ -1,5 +1,11 @@
 # @toktokhan-dev/react-web
 
+## 0.0.24
+
+### Patch Changes
+
+- [`8f5b3d1`](https://github.com/TOKTOKHAN-DEV/toktokhan-dev/commit/8f5b3d120e9dcd4341ea3fa3d75b2d919f66ec82) Thanks [@Eunkyung-Son](https://github.com/Eunkyung-Son)! - 구글 oauth 주소를 변경했습니다.
+
 ## 0.0.23
 
 ### Patch Changes
@@ -345,7 +351,6 @@
 ### Patch Changes
 
 - 5ac71c0: Social hook 을 수정하였습니다.
-
   - onSuccess 의 파라미터에서 isLoading을 제거하였습니다.
 
 ## 0.0.4
