@@ -19,8 +19,7 @@ export const GOOGLE_AUTH_SCOPE = {
  * SocialOauthInit 클래스를 상속받아 구현되었습니다.
  */
 export class Google extends SocialOauthInit {
-  public oAuthBaseUrl =
-    'https://accounts.google.com/o/oauth2/auth/oauthchooseaccount'
+  public oAuthBaseUrl = 'https://accounts.google.com/o/oauth2/v2/auth'
 
   /**
    * Google 클래스의 생성자입니다.
