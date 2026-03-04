@@ -149,7 +149,8 @@ export const writeSwaggerApiFile = async (params: {
 /**
  * 타입 이름 목록과 파싱된 타입 블록으로 contracts 파일 내용을 생성합니다.
  */
-function buildContractsFileContent(
+/** @internal — exported for testing */
+export function buildContractsFileContent(
   typeNames: string[],
   parsedTypes: Record<string, string>,
 ): string {
@@ -172,7 +173,8 @@ function buildContractsFileContent(
  * ⚠️ 이 함수는 prettier 적용 전(raw template output)에 실행해야 합니다.
  *    api.eta가 dataContracts.join(", ")으로 한 줄에 렌더링하므로 단일행 regex로 매칭 가능.
  */
-function rewriteDataContractsImport(
+/** @internal — exported for testing */
+export function rewriteDataContractsImport(
   content: string,
   filename: string,
   classification: ClassificationResult,
@@ -188,7 +190,7 @@ function rewriteDataContractsImport(
 
   // 기존 data-contracts import 라인을 찾아서 교체
   const importRegex =
-    /import\s*\{[^}]+\}\s*from\s*['"]\.\.\/\\@types\/data-contracts['"];?/
+    /import\s*\{[^}]+\}\s*from\s*['"]\.\.\/[@]types\/data-contracts['"];?/
 
   const newImports: string[] = []
   if (usedModuleTypes.length > 0) {
@@ -213,9 +215,10 @@ function rewriteDataContractsImport(
 /**
  * api 파일 content에서 data-contracts import 구문의 타입 이름들을 추출합니다.
  */
-function extractImportedTypeNames(content: string): Set<string> {
+/** @internal — exported for testing */
+export function extractImportedTypeNames(content: string): Set<string> {
   const importMatch = content.match(
-    /import\s*\{([^}]+)\}\s*from\s*['"]\.\.\/\\@types\/data-contracts['"];?/,
+    /import\s*\{([^}]+)\}\s*from\s*['"]\.\.\/[@]types\/data-contracts['"];?/,
   )
   if (!importMatch) return new Set()
 
@@ -307,7 +310,8 @@ export function splitHookContents(filename: string, content: string) {
   }
 }
 
-function getLastImportLine(content: string) {
+/** @internal — exported for testing */
+export function getLastImportLine(content: string) {
   const importLines = content
     .split('\n')
     .map((line, idx) => ({ idx, has: /from ('|").*('|");/.test(line) }))

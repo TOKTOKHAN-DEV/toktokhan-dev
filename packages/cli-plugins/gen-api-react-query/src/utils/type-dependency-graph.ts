@@ -17,7 +17,8 @@ export function buildDependencyGraph(
     const deps = new Set<string>()
 
     for (const known of knownTypes) {
-      if (known !== typeName && new RegExp(`\\b${known}\\b`).test(typeBlock)) {
+      const escaped = known.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+      if (known !== typeName && new RegExp(`\\b${escaped}\\b`).test(typeBlock)) {
         deps.add(known)
       }
     }
