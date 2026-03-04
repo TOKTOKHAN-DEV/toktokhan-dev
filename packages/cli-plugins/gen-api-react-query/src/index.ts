@@ -6,6 +6,7 @@ import { GenerateApiOutput } from 'swagger-typescript-api'
 
 import { GENERATE_SWAGGER_DATA } from './constants'
 import { parseSwagger } from './parse-swagger'
+import { parseTypeDefinitions } from './utils/parse-type-definitions'
 import { writeSwaggerApiFile } from './write-swagger'
 
 /**
@@ -68,6 +69,13 @@ export type GenerateSwaggerApiConfig = SwaggerSchemaOption & {
    * @default false
    */
   ignoreTlsError?: boolean
+  /**
+   * data-contracts.ts를 모듈별로 분할할지 여부입니다.
+   * true일 때 각 모듈 폴더에 <module>.contracts.ts가 생성되고,
+   * 공유 타입은 @types/common-contracts.ts에 생성됩니다.
+   * @default false
+   */
+  splitDataContracts?: boolean
 }
 
 /**
@@ -91,6 +99,7 @@ export const genApi = defineCommand<'gen:api', GenerateSwaggerApiConfig>({
       },
     ],
     ignoreTlsError: false,
+    splitDataContracts: false,
   },
   run: async (config) => {
     if (config.ignoreTlsError) {
@@ -160,11 +169,11 @@ export const genApi = defineCommand<'gen:api', GenerateSwaggerApiConfig>({
         continue
       }
 
-      withLoading(
+      await withLoading(
         'Write Swagger API', //
         covered.output,
         (spinner) => {
-          writeSwaggerApiFile({
+          return writeSwaggerApiFile({
             input: parsed as GenerateApiOutput,
             output: covered.output,
             spinner,
@@ -213,25 +222,6 @@ export const genApi = defineCommand<'gen:api', GenerateSwaggerApiConfig>({
  * 스마트 타입 병합 함수들
  */
 
-// 타입 정의 파싱 함수
-function parseTypeDefinitions(content: string): Record<string, string> {
-  const types: Record<string, string> = {}
-  // export type, interface, enum, const 패턴 매칭
-  const typeRegex =
-    /(export\s+(?:type|interface|enum|const)\s+(\w+)[\s\S]*?)(?=export\s+(?:type|interface|enum|const)\s+\w+|$)/g
-
-  let match
-  while ((match = typeRegex.exec(content)) !== null) {
-    const typeName = match[2]
-    const typeContent = match[1].trim()
-    types[typeName] = typeContent
-  }
-
-  return types
-}
-
-// (deprecated) 타입 문자열 변환 로직은 병합 로직 내에서 직접 조립합니다.
-
 // 스마트 타입 병합 함수
 export function mergeTypeScriptContent(
   existing: string,
@@ -268,32 +258,9 @@ export function mergeTypeScriptContent(
   const existingTypes = parseTypeDefinitions(existingBody)
   const newTypes = parseTypeDefinitions(newBody)
 
-  console.log(
-    '🔧 [SMART-MERGE] Existing types count:',
-    Object.keys(existingTypes).length,
-  )
-  console.log('🔧 [SMART-MERGE] New types count:', Object.keys(newTypes).length)
-
-  const mergedTypes = { ...existingTypes }
-  let addedCount = 0
-  let skippedCount = 0
-
-  for (const [typeName, typeContent] of Object.entries(newTypes)) {
-    if (mergedTypes[typeName]) {
-      console.log('🔧 [SMART-MERGE] Skipping duplicate type:', typeName)
-      skippedCount++
-    } else {
-      mergedTypes[typeName] = typeContent
-      addedCount++
-    }
-  }
-
-  console.log(
-    '🔧 [SMART-MERGE] Added types:',
-    addedCount,
-    'Skipped duplicates:',
-    skippedCount,
-  )
+  // 새 타입 기준으로 병합: 새 버전이 source of truth (swagger 스키마)
+  // 기존에만 있는 타입은 보존 (사용자가 수동 추가한 것)
+  const mergedTypes = { ...existingTypes, ...newTypes }
 
   const mergedTypesString = Object.values(mergedTypes).join('\n\n')
 
