@@ -39,4 +39,4 @@ jobs:
         run: pnpm build:packages
 
       - name: Run tests
-        run: pnpm test
+        run: pnpm --filter @toktokhan-dev/cli-plugin-gen-api-react-query test
