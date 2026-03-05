@@ -130,7 +130,11 @@ export const writeSwaggerApiFile = async (params: {
     for (const [moduleName, typeNames] of moduleTypes.entries()) {
       const moduleFolder = path.resolve(output, moduleName)
       fs.mkdirSync(moduleFolder, { recursive: true })
-      const moduleContent = buildContractsFileContent(typeNames, parsedTypes)
+      const moduleContent = buildContractsFileContent(
+        typeNames,
+        parsedTypes,
+        sharedTypes,
+      )
       generate(
         path.resolve(moduleFolder, `${moduleName}.contracts.ts`),
         moduleContent,
@@ -154,6 +158,7 @@ export const writeSwaggerApiFile = async (params: {
 export function buildContractsFileContent(
   typeNames: string[],
   parsedTypes: Record<string, string>,
+  sharedTypeNames?: string[],
 ): string {
   const header = `/* eslint-disable */
 /* tslint:disable */
@@ -164,8 +169,22 @@ export function buildContractsFileContent(
  */\n`
 
   const blocks = typeNames.map((name) => parsedTypes[name]).filter(Boolean)
+  const bodyContent = blocks.join('\n\n')
 
-  return header + '\n' + blocks.join('\n\n') + '\n'
+  // module contracts가 shared type을 참조하면 import 추가
+  let importSection = ''
+  if (sharedTypeNames && sharedTypeNames.length > 0) {
+    const referencedShared = sharedTypeNames.filter((sharedType) => {
+      const escaped = sharedType.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+      return new RegExp(`\\b${escaped}\\b`).test(bodyContent)
+    })
+    if (referencedShared.length > 0) {
+      importSection =
+        `import { ${referencedShared.join(', ')} } from '../@types/common-contracts';\n\n`
+    }
+  }
+
+  return header + '\n' + importSection + bodyContent + '\n'
 }
 
 /**
