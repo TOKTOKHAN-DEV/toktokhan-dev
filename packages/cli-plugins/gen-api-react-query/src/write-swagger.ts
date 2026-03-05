@@ -36,7 +36,8 @@ export const writeSwaggerApiFile = async (params: {
     )
 
     if (dataContractsFile?.fileContent) {
-      const configuration = (input as any).configuration
+      // GenerateApiOutput은 configuration을 런타임에 포함하지만 타입 정의에서 미노출
+      const configuration = (input as Record<string, any>).configuration
       const routesCombined = configuration?.routes?.combined
 
       classificationResult = classifyTypes(
@@ -148,8 +149,8 @@ export const writeSwaggerApiFile = async (params: {
 
 /**
  * 타입 이름 목록과 파싱된 타입 블록으로 contracts 파일 내용을 생성합니다.
+ * @internal — exported for testing
  */
-/** @internal — exported for testing */
 export function buildContractsFileContent(
   typeNames: string[],
   parsedTypes: Record<string, string>,
@@ -170,10 +171,10 @@ export function buildContractsFileContent(
 /**
  * api 파일의 data-contracts import를 모듈별 contracts + common-contracts로 교체합니다.
  *
- * ⚠️ 이 함수는 prettier 적용 전(raw template output)에 실행해야 합니다.
- *    api.eta가 dataContracts.join(", ")으로 한 줄에 렌더링하므로 단일행 regex로 매칭 가능.
+ * import의 `[^}]+`는 negated character class이므로 멀티라인도 매칭됩니다.
+ * (prettier가 줄바꿈해도 안전)
+ * @internal — exported for testing
  */
-/** @internal — exported for testing */
 export function rewriteDataContractsImport(
   content: string,
   filename: string,
@@ -214,8 +215,8 @@ export function rewriteDataContractsImport(
 
 /**
  * api 파일 content에서 data-contracts import 구문의 타입 이름들을 추출합니다.
+ * @internal — exported for testing
  */
-/** @internal — exported for testing */
 export function extractImportedTypeNames(content: string): Set<string> {
   const importMatch = content.match(
     /import\s*\{([^}]+)\}\s*from\s*['"]\.\.\/[@]types\/data-contracts['"];?/,

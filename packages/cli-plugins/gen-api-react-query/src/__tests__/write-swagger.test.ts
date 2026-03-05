@@ -17,9 +17,11 @@ import {
   rewriteDataContractsImport,
   extractImportedTypeNames,
   getLastImportLine,
+  writeSwaggerApiFile,
 } from '../write-swagger'
 import { mergeTypeScriptContent } from '../index'
 import { ClassificationResult } from '../utils/type-classifier'
+import { parseTypeDefinitions } from '../utils/parse-type-definitions'
 
 const QUERY_INDICATOR = '@indicator-for-query-hook'
 const SUSPENSE_INDICATOR = '@indicator-for-use-suspense-query-hook'
@@ -342,5 +344,246 @@ describe('mergeTypeScriptContent', () => {
     const result = mergeTypeScriptContent(existing, newContent)
 
     expect(result).toContain('existing header')
+  })
+})
+
+// ============================================================
+// 7. parseTypeDefinitions
+// ============================================================
+describe('parseTypeDefinitions', () => {
+  it('parses interface blocks', () => {
+    const content = `export interface UserType {\n  name: string\n}\n\nexport interface RoleType {\n  id: number\n}`
+    const result = parseTypeDefinitions(content)
+
+    expect(Object.keys(result)).toEqual(['UserType', 'RoleType'])
+    expect(result.UserType).toContain('name: string')
+    expect(result.RoleType).toContain('id: number')
+  })
+
+  it('parses type aliases', () => {
+    const content = `export type Status = "active" | "inactive"\n\nexport type Id = number`
+    const result = parseTypeDefinitions(content)
+
+    expect(result.Status).toContain('"active"')
+    expect(result.Id).toContain('number')
+  })
+
+  it('parses enum and const blocks', () => {
+    const content = `export enum Color {\n  Red = "red",\n  Blue = "blue"\n}\n\nexport const ColorMap = { Red: "red" } as const`
+    const result = parseTypeDefinitions(content)
+
+    expect(result.Color).toContain('Red = "red"')
+    expect(result.ColorMap).toContain('as const')
+  })
+
+  it('does not corrupt blocks when export function appears between types', () => {
+    const content = [
+      'export interface UserType {',
+      '  name: string',
+      '}',
+      '',
+      'export function helper() { return true }',
+      '',
+      'export interface RoleType {',
+      '  id: number',
+      '}',
+    ].join('\n')
+    const result = parseTypeDefinitions(content)
+
+    expect(result.UserType).toContain('name: string')
+    expect(result.UserType).not.toContain('helper')
+    expect(result.RoleType).toContain('id: number')
+    // export function is correctly skipped
+    expect(result['helper']).toBeUndefined()
+  })
+
+  it('does not corrupt blocks when export class appears between types', () => {
+    const content = [
+      'export type Foo = string',
+      '',
+      'export class SomeClass { }',
+      '',
+      'export type Bar = number',
+    ].join('\n')
+    const result = parseTypeDefinitions(content)
+
+    expect(result.Foo).toBe('export type Foo = string')
+    expect(result.Bar).toBe('export type Bar = number')
+    expect(result['SomeClass']).toBeUndefined()
+  })
+
+  it('handles content with leading comments/whitespace before first export', () => {
+    const content = `/* header comment */\n\nexport type Foo = string`
+    const result = parseTypeDefinitions(content)
+
+    expect(result.Foo).toBe('export type Foo = string')
+  })
+
+  it('returns empty object for content with no type exports', () => {
+    const content = `export function foo() {}\nexport class Bar {}`
+    const result = parseTypeDefinitions(content)
+
+    expect(Object.keys(result).length).toBe(0)
+  })
+})
+
+// ============================================================
+// 8. writeSwaggerApiFile integration tests
+// ============================================================
+jest.mock('fs', () => ({
+  mkdirSync: jest.fn(),
+  existsSync: jest.fn(() => false),
+  readFileSync: jest.fn(() => ''),
+  writeFileSync: jest.fn(),
+}))
+
+describe('writeSwaggerApiFile', () => {
+  const fs = require('fs')
+
+  beforeEach(() => {
+    jest.clearAllMocks()
+    fs.existsSync.mockReturnValue(false)
+  })
+
+  const QUERY_IND = '@indicator-for-query-hook'
+
+  const makeInput = (opts?: { withDataContracts?: boolean }) => {
+    const files = [
+      {
+        fileName: 'data-contracts',
+        fileExtension: '.ts',
+        fileContent: opts?.withDataContracts
+          ? 'export interface UserType {\n  name: string\n}\n\nexport interface ErrorType {\n  message: string\n}'
+          : 'export interface UserType {\n  name: string\n}',
+      },
+      {
+        fileName: 'User',
+        fileExtension: '.ts',
+        fileContent: [
+          "import { UserType } from '../@types/data-contracts';",
+          'export class UserApi { getUser() { return null } }',
+          `//${QUERY_IND}`,
+          'export const useUserQuery = () => {};',
+        ].join('\n'),
+      },
+    ]
+
+    return {
+      files,
+      // Mock configuration for splitDataContracts
+      configuration: {
+        routes: {
+          combined: [
+            {
+              moduleName: 'User',
+              routes: [
+                { response: { type: 'UserType' }, request: {} },
+              ],
+            },
+          ],
+        },
+      },
+    }
+  }
+
+  it('writes data-contracts.ts normally when splitDataContracts is false', async () => {
+    const input = makeInput()
+
+    await writeSwaggerApiFile({
+      input: input as any,
+      output: '/out',
+      config: {
+        swaggerSchemaUrl: '',
+        output: '/out',
+        includeReactQuery: true,
+        includeReactSuspenseQuery: false,
+        instancePath: '',
+        httpClientType: 'axios',
+        paginationSets: [],
+        splitDataContracts: false,
+      },
+    })
+
+    // data-contracts.ts should be written to @types folder
+    const writeCalls = fs.writeFileSync.mock.calls
+    const dataContractsWrite = writeCalls.find((call: any[]) =>
+      String(call[0]).includes('data-contracts.ts'),
+    )
+    expect(dataContractsWrite).toBeDefined()
+
+    // No .contracts.ts files should be generated
+    const contractsWrite = writeCalls.find((call: any[]) =>
+      String(call[0]).includes('.contracts.ts'),
+    )
+    expect(contractsWrite).toBeUndefined()
+
+    // No common-contracts.ts should be generated
+    const commonWrite = writeCalls.find((call: any[]) =>
+      String(call[0]).includes('common-contracts.ts'),
+    )
+    expect(commonWrite).toBeUndefined()
+  })
+
+  it('suppresses data-contracts.ts and generates split files when splitDataContracts is true', async () => {
+    const input = makeInput({ withDataContracts: true })
+
+    await writeSwaggerApiFile({
+      input: input as any,
+      output: '/out',
+      config: {
+        swaggerSchemaUrl: '',
+        output: '/out',
+        includeReactQuery: true,
+        includeReactSuspenseQuery: false,
+        instancePath: '',
+        httpClientType: 'axios',
+        paginationSets: [],
+        splitDataContracts: true,
+      },
+    })
+
+    const writeCalls = fs.writeFileSync.mock.calls
+
+    // data-contracts.ts should NOT be written
+    const dataContractsWrite = writeCalls.find((call: any[]) =>
+      String(call[0]).includes('data-contracts.ts'),
+    )
+    expect(dataContractsWrite).toBeUndefined()
+
+    // Module contracts file should be generated
+    const contractsWrite = writeCalls.find((call: any[]) =>
+      String(call[0]).includes('User.contracts.ts'),
+    )
+    expect(contractsWrite).toBeDefined()
+    expect(String(contractsWrite![1])).toContain('UserType')
+  })
+
+  it('rewrites import from data-contracts to module contracts when split is enabled', async () => {
+    const input = makeInput()
+
+    await writeSwaggerApiFile({
+      input: input as any,
+      output: '/out',
+      config: {
+        swaggerSchemaUrl: '',
+        output: '/out',
+        includeReactQuery: true,
+        includeReactSuspenseQuery: false,
+        instancePath: '',
+        httpClientType: 'axios',
+        paginationSets: [],
+        splitDataContracts: true,
+      },
+    })
+
+    const writeCalls = fs.writeFileSync.mock.calls
+    const apiWrite = writeCalls.find((call: any[]) =>
+      String(call[0]).includes('User.api.ts'),
+    )
+    expect(apiWrite).toBeDefined()
+
+    // API file should import from User.contracts, not data-contracts
+    const apiContent = String(apiWrite![1])
+    expect(apiContent).not.toContain('data-contracts')
   })
 })

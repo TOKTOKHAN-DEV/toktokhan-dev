@@ -77,21 +77,27 @@ export function classifyTypes(
   }
 
   // Step 5: 전이적 공유 — shared 타입이 참조하는 타입도 shared로 격상
+  // 순회 중 Set에 추가하지 않고 별도 배열에 수집 후 일괄 적용
   let changed = true
   while (changed) {
     changed = false
+    const toPromote: string[] = []
+
     for (const sharedType of sharedTypesSet) {
       const deps = depGraph.get(sharedType) || new Set()
       for (const dep of deps) {
         if (!sharedTypesSet.has(dep)) {
-          // dep이 어떤 module에 있든 shared로 격상
-          sharedTypesSet.add(dep)
-          for (const [, moduleSet] of moduleTypesMap) {
-            moduleSet.delete(dep)
-          }
-          changed = true
+          toPromote.push(dep)
         }
       }
+    }
+
+    for (const dep of toPromote) {
+      sharedTypesSet.add(dep)
+      for (const [, moduleSet] of moduleTypesMap) {
+        moduleSet.delete(dep)
+      }
+      changed = true
     }
   }
 
