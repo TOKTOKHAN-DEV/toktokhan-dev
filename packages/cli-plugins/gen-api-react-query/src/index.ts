@@ -128,8 +128,6 @@ export const genApi = defineCommand<'gen:api', GenerateSwaggerApiConfig>({
       return []
     })()
 
-    console.log('🔧 [MULTI-URL] Processing URLs:', urls)
-
     const coverPath = (config: GenerateSwaggerApiConfig, url: string) => {
       const { httpClientType, output } = config
       const { AXIOS_DEFAULT_INSTANCE_PATH, FETCH_DEFAULT_INSTANCE_PATH } =
@@ -152,9 +150,6 @@ export const genApi = defineCommand<'gen:api', GenerateSwaggerApiConfig>({
     // 각 URL별로 순차 처리
     for (let i = 0; i < urls.length; i++) {
       const url = urls[i]
-      console.log(
-        `🔧 [MULTI-URL] Processing URL ${i + 1}/${urls.length}: ${url}`,
-      )
 
       const covered = coverPath(config, url)
       const parsed = await withLoading(
