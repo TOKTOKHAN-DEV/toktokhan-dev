@@ -4,6 +4,7 @@ genApi.run({
   swaggerSchemaUrls: [],
   output: 'test/generated/apis',
   includeReactQuery: true,
+  splitDataContracts: true,
   includeReactSuspenseQuery: false,
   httpClientType: 'axios',
   instancePath: 'test/generated/apis/http-client',

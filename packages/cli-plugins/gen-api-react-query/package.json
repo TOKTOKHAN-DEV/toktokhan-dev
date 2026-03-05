@@ -30,7 +30,7 @@
     "build:watch": "rollup -c --watch",
     "api-extractor": "api-extractor run --local --verbose",
     "play": "pnpm build:watch & node --watch play/playground.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --passWithNoTests"
   },
   "keywords": [
     "cli",

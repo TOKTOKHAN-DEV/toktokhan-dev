@@ -45,3 +45,6 @@ packages/init/packages
 packages/init/mock
 
 .npmrc
+
+# OMC (oh-my-claudecode)
+.omc/
