@@ -262,7 +262,7 @@
             },
             {
               "kind": "Content",
-              "text": "[];\n  ignoreTlsError?: boolean;\n}"
+              "text": "[];\n  ignoreTlsError?: boolean;\n  splitDataContracts?: boolean;\n}"
             },
             {
               "kind": "Content",
@@ -281,7 +281,7 @@
         {
           "kind": "Function",
           "canonicalReference": "@toktokhan-dev/cli-plugin-gen-api-react-query!mergeTypeScriptContent:function(1)",
-          "docComment": "",
+          "docComment": "/**\n * 스마트 타입 병합 함수들\n */\n",
           "excerptTokens": [
             {
               "kind": "Content",

@@ -10,6 +10,8 @@ slug: /cli-plugin-gen-api-react-query.mergetypescriptcontent
 
 
 
+스마트 타입 병합 함수들
+
 ## Signature
 
 ```typescript

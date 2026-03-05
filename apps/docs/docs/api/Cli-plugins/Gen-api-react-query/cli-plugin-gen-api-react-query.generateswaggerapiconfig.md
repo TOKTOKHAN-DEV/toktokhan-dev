@@ -21,6 +21,7 @@ type GenerateSwaggerApiConfig = SwaggerSchemaOption & {
   httpClientType: 'axios' | 'fetch';
   paginationSets: PaginationConfig[];
   ignoreTlsError?: boolean;
+  splitDataContracts?: boolean;
 };
 ```
 ## References
