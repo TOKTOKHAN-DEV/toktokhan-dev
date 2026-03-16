@@ -1,5 +1,11 @@
 # @toktokhan-dev/tokit
 
+## 0.0.20
+
+### Patch Changes
+
+- [`7b64ff2`](https://github.com/TOKTOKHAN-DEV/toktokhan-dev/commit/7b64ff24fdc3866105127ac3e86ad03733025cbc) Thanks [@Eunkyung-Son](https://github.com/Eunkyung-Son)! - feat(tokit): next-tailwind-init 서브모듈 및 패키지맵 등록
+
 ## 0.0.19
 
 ### Patch Changes
@@ -13,7 +19,6 @@
 ### Patch Changes
 
 - [`eca88a3`](https://github.com/TOKTOKHAN-DEV/toktokhan-dev/commit/eca88a34d65a50af98d6a6fa2d4eed58948a12c9) Thanks [@AlgoRoots](https://github.com/AlgoRoots)! - - Window 운영체제 대응 업데이트
-
   - **Child Process Spawn 수정**: Windows 환경에서 childProcess의 `spawn` 사용 시, `shell: true` 설정을 통해 명령어가 제대로 실행되도록 개선했습니다.
   - **`rm -rf` 명령어 대체**: Windows 환경에서는 `rm -rf`가 지원되지 않으므로, `git clean -fdx`로 대체하여 모든 파일과 디렉토리를 삭제하도록 수정했습니다.
 
@@ -55,7 +60,6 @@
   - 불필요한 로그 삭제
   - Package.json 개선
 - f5b67bc: 각 메소드에서 `owner`와 `repo` 정보를 선택적으로 받을 수 있도록 수정하였습니다. 이 변경을 통해, 사용자는 메소드 호출 시 인스턴스의 `owner`와 `repo` 값을 참조하지 않고, 특정 상황에 맞게 메소드 인자로 주입할 수 있게 되었습니다. 우선순위는 다음과 같습니다:
-
   1. 메소드 인자, 2. 인스턴스 값.
 
   예를 들어, 아래의 경우 addCollaborator 메소드에서는 메소드 인자로 주입한 `owner`와 `repo` 값을 사용합니다.
@@ -106,7 +110,6 @@
 ### Patch Changes
 
 - 8703d69: consider package manager, remove un-using files
-
   - 선택한 package manager 에 따라, npm scripts, husky 등이 수정된 상태로 clone 되도록 수정되었습니다.
   - 프로젝트에선 쓰이지 않는 .changeset, .github 과 같은 파일을 제거하고, @changeset/cli 도 devDependencies 에서 제거된 상태로 clone 되도록 수정되었습니다.
 
