@@ -4,3 +4,6 @@
 [submodule "templates/next-app-init"]
 	path = templates/next-app-init
 	url = https://github.com/TOKTOKHAN-DEV/next-app-init.git
+[submodule "templates/next-tailwind-init"]
+	path = templates/next-tailwind-init
+	url = https://github.com/TOKTOKHAN-DEV/next-tailwind-init.git

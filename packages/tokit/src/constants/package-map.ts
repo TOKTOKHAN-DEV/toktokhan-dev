@@ -11,4 +11,8 @@ export const PACKAGE_MAP = {
     owner: 'TOKTOKHAN-DEV',
     repo: 'rn-native-base-init',
   },
+  'next-tailwind-init': {
+    owner: 'TOKTOKHAN-DEV',
+    repo: 'next-tailwind-init',
+  },
 }

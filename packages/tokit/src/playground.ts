@@ -22,6 +22,10 @@ const packageMap = {
     owner: 'TOKTOKHAN-DEV',
     repo: 'next-page-init',
   },
+  'next-tailwind-init': {
+    owner: 'TOKTOKHAN-DEV',
+    repo: 'next-tailwind-init',
+  },
 }
 
 async function selectTemplate() {
