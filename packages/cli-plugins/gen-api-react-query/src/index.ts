@@ -209,7 +209,16 @@ export const genApi = defineCommand<'gen:api', GenerateSwaggerApiConfig>({
         for (const file of files) {
           try {
             const raw = fs.readFileSync(file, 'utf8')
-            const formatted = await prettierString(raw, {
+            let organized = raw
+            try {
+              organized = await prettierString(raw, {
+                parser: 'babel-ts',
+                plugins: ['prettier-plugin-organize-imports'],
+              })
+            } catch {
+              // prettier-plugin-organize-imports not installed, skip
+            }
+            const formatted = await prettierString(organized, {
               parser: 'typescript',
               configPath,
             })
@@ -233,8 +242,9 @@ export function mergeTypeScriptContent(
   newContent: string,
 ): string {
   // 1) import 구문 보존 및 병합 (양쪽 모두에서 수집)
-  const importRegex = /^\s*import\s+[^;]*;\s*$/gm
-  const sideEffectImportRegex = /^\s*import\s+['"][^'"]+['"];\s*$/gm
+  // 멀티라인 import도 매칭: import { \n A, \n B \n } from '...';
+  const importRegex = /^\s*import\s+[\s\S]*?from\s*['"][^'"]*['"];?/gm
+  const sideEffectImportRegex = /^\s*import\s*['"][^'"]+['"];\s*$/gm
 
   const collectImports = (content: string) => {
     const imports = new Set<string>()
