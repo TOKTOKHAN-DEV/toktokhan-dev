@@ -31,6 +31,8 @@ export const parseSwagger = (
     input: config.swaggerSchemaUrl,
     httpClientType: config.httpClientType, // "axios" or "fetch"
     typeSuffix: 'Type',
+    sortTypes: true,
+    sortRoutes: true,
     prettier: {
       printWidth: 120,
     },

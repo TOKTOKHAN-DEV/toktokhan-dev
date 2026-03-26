@@ -184,7 +184,14 @@ export const genApi = defineCommand<'gen:api', GenerateSwaggerApiConfig>({
       await withLoading('Prettier format', covered.output, async () => {
         const fs = await import('fs')
         const pathMod = await import('path')
-        const { prettierString } = await import('@toktokhan-dev/node')
+        const { prettierString, findFileToTop } = await import(
+          '@toktokhan-dev/node'
+        )
+
+        // output 디렉토리 기준으로 prettier config를 탐색 (cwd 의존 제거)
+        const configPath =
+          findFileToTop(covered.output, '.prettierrc.js') || 'auto'
+
         const listTsFiles = (dir: string): string[] => {
           const entries = fs.readdirSync(dir, { withFileTypes: true })
           const files: string[] = []
@@ -202,9 +209,18 @@ export const genApi = defineCommand<'gen:api', GenerateSwaggerApiConfig>({
         for (const file of files) {
           try {
             const raw = fs.readFileSync(file, 'utf8')
-            const formatted = await prettierString(raw, {
+            let organized = raw
+            try {
+              organized = await prettierString(raw, {
+                parser: 'babel-ts',
+                plugins: ['prettier-plugin-organize-imports'],
+              })
+            } catch {
+              // prettier-plugin-organize-imports not installed, skip
+            }
+            const formatted = await prettierString(organized, {
               parser: 'typescript',
-              configPath: 'auto',
+              configPath,
             })
             fs.writeFileSync(file, formatted)
           } catch {
@@ -226,8 +242,9 @@ export function mergeTypeScriptContent(
   newContent: string,
 ): string {
   // 1) import 구문 보존 및 병합 (양쪽 모두에서 수집)
-  const importRegex = /^\s*import\s+[^;]*;\s*$/gm
-  const sideEffectImportRegex = /^\s*import\s+['"][^'"]+['"];\s*$/gm
+  // 멀티라인 import도 매칭: import { \n A, \n B \n } from '...';
+  const importRegex = /^\s*import\s+[\s\S]*?from\s*['"][^'"]*['"];?/gm
+  const sideEffectImportRegex = /^\s*import\s*['"][^'"]+['"];\s*$/gm
 
   const collectImports = (content: string) => {
     const imports = new Set<string>()
@@ -247,7 +264,7 @@ export function mergeTypeScriptContent(
   // import 병합: 새 파일 기준 우선 순서 + 기존에만 있는 import 추가
   const mergedImportSet = new Set<string>(newImports)
   existingImports.forEach((imp) => mergedImportSet.add(imp))
-  const mergedImports = Array.from(mergedImportSet)
+  const mergedImports = Array.from(mergedImportSet).sort()
 
   // 2) 타입 선언 병합 (중복 제거)
   const existingTypes = parseTypeDefinitions(existingBody)
@@ -257,7 +274,10 @@ export function mergeTypeScriptContent(
   // 기존에만 있는 타입은 보존 (사용자가 수동 추가한 것)
   const mergedTypes = { ...existingTypes, ...newTypes }
 
-  const mergedTypesString = Object.values(mergedTypes).join('\n\n')
+  const mergedTypesString = Object.entries(mergedTypes)
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([, v]) => v)
+    .join('\n\n')
 
   // 3) 기타 코드(타입/임포트 외)는 "새로운 내용"을 기준으로 유지
   const removeHeaderComment = (content: string): string => {

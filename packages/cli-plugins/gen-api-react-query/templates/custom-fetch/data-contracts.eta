@@ -36,7 +36,7 @@
       return `${keyName} : "${enumNames?.[idx]}"`;
     }).join(", ");
 
-    return `type ${contract.name} = keyof typeof ${mapName};  export const ${mapName} = {\r\n${map} \r\n } as const`;
+    return `type ${contract.name} = keyof typeof ${mapName};  export const ${mapName} = {\n${map} \n } as const`;
 
     },
     interface: (contract) => {
@@ -49,7 +49,7 @@
         content = content.replace(field, `${field} | null`)
       })
 
-      return `interface ${contract.name} {\r\n${content}}`;
+      return `interface ${contract.name} {\n${content}}`;
     },
     type: (contract) => {
       return `type ${contract.name} = ${contract.content}`;
@@ -85,8 +85,7 @@
 <% if (description.length) { %>
 /**
 <%~ description.map(part => `* ${part}`).join("\n") %>
-
-*/
+ */
 <% } %>
 export <%~ (dataContractTemplates[contract.typeIdentifier] || dataContractTemplates.type)(contract) %>
 
