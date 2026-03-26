@@ -1,5 +1,11 @@
 # @toktokhan-dev/cli-plugin-gen-api-react-query
 
+## 0.2.1
+
+### Patch Changes
+
+- [#99](https://github.com/TOKTOKHAN-DEV/toktokhan-dev/pull/99) [`84817c7`](https://github.com/TOKTOKHAN-DEV/toktokhan-dev/commit/84817c7de847eff0bfa2ea817fe5e94776150231) Thanks [@Panxoat](https://github.com/Panxoat)! - gen:api 출력 결정성 개선(import/타입 정렬), 멀티라인 import 병합 수정, organize-imports 복원, TanStack Query v5 타입 호환성 수정
+
 ## 0.2.0
 
 ### Minor Changes
