@@ -44,7 +44,7 @@ export type InfiniteQueryHookParams<
 > = {
   options?: Partial<
     Omit<
-      UseInfiniteQueryOptions<OriginData, Error, TData, OriginData, any, TPageParam>,
+      UseInfiniteQueryOptions<OriginData, Error, TData, any, TPageParam>,
       'queryKey' | 'queryFn'
     >
   >;
@@ -85,7 +85,7 @@ export type SuspenseInfiniteQueryHookParams<
 > = {
   options?: Partial<
     Omit<
-      UseSuspenseInfiniteQueryOptions<OriginData, Error, TData, OriginData, any, TPageParam>,
+      UseSuspenseInfiniteQueryOptions<OriginData, Error, TData, any, TPageParam>,
       'queryKey' | 'queryFn'
     >
   >;

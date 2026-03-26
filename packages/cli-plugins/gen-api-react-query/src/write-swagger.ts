@@ -1,8 +1,6 @@
 import fs from 'fs'
 import path from 'path'
 
-import { prettierString } from '@toktokhan-dev/node'
-
 import { camelCase, upperFirst } from 'lodash'
 import { GenerateApiOutput } from 'swagger-typescript-api'
 
@@ -95,20 +93,20 @@ export const writeSwaggerApiFile = async (params: {
           filename,
           processedContent,
         )
-        await generatePretty(
+        generate(
           path.resolve(targetFolder, `${filename}.api.ts`),
           apiContents,
         )
 
         if (config.includeReactQuery) {
-          await generatePretty(
+          generate(
             path.resolve(targetFolder, `${filename}.query.ts`),
             hookParts[0],
           )
         }
 
         if (config.includeReactSuspenseQuery) {
-          await generatePretty(
+          generate(
             path.resolve(targetFolder, `${filename}.suspenseQuery.ts`),
             hookParts[1],
           )
@@ -248,27 +246,6 @@ export function extractImportedTypeNames(content: string): Set<string> {
       .map((s) => s.trim())
       .filter(Boolean),
   )
-}
-
-async function generatePretty(path: string, contents: string) {
-  let organized = contents
-  try {
-    organized = await prettierString(contents, {
-      parser: 'babel-ts',
-      plugins: ['prettier-plugin-organize-imports'],
-    })
-  } catch (err) {
-    console.warn(
-      '⚠️  prettier-plugin-organize-imports not found, skipping import organization',
-    )
-  }
-
-  const formatted = await prettierString(organized, {
-    parser: 'typescript',
-    configPath: 'auto',
-  })
-
-  generate(path, formatted)
 }
 
 function generate(path: string, contents: string) {
