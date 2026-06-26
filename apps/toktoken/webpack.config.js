@@ -2,9 +2,53 @@
 /* eslint-disable no-undef */
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const InlineChunkHtmlPlugin = require('react-dev-utils/InlineChunkHtmlPlugin')
 const path = require('path')
 require('dotenv').config()
+
+/**
+ * UI JS 청크를 ui.html 안에 인라인으로 삽입한다.
+ * Figma 플러그인 UI 는 단일 HTML 이어야 하므로 별도 ui.js 참조 대신 인라인이 필요하다.
+ * (기존 react-dev-utils/InlineChunkHtmlPlugin 을 외부 의존성 없이 대체)
+ */
+class InlineChunkHtmlPlugin {
+  constructor(htmlWebpackPlugin, tests) {
+    this.htmlWebpackPlugin = htmlWebpackPlugin
+    this.tests = tests
+  }
+
+  getInlinedTag(publicPath, assets, tag) {
+    if (tag.tagName !== 'script' || !(tag.attributes && tag.attributes.src)) {
+      return tag
+    }
+    const scriptName =
+      publicPath ? tag.attributes.src.replace(publicPath, '') : tag.attributes.src
+    if (!this.tests.some((test) => scriptName.match(test))) {
+      return tag
+    }
+    const asset = assets[scriptName]
+    if (asset == null) {
+      return tag
+    }
+    return { tagName: 'script', innerHTML: asset.source(), closeTag: true }
+  }
+
+  apply(compiler) {
+    let publicPath = compiler.options.output.publicPath || ''
+    if (publicPath && !publicPath.endsWith('/')) {
+      publicPath += '/'
+    }
+
+    compiler.hooks.compilation.tap('InlineChunkHtmlPlugin', (compilation) => {
+      const tagFunction = (tag) =>
+        this.getInlinedTag(publicPath, compilation.assets, tag)
+      const hooks = this.htmlWebpackPlugin.getHooks(compilation)
+      hooks.alterAssetTagGroups.tap('InlineChunkHtmlPlugin', (assets) => {
+        assets.headTags = assets.headTags.map(tagFunction)
+        assets.bodyTags = assets.bodyTags.map(tagFunction)
+      })
+    })
+  }
+}
 
 module.exports = (env, argv) => ({
   mode: argv.mode === 'production' ? 'production' : 'development',

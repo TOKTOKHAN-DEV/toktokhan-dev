@@ -1,8 +1,18 @@
-export type ColorSchemaMap = Record<string, { id: string; value: string }>
+export type ColorSchemaMap = Record<
+  string,
+  { id: string; value?: string; dark?: string }
+>
+
+export type SemanticTokenMode = {
+  id: string | null
+  refId?: string | null
+  ref?: string | null
+  value?: string
+}
 
 export type SemanticTokenMap = Record<
   string,
-  { id: string; refId?: string; ref?: string; value?: string }
+  Record<string, SemanticTokenMode>
 >
 
 export type ColorKey = 'colorSchema' | 'semanticTokens'

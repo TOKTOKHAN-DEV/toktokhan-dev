@@ -54,8 +54,20 @@ export const parseTextStyle = async (): Promise<Obj> => {
   }
 
   const isAlias = (value: unknown): value is VariableAlias => {
-    if (typeof value !== 'object') return false
+    if (typeof value !== 'object' || value === null) return false
     return (value as Obj).type === 'VARIABLE_ALIAS'
+  }
+
+  const resolveValue = async (
+    value: unknown,
+    visited: Set<string> = new Set(),
+  ): Promise<any> => {
+    if (!isAlias(value)) return value
+    if (visited.has(value.id)) return undefined
+    visited.add(value.id)
+    const token = await figma.variables.getVariableByIdAsync(value.id)
+    const next = Object.values(token?.valuesByMode || {})?.[0]
+    return resolveValue(next, visited)
   }
 
   const getFontVariables = async (id: string): Promise<Record<string, any>> => {
@@ -66,11 +78,7 @@ export const parseTextStyle = async (): Promise<Obj> => {
         flow(
           prop('valuesByMode'),
           mapKeys((key) => modeMap[key]),
-          mapValuesAsPromise(async (value) => {
-            if (!isAlias(value)) return value
-            const token = await figma.variables.getVariableByIdAsync(value.id)
-            return Object.values(token?.valuesByMode || {})?.[0]
-          }),
+          mapValuesAsPromise((value) => resolveValue(value)),
         ),
       ),
     )()
