@@ -427,6 +427,29 @@ describe('mergeTypeScriptContent', () => {
     expect(importMatches.length).toBe(3) // A, B, C
   })
 
+  it('quote/세미콜론 스타일만 다른 동일 import 는 중복시키지 않는다', () => {
+    // swagger-typescript-api 의 내부 prettier 설정(쌍따옴표+세미콜론)과 소비 프로젝트의
+    // .prettierrc.js(홑따옴표, 세미콜론 없음)가 서로 달라, 재실행마다 같은 import가
+    // 문자열만 다르게 누적되고 결국 "Identifier has already been declared" 로 파일이
+    // 영구히 손상되던 버그의 회귀 테스트.
+    const existing = `import axios from 'axios'\n\nexport const a = 1\n`
+    const newContent = `import axios from "axios";\n\nexport const a = 1;\n`
+
+    const result = mergeTypeScriptContent(existing, newContent)
+
+    expect(result.match(/^import axios/gm)).toHaveLength(1)
+  })
+
+  it('내용이 다른 import 는 quote 정규화와 무관하게 별개로 유지한다', () => {
+    const existing = `import { A } from './a'\n\nexport const a = 1\n`
+    const newContent = `import { B } from "./b";\n\nexport const a = 1;\n`
+
+    const result = mergeTypeScriptContent(existing, newContent)
+
+    expect(result).toContain("import { A } from './a'")
+    expect(result).toContain('import { B } from "./b";')
+  })
+
   it('preserves header from new content', () => {
     const existing = `/* old header */\nexport type X = string`
     const newContent = `/* new header */\nexport type X = string`
