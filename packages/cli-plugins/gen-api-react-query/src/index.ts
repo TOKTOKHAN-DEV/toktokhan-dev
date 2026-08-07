@@ -184,6 +184,11 @@ export const genApi = defineCommand<'gen:api', GenerateSwaggerApiConfig>({
       await withLoading('Prettier format', covered.output, async () => {
         const fs = await import('fs')
         const pathMod = await import('path')
+        // `import.meta.url` 대신 __filename 을 앵커로 쓴다 — 이 패키지의 다른 파일
+        // (package-root.ts)과 동일한 패턴으로, Rollup ESM 빌드에서는 자동 shim이 주입되고
+        // ts-jest(CJS 트랜스파일) 환경에서는 네이티브 전역으로 그대로 동작한다.
+        const { createRequire } = await import('module')
+        const require = createRequire(__filename)
         const { prettierString, findFileToTop } = await import(
           '@toktokhan-dev/node'
         )
@@ -213,7 +218,7 @@ export const genApi = defineCommand<'gen:api', GenerateSwaggerApiConfig>({
             try {
               organized = await prettierString(raw, {
                 parser: 'babel-ts',
-                plugins: ['prettier-plugin-organize-imports'],
+                plugins: [require.resolve('prettier-plugin-organize-imports')],
               })
             } catch {
               // prettier-plugin-organize-imports not installed, skip
@@ -246,25 +251,41 @@ export function mergeTypeScriptContent(
   const importRegex = /^\s*import\s+[\s\S]*?from\s*['"][^'"]*['"];?/gm
   const sideEffectImportRegex = /^\s*import\s*['"][^'"]+['"];\s*$/gm
 
+  // quote(', ")·세미콜론·공백 차이만 있는 import 는 같은 import 로 취급한다.
+  // (swagger-typescript-api 의 내부 포맷과 소비 프로젝트의 .prettierrc.js 가 서로 다른
+  // quote/세미콜론 스타일을 쓰는 경우가 흔해서, 문자열 그대로 비교하면 예: `import axios
+  // from "axios";` 와 `import axios from 'axios'` 가 별개로 취급되어 매 실행마다 누적되고,
+  // 결국 "Identifier has already been declared" 문법 에러로 파일이 영구히 손상된다.)
+  const normalizeImportKey = (line: string) =>
+    line
+      .replace(/\s+/g, ' ')
+      .trim()
+      .replace(/;$/, '')
+      .replace(/"/g, "'")
+
   const collectImports = (content: string) => {
-    const imports = new Set<string>()
+    const imports = new Map<string, string>()
     const matchedA = content.match(importRegex) ?? []
     const matchedB = content.match(sideEffectImportRegex) ?? []
-    ;[...matchedA, ...matchedB].forEach((line) => imports.add(line.trim()))
+    ;[...matchedA, ...matchedB].forEach((line) => {
+      const trimmed = line.trim()
+      imports.set(normalizeImportKey(trimmed), trimmed)
+    })
     const contentWithoutImports = content
       .replace(importRegex, '')
       .replace(sideEffectImportRegex, '')
-    return { imports: Array.from(imports), body: contentWithoutImports }
+    return { imports, body: contentWithoutImports }
   }
 
   const { imports: existingImports, body: existingBody } =
     collectImports(existing)
   const { imports: newImports, body: newBody } = collectImports(newContent)
 
-  // import 병합: 새 파일 기준 우선 순서 + 기존에만 있는 import 추가
-  const mergedImportSet = new Set<string>(newImports)
-  existingImports.forEach((imp) => mergedImportSet.add(imp))
-  const mergedImports = Array.from(mergedImportSet).sort()
+  // import 병합: 동일 import(정규화 키 기준)는 새 파일 내용이 우선하고,
+  // 기존에만 있던 import 는 그대로 보존한다.
+  const mergedImportMap = new Map<string, string>(existingImports)
+  newImports.forEach((line, key) => mergedImportMap.set(key, line))
+  const mergedImports = Array.from(mergedImportMap.values()).sort()
 
   // 2) 타입 선언 병합 (중복 제거)
   const existingTypes = parseTypeDefinitions(existingBody)
