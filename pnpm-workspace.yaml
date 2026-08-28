@@ -16,3 +16,9 @@ packages:
   # # Templates
   - 'templates/*'
   - 'templates/rn-native-base/template'
+allowBuilds:
+  core-js: true
+  core-js-pure: true
+  esbuild: true
+  protobufjs: true
+  sharp: true
