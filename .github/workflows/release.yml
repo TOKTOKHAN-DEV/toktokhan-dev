@@ -50,11 +50,15 @@ jobs:
           previous_commit=${{ github.event.before }}
           latest_commit=${{ github.sha }}
           echo "Checking for changes between $previous_commit and $latest_commit..."
-          if git diff --quiet $previous_commit $latest_commit -- ./packages ./configs; then
-            echo "No changes detected in ./packages or ./configs."
+          # ./packages, ./configs 자체에 diff가 없어도, 소비할 changeset이 이미 쌓여 있으면
+          # (예: 코드 수정은 이전 커밋에서 이미 머지되고 changeset만 뒤늦게 추가된 경우)
+          # 버전업/배포를 진행해야 하므로 .changeset/*.md 존재 여부도 함께 확인한다.
+          if git diff --quiet $previous_commit $latest_commit -- ./packages ./configs \
+             && ! find .changeset -maxdepth 1 -name '*.md' ! -name 'README.md' | grep -q .; then
+            echo "No changes detected in ./packages, ./configs, and no pending changesets."
             exit 1
           else
-            echo "Changes detected in ./packages or ./configs."
+            echo "Changes detected in ./packages, ./configs, or pending changesets found."
           fi
 
       - name: Setup npmrc
