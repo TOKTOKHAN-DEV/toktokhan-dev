@@ -1,0 +1,586 @@
+# ============================================================================
+# 배포 설정 변경 워크플로우 (타겟 레포에서 직접 실행)
+#
+# 용도:
+#   - 단일 → 모노레포 전환
+#   - 모노레포 앱 추가/변경
+#   - 기존 Vercel 프로젝트 ID로 재설정
+#
+# 입력 조합:
+#   app_paths만                    → 모노레포 (Vercel 프로젝트 자동 생성)
+#   vercel_project_ids만 (1개)     → 단일 프로젝트
+#   vercel_project_ids만 (여러개)  → 모노레포 (rootDirectory 자동 조회)
+#   app_paths + vercel_project_ids → 모노레포 (기존 ID 사용)
+#
+# 모든 설정은 .github/vercel-apps.json에 저장됩니다:
+#   단일: [{"name": "my-app", "path": ".", "projectId": "prj_xxx"}]
+#   모노: [{"name": "apps-web", "path": "apps/web", "projectId": "prj_xxx"}, ...]
+# ============================================================================
+
+name: Configure Deploy
+
+on:
+  workflow_dispatch:
+    inputs:
+      vercel_project_ids:
+        description: "Vercel 프로젝트 ID (예: prj_abc123). 없으면 비워두면 자동 생성."
+        required: false
+        type: string
+        default: ""
+      app_paths:
+        description: "추가할 앱 경로 (예: apps/web,apps/admin). 여러 개면 쉼표로 구분."
+        required: false
+        type: string
+        default: ""
+      remove_paths:
+        description: "삭제할 앱 경로 (예: apps/old-app). 배포 목록에서 제거됩니다."
+        required: false
+        type: string
+        default: ""
+      sync_all_branches:
+        description: "모든 브랜치에 적용 (체크하면 모든 브랜치의 배포 설정과 워크플로우가 동기화됩니다)"
+        required: false
+        type: boolean
+        default: false
+      sync_branches:
+        description: "특정 브랜치에만 동기화 (예: test,feat/test). 쉼표로 구분. 비워두면 무시."
+        required: false
+        type: string
+        default: ""
+      slack_webhook_url:
+        description: "배포 알림을 받을 Slack 웹훅 URL. 비워두면 기존 설정 유지."
+        required: false
+        type: string
+        default: ""
+
+concurrency:
+  group: configure-deploy
+  cancel-in-progress: false
+
+jobs:
+  configure:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set Slack webhook URL
+        if: github.event.inputs.slack_webhook_url != ''
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+        run: |
+          gh secret set SLACK_WEBHOOK_URL --repo "${{ github.repository }}" --body "${{ github.event.inputs.slack_webhook_url }}"
+          echo "✓ SLACK_WEBHOOK_URL 등록"
+
+      - name: Validate input & determine mode
+        run: |
+          PROJECT_IDS="${{ github.event.inputs.vercel_project_ids }}"
+          APP_PATHS="${{ github.event.inputs.app_paths }}"
+          REMOVE_PATHS="${{ github.event.inputs.remove_paths }}"
+
+          if [[ -z "$PROJECT_IDS" && -z "$APP_PATHS" && -z "$REMOVE_PATHS" ]]; then
+            echo "::error::vercel_project_ids, app_paths, remove_paths 중 하나는 입력해야 합니다."
+            exit 1
+          fi
+
+          # remove_paths만 입력된 경우 삭제 전용 모드
+          if [[ -n "$REMOVE_PATHS" && -z "$PROJECT_IDS" && -z "$APP_PATHS" ]]; then
+            echo "MODE=remove-only" >> $GITHUB_ENV
+            echo "::notice::앱 삭제 모드 — $REMOVE_PATHS"
+          fi
+
+          if [[ -z "$PROJECT_IDS" && -n "$APP_PATHS" ]]; then
+            # app_paths만 입력 → Vercel 프로젝트 자동 생성
+            echo "MODE=monorepo-auto" >> $GITHUB_ENV
+            echo "::notice::모노레포 모드 — Vercel 프로젝트 자동 생성"
+          elif [[ -n "$PROJECT_IDS" ]]; then
+            IFS=',' read -ra IDS <<< "$PROJECT_IDS"
+            ID_COUNT=${#IDS[@]}
+
+            if [[ "$ID_COUNT" -eq 1 && -z "$APP_PATHS" ]]; then
+              # 기존 모노레포에 1개 ID만 추가하는 경우 감지
+              if [[ -f ".github/vercel-apps.json" ]]; then
+                NON_ROOT=$(jq '[.[] | select(.path != ".")] | length' .github/vercel-apps.json)
+                if [[ "$NON_ROOT" -gt 0 ]]; then
+                  echo "MODE=monorepo" >> $GITHUB_ENV
+                  echo "::notice::기존 모노레포 감지 → 앱 추가 모드 (1개 ID)"
+                else
+                  echo "MODE=single" >> $GITHUB_ENV
+                  echo "::notice::단일 프로젝트 모드"
+                fi
+              else
+                echo "MODE=single" >> $GITHUB_ENV
+                echo "::notice::단일 프로젝트 모드"
+              fi
+            elif [[ "$ID_COUNT" -eq 1 && -n "$APP_PATHS" ]]; then
+              echo "MODE=monorepo" >> $GITHUB_ENV
+              echo "::notice::모노레포 모드 (1개 앱 + 경로 지정)"
+            else
+              echo "MODE=monorepo" >> $GITHUB_ENV
+              echo "::notice::모노레포 모드 (${ID_COUNT}개 앱)"
+
+              if [[ -n "$APP_PATHS" ]]; then
+                IFS=',' read -ra P <<< "$APP_PATHS"
+                if [[ ${#P[@]} -ne $ID_COUNT ]]; then
+                  echo "::error::app_paths(${#P[@]}개)와 vercel_project_ids(${ID_COUNT}개)의 개수가 다릅니다."
+                  exit 1
+                fi
+              fi
+            fi
+          fi
+
+      # ── 단일 프로젝트: vercel-apps.json 생성 ─────────────────
+      - name: Configure single project
+        if: env.MODE == 'single'
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_TEAM_ID: ${{ secrets.VERCEL_TEAM_ID }}
+        run: |
+          PROJECT_ID=$(echo "${{ github.event.inputs.vercel_project_ids }}" | xargs)
+          REPO_NAME="${{ github.event.repository.name }}"
+
+          # Git Integration 자동 배포 비활성화
+          curl -s -X PATCH \
+            "https://api.vercel.com/v9/projects/${PROJECT_ID}?teamId=${VERCEL_TEAM_ID}" \
+            -H "Authorization: Bearer ${VERCEL_TOKEN}" \
+            -H "Content-Type: application/json" \
+            -d '{"gitProviderOptions": {"createDeployments": "disabled"}}'
+          echo "✓ 자동 배포 비활성화"
+
+          mkdir -p .github
+          jq -n \
+            --arg name "$REPO_NAME" \
+            --arg projectId "$PROJECT_ID" \
+            '[{"name": $name, "path": ".", "projectId": $projectId}]' > .github/vercel-apps.json
+
+          echo "✓ vercel-apps.json 생성 (단일 프로젝트)"
+          cat .github/vercel-apps.json
+
+      # ── 모노레포: app_paths만 입력 → Vercel 프로젝트 자동 생성 ──
+      - name: Configure monorepo (auto-create projects)
+        if: env.MODE == 'monorepo-auto'
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_TEAM_ID: ${{ secrets.VERCEL_TEAM_ID }}
+        run: |
+          REPO_NAME="${{ github.event.repository.name }}"
+          APP_PATHS="${{ github.event.inputs.app_paths }}"
+          APPS_JSON="[]"
+
+          IFS=',' read -ra PATHS <<< "$APP_PATHS"
+
+          for INPUT_PATH in "${PATHS[@]}"; do
+            INPUT_PATH=$(echo "$INPUT_PATH" | xargs)
+
+            # 경로 탐색
+            if [[ -d "$INPUT_PATH" ]]; then
+              RESOLVED_PATH="$INPUT_PATH"
+              echo "── 경로 확인: $INPUT_PATH ✓"
+            else
+              FOUND=$(find . -type d -name "$INPUT_PATH" \
+                -not -path '*/.git/*' -not -path '*/node_modules/*' \
+                -not -path '*/.next/*' | head -1 | sed 's|^\./||')
+              if [[ -n "$FOUND" ]]; then
+                RESOLVED_PATH="$FOUND"
+                echo "── 경로 탐색: $INPUT_PATH → $RESOLVED_PATH ✓"
+              else
+                echo "::error::경로를 찾을 수 없습니다: $INPUT_PATH"
+                find . -maxdepth 3 -type d \
+                  -not -path '*/.git/*' -not -path '*/node_modules/*' | \
+                  sed 's|^\./||' | sort
+                exit 1
+              fi
+            fi
+
+            APP_NAME=$(echo "$RESOLVED_PATH" | sed 's|/|-|g')
+            PROJECT_NAME="${REPO_NAME}-${APP_NAME}"
+
+            # Vercel 프로젝트 확인/생성
+            echo "  → Vercel 프로젝트 확인: $PROJECT_NAME (rootDirectory: $RESOLVED_PATH)"
+
+            CHECK_RESPONSE=$(curl -s -w "\n%{http_code}" \
+              "https://api.vercel.com/v9/projects/${PROJECT_NAME}?teamId=${VERCEL_TEAM_ID}" \
+              -H "Authorization: Bearer ${VERCEL_TOKEN}")
+            CHECK_CODE=$(echo "$CHECK_RESPONSE" | tail -1)
+            CHECK_BODY=$(echo "$CHECK_RESPONSE" | sed '$d')
+
+            if [[ "$CHECK_CODE" == "200" ]]; then
+              PROJECT_ID=$(echo "$CHECK_BODY" | jq -r '.id')
+              echo "  ✓ 이미 존재: $PROJECT_NAME (ID: $PROJECT_ID)"
+
+              # Git Integration 자동 배포 비활성화
+              curl -s -X PATCH \
+                "https://api.vercel.com/v9/projects/${PROJECT_ID}?teamId=${VERCEL_TEAM_ID}" \
+                -H "Authorization: Bearer ${VERCEL_TOKEN}" \
+                -H "Content-Type: application/json" \
+                -d '{"gitProviderOptions": {"createDeployments": "disabled"}}'
+              echo "  ✓ 자동 배포 비활성화"
+            else
+              RESPONSE=$(curl -s -w "\n%{http_code}" -X POST \
+                "https://api.vercel.com/v10/projects?teamId=${VERCEL_TEAM_ID}" \
+                -H "Authorization: Bearer ${VERCEL_TOKEN}" \
+                -H "Content-Type: application/json" \
+                -d "{
+                  \"name\": \"${PROJECT_NAME}\",
+                  \"framework\": \"nextjs\",
+                  \"rootDirectory\": \"${RESOLVED_PATH}\",
+                  \"gitRepository\": {
+                    \"type\": \"github\",
+                    \"repo\": \"${{ github.repository }}\"
+                  }
+                }")
+
+              HTTP_CODE=$(echo "$RESPONSE" | tail -1)
+              BODY=$(echo "$RESPONSE" | sed '$d')
+
+              if [[ "$HTTP_CODE" -ge 200 && "$HTTP_CODE" -lt 300 ]]; then
+                PROJECT_ID=$(echo "$BODY" | jq -r '.id')
+                echo "  ✓ 생성 완료: $PROJECT_NAME (ID: $PROJECT_ID)"
+
+                # Git Integration 자동 배포 비활성화
+                curl -s -X PATCH \
+                  "https://api.vercel.com/v9/projects/${PROJECT_ID}?teamId=${VERCEL_TEAM_ID}" \
+                  -H "Authorization: Bearer ${VERCEL_TOKEN}" \
+                  -H "Content-Type: application/json" \
+                  -d '{"gitProviderOptions": {"createDeployments": "disabled"}}'
+                echo "  ✓ 자동 배포 비활성화"
+              else
+                echo "::error::$PROJECT_NAME 생성 실패 (HTTP $HTTP_CODE)"
+                echo "$BODY" | jq '.' 2>/dev/null || echo "$BODY"
+                exit 1
+              fi
+            fi
+
+            APPS_JSON=$(echo "$APPS_JSON" | jq \
+              --arg name "$APP_NAME" \
+              --arg path "$RESOLVED_PATH" \
+              --arg projectId "$PROJECT_ID" \
+              '. + [{"name": $name, "path": $path, "projectId": $projectId}]')
+          done
+
+          # 기존 vercel-apps.json과 병합
+          mkdir -p .github
+          if [[ -f ".github/vercel-apps.json" ]]; then
+            MERGED=$(echo "$APPS_JSON" | jq --slurpfile existing .github/vercel-apps.json '
+              . as $new |
+              ($new | map(.path)) as $new_paths |
+              [$existing[0][] | select(.path as $p | $new_paths | index($p) | not)] + $new
+            ')
+            echo "$MERGED" | jq '.' > .github/vercel-apps.json
+            echo "✓ vercel-apps.json 병합"
+          else
+            echo "$APPS_JSON" | jq '.' > .github/vercel-apps.json
+            echo "✓ vercel-apps.json 생성"
+          fi
+          cat .github/vercel-apps.json
+
+      # ── 모노레포: app_paths + vercel_project_ids ─────────────
+      - name: Configure monorepo (with app_paths)
+        if: env.MODE == 'monorepo' && github.event.inputs.app_paths != ''
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_TEAM_ID: ${{ secrets.VERCEL_TEAM_ID }}
+        run: |
+          PROJECT_IDS="${{ github.event.inputs.vercel_project_ids }}"
+          APP_PATHS="${{ github.event.inputs.app_paths }}"
+          APPS_JSON="[]"
+
+          IFS=',' read -ra IDS <<< "$PROJECT_IDS"
+          IFS=',' read -ra PATHS <<< "$APP_PATHS"
+
+          for i in "${!IDS[@]}"; do
+            PROJECT_ID=$(echo "${IDS[$i]}" | xargs)
+            INPUT_PATH=$(echo "${PATHS[$i]}" | xargs)
+
+            # 경로 탐색
+            if [[ -d "$INPUT_PATH" ]]; then
+              RESOLVED_PATH="$INPUT_PATH"
+              echo "── 경로 확인: $INPUT_PATH ✓"
+            else
+              FOUND=$(find . -type d -name "$INPUT_PATH" \
+                -not -path '*/.git/*' -not -path '*/node_modules/*' \
+                -not -path '*/.next/*' | head -1 | sed 's|^\./||')
+              if [[ -n "$FOUND" ]]; then
+                RESOLVED_PATH="$FOUND"
+                echo "── 경로 탐색: $INPUT_PATH → $RESOLVED_PATH ✓"
+              else
+                echo "::error::경로를 찾을 수 없습니다: $INPUT_PATH"
+                find . -maxdepth 3 -type d \
+                  -not -path '*/.git/*' -not -path '*/node_modules/*' | \
+                  sed 's|^\./||' | sort
+                exit 1
+              fi
+            fi
+
+            APP_NAME=$(echo "$RESOLVED_PATH" | sed 's|/|-|g')
+            echo "  → $APP_NAME ($PROJECT_ID)"
+
+            # Git Integration 자동 배포 비활성화
+            curl -s -X PATCH \
+              "https://api.vercel.com/v9/projects/${PROJECT_ID}?teamId=${VERCEL_TEAM_ID}" \
+              -H "Authorization: Bearer ${VERCEL_TOKEN}" \
+              -H "Content-Type: application/json" \
+              -d '{"gitProviderOptions": {"createDeployments": "disabled"}}'
+            echo "  ✓ 자동 배포 비활성화"
+
+            APPS_JSON=$(echo "$APPS_JSON" | jq \
+              --arg name "$APP_NAME" \
+              --arg path "$RESOLVED_PATH" \
+              --arg projectId "$PROJECT_ID" \
+              '. + [{"name": $name, "path": $path, "projectId": $projectId}]')
+          done
+
+          # 기존 vercel-apps.json과 병합
+          mkdir -p .github
+          if [[ -f ".github/vercel-apps.json" ]]; then
+            MERGED=$(echo "$APPS_JSON" | jq --slurpfile existing .github/vercel-apps.json '
+              . as $new |
+              ($new | map(.path)) as $new_paths |
+              [$existing[0][] | select(.path as $p | $new_paths | index($p) | not)] + $new
+            ')
+            echo "$MERGED" | jq '.' > .github/vercel-apps.json
+            echo "✓ vercel-apps.json 병합"
+          else
+            echo "$APPS_JSON" | jq '.' > .github/vercel-apps.json
+            echo "✓ vercel-apps.json 생성"
+          fi
+          cat .github/vercel-apps.json
+
+      # ── 모노레포: Vercel API에서 rootDirectory 자동 조회 ────────
+      - name: Configure monorepo (from Vercel API)
+        if: env.MODE == 'monorepo' && github.event.inputs.app_paths == ''
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_TEAM_ID: ${{ secrets.VERCEL_TEAM_ID }}
+        run: |
+          PROJECT_IDS="${{ github.event.inputs.vercel_project_ids }}"
+          APPS_JSON="[]"
+
+          IFS=',' read -ra IDS <<< "$PROJECT_IDS"
+          for ID in "${IDS[@]}"; do
+            ID=$(echo "$ID" | xargs)
+            echo "── Vercel 프로젝트 조회: $ID"
+
+            RESPONSE=$(curl -s \
+              "https://api.vercel.com/v9/projects/${ID}?teamId=${VERCEL_TEAM_ID}" \
+              -H "Authorization: Bearer ${VERCEL_TOKEN}")
+
+            PROJECT_NAME=$(echo "$RESPONSE" | jq -r '.name // empty')
+            ROOT_DIR=$(echo "$RESPONSE" | jq -r '.rootDirectory // empty')
+
+            if [[ -z "$PROJECT_NAME" ]]; then
+              echo "::error::프로젝트를 찾을 수 없습니다: $ID"
+              echo "$RESPONSE" | jq '.' 2>/dev/null || echo "$RESPONSE"
+              exit 1
+            fi
+
+            if [[ -z "$ROOT_DIR" ]]; then
+              echo "::error::rootDirectory가 설정되지 않음: $PROJECT_NAME ($ID)"
+              exit 1
+            fi
+
+            APP_NAME=$(echo "$ROOT_DIR" | sed 's|/|-|g')
+            echo "  ✓ $PROJECT_NAME → $ROOT_DIR"
+
+            # Git Integration 자동 배포 비활성화
+            curl -s -X PATCH \
+              "https://api.vercel.com/v9/projects/${ID}?teamId=${VERCEL_TEAM_ID}" \
+              -H "Authorization: Bearer ${VERCEL_TOKEN}" \
+              -H "Content-Type: application/json" \
+              -d '{"gitProviderOptions": {"createDeployments": "disabled"}}'
+            echo "  ✓ 자동 배포 비활성화"
+
+            APPS_JSON=$(echo "$APPS_JSON" | jq \
+              --arg name "$APP_NAME" \
+              --arg path "$ROOT_DIR" \
+              --arg projectId "$ID" \
+              '. + [{"name": $name, "path": $path, "projectId": $projectId}]')
+          done
+
+          # 기존 vercel-apps.json과 병합
+          mkdir -p .github
+          if [[ -f ".github/vercel-apps.json" ]]; then
+            MERGED=$(echo "$APPS_JSON" | jq --slurpfile existing .github/vercel-apps.json '
+              . as $new |
+              ($new | map(.path)) as $new_paths |
+              [$existing[0][] | select(.path as $p | $new_paths | index($p) | not)] + $new
+            ')
+            echo "$MERGED" | jq '.' > .github/vercel-apps.json
+            echo "✓ vercel-apps.json 병합"
+          else
+            echo "$APPS_JSON" | jq '.' > .github/vercel-apps.json
+            echo "✓ vercel-apps.json 생성"
+          fi
+          cat .github/vercel-apps.json
+
+      # ── 앱 삭제 ────────────────────────────────────────────────
+      - name: Remove apps from vercel-apps.json
+        if: github.event.inputs.remove_paths != ''
+        run: |
+          REMOVE_PATHS="${{ github.event.inputs.remove_paths }}"
+
+          if [[ ! -f ".github/vercel-apps.json" ]]; then
+            echo "::error::vercel-apps.json이 없습니다. 삭제할 앱이 없습니다."
+            exit 1
+          fi
+
+          IFS=',' read -ra PATHS <<< "$REMOVE_PATHS"
+          for RP in "${PATHS[@]}"; do
+            RP=$(echo "$RP" | xargs)
+            BEFORE=$(jq 'length' .github/vercel-apps.json)
+            jq --arg path "$RP" '[.[] | select(.path != $path)]' .github/vercel-apps.json > /tmp/apps-tmp.json
+            mv /tmp/apps-tmp.json .github/vercel-apps.json
+            AFTER=$(jq 'length' .github/vercel-apps.json)
+
+            if [[ "$BEFORE" -eq "$AFTER" ]]; then
+              echo "  ⚠ $RP: 해당 경로가 vercel-apps.json에 없습니다"
+            else
+              echo "  ✓ $RP 삭제됨"
+            fi
+          done
+
+          echo "── 삭제 후 결과:"
+          cat .github/vercel-apps.json
+
+      # ── 커밋 + 푸시 ────────────────────────────────────────────
+      - name: Commit and push
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .github/vercel-apps.json
+
+          if git diff --cached --quiet; then
+            echo "변경사항 없음"
+          else
+            if [[ "$MODE" == "remove-only" ]]; then
+              COMMIT_MSG="ci: remove apps from deploy config"
+            elif [[ "$MODE" == "single" ]]; then
+              COMMIT_MSG="ci: configure single project deploy"
+            else
+              COMMIT_MSG="ci: configure monorepo deploy"
+            fi
+            git commit -m "$COMMIT_MSG"
+
+            DEFAULT_BRANCH=$(git symbolic-ref --short HEAD)
+            if git push origin "$DEFAULT_BRANCH" 2>/dev/null; then
+              echo "✓ 직접 push 완료"
+            else
+              BRANCH_NAME="ci/configure-deploy-$(date +%s)"
+              git checkout -b "$BRANCH_NAME"
+              git push origin "$BRANCH_NAME"
+              gh pr create --base "$DEFAULT_BRANCH" --head "$BRANCH_NAME" \
+                --title "$COMMIT_MSG" --body "브랜치 보호 규칙으로 직접 push가 불가하여 PR로 생성합니다."
+              echo "✓ PR 생성 완료 (브랜치: $BRANCH_NAME)"
+            fi
+          fi
+
+      # ── 브랜치에 설정 + 워크플로우 전파 ─────────────────────────
+      - name: Sync config and workflows to branches
+        if: github.event.inputs.sync_all_branches == 'true' || github.event.inputs.sync_branches != ''
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+        run: |
+          CURRENT_BRANCH=$(git symbolic-ref --short HEAD 2>/dev/null || echo "")
+          if [[ -z "$CURRENT_BRANCH" ]]; then
+            echo "브랜치 감지 불가 — 건너뜀"
+            exit 0
+          fi
+
+          # 인증 설정 + 모든 브랜치 접근 가능하도록 remote 설정
+          git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git remote set-branches origin '*'
+          git fetch --all
+
+          SYNC_INPUT="${{ github.event.inputs.sync_branches }}"
+
+          if [[ -n "$SYNC_INPUT" ]]; then
+            # 특정 브랜치만 동기화
+            TARGET_BRANCHES=""
+            IFS=',' read -ra INPUT_BRANCHES <<< "$SYNC_INPUT"
+            for B in "${INPUT_BRANCHES[@]}"; do
+              B=$(echo "$B" | xargs)
+              [[ -z "$B" ]] && continue
+              [[ "$B" == "$CURRENT_BRANCH" ]] && continue
+              TARGET_BRANCHES="$TARGET_BRANCHES $B"
+            done
+          else
+            # 모든 브랜치 동기화
+            ALL_BRANCHES=$(git branch -r | sed 's|origin/||' | sed 's/^[* ]*//' | grep -v HEAD)
+            TARGET_BRANCHES=""
+            while IFS= read -r B; do
+              B=$(echo "$B" | xargs)
+              [[ -z "$B" ]] && continue
+              [[ "$B" == "$CURRENT_BRANCH" ]] && continue
+              TARGET_BRANCHES="$TARGET_BRANCHES $B"
+            done <<< "$ALL_BRANCHES"
+          fi
+          TARGET_BRANCHES=$(echo "$TARGET_BRANCHES" | xargs)
+
+          if [[ -z "$TARGET_BRANCHES" ]]; then
+            echo "전파 대상 브랜치 없음"
+            exit 0
+          fi
+
+          BRANCH_COUNT=$(echo "$TARGET_BRANCHES" | wc -w | xargs)
+          echo "── ${BRANCH_COUNT}개 브랜치에 설정 + 워크플로우 전파"
+
+          for BRANCH in $TARGET_BRANCHES; do
+            if ! git checkout -B "$BRANCH" "origin/$BRANCH" 2>/dev/null; then
+              echo "  ⚠ $BRANCH: checkout 실패 — 건너뜀"
+              continue
+            fi
+
+            mkdir -p .github/workflows
+            git checkout "$CURRENT_BRANCH" -- .github/vercel-apps.json
+            git checkout "$CURRENT_BRANCH" -- .github/workflows/deploy.yml
+            git checkout "$CURRENT_BRANCH" -- .github/workflows/configure-deploy.yml
+            git checkout "$CURRENT_BRANCH" -- vercel.json 2>/dev/null || true
+
+            git add .github/ vercel.json 2>/dev/null || git add .github/
+            if git diff --cached --quiet; then
+              echo "  $BRANCH: 이미 최신"
+            else
+              git commit -m "ci: sync deploy config and workflows from ${CURRENT_BRANCH}"
+              if git push origin "$BRANCH" 2>/dev/null; then
+                echo "  ✓ $BRANCH"
+              else
+                echo "  ⚠ $BRANCH: push 실패 (브랜치 보호 규칙)"
+              fi
+            fi
+          done
+
+          git checkout "$CURRENT_BRANCH" 2>/dev/null || true
+
+      # ── Slack 알림 ──────────────────────────────────────────────
+      - name: Slack - Success
+        if: success()
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: |
+          if [[ -n "$SLACK_WEBHOOK_URL" ]]; then
+            MODE_MSG="단일 프로젝트"
+            if [[ "$MODE" != "single" ]]; then
+              MODE_MSG="모노레포"
+            fi
+            curl -s -X POST "$SLACK_WEBHOOK_URL" \
+              -H "Content-Type: application/json" \
+              -d "{\"text\": \"✅ *배포 설정 변경*\nRepo: \`${{ github.repository }}\`\n모드: ${MODE_MSG}\n실행자: ${{ github.actor }}\"}" || true
+          fi
+
+      - name: Slack - Failure
+        if: failure()
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: |
+          if [[ -n "$SLACK_WEBHOOK_URL" ]]; then
+            curl -s -X POST "$SLACK_WEBHOOK_URL" \
+              -H "Content-Type: application/json" \
+              -d "{\"text\": \"❌ *배포 설정 변경 실패*\nRepo: \`${{ github.repository }}\`\n실행자: ${{ github.actor }}\nActions: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}\"}" || true
+          fi

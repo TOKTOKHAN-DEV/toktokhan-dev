@@ -1,0 +1,336 @@
+# ============================================================================
+# Vercel 배포 자동화 워크플로우
+# ============================================================================
+#
+# 전제: .github/vercel-apps.json 필수
+#   단일 프로젝트: [{"name": "my-app", "path": ".", "projectId": "prj_xxx"}]
+#   모노레포:     [{"name": "apps-web", "path": "apps/web", "projectId": "prj_xxx"}, ...]
+#
+# Job 구성:
+#   prepare → deploy (매트릭스)
+#
+# 필요 Secrets:
+#   - VERCEL_TOKEN       : Vercel Access Token
+#   - VERCEL_TEAM_ID     : Team ID
+#
+# 선택 Secrets:
+#   - GH_PAT             : GitHub PAT (configure-deploy에서 사용)
+#
+# 배포 알림: Slack GitHub 앱의 /github subscribe 사용 권장
+#
+# 브랜치 → 환경 매핑:
+#   main    → Production
+#   staging → Staging (Custom Environment)
+#   그 외   → Preview
+# ============================================================================
+
+name: Deploy to Vercel
+
+on:
+  push:
+    branches:
+      - '**'
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+concurrency:
+  group: vercel-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # ════════════════════════════════════════════════════════════════
+  # Job 1: 배포 대상 앱 결정
+  # ════════════════════════════════════════════════════════════════
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      apps: ${{ steps.detect.outputs.apps }}
+      has-apps: ${{ steps.detect.outputs.has-apps }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Detect apps to deploy
+        id: detect
+        run: |
+          if [[ ! -f ".github/vercel-apps.json" ]]; then
+            echo "::error::vercel-apps.json이 없습니다. setup-repo 또는 configure-deploy를 먼저 실행하세요."
+            exit 1
+          fi
+
+          ALL_APPS=$(jq -c '.' .github/vercel-apps.json)
+          HAS_ROOT=$(echo "$ALL_APPS" | jq '[.[] | select(.path == ".")] | length')
+
+          if [[ "$HAS_ROOT" -gt 0 ]]; then
+            # 단일 프로젝트 (path=".") → 항상 배포
+            echo "::notice::단일 프로젝트 → 전체 배포"
+            echo "apps=$ALL_APPS" >> $GITHUB_OUTPUT
+            echo "has-apps=true" >> $GITHUB_OUTPUT
+          else
+            # 모노레포 → 변경된 앱만 배포
+            AFFECTED=""
+
+            # ── Turborepo 의존성 분석 (turbo.json이 있는 경우) ──
+            if [[ -f "turbo.json" ]]; then
+              echo "::notice::turbo.json 감지 → Turborepo 의존성 분석"
+
+              # SCM base 설정 (turbo 2.2 미만 호환)
+              if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+                export TURBO_SCM_BASE="origin/${{ github.base_ref }}"
+              else
+                BEFORE_SHA="${{ github.event.before }}"
+                ZERO_SHA="0000000000000000000000000000000000000000"
+                if [[ -n "$BEFORE_SHA" && "$BEFORE_SHA" != "$ZERO_SHA" ]] && git cat-file -e "${BEFORE_SHA}^{commit}" 2>/dev/null; then
+                  export TURBO_SCM_BASE="$BEFORE_SHA"
+                else
+                  export TURBO_SCM_BASE="$(git rev-list --max-parents=0 HEAD)"
+                fi
+              fi
+              export TURBO_SCM_HEAD="HEAD"
+
+              TURBO_OUTPUT=$(npx -y turbo@2 ls --affected --output=json 2>/dev/null || echo "")
+
+              if [[ -n "$TURBO_OUTPUT" ]] && echo "$TURBO_OUTPUT" | jq -e '.packages.items' &>/dev/null; then
+                AFFECTED_PATHS=$(echo "$TURBO_OUTPUT" | jq -r '.packages.items[].path')
+                echo "Turborepo affected packages:"
+                echo "$AFFECTED_PATHS"
+
+                AFFECTED="[]"
+                while IFS= read -r app_json; do
+                  APP_PATH=$(echo "$app_json" | jq -r '.path')
+                  if echo "$AFFECTED_PATHS" | grep -qx "$APP_PATH"; then
+                    AFFECTED=$(echo "$AFFECTED" | jq --argjson app "$app_json" '. + [$app]')
+                  fi
+                done < <(jq -c '.[]' .github/vercel-apps.json)
+
+                APP_COUNT=$(echo "$AFFECTED" | jq 'length')
+                echo "::notice::Turborepo 분석 결과: 영향받는 앱 ${APP_COUNT}개"
+              else
+                echo "::warning::Turborepo 분석 실패 → 경로 기반 감지로 폴백"
+                AFFECTED=""
+              fi
+            fi
+
+            # ── Turborepo 없거나 실패 시 경로 기반 감지 ──
+            if [[ -z "$AFFECTED" ]]; then
+              if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+                CHANGED=$(git diff --name-only origin/${{ github.base_ref }}...HEAD)
+              else
+                BEFORE_SHA="${{ github.event.before }}"
+                ZERO_SHA="0000000000000000000000000000000000000000"
+                if [[ -n "$BEFORE_SHA" && "$BEFORE_SHA" != "$ZERO_SHA" ]] && git cat-file -e "${BEFORE_SHA}^{commit}" 2>/dev/null; then
+                  CHANGED=$(git diff --name-only "$BEFORE_SHA" "${{ github.sha }}")
+                else
+                  CHANGED=$(git ls-tree -r --name-only HEAD)
+                fi
+              fi
+
+              echo "Changed files:"
+              echo "$CHANGED"
+
+              # 영향받는 앱 필터링
+              AFFECTED="[]"
+              while IFS= read -r app_json; do
+                APP_PATH=$(echo "$app_json" | jq -r '.path')
+                if echo "$CHANGED" | grep -q "^${APP_PATH}/"; then
+                  AFFECTED=$(echo "$AFFECTED" | jq --argjson app "$app_json" '. + [$app]')
+                fi
+              done < <(jq -c '.[]' .github/vercel-apps.json)
+
+              # 루트 레벨 변경 감지 → 전체 앱 배포
+              ALL_APP_PATHS=$(jq -r '.[].path' .github/vercel-apps.json)
+              ROOT_CHANGED=false
+              while IFS= read -r changed_file; do
+                [[ -z "$changed_file" ]] && continue
+                IS_APP_FILE=false
+                while IFS= read -r app_path; do
+                  if [[ "$changed_file" == "${app_path}/"* ]]; then
+                    IS_APP_FILE=true; break
+                  fi
+                done <<< "$ALL_APP_PATHS"
+                if [[ "$IS_APP_FILE" == "false" ]]; then
+                  ROOT_CHANGED=true; break
+                fi
+              done <<< "$CHANGED"
+
+              if [[ "$ROOT_CHANGED" == "true" ]]; then
+                echo "::notice::루트 레벨 변경 감지 → 전체 앱 배포"
+                AFFECTED=$(jq -c '.' .github/vercel-apps.json)
+              fi
+            fi
+
+            APP_COUNT=$(echo "$AFFECTED" | jq 'length')
+            echo "::notice::영향받는 앱 ($APP_COUNT개): $(echo "$AFFECTED" | jq -r '[.[].name] | join(", ")')"
+
+            if [[ "$APP_COUNT" -gt 0 ]]; then
+              echo "has-apps=true" >> $GITHUB_OUTPUT
+            else
+              echo "has-apps=false" >> $GITHUB_OUTPUT
+            fi
+            echo "apps=$(echo "$AFFECTED" | jq -c '.')" >> $GITHUB_OUTPUT
+          fi
+
+  # ════════════════════════════════════════════════════════════════
+  # Job 2: 매트릭스 배포 (단일/모노레포 공통)
+  # ════════════════════════════════════════════════════════════════
+  deploy:
+    runs-on: ubuntu-latest
+    needs: prepare
+    if: needs.prepare.outputs.has-apps == 'true'
+    strategy:
+      matrix:
+        app: ${{ fromJson(needs.prepare.outputs.apps) }}
+      fail-fast: false
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+      # ── 환경 결정 ──────────────────────────────────────────────
+      - name: Determine deployment target
+        id: target
+        run: |
+          if [[ "${{ github.ref }}" == "refs/heads/main" ]]; then
+            echo "ref=main" >> $GITHUB_OUTPUT
+            echo "target=production" >> $GITHUB_OUTPUT
+            echo "environment=production" >> $GITHUB_OUTPUT
+            echo "prod_flag=--prod" >> $GITHUB_OUTPUT
+            echo "target_flag=--prod" >> $GITHUB_OUTPUT
+          elif [[ "${{ github.ref }}" == "refs/heads/staging" ]]; then
+            echo "ref=staging" >> $GITHUB_OUTPUT
+            echo "target=staging" >> $GITHUB_OUTPUT
+            echo "environment=preview" >> $GITHUB_OUTPUT
+            echo "prod_flag=" >> $GITHUB_OUTPUT
+            echo "target_flag=--target staging" >> $GITHUB_OUTPUT
+          elif [[ "${{ github.event_name }}" == "pull_request" ]]; then
+            echo "ref=${{ github.head_ref }}" >> $GITHUB_OUTPUT
+            echo "target=" >> $GITHUB_OUTPUT
+            echo "environment=preview" >> $GITHUB_OUTPUT
+            echo "prod_flag=" >> $GITHUB_OUTPUT
+            echo "target_flag=" >> $GITHUB_OUTPUT
+          else
+            echo "ref=${{ github.ref_name }}" >> $GITHUB_OUTPUT
+            echo "target=" >> $GITHUB_OUTPUT
+            echo "environment=preview" >> $GITHUB_OUTPUT
+            echo "prod_flag=" >> $GITHUB_OUTPUT
+            echo "target_flag=" >> $GITHUB_OUTPUT
+          fi
+
+      # ── 1차: API 배포 ─────────────────────────────────────────
+      - name: Deploy ${{ matrix.app.name }} via API
+        id: api
+        continue-on-error: true
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_TEAM_ID: ${{ secrets.VERCEL_TEAM_ID }}
+        run: |
+          TARGET_JSON=""
+          if [[ -n "${{ steps.target.outputs.target }}" ]]; then
+            TARGET_JSON="\"target\": \"${{ steps.target.outputs.target }}\","
+          fi
+
+          RESPONSE=$(curl -s -w "\n%{http_code}" -X POST \
+            "https://api.vercel.com/v13/deployments?teamId=${VERCEL_TEAM_ID}" \
+            -H "Authorization: Bearer ${VERCEL_TOKEN}" \
+            -H "Content-Type: application/json" \
+            -d "{
+              \"name\": \"${{ matrix.app.projectId }}\",
+              ${TARGET_JSON}
+              \"gitSource\": {
+                \"type\": \"github\",
+                \"org\": \"${{ github.repository_owner }}\",
+                \"repo\": \"${{ github.event.repository.name }}\",
+                \"ref\": \"${{ steps.target.outputs.ref }}\"
+              }
+            }")
+
+          HTTP_CODE=$(echo "$RESPONSE" | tail -1)
+          BODY=$(echo "$RESPONSE" | sed '$d')
+
+          echo "[${{ matrix.app.name }}] HTTP $HTTP_CODE"
+          echo "$BODY" | jq '.' 2>/dev/null || echo "$BODY"
+
+          if [[ "$HTTP_CODE" -lt 200 || "$HTTP_CODE" -ge 300 ]]; then
+            echo "::warning::[${{ matrix.app.name }}] API returned HTTP $HTTP_CODE"
+            exit 1
+          fi
+
+          DEPLOY_URL=$(echo "$BODY" | jq -r '.url // empty')
+          if [[ -z "$DEPLOY_URL" ]]; then
+            echo "::warning::[${{ matrix.app.name }}] No deployment URL in response"
+            exit 1
+          fi
+
+          echo "url=https://${DEPLOY_URL}" >> $GITHUB_OUTPUT
+
+      # ── 2차: CLI 폴백 ─────────────────────────────────────────
+      - name: Checkout (for CLI fallback)
+        if: steps.api.outcome == 'failure'
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js (for CLI fallback)
+        if: steps.api.outcome == 'failure'
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Deploy ${{ matrix.app.name }} via CLI (fallback)
+        id: cli
+        if: steps.api.outcome == 'failure'
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_TEAM_ID }}
+          VERCEL_PROJECT_ID: ${{ matrix.app.projectId }}
+        run: |
+          npm install -g vercel@latest
+          vercel pull --yes --environment=${{ steps.target.outputs.environment }} --token=$VERCEL_TOKEN
+          vercel build ${{ steps.target.outputs.prod_flag }} --token=$VERCEL_TOKEN
+          URL=$(vercel deploy --prebuilt ${{ steps.target.outputs.target_flag }} --yes --token=$VERCEL_TOKEN 2>&1 | tail -1)
+          echo "url=$URL" >> $GITHUB_OUTPUT
+
+      # ── PR 코멘트 ───────────────────────────────────────────
+      - name: Set deploy URL
+        if: always()
+        id: result
+        run: |
+          if [[ "${{ steps.api.outcome }}" == "success" ]]; then
+            echo "url=${{ steps.api.outputs.url }}" >> $GITHUB_OUTPUT
+          elif [[ "${{ steps.cli.outcome }}" == "success" ]]; then
+            echo "url=${{ steps.cli.outputs.url }}" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Comment preview URL on PR
+        if: github.event_name == 'pull_request' && steps.result.outputs.url != ''
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const appName = '${{ matrix.app.name }}';
+            const url = '${{ steps.result.outputs.url }}';
+            const marker = `<!-- preview-${appName} -->`;
+            const body = `${marker}\n🚀 **Preview: ${appName}**\n\n${url}\n\n_Deployed at ${new Date().toISOString()}_`;
+
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            });
+            const existing = comments.find(c =>
+              c.user.type === 'Bot' && c.body.includes(marker)
+            );
+
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existing.id,
+                body,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body,
+              });
+            }
