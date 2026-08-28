@@ -7,13 +7,15 @@ runs:
     - name: Install pnpm
       uses: pnpm/action-setup@v3
       with:
-        version: 8
+        # version 미지정 시 package.json의 "packageManager" 필드(pnpm@11.5.0)를 자동으로 사용합니다.
+        # pnpm-lock.yaml이 lockfileVersion 9.0(pnpm 9+ 전용) 포맷이라 pnpm 8로 고정하면 install이 깨집니다.
         run_install: false
 
-    - name: Setup Node.js 18.x
+    - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: 18.x
+        # pnpm 11은 Node >=22.13 을 요구합니다.
+        node-version: '22'
         cache: 'pnpm'
 
     - name: Get pnpm store directory
