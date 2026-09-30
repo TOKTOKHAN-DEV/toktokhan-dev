@@ -54,6 +54,9 @@ async function main() {
   await cacheToLocal(config)
   infoLog('Successfully cached to local', config.pathname)
 
+  // 원격 push 전에 install 을 끝내야 package.json 과 동기화된 lock 파일이 첫 커밋에 포함됩니다.
+  await install(config.manager, config.pathname)
+
   if (config.createRemoteRepo === 'Yes') {
     const data = await createRepository(config)
 
@@ -67,7 +70,17 @@ async function main() {
       data.url,
     )
   }
-  $(config.manager, ['install'], { cwd: config.pathname, shell: isWindows })
+}
+
+function install(manager: string, cwd: string) {
+  return new Promise<void>((resolve, reject) => {
+    $(manager, ['install'], { cwd, shell: isWindows })
+      .on('error', reject)
+      .on('close', (code) => {
+        if (code === 0) return resolve()
+        reject(new Error(`${manager} install failed with exit code ${code}`))
+      })
+  })
 }
 
 main()
